@@ -1,0 +1,104 @@
+package onDamage
+import MyUnitIds
+// import DamageDetection
+import DamageEvent
+
+import A0F0_W
+import A0C3_Q
+import A0CG_R
+import A0CE_T
+import A006_Q
+import A00P_W
+import A0GJ_T
+import A0E6_R
+import A088_E
+import A0DX_R
+import A01B_E
+
+import MyBuffIds
+import StandardTextTags
+import onStart
+import MyAbilityIds
+import ClosureTimers
+import DummyCaster
+import OrderIds
+
+@configurable constant DETECT_NATIVE_ABILITIES = true
+
+texttag justaposeCrit
+unit illidan
+int illidanLvl
+
+public int count_A006 = 0
+
+init
+    DamageEvent.addListener(0) ->
+        switch DamageEvent.getType()
+            case ATTACK
+                // Illidan (Juxtapose) E
+                if GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_17 and DamageEvent.getSource().getAbilityLevel('A0S8') >= 1       
+                    if GetRandomInt(1, 100) < DamageEvent.getSource().getAbilityLevel('A0S8')
+                        let i = GetOwningPlayer(GetDyingUnit()).getId()
+                        if playerHero[i] == DamageEvent.getSource()
+                            illidan = DamageEvent.getSource()
+                            illidanLvl = illidan.getAbilityLevel('A0S8')
+                            new DummyCaster()
+                            ..owner(GetOwningPlayer(DamageEvent.getSource()))
+                            ..origin(DamageEvent.getSource().getPos())
+                            ..castTarget(ABILITY_1, illidanLvl, OrderIds.wandOfIllusion, DamageEvent.getSource())
+                        let dmg = I2R(illidan.getAgi(true)*illidanLvl)
+                        justaposeCrit = createCriticalStrikeTextTag(DamageEvent.getSource(), R2I(dmg))
+                        justaposeCrit.setText("(|cffb81b22"+R2S(dmg)+"|r)")
+                        justaposeCrit.setColor(colorA(92, 39, 39, 255))
+                        justaposeCrit.setFadepoint(1)
+                        DamageEvent.setAmount(dmg)
+
+                // Sylvanas (Phantom Arrow) W - Passive
+                if GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_18 and DamageEvent.getSource().getAbilityLevel(ABILITY_3) >= 1
+                    phantomArrow(DamageEvent.getSource())
+                // Shadow Vengeance (Fury Peak) Q - Active
+                if UnitHasBuffBJ(DamageEvent.getSource(), 'B00L') and GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_12
+                    furyPeak(DamageEvent.getSource(), DamageEvent.getTarget())
+                // Shadow Vengeance (Gravitone) R - Passive
+                if GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_12 and not UnitHasBuffBJ(DamageEvent.getSource(), 'B00L') and not UnitHasBuffBJ(DamageEvent.getSource(), 'B00J') and GetRandomInt(1, 100) < DamageEvent.getSource().getAbilityLevel('A0CG')*2
+                    gravitone(DamageEvent.getSource())
+                // Shadow Vengeance (Black Hole) T - Active
+                if GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_12 and UnitHasBuffBJ((DamageEvent.getSource()), 'B00J')
+                    blackHole(DamageEvent.getSource(), DamageEvent.getTarget())
+
+                // Dark Ranger (Black Arrow) W - Autocast
+                if GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_16 and UnitHasBuffBJ(DamageEvent.getTarget(), 'B000') and DamageEvent.getId() != 'A006'
+                    darkArrow(DamageEvent.getSource(), DamageEvent.getTarget())
+
+                // Assassin (Last Killer) T - Active
+                if GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_10 and UnitHasBuffBJ(DamageEvent.getSource(), 'B00W')
+                    lastKiller(DamageEvent.getSource(), DamageEvent.getTarget())
+
+                // Demon Hunter (Demon Power) R - Passive
+                if GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_11 and GetUnitAbilityLevel(DamageEvent.getSource(), 'A0E6') >= 1
+                    demonPower(DamageEvent.getSource())
+                // Death Knight (Curse of Darkness ) E - Passive
+                if GetUnitTypeId(DamageEvent.getTarget()) == PLAY_HERO_4 and UnitHasBuffBJ(DamageEvent.getTarget(), 'B004')
+                    curseOfDarkness(DamageEvent.getTarget())
+
+                // Mountain King (Over Power) R - Passive
+                if GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_0 and UnitHasBuffBJ(DamageEvent.getTarget(), BUFF_5) or UnitHasBuffBJ(DamageEvent.getTarget(), 'BPSE') and DamageEvent.getSource().getAbilityLevel('A0DX') >= 1
+                    if GetRandomInt(1, 100) < 35
+                        overPower(DamageEvent.getSource(), DamageEvent.getTarget())
+
+                // Tauren Chieftain (Pulverize) E - Passive
+                if GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_2 and DamageEvent.getSource().getAbilityLevel('A01B') >= 1 and DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL
+                    pulverize(DamageEvent.getSource(), DamageEvent.getTarget())
+                        
+            case SPELL
+                // Dark Ranger (Image Arrows) Q - Active
+                if GetUnitTypeId(DamageEvent.getSource()) == DUMMY_UNIT_1 and count_A006 < 6
+                    trig_TakeRange_Actions(DamageEvent.getTarget())
+                    count_A006 = count_A006 + 1
+                    doAfter(5) -> 
+                        count_A006 = 0    
+                         
+                
+            case CODE
+                printTimed("This is from code", 3)
+            default

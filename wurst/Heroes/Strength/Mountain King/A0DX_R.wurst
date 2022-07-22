@@ -1,0 +1,14 @@
+package A0DX_R
+import MyBuffIds
+import DamageEvent
+init
+public function overPower(unit source, unit target)
+    let lvl = source.getAbilityLevel('A0DX')
+    let str = source.getStr(true)
+    let dmg = I2R((str*(2*lvl)))
+    source.addStr(lvl*1)
+    if UnitHasBuffBJ(target, BUFF_5)
+        UnitRemoveBuffBJ(BUFF_5, target)
+    else if UnitHasBuffBJ(target, 'BPSE')
+        UnitRemoveBuffBJ('BPSE', target)
+    DamageEvent.setAmount(dmg)

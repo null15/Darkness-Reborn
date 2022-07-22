@@ -1,0 +1,123 @@
+package WaveSetup
+
+import calcLowerHigher
+import WaveHeroSetup
+import ClosureTimers
+import MyUnitIds
+import Orders
+import ItemDrops
+
+timer waveTimer = CreateTimer()
+timerdialog waveTimerDialog = CreateTimerDialog(waveTimer)
+
+timer gracePeriod = CreateTimer()
+timerdialog gracePeriodDialog = CreateTimerDialog(gracePeriod)
+
+integer count = 0
+integer wave_count = 20 // originally 1
+
+integer mini_lower = 0
+integer mini_higher = 0
+
+integer big_lower = 0
+integer big_higher = 0
+
+integer timercount1 = 1
+integer timercount2 = wave_count
+
+real facing = 270
+
+unit array miniboss = []
+unit bigboss = null
+
+init
+
+public function spawnWavesNow()
+
+	count = count + 1
+
+	doPeriodicallyCounted(0.2, 12) (CallbackCounted cb) ->
+
+		createUnit(Player(11), WAVE_MOB[wave_count], gg_rct_LeftSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
+		
+		createUnit(Player(11), WAVE_MOB[wave_count], gg_rct_MiddleSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
+
+		createUnit(Player(11), WAVE_MOB[wave_count], gg_rct_RightSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_RightSpawnMove1.randomPoint())
+
+	if count == 3
+		doAfter(2.5) -> 
+			mini_lower = calc_miniBossLower(wave_count)
+			mini_higher = calc_miniBossHigher(wave_count)
+			count = 0
+			wave_count = wave_count + 1
+			if wave_count == 21
+				waveTimer.destr()
+				waveTimerDialog.destr()
+			miniboss[1] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_LeftSpawn.getCenter(), facing.asAngleDegrees())
+			miniboss[1].issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
+			minibossDeath(miniboss[1])
+			miniboss[2] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_MiddleSpawn.getCenter(), facing.asAngleDegrees())
+			miniboss[2].issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
+			minibossDeath(miniboss[2])
+			miniboss[3] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_RightSpawn.getCenter(), facing.asAngleDegrees())
+			miniboss[3].issuePointOrderById(Orders.attack, gg_rct_RightSpawnMove1.randomPoint())
+			minibossDeath(miniboss[3])
+			if (wave_count-1) % 5 == 0
+				doAfter(2.5) -> 
+					if wave_count == 21
+						waveHeroSetup()
+					big_lower = calc_lowerBigBoss((wave_count-1))
+					big_higher = calc_higherBigBoss((wave_count-1))
+					miniboss[4] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(big_lower, big_higher)], gg_rct_MiddleSpawn.getCenter(), facing.asAngleDegrees())
+					miniboss[4].issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
+					minibossDeath(miniboss[4])
+
+function minibossDeath(unit u)
+	CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+		let u1 = GetDyingUnit()
+		dropMyItemsMinibosses(u1)
+
+function moveUnitsCond() returns boolean
+	return GetOwningPlayer(GetEnteringUnit()) == Player(11)			
+
+function moveUnit()
+	CreateTrigger()
+	..registerRectEnterEventSource(gg_rct_LeftSpawnMove1)
+	..registerRectEnterEventSource(gg_rct_RightSpawnMove1)
+	..addCondition(Condition(function moveUnitsCond))
+	..addAction() ->
+		GetEnteringUnit().issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
+
+function moveUnit2()
+	CreateTrigger()
+	..registerRectEnterEventSource(gg_rct_AllSpawnMove1)
+	..addCondition(Condition(function moveUnitsCond))
+	..addAction() ->
+		GetEnteringUnit().issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove2.randomPoint())
+
+function waveSetupTimerElapsed()
+	CreateTrigger()..registerTimerExpireEvent(waveTimer)..addAction() -> 
+		timercount1 = timercount1 + 1
+		waveTimerDialog.setTitle("Wave "+I2S(timercount2)+" — ("+I2S(timercount1)+"/3)")
+		if timercount1 == 3
+			timercount2 = timercount2 + 1
+			timercount1 = 0
+
+public function waveSetup()
+
+	moveUnit()	
+	moveUnit2()
+	waveSetupTimerElapsed()
+
+	gracePeriod.destr()
+	gracePeriodDialog.destr()
+	waveTimer.startPeriodic(10, function spawnWavesNow)
+	waveTimerDialog.setTitle("Wave "+I2S(wave_count)+" — (1/3)")
+	waveTimerDialog.setTimeColor(155, 155, 155, 0)
+	waveTimerDialog.display(true)
+
+public function preWaveSetup()
+	gracePeriod.start(10, function waveSetup)
+	gracePeriodDialog.setTitle("Preparation Phase")
+	gracePeriodDialog.setTimeColor(155, 155, 155, 0)
+	gracePeriodDialog.display(true)

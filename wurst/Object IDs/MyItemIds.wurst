@@ -1,0 +1,1190 @@
+package MyItemIds
+
+import ObjectIdGenerator
+import LinkedList
+import ClosureTimers
+integer itemDropIndex = 1
+
+public constant ITEM_JACKSMITH_0 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_3 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_4 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_5 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_6 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_7 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_8 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_9 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_10 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_11 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_12 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_13 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_14 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_15 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_16 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_17 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_18 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_19 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_20 = compiletime(ITEM_ID_GEN.next())
+
+public constant ITEM_UPGRADE_0 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_3 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_4 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_5 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_6 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_7 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_8 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_9 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_10 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_11 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_12 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_13 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_14 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_15 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_16 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_17 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_18 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_19 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_20 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_21 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_22 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_23 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_24 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_25 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_26 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_27 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_28 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_29 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_30 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_31 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_32 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_33 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_34 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_35 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_36 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_37 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_38 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_39 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_40 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_41 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_42 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_43 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_44 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_45 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_46 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_47 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_48 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_49 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_50 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_51 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_52 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_53 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_54 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_55 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_56 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_57 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_58 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_59 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_60 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_61 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_62 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_63 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_64 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_65 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_66 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_67 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_68 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_69 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_70 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_71 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_72 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_73 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_74 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_75 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_76 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_77 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_78 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_79 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_80 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_81 = compiletime(ITEM_ID_GEN.next())
+
+public constant ITEM_0 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_3 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_4 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_5 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_6 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_7 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_8 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_9 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_10 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_11 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_12 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_13 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_14 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_15 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_16 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_17 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_18 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_19 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_20 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_21 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_22 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_23 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_24 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_25 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_26 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_27 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_28 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_29 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_30 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_31 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_32 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_33 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_34 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_35 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_36 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_37 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_38 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_39 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_40 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_41 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_42 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_43 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_44 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_45 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_46 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_47 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_48 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_49 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_50 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_51 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_52 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_53 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_54 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_55 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_56 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_57 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_58 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_59 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_60 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_61 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_62 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_63 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_64 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_65 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_66 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_67 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_68 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_69 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_70 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_71 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_72 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_73 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_74 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_75 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_76 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_77 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_78 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_79 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_80 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_81 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_82 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_83 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_84 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_85 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_86 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_87 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_88 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_89 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_90 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_91 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_92 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_93 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_94 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_95 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_96 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_97 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_98 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_99 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_100 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_101 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_102 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_103 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_104 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_105 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_106 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_107 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_108 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_109 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_110 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_111 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_112 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_113 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_114 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_115 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_116 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_117 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_118 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_119 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_120 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_121 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_122 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_123 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_124 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_125 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_126 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_127 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_128 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_129 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_130 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_131 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_132 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_133 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_134 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_135 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_136 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_137 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_138 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_139 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_140 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_141 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_142 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_143 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_144 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_145 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_146 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_147 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_148 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_149 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_150 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_151 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_152 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_153 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_154 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_155 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_156 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_157 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_158 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_159 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_160 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_161 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_162 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_163 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_164 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_165 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_166 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_167 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_168 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_169 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_170 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_171 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_172 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_173 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_174 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_175 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_176 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_177 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_178 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_179 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_180 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_181 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_182 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_183 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_184 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_185 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_186 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_187 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_188 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_189 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_190 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_191 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_192 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_193 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_194 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_195 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_196 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_197 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_198 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_199 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_200 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_201 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_202 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_203 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_204 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_205 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_206 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_207 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_208 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_209 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_210 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_211 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_212 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_213 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_214 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_215 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_216 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_217 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_218 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_219 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_220 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_221 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_222 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_223 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_224 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_225 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_226 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_227 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_228 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_229 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_230 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_231 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_232 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_233 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_234 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_235 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_236 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_237 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_238 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_239 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_240 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_241 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_242 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_243 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_244 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_245 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_246 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_247 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_248 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_249 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_250 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_251 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_252 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_253 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_254 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_255 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_256 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_257 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_258 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_259 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_260 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_261 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_262 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_263 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_264 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_265 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_266 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_267 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_268 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_269 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_270 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_271 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_272 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_273 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_274 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_275 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_276 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_277 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_278 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_279 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_280 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_281 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_282 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_283 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_284 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_285 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_286 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_287 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_288 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_289 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_290 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_291 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_292 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_293 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_294 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_295 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_296 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_297 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_298 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_299 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_300 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_301 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_302 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_303 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_304 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_305 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_306 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_307 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_308 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_309 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_310 = compiletime(ITEM_ID_GEN.next())
+
+public constant ITEM_DROP_0 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_3 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_4 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_5 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_6 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_7 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_8 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_9 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_10 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_11 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_12 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_13 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_14 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_15 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_16 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_17 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_18 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_19 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_20 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_21 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_22 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_23 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_24 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_25 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_26 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_27 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_28 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_29 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_30 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_31 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_32 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_33 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_34 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_35 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_36 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_37 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_38 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_39 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_40 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_41 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_42 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_43 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_44 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_45 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_46 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_47 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_48 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_49 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_50 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_51 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_52 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_53 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_54 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_55 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_56 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_57 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_58 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_59 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_60 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_61 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_62 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_63 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_64 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_65 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_66 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_67 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_68 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_69 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_70 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_71 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_72 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_73 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_74 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_75 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_76 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_77 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_78 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_79 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_80 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_81 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_82 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_83 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_84 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_85 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_86 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_87 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_88 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_89 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_90 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_91 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_92 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_93 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_94 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_95 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_96 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_97 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_98 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_99 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_100 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_101 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_102 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_103 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_104 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_105 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_106 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_107 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_108 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_109 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_110 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_111 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_112 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_113 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_114 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_115 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_116 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_117 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_118 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_119 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_120 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_121 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_122 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_123 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_124 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_125 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_126 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_127 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_128 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_129 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_130 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_131 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_132 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_133 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_134 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_135 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_136 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_137 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_138 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_139 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_140 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_141 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_142 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_143 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_144 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_145 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_146 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_147 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_148 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_149 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_150 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_151 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_152 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_153 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_154 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_155 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_156 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_157 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_158 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_159 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_160 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_161 = compiletime(ITEM_ID_GEN.next())
+
+public constant FINAL_BOSS_ITEM_0 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_1 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_2 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_3 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_4 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_5 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_6 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_7 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_8 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_9 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_10 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_11 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_12 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_13 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_14 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_15 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_16 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_17 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_18 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_19 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_20 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_21 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_22 = compiletime(ITEM_ID_GEN.next())
+
+public int array ITEM = []
+public int array ITEM_DROP = []
+public int array ITEM_UPGRADE = []
+
+init
+
+    ITEM_UPGRADE[1] = ITEM_UPGRADE_0
+    ITEM_UPGRADE[2] = ITEM_UPGRADE_1
+    ITEM_UPGRADE[3] = ITEM_UPGRADE_2
+    ITEM_UPGRADE[4] = ITEM_UPGRADE_3
+    ITEM_UPGRADE[5] = ITEM_UPGRADE_4
+    ITEM_UPGRADE[6] = ITEM_UPGRADE_5
+    ITEM_UPGRADE[7] = ITEM_UPGRADE_6
+    ITEM_UPGRADE[8] = ITEM_UPGRADE_7
+    ITEM_UPGRADE[9] = ITEM_UPGRADE_8
+    ITEM_UPGRADE[10] = ITEM_UPGRADE_9
+    ITEM_UPGRADE[11] = ITEM_UPGRADE_10
+    ITEM_UPGRADE[12] = ITEM_UPGRADE_11
+    ITEM_UPGRADE[13] = ITEM_UPGRADE_12
+    ITEM_UPGRADE[14] = ITEM_UPGRADE_13
+    ITEM_UPGRADE[15] = ITEM_UPGRADE_14
+    ITEM_UPGRADE[16] = ITEM_UPGRADE_15
+    ITEM_UPGRADE[17] = ITEM_UPGRADE_16
+    ITEM_UPGRADE[18] = ITEM_UPGRADE_17
+    ITEM_UPGRADE[19] = ITEM_UPGRADE_18
+    ITEM_UPGRADE[20] = ITEM_UPGRADE_19
+    ITEM_UPGRADE[21] = ITEM_UPGRADE_20
+    ITEM_UPGRADE[22] = ITEM_UPGRADE_21
+    ITEM_UPGRADE[23] = ITEM_UPGRADE_22
+    ITEM_UPGRADE[24] = ITEM_UPGRADE_23
+    ITEM_UPGRADE[25] = ITEM_UPGRADE_24
+    ITEM_UPGRADE[26] = ITEM_UPGRADE_25
+    ITEM_UPGRADE[27] = ITEM_UPGRADE_26
+    ITEM_UPGRADE[28] = ITEM_UPGRADE_27
+    ITEM_UPGRADE[29] = ITEM_UPGRADE_28
+    ITEM_UPGRADE[30] = ITEM_UPGRADE_29
+    ITEM_UPGRADE[31] = ITEM_UPGRADE_30
+    ITEM_UPGRADE[32] = ITEM_UPGRADE_31
+    ITEM_UPGRADE[33] = ITEM_UPGRADE_32
+    ITEM_UPGRADE[34] = ITEM_UPGRADE_33
+    ITEM_UPGRADE[35] = ITEM_UPGRADE_34
+    ITEM_UPGRADE[36] = ITEM_UPGRADE_35
+    ITEM_UPGRADE[37] = ITEM_UPGRADE_36
+    ITEM_UPGRADE[38] = ITEM_UPGRADE_37
+    ITEM_UPGRADE[39] = ITEM_UPGRADE_38
+    ITEM_UPGRADE[40] = ITEM_UPGRADE_39
+    ITEM_UPGRADE[41] = ITEM_UPGRADE_40
+    ITEM_UPGRADE[42] = ITEM_UPGRADE_41
+    ITEM_UPGRADE[43] = ITEM_UPGRADE_42
+    ITEM_UPGRADE[44] = ITEM_UPGRADE_43
+    ITEM_UPGRADE[45] = ITEM_UPGRADE_44
+    ITEM_UPGRADE[46] = ITEM_UPGRADE_45
+    ITEM_UPGRADE[47] = ITEM_UPGRADE_46
+    ITEM_UPGRADE[48] = ITEM_UPGRADE_47
+    ITEM_UPGRADE[49] = ITEM_UPGRADE_48
+    ITEM_UPGRADE[50] = ITEM_UPGRADE_49
+    ITEM_UPGRADE[51] = ITEM_UPGRADE_50
+    ITEM_UPGRADE[52] = ITEM_UPGRADE_51
+    ITEM_UPGRADE[53] = ITEM_UPGRADE_52
+    ITEM_UPGRADE[54] = ITEM_UPGRADE_53
+    ITEM_UPGRADE[55] = ITEM_UPGRADE_54
+    ITEM_UPGRADE[56] = ITEM_UPGRADE_55
+    ITEM_UPGRADE[57] = ITEM_UPGRADE_56
+    ITEM_UPGRADE[58] = ITEM_UPGRADE_57
+    ITEM_UPGRADE[59] = ITEM_UPGRADE_58
+    ITEM_UPGRADE[60] = ITEM_UPGRADE_59
+    ITEM_UPGRADE[61] = ITEM_UPGRADE_60
+    ITEM_UPGRADE[62] = ITEM_UPGRADE_61
+    ITEM_UPGRADE[63] = ITEM_UPGRADE_62
+    ITEM_UPGRADE[64] = ITEM_UPGRADE_63
+    ITEM_UPGRADE[65] = ITEM_UPGRADE_64
+    ITEM_UPGRADE[66] = ITEM_UPGRADE_65
+    ITEM_UPGRADE[67] = ITEM_UPGRADE_66
+    ITEM_UPGRADE[68] = ITEM_UPGRADE_67
+    ITEM_UPGRADE[69] = ITEM_UPGRADE_68
+    ITEM_UPGRADE[70] = ITEM_UPGRADE_69
+    ITEM_UPGRADE[71] = ITEM_UPGRADE_70
+    ITEM_UPGRADE[72] = ITEM_UPGRADE_71
+    ITEM_UPGRADE[73] = ITEM_UPGRADE_72
+    ITEM_UPGRADE[74] = ITEM_UPGRADE_73
+    ITEM_UPGRADE[75] = ITEM_UPGRADE_74
+    ITEM_UPGRADE[76] = ITEM_UPGRADE_75
+    ITEM_UPGRADE[77] = ITEM_UPGRADE_76
+    ITEM_UPGRADE[78] = ITEM_UPGRADE_77
+    ITEM_UPGRADE[79] = ITEM_UPGRADE_78
+    ITEM_UPGRADE[80] = ITEM_UPGRADE_79
+    ITEM_UPGRADE[81] = ITEM_UPGRADE_80
+    ITEM_UPGRADE[82] = ITEM_UPGRADE_81
+
+    ITEM[1] = ITEM_0
+    ITEM[2] = ITEM_1
+    ITEM[3] = ITEM_2
+    ITEM[4] = ITEM_3
+    ITEM[5] = ITEM_4
+    ITEM[6] = ITEM_5
+    ITEM[7] = ITEM_6
+    ITEM[8] = ITEM_7
+    ITEM[9] = ITEM_8
+    ITEM[10] = ITEM_9
+    ITEM[11] = ITEM_10
+    ITEM[12] = ITEM_11
+    ITEM[13] = ITEM_12
+    ITEM[14] = ITEM_13
+    ITEM[15] = ITEM_14
+    ITEM[16] = ITEM_15
+    ITEM[17] = ITEM_16
+    ITEM[18] = ITEM_17
+    ITEM[19] = ITEM_18
+    ITEM[20] = ITEM_19
+    ITEM[21] = ITEM_20
+    ITEM[22] = ITEM_21
+    ITEM[23] = ITEM_22
+    ITEM[24] = ITEM_23
+    ITEM[25] = ITEM_24
+    ITEM[26] = ITEM_25
+    ITEM[27] = ITEM_26
+    ITEM[28] = ITEM_27
+    ITEM[29] = ITEM_28
+    ITEM[30] = ITEM_29
+    ITEM[31] = ITEM_30
+    ITEM[32] = ITEM_31
+    ITEM[33] = ITEM_32
+    ITEM[34] = ITEM_33
+    ITEM[35] = ITEM_34
+    ITEM[36] = ITEM_35
+    ITEM[37] = ITEM_36
+    ITEM[38] = ITEM_37
+    ITEM[39] = ITEM_38
+    ITEM[40] = ITEM_39
+    ITEM[41] = ITEM_40
+    ITEM[42] = ITEM_41
+    ITEM[43] = ITEM_42
+    ITEM[44] = ITEM_43
+    ITEM[45] = ITEM_44
+    ITEM[46] = ITEM_45
+    ITEM[47] = ITEM_46
+    ITEM[48] = ITEM_47
+    ITEM[49] = ITEM_48
+    ITEM[50] = ITEM_49
+    ITEM[51] = ITEM_50
+    ITEM[52] = ITEM_51
+    ITEM[53] = ITEM_52
+    ITEM[54] = ITEM_53
+    ITEM[55] = ITEM_54
+    ITEM[56] = ITEM_55
+    ITEM[57] = ITEM_56
+    ITEM[58] = ITEM_57
+    ITEM[59] = ITEM_58
+    ITEM[60] = ITEM_59
+    ITEM[61] = ITEM_60
+    ITEM[62] = ITEM_61
+    ITEM[63] = ITEM_62
+    ITEM[64] = ITEM_63
+    ITEM[65] = ITEM_64
+    ITEM[66] = ITEM_65
+    ITEM[67] = ITEM_66
+    ITEM[68] = ITEM_67
+    ITEM[69] = ITEM_68
+    ITEM[70] = ITEM_69
+    ITEM[71] = ITEM_70
+    ITEM[72] = ITEM_71
+    ITEM[73] = ITEM_72
+    ITEM[74] = ITEM_73
+    ITEM[75] = ITEM_74
+    ITEM[76] = ITEM_75
+    ITEM[77] = ITEM_76
+    ITEM[78] = ITEM_77
+    ITEM[79] = ITEM_78
+    ITEM[80] = ITEM_79
+    ITEM[81] = ITEM_80
+    ITEM[82] = ITEM_81
+    ITEM[83] = ITEM_82
+    ITEM[84] = ITEM_83
+    ITEM[85] = ITEM_84
+    ITEM[86] = ITEM_85
+    ITEM[87] = ITEM_86
+    ITEM[88] = ITEM_87
+    ITEM[89] = ITEM_88
+    ITEM[90] = ITEM_89
+    ITEM[91] = ITEM_90
+    ITEM[92] = ITEM_91
+    ITEM[93] = ITEM_92
+    ITEM[94] = ITEM_93
+    ITEM[95] = ITEM_94
+    ITEM[96] = ITEM_95
+    ITEM[97] = ITEM_96
+    ITEM[98] = ITEM_97
+    ITEM[99] = ITEM_98
+    ITEM[100] = ITEM_99
+    ITEM[101] = ITEM_100
+    ITEM[102] = ITEM_101
+    ITEM[103] = ITEM_102
+    ITEM[104] = ITEM_103
+    ITEM[105] = ITEM_104
+    ITEM[106] = ITEM_105
+    ITEM[107] = ITEM_106
+    ITEM[108] = ITEM_107
+    ITEM[109] = ITEM_108
+    ITEM[110] = ITEM_109
+    ITEM[111] = ITEM_110
+    ITEM[112] = ITEM_111
+    ITEM[113] = ITEM_112
+    ITEM[114] = ITEM_113
+    ITEM[115] = ITEM_114
+    ITEM[116] = ITEM_115
+    ITEM[117] = ITEM_116
+    ITEM[118] = ITEM_117
+    ITEM[119] = ITEM_118
+    ITEM[120] = ITEM_119
+    ITEM[121] = ITEM_120
+    ITEM[122] = ITEM_121
+    ITEM[123] = ITEM_122
+    ITEM[124] = ITEM_123
+    ITEM[125] = ITEM_124
+    ITEM[126] = ITEM_125
+    ITEM[127] = ITEM_126
+    ITEM[128] = ITEM_127
+    ITEM[129] = ITEM_128
+    ITEM[130] = ITEM_129
+    ITEM[131] = ITEM_130
+    ITEM[132] = ITEM_131
+    ITEM[133] = ITEM_132
+    ITEM[134] = ITEM_133
+    ITEM[135] = ITEM_134
+    ITEM[136] = ITEM_135
+    ITEM[137] = ITEM_136
+    ITEM[138] = ITEM_137
+    ITEM[139] = ITEM_138
+    ITEM[140] = ITEM_139
+    ITEM[141] = ITEM_140
+    ITEM[142] = ITEM_141
+    ITEM[143] = ITEM_142
+    ITEM[144] = ITEM_143
+    ITEM[145] = ITEM_144
+    ITEM[146] = ITEM_145
+    ITEM[147] = ITEM_146
+    ITEM[148] = ITEM_147
+    ITEM[149] = ITEM_148
+    ITEM[150] = ITEM_149
+    ITEM[151] = ITEM_150
+    ITEM[152] = ITEM_151
+    ITEM[153] = ITEM_152
+    ITEM[154] = ITEM_153
+    ITEM[155] = ITEM_154
+    ITEM[156] = ITEM_155
+    ITEM[157] = ITEM_156
+    ITEM[158] = ITEM_157
+    ITEM[159] = ITEM_158
+    ITEM[160] = ITEM_159
+    ITEM[161] = ITEM_160
+    ITEM[162] = ITEM_161
+    ITEM[163] = ITEM_162
+    ITEM[164] = ITEM_163
+    ITEM[165] = ITEM_164
+    ITEM[166] = ITEM_165
+    ITEM[167] = ITEM_166
+    ITEM[168] = ITEM_167
+    ITEM[169] = ITEM_168
+    ITEM[170] = ITEM_169
+    ITEM[171] = ITEM_170
+    ITEM[172] = ITEM_171
+    ITEM[173] = ITEM_172
+    ITEM[174] = ITEM_173
+    ITEM[175] = ITEM_174
+    ITEM[176] = ITEM_175
+    ITEM[177] = ITEM_176
+    ITEM[178] = ITEM_177
+    ITEM[179] = ITEM_178
+    ITEM[180] = ITEM_179
+    ITEM[181] = ITEM_180
+    ITEM[182] = ITEM_181
+    ITEM[183] = ITEM_182
+    ITEM[184] = ITEM_183
+    ITEM[185] = ITEM_184
+    ITEM[186] = ITEM_185
+    ITEM[187] = ITEM_186
+    ITEM[188] = ITEM_187
+    ITEM[189] = ITEM_188
+    ITEM[190] = ITEM_189
+    ITEM[191] = ITEM_190
+    ITEM[192] = ITEM_191
+    ITEM[193] = ITEM_192
+    ITEM[194] = ITEM_193
+    ITEM[195] = ITEM_194
+    ITEM[196] = ITEM_195
+    ITEM[197] = ITEM_196
+    ITEM[198] = ITEM_197
+    ITEM[199] = ITEM_198
+    ITEM[200] = ITEM_199
+    ITEM[201] = ITEM_200
+    ITEM[202] = ITEM_201
+    ITEM[203] = ITEM_202
+    ITEM[204] = ITEM_203
+    ITEM[205] = ITEM_204
+    ITEM[206] = ITEM_205
+    ITEM[207] = ITEM_206
+    ITEM[208] = ITEM_207
+    ITEM[209] = ITEM_208
+    ITEM[210] = ITEM_209
+    ITEM[211] = ITEM_210
+    ITEM[212] = ITEM_211
+    ITEM[213] = ITEM_212
+    ITEM[214] = ITEM_213
+    ITEM[215] = ITEM_214
+    ITEM[216] = ITEM_215
+    ITEM[217] = ITEM_216
+    ITEM[218] = ITEM_217
+    ITEM[219] = ITEM_218
+    ITEM[220] = ITEM_219
+    ITEM[221] = ITEM_220
+    ITEM[222] = ITEM_221
+    ITEM[223] = ITEM_222
+    ITEM[224] = ITEM_223
+    ITEM[225] = ITEM_224
+    ITEM[226] = ITEM_225
+    ITEM[227] = ITEM_226
+    ITEM[228] = ITEM_227
+    ITEM[229] = ITEM_228
+    ITEM[230] = ITEM_229
+    ITEM[231] = ITEM_230
+    ITEM[232] = ITEM_231
+    ITEM[233] = ITEM_232
+    ITEM[234] = ITEM_233
+    ITEM[235] = ITEM_234
+    ITEM[236] = ITEM_235
+    ITEM[237] = ITEM_236
+    ITEM[238] = ITEM_237
+    ITEM[239] = ITEM_238
+    ITEM[240] = ITEM_239
+    ITEM[241] = ITEM_240
+    ITEM[242] = ITEM_241
+    ITEM[243] = ITEM_242
+    ITEM[244] = ITEM_243
+    ITEM[245] = ITEM_244
+    ITEM[246] = ITEM_245
+    ITEM[247] = ITEM_246
+    ITEM[248] = ITEM_247
+    ITEM[249] = ITEM_248
+    ITEM[250] = ITEM_249
+    ITEM[251] = ITEM_250
+    ITEM[252] = ITEM_251
+    ITEM[253] = ITEM_252
+    ITEM[254] = ITEM_253
+    ITEM[255] = ITEM_254
+    ITEM[256] = ITEM_255
+    ITEM[257] = ITEM_256
+    ITEM[258] = ITEM_257
+    ITEM[259] = ITEM_258
+    ITEM[260] = ITEM_259
+    ITEM[261] = ITEM_260
+    ITEM[262] = ITEM_261
+    ITEM[263] = ITEM_262
+    ITEM[264] = ITEM_263
+    ITEM[265] = ITEM_264
+    ITEM[266] = ITEM_265
+    ITEM[267] = ITEM_266
+    ITEM[268] = ITEM_267
+    ITEM[269] = ITEM_268
+    ITEM[270] = ITEM_269
+    ITEM[271] = ITEM_270
+    ITEM[272] = ITEM_271
+    ITEM[273] = ITEM_272
+    ITEM[274] = ITEM_273
+    ITEM[275] = ITEM_274
+    ITEM[276] = ITEM_275
+    ITEM[277] = ITEM_276
+    ITEM[278] = ITEM_277
+    ITEM[279] = ITEM_278
+    ITEM[280] = ITEM_279
+    ITEM[281] = ITEM_280
+    ITEM[282] = ITEM_281
+    ITEM[283] = ITEM_282
+    ITEM[284] = ITEM_283
+    ITEM[285] = ITEM_284
+    ITEM[286] = ITEM_285
+    ITEM[287] = ITEM_286
+    ITEM[288] = ITEM_287
+    ITEM[289] = ITEM_288
+    ITEM[290] = ITEM_289
+    ITEM[291] = ITEM_290
+    ITEM[292] = ITEM_291
+    ITEM[293] = ITEM_292
+    ITEM[294] = ITEM_293
+    ITEM[295] = ITEM_294
+    ITEM[296] = ITEM_295
+    ITEM[297] = ITEM_296
+    ITEM[298] = ITEM_297
+    ITEM[299] = ITEM_298
+    ITEM[300] = ITEM_299
+    ITEM[301] = ITEM_300
+    ITEM[302] = ITEM_301
+    ITEM[303] = ITEM_302
+    ITEM[304] = ITEM_303
+    ITEM[305] = ITEM_304
+    ITEM[306] = ITEM_305
+    ITEM[307] = ITEM_306
+    ITEM[308] = ITEM_307
+    ITEM[309] = ITEM_308
+    ITEM[310] = ITEM_309
+    ITEM[311] = ITEM_310
+    
+    doAfter(1) -> 
+        let itemList = new LinkedList<int>
+        itemList.add(
+        ITEM_DROP_0,
+        ITEM_DROP_1,
+        ITEM_DROP_2,
+        ITEM_DROP_3,
+        ITEM_DROP_4,
+        ITEM_DROP_5,
+        ITEM_DROP_6,
+        ITEM_DROP_7,
+        ITEM_DROP_8,
+        ITEM_DROP_9,
+        ITEM_DROP_10,
+        ITEM_DROP_11,
+        ITEM_DROP_12,
+        ITEM_DROP_13,
+        ITEM_DROP_14,
+        ITEM_DROP_15,
+        ITEM_DROP_16,
+        ITEM_DROP_17,
+        ITEM_DROP_18,
+        ITEM_DROP_19
+        )
+        itemList.add(
+        ITEM_DROP_20,
+        ITEM_DROP_21,
+        ITEM_DROP_22,
+        ITEM_DROP_23,
+        ITEM_DROP_24,
+        ITEM_DROP_25,
+        ITEM_DROP_26,
+        ITEM_DROP_27,
+        ITEM_DROP_28,
+        ITEM_DROP_29,
+        ITEM_DROP_30,
+        ITEM_DROP_31,
+        ITEM_DROP_32,
+        ITEM_DROP_33,
+        ITEM_DROP_34,
+        ITEM_DROP_35,
+        ITEM_DROP_36,
+        ITEM_DROP_37,
+        ITEM_DROP_38,
+        ITEM_DROP_39
+        )
+        itemList.add(
+        ITEM_DROP_40,
+        ITEM_DROP_41,
+        ITEM_DROP_42,
+        ITEM_DROP_43,
+        ITEM_DROP_44,
+        ITEM_DROP_45,
+        ITEM_DROP_46,
+        ITEM_DROP_47,
+        ITEM_DROP_48,
+        ITEM_DROP_49,
+        ITEM_DROP_50,
+        ITEM_DROP_51,
+        ITEM_DROP_52,
+        ITEM_DROP_53,
+        ITEM_DROP_54,
+        ITEM_DROP_55,
+        ITEM_DROP_56,
+        ITEM_DROP_57,
+        ITEM_DROP_58,
+        ITEM_DROP_59
+        )
+        itemList.add(
+        ITEM_DROP_60,
+        ITEM_DROP_61,
+        ITEM_DROP_62,
+        ITEM_DROP_63,
+        ITEM_DROP_66,
+        ITEM_DROP_67,
+        ITEM_DROP_68,
+        ITEM_DROP_69,
+        ITEM_DROP_70,
+        ITEM_DROP_71,
+        ITEM_DROP_72,
+        ITEM_DROP_73,
+        ITEM_DROP_74,
+        ITEM_DROP_75,
+        ITEM_DROP_76,
+        ITEM_DROP_77,
+        ITEM_DROP_78,
+        ITEM_DROP_79
+        )
+        itemList.add(
+        ITEM_DROP_80,
+        ITEM_DROP_81,
+        ITEM_DROP_82,
+        ITEM_DROP_83,
+        ITEM_DROP_84,
+        ITEM_DROP_85,
+        ITEM_DROP_86,
+        ITEM_DROP_87,
+        ITEM_DROP_88,
+        ITEM_DROP_89,
+        ITEM_DROP_90,
+        ITEM_DROP_91,
+        ITEM_DROP_92,
+        ITEM_DROP_93,
+        ITEM_DROP_94,
+        ITEM_DROP_100,
+        ITEM_DROP_101,
+        ITEM_DROP_102,
+        ITEM_DROP_103,
+        ITEM_DROP_104,
+        ITEM_DROP_105,
+        ITEM_DROP_106,
+        ITEM_DROP_107,
+        ITEM_DROP_108,
+        ITEM_DROP_109,
+        ITEM_DROP_110,
+        ITEM_DROP_111,
+        ITEM_DROP_112,
+        ITEM_DROP_113,
+        ITEM_DROP_114,
+        ITEM_DROP_115,
+        ITEM_DROP_116,
+        ITEM_DROP_117,
+        ITEM_DROP_118,
+        ITEM_DROP_119
+        )
+        itemList.add(
+        ITEM_DROP_120,
+        ITEM_DROP_121,
+        ITEM_DROP_122,
+        ITEM_DROP_123,
+        ITEM_DROP_124,
+        ITEM_DROP_125,
+        ITEM_DROP_126,
+        ITEM_DROP_127,
+        ITEM_DROP_128,
+        ITEM_DROP_129,
+        ITEM_DROP_130,
+        ITEM_DROP_131,
+        ITEM_DROP_132,
+        ITEM_DROP_133,
+        ITEM_DROP_134,
+        ITEM_DROP_135,
+        ITEM_DROP_136,
+        ITEM_DROP_137,
+        ITEM_DROP_138,
+        ITEM_DROP_139
+        )
+        itemList.add(
+        ITEM_DROP_140,
+        ITEM_DROP_141,
+        ITEM_DROP_142,
+        ITEM_DROP_143,
+        ITEM_DROP_144,
+        ITEM_DROP_145,
+        ITEM_DROP_146,
+        ITEM_DROP_147,
+        ITEM_DROP_148,
+        ITEM_DROP_149,
+        ITEM_DROP_150,
+        ITEM_DROP_151,
+        ITEM_DROP_152,
+        ITEM_DROP_153,
+        ITEM_DROP_154,
+        ITEM_DROP_155,
+        ITEM_DROP_156,
+        ITEM_DROP_157,
+        ITEM_DROP_158,
+        ITEM_DROP_159,
+        ITEM_DROP_160,
+        ITEM_DROP_161
+        )
+        for addItem in itemList
+            if itemDropIndex == 64
+                itemDropIndex = 66
+            else if itemDropIndex == 95
+                itemDropIndex = 100
+            ITEM_DROP[itemDropIndex] = addItem
+            itemDropIndex = itemDropIndex + 1

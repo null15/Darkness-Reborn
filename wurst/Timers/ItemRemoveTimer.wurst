@@ -1,0 +1,19 @@
+package ItemRemoveTimer
+import RemoveItemsUnits
+import ClosureTimers
+timer itemRemoval = CreateTimer()
+timerdialog itemRemovalDialog = CreateTimerDialog(itemRemoval)
+init
+    itemRemoveTimerExpired()
+public function itemRemoveTimer()
+    itemRemoval.start(300, function removeItemsInit)
+    itemRemovalDialog.setTitle("Removing items")
+    itemRemovalDialog.setTitleColor(COLOR_GOLD)
+    itemRemovalDialog.display(true)
+    doPeriodically(1) (CallbackPeriodic cb) ->
+        if itemRemoval.getRemaining() < 20
+            DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 5, color(59, 72, 255).toColorString()+"•"+COLOR_GOLD.toColorString()+" UNTOUCHED ITEMS ARE BEING REMOVED SHORTLY "+color(59, 72, 255).toColorString()+"•|r")
+            destroy cb
+function itemRemoveTimerExpired()
+    CreateTrigger()..registerTimerExpireEvent(itemRemoval)..addAction() ->
+        itemRemoveTimer()

@@ -1,0 +1,92 @@
+package onStart
+import ClosureTimers
+// import WaveSetup
+import DialogBox
+import MyBuildingsIds
+import RespawnCreeps
+import MyUnitIds
+import HeroRespawnTimer
+import ItemRemoveTimer
+public unit elementalSoul
+real facing = 270
+real facingUp = 90
+public unit array playerHero = []
+init
+
+    mapSetup()
+
+    doAfter(0.01) -> 
+        for i = 0 to 9
+            gg_cam_CameraHeroPick.apply(true, players[i], 0.3)
+
+public function heroRespawn(unit u)
+    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+        heroRespawnTimer(GetDyingUnit())
+        let i = GetOwningPlayer(GetTriggerUnit()).getId()
+        if GetOwningPlayer(GetDyingUnit()) == Player(i)
+            doAfter(10) -> 
+                playerHero[i].revive(gg_rct_Base.getCenter(), true)
+
+function onBuyHero(unit u)
+    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_SELL)..addAction() ->
+        let soldUnit = GetSoldUnit()
+        for i = 0 to 9
+            if GetOwningPlayer(soldUnit) == players[i]
+                playerHero[i] = soldUnit
+                gg_cam_CameraHeroPicked.apply(true, players[i], 0.5)
+                heroRespawn(playerHero[i])
+                playerHero[i].setPos(gg_rct_Base.getCenter())
+
+function createSetup()
+    let p = Player(10)
+
+    for i = 0 to 9
+        createUnit(players[i], HERO_PICKER, gg_rct_HeroPicker.getCenter())
+        players[i].addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)
+        players[i].addState(PLAYER_STATE_RESOURCE_GOLD, 800)
+
+    let tavern1 = CreateUnit(Player(10), BUILDING_TAVERN_STR, -9216.0, -12480, bj_UNIT_FACING)
+    onBuyHero(tavern1)
+    let tavern2 = CreateUnit(Player(10), BUILDING_TAVERN_AGI, -8832.0, -12480, bj_UNIT_FACING)
+    onBuyHero(tavern2)
+    let tavern3 = CreateUnit(Player(10), BUILDING_TAVERN_INT, -8448.0, -12480, bj_UNIT_FACING)
+    onBuyHero(tavern3)
+
+    CreateUnit(p, BUILDING_4, - 1216.0, - 5568.0, 270.000)
+    CreateUnit(p, BUILDING_3, - 1216.0, - 5312.0, 270.000)
+    CreateUnit(p, BUILDING_2, - 1216.0, - 5056.0, 270.000)
+    CreateUnit(p, BUILDING_1, - 1216.0, - 4800.0, 270.000)
+    CreateUnit(p, BUILDING_17, - 64.0, - 5568.0, 270.000)
+    CreateUnit(p, BUILDING_16, - 64.0, - 5312.0, 270.000)
+    CreateUnit(p, BUILDING_15, - 64.0, - 5056.0, 270.000)
+    CreateUnit(p, BUILDING_14, - 64.0, - 4800.0, 270.000)
+    CreateUnit(p, BUILDING_8, - 1472.0, - 5568.0, 270.000)
+    CreateUnit(p, BUILDING_7, - 1472.0, - 5312.0, 270.000)
+    CreateUnit(p, BUILDING_6, - 1472.0, - 5056.0, 270.000)
+    CreateUnit(p, BUILDING_5, - 1472.0, - 4800.0, 270.000)
+    CreateUnit(p, BUILDING_13, 192.0, - 5568.0, 270.000)
+    CreateUnit(p, BUILDING_12, 192.0, - 5312.0, 270.000)
+    CreateUnit(p, BUILDING_11, 192.0, - 5056.0, 270.000)
+    CreateUnit(p, BUILDING_10, 192.0, - 4800.0, 270.000)
+
+    Player(0)..addGold(500000)..addLumber(50000)
+
+function mapSetup()
+
+    elementalSoul = createUnit(Player(10), 'h000', gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees())
+
+    doAfter(0.01) -> 
+
+        let dBox = new DialogBox("Choose difficulty")
+
+        dBox.addButton("Normal") ->
+            // preWaveSetup()
+            createSetup()
+            leftSideCreepsSetup()
+            eliteSideCreepsSetup()
+            bossCreepSetup()
+            overdryaSetup()
+            itemRemoveTimer()
+            destroy dBox
+        
+        dBox.display(players[0], true)

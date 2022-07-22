@@ -1,0 +1,15 @@
+package A0TP_R
+import MyUnitIds
+import onStart
+init
+    shadowDancer()
+function shadowDancerCond() returns boolean
+    return GetUnitTypeId(GetDyingUnit()) == PLAY_HERO_17 and IsUnitIllusion(GetDyingUnit()) == true
+
+public function shadowDancer()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addCondition(Condition(function shadowDancerCond))..addAction() ->
+        let illidan = playerHero[GetOwningPlayer(GetDyingUnit()).getId()]
+        let lvl = GetUnitAbilityLevel(illidan, 'A0TP')
+        let i = illidan.getAgi(false)
+        if GetRandomInt(1, 100) < lvl*7
+            illidan.setAgi(i+2)

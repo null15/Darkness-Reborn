@@ -1,0 +1,12 @@
+package A0R8_T
+import MyUnitIds
+init
+    noblesseAura()
+function noblesseAuraCond() returns boolean
+    return GetUnitTypeId(GetKillingUnit()) == PLAY_HERO_6 and GetKillingUnit().getAbilityLevel('A0R8') >= 1
+function noblesseAura()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addCondition(Condition(function noblesseAuraCond))..addAction() ->
+        let killer = GetKillingUnit()
+        let lvl = killer.getAbilityLevel('A0R8')
+        killer.addStr(1)
+        killer.setMaxHP(R2I(killer.getMaxHP()+lvl*25), true)

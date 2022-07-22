@@ -1,0 +1,25 @@
+package A00S_Q
+import ClosureEvents
+import ClosureTimers
+import ClosureForGroups
+import DummyCaster
+import OrderIds
+import Abilities
+import MyAbilityIds
+init
+    dragonClaw()
+function dragonClaw()
+    EventListener.onTargetCast('A00S') (unit caster, unit target) ->
+        let lvl = caster.getAbilityLevel('A00S')
+        let dmg = (caster.getStr(true)*(lvl*2))
+        print("Dmg: "+I2S(dmg))
+        doAfter(0.3) -> 
+            caster.setAnimation("slam")
+            flashEffect(Abilities.thunderclapTarget, target.getPos(), 2)
+            forUnitsInRange(target.getPos(), 350, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    caster.damageTarget(u, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    new DummyCaster()
+                    ..owner(GetOwningPlayer(caster))
+                    ..origin(caster.getPos())
+                    ..castTarget(ABILITY_DUMMY_4, 1, OrderIds.thunderbolt, u)

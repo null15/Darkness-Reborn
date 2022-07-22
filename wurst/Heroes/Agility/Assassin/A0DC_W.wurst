@@ -1,0 +1,28 @@
+package A0DC_W
+import ClosureTimers
+import Abilities
+init
+
+    quickSlash()
+
+function quickSlashCond() returns boolean
+    return GetSpellAbilityId() == 'A0DC'
+
+function quickSlash()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function quickSlashCond))..addAction() ->
+        let caster = GetTriggerUnit()
+        let target = GetSpellTargetUnit()
+        let lvl = GetUnitAbilityLevel(caster, 'A0DC')
+        let dmg = caster.getAgi(true)*lvl
+        doAfter(0.35) -> 
+            caster.pause()
+            caster.setInvulnerable(true)
+            target.pause()
+            doPeriodicallyCounted(0.2, 3) (CallbackCounted cb) ->
+                caster.setAnimation("attack")
+                caster.damageTarget(target, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                flashEffect(Abilities.meatwagonMissile, target.getPos())
+                if cb.isLast()
+                    caster.unpause()
+                    target.unpause()
+                    caster.setInvulnerable(false)

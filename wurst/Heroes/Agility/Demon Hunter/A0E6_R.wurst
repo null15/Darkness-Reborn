@@ -1,0 +1,27 @@
+package A0E6_R
+import ClosureTimers
+import Abilities
+import StandardTextTags
+int attackCount = 0
+texttag count
+init
+
+public function demonPower(unit u)
+    if attackCount < 25
+        attackCount = attackCount + 1
+        if attackCount % 5 == 0 and attackCount != 25
+            count = createCriticalStrikeTextTag(u, attackCount)
+            count.setText("(|cffb81b22"+I2S(attackCount)+"|r)")
+            count.setColor(colorA(92, 39, 39, 255))
+            count.setFadepoint(0.75)
+        if attackCount == 25
+            count.setColor(colorA(252, 25, 25, 225))
+            count.setScaledText("Demon Unleashed", 1.5)
+        let lvl = GetUnitAbilityLevel(u, 'A0E6')
+        let oldAgi = u.getAgi(false)
+        if attackCount == 25
+            u.setAgi(u.getAgi(true)*10)
+            flashEffect(Abilities.roarCaster, u.getPos())
+            doAfter(I2R(lvl+1)) -> 
+                u.setAgi(oldAgi)
+                attackCount = 0

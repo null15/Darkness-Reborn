@@ -1,0 +1,119 @@
+package calcLowerHigher
+
+init
+
+public function calc_higherBigBoss(int highBoss) returns integer
+
+    if (highBoss == 5)
+        return 30
+    else if (highBoss == 10)
+        return 58
+    else if (highBoss == 15)
+        return 84
+    else if (highBoss == 20)
+        return 105
+
+    return 5
+
+public function calc_lowerBigBoss(int lowBoss) returns integer
+
+    if (lowBoss == 5)
+        return 26
+    else if (lowBoss == 10)
+        return 56
+    else if (lowBoss == 15)
+        return 84
+    else if (lowBoss == 20)
+        return 105
+
+    return 5
+
+public function calc_miniBossHigher(int highNum) returns integer
+
+    if (highNum == 1)
+        return 5
+    else if (highNum == 2)
+        return 10
+    else if (highNum == 3)
+        return 15
+    else if (highNum == 4)
+        return 20
+    else if (highNum == 5)
+        return 25
+    else if (highNum == 6)
+        return 35
+    else if (highNum == 7)
+        return 40
+    else if (highNum == 8)
+        return 45
+    else if (highNum == 9)
+        return 50
+    else if (highNum == 10)
+        return 55
+    else if (highNum == 11)
+        return 62
+    else if (highNum == 12)
+        return 67
+    else if (highNum == 13)
+        return 72
+    else if (highNum == 14)
+        return 77
+    else if (highNum == 15)
+        return 82
+    else if (highNum == 16)
+        return 85
+    else if (highNum == 17)
+        return 90
+    else if (highNum == 18)
+        return 95
+    else if (highNum == 19)
+        return 100
+    else if (highNum == 20)
+        return 105
+
+    return 5
+
+public function calc_miniBossLower(int lowNum) returns integer
+
+    if (lowNum == 1)
+        return 1
+    else if (lowNum == 2)
+        return 6
+    else if (lowNum == 3)
+        return 11
+    else if (lowNum == 4)
+        return 16
+    else if (lowNum == 5)
+        return 21
+    else if (lowNum == 6)
+        return 31
+    else if (lowNum == 7)
+        return 36
+    else if (lowNum == 8)
+        return 41
+    else if (lowNum == 9)
+        return 46
+    else if (lowNum == 10)
+        return 51
+    else if (lowNum == 11)
+        return 59
+    else if (lowNum == 12)
+        return 63
+    else if (lowNum == 13)
+        return 67
+    else if (lowNum == 14)
+        return 73
+    else if (lowNum == 15)
+        return 78
+    else if (lowNum == 16)
+        return 85
+    else if (lowNum == 17)
+        return 86
+    else if (lowNum == 18)
+        return 91
+    else if (lowNum == 19)
+        return 96
+    else if (lowNum == 20)
+        return 101
+
+    return 5

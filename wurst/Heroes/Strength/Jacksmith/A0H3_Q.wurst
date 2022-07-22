@@ -1,0 +1,89 @@
+package A0H3_Q
+import MyItemIds
+import ClosureEvents
+
+init
+    forge()
+function forge()
+    EventListener.onCast('A0H3') (unit caster) ->
+        
+        if caster.hasItemById(ITEM_DROP_1) and caster.hasItemById(ITEM_JACKSMITH_0)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_DROP_1))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_0))
+            caster.addItemById(ITEM_JACKSMITH_1)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_1) and caster.hasItemById(ITEM_7)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_1))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_7))
+            caster.addItemById(ITEM_JACKSMITH_2)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_2) and caster.hasItemById(ITEM_9)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_2))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_9))
+            caster.addItemById(ITEM_JACKSMITH_3)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_3) and caster.hasItemById(ITEM_JACKSMITH_4)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_3))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_4))
+            caster.addItemById(ITEM_JACKSMITH_5)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_5) and caster.hasItemById(ITEM_10)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_5))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_10))
+            caster.addItemById(ITEM_JACKSMITH_6)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_6) and caster.hasItemById(ITEM_240)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_6))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_240))
+            caster.addItemById(ITEM_JACKSMITH_7)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_7) and caster.hasItemById(ITEM_DROP_43)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_7))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_DROP_43))
+            caster.addItemById(ITEM_JACKSMITH_8)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_8) and caster.hasItemById(ITEM_JACKSMITH_9) and caster.hasItemById(ITEM_DROP_46)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_8))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_9))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_DROP_46))
+            caster.addItemById(ITEM_JACKSMITH_10)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_10) and caster.hasItemById(ITEM_219)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_10))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_219))
+            caster.addItemById(ITEM_JACKSMITH_11)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_5) and caster.hasItemById(ITEM_DROP_18)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_5))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_DROP_18))
+            caster.addItemById(ITEM_JACKSMITH_12)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_12) and caster.hasItemById(ITEM_DROP_34)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_12))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_DROP_34))
+            caster.addItemById(ITEM_JACKSMITH_13)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_13) and caster.hasItemById(ITEM_JACKSMITH_14)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_13))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_14))
+            caster.addItemById(ITEM_JACKSMITH_15)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_15) and caster.hasItemById(ITEM_213) and caster.hasItemById(ITEM_JACKSMITH_9)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_15))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_213))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_9))
+            caster.addItemById(ITEM_JACKSMITH_16)
+
+        else if caster.hasItemById(ITEM_JACKSMITH_16) and caster.hasItemById(ITEM_JACKSMITH_17) and caster.hasItemById(ITEM_DROP_63)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_16))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_17))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_DROP_63))
+            caster.addItemById(ITEM_JACKSMITH_18)
+        
+        else if caster.hasItemById(ITEM_JACKSMITH_11) and caster.hasItemById(ITEM_JACKSMITH_19) and caster.hasItemById(ITEM_219)
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_11))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_19))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_219))
+            caster.addItemById(ITEM_JACKSMITH_20)
+
+        caster.addEffect("Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl", "chest")

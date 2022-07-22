@@ -1,0 +1,25 @@
+package A0C3_Q
+import DamageEvent
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+init
+
+    furyPeakCast()
+
+function furypeakCond() returns boolean
+    return GetSpellAbilityId() == 'A0C3'
+
+function furyPeakCast()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function furypeakCond))..addAction() ->
+        if UnitHasBuffBJ(GetTriggerUnit(), 'B00J')
+            UnitRemoveBuffBJ('B00J', GetTriggerUnit())
+
+public function furyPeak(unit caster, unit target)
+    let missingHp = caster.getMissingHP()
+    let attack = caster.getBaseDamage(1)
+    new DummyCaster()
+    ..owner(GetOwningPlayer(caster))
+    ..origin(caster.getPos())
+    ..castTarget(ABILITY_DUMMY_1, 1, OrderIds.thunderbolt, target)
+    DamageEvent.setAmount(missingHp + attack)

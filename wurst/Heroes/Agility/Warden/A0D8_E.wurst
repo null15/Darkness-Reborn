@@ -1,0 +1,36 @@
+package A0D8_E
+import ClosureTimers
+import ClosureForGroups
+init
+
+    shadowRaze()
+
+function shadwoRazeCond() returns boolean
+    return GetSpellAbilityId() == 'A0D8'
+
+function shadowRazeEnd(unit u)
+    u.unpause()
+    u.setInvulnerable(false)
+    u.setVertexColor(color(255, 255, 255))
+
+function shadowRaze()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function shadwoRazeCond))..addAction() ->
+        let caster = GetTriggerUnit()
+        let point = EventData.getSpellTargetPos()
+        let angle = caster.getPos().angleTo(point)
+        let lvl = GetUnitAbilityLevel(caster, 'A0D8')
+        doAfter(0.3) -> 
+            caster.setAnimation('slam')
+            caster.pause()
+            caster.setInvulnerable(true)
+            doPeriodicallyTimed(0.3, 2) (CallbackCounted cb) ->
+                caster.setAnimation("slam")
+                caster.setAnimation("attack")
+                flashEffect("Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl", caster.getPos())
+                caster.setVertexColor(0, 0, 50, 255)
+                caster.setPos(caster.getPos().polarOffset(angle,100))
+                forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
+                    if caster.isEnemyOf(u)
+                        caster.damageTarget(u, I2R(caster.getAgi(true)*(2*lvl)), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                if cb.isLast()
+                    shadowRazeEnd(caster)

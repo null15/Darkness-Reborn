@@ -1,0 +1,567 @@
+package RecipeItems
+
+import MyItemIds
+
+init
+
+    recipeItemReplace()
+
+function recipeItemReplace()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)..addAction() ->
+        let u = GetTriggerUnit()
+        // Ice Sword
+        if u.hasItemById(ITEM_7) and u.hasItemById(ITEM_8) and u.hasItemById(ITEM_26) and u.hasItemById(ITEM_41)
+            RemoveItem(u.getItemById(ITEM_7))
+            RemoveItem(u.getItemById(ITEM_8))
+            RemoveItem(u.getItemById(ITEM_26))
+            RemoveItem(u.getItemById(ITEM_41))
+            RemoveItem(u.getItemById(ITEM_41))
+            u.addItemById(ITEM_190)
+
+        // Fire Sword
+        else if u.hasItemById(ITEM_42) and u.hasItemById(ITEM_7) and u.hasItemById(ITEM_8) and u.hasItemById(ITEM_25)
+            RemoveItem(u.getItemById(ITEM_42))
+            RemoveItem(u.getItemById(ITEM_7))
+            RemoveItem(u.getItemById(ITEM_8))
+            RemoveItem(u.getItemById(ITEM_25))
+            u.addItemById(ITEM_240)
+
+        // Boots of Teleportation
+        else if u.hasItemById(ITEM_11) and u.hasItemById(ITEM_21) and u.hasItemById(ITEM_20) and u.hasItemById(ITEM_43)
+            RemoveItem(u.getItemById(ITEM_11))
+            RemoveItem(u.getItemById(ITEM_21))
+            RemoveItem(u.getItemById(ITEM_20))
+            RemoveItem(u.getItemById(ITEM_43))
+            u.addItemById(ITEM_242)
+
+        // Boots of Invisibility
+        else if u.hasItemById(ITEM_44) and u.hasItemById(ITEM_11) and u.hasItemById(ITEM_21) and u.hasItemById(ITEM_39)
+            RemoveItem(u.getItemById(ITEM_44))
+            RemoveItem(u.getItemById(ITEM_11))
+            RemoveItem(u.getItemById(ITEM_21))
+            RemoveItem(u.getItemById(ITEM_39))
+            u.addItemById(ITEM_243)
+
+        // Winged Boots
+        else if u.hasItemById(ITEM_45) and u.hasItemById(ITEM_11) and u.hasItemById(ITEM_21) and u.hasItemById(ITEM_0)
+            RemoveItem(u.getItemById(ITEM_45))
+            RemoveItem(u.getItemById(ITEM_11))
+            RemoveItem(u.getItemById(ITEM_21))
+            RemoveItem(u.getItemById(ITEM_0))
+            u.addItemById(ITEM_244)
+
+        // Steel Axe
+        else if u.hasItemById(ITEM_46) and u.hasItemById(ITEM_10) and u.hasItemById(ITEM_9) and u.hasItemById(ITEM_8)
+            RemoveItem(u.getItemById(ITEM_46))
+            RemoveItem(u.getItemById(ITEM_10))
+            RemoveItem(u.getItemById(ITEM_9))
+            RemoveItem(u.getItemById(ITEM_8))
+            u.addItemById(ITEM_196)
+
+        // Silver Hammer
+        else if u.hasItemById(ITEM_47) and u.hasItemById(ITEM_10) and u.hasItemById(ITEM_19)
+            RemoveItem(u.getItemById(ITEM_47))
+            RemoveItem(u.getItemById(ITEM_10))
+            RemoveItem(u.getItemById(ITEM_19))
+            u.addItemById(ITEM_197)
+
+        // Gloves of Speed
+        else if u.hasItemById(ITEM_48) and u.hasItemById(ITEM_0) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_2)
+            RemoveItem(u.getItemById(ITEM_48))
+            RemoveItem(u.getItemById(ITEM_0))
+            RemoveItem(u.getItemById(ITEM_1))
+            RemoveItem(u.getItemById(ITEM_2))
+            u.addItemById(ITEM_241)
+
+        // Half of Arkenstone
+        else if u.hasItemById(ITEM_49) and u.hasItemById(ITEM_193) and u.hasItemById(ITEM_191) and u.hasItemById(ITEM_192)
+            RemoveItem(u.getItemById(ITEM_49))
+            RemoveItem(u.getItemById(ITEM_193))
+            RemoveItem(u.getItemById(ITEM_191))
+            RemoveItem(u.getItemById(ITEM_192))
+            u.addItemById(ITEM_198)
+
+        // Light Armor
+        else if u.hasItemById(ITEM_50) and u.hasItemById(ITEM_5) and u.hasItemById(ITEM_21) and u.hasItemById(ITEM_4)
+            RemoveItem(u.getItemById(ITEM_50))
+            RemoveItem(u.getItemById(ITEM_5))
+            RemoveItem(u.getItemById(ITEM_21))
+            RemoveItem(u.getItemById(ITEM_4))
+            u.addItemById(ITEM_199)
+
+        // Scroll of Fusion
+        else if u.hasItemById(ITEM_20) and u.hasItemById(ITEM_15) and u.hasItemById(ITEM_16) and u.hasItemById(ITEM_51)
+            RemoveItem(u.getItemById(ITEM_20))
+            RemoveItem(u.getItemById(ITEM_15))
+            RemoveItem(u.getItemById(ITEM_16))
+            RemoveItem(u.getItemById(ITEM_51))
+            u.addItemById(ITEM_200)
+
+        // Amulet of the Wild
+        else if u.hasItemById(ITEM_52) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_12) and u.hasItemById(ITEM_18)
+            RemoveItem(u.getItemById(ITEM_52))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_12))
+            RemoveItem(u.getItemById(ITEM_18))
+            u.addItemById(ITEM_201)
+
+        // Helm of Valor
+        else if u.hasItemById(ITEM_53) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_19) and u.hasItemById(ITEM_13)
+            RemoveItem(u.getItemById(ITEM_53))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_19))
+            RemoveItem(u.getItemById(ITEM_13))
+            u.addItemById(ITEM_202)
+
+        // Medallion of Courage
+        else if u.hasItemById(ITEM_54) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_17) and u.hasItemById(ITEM_14)
+            RemoveItem(u.getItemById(ITEM_54))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_17))
+            RemoveItem(u.getItemById(ITEM_14))
+            u.addItemById(ITEM_203)
+
+        // Alleria's Flute of Accuracy
+        else if u.hasItemById(ITEM_55) and u.hasItemById(ITEM_7) and u.hasItemById(ITEM_9)
+            RemoveItem(u.getItemById(ITEM_55))
+            RemoveItem(u.getItemById(ITEM_7))
+            RemoveItem(u.getItemById(ITEM_9))
+            u.addItemById(ITEM_204)
+
+        // Ancient Janggo of Endurance
+        else if u.hasItemById(ITEM_56) and u.hasItemById(ITEM_2) and u.hasItemById(ITEM_11)
+            RemoveItem(u.getItemById(ITEM_56))
+            RemoveItem(u.getItemById(ITEM_2))
+            RemoveItem(u.getItemById(ITEM_11))
+            u.addItemById(ITEM_205)
+
+        // The Lion Horn of Stormwind
+        else if u.hasItemById(ITEM_57) and u.hasItemById(ITEM_4) and u.hasItemById(ITEM_16)
+            RemoveItem(u.getItemById(ITEM_57))
+            RemoveItem(u.getItemById(ITEM_4))
+            RemoveItem(u.getItemById(ITEM_16))
+            u.addItemById(ITEM_206)
+
+        // Warsong Battle Drums
+        else if u.hasItemById(ITEM_58) and u.hasItemById(ITEM_10)
+            RemoveItem(u.getItemById(ITEM_58))
+            RemoveItem(u.getItemById(ITEM_10))
+            u.addItemById(ITEM_207)
+
+        // Drums of Future
+        else if u.hasItemById(ITEM_59) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_205)
+            RemoveItem(u.getItemById(ITEM_59))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_205))
+            u.addItemById(ITEM_208)
+
+        // The Golden Horn
+        else if u.hasItemById(ITEM_60) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_206)
+            RemoveItem(u.getItemById(ITEM_60))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_206))
+            u.addItemById(ITEM_209)
+
+        // Tribal Drums
+        else if u.hasItemById(ITEM_61) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_207)
+            RemoveItem(u.getItemById(ITEM_61))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_207))
+            u.addItemById(ITEM_210)
+
+        // Nature Flute
+        else if u.hasItemById(ITEM_62) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_204)
+            RemoveItem(u.getItemById(ITEM_62))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_204))
+            u.addItemById(ITEM_211)
+
+        // Void Axe
+        else if u.hasItemById(ITEM_63) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_202) and u.hasItemById(ITEM_9)
+            RemoveItem(u.getItemById(ITEM_63))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_202))
+            RemoveItem(u.getItemById(ITEM_9))
+            u.addItemById(ITEM_212)
+
+        // Ainz Sword
+        else if u.hasItemById(ITEM_64) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_201) and u.hasItemById(ITEM_7)
+            RemoveItem(u.getItemById(ITEM_64))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_201))
+            RemoveItem(u.getItemById(ITEM_7))
+            u.addItemById(ITEM_213)
+
+        // Seer Staff
+        else if u.hasItemById(ITEM_65) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_203) and u.hasItemById(ITEM_36)
+            RemoveItem(u.getItemById(ITEM_65))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_203))
+            RemoveItem(u.getItemById(ITEM_36))
+            u.addItemById(ITEM_214)
+
+        // Scale Axe
+        else if u.hasItemById(ITEM_66) and u.hasItemById(ITEM_9)
+            RemoveItem(u.getItemById(ITEM_66))
+            RemoveItem(u.getItemById(ITEM_9))
+            u.addItemById(ITEM_215)
+
+        // Dalan Axe
+        else if u.hasItemById(ITEM_215) and u.hasItemById(ITEM_19) and u.hasItemById(ITEM_20) and u.hasItemById(ITEM_67)
+            RemoveItem(u.getItemById(ITEM_215))
+            RemoveItem(u.getItemById(ITEM_19))
+            RemoveItem(u.getItemById(ITEM_20))
+            RemoveItem(u.getItemById(ITEM_67))
+            u.addItemById(ITEM_216)
+
+        // Duration Axe
+        else if u.hasItemById(ITEM_216) and u.hasItemById(ITEM_68) and u.hasItemById(ITEM_13) and u.hasItemById(ITEM_8)
+            RemoveItem(u.getItemById(ITEM_216))
+            RemoveItem(u.getItemById(ITEM_68))
+            RemoveItem(u.getItemById(ITEM_13))
+            RemoveItem(u.getItemById(ITEM_8))
+            u.addItemById(ITEM_217)
+
+        // Dwarven Axe
+        else if u.hasItemById(ITEM_69) and u.hasItemById(ITEM_217) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_9)
+            RemoveItem(u.getItemById(ITEM_69))
+            RemoveItem(u.getItemById(ITEM_217))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_9))
+            u.addItemById(ITEM_218)
+
+        // Blade of Hell
+        else if u.hasItemById(ITEM_70) and u.hasItemById(ITEM_7) and u.hasItemById(ITEM_241) and u.hasItemById(ITEM_240)
+            RemoveItem(u.getItemById(ITEM_70))
+            RemoveItem(u.getItemById(ITEM_7))
+            RemoveItem(u.getItemById(ITEM_241))
+            RemoveItem(u.getItemById(ITEM_240))
+            u.addItemById(ITEM_219)
+
+        // Kraken Dagger
+        else if u.hasItemById(ITEM_71) and u.hasItemById(ITEM_13) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_38)
+            RemoveItem(u.getItemById(ITEM_71))
+            RemoveItem(u.getItemById(ITEM_13))
+            RemoveItem(u.getItemById(ITEM_1))
+            RemoveItem(u.getItemById(ITEM_38))
+            u.addItemById(ITEM_220)
+
+        // Midnight Blade
+        else if u.hasItemById(ITEM_72) and u.hasItemById(ITEM_22) and u.hasItemById(ITEM_7) and u.hasItemById(ITEM_2)
+            RemoveItem(u.getItemById(ITEM_22))
+            RemoveItem(u.getItemById(ITEM_72))
+            RemoveItem(u.getItemById(ITEM_7))
+            RemoveItem(u.getItemById(ITEM_2))
+            u.addItemById(ITEM_221)
+
+        // Blood Gorged Blade
+        else if u.hasItemById(ITEM_73) and u.hasItemById(ITEM_3) and u.hasItemById(ITEM_7) and u.hasItemById(ITEM_37)
+            RemoveItem(u.getItemById(ITEM_73))
+            RemoveItem(u.getItemById(ITEM_3))
+            RemoveItem(u.getItemById(ITEM_7))
+            RemoveItem(u.getItemById(ITEM_37))
+            u.addItemById(ITEM_222)
+
+        // Steel Shield
+        else if u.hasItemById(ITEM_74) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_30) and u.hasItemById(ITEM_31)
+            RemoveItem(u.getItemById(ITEM_74))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_30))
+            RemoveItem(u.getItemById(ITEM_31))
+            u.addItemById(ITEM_223)
+
+        // Sacred Shield
+        else if u.hasItemById(ITEM_223) and u.hasItemById(ITEM_30) and u.hasItemById(ITEM_32) and u.hasItemById(ITEM_75)
+            RemoveItem(u.getItemById(ITEM_223))
+            RemoveItem(u.getItemById(ITEM_30))
+            RemoveItem(u.getItemById(ITEM_32))
+            RemoveItem(u.getItemById(ITEM_75))
+            u.addItemById(ITEM_224)
+
+        // Iron Shield
+        else if u.hasItemById(ITEM_76) and u.hasItemById(ITEM_223) and u.hasItemById(ITEM_202)
+            RemoveItem(u.getItemById(ITEM_76))
+            RemoveItem(u.getItemById(ITEM_223))
+            RemoveItem(u.getItemById(ITEM_202))
+            u.addItemById(ITEM_225)
+
+        // Split Armor
+        else if u.hasItemById(ITEM_77) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_5) and u.hasItemById(ITEM_DROP_26)
+            RemoveItem(u.getItemById(ITEM_77))
+            RemoveItem(u.getItemById(ITEM_199))
+            RemoveItem(u.getItemById(ITEM_5))
+            RemoveItem(u.getItemById(ITEM_DROP_26))
+            u.addItemById(ITEM_226)
+
+        // Avatar Armor
+        else if u.hasItemById(ITEM_78) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_38) and u.hasItemById(ITEM_15)
+            RemoveItem(u.getItemById(ITEM_78))
+            RemoveItem(u.getItemById(ITEM_199))
+            RemoveItem(u.getItemById(ITEM_38))
+            RemoveItem(u.getItemById(ITEM_15))
+            u.addItemById(ITEM_227)
+
+        // Chaos Blade
+        else if u.hasItemById(ITEM_220) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_79) and u.hasItemById(ITEM_7)
+            RemoveItem(u.getItemById(ITEM_220))
+            RemoveItem(u.getItemById(ITEM_200))
+            RemoveItem(u.getItemById(ITEM_79))
+            RemoveItem(u.getItemById(ITEM_7))
+            u.addItemById(ITEM_228)
+
+        // O'Clock
+        else if u.hasItemById(ITEM_80) and u.hasItemById(ITEM_28) and u.hasItemById(ITEM_31) and u.hasItemById(ITEM_40)
+            RemoveItem(u.getItemById(ITEM_80))
+            RemoveItem(u.getItemById(ITEM_28))
+            RemoveItem(u.getItemById(ITEM_31))
+            RemoveItem(u.getItemById(ITEM_40))
+            u.addItemById(ITEM_229)
+
+        // Thunder Bow
+        else if u.hasItemById(ITEM_81) and u.hasItemById(ITEM_201) and u.hasItemById(ITEM_24) and u.hasItemById(ITEM_203)
+            RemoveItem(u.getItemById(ITEM_81))
+            RemoveItem(u.getItemById(ITEM_201))
+            RemoveItem(u.getItemById(ITEM_24))
+            RemoveItem(u.getItemById(ITEM_203))
+            u.addItemById(ITEM_230)
+
+        // Soul of Kil'jeaden
+        else if u.hasItemById(ITEM_82) and u.hasItemById(ITEM_203) and u.hasItemById(ITEM_36) and u.hasItemById(ITEM_27)
+            RemoveItem(u.getItemById(ITEM_82))
+            RemoveItem(u.getItemById(ITEM_203))
+            RemoveItem(u.getItemById(ITEM_36))
+            RemoveItem(u.getItemById(ITEM_27))
+            u.addItemById(ITEM_231)
+
+        // Lizard Pedant
+        else if u.hasItemById(ITEM_83) and u.hasItemById(ITEM_202) and u.hasItemById(ITEM_199)
+            RemoveItem(u.getItemById(ITEM_83))
+            RemoveItem(u.getItemById(ITEM_202))
+            RemoveItem(u.getItemById(ITEM_199))
+            u.addItemById(ITEM_232)
+
+        // Helm Hermes
+        else if u.hasItemById(ITEM_84) and u.hasItemById(ITEM_202) and u.hasItemById(ITEM_226)
+            RemoveItem(u.getItemById(ITEM_84))
+            RemoveItem(u.getItemById(ITEM_202))
+            RemoveItem(u.getItemById(ITEM_226))
+            u.addItemById(ITEM_233)
+
+        // Dark Sphere
+        else if u.hasItemById(ITEM_85) and u.hasItemById(ITEM_23) and u.hasItemById(ITEM_202)
+            RemoveItem(u.getItemById(ITEM_85))
+            RemoveItem(u.getItemById(ITEM_23))
+            RemoveItem(u.getItemById(ITEM_202))
+            u.addItemById(ITEM_234)
+
+        // Mystery Green Staff
+        else if u.hasItemById(ITEM_86) and u.hasItemById(ITEM_214) and u.hasItemById(ITEM_14) and u.hasItemById(ITEM_DROP_28)
+            RemoveItem(u.getItemById(ITEM_86))
+            RemoveItem(u.getItemById(ITEM_214))
+            RemoveItem(u.getItemById(ITEM_14))
+            RemoveItem(u.getItemById(ITEM_DROP_28))
+            u.addItemById(ITEM_235)
+
+        // Ice Wand
+        else if u.hasItemById(ITEM_87) and u.hasItemById(ITEM_214) and u.hasItemById(ITEM_26) and u.hasItemById(ITEM_DROP_41)
+            RemoveItem(u.getItemById(ITEM_87))
+            RemoveItem(u.getItemById(ITEM_214))
+            RemoveItem(u.getItemById(ITEM_26))
+            RemoveItem(u.getItemById(ITEM_DROP_41))
+            u.addItemById(ITEM_237)
+
+        // War Enery
+        else if u.hasItemById(ITEM_88) and u.hasItemById(ITEM_231) and u.hasItemById(ITEM_198)
+            RemoveItem(u.getItemById(ITEM_88))
+            RemoveItem(u.getItemById(ITEM_231))
+            RemoveItem(u.getItemById(ITEM_198))
+            u.addItemById(ITEM_239)
+
+        // Ice & Fire Sword
+        else if u.hasItemById(ITEM_89) and u.hasItemById(ITEM_240) and u.hasItemById(ITEM_190)
+            RemoveItem(u.getItemById(ITEM_89))
+            RemoveItem(u.getItemById(ITEM_240))
+            RemoveItem(u.getItemById(ITEM_190))
+            u.addItemById(ITEM_172)
+
+        // Boots of Crystal Gold
+        else if u.hasItemById(ITEM_90) and u.hasItemById(ITEM_242) and u.hasItemById(ITEM_244) and u.hasItemById(ITEM_243)
+            RemoveItem(u.getItemById(ITEM_90))
+            RemoveItem(u.getItemById(ITEM_242))
+            RemoveItem(u.getItemById(ITEM_244))
+            RemoveItem(u.getItemById(ITEM_243))
+            u.addItemById(ITEM_189)
+
+        // Destroy Sword
+        else if u.hasItemById(ITEM_91) and u.hasItemById(ITEM_240) and u.hasItemById(ITEM_196) and u.hasItemById(ITEM_220)
+            RemoveItem(u.getItemById(ITEM_91))
+            RemoveItem(u.getItemById(ITEM_240))
+            RemoveItem(u.getItemById(ITEM_196))
+            RemoveItem(u.getItemById(ITEM_220))
+            u.addItemById(ITEM_186)
+
+        // Platinum Hammer
+        else if u.hasItemById(ITEM_92) and u.hasItemById(ITEM_197) and u.hasItemById(ITEM_220) and u.hasItemById(ITEM_13)
+            RemoveItem(u.getItemById(ITEM_92))
+            RemoveItem(u.getItemById(ITEM_197))
+            RemoveItem(u.getItemById(ITEM_220))
+            RemoveItem(u.getItemById(ITEM_13))
+            u.addItemById(ITEM_187)
+
+        // Gloves of Flash
+        else if u.hasItemById(ITEM_93) and u.hasItemById(ITEM_241) and u.hasItemById(ITEM_8)
+            RemoveItem(u.getItemById(ITEM_93))
+            RemoveItem(u.getItemById(ITEM_241))
+            RemoveItem(u.getItemById(ITEM_8))
+            u.addItemById(ITEM_188)
+
+        // Dark Steel Sword
+        else if u.hasItemById(ITEM_94) and u.hasItemById(ITEM_221) and u.hasItemById(ITEM_22) and u.hasItemById(ITEM_241)
+            RemoveItem(u.getItemById(ITEM_94))
+            RemoveItem(u.getItemById(ITEM_221))
+            RemoveItem(u.getItemById(ITEM_22))
+            RemoveItem(u.getItemById(ITEM_241))
+            u.addItemById(ITEM_173)
+
+        // Perfect Arkenstone
+        else if u.hasItemById(ITEM_95) and u.hasItemById(ITEM_198) and u.hasItemById(ITEM_193)
+            RemoveItem(u.getItemById(ITEM_95))
+            RemoveItem(u.getItemById(ITEM_198))
+            RemoveItem(u.getItemById(ITEM_193))
+            u.addItemById(ITEM_185)
+
+        // Shiny Armor
+        else if u.hasItemById(ITEM_96) and u.hasItemById(ITEM_28) and u.hasItemById(ITEM_6) and u.hasItemById(ITEM_199)
+            RemoveItem(u.getItemById(ITEM_96))
+            RemoveItem(u.getItemById(ITEM_28))
+            RemoveItem(u.getItemById(ITEM_6))
+            RemoveItem(u.getItemById(ITEM_199))
+            u.addItemById(ITEM_174)
+
+        // Reactive Armor
+        else if u.hasItemById(ITEM_97) and u.hasItemById(ITEM_226) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_DROP_26)
+            RemoveItem(u.getItemById(ITEM_97))
+            RemoveItem(u.getItemById(ITEM_226))
+            RemoveItem(u.getItemById(ITEM_199))
+            RemoveItem(u.getItemById(ITEM_DROP_26))
+            u.addItemById(ITEM_175)
+
+        // Holy Armor
+        else if u.hasItemById(ITEM_98) and u.hasItemById(ITEM_174) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_DROP_61)
+            RemoveItem(u.getItemById(ITEM_98))
+            RemoveItem(u.getItemById(ITEM_174))
+            RemoveItem(u.getItemById(ITEM_199))
+            RemoveItem(u.getItemById(ITEM_DROP_61))
+            u.addItemById(ITEM_176)
+
+        // Gold Axe
+        else if u.hasItemById(ITEM_99) and u.hasItemById(ITEM_219) and u.hasItemById(ITEM_196)
+            RemoveItem(u.getItemById(ITEM_99))
+            RemoveItem(u.getItemById(ITEM_219))
+            RemoveItem(u.getItemById(ITEM_196))
+            u.addItemById(ITEM_177)
+
+        // Dark Matter
+        else if u.hasItemById(ITEM_100) and u.hasItemById(ITEM_214)
+            RemoveItem(u.getItemById(ITEM_100))
+            RemoveItem(u.getItemById(ITEM_214))
+            u.addItemById(ITEM_178)
+
+        // Rain Sword
+        else if u.hasItemById(ITEM_101) and u.hasItemById(ITEM_213)
+            RemoveItem(u.getItemById(ITEM_101))
+            RemoveItem(u.getItemById(ITEM_213))
+            u.addItemById(ITEM_179)
+
+        // Corrosive Hammer
+        else if u.hasItemById(ITEM_102) and u.hasItemById(ITEM_212)
+            RemoveItem(u.getItemById(ITEM_102))
+            RemoveItem(u.getItemById(ITEM_212))
+            u.addItemById(ITEM_180)
+
+        // Vampirella
+        else if u.hasItemById(ITEM_103) and u.hasItemById(ITEM_214)
+            RemoveItem(u.getItemById(ITEM_103))
+            RemoveItem(u.getItemById(ITEM_214))
+            u.addItemById(ITEM_181)
+
+        // Lancelot Shield
+        else if u.hasItemById(ITEM_104) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_231) and u.hasItemById(ITEM_DROP_60)
+            RemoveItem(u.getItemById(ITEM_105))
+            RemoveItem(u.getItemById(ITEM_199))
+            RemoveItem(u.getItemById(ITEM_231))
+            RemoveItem(u.getItemById(ITEM_DROP_60))
+            u.addItemById(ITEM_183)
+
+        // Lancelot Armor
+        else if u.hasItemById(ITEM_105) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_231) and u.hasItemById(ITEM_DROP_60)
+            RemoveItem(u.getItemById(ITEM_105))
+            RemoveItem(u.getItemById(ITEM_199))
+            RemoveItem(u.getItemById(ITEM_231))
+            RemoveItem(u.getItemById(ITEM_DROP_60))
+            u.addItemById(ITEM_183)
+
+        // Lancelot Helm
+        else if u.hasItemById(ITEM_106) and u.hasItemById(ITEM_214) and u.hasItemById(ITEM_174)
+            RemoveItem(u.getItemById(ITEM_106))
+            RemoveItem(u.getItemById(ITEM_214))
+            RemoveItem(u.getItemById(ITEM_174))
+            u.addItemById(ITEM_184)
+
+        // Mystery Blue Staff
+        else if u.hasItemById(ITEM_107) and u.hasItemById(ITEM_235) and u.hasItemById(ITEM_DROP_28)
+            RemoveItem(u.getItemById(ITEM_107))
+            RemoveItem(u.getItemById(ITEM_235))
+            RemoveItem(u.getItemById(ITEM_DROP_28))
+            u.addItemById(ITEM_236)
+
+        // Freeze Wand
+        else if u.hasItemById(ITEM_108) and u.hasItemById(ITEM_237) and u.hasItemById(ITEM_190) and u.hasItemById(ITEM_38)
+            RemoveItem(u.getItemById(ITEM_108))
+            RemoveItem(u.getItemById(ITEM_237))
+            RemoveItem(u.getItemById(ITEM_190))
+            RemoveItem(u.getItemById(ITEM_38))
+            u.addItemById(ITEM_238)
+
+        // Dragon Wings
+        else if u.hasItemById(ITEM_126) and u.hasItemById(ITEM_DROP_90) and u.hasItemById(ITEM_DROP_91) and u.hasItemById(ITEM_DROP_92) and u.hasItemById(ITEM_DROP_93)
+            RemoveItem(u.getItemById(ITEM_126))
+            RemoveItem(u.getItemById(ITEM_DROP_90))
+            RemoveItem(u.getItemById(ITEM_DROP_91))
+            RemoveItem(u.getItemById(ITEM_DROP_92))
+            RemoveItem(u.getItemById(ITEM_DROP_93))
+            u.addItemById(ITEM_245)
+        
+        // CHAOS
+        else if u.hasItemById(ITEM_DROP_155) and u.hasItemById(ITEM_DROP_156) and u.hasItemById(ITEM_DROP_157) and u.hasItemById(ITEM_DROP_158) and u.hasItemById(ITEM_DROP_159) and u.hasItemById(ITEM_DROP_160)
+            RemoveItem(u.getItemById(ITEM_DROP_155))
+            RemoveItem(u.getItemById(ITEM_DROP_156))
+            RemoveItem(u.getItemById(ITEM_DROP_157))
+            RemoveItem(u.getItemById(ITEM_DROP_158))
+            RemoveItem(u.getItemById(ITEM_DROP_159))
+            RemoveItem(u.getItemById(ITEM_DROP_160))
+            u.addItemById(ITEM_DROP_161)
+
+        // // 
+        // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     u.addItemById(ITEM_1)
+
+        // // 
+        // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     u.addItemById(ITEM_1)
+
+        // // 
+        // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     RemoveItem(u.getItemById(ITEM_1))
+        //     u.addItemById(ITEM_1)

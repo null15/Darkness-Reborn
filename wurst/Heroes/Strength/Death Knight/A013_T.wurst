@@ -1,0 +1,16 @@
+package A013_T
+import ClosureEvents
+import ClosureTimers
+import A00L_Q
+import MyAbilityIds
+import MyBuffIds
+init
+    soulsKing()
+function soulsKing()
+    EventListener.onCast(ABILITY_8) (unit caster) ->
+        let boost = souls * 10
+        caster.addStr(boost)
+        doPeriodically(1) (CallbackPeriodic cb) ->
+            if not UnitHasBuffBJ(caster, BUFF_4)
+                caster.setStr(caster.getStr(false)-boost)
+                destroy cb

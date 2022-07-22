@@ -1,0 +1,34 @@
+package A0DH_W
+import ClosureEvents
+import MyItemIds
+init
+    radiantRing()
+function radiantRing()
+    EventListener.onCast('A0DH') (unit caster) ->
+        let color = GetPlayerColor(GetOwningPlayer(GetTriggerUnit())).toColor().toColorString()
+        let gold = COLOR_GOLD.toColorString()
+        let white = COLOR_WHITE.toColorString()
+        let lvl = GetUnitAbilityLevel(caster, 'A0DH')
+        let text = color+"Jacksmith created the basic item "+white+GetItemName(GetLastCreatedItem())
+        let text2 = color+"Jacksmith has been blessed, and created the legendary item "+gold+GetItemName(GetLastCreatedItem())
+        
+        if lvl <= 3
+            if GetRandomInt(1, 100) <= 95
+                printTimed(text+caster.addItemById(ITEM_DROP[GetRandomInt(1,15)]).getName(), 3)
+            else 
+                printTimed(text2+caster.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 10)
+
+        else if lvl <= 6
+            if GetRandomInt(1, 100) <= 93
+                printTimed(text+caster.addItemById(ITEM_DROP[GetRandomInt(10,30)]).getName(), 3)
+            else 
+                printTimed(text2+caster.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 10)
+
+        else if lvl <= 9
+            if GetRandomInt(1, 100) <= 90
+                printTimed(text+caster.addItemById(ITEM_DROP[GetRandomInt(20,50)]).getName(), 3)
+            else 
+                if GetRandomInt(1, 100) <= 90
+                    printTimed(text2+caster.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 10)
+                else
+                    printTimed(text2+caster.addItemById(ITEM_DROP[GetRandomInt(130,140)]).getName(), 10)

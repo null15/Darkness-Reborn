@@ -1,0 +1,7 @@
+package A088_E
+init
+public function curseOfDarkness(unit target)
+    print(GetUnitName(target))
+    let lvl = target.getAbilityLevel('A088')
+    if GetRandomInt(1, 100) < lvl*3
+        target.addHP(I2R(25*lvl))

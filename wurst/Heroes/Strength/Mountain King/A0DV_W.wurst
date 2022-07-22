@@ -1,0 +1,18 @@
+package A0DV_W
+import ClosureForGroups
+import ClosureEvents
+import ClosureTimers
+int i = 0
+init
+    thunderClap()
+function thunderClap()
+    EventListener.onCast('A0DV') (unit caster) ->
+        forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
+            let lvl = caster.getAbilityLevel('A0DV')
+            let dmg = ((caster.getStr(true)*0.5)+(150*lvl))
+            doPeriodically(0.03) (CallbackPeriodic cb) ->
+                if caster.isEnemyOf(u) and UnitHasBuffBJ(u, 'BHtc')
+                    i = i + 1
+                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    print("ran count: " + I2S(i))
+                    destroy cb

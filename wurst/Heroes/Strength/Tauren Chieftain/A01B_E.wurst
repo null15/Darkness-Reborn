@@ -1,0 +1,28 @@
+package A01B_E
+import ClosureTimers
+import Objects
+import TerrainUtils
+init
+public function pulverize(unit caster, unit target)
+    let lvl = caster.getAbilityLevel('A01B')
+    let dmg = ((0.5*caster.getStr(true)) * lvl)
+    if GetRandomInt(1, 100) < 20+1*lvl
+        var distance = 0.0
+        let targetPos = target.getPos()
+        let casterPos = caster.getPos()
+        let angle = casterPos.angleTo(targetPos)
+        let sfx = addEffect(Objects.impaleTargetDust, targetPos)
+        let pathable = addEffect(".mdl", targetPos)
+        doPeriodicallyTimed(0.03, 0.5) (CallbackCounted cb) ->
+            if pathable.getPos().isTerrainWalkable()
+                distance = distance + 15
+                pathable.setPos(targetPos.polarOffset(angle, distance))
+                if pathable.getPos().isTerrainWalkable()
+                    target.setPos(targetPos.polarOffset(angle, distance))
+                    sfx.setPos(targetPos.polarOffset(angle, distance))
+    if lvl < 9
+        if GetRandomInt(1, 100) < lvl*3+17
+            caster.damageTarget(target, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    else
+        if GetRandomInt(1, 100) < 50
+            caster.damageTarget(target, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

@@ -1,0 +1,34 @@
+package A0CI_W
+import ClosureEvents
+import ClosureForGroups
+import ClosureTimers
+import MyBuffIds
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+init
+    blessedHammer()
+function blessedHammer()
+    EventListener.onPointCast('A0CI') (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel('A0CI')
+        let str = caster.getStr(true)
+        let sfx = addEffect("BladeBeamFinal.mdl", caster.getPos())
+        let sfx2 = addEffect("DustWindFaster3.mdl", caster.getPos())
+        let angle = sfx.getPos().angleTo(target)
+        let dmg = str*lvl
+        let i = GetOwningPlayer(caster).getId()
+        sfx.setYaw(angle.radians())
+        sfx2.setYaw(angle.radians())
+        sfx.setScale(1.5)
+        sfx.setColor(PLAYER_COLORS[i])
+        doPeriodicallyTimed(0.03, 1) (CallbackCounted cb) ->
+            sfx.setPos(sfx.getPos().polarOffset(angle, 45))
+            forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
+                if caster.isEnemyOf(u) and not UnitHasBuffBJ(u, BUFF_6)
+                    caster.damageTarget(u, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    new DummyCaster()
+                    ..owner(GetOwningPlayer(caster))
+                    ..castTarget(ABILITY_DUMMY_6, 1, OrderIds.cripple, u)
+                    ..origin(caster.getPos())
+            if cb.isLast()
+                sfx.destr()

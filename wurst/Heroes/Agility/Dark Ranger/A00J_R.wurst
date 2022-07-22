@@ -1,0 +1,19 @@
+package A00J_R
+
+init
+
+    burstMana()
+
+function burstManaCond() returns boolean
+    return GetSpellAbilityId() == 'A00J'
+
+function burstMana()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function burstManaCond))..addAction() ->
+        let caster = GetTriggerUnit()
+        let lvl = GetUnitAbilityLevel(caster, 'A00J')
+        let hp = caster.getHP()
+        let calc = 1-(0.04*lvl)
+        let newHp = calc*hp
+        let newMp = (newHp * (lvl * 0.01))
+        caster.setHP(newHp)
+        caster.addMana(newMp)

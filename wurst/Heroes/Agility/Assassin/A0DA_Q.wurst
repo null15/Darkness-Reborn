@@ -1,0 +1,29 @@
+package A0DA_Q
+import ClosureTimers
+import ClosureForGroups
+init
+
+    shadowWalk()
+
+function shadowWalkCond() returns boolean
+    return GetSpellAbilityId() == 'A0DA'
+
+function shadowWalk()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function shadowWalkCond))..addAction() ->
+        let caster = GetTriggerUnit()
+        let angle = caster.getFacingAngle()
+        let lvl = GetUnitAbilityLevel(caster, 'A0DA')
+        let dmg = ((lvl*0.22) * caster.getAgi(true))
+        caster.setVertexColor(color(100, 100, 100))
+
+        caster.setAnimation("ready")
+        caster.pause()
+
+        doPeriodicallyTimed(0.03, 1) (CallbackCounted cb) ->
+            caster.setPos(caster.getPos().polarOffset(angle,20))
+            forUnitsInRange(caster.getPos(), 175, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            if cb.isLast()
+                caster.setVertexColor(color(255, 255, 255))
+                caster.unpause()

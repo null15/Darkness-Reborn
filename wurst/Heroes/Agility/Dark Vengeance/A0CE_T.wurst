@@ -1,0 +1,18 @@
+package A0CE_T
+import DamageEvent
+init
+
+    blackHoleCast()
+
+function blackHoleCond() returns boolean
+    return GetSpellAbilityId() == 'A0CE'
+
+function blackHoleCast()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function blackHoleCond))..addAction() ->
+        if UnitHasBuffBJ(GetTriggerUnit(), 'B00L')
+            UnitRemoveBuffBJ('B00L', GetTriggerUnit())
+
+public function blackHole(unit caster, unit target)
+    let missingHp = target.getMissingHP()
+    UnitRemoveBuffBJ('B00J', caster)
+    DamageEvent.setAmount(missingHp)

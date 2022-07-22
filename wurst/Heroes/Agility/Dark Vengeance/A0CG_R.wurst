@@ -1,0 +1,7 @@
+package A0CG_R
+import DamageEvent
+init
+
+public function gravitone(unit caster)
+    let missingHp = caster.getMissingHP()
+    DamageEvent.setAmount(missingHp+175)

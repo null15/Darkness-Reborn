@@ -1,0 +1,16 @@
+package A0GJ_T
+import Abilities
+import ClosureTimers
+bool once = true
+init
+
+public function lastKiller(unit caster, unit target)
+    if once == true
+        once = false
+        let lvl = ((GetUnitAbilityLevel(caster, 'A0GJ'))*5)+37
+        let dmg = caster.getAgi(true)*lvl
+        flashEffect(Abilities.meatwagonMissile, target.getPos()) 
+        caster.damageTarget(target, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+        UnitRemoveBuffBJ('B00W', caster)
+        doAfter(3) -> 
+            once = true

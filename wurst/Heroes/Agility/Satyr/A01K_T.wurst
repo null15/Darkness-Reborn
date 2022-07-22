@@ -1,0 +1,15 @@
+package A01K_T
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+init
+    biteofDeath()
+function biteofDeathCond() returns boolean
+    return GetSpellAbilityId() == 'A01K'
+function biteofDeath()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function biteofDeathCond))..addAction() ->
+        let lvl = GetTriggerUnit().getAbilityLevel('A01K')
+        new DummyCaster()
+        ..owner(GetOwningPlayer(GetTriggerUnit()))
+        ..origin(GetTriggerUnit().getPos())
+        ..castTarget(ABILITY_0, lvl, OrderIds.faeriefire, GetSpellTargetUnit())

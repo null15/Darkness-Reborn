@@ -1,0 +1,21 @@
+package A0CH_E
+import ClosureForGroups
+import ClosureTimers
+import Abilities
+init
+
+    darkArrow()
+
+function darkArrowCond() returns boolean
+    return GetSpellAbilityId() == 'A0CH'
+
+function darkArrow()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function darkArrowCond))..addAction() ->
+        let target = EventData.getSpellTargetPos()
+        let caster = GetTriggerUnit()
+        let lvl = GetUnitAbilityLevel(caster, 'A0CH')
+        doAfter(0.5) -> 
+            forUnitsInRange(target, 400, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    caster.damageTarget(u, I2R((caster.getAgi(true))*lvl*2), false, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    flashEffect(Abilities.manaBurnTarget, target)

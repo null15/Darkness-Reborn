@@ -1,0 +1,401 @@
+package A0DE_E
+
+import ClosureEvents
+import MyItemIds
+
+init
+    forgeSmart()
+function forgeSmart()
+    EventListener.onCast('A0DE') (unit caster) ->
+        let color = GetPlayerColor(GetOwningPlayer(GetTriggerUnit())).toColor().toColorString()
+        let gold = COLOR_GOLD.toColorString()
+        let text = color+"Jacksmith successfully combined his items, and obtained "+gold
+        let textFail = gold+"You failed to combine your items, items was refunded, or you got: "
+
+        if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[2])
+            if GetRandomInt(1, 100) <= 90
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[2])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[3]).getName(), 10)
+                
+            else
+                printTimedToPlayer(textFail, 5, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[3])
+            if GetRandomInt(1, 100) <= 80
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[3])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[4]).getName(), 10)
+                
+            else
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[2]).getName(), 10, GetOwningPlayer(caster))
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[3])
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[4])
+            if GetRandomInt(1, 100) <= 70
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[4])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[5]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[4])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[3]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[5])
+            if GetRandomInt(1, 100) <= 60
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[5])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[6]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[5])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[4]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[6])
+            if GetRandomInt(1, 100) <= 50
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[6])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[7]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[6])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[5]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[8])
+            if GetRandomInt(1, 100) <= 95
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[8])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[9]).getName(), 10, GetOwningPlayer(caster))
+                
+            else
+                printTimedToPlayer(textFail, 5, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[9])
+            if GetRandomInt(1, 100) <= 90
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[9])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[10]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[9])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[8]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[10])
+            if GetRandomInt(1, 100) <= 80
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[10])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[11]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[10])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[9]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[11])
+            if GetRandomInt(1, 100) <= 70
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[11])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[12]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[11])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[10]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[12])
+            if GetRandomInt(1, 100) <= 60
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[12])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[13]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[12])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[11]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[14])
+            if GetRandomInt(1, 100) <= 95
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[14])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[15]).getName(), 10)
+                
+            else
+                printTimedToPlayer(textFail, 5, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[15])
+            if GetRandomInt(1, 100) <= 90
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[15])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[16]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[15])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[14]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[16])
+            if GetRandomInt(1, 100) <= 80
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[16])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[17]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[16])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[15]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[17])
+            if GetRandomInt(1, 100) <= 70
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[17])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[18]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[17])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[16]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[18])
+            if GetRandomInt(1, 100) <= 60
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[18])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[19]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[18])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[15]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[20])
+            if GetRandomInt(1, 100) <= 90
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[20])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[21]).getName(), 10, GetOwningPlayer(caster))
+                
+            else
+                printTimedToPlayer(textFail, 5, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[21])
+            if GetRandomInt(1, 100) <= 90
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[21])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[22]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[21])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[20]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[22])
+            if GetRandomInt(1, 100) <= 85
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[22])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[23]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[22])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[21]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[23])
+            if GetRandomInt(1, 100) <= 80
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[23])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[24]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[23])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[22]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[24])
+            if GetRandomInt(1, 100) <= 70
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[24])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[25]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[24])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[23]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[26])
+            if GetRandomInt(1, 100) <= 90
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[26])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[27]).getName(), 10)
+                
+            else
+                printTimedToPlayer(textFail, 5, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[27])
+            if GetRandomInt(1, 100) <= 90
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[27])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[28]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[27])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[26]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[28])
+            if GetRandomInt(1, 100) <= 85
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[28])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[29]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[28])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[27]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[29])
+            if GetRandomInt(1, 100) <= 80
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[29])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[30]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[29])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[28]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[30])
+            if GetRandomInt(1, 100) <= 70
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[30])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[31]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[30])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[29]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[32])
+            if GetRandomInt(1, 100) <= 90
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[32])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[33]).getName(), 10, GetOwningPlayer(caster))
+                
+            else
+                printTimedToPlayer(textFail, 5, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[33])
+            if GetRandomInt(1, 100) <= 90
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[33])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[34]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[33])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[32]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[34])
+            if GetRandomInt(1, 100) <= 85
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[34])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[35]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[34])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[33]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[35])
+            if GetRandomInt(1, 100) <= 80
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[35])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[36]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[35])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[34]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[36])
+            if GetRandomInt(1, 100) <= 70
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[36])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[37]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[36])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[35]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[39])
+            if GetRandomInt(1, 100) <= 90
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[39])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[40]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[39])
+                printTimedToPlayer(textFail, 5, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[40])
+            if GetRandomInt(1, 100) <= 85
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[40])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[41]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[40])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[39]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[41])
+            if GetRandomInt(1, 100) <= 80
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[41])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[42]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[41])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[40]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[42])
+            if GetRandomInt(1, 100) <= 70
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[42])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[43]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[42])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[41]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[43])
+            if GetRandomInt(1, 100) <= 60
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[43])
+                printTimed(text+caster.addItemById(ITEM_UPGRADE[44]).getName(), 10)
+                
+            else
+                caster.removeItemById(ITEM_UPGRADE[1])
+                caster.removeItemById(ITEM_UPGRADE[43])
+                printTimedToPlayer(textFail+caster.addItemById(ITEM_UPGRADE[42]).getName(), 10, GetOwningPlayer(caster))
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(ITEM_UPGRADE[45]) and caster.hasItemById(ITEM_UPGRADE[46])
+            caster.removeItemById(ITEM_UPGRADE[1])
+            caster.removeItemById(ITEM_UPGRADE[45])
+            caster.removeItemById(ITEM_UPGRADE[46])
+            printTimed(text+caster.addItemById(ITEM_UPGRADE[49]).getName(), 10)
+            
+
+        else if caster.hasItemById(ITEM_UPGRADE[1]) and caster.hasItemById(FINAL_BOSS_ITEM_15) and caster.hasItemById(ITEM_UPGRADE[47]) and caster.hasItemById(ITEM_UPGRADE[48])
+            caster.removeItemById(ITEM_UPGRADE[1])
+            caster.removeItemById(FINAL_BOSS_ITEM_15)
+            caster.removeItemById(ITEM_UPGRADE[47])
+            caster.removeItemById(ITEM_UPGRADE[48])
+            printTimed(text+caster.addItemById(ITEM_UPGRADE[50]).getName(), 10)
+            

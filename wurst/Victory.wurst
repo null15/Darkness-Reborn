@@ -1,0 +1,17 @@
+package Victory
+
+init
+
+function finalBossDamaged(unit u)
+    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DAMAGED)..addAction() ->
+        let final = GetTriggerUnit()
+        if GetUnitLifePercent(final) <= 98
+            IssueImmediateOrder(GetTriggerUnit(),"thunderclap")
+            IssueImmediateOrder(GetTriggerUnit(),"berserk")
+        else
+            IssueImmediateOrder(GetTriggerUnit(),"stomp")
+
+public function onVictorySetup(unit u)
+    finalBossDamaged(u)
+    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+        print("you won, gz")

@@ -1,0 +1,29 @@
+package MyAbilityIds
+
+import ObjectIdGenerator
+
+public constant ABILITY_DUMMY_0 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_DUMMY_1 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_DUMMY_2 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_DUMMY_3 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_DUMMY_4 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_DUMMY_5 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_DUMMY_6 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_DUMMY_7 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_DUMMY_8 = compiletime(ABIL_ID_GEN.next())
+
+public constant ABILITY_0 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_1 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_2 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_3 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_4 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_5 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_6 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_7 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_8 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_9 = compiletime(ABIL_ID_GEN.next())
+// public constant ABILITY_10 = compiletime(ABIL_ID_GEN.next())
+// public constant ABILITY_11 = compiletime(ABIL_ID_GEN.next())
+// public constant ABILITY_12 = compiletime(ABIL_ID_GEN.next())
+
+init

@@ -1,0 +1,19 @@
+package A0F0_W
+
+import MyAbilityIds
+import DamageEvent
+
+init
+
+
+
+public function phantomArrow(unit u)
+    
+    let hp = u.getMaxHP()
+    let lvl = u.getAbilityLevel(ABILITY_3)
+    let dmg = (lvl*0.03)*hp
+
+    //u.damageTarget(target, dmg, false, true, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+
+    DamageEvent.setAmount(dmg+u.getBaseDamage(1))
+    

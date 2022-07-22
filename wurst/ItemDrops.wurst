@@ -1,0 +1,449 @@
+package ItemDrops
+import MyUnitIds
+import MyItemIds
+import Global_Variables
+init
+
+public function dropMyItemsCreeps(unit u)
+    if GetRandomInt(1, 100) < 20
+        if GetUnitTypeId(u) == LEFT_CREEP[1]
+            createItem(ITEM_DROP[GetRandomInt(1,3)], creepLoc[1].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[2]
+            createItem(ITEM_DROP[GetRandomInt(4,6)], creepLoc[2].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[3]
+            createItem(ITEM_DROP[GetRandomInt(1,9)], creepLoc[3].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[4]
+            createItem(ITEM_DROP[GetRandomInt(7,9)], creepLoc[4].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[5]
+            createItem(ITEM_DROP[GetRandomInt(10,12)], creepLoc[5].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[6]
+            createItem(ITEM_DROP[GetRandomInt(13,15)], creepLoc[6].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[7]
+            createItem(ITEM_DROP[GetRandomInt(16,18)], creepLoc[7].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[8]
+            createItem(ITEM_DROP[GetRandomInt(19,21)], creepLoc[8].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[9]
+            createItem(ITEM_DROP[GetRandomInt(22,23)], creepLoc[9].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[10]
+            createItem(ITEM_DROP[GetRandomInt(24,25)], creepLoc[10].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[11]
+            createItem(ITEM_DROP[GetRandomInt(26,27)], creepLoc[11].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[12]
+            createItem(ITEM_DROP[GetRandomInt(28,29)], creepLoc[12].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[13]
+            createItem(ITEM_DROP[GetRandomInt(30,31)], creepLoc[13].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[14]
+            createItem(ITEM_DROP[GetRandomInt(32,33)], creepLoc[14].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[15]
+            createItem(ITEM_DROP[GetRandomInt(34,35)], creepLoc[15].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[16]
+            createItem(ITEM_DROP[GetRandomInt(36,37)], creepLoc[16].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[17]
+            createItem(ITEM_DROP[GetRandomInt(38,39)], creepLoc[17].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[18]
+            createItem(ITEM_DROP[GetRandomInt(40,41)], creepLoc[18].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[19]
+            createItem(ITEM_DROP[GetRandomInt(42,43)], creepLoc[19].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[20]
+            createItem(ITEM_DROP[GetRandomInt(44,45)], creepLoc[20].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[21]
+            createItem(ITEM_DROP[GetRandomInt(46,47)], creepLoc[21].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[22]
+            createItem(ITEM_DROP[GetRandomInt(48,49)], creepLoc[22].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[23]
+            createItem(ITEM_DROP[GetRandomInt(50,51)], creepLoc[23].getCenter())
+
+        else if GetUnitTypeId(u) == LEFT_CREEP[24]
+            createItem(ITEM_DROP[GetRandomInt(52,53)], creepLoc[24].getCenter())
+    
+public function dropMyItemsEliteCreeps(unit u)
+
+    if GetUnitTypeId(u) == ELITE_CREEP[1]// nerub queen
+        if GetRandomInt(1, 100) < 25
+            createItem(ITEM_DROP[GetRandomInt(54,56)], eliteLoc[1].getCenter())
+            
+
+    else if GetUnitTypeId(u) == ELITE_CREEP[2] // hydralisk
+        if GetRandomInt(1, 100) < 25
+            createItem(ITEM_DROP[GetRandomInt(54,59)], eliteLoc[2].getCenter())
+            
+        else if GetRandomInt(1, 100) < 10
+            createItem(ITEM_DROP[69], eliteLoc[2].getCenter())
+            
+
+    else if GetUnitTypeId(u) == ELITE_CREEP[3] // furbolg ursa warrior
+        if GetRandomInt(1, 100) < 25
+            createItem(ITEM_DROP[GetRandomInt(60,63)], eliteLoc[3].getCenter())
+            createItem(ITEM_DROP[GetRandomInt(57,59)], eliteLoc[3].getCenter())
+            createItem(ITEM_DROP[53], eliteLoc[3].getCenter())
+            
+
+    else if GetUnitTypeId(u) == ELITE_CREEP[4] // flesh golem
+        if GetRandomInt(1, 100) < 25
+            createItem(ITEM_DROP[GetRandomInt(60,63)], eliteLoc[4].getCenter())
+            createItem(ITEM_DROP[GetRandomInt(54,59)], eliteLoc[4].getCenter())
+            createItem(ITEM_DROP[53], eliteLoc[4].getCenter())
+            
+
+    else if GetUnitTypeId(u) == ELITE_CREEP[5] // doom guard
+        if GetRandomInt(1, 100) < 25
+            createItem(ITEM_DROP[GetRandomInt(66,68)], eliteLoc[5].getCenter())
+            createItem(ITEM_DROP[GetRandomInt(60,63)], eliteLoc[5].getCenter())
+            createItem(ITEM_DROP[53], eliteLoc[5].getCenter())
+            
+
+    else if GetUnitTypeId(u) == ELITE_CREEP[6] // footman
+        DoNothing()
+
+    else if GetUnitTypeId(u) == ELITE_CREEP[7] // captain
+        DoNothing()
+
+    else if GetUnitTypeId(u) == ELITE_CREEP[8] // scary scream
+        createItem(ITEM_DROP[53], eliteLoc[8].getCenter())
+        createItem(ITEM_DROP[53], eliteLoc[8].getCenter())
+        createItem(ITEM_DROP[53], eliteLoc[8].getCenter())
+        createItem(ITEM_DROP_86, eliteLoc[8].getCenter())
+        
+
+    else if GetUnitTypeId(u) == ELITE_CREEP[9] // snapdragon
+        createItem(ITEM_DROP[53], eliteLoc[9].getCenter())
+        createItem(ITEM_DROP[53], eliteLoc[9].getCenter())
+        createItem(ITEM_285, eliteLoc[9].getCenter())
+        createItem(ITEM_DROP_89, eliteLoc[9].getCenter())
+        
+
+    else if GetUnitTypeId(u) == ELITE_CREEP[10] // ice revenant
+        createItem(ITEM_DROP[GetRandomInt(84,86)], eliteLoc[10].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(74,76)], eliteLoc[10].getCenter())
+        
+
+public function dropMyItemsBosses(unit u)
+
+    if GetUnitTypeId(u) == BOSS_CREEP[1] // Dragon 1
+        createItem(ITEM_DROP[GetRandomInt(91,92)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(91,92)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(70,80)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(70,80)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(70,80)], bossLoc[1].getCenter())
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[2] // Dragon 2
+        createItem(ITEM_DROP[GetRandomInt(92,93)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(70,80)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(70,80)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(70,80)], bossLoc[1].getCenter())
+        
+    else if GetUnitTypeId(u) == BOSS_CREEP[3] // Dragon 3
+        createItem(ITEM_DROP[GetRandomInt(91,92)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(93,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(74,80)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(74,80)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(74,81)], bossLoc[1].getCenter())
+        
+    else if GetUnitTypeId(u) == BOSS_CREEP[4] // Dragon 4
+        createItem(ITEM_DROP[GetRandomInt(93,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(93,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(74,81)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(74,81)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(74,81)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,81)], bossLoc[1].getCenter())
+        
+    else if GetUnitTypeId(u) == BOSS_CREEP[5] // Dragon 5
+        createItem(ITEM_DROP[GetRandomInt(93,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(93,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,81)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,81)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,81)], bossLoc[1].getCenter())
+        
+    else if GetUnitTypeId(u) == BOSS_CREEP[6] // Dragon 6
+        createItem(ITEM_DROP[GetRandomInt(91,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(91,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,82)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,82)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,82)], bossLoc[1].getCenter())
+        
+    else if GetUnitTypeId(u) == BOSS_CREEP[7] // Dragon 7
+        createItem(ITEM_DROP[GetRandomInt(91,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(91,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,83)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,83)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,83)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(84,85)], bossLoc[1].getCenter())
+        
+    else if GetUnitTypeId(u) == BOSS_CREEP[8] // Dragon 8
+        createItem(ITEM_DROP[GetRandomInt(91,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(91,94)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,83)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,83)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,83)], bossLoc[1].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,83)], bossLoc[1].getCenter())
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[9] // Sea 1
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[140],bossLoc[2].getCenter())
+        createItem(ITEM_117,bossLoc[2].getCenter())
+    else if GetUnitTypeId(u) == BOSS_CREEP[10] // Sea 2
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[85],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[140],bossLoc[2].getCenter())
+    else if GetUnitTypeId(u) == BOSS_CREEP[11] // Sea 3
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[86],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[140],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[140],bossLoc[2].getCenter())
+    else if GetUnitTypeId(u) == BOSS_CREEP[12] // Sea 4
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[83],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[140],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[140],bossLoc[2].getCenter())
+        createItem(ITEM_DROP[141],bossLoc[2].getCenter())
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[13] // Dreadlord
+        createItem(ITEM_DROP[87], bossLoc[4].getCenter())
+        createItem(ITEM_DROP[88], bossLoc[4].getCenter())
+        createItem(ITEM_DROP[53], bossLoc[4].getCenter())
+        createItem(ITEM_DROP[53], bossLoc[4].getCenter())
+        createItem(ITEM_DROP[53], bossLoc[4].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,83)], bossLoc[4].getCenter())
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[14] // Vampire
+        createItem(ITEM_110, bossLoc[4].getCenter())
+        createItem(ITEM_DROP[89], bossLoc[4].getCenter())
+        createItem(ITEM_DROP[53], bossLoc[4].getCenter())
+        createItem(ITEM_DROP[53], bossLoc[4].getCenter())
+        createItem(ITEM_DROP[53], bossLoc[4].getCenter())
+        createItem(ITEM_DROP[GetRandomInt(78,83)], bossLoc[4].getCenter())
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[15] // Tower 1
+        CreateItemLoc(ITEM_DROP_142,GetUnitLoc(GetDyingUnit()))
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[16] // Tower 2
+        CreateItemLoc(ITEM_DROP_143,GetUnitLoc(GetDyingUnit()))
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[17] // Tower 3
+        CreateItemLoc(ITEM_DROP_144,GetUnitLoc(GetDyingUnit()))
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[18] // Tower 4
+        CreateItemLoc(ITEM_DROP_148,GetUnitLoc(GetDyingUnit()))
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[19] // Tower 5
+        CreateItemLoc(ITEM_DROP_149,GetUnitLoc(GetDyingUnit()))    
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[20] // Tower 6
+        CreateItemLoc(ITEM_DROP_150,GetUnitLoc(GetDyingUnit()))
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[21] // Tower 7
+        CreateItemLoc(ITEM_DROP_151,GetUnitLoc(GetDyingUnit()))
+
+    else if GetUnitTypeId(u) == BOSS_CREEP[22] // Tower 8
+        CreateItemLoc(ITEM_DROP_152,GetUnitLoc(GetTriggerUnit()))
+
+public function dropMyItemsMinibosses(unit u)
+    for i = 1 to 5
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(1,10)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(1,10)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 6 to 10
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(1,10)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(1,10)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 11 to 15
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(1,15)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(1,10)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 16 to 20
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(5,15)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(1,10)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 21 to 25
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(10,20)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(5,15)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 26 to 30
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,25)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,25)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,25)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,35)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(35,40)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 31 to 35
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(10,20)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(5,15)],GetUnitLoc(GetDyingUnit()))
+    for i = 36 to 40
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(10,20)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(5,15)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 41 to 45
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(15,25)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(5,15)],GetUnitLoc(GetDyingUnit()))
+    for i = 46 to 50
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(15,25)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(10,20)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 51 to 55
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,30)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(10,20)],GetUnitLoc(GetDyingUnit()))
+    for i = 56 to 58
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,50)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,50)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,50)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,50)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 59 to 62
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,30)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(10,20)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 63 to 67
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,30)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(10,20)],GetUnitLoc(GetDyingUnit()))
+    for i = 68 to 72
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(25,35)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,30)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 73 to 77
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(25,35)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,30)],GetUnitLoc(GetDyingUnit()))
+    for i = 78 to 82
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,40)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,30)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 83 to 84
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(51,62)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(51,59)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,52)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,52)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(40,52)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    for i = 85 to 85
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,40)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,30)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(51,53)],GetUnitLoc(GetDyingUnit()))
+    for i = 86 to 90
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,40)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,30)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(51,53)],GetUnitLoc(GetDyingUnit()))
+    for i = 86 to 90
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,40)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(20,30)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(51,53)],GetUnitLoc(GetDyingUnit()))
+    for i = 91 to 95
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(35,45)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,40)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(51,53)],GetUnitLoc(GetDyingUnit()))
+    for i = 96 to 100
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(35,45)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,40)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(51,53)],GetUnitLoc(GetDyingUnit()))
+    for i = 101 to 105
+        if GetUnitTypeId(u) == WAVE_BOSS[i]
+            CreateItemLoc(ITEM_DROP[GetRandomInt(40,50)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(30,40)],GetUnitLoc(GetDyingUnit()))
+            CreateItemLoc(ITEM_DROP[GetRandomInt(51,53)],GetUnitLoc(GetDyingUnit()))
+
+    if GetUnitTypeId(u) == WAVE_HERO_0
+        CreateItemLoc(ITEM_DROP[GetRandomInt(62,64)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(62,64)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(54,56)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(50,53)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(50,54)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    else if GetUnitTypeId(u) == WAVE_HERO_1
+        CreateItemLoc(ITEM_DROP[GetRandomInt(63,64)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(62,65)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(54,56)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(54,59)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(57,59)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    else if GetUnitTypeId(u) == WAVE_HERO_2
+        CreateItemLoc(ITEM_DROP[GetRandomInt(63,65)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(64,65)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(59,62)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(61,63)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    else if GetUnitTypeId(u) == WAVE_HERO_3
+        CreateItemLoc(ITEM_DROP[GetRandomInt(64,65)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(60,62)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(61,63)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(66,68)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[65],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    else if GetUnitTypeId(u) == WAVE_HERO_4
+        CreateItemLoc(ITEM_DROP[GetRandomInt(60,63)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[62],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[63],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[64],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[65],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(66,68)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[GetRandomInt(66,68)],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
+    else if GetUnitTypeId(u) == WAVE_HERO_21
+        CreateItemLoc(ITEM_DROP_153,GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP_154,GetUnitLoc(GetDyingUnit()))
+    else if GetUnitTypeId(u) == WAVE_HERO_26
+        CreateItemLoc(ITEM_DROP_85,GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP_137,GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_285,GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP_86,GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP_89,GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP_119,GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_111,GetUnitLoc(GetDyingUnit()))

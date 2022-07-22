@@ -1,0 +1,53 @@
+package Global_Variables
+public rect array creepLoc = []
+public rect array eliteLoc = []
+public rect array bossLoc = []
+
+public constant DAMAGE_EVENT_PRIO_START     = 0 // Abort damage at this priority
+public constant DAMAGE_EVENT_PRIO_RELATIVE  = 1 // Apply relative changes (multiplication and division)
+public constant DAMAGE_EVENT_PRIO_ABSOLUTE  = 2 // Apply absolute changes (addition and subtraction)
+public constant DAMAGE_EVENT_PRIO_SHIELD    = 4 // Apply reduction from "shield" effects
+public constant DAMAGE_EVENT_PRIO_FINAL     = 5 // Final damage (won't be changed at this stage)
+
+init
+
+    creepLoc[1] = gg_rct_LeftCreepSpawn1
+    creepLoc[2] = gg_rct_LeftCreepSpawn2
+    creepLoc[3] = gg_rct_LeftCreepSpawn3
+    creepLoc[4] = gg_rct_LeftCreepSpawn4
+    creepLoc[5] = gg_rct_LeftCreepSpawn5
+    creepLoc[6] = gg_rct_LeftCreepSpawn6
+    creepLoc[7] = gg_rct_LeftCreepSpawn7
+    creepLoc[8] = gg_rct_LeftCreepSpawn8
+    creepLoc[9] = gg_rct_LeftCreepSpawn9
+    creepLoc[10] = gg_rct_LeftCreepSpawn10
+    creepLoc[11] = gg_rct_LeftCreepSpawn11
+    creepLoc[12] = gg_rct_LeftCreepSpawn12
+    creepLoc[13] = gg_rct_LeftCreepSpawn13
+    creepLoc[14] = gg_rct_LeftCreepSpawn14
+    creepLoc[15] = gg_rct_LeftCreepSpawn15
+    creepLoc[16] = gg_rct_LeftCreepSpawn16
+    creepLoc[17] = gg_rct_LeftCreepSpawn17
+    creepLoc[18] = gg_rct_LeftCreepSpawn18
+    creepLoc[19] = gg_rct_LeftCreepSpawn19
+    creepLoc[20] = gg_rct_LeftCreepSpawn20
+    creepLoc[21] = gg_rct_LeftCreepSpawn21
+    creepLoc[22] = gg_rct_LeftCreepSpawn22
+    creepLoc[23] = gg_rct_LeftCreepSpawn23
+    creepLoc[24] = gg_rct_LeftCreepSpawn24
+
+    eliteLoc[1] = gg_rct_EliteSpawn1
+    eliteLoc[2] = gg_rct_EliteSpawn2
+    eliteLoc[3] = gg_rct_EliteSpawn3
+    eliteLoc[4] = gg_rct_EliteSpawn4
+    eliteLoc[5] = gg_rct_EliteSpawn5
+    eliteLoc[6] = gg_rct_EliteSpawn6
+    eliteLoc[7] = gg_rct_EliteSpawn7
+    eliteLoc[8] = gg_rct_EliteSpawn8
+    eliteLoc[9] = gg_rct_EliteSpawn9
+    eliteLoc[10] = gg_rct_EliteSpawn10
+
+    bossLoc[1] = gg_rct_DragonSpawn
+    bossLoc[2] = gg_rct_ElementalSpawn
+    bossLoc[3] = gg_rct_TowerSpawn
+    bossLoc[4] = gg_rct_DreadlordSpawn

@@ -1,0 +1,13 @@
+package A0AP_R
+init
+
+    longRange()
+
+function longRangeCond() returns boolean
+    return GetLearnedSkill() == 'A0AP'
+
+function longRange()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_HERO_SKILL)..addCondition(Condition(function longRangeCond))..addAction() ->
+        let u = GetTriggerUnit()
+        BlzSetUnitWeaponRealField(u, UNIT_WEAPON_RF_ATTACK_RANGE, 1, I2R(1275 - 700))
+        

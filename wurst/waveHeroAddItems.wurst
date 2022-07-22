@@ -1,0 +1,21 @@
+package waveHeroAddItems
+
+import MyUnitIds
+
+init
+
+
+public function boostWaveHero(unit u)
+
+    if GetUnitTypeId(u) == WAVE_HERO[1]
+        print("a")
+    else if GetUnitTypeId(u) == WAVE_HERO[2]
+        print("a")
+    else if GetUnitTypeId(u) == WAVE_HERO[3]
+        print("a")
+    else if GetUnitTypeId(u) == WAVE_HERO[4]
+        print("a")
+    else if GetUnitTypeId(u) == WAVE_HERO[5]
+        print("a")
+    else if GetUnitTypeId(u) == WAVE_HERO[6]
+        print("a")
