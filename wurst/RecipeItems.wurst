@@ -540,7 +540,7 @@ function recipeItemReplace()
             RemoveItem(u.getItemById(ITEM_DROP_158))
             RemoveItem(u.getItemById(ITEM_DROP_159))
             RemoveItem(u.getItemById(ITEM_DROP_160))
-            u.addItemById(ITEM_DROP_161)
+            u.addItemById(ITEM_262)
 
         // // 
         // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)

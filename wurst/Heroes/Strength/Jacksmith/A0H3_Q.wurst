@@ -63,9 +63,9 @@ function forge()
             RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_DROP_34))
             caster.addItemById(ITEM_JACKSMITH_13)
 
-        else if caster.hasItemById(ITEM_JACKSMITH_13) and caster.hasItemById(ITEM_JACKSMITH_14)
+        else if caster.hasItemById(ITEM_JACKSMITH_13) and caster.hasItemById(ITEM_201)
             RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_13))
-            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_JACKSMITH_14))
+            RemoveItem(GetItemOfTypeFromUnitBJ(caster, ITEM_201))
             caster.addItemById(ITEM_JACKSMITH_15)
 
         else if caster.hasItemById(ITEM_JACKSMITH_15) and caster.hasItemById(ITEM_213) and caster.hasItemById(ITEM_JACKSMITH_9)

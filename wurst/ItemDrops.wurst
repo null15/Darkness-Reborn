@@ -260,7 +260,7 @@ public function dropMyItemsBosses(unit u)
         CreateItemLoc(ITEM_DROP_150,GetUnitLoc(GetDyingUnit()))
 
     else if GetUnitTypeId(u) == BOSS_CREEP[21] // Tower 7
-        CreateItemLoc(ITEM_DROP_151,GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP_88,GetUnitLoc(GetDyingUnit()))
 
     else if GetUnitTypeId(u) == BOSS_CREEP[22] // Tower 8
         CreateItemLoc(ITEM_DROP_152,GetUnitLoc(GetTriggerUnit()))
@@ -438,12 +438,12 @@ public function dropMyItemsMinibosses(unit u)
         CreateItemLoc(ITEM_DROP[53],GetUnitLoc(GetDyingUnit()))
     else if GetUnitTypeId(u) == WAVE_HERO_21
         CreateItemLoc(ITEM_DROP_153,GetUnitLoc(GetDyingUnit()))
-        CreateItemLoc(ITEM_DROP_154,GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_DROP_84,GetUnitLoc(GetDyingUnit()))
     else if GetUnitTypeId(u) == WAVE_HERO_26
         CreateItemLoc(ITEM_DROP_85,GetUnitLoc(GetDyingUnit()))
         CreateItemLoc(ITEM_DROP_137,GetUnitLoc(GetDyingUnit()))
         CreateItemLoc(ITEM_285,GetUnitLoc(GetDyingUnit()))
         CreateItemLoc(ITEM_DROP_86,GetUnitLoc(GetDyingUnit()))
         CreateItemLoc(ITEM_DROP_89,GetUnitLoc(GetDyingUnit()))
-        CreateItemLoc(ITEM_DROP_119,GetUnitLoc(GetDyingUnit()))
+        CreateItemLoc(ITEM_176,GetUnitLoc(GetDyingUnit()))
         CreateItemLoc(ITEM_111,GetUnitLoc(GetDyingUnit()))

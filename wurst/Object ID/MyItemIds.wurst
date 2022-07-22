@@ -19,7 +19,7 @@ public constant ITEM_JACKSMITH_10 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_JACKSMITH_11 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_JACKSMITH_12 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_JACKSMITH_13 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_JACKSMITH_14 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_JACKSMITH_14 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_JACKSMITH_15 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_JACKSMITH_16 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_JACKSMITH_17 = compiletime(ITEM_ID_GEN.next())
@@ -33,7 +33,7 @@ public constant ITEM_UPGRADE_2 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_3 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_4 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_5 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_UPGRADE_6 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_6 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_UPGRADE_7 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_UPGRADE_8 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_9 = compiletime(ITEM_ID_GEN.next())
@@ -45,7 +45,7 @@ public constant ITEM_UPGRADE_14 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_15 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_16 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_17 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_UPGRADE_18 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_18 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_UPGRADE_19 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_UPGRADE_20 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_21 = compiletime(ITEM_ID_GEN.next())
@@ -74,7 +74,7 @@ public constant ITEM_UPGRADE_43 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_44 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_45 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_46 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_UPGRADE_47 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_UPGRADE_47 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_UPGRADE_48 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_49 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_UPGRADE_50 = compiletime(ITEM_ID_GEN.next())
@@ -364,14 +364,14 @@ public constant ITEM_250 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_251 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_252 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_253 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant ITEM_254 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_255 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_256 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_257 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_258 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_259 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_260 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_261 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_254 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_255 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_256 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_257 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_258 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_259 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_260 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_261 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_262 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_263 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_264 = compiletime(ITEM_ID_GEN.next())
@@ -396,26 +396,26 @@ public constant ITEM_282 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_283 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_284 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_285 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_286 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_287 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_286 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_287 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_288 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_289 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_290 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_291 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_292 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant ITEM_293 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_294 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_295 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_296 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_297 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_298 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_299 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_300 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_301 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_302 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_303 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_304 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_305 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_293 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_294 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_295 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_296 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_297 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_298 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_299 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_300 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_301 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_302 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_303 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_304 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_305 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_306 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_307 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_308 = compiletime(ITEM_ID_GEN.next()) // NOT USED
@@ -472,11 +472,11 @@ public constant ITEM_DROP_46 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_47 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_48 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_49 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_50 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_50 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_51 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_52 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_53 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_54 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_54 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_55 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_56 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_57 = compiletime(ITEM_ID_GEN.next())
@@ -516,49 +516,49 @@ public constant ITEM_DROP_90 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_91 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_92 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_93 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_94 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_94 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_95 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_96 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_97 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_98 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_99 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_100 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_101 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_100 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_101 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_102 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_103 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_104 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant ITEM_DROP_105 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_106 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_107 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_108 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_109 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_110 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_111 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_112 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_113 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_114 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_115 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_116 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_117 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_105 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_106 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_107 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_108 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_109 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_110 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_111 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_112 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_113 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_114 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_115 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_116 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_117 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_118 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant ITEM_DROP_119 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_120 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_119 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_120 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_121 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_122 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_123 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant ITEM_DROP_124 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_124 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_125 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant ITEM_DROP_126 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_127 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_128 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_126 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_127 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_128 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_129 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_130 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant ITEM_DROP_131 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_131 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_132 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant ITEM_DROP_133 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_134 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_135 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_136 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_133 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_134 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_135 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_136 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_137 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_138 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_139 = compiletime(ITEM_ID_GEN.next()) // NOT USED
@@ -567,23 +567,23 @@ public constant ITEM_DROP_141 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_142 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_143 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_144 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_145 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_146 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_147 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_145 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_146 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant ITEM_DROP_147 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_148 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_149 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_150 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_151 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_151 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_152 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_153 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_154 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_154 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant ITEM_DROP_155 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_156 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_157 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_158 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_159 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DROP_160 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_DROP_161 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_DROP_161 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 
 public constant FINAL_BOSS_ITEM_0 = compiletime(ITEM_ID_GEN.next())
 public constant FINAL_BOSS_ITEM_1 = compiletime(ITEM_ID_GEN.next())
@@ -592,14 +592,14 @@ public constant FINAL_BOSS_ITEM_3 = compiletime(ITEM_ID_GEN.next())
 public constant FINAL_BOSS_ITEM_4 = compiletime(ITEM_ID_GEN.next())
 public constant FINAL_BOSS_ITEM_5 = compiletime(ITEM_ID_GEN.next())
 public constant FINAL_BOSS_ITEM_6 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant FINAL_BOSS_ITEM_7 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_7 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant FINAL_BOSS_ITEM_8 = compiletime(ITEM_ID_GEN.next())
 public constant FINAL_BOSS_ITEM_9 = compiletime(ITEM_ID_GEN.next())
-public constant FINAL_BOSS_ITEM_10 = compiletime(ITEM_ID_GEN.next())
-public constant FINAL_BOSS_ITEM_11 = compiletime(ITEM_ID_GEN.next())
-public constant FINAL_BOSS_ITEM_12 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_10 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant FINAL_BOSS_ITEM_11 = compiletime(ITEM_ID_GEN.next()) // NOT USED
+public constant FINAL_BOSS_ITEM_12 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant FINAL_BOSS_ITEM_13 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant FINAL_BOSS_ITEM_14 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_14 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant FINAL_BOSS_ITEM_15 = compiletime(ITEM_ID_GEN.next())
 public constant FINAL_BOSS_ITEM_16 = compiletime(ITEM_ID_GEN.next())
 public constant FINAL_BOSS_ITEM_17 = compiletime(ITEM_ID_GEN.next())
@@ -607,7 +607,7 @@ public constant FINAL_BOSS_ITEM_18 = compiletime(ITEM_ID_GEN.next())
 public constant FINAL_BOSS_ITEM_19 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant FINAL_BOSS_ITEM_20 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 public constant FINAL_BOSS_ITEM_21 = compiletime(ITEM_ID_GEN.next()) // NOT USED
-public constant FINAL_BOSS_ITEM_22 = compiletime(ITEM_ID_GEN.next())
+public constant FINAL_BOSS_ITEM_22 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 
 public int array ITEM = []
 public int array ITEM_DROP = []
@@ -621,7 +621,7 @@ init
     ITEM_UPGRADE[4] = ITEM_UPGRADE_3
     ITEM_UPGRADE[5] = ITEM_UPGRADE_4
     ITEM_UPGRADE[6] = ITEM_UPGRADE_5
-    ITEM_UPGRADE[7] = ITEM_UPGRADE_6
+    ITEM_UPGRADE[7] = FINAL_BOSS_ITEM_17
     ITEM_UPGRADE[8] = ITEM_180
     ITEM_UPGRADE[9] = ITEM_UPGRADE_8
     ITEM_UPGRADE[10] = ITEM_UPGRADE_9
@@ -633,7 +633,7 @@ init
     ITEM_UPGRADE[16] = ITEM_UPGRADE_15
     ITEM_UPGRADE[17] = ITEM_UPGRADE_16
     ITEM_UPGRADE[18] = ITEM_UPGRADE_17
-    ITEM_UPGRADE[19] = ITEM_UPGRADE_18
+    ITEM_UPGRADE[19] = FINAL_BOSS_ITEM_18
     ITEM_UPGRADE[20] = ITEM_DROP_61
     ITEM_UPGRADE[21] = ITEM_UPGRADE_20
     ITEM_UPGRADE[22] = ITEM_UPGRADE_21
@@ -662,7 +662,7 @@ init
     ITEM_UPGRADE[45] = ITEM_UPGRADE_44
     ITEM_UPGRADE[46] = ITEM_UPGRADE_45
     ITEM_UPGRADE[47] = ITEM_UPGRADE_46
-    ITEM_UPGRADE[48] = ITEM_UPGRADE_47
+    ITEM_UPGRADE[48] = ITEM_213
     ITEM_UPGRADE[49] = ITEM_UPGRADE_48
     ITEM_UPGRADE[50] = ITEM_UPGRADE_49
     ITEM_UPGRADE[51] = ITEM_UPGRADE_50
@@ -952,14 +952,14 @@ init
     ITEM[252] = ITEM_251
     ITEM[253] = ITEM_252
     ITEM[254] = ITEM_116
-    ITEM[255] = ITEM_254
-    ITEM[256] = ITEM_255
-    ITEM[257] = ITEM_256
-    ITEM[258] = ITEM_257
-    ITEM[259] = ITEM_258
-    ITEM[260] = ITEM_259
-    ITEM[261] = ITEM_260
-    ITEM[262] = ITEM_261
+    ITEM[255] = ITEM_110
+    ITEM[256] = ITEM_112
+    ITEM[257] = ITEM_118
+    ITEM[258] = ITEM_115
+    ITEM[259] = ITEM_114
+    ITEM[260] = ITEM_119
+    ITEM[261] = ITEM_117
+    ITEM[262] = ITEM_120
     ITEM[263] = ITEM_262
     ITEM[264] = ITEM_263
     ITEM[265] = ITEM_264
@@ -984,26 +984,26 @@ init
     ITEM[284] = ITEM_283
     ITEM[285] = ITEM_284
     ITEM[286] = ITEM_285
-    ITEM[287] = ITEM_286
-    ITEM[288] = ITEM_287
+    ITEM[287] = ITEM_266
+    ITEM[288] = ITEM_267
     ITEM[289] = ITEM_268
     ITEM[290] = ITEM_269
     ITEM[291] = ITEM_270
     ITEM[292] = ITEM_271
     ITEM[293] = ITEM_272
-    ITEM[294] = ITEM_293
-    ITEM[295] = ITEM_294
-    ITEM[296] = ITEM_295
-    ITEM[297] = ITEM_296
-    ITEM[298] = ITEM_297
-    ITEM[299] = ITEM_298
-    ITEM[300] = ITEM_299
-    ITEM[301] = ITEM_300
-    ITEM[302] = ITEM_301
-    ITEM[303] = ITEM_302
-    ITEM[304] = ITEM_303
-    ITEM[305] = ITEM_304
-    ITEM[306] = ITEM_305
+    ITEM[294] = ITEM_273
+    ITEM[295] = ITEM_274
+    ITEM[296] = ITEM_275
+    ITEM[297] = ITEM_276
+    ITEM[298] = ITEM_277
+    ITEM[299] = ITEM_278
+    ITEM[300] = ITEM_279
+    ITEM[301] = ITEM_280
+    ITEM[302] = ITEM_281
+    ITEM[303] = ITEM_282
+    ITEM[304] = ITEM_283
+    ITEM[305] = ITEM_284
+    ITEM[306] = ITEM_285
     ITEM[307] = ITEM_268
     ITEM[308] = ITEM_269
     ITEM[309] = ITEM_270
@@ -1067,11 +1067,11 @@ init
         ITEM_DROP_47,
         ITEM_DROP_48,
         ITEM_DROP_49,
-        ITEM_DROP_50,
+        ITEM_195,
         ITEM_DROP_51,
         ITEM_DROP_52,
         ITEM_DROP_53,
-        ITEM_DROP_54,
+        ITEM_DROP_51,
         ITEM_DROP_55,
         ITEM_DROP_56,
         ITEM_DROP_57,
@@ -1113,46 +1113,46 @@ init
         ITEM_DROP_91,
         ITEM_DROP_92,
         ITEM_DROP_93,
-        ITEM_DROP_94,
-        ITEM_DROP_100,
-        ITEM_DROP_101,
+        ITEM_DROP_56,
+        ITEM_DROP_57,
+        ITEM_DROP_58,
         ITEM_DROP_59,
         ITEM_DROP_60,
         ITEM_DROP_61,
-        ITEM_DROP_105,
-        ITEM_DROP_106,
-        ITEM_DROP_107,
-        ITEM_DROP_108,
-        ITEM_DROP_109,
-        ITEM_DROP_110,
-        ITEM_DROP_111,
-        ITEM_DROP_112,
-        ITEM_DROP_113,
-        ITEM_DROP_114,
-        ITEM_DROP_115,
-        ITEM_DROP_116,
-        ITEM_DROP_117,
+        ITEM_DROP_62,
+        ITEM_DROP_63,
+        ITEM_DROP_66,
+        ITEM_DROP_67,
+        ITEM_173,
+        ITEM_186,
+        ITEM_177,
+        ITEM_172,
+        ITEM_187,
+        ITEM_182,
+        ITEM_183,
+        ITEM_184,
+        ITEM_189,
         ITEM_178,
-        ITEM_DROP_119
+        ITEM_176
         )
         itemList.add(
-        ITEM_DROP_120,
+        ITEM_175,
         ITEM_179,
         ITEM_181,
         ITEM_180,
-        ITEM_DROP_124,
+        ITEM_235,
         ITEM_229,
-        ITEM_DROP_126,
-        ITEM_DROP_127,
-        ITEM_DROP_128,
+        ITEM_232,
+        ITEM_185,
+        ITEM_238,
         ITEM_DROP_129,
         ITEM_DROP_83,
-        ITEM_DROP_131,
+        ITEM_DROP_84,
         ITEM_DROP_85,
-        ITEM_DROP_133,
-        ITEM_DROP_134,
-        ITEM_DROP_135,
-        ITEM_DROP_136,
+        ITEM_DROP_86,
+        ITEM_DROP_87,
+        ITEM_DROP_88,
+        ITEM_DROP_89,
         ITEM_DROP_137,
         ITEM_DROP_138,
         ITEM_121
@@ -1163,23 +1163,23 @@ init
         ITEM_DROP_142,
         ITEM_DROP_143,
         ITEM_DROP_144,
-        ITEM_DROP_145,
-        ITEM_DROP_146,
-        ITEM_DROP_147,
+        ITEM_DROP_142,
+        ITEM_DROP_143,
+        ITEM_DROP_144,
         ITEM_DROP_148,
         ITEM_DROP_149,
         ITEM_DROP_150,
-        ITEM_DROP_151,
+        ITEM_DROP_88,
         ITEM_DROP_152,
         ITEM_DROP_153,
-        ITEM_DROP_154,
+        ITEM_DROP_84,
         ITEM_DROP_155,
         ITEM_DROP_156,
         ITEM_DROP_157,
         ITEM_DROP_158,
         ITEM_DROP_159,
         ITEM_DROP_160,
-        ITEM_DROP_161
+        ITEM_262
         )
         for addItem in itemList
             if itemDropIndex == 64
