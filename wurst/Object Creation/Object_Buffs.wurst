@@ -104,3 +104,21 @@ init
     ..setArtTarget(1, Abilities.unsummonTarget)
     ..setArtSpecial(1, Abilities.unsummonTarget)
     ..setIconNormal(1, Icons.bTNUnsummonBuilding)
+
+    new BuffDefinition(BUFF_9, BuffIds.curse)
+    ..setTooltipNormal(1, "Eclipse")
+    ..setTooltipNormalExtended(1, "This unit has been hit by Eclipse")
+    ..setArtTarget(1, Abilities.curseTarget)
+    ..setIconNormal(1, Icons.bTNCurse)
+
+    new BuffDefinition(BUFF_10, BuffIds.faerieFire)
+    ..setTooltipNormal(1, "Falling Light")
+    ..setTooltipNormalExtended(1, "This unit has been hit by Falling Light")
+    ..setArtTarget(1, Abilities.faerieFireTarget)
+    ..setIconNormal(1, Icons.bTNFaerieFire)
+
+    new BuffDefinition(BUFF_11, BuffIds.cripple)
+    ..setTooltipNormal(1, "Ultima")
+    ..setTooltipNormalExtended(1, "This unit has been hit by Ultima")
+    ..setArtTarget(1, Abilities.crippleTarget)
+    ..setIconNormal(1, Icons.bTNCripple)

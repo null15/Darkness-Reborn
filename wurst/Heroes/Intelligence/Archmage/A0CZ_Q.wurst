@@ -1,0 +1,30 @@
+package A0CZ_Q
+
+import ClosureEvents
+import ClosureForGroups
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+import MyBuffIds
+
+init
+    eclipse()
+function eclipse()
+    EventListener.onPointCast('A0CZ') (unit caster, vec2 target) ->
+        let lvl = GetUnitAbilityLevel(caster, ABILITY_10)
+        let dmg = (caster.getInt(true) * 1.25) * lvl
+        flashEffect("Effects\\Archmage\\ShadowSlam(Normal Size).mdl", target)
+        forUnitsInRange(target, 600, true) (unit u) ->
+            if caster.isEnemyOf(u)
+                let buffs = UnitCountBuffsEx(u, false, false, true, false, false, false, false)
+                print(buffs)
+                if UnitHasBuffBJ(u, BUFF_9)
+                    caster.damageTarget(u, dmg*buffs, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                else
+                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                new DummyCaster()
+                ..owner(GetOwningPlayer(caster))
+                ..origin(caster.getPos())
+                ..castTarget(ABILITY_DUMMY_9, 1, OrderIds.curse, u)
+
+                

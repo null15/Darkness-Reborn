@@ -1,0 +1,18 @@
+package A00K_R
+import ClosureEvents
+import ClosureForGroups
+import Abilities
+init
+    holyWrath()
+function holyWrath()
+    EventListener.onPointCast('A00K') (unit caster, vec2 target) ->
+        let lvl = GetUnitAbilityLevel(caster, 'A00K')
+        let output = (lvl*caster.getInt(true)).toReal()
+        forUnitsInRange(target, 600, true) (unit u) ->
+            flashEffect(Abilities.holyBoltSpecialArt, u.getPos())
+            if caster.isEnemyOf(u)
+                caster.damageTarget(u, output, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            else if caster.isAllyOf(u)
+                u.addHP(output)
+            else
+                printTimedToPlayer("... no applicable targets found", 3, GetOwningPlayer(caster))

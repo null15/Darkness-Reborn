@@ -1,0 +1,44 @@
+package A0MN_T
+
+import ClosureEvents
+import MyUnitIds
+import ClosureForGroups
+import ClosureTimers
+real array dist = []
+unit array phoenix = []
+init
+    meltingPhoenix()
+function explosion(unit caster, vec2 target)
+    let lvl = caster.getAbilityLevel('A0MN')
+    let dmg = caster.getInt(true)*(lvl*5.00)
+    flashEffect("NewMassiveEX.mdl", target, 3)
+    forUnitsInRange(target, 800, true) (unit u) ->
+        if caster.isEnemyOf(u)
+            caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+function meltingPhoenix()
+    EventListener.onPointCast('A0MN') (unit caster, vec2 target) ->
+        let lvl = GetUnitAbilityLevel(GetTriggerUnit(), 'A0MN')
+        var decrease = 1000.00
+        for i = 1 to 4
+            let pos = target.polarOffset(((90.00*i)).asAngleDegrees(), (lvl*125.00+175.00))
+            phoenix[i] = createUnitZ(GetOwningPlayer(caster), DUMMY_UNIT_3, target.withZ(500), target.getAngle())
+            phoenix[i]..addAbility('A11C')..setAbilityLevel('A11C', lvl)..setPos(pos)..setTimedLife(8)
+        doPeriodicallyTimed(0.03, 8) (CallbackCounted cb) ->
+            for i = 1 to 4
+                decrease = decrease - 0.5
+                if decrease <= 250
+                    decrease = 250
+                if i == 4
+                    let angle = phoenix[i].getPos().angleTo(phoenix[1].getPos())
+                    phoenix[i].setPos(phoenix[i].getPos().polarOffset(angle-(38.50).asAngleDegrees(), 100))
+                    phoenix[i].setPosFly(phoenix[i].getPos().withZ(decrease))
+                else
+                    let angle = phoenix[i].getPos().angleTo(phoenix[i+1].getPos())
+                    phoenix[i].setPos(phoenix[i].getPos().polarOffset(angle-(38.50).asAngleDegrees(), 100))
+                    phoenix[i].setPosFly(phoenix[i].getPos().withZ(decrease))
+            forUnitsInRange(target, 900, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    if u.getHPRatio() < 0.05
+                        caster.damageTarget(u, u.getMaxHP(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            if cb.isLast()
+                explosion(caster, target)

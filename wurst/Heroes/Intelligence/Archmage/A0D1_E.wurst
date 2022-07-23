@@ -1,0 +1,30 @@
+package A0D1_E
+import ClosureEvents
+import ClosureForGroups
+import ClosureTimers
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+init
+    ultima()
+function ultima()
+    EventListener.onPointCast('A0D1') (unit caster, vec2 target) ->
+        let lvl = GetUnitAbilityLevel(caster, 'A0D1')
+        let dmg = (caster.getInt(true) * 0.15) * lvl
+        
+        doPeriodicallyCounted(1, 5) (CallbackCounted cb) ->
+            
+            flashEffect("Effects\\Archmage\\Ultima.mdl", target)
+            forUnitsInRange(target, 600, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    let buffs = UnitCountBuffsEx(u, false, false, true, false, false, false, false)
+                    print(buffs)
+                    if buffs > 0
+                        caster.damageTarget(u, dmg*buffs, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    else
+                        caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    new DummyCaster()
+                    ..owner(GetOwningPlayer(caster))
+                    ..origin(caster.getPos())
+                    ..castTarget(ABILITY_DUMMY_11, 1, OrderIds.cripple, u)
+                

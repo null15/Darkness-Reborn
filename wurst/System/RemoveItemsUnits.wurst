@@ -30,4 +30,5 @@ function removeUnits()
 
 function dropsItemInRegion()
     CreateTrigger()..registerRectEnterEventSource(gg_rct_DiscardPile)..addAction() ->
-        printTimedToPlayer("Items dropped here will be forcefully removed once the timer expires", 3, GetOwningPlayer(GetTriggerUnit()))
+        if IsHeroUnitId(GetUnitTypeId(GetEnteringUnit()))
+            printTimedToPlayer("Items dropped here will be forcefully removed once the timer expires", 3, GetOwningPlayer(GetTriggerUnit()))
