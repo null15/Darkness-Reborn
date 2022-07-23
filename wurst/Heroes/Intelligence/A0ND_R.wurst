@@ -1,0 +1,37 @@
+package A0ND_R
+import ClosureEvents
+import ClosureTimers
+import StandardTextTags
+import ClosureForGroups
+texttag hourglass
+integer count
+bool boom = false
+bool running = false
+init
+    hourglass()
+function hourglass()
+    EventListener.onCast('A0ND') (unit caster) ->
+        if not running
+            count = 0
+            running = true
+            doPeriodically(1) (CallbackPeriodic cb) ->
+                if boom
+                    boom = false
+                    destroy cb
+                count += 1
+                hourglass = createShadowStrikeTextTag(caster, count, false)
+                hourglass.setColor(colorA(79, 211, 252, 255))
+                hourglass.setText(count.toString())
+                caster..removeAbility('A007')..addAbility('A0NG')
+
+    EventListener.onCast('A0NG') (unit caster) ->
+        let lvl = GetUnitAbilityLevel(caster, 'A0ND')
+        let dmg = (count * caster.getInt(true) * lvl)
+        boom = true
+        running = false
+        hourglass.destr()
+        doAfter(1.5) -> 
+            caster..removeAbility('A0NG')..addAbility('A007')
+        forUnitsInRange(caster.getPos(), 99999, true) (unit u) ->
+            if caster.isEnemyOf(u)
+                caster.damageTarget(u, dmg.toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

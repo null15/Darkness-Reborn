@@ -1,0 +1,20 @@
+package A0N4_T
+import ClosureEvents
+import ClosureForGroups
+import ClosureTimers
+init
+    radarTime()
+function radarTime()
+    EventListener.onPointCast('A0N4') (unit caster, vec2 target) ->
+        let lvl = GetUnitAbilityLevel(caster, 'A0N4')
+        let dmg = caster.getInt(true) * lvl
+        doPeriodicallyTimed(0.05, 4) (CallbackCounted cb) ->
+            forUnitsInRange(target, 200, true) (unit u) ->
+                u.pause()
+                if caster.isEnemyOf(u)
+                    caster.damageTarget(u, dmg.toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                if caster.isAllyOf(u) and u != caster
+                    u.addHP(u.getMaxHP()*0.01)
+                    u.resetCooldown()
+                if cb.isLast()
+                    u.unpause()
