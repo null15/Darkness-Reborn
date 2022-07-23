@@ -174,14 +174,13 @@ import Icons
     ..setManaCost(1, 0)
     ..setCastingTime(1, 0)
     ..setCastRange(1, 99999)
-    ..setBuffs(1, BUFF_8.toRawCode())
     ..setRequirements("")
     ..setArtTarget(".mdl")
     ..setArtSpecial(".mdl")
     ..setArtEffect(".mdl")
     ..setArtCaster(".mdl")
     ..setMissileArt(".mdl")
-    ..setBuffs(1, BUFF_7.toRawCode())
+    ..setBuffs(1, BUFF_8.toRawCode())
 
 @compiletime function abilities()
 // A01K

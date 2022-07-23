@@ -1,0 +1,25 @@
+package A0K6_Q
+import ClosureEvents
+import ClosureTimers
+import ClosureForGroups
+init
+    timeTravel()
+function timeTravel()
+    EventListener.onPointCast('A0K6') (unit caster, vec2 target) ->
+        let casterPos = caster.getPos()
+        let sfx = addEffect("Effects\\Void Teleport Silver To.mdl", casterPos)
+        let sfx2 = addEffect("Effects\\Void Teleport Silver To.mdl", target)
+        let angle1 = sfx.getPos().angleTo(sfx2.getPos())
+        let angle2 = sfx2.getPos().angleTo(sfx.getPos())
+        doPeriodicallyTimed(0.05, 7) (CallbackCounted cb) ->
+            forUnitsInRange(sfx.getPos(), 25, true) (unit u) ->
+                if caster.isAllyOf(u)
+                    u.setPos(target.polarOffset(angle2, 200))
+                    flashEffect("Teleport.mdl", u.getPos())
+            forUnitsInRange(sfx2.getPos(), 25, true) (unit u) ->
+                if caster.isAllyOf(u)
+                    u.setPos(casterPos.polarOffset(angle1, 200))
+                    flashEffect("Teleport.mdl", u.getPos())
+            if cb.isLast()
+                sfx.destr()
+                sfx2.destr()

@@ -1,0 +1,22 @@
+package A0NC_W
+import ClosureEvents
+import HashMap
+constant punishMap = new IterableMap<int,unit>
+bool run = true
+int array count = []
+init
+	punishTimeInit()
+function punishTimeAct(unit u)
+	EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) ->
+		punishMap.forEach() (integer key, unit value) ->
+			u.damageTarget(value, (count[(value).getHandleId()]*7000).toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+function punishTimeInit()
+	EventListener.onTargetCast('A0NC') (unit caster, unit target) ->
+		let targetHandle = target.getHandleId()
+		let i = (target).getHandleId()
+		punishMap.put(targetHandle, target)
+		count[i] += 1
+		print("count["+i.toString()+"]: "+count[i].toString())
+		if run
+			punishTimeAct(caster)
+			run = false
