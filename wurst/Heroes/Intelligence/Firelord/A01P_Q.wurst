@@ -39,4 +39,3 @@ function sear()
                     destroy cb
             if cb.isLast()
                 sfx.destr()
-                

@@ -11,9 +11,9 @@ function radarTime()
         doPeriodicallyTimed(0.05, 4) (CallbackCounted cb) ->
             forUnitsInRange(target, 200, true) (unit u) ->
                 u.pause()
-                if caster.isEnemyOf(u)
+                if caster.isEnemyOf(u) and cb.getCount() < 80
                     caster.damageTarget(u, dmg.toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-                if caster.isAllyOf(u) and u != caster
+                if caster.isAllyOf(u) and u != caster and u.getHPRatio() < 0.8
                     u.addHP(u.getMaxHP()*0.01)
                     u.resetCooldown()
                 if cb.isLast()

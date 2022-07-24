@@ -83,7 +83,6 @@ init
                 if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and DamageEvent.getTarget().getTypeId() == PLAY_HERO_23 and UnitHasBuffBJ(DamageEvent.getTarget(), 'B00N')
                     craggyHex(DamageEvent.getSource(), DamageEvent.getTarget())
 
-                
 
             case SPELL
                 // Dark Ranger (Image Arrows) Q - Active
@@ -93,11 +92,11 @@ init
                     doAfter(5) -> 
                         count_A006 = 0    
 
-
                 
             case CODE
 
                 if DamageEvent.getId() == 'A01P' or DamageEvent.getId() == 'AO1T' or DamageEvent.getId() == 'A01U'
                     blaze(DamageEvent.getSource(), DamageEvent.getTarget(), DamageEvent.getId())
-                
+
+
             default
