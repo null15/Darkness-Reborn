@@ -122,3 +122,9 @@ init
     ..setTooltipNormalExtended(1, "This unit has been hit by Ultima")
     ..setArtTarget(1, Abilities.crippleTarget)
     ..setIconNormal(1, Icons.bTNCripple)
+
+    new BuffDefinition(BUFF_12, BuffIds.unsummon)
+    ..setTooltipNormal(1, "Blaze")
+    ..setTooltipNormalExtended(1, "This unit is under the effect of Blaze, hot hot hot! Liar Liar pants on Fire!")
+    ..setArtTarget(1, ".mdl")
+    ..setIconNormal(1, Icons.bTNInnerFire)

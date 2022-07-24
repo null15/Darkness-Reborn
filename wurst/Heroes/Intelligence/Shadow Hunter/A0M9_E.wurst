@@ -1,0 +1,10 @@
+package A0M9_E
+import ClosureEvents
+init
+    shadowHex()
+function shadowHex()
+    EventListener.onTargetCast('A0M9') (unit caster, unit target) ->
+        let lvl = caster.getAbilityLevel('A0M9')
+        let intellect = caster.getInt(true)
+        let dmg = lvl*intellect
+        caster.damageTarget(target, dmg.toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

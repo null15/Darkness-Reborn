@@ -1,0 +1,31 @@
+package A01U_E
+
+import ClosureEvents
+import ClosureForGroups
+import OrderIds
+import MyAbilityIds
+import MyBuffIds
+import Abilities
+import DummyCaster
+import DamageEvent
+import Global_Variables
+
+init
+    conflagration()
+function conflagration()
+    EventListener.onTargetCast('A01U') (unit caster, unit target) ->
+        let lvl = caster.getAbilityLevel('A01U')
+        let dmg = caster.getInt(true)*(lvl*0.7)+lvl*250
+        DamageEvent.setNextDamageId('A01U')
+        DamageEvent.setNextDamageFromCode()
+        DamageEvent.setNextDamageElement(DAMAGE_ELEMENT_FIRE)
+        if UnitHasBuffBJ(target, BUFF_12)
+            forUnitsInRange(target.getPos(), 400, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    flashEffect(Abilities.fireLordDeathExplode, target.getPos())
+                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    new DummyCaster()..owner(caster.getOwner())..origin(caster.getPos())..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u)
+        else
+            flashEffect(Abilities.fireLordDeathExplode, target.getPos())
+            caster.damageTarget(target, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            new DummyCaster()..owner(caster.getOwner())..origin(caster.getPos())..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, target)

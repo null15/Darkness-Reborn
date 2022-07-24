@@ -1,0 +1,11 @@
+package A0M3_R
+import DummyCaster
+import MyAbilityIds
+import OrderIds
+init
+public function craggyHex(unit source, unit target)
+    let lvl = target.getAbilityLevel('A0M3')
+    let dmg = target.getMaxHP()*(lvl*0.03)
+    if GetRandomInt(1, 100) < lvl*2
+        new DummyCaster()..owner(target.getOwner())..origin(target.getPos())..castTarget(ABILITY_DUMMY_12, lvl, OrderIds.hex, source)
+        target.damageTarget(source, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

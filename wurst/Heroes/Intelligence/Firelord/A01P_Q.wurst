@@ -1,0 +1,42 @@
+package A01P_Q
+
+import ClosureEvents
+import Abilities
+import ClosureTimers
+import ClosureForGroups
+import DamageEvent
+import Global_Variables
+import MyBuffIds
+import MyAbilityIds
+import OrderIds
+import DummyCaster
+
+bool run = false
+init
+    sear()
+function sear()
+    EventListener.onPointCast('A01P') (unit caster, vec2 target) ->
+        let sfx = addEffect(Abilities.ballsOfFireMissile, caster.getPos())..setZ(100)..setScale(1.5)
+        let angle = sfx.getPos().angleTo(target)
+        let lvl = caster.getAbilityLevel('A01P')
+        let dmg = lvl*300.00+lvl*caster.getInt(true)
+        run = true
+        sfx.setYaw(angle.radians())
+        doPeriodicallyTimed(0.03, 5) (CallbackCounted cb) ->
+            sfx.setPos(sfx.getPos().polarOffset(angle, 30))
+            forUnitsInRange(sfx.getPos(), 100, true) (unit u) ->
+                if caster.isEnemyOf(u) and run
+                    run = false
+                    sfx.destr()
+                    DamageEvent.setNextDamageId('A01P')
+                    DamageEvent.setNextDamageFromCode()
+                    DamageEvent.setNextDamageElement(DAMAGE_ELEMENT_FIRE)
+                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    if UnitHasBuffBJ(u, BUFF_12)
+                        new DummyCaster()..owner(caster.getOwner())..origin(caster.getPos())..castTarget(ABILITY_DUMMY_14, 1, OrderIds.thunderbolt, u)..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u)
+                    else
+                        new DummyCaster()..owner(caster.getOwner())..origin(caster.getPos())..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u)
+                    destroy cb
+            if cb.isLast()
+                sfx.destr()
+                

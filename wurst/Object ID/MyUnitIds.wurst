@@ -11,6 +11,16 @@ public constant DUMMY_UNIT_3 = compiletime(UNIT_ID_GEN.next())
 
 public constant HERO_PICKER = compiletime(UNIT_ID_GEN.next())
 
+public constant SERPENT_WARD_0 = compiletime(UNIT_ID_GEN.next())
+public constant SERPENT_WARD_1 = compiletime(UNIT_ID_GEN.next())
+public constant SERPENT_WARD_2 = compiletime(UNIT_ID_GEN.next())
+public constant SERPENT_WARD_3 = compiletime(UNIT_ID_GEN.next())
+public constant SERPENT_WARD_4 = compiletime(UNIT_ID_GEN.next())
+public constant SERPENT_WARD_5 = compiletime(UNIT_ID_GEN.next())
+public constant SERPENT_WARD_6 = compiletime(UNIT_ID_GEN.next())
+public constant SERPENT_WARD_7 = compiletime(UNIT_ID_GEN.next())
+public constant SERPENT_WARD_8 = compiletime(UNIT_ID_GEN.next())
+
 public constant QUILBEAST_0 = compiletime(UNIT_ID_GEN.next())
 public constant QUILBEAST_1 = compiletime(UNIT_ID_GEN.next())
 public constant QUILBEAST_2 = compiletime(UNIT_ID_GEN.next())

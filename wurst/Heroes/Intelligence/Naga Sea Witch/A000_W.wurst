@@ -1,0 +1,7 @@
+package A000_W
+import DamageEvent
+init
+public function frostArrows(unit vashj)
+    let lvl = GetUnitAbilityLevel(vashj, 'A000')
+    let dmg = vashj.getMaxMana()*(0.04*lvl)
+    DamageEvent.setAmount(dmg)

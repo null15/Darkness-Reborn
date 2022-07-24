@@ -1,0 +1,19 @@
+package A0AQ_R
+import ClosureEvents
+import MyUnitIds
+init
+    blueSea()
+function blueSea()
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+        if GetKillingUnit().getTypeId() == PLAY_HERO_25 and GetKillingUnit().getAbilityLevel('A0AQ') > 0
+            let vashj = GetKillingUnit()
+            let lvl = vashj.getAbilityLevel('A0AQ')
+            print("DIEEEEEEEEE "+vashj.getName())
+            if GetRandomInt(1, 100) < lvl*5
+                if lvl <= 3
+                    vashj.addMana(50)
+                else if lvl <=6
+                    vashj.addMana(100)
+                else if lvl <=9
+                    vashj.addMana(150)
+        

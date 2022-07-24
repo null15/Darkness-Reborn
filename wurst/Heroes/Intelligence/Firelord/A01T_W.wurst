@@ -1,0 +1,34 @@
+package A01T_W
+import ClosureEvents
+import ClosureForGroups
+import MyBuffIds
+import MyAbilityIds
+import DummyCaster
+import OrderIds
+import DamageEvent
+import Global_Variables
+init
+    pillarOfFlame()
+function pillarOfFlame()
+    EventListener.onPointCast('A01T') (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel('A01T')
+        let dmg = 200*lvl+caster.getInt(true)*(0.8*lvl)
+        print("this ran")
+        flashEffect("Effects\\Firelord\\Flame Burst.mdl", target)
+        forUnitsInRange(target, 400, true) (unit u) ->
+            if caster.isEnemyOf(u)
+                DamageEvent.setNextDamageId('AO1T')
+                DamageEvent.setNextDamageFromCode()
+                DamageEvent.setNextDamageElement(DAMAGE_ELEMENT_FIRE)
+                if UnitHasBuffBJ(u, BUFF_12)
+                    caster.damageTarget(u, dmg*4, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    new DummyCaster()
+                    ..owner(caster.getOwner())
+                    ..origin(caster.getPos())
+                    ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u)
+                else
+                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    new DummyCaster()
+                    ..owner(caster.getOwner())
+                    ..origin(caster.getPos())
+                    ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u)

@@ -1,0 +1,30 @@
+package A0AN_T
+import ClosureEvents
+import ClosureTimers
+import Abilities
+import ClosureForGroups
+bool run = false
+init
+    tornado()
+function tornado()
+    EventListener.onPointCast('A0AN') (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel('A0AN')
+        let sfx = addEffect(Abilities.tornado, caster.getPos())
+        let angle = sfx.getPos().angleTo(target)
+        let dmg = caster.getMaxMana() * lvl*0.5
+        var distance = 0.00
+        run = true
+        doPeriodicallyTimed(0.03, 6) (CallbackCounted cb) ->
+            sfx.setPos(sfx.getPos().polarOffset(angle, 10))
+            distance = sfx.getPos().distanceTo(target)
+            if distance < 125 and run
+                run = false
+                flashEffect("Effects\\Vashj\\WaterBlast.mdl", sfx.getPos(), 8)
+                sfx.destr()
+                forUnitsInRange(sfx.getPos(), 500, true) (unit u) ->
+                    if caster.isEnemyOf(u)
+                        caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                destroy cb
+            if cb.isLast()
+                sfx.destr()
+                destroy cb

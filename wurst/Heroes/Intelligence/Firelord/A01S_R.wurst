@@ -1,0 +1,19 @@
+package A01S_R
+
+import ClosureEvents
+// import ClosureForGroups
+// import ClosureTimers
+// import DummyCaster
+// import MyAbilityIds
+// import OrderIds
+// import Abilities
+int count = 0
+unit array pyro = []
+init
+    pyroclasm()
+function pyroclasm()
+    EventListener.onTargetCast('A01S') (unit caster, unit target) ->
+        skip
+        // let missile = addEffect(Abilities.fireBallMissile, caster.getPos())
+        // let explosion = addEffect(Abilities.fireLordDeathExplode, target.getPos())
+        // var angle = missile.getPos().angleTo(target.getPos())
