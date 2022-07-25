@@ -4,6 +4,11 @@ import Abilities
 import ClosureEvents
 import MyUnitIds
 import MyBuffIds
+import DamageEvent
+import Global_Variables
+import DummyCaster
+import MyAbilityIds
+import OrderIds
 
 hashtable udg_GenericSpellTable = InitHashtable()
 real array udg_FireBallDamage = [100,200,300,500,700,1000,1300,1600,2000]
@@ -72,6 +77,13 @@ function fireballPeriodic ()
 
         level = LoadInteger(udg_GenericSpellTable, hashId, 3) - 1
         if(u2.isAlive())
+            new DummyCaster()
+            ..owner(u1.getOwner())
+            ..origin(u1.getPos())
+            ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u2)
+            DamageEvent.setNextDamageId('A01S')
+            DamageEvent.setNextDamageFromCode()
+            DamageEvent.setNextDamageElement(DAMAGE_ELEMENT_FIRE)
             u1.damageTarget(u2, udg_FireBallDamage[level] + (level+1) * 0.8 * u3.getInt(true), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
         spec = AddSpecialEffect(Abilities.fireBallMissile, x2, y2)
         spec.destr()

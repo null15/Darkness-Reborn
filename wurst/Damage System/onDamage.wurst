@@ -78,17 +78,21 @@ init
                 // Tauren Chieftain (Pulverize) E - Passive
                 if GetUnitTypeId(DamageEvent.getSource()) == PLAY_HERO_2 and DamageEvent.getSource().getAbilityLevel('A01B') >= 1 and DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL
                     pulverize(DamageEvent.getSource(), DamageEvent.getTarget())
-                        
+
+                // Vashj (Frost Arrows ) X - Autocast
                 if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and DamageEvent.getSource().getTypeId() == PLAY_HERO_25 and UnitHasBuffBJ(DamageEvent.getTarget(), 'B002')
                     frostArrows(DamageEvent.getSource())
 
+                // Craggy Hex (Shadow Hunter) R - Passive
                 if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and DamageEvent.getTarget().getTypeId() == PLAY_HERO_23 and UnitHasBuffBJ(DamageEvent.getTarget(), 'B00N')
                     craggyHex(DamageEvent.getSource(), DamageEvent.getTarget())
 
+                // Far Seer (Mind Ripper) R - Passive
                 if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and DamageEvent.getSource().getTypeId() == PLAY_HERO_22 and DamageEvent.getSource().getAbilityLevel('A0DI') > 0
                     if GetRandomInt(1, 100) < 15
                         mindRipper(DamageEvent.getSource(), DamageEvent.getTarget())
 
+                // Keeper of the Grove (Thorns) R - Passive
                 if DamageEvent.getTarget().getTypeId() == PLAY_HERO_20 and DamageEvent.getTarget().getAbilityLevel('A0TZ') > 0
                     thornRoot(DamageEvent.getTarget(), DamageEvent.getSource())
 
@@ -102,9 +106,9 @@ init
 
                 
             case CODE
-
-                if DamageEvent.getId() == 'A01P' or DamageEvent.getId() == 'AO1T' or DamageEvent.getId() == 'A01U'
-                    blaze(DamageEvent.getSource(), DamageEvent.getTarget(), DamageEvent.getId())
+                // Fire Lord (Blaze)
+                if DamageEvent.getId() == 'A01P' or DamageEvent.getId() == 'AO1T' or DamageEvent.getId() == 'A01U' or DamageEvent.getId() == 'A01S'
+                    blaze(DamageEvent.getSource(), DamageEvent.getTarget())
 
 
             default

@@ -2,7 +2,6 @@ package A01O_P
 import ClosureTimers
 init
 
-public function blaze(unit source, unit target, int id)
-    print("source: "+source.getName()+" target: "+target.getName()+" id: "+id.toString())
+public function blaze(unit source, unit target)
     doPeriodicallyCounted(1, 4) (CallbackCounted cb) ->
         source.damageTarget(target, target.getMaxHP()*0.02, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
