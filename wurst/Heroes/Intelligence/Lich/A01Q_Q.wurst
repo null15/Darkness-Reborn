@@ -1,10 +1,12 @@
 package A01Q_Q
 
 import ClosureEvents
+import ClosureForGroups
 
 init
     frostNova()
 function frostNova()
     EventListener.onTargetCast('A01Q') (unit caster, unit target) ->
         let dmg = caster.getInt(true) * (caster.getAbilityLevel('A01Q') * 2.00)
-        caster.damageTarget(target, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+        forUnitsInRange(target.getPos(), 200, true) (unit u) ->
+            caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

@@ -1,0 +1,9 @@
+package A01H_E
+
+import ClosureEvents
+
+init
+
+function chainFrost()
+    EventListener.onTargetCast('A01H') (unit caster, unit target) ->
+        DoNothing()
