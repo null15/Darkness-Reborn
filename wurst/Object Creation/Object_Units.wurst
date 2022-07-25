@@ -9,6 +9,8 @@ import Icons
 import MyAbilityIds
 import AbilityIds
 import Abilities
+import MyItemIds
+import MyUpgradesIds
 
 init
 
@@ -191,6 +193,36 @@ init
     ..setAttack1WeaponType(WeaponType.Instant)
     ..setAcquisitionRange(0)
     ..setNormalAbilities(commaList(AbilityIds.invulnerable, AbilityIds.locust))
+
+    new UnitDefinition(DUMMY_BLACKSMITH_WISP, 'ewsp') // For blacksmith
+    ..setName("Dummy Caster")
+    ..setManaMaximum(1000000)
+    ..setMovementType(MovementType.Fly)
+    ..setUpgradesUsed("")
+    ..setCollisionSize(0.0)
+    ..setStructuresBuilt("")
+    ..setRace(Race.Commoner)
+    ..setFoodCost(0)
+    ..setArmorType(ArmorType.Divine)
+    ..setIconGameInterface("ReplaceableTextures\\CommandButtons\\BTNtemp.blp")
+    ..setSpeedBase(522)
+    ..setModelFile("dummy.mdl")
+    ..setAnimationBlendTimeseconds(0.0)
+    ..setAnimationCastBackswing(0.0)
+    ..setMaximumPitchAngledegrees(0.0)
+    ..setMaximumRollAngledegrees(0.0)
+    ..setTurnRate(3)
+    ..setArtSpecial("")
+    ..setProjectileImpactZ(0.0)
+    ..setProjectileLaunchZ(0.0)
+    ..setNameEditorSuffix("(Basics)")
+    ..setSightRadiusDay(1)
+    ..setSightRadiusNight(1)
+    ..setUnitClassification("_")
+    ..setPropulsionWindowdegrees(1.0)
+    ..setTooltipBasic("")
+    ..setNormalAbilities(commaList(LOCUST_ID, GHOST_INVIS_ID, AbilityIds.detonate))
+    ..setCollisionSize(0)
 
 @compiletime function playableHeroes()
 
@@ -4015,6 +4047,7 @@ init
 @compiletime function tinkerBuildings()
 
     new BuildingDefinition(TINKERBUILDING_0, UnitIds.scouttower) // e00I
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4035,6 +4068,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_1, TINKERBUILDING_6, TINKERBUILDING_11))
 
     new BuildingDefinition(TINKERBUILDING_1, UnitIds.earthfurytower) // h00L
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4058,6 +4092,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_2))
 
     new BuildingDefinition(TINKERBUILDING_2, UnitIds.earthfurytower) // h00M
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4082,6 +4117,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_3))
 
     new BuildingDefinition(TINKERBUILDING_3, UnitIds.earthfurytower) // h00N
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4106,6 +4142,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_4))
 
     new BuildingDefinition(TINKERBUILDING_4, UnitIds.earthfurytower) // h00O
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4132,6 +4169,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_5))
 
     new BuildingDefinition(TINKERBUILDING_5, UnitIds.earthfurytower) // h00P
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4158,6 +4196,7 @@ init
     ..setUpgradesTo(commaList(""))
 
     new BuildingDefinition(TINKERBUILDING_6, UnitIds.flametower) // h01V - Tower 2
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4184,6 +4223,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_7))
 
     new BuildingDefinition(TINKERBUILDING_7, UnitIds.flametower) // h01W
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4211,6 +4251,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_8))
 
     new BuildingDefinition(TINKERBUILDING_8, UnitIds.flametower) // h01X
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4235,6 +4276,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_9))
 
     new BuildingDefinition(TINKERBUILDING_9, UnitIds.flametower) // h01Y
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4261,6 +4303,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_10))
 
     new BuildingDefinition(TINKERBUILDING_10, UnitIds.flametower) // h01Z
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setAcquisitionRange(700)
@@ -4287,6 +4330,7 @@ init
     ..setUpgradesTo(commaList(""))
 
     new BuildingDefinition(TINKERBUILDING_11, UnitIds.energytower) // h02F
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities("A0QQ")
@@ -4314,6 +4358,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_12))
 
     new BuildingDefinition(TINKERBUILDING_12, UnitIds.energytower) // h02G
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities("A0QS")
@@ -4341,6 +4386,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_13))
 
     new BuildingDefinition(TINKERBUILDING_13, UnitIds.energytower) // h02H
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities("A0QR")
@@ -4368,6 +4414,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_14))
 
     new BuildingDefinition(TINKERBUILDING_14, UnitIds.energytower) // h02I
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities("A0QT")
@@ -4395,6 +4442,7 @@ init
     ..setUpgradesTo(commaList(TINKERBUILDING_15))
 
     new BuildingDefinition(TINKERBUILDING_15, UnitIds.energytower) // h02J
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities("A0QP")
@@ -4566,6 +4614,7 @@ init
     ..setAttack1AttackType(AttackType.Chaos)
 
     new BuildingDefinition(TINKERBUILDING_16, UnitIds.earthfurytower)// Scout Fire Tower (e00J)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
@@ -4645,6 +4694,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_17, UnitIds.flametower)// Flame Tower(Worker1) (h01G)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0ON'))
@@ -4725,6 +4775,7 @@ init
     ..setManaRegeneration(500.00)
 
     new BuildingDefinition(TINKERBUILDING_18, UnitIds.flametower)// Flame Tower(Worker2) (h01H)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OJ'))
@@ -4805,6 +4856,7 @@ init
     ..setManaRegeneration(500.00)
 
     new BuildingDefinition(TINKERBUILDING_19, UnitIds.flametower)// Flame Tower(Worker3) (h01I)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OK'))
@@ -4885,6 +4937,7 @@ init
     ..setManaRegeneration(500.00)
 
     new BuildingDefinition(TINKERBUILDING_20, UnitIds.flametower)// Flame Tower(Worker4) (h01J)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OM'))
@@ -4965,6 +5018,7 @@ init
     ..setManaRegeneration(500.00)
 
     new BuildingDefinition(TINKERBUILDING_21, UnitIds.flametower)// Flame Tower(Worker5) (h01K)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OL'))
@@ -5045,6 +5099,7 @@ init
     ..setManaRegeneration(500.00)
 
     new BuildingDefinition(TINKERBUILDING_22, UnitIds.earthfurytower)// Fire Tower(Worker1) (h00Q)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
@@ -5124,6 +5179,7 @@ init
     ..setManaRegeneration(1000.00)
 
     new BuildingDefinition(TINKERBUILDING_23, UnitIds.earthfurytower)// Fire Tower(Worker2) (h00R)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
@@ -5203,6 +5259,7 @@ init
     ..setManaRegeneration(1000.00)
 
     new BuildingDefinition(TINKERBUILDING_24, UnitIds.earthfurytower)// Fire Tower(Worker3) (h00S)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
@@ -5282,6 +5339,7 @@ init
     ..setManaRegeneration(1000.00)
 
     new BuildingDefinition(TINKERBUILDING_25, UnitIds.earthfurytower)// Fire Tower(Worker4) (h00T)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
@@ -5361,6 +5419,7 @@ init
     ..setManaRegeneration(1000.00)
 
     new BuildingDefinition(TINKERBUILDING_26, UnitIds.earthfurytower)// Fire Tower(Worker5) (h00U)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
@@ -5440,6 +5499,7 @@ init
     ..setManaRegeneration(1000.00)
 
     new BuildingDefinition(TINKERBUILDING_27, UnitIds.deathtower)// Burn Tower (Worker1) (h025)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OS'))
@@ -5519,6 +5579,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_28, UnitIds.deathtower)// Burn Tower (Worker2) (h026)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OR'))
@@ -5599,6 +5660,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_29, UnitIds.deathtower)// Burn Tower (Worker3) (h027)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OO'))
@@ -5678,6 +5740,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_30, UnitIds.deathtower)// Burn Tower (Worker4) (h028)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OP'))
@@ -5757,6 +5820,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_31, UnitIds.deathtower)// Burn Tower (Worker5) (h029)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OQ'))
@@ -5836,6 +5900,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_32, UnitIds.coldtower)// Scout Cold Tower (e00H)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
@@ -5915,6 +5980,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_33, UnitIds.coldtower)// Cold Tower(Worker1) (h00F)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0O9'))
@@ -5995,6 +6061,7 @@ init
     ..setManaRegeneration(1000.00)
 
     new BuildingDefinition(TINKERBUILDING_34, UnitIds.coldtower)// Cold Tower(Worker2) (h00G)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OA'))
@@ -6075,6 +6142,7 @@ init
     ..setManaRegeneration(1000.00)
 
     new BuildingDefinition(TINKERBUILDING_35, UnitIds.coldtower)// Cold Tower(Worker3) (h00H)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OB'))
@@ -6155,6 +6223,7 @@ init
     ..setManaRegeneration(1000.00)
 
     new BuildingDefinition(TINKERBUILDING_36, UnitIds.coldtower)// Cold Tower(Worker4) (h00I)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OC'))
@@ -6235,6 +6304,7 @@ init
     ..setManaRegeneration(1000.00)
 
     new BuildingDefinition(TINKERBUILDING_37, UnitIds.coldtower)// Cold Tower(Worker5) (h00J)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OD'))
@@ -6315,6 +6385,7 @@ init
     ..setManaRegeneration(1000.00)
 
     new BuildingDefinition(TINKERBUILDING_38, UnitIds.humanarcanetower)// Ice Tower(Worker1) (h01L)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Afra'))
@@ -6394,6 +6465,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_39, UnitIds.humanarcanetower)// Ice Tower(Worker2) (h01M)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Afra'))
@@ -6473,6 +6545,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_40, UnitIds.humanarcanetower)// Ice Tower(Worker3) (h01N)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Afra'))
@@ -6552,6 +6625,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_41, UnitIds.humanarcanetower)// Ice Tower(Worker4) (h01O)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Afra'))
@@ -6631,6 +6705,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_42, UnitIds.humanarcanetower)// Ice Tower(Worker5) (h01P)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Afra'))
@@ -6710,6 +6785,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_43, UnitIds.energytower)// Freezing Tower (Worker1) (h02A)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OE'))
@@ -6789,6 +6865,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_44, UnitIds.energytower)// Freezing Tower (Worker2) (h02B)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OI'))
@@ -6868,6 +6945,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_45, UnitIds.energytower)// Freezing Tower (Worker3) (h02C)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OG'))
@@ -6947,6 +7025,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_46, UnitIds.energytower)// Freezing Tower (Worker4) (h02D)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OH'))
@@ -7026,6 +7105,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_47, UnitIds.energytower)// Freezing Tower (Worker5) (h02E)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0OF'))
@@ -7105,6 +7185,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_48, UnitIds.scouttower)// Scout Tower (e00L)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
@@ -7184,6 +7265,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_49, UnitIds.guardtower)// Guard Tower(Worker) (h00W)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts'))
@@ -7263,6 +7345,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_50, UnitIds.guardtower)// Guard Tower(Worker1) (h00X)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts'))
@@ -7342,6 +7425,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_51, UnitIds.guardtower)// Guard Tower(Worker2) (h00Y)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts'))
@@ -7421,6 +7505,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_52, UnitIds.guardtower)// Guard Tower(Worker3) (h00Z)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts'))
@@ -7500,6 +7585,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_53, UnitIds.guardtower)// Guard Tower(Worker4) (h010)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts'))
@@ -7579,6 +7665,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_54, UnitIds.guardtower)// Guard Tower(Worker5) (h011)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts'))
@@ -7658,6 +7745,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_55, UnitIds.deathtower)// Multi Tower(Worker3) (h012)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'A0F2'))
@@ -7737,6 +7825,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_56, UnitIds.deathtower)// Multi Tower(Worker4) (h013)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'A0F3'))
@@ -7816,6 +7905,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_57, UnitIds.deathtower)// Multi Tower(Worker5) (h014)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'A0F4'))
@@ -7895,10 +7985,12 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_58, UnitIds.townhall)// Town Hall (h034)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(1.00)
+    ..setResearchesAvailable("")
     ..setSelectionScale(6.30)
     ..setAttack1CooldownTime(0.00)
     ..setAttack1DamageBase(0)
@@ -7975,6 +8067,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_59, UnitIds.keep)// Keep (h035)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
@@ -8056,6 +8149,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_60, UnitIds.castle)// Castle (h036)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList(""))
@@ -8064,6 +8158,7 @@ init
     ..setAttack1CooldownTime(0.00)
     ..setAttack1DamageBase(0)
     ..setAttack1DamageNumberofDice(0)
+    ..setResearchesAvailable("")
     ..setAttack1DamageSidesperDie(0)
     ..setAttack1Range(0)
     ..setAcquisitionRange(0.00)
@@ -8136,6 +8231,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_61, UnitIds.frostmourne)// Defense Pedestal - [|cffffcc00Level 1|r] (n02X)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0PW'))
@@ -8215,7 +8311,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_62, UnitIds.frostmourne)// Defense Pedestal - [|cffffcc00Level 2|r] (n02Y)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_59.toRawCode())
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0PV'))
     ..setScalingValue(1.00)
@@ -8294,7 +8391,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_63, UnitIds.frostmourne)// Defense Pedestal - [|cffffcc00Level 3|r] (n02Z)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0PX'))
     ..setScalingValue(1.00)
@@ -8373,6 +8471,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_64, UnitIds.frostmourne)// Enery Pedestal - [|cffffcc00Level 1|r] (n030)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0PS'))
@@ -8452,7 +8551,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_65, UnitIds.frostmourne)// Enery Pedestal - [|cffffcc00Level 2|r] (n031)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_59.toRawCode())
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0PT'))
     ..setScalingValue(1.00)
@@ -8531,7 +8631,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_66, UnitIds.frostmourne)// Enery Pedestal - [|cffffcc00Level 3|r] (n032)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0PU'))
     ..setScalingValue(1.00)
@@ -8610,6 +8711,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_67, UnitIds.frostmourne)// Power Pedestal - [|cffffcc00Level 1|r] (n033)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0Q0'))
@@ -8689,7 +8791,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_68, UnitIds.frostmourne)// Power Pedestal - [|cffffcc00Level 2|r] (n034)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_59.toRawCode())
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0PY'))
     ..setScalingValue(1.00)
@@ -8768,7 +8871,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_69, UnitIds.frostmourne)// Power Pedestal - [|cffffcc00Level 3|r] (n035)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0PZ'))
     ..setScalingValue(1.00)
@@ -8847,6 +8951,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_70, UnitIds.frostmourne)// Speed Pedestal - [|cffffcc00Level 1|r] (n036)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0Q2'))
@@ -8926,7 +9031,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_71, UnitIds.frostmourne)// Speed Pedestal - [|cffffcc00Level 2|r] (n037)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_59.toRawCode())
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0Q1'))
     ..setScalingValue(1.00)
@@ -9005,7 +9111,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_72, UnitIds.frostmourne)// Speed Pedestal - [|cffffcc00Level 3|r] (n038)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0Q3'))
     ..setScalingValue(1.00)
@@ -9084,7 +9191,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_73, UnitIds.icecrownobelisk)// Obelisk - [|cffffcc00Level 3|r] (n03B)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0PK', 'A0PC', 'A0PE', 'A0P7', 'A0PH', 'A0PB', 'A0PR', 'A0Q6', 'S003', 'A0Q9', 'A0Q8', 'A0QA'))
     ..setScalingValue(0.90)
@@ -9164,6 +9272,7 @@ init
     ..setManaRegeneration(16.00)
 
     new BuildingDefinition(TINKERBUILDING_74, UnitIds.humanarcanetower)// Arcane Tower(Worker1) (h020)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0O4'))
@@ -9243,6 +9352,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_75, UnitIds.humanarcanetower)// Arcane Tower(Worker2) (h021)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0O5'))
@@ -9322,6 +9432,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_76, UnitIds.humanarcanetower)// Arcane Tower(Worker3) (h022)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0O6'))
@@ -9401,6 +9512,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_77, UnitIds.humanarcanetower)// Arcane Tower(Worker4) (h023)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0O7'))
@@ -9480,6 +9592,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_78, UnitIds.humanarcanetower)// Arcane Tower(Worker5) (h024)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0O8'))
@@ -9559,6 +9672,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_79, UnitIds.cannontower)// Cannon Tower(Worker) (h01A)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts', 'Afsh'))
@@ -9638,6 +9752,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_80, UnitIds.cannontower)// Cannon Tower(Worker1) (h01B)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts', 'Afsh'))
@@ -9717,6 +9832,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_81, UnitIds.cannontower)// Cannon Tower(Worker2) (h01C)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts', 'Afsh'))
@@ -9796,6 +9912,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_82, UnitIds.cannontower)// Cannon Tower(Worker3) (h01D)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts', 'Afsh'))
@@ -9875,6 +9992,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_83, UnitIds.cannontower)// Cannon Tower(Worker4) (h01E)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts', 'Afsh'))
@@ -9954,6 +10072,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_84, UnitIds.cannontower)// Cannon Tower(Worker5) (h01F)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('Abds', 'Adts', 'Afsh'))
@@ -10033,6 +10152,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_85, UnitIds.fountainofhealth)// Fountain of Life (e007)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0R0'))
@@ -10112,6 +10232,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_86, UnitIds.fountainofhealth)// Fountain of Life (e00E)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0R1'))
@@ -10191,6 +10312,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_87, UnitIds.fountainofhealth)// Fountain of Life (e00G)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0R2'))
@@ -10270,6 +10392,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_88, UnitIds.fountainofhealth)// Fountain of Life (e008)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0R3'))
@@ -10349,6 +10472,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_89, UnitIds.fountainofhealth)// Fountain of Life (e00B)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0QU'))
@@ -10428,6 +10552,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_90, UnitIds.fountainofhealth)// Fountain of Life (e009)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0QY'))
@@ -10507,6 +10632,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_91, UnitIds.fountainofhealth)// Fountain of Life (e00C)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0QV'))
@@ -10586,6 +10712,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_92, UnitIds.fountainofhealth)// Fountain of Life (e00D)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0QW'))
@@ -10665,6 +10792,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_93, UnitIds.fountainofhealth)// Fountain of Life (e00F)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0QX'))
@@ -10744,6 +10872,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_94, UnitIds.fountainofhealth)// Fountain of Life (e00A)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setLumberCost(0)
     ..setNormalAbilities(commaList('A0QZ'))
@@ -10823,6 +10952,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_95, UnitIds.goldmine)// Gold Mine + 2 (e00S)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -10903,6 +11033,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_96, UnitIds.goldmine)// Gold Mine + 4 (e00V)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -10983,6 +11114,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_97, UnitIds.goldmine)// Gold Mine + 8 (e00X)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -11063,6 +11195,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_98, UnitIds.goldmine)// Gold Mine + 16 (e00R)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -11143,6 +11276,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_99, UnitIds.goldmine)// Gold Mine + 32 (e00U)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -11223,7 +11357,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_100, UnitIds.goldmine)// Gold Mine + 64 (e00W)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_59.toRawCode())
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
     ..setSelectionScale(2.50)
@@ -11303,7 +11438,8 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_101, UnitIds.goldmine)// Gold Mine + 128 (e00Q)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
     ..setSelectionScale(2.50)
@@ -11383,6 +11519,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_102, UnitIds.goldmine)// Gold Mine + 256 (e00T)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -11463,6 +11600,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_103, UnitIds.humanlumbermill)// Lumber Mill + 1 (e01C)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -11538,11 +11676,13 @@ init
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
+    ..setResearchesAvailable("")
     ..setUpgradesTo(commaList(TINKERBUILDING_104))
     ..setName("Lumber Mill + 1")
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_104, UnitIds.humanlumbermill)// Lumber Mill + 2 (e01D)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -11616,6 +11756,7 @@ init
     ..setHitPointsMaximumBase(1500)
     ..setHitPointsRegenerationRate(7.00)
     ..setManaInitialAmount(0)
+    ..setResearchesAvailable("")
     ..setManaMaximum(0)
     ..setLumberCost(0)
     ..setUpgradesTo(commaList(TINKERBUILDING_105))
@@ -11623,6 +11764,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_105, UnitIds.humanlumbermill)// Lumber Mill + 4 (e01E)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -11696,6 +11838,7 @@ init
     ..setHitPointsMaximumBase(1500)
     ..setHitPointsRegenerationRate(7.00)
     ..setManaInitialAmount(0)
+    ..setResearchesAvailable("")
     ..setManaMaximum(0)
     ..setLumberCost(0)
     ..setUpgradesTo(commaList(TINKERBUILDING_106))
@@ -11703,6 +11846,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_106, UnitIds.humanlumbermill)// Lumber Mill + 8 (e01F)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -11775,6 +11919,7 @@ init
     ..setGoldBountyAwardedSidesperDie(3)
     ..setHitPointsMaximumBase(1500)
     ..setHitPointsRegenerationRate(7.00)
+    ..setResearchesAvailable("")
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
@@ -11783,6 +11928,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_107, UnitIds.humanlumbermill)// Lumber Mill + 16 (e01G)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -11855,6 +12001,7 @@ init
     ..setGoldBountyAwardedSidesperDie(3)
     ..setHitPointsMaximumBase(1500)
     ..setHitPointsRegenerationRate(7.00)
+    ..setResearchesAvailable("")
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
@@ -11863,6 +12010,7 @@ init
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_108, UnitIds.humanlumbermill)// Lumber Mill + 32 (e01H)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.50)
@@ -11936,14 +12084,17 @@ init
     ..setHitPointsMaximumBase(1500)
     ..setHitPointsRegenerationRate(7.00)
     ..setManaInitialAmount(0)
+    ..setResearchesAvailable("")
     ..setManaMaximum(0)
     ..setLumberCost(0)
     ..setUpgradesTo(commaList(""))
+    ..setUpgradesTo("")
     ..setName("Lumber Mill + 32")
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_109, UnitIds.highelfbarracks)// Goblin Barracks (n02V)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(1.00)
     ..setSelectionScale(4.00)
@@ -12018,13 +12169,16 @@ init
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
+    ..setUnitsTrained("")
+    ..setResearchesAvailable("")
     ..setUnitsSold(commaList(TINKERBUILDING_116, TINKERBUILDING_117, TINKERBUILDING_118, TINKERBUILDING_119, TINKERBUILDING_120, TINKERBUILDING_121, TINKERBUILDING_122))
     ..setUpgradesTo(commaList(""))
     ..setName("Goblin Barracks")
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_110, UnitIds.goblinammodump)// Goblin Laboratory (n02W)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.80)
     ..setSelectionScale(4.00)
@@ -12099,12 +12253,14 @@ init
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
+    ..setResearchesAvailable(commaList(UPGRADE_11, UPGRADE_12, UPGRADE_13, UPGRADE_14, UPGRADE_15, UPGRADE_16))
     ..setUpgradesTo(commaList(""))
     ..setName("Goblin Laboratory")
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_111, UnitIds.goblinmerchant)// Goblin Merchant (n02U)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setNormalAbilities(commaList('Aneu', 'Avul', 'Apit'))
     ..setScalingValue(1.00)
     ..setSelectionScale(4.50)
@@ -12179,11 +12335,13 @@ init
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
+    ..setItemsSold(commaList(ITEM_TINKER_0, ITEM_TINKER_1, ITEM_TINKER_2, ITEM_TINKER_3, ITEM_TINKER_4, ITEM_TINKER_5, ITEM_TINKER_6))
     ..setUpgradesTo(commaList(""))
     ..setName("Goblin Merchant")
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_112, UnitIds.goblinmerchant)// Goblin Magic Vault (n053)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList('_'))
     ..setScalingValue(1.00)
@@ -12259,11 +12417,13 @@ init
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
+    ..setItemsSold(commaList(ITEM_TINKER_7, ITEM_TINKER_8, ITEM_TINKER_9, ITEM_TINKER_10, ITEM_TINKER_11, ITEM_TINKER_12, ITEM_TINKER_13, ITEM_TINKER_14))
     ..setUpgradesTo(commaList(""))
     ..setName("Goblin Magic Vault")
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_113, UnitIds.marketplace)// Goblin Fruit Stand (n055)
+    ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList('Aneu', 'Avul', 'Apit'))
     ..setScalingValue(1.00)
@@ -12340,11 +12500,13 @@ init
     ..setManaMaximum(0)
     ..setLumberCost(0)
     ..setUpgradesTo(commaList(""))
+    ..setItemsSold(commaList(ITEM_TINKER_15, ITEM_TINKER_16, ITEM_TINKER_17, ITEM_TINKER_18, ITEM_TINKER_19, ITEM_TINKER_20, ITEM_TINKER_21))
     ..setName("Goblin Fruit Stand")
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_114, UnitIds.blacksmith)// Blacksmith (h04A)
-    ..setRequirements("")
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setNormalAbilities(commaList('Abds', 'Aihn'))
     ..setScalingValue(1.00)
     ..setSelectionScale(4.00)
@@ -12419,11 +12581,14 @@ init
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
+    ..setUnitsTrained(DUMMY_BLACKSMITH_WISP.toRawCode())
+    ..setUpgradesUsed(UPGRADE_11.toRawCode())
     ..setUpgradesTo(commaList(""))
     ..setName("Blacksmith")
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_115, UnitIds.arcanesanctum)// Goblin Library (n056)
+    ..setGroundTexture("")
     ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(0.80)
@@ -12499,6 +12664,7 @@ init
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
+    ..setResearchesAvailable(commaList(UPGRADE_0, UPGRADE_1, UPGRADE_2, UPGRADE_3, UPGRADE_4, UPGRADE_5, UPGRADE_6, UPGRADE_7, UPGRADE_8, UPGRADE_9, UPGRADE_10))
     ..setUpgradesTo(commaList(""))
     ..setName("Goblin Library")
     ..setManaRegeneration(0.00)
@@ -12506,6 +12672,7 @@ init
     new UnitDefinition(TINKERBUILDING_116, UnitIds.goblinsapper)// Goblin Boom (u01C)
     ..setRequirements("")
     ..setNormalAbilities(commaList('A0ZO'))
+    ..setUpgradesUsed(commaList(UPGRADE_14, UPGRADE_15, UPGRADE_16))
     ..setScalingValue(4.00)
     ..setSelectionScale(3.00)
     ..setAttack1CooldownTime(0.10)
@@ -12584,6 +12751,7 @@ init
 
     new UnitDefinition(TINKERBUILDING_117, UnitIds.goblinblaster)// Goblin Blaster (n045)
     ..setNormalAbilities(commaList('A0QD'))
+    ..setUpgradesUsed(commaList(UPGRADE_14, UPGRADE_15, UPGRADE_16, UPGRADE_1))
     ..setScalingValue(3.25)
     ..setSelectionScale(6.00)
     ..setAttack1CooldownTime(4.50)
@@ -12662,6 +12830,7 @@ init
 
     new UnitDefinition(TINKERBUILDING_118, UnitIds.seaelemental)// Goblin Sea Elemental (n051)
     ..setNormalAbilities(commaList('A0NP', 'ACbh', 'Feru', 'wtex'))
+    ..setUpgradesUsed(commaList(UPGRADE_14, UPGRADE_15, UPGRADE_16))
     ..setScalingValue(2.00)
     ..setSelectionScale(3.00)
     ..setAttack1CooldownTime(1.50)
@@ -12740,6 +12909,7 @@ init
 
     new UnitDefinition(TINKERBUILDING_119, UnitIds.marine)// Marine (z001)
     ..setNormalAbilities(commaList('A10P', 'A10O', 'A10N'))
+    ..setUpgradesUsed(commaList(UPGRADE_7, UPGRADE_9, UPGRADE_5))
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
     ..setAttack1CooldownTime(0.50)
@@ -12818,8 +12988,12 @@ init
 
     new UnitDefinition(TINKERBUILDING_120, UnitIds.chaosspaceorc)// Space Fel Orc (z002)
     ..setNormalAbilities(commaList('A10Q', 'A10R', 'A10S'))
+    ..setUpgradesUsed(commaList(UPGRADE_10, UPGRADE_8, UPGRADE_3))
     ..setScalingValue(1.80)
     ..setSelectionScale(2.00)
+    ..setIconGameInterface(Icons.bTNChaosSpaceOrc)
+    ..setIconScoreScreen(Icons.bTNChaosSpaceOrc)
+    ..setModelFile(Units.chaosSpaceOrc1)
     ..setAttack1CooldownTime(1.30)
     ..setAttack1DamageBase(1600)
     ..setAttack1DamageNumberofDice(10)
@@ -12896,6 +13070,7 @@ init
 
     new UnitDefinition(TINKERBUILDING_121, UnitIds.flyingmachine)// Flying Machine (h04K)
     ..setNormalAbilities(commaList('A10T', 'A10U', 'A10V'))
+    ..setUpgradesUsed(commaList(UPGRADE_2, UPGRADE_4, UPGRADE_6))
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
     ..setAttack1CooldownTime(0.10)
@@ -12974,6 +13149,7 @@ init
 
     new UnitDefinition(TINKERBUILDING_122, UnitIds.siegeengine)// Siege Engine (h04I)
     ..setNormalAbilities(commaList('A10W'))
+    ..setUpgradesUsed(UPGRADE_0.toRawCode())
     ..setScalingValue(1.50)
     ..setSelectionScale(4.00)
     ..setAttack1CooldownTime(1.30)

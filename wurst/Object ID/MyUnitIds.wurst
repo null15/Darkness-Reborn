@@ -9,6 +9,8 @@ public constant DUMMY_UNIT_1 = compiletime(UNIT_ID_GEN.next())
 public constant DUMMY_UNIT_2 = compiletime(UNIT_ID_GEN.next())
 public constant DUMMY_UNIT_3 = compiletime(UNIT_ID_GEN.next())
 
+public constant DUMMY_BLACKSMITH_WISP = compiletime(UNIT_ID_GEN.next())
+
 public constant HERO_PICKER = compiletime(UNIT_ID_GEN.next())
 
 public constant POCKETFACTORYROBO_0 = compiletime(UNIT_ID_GEN.next())

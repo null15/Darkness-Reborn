@@ -542,13 +542,56 @@ function recipeItemReplace()
             RemoveItem(u.getItemById(ITEM_DROP_160))
             u.addItemById(ITEM_262)
 
-        // // 
-        // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     u.addItemById(ITEM_1)
+        // Ice & Fire Sword II - Tinker
+        else if u.hasItemById(ITEM_172) and u.hasItemById(ITEM_240) and u.hasItemById(ITEM_190) and u.hasItemById(ITEM_TINKER_15)
+            RemoveItem(u.getItemById(ITEM_172))
+            RemoveItem(u.getItemById(ITEM_240))
+            RemoveItem(u.getItemById(ITEM_190))
+            RemoveItem(u.getItemById(ITEM_TINKER_15))
+            u.addItemById(ITEM_246)
+
+        // Dark Steel Sword II - Tinker
+        else if u.hasItemById(ITEM_173) and u.hasItemById(ITEM_DROP_57) and u.hasItemById(ITEM_TINKER_16)
+            RemoveItem(u.getItemById(ITEM_173))
+            RemoveItem(u.getItemById(ITEM_DROP_57))
+            RemoveItem(u.getItemById(ITEM_TINKER_16))
+            u.addItemById(ITEM_247)
+
+        // Destroy Sword II - Tinker
+        else if u.hasItemById(ITEM_186) and u.hasItemById(ITEM_219) and u.hasItemById(ITEM_DROP_56) and u.hasItemById(ITEM_TINKER_17)
+            RemoveItem(u.getItemById(ITEM_186))
+            RemoveItem(u.getItemById(ITEM_219))
+            RemoveItem(u.getItemById(ITEM_DROP_56))
+            RemoveItem(u.getItemById(ITEM_TINKER_17))
+            u.addItemById(ITEM_248)
+
+        // Platinum Hammer II - Tinker
+        else if u.hasItemById(ITEM_187) and u.hasItemById(ITEM_197) and u.hasItemById(ITEM_180) and u.hasItemById(ITEM_TINKER_18)
+            RemoveItem(u.getItemById(ITEM_187))
+            RemoveItem(u.getItemById(ITEM_197))
+            RemoveItem(u.getItemById(ITEM_180))
+            RemoveItem(u.getItemById(ITEM_TINKER_18))
+            u.addItemById(ITEM_249)
+
+        // Gold Axe II - Tinker
+        else if u.hasItemById(ITEM_177) and u.hasItemById(ITEM_TINKER_22) and u.hasItemById(ITEM_TINKER_19)
+            RemoveItem(u.getItemById(ITEM_177))
+            RemoveItem(u.getItemById(ITEM_TINKER_22))
+            RemoveItem(u.getItemById(ITEM_TINKER_19))
+            u.addItemById(ITEM_250)
+
+        // Reactive Armor II - Tinker
+        else if u.hasItemById(ITEM_175) and u.hasItemById(ITEM_226) and u.hasItemById(ITEM_TINKER_20)
+            RemoveItem(u.getItemById(ITEM_175))
+            RemoveItem(u.getItemById(ITEM_226))
+            RemoveItem(u.getItemById(ITEM_TINKER_20))
+            u.addItemById(ITEM_251)
+
+        // Boots of Crystal Gold II - Tinker
+        else if u.hasItemById(ITEM_189) and u.hasItemById(ITEM_TINKER_21)
+            RemoveItem(u.getItemById(ITEM_189))
+            RemoveItem(u.getItemById(ITEM_TINKER_21))
+            u.addItemById(ITEM_252)
 
         // // 
         // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)
@@ -557,7 +600,6 @@ function recipeItemReplace()
         //     RemoveItem(u.getItemById(ITEM_1))
         //     RemoveItem(u.getItemById(ITEM_1))
         //     u.addItemById(ITEM_1)
-
         // // 
         // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)
         //     RemoveItem(u.getItemById(ITEM_1))

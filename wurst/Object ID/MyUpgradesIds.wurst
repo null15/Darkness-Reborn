@@ -1,0 +1,21 @@
+package MyUpgradesIds
+
+import ObjectIdGenerator
+
+public constant UPGRADE_0 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_1 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_2 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_3 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_4 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_5 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_6 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_7 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_8 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_9 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_10 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_11 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_12 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_13 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_14 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_15 = compiletime(UPGD_ID_GEN.next())
+public constant UPGRADE_16 = compiletime(UPGD_ID_GEN.next())
