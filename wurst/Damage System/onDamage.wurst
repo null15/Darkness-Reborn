@@ -18,6 +18,7 @@ import A000_W
 import A0S8_E
 import A0M3_R
 import A01O_P
+import A0DI_R
 
 import MyBuffIds
 import MyAbilityIds
@@ -83,6 +84,9 @@ init
                 if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and DamageEvent.getTarget().getTypeId() == PLAY_HERO_23 and UnitHasBuffBJ(DamageEvent.getTarget(), 'B00N')
                     craggyHex(DamageEvent.getSource(), DamageEvent.getTarget())
 
+                if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and DamageEvent.getSource().getTypeId() == PLAY_HERO_22 and DamageEvent.getSource().getAbilityLevel('A0DI') > 0
+                    if GetRandomInt(1, 100) < 15
+                        mindRipper(DamageEvent.getSource(), DamageEvent.getTarget())
 
             case SPELL
                 // Dark Ranger (Image Arrows) Q - Active

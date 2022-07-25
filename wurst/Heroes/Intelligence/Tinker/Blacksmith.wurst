@@ -1,0 +1,304 @@
+package Blacksmith
+
+import MyUnitIds
+import ClosureForGroups
+import MyItemIds
+import MyBuffIds
+
+init
+    
+    blacksmith()
+
+function blacksmithCond() returns boolean
+    return GetTriggerUnit().getTypeId() == TINKERBUILDING_114 and GetTrainedUnit().getTypeId() == DUMMY_BLACKSMITH_WISP
+
+function blacksmith()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_TRAIN_FINISH)..addCondition(Condition(function blacksmithCond))..addAction() ->
+        let bs = GetTriggerUnit()
+
+        forUnitsInRange(bs.getPos(), 500, true) (unit u) ->
+            if u.getTypeId() == DUMMY_BLACKSMITH_WISP
+                u.issueImmediateOrder("detonate")
+        
+        printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed", 7)
+
+
+        if bs.hasItemById(BLACKSMITH_ITEM_0) 
+            bs.getItemById(BLACKSMITH_ITEM_0).remove()
+            bs.addItemById(BLACKSMITH_ITEM_1)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_2) 
+            bs.getItemById(BLACKSMITH_ITEM_2).remove()
+            bs.addItemById(BLACKSMITH_ITEM_3)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_4) 
+            bs.getItemById(BLACKSMITH_ITEM_4).remove()
+            bs.addItemById(ITEM_DROP_149)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_5)
+            bs.getItemById(BLACKSMITH_ITEM_5).remove()
+            bs.addItemById(BLACKSMITH_ITEM_6)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_7)
+            bs.getItemById(BLACKSMITH_ITEM_7).remove()
+            bs.addItemById(BLACKSMITH_ITEM_8)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_9)
+            bs.getItemById(BLACKSMITH_ITEM_9).remove()
+            bs.addItemById(BLACKSMITH_ITEM_10)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_11)
+            bs.getItemById(BLACKSMITH_ITEM_11).remove()
+            bs.addItemById(BLACKSMITH_ITEM_12)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_13)
+            bs.getItemById(BLACKSMITH_ITEM_13).remove()
+            bs.addItemById(BLACKSMITH_ITEM_14)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_15)
+            bs.getItemById(BLACKSMITH_ITEM_15).remove()
+            bs.addItemById(BLACKSMITH_ITEM_16)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_17)
+            bs.getItemById(BLACKSMITH_ITEM_17).remove()
+            bs.addItemById(BLACKSMITH_ITEM_18)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_19)
+            bs.getItemById(BLACKSMITH_ITEM_19).remove()
+            bs.addItemById(BLACKSMITH_ITEM_20)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_21)
+            bs.getItemById(BLACKSMITH_ITEM_21).remove()
+            bs.addItemById(BLACKSMITH_ITEM_22)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_23)
+            bs.getItemById(BLACKSMITH_ITEM_23).remove()
+            bs.addItemById(BLACKSMITH_ITEM_24)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_25)
+            bs.getItemById(BLACKSMITH_ITEM_25).remove()
+            bs.addItemById(BLACKSMITH_ITEM_26)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_27)
+            bs.getItemById(BLACKSMITH_ITEM_27).remove()
+            bs.addItemById(BLACKSMITH_ITEM_28)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_29)
+            bs.getItemById(BLACKSMITH_ITEM_29).remove()
+            bs.addItemById(BLACKSMITH_ITEM_30)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_31)
+            bs.getItemById(BLACKSMITH_ITEM_31).remove()
+            bs.addItemById(BLACKSMITH_ITEM_32)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_33)
+            bs.getItemById(BLACKSMITH_ITEM_33).remove()
+            bs.addItemById(BLACKSMITH_ITEM_34)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_36)
+            bs.getItemById(BLACKSMITH_ITEM_36).remove()
+            bs.addItemById(BLACKSMITH_ITEM_37)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_38)
+            bs.getItemById(BLACKSMITH_ITEM_38).remove()
+            bs.addItemById(BLACKSMITH_ITEM_39)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_40)
+            bs.getItemById(BLACKSMITH_ITEM_40).remove()
+            bs.addItemById(BLACKSMITH_ITEM_41)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_42)
+            bs.getItemById(BLACKSMITH_ITEM_42).remove()
+            bs.addItemById(BLACKSMITH_ITEM_43)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_44)
+            bs.getItemById(BLACKSMITH_ITEM_44).remove()
+            bs.addItemById(BLACKSMITH_ITEM_45)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_46)
+            bs.getItemById(BLACKSMITH_ITEM_46).remove()
+            bs.addItemById(BLACKSMITH_ITEM_47)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_48)
+            bs.getItemById(BLACKSMITH_ITEM_48).remove()
+            bs.addItemById(BLACKSMITH_ITEM_49)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_51)
+            bs.getItemById(BLACKSMITH_ITEM_51).remove()
+            bs.addItemById(BLACKSMITH_ITEM_52)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_53)
+            bs.getItemById(BLACKSMITH_ITEM_53).remove()
+            bs.addItemById(BLACKSMITH_ITEM_54)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_55)
+            bs.getItemById(BLACKSMITH_ITEM_55).remove()
+            bs.addItemById(BLACKSMITH_ITEM_56)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_57)
+            bs.getItemById(BLACKSMITH_ITEM_57).remove()
+            bs.addItemById(BLACKSMITH_ITEM_58)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_60)
+            bs.getItemById(BLACKSMITH_ITEM_60).remove()
+            bs.addItemById(BLACKSMITH_ITEM_61)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_62)
+            bs.getItemById(BLACKSMITH_ITEM_62).remove()
+            bs.addItemById(BLACKSMITH_ITEM_63)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_64)
+            bs.getItemById(BLACKSMITH_ITEM_64).remove()
+            bs.addItemById(BLACKSMITH_ITEM_65)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_66)
+            bs.getItemById(BLACKSMITH_ITEM_66).remove()
+            bs.addItemById(BLACKSMITH_ITEM_67)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_68)
+            bs.getItemById(BLACKSMITH_ITEM_68).remove()
+            bs.addItemById(BLACKSMITH_ITEM_69)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_70)
+            bs.getItemById(BLACKSMITH_ITEM_70).remove()
+            bs.addItemById(BLACKSMITH_ITEM_71)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_72)
+            bs.getItemById(BLACKSMITH_ITEM_72).remove()
+            bs.addItemById(BLACKSMITH_ITEM_73)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_74)
+            bs.getItemById(BLACKSMITH_ITEM_74).remove()
+            bs.addItemById(BLACKSMITH_ITEM_75)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_76)
+            bs.getItemById(BLACKSMITH_ITEM_76).remove()
+            bs.addItemById(BLACKSMITH_ITEM_77)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_78)
+            bs.getItemById(BLACKSMITH_ITEM_78).remove()
+            bs.addItemById(BLACKSMITH_ITEM_79)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_81)
+            bs.getItemById(BLACKSMITH_ITEM_81).remove()
+            bs.addItemById(BLACKSMITH_ITEM_82)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_83)
+            bs.getItemById(BLACKSMITH_ITEM_83).remove()
+            bs.addItemById(BLACKSMITH_ITEM_84)
+
+        else if bs.hasItemById(BLACKSMITH_ITEM_85)
+            bs.getItemById(BLACKSMITH_ITEM_85).remove()
+            bs.addItemById(BLACKSMITH_ITEM_86)
+
+        else if bs.hasItemById(ITEM_DROP_143)
+            bs.getItemById(ITEM_DROP_143).remove()
+            bs.addItemById(BLACKSMITH_ITEM_87)
+
+        else if bs.hasItemById(ITEM_236) and bs.hasItemById(BLACKSMITH_ITEM_30)
+            bs.getItemById(ITEM_236).remove()
+            bs.getItemById(BLACKSMITH_ITEM_30).remove()
+            bs.addItemById(BLACKSMITH_ITEM_88)
+
+        else if UnitHasBuffBJ(bs, BUFF_8) // Metal Strength - Improved by Jacksmith R
+
+            if bs.hasItemById(BLACKSMITH_ITEM_1) and bs.hasItemById(BLACKSMITH_ITEM_3) and bs.hasItemById(ITEM_DROP_149)
+                bs.getItemById(BLACKSMITH_ITEM_1).remove()
+                bs.getItemById(BLACKSMITH_ITEM_3).remove()
+                bs.getItemById(ITEM_DROP_149).remove()
+                bs.addItemById(ITEM_UPGRADE_46)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_6) and bs.hasItemById(BLACKSMITH_ITEM_8) and bs.hasItemById(BLACKSMITH_ITEM_10)
+                bs.getItemById(BLACKSMITH_ITEM_6).remove()
+                bs.getItemById(BLACKSMITH_ITEM_8).remove()
+                bs.getItemById(BLACKSMITH_ITEM_10).remove()
+                bs.addItemById(ITEM_UPGRADE_45)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_12) and bs.hasItemById(BLACKSMITH_ITEM_14) and bs.hasItemById(BLACKSMITH_ITEM_16) and bs.hasItemById(BLACKSMITH_ITEM_18)
+                bs.getItemById(BLACKSMITH_ITEM_12).remove()
+                bs.getItemById(BLACKSMITH_ITEM_14).remove()
+                bs.getItemById(BLACKSMITH_ITEM_16).remove()
+                bs.getItemById(BLACKSMITH_ITEM_18).remove()
+                bs.addItemById(ITEM_JACKSMITH_19)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_20) and bs.hasItemById(BLACKSMITH_ITEM_22) and bs.hasItemById(BLACKSMITH_ITEM_24) and bs.hasItemById(ITEM_DROP_148)
+                bs.getItemById(BLACKSMITH_ITEM_20).remove()
+                bs.getItemById(BLACKSMITH_ITEM_22).remove()
+                bs.getItemById(BLACKSMITH_ITEM_24).remove()
+                bs.getItemById(ITEM_DROP_148).remove()
+                bs.addItemById(BLACKSMITH_ITEM_26)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_28) and bs.hasItemById(BLACKSMITH_ITEM_30) and bs.hasItemById(BLACKSMITH_ITEM_32) and bs.hasItemById(BLACKSMITH_ITEM_34)
+                bs.getItemById(BLACKSMITH_ITEM_28).remove()
+                bs.getItemById(BLACKSMITH_ITEM_30).remove()
+                bs.getItemById(BLACKSMITH_ITEM_32).remove()
+                bs.getItemById(BLACKSMITH_ITEM_34).remove()
+                bs.addItemById(BLACKSMITH_ITEM_35)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_37) and bs.hasItemById(BLACKSMITH_ITEM_39) and bs.hasItemById(BLACKSMITH_ITEM_41)
+                bs.getItemById(BLACKSMITH_ITEM_37).remove()
+                bs.getItemById(BLACKSMITH_ITEM_39).remove()
+                bs.getItemById(BLACKSMITH_ITEM_41).remove()
+                bs.addItemById(BLACKSMITH_ITEM_89)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_43) and bs.hasItemById(BLACKSMITH_ITEM_45) and bs.hasItemById(BLACKSMITH_ITEM_47) and bs.hasItemById(BLACKSMITH_ITEM_49)
+                bs.getItemById(BLACKSMITH_ITEM_43).remove()
+                bs.getItemById(BLACKSMITH_ITEM_45).remove()
+                bs.getItemById(BLACKSMITH_ITEM_47).remove()
+                bs.getItemById(BLACKSMITH_ITEM_49).remove()
+                bs.addItemById(BLACKSMITH_ITEM_50)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_52) and bs.hasItemById(BLACKSMITH_ITEM_54) and bs.hasItemById(BLACKSMITH_ITEM_56) and bs.hasItemById(BLACKSMITH_ITEM_58)
+                bs.getItemById(BLACKSMITH_ITEM_52).remove()
+                bs.getItemById(BLACKSMITH_ITEM_54).remove()
+                bs.getItemById(BLACKSMITH_ITEM_56).remove()
+                bs.getItemById(BLACKSMITH_ITEM_58).remove()
+                bs.addItemById(BLACKSMITH_ITEM_59)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_61) and bs.hasItemById(BLACKSMITH_ITEM_63) and bs.hasItemById(BLACKSMITH_ITEM_65)
+                bs.getItemById(BLACKSMITH_ITEM_61).remove()
+                bs.getItemById(BLACKSMITH_ITEM_63).remove()
+                bs.getItemById(BLACKSMITH_ITEM_65).remove()
+                bs.addItemById(BLACKSMITH_ITEM_90)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_67) and bs.hasItemById(BLACKSMITH_ITEM_69) and bs.hasItemById(BLACKSMITH_ITEM_71) and bs.hasItemById(BLACKSMITH_ITEM_73)
+                bs.getItemById(BLACKSMITH_ITEM_67).remove()
+                bs.getItemById(BLACKSMITH_ITEM_69).remove()
+                bs.getItemById(BLACKSMITH_ITEM_71).remove()
+                bs.getItemById(BLACKSMITH_ITEM_73).remove()
+                bs.addItemById(BLACKSMITH_ITEM_91)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_75) and bs.hasItemById(BLACKSMITH_ITEM_77) and bs.hasItemById(BLACKSMITH_ITEM_79)
+                bs.getItemById(BLACKSMITH_ITEM_75).remove()
+                bs.getItemById(BLACKSMITH_ITEM_77).remove()
+                bs.getItemById(BLACKSMITH_ITEM_79).remove()
+                bs.addItemById(BLACKSMITH_ITEM_80)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_82) and bs.hasItemById(BLACKSMITH_ITEM_84) and bs.hasItemById(BLACKSMITH_ITEM_86) and bs.hasItemById(BLACKSMITH_ITEM_87)
+                bs.getItemById(BLACKSMITH_ITEM_82).remove()
+                bs.getItemById(BLACKSMITH_ITEM_84).remove()
+                bs.getItemById(BLACKSMITH_ITEM_86).remove()
+                bs.getItemById(BLACKSMITH_ITEM_87).remove()
+                bs.addItemById(BLACKSMITH_ITEM_92)
+
+            if bs.hasItemById(ITEM_181) and bs.hasItemById(BLACKSMITH_ITEM_88) and bs.hasItemById(ITEM_119)
+                bs.getItemById(ITEM_181).remove()
+                bs.getItemById(BLACKSMITH_ITEM_88).remove()
+                bs.getItemById(ITEM_119).remove()
+                bs.addItemById(BLACKSMITH_ITEM_93)
+
+            if bs.hasItemById(ITEM_UPGRADE_61) and bs.hasItemById(ITEM_238) and bs.hasItemById(BLACKSMITH_ITEM_34)
+                bs.getItemById(ITEM_UPGRADE_61).remove()
+                bs.getItemById(ITEM_238).remove()
+                bs.getItemById(BLACKSMITH_ITEM_34).remove()
+                bs.addItemById(BLACKSMITH_ITEM_94)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_95) and bs.hasItemById(ITEM_185)
+                bs.getItemById(BLACKSMITH_ITEM_95).remove()
+                bs.getItemById(ITEM_185).remove()
+                bs.addItemById(BLACKSMITH_ITEM_96)
+
+            if bs.hasItemById(BLACKSMITH_ITEM_97) and bs.hasItemById(ITEM_185)
+                bs.getItemById(BLACKSMITH_ITEM_97).remove()
+                bs.getItemById(ITEM_185).remove()
+                bs.addItemById(BLACKSMITH_ITEM_98)

@@ -1,0 +1,23 @@
+package A0QK_R
+import ClosureEvents
+import ClosureTimers
+bool run = true
+init
+    repair()
+function repair()
+    EventListener.onTargetCast('A0QK') (unit caster, unit target) ->
+        let lvl = caster.getAbilityLevel('A0QK')
+        run = true
+        doPeriodically(1) (CallbackPeriodic cb) ->
+            if run
+                if caster.getMana() < 10.00*lvl
+                    caster.issueImmediateOrder("stop")
+                    run = false
+                else
+                    target.addHP(10.00*lvl)
+                    caster.addMana(-10.00*lvl)
+            else
+                destroy cb
+    EventListener.add(EVENT_PLAYER_UNIT_SPELL_ENDCAST) -> 
+        if GetSpellAbilityId() == 'A0QK'
+            run = false

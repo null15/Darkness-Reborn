@@ -73,7 +73,7 @@ function createSetup()
 
 function mapSetup()
 
-    elementalSoul = createUnit(Player(10), 'h000', gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees())
+    elementalSoul = createUnit(Player(10), ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees())
 
     doAfter(0.01) -> 
 

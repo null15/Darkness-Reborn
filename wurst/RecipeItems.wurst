@@ -462,9 +462,11 @@ function recipeItemReplace()
             u.addItemById(ITEM_177)
 
         // Dark Matter
-        else if u.hasItemById(ITEM_100) and u.hasItemById(ITEM_214)
+        else if u.hasItemById(ITEM_100) and u.hasItemById(ITEM_212) and u.hasItemById(ITEM_23) and u.hasItemById(ITEM_234)
             RemoveItem(u.getItemById(ITEM_100))
-            RemoveItem(u.getItemById(ITEM_214))
+            RemoveItem(u.getItemById(ITEM_212))
+            RemoveItem(u.getItemById(ITEM_23))
+            RemoveItem(u.getItemById(ITEM_234))
             u.addItemById(ITEM_178)
 
         // Rain Sword

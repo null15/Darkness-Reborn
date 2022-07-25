@@ -32,5 +32,6 @@ public constant ABILITY_9 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_10 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_11 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_12 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_13 = compiletime(ABIL_ID_GEN.next())
 
 init

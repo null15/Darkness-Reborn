@@ -8,98 +8,99 @@ init
     forgeMaster()
 function forgeMaster()
     EventListener.onCast('A0JR') (unit caster) ->
-        let lvl = GetUnitAbilityLevel(caster, 'A0JR')
+        let js = caster
+        let lvl = GetUnitAbilityLevel(js, 'A0JR')
         
         let forgeBox = new DialogBox("Select desired item")
         forgeBox.addButton("Sword") -> 
             if lvl == 1
-                caster.addItemById(ITEM_JACKSMITH_0)
+                js.addItemById(ITEM_JACKSMITH_0)
             else if lvl == 2
-                caster.addItemById(ITEM_JACKSMITH_4)
+                js.addItemById(ITEM_JACKSMITH_4)
             else if lvl == 3
-                caster.addItemById(ITEM_JACKSMITH_9)
+                js.addItemById(ITEM_JACKSMITH_9)
             else if lvl == 4
-                caster.addItemById(ITEM_JACKSMITH_17)
-            forgeBox.display(GetOwningPlayer(caster), false)
+                js.addItemById(ITEM_JACKSMITH_17)
+            forgeBox.display(GetOwningPlayer(js), false)
         forgeBox.addButton("Blade") -> 
             if lvl == 1
-                caster.addItemById(ITEM_UPGRADE_50)
+                js.addItemById(ITEM_UPGRADE_50)
             else if lvl == 2
-                caster.addItemById(ITEM_UPGRADE_51)
+                js.addItemById(ITEM_UPGRADE_51)
             else if lvl == 3
-                caster.addItemById(ITEM_UPGRADE_52)
+                js.addItemById(ITEM_UPGRADE_52)
             else if lvl == 4
-                caster.addItemById(ITEM_UPGRADE_53)
-            forgeBox.display(GetOwningPlayer(caster), false)
+                js.addItemById(ITEM_UPGRADE_53)
+            forgeBox.display(GetOwningPlayer(js), false)
         forgeBox.addButton("Axe") -> 
             if lvl == 1
-                caster.addItemById(ITEM_UPGRADE_54)
+                js.addItemById(ITEM_UPGRADE_54)
             else if lvl == 2
-                caster.addItemById(ITEM_UPGRADE_55)
+                js.addItemById(ITEM_UPGRADE_55)
             else if lvl == 3
-                caster.addItemById(ITEM_UPGRADE_56)
+                js.addItemById(ITEM_UPGRADE_56)
             else if lvl == 4
-                caster.addItemById(ITEM_UPGRADE_57)
-            forgeBox.display(GetOwningPlayer(caster), false)
+                js.addItemById(ITEM_UPGRADE_57)
+            forgeBox.display(GetOwningPlayer(js), false)
         forgeBox.addButton("Staff") -> 
             if lvl == 1
-                caster.addItemById(ITEM_UPGRADE_58)
+                js.addItemById(ITEM_UPGRADE_58)
             else if lvl == 2
-                caster.addItemById(ITEM_UPGRADE_59)
+                js.addItemById(ITEM_UPGRADE_59)
             else if lvl == 3
-                caster.addItemById(ITEM_UPGRADE_60)
+                js.addItemById(ITEM_UPGRADE_60)
             else if lvl == 4
-                caster.addItemById(ITEM_UPGRADE_61)
-            forgeBox.display(GetOwningPlayer(caster), false)
+                js.addItemById(ITEM_UPGRADE_61)
+            forgeBox.display(GetOwningPlayer(js), false)
         forgeBox.addButton("Armor") -> 
             if lvl == 1
-                caster.addItemById(ITEM_UPGRADE_62)
+                js.addItemById(ITEM_UPGRADE_62)
             else if lvl == 2
-                caster.addItemById(ITEM_UPGRADE_63)
+                js.addItemById(ITEM_UPGRADE_63)
             else if lvl == 3
-                caster.addItemById(ITEM_UPGRADE_64)
+                js.addItemById(ITEM_UPGRADE_64)
             else if lvl == 4
-                caster.addItemById(ITEM_UPGRADE_65)
-            forgeBox.display(GetOwningPlayer(caster), false)
+                js.addItemById(ITEM_UPGRADE_65)
+            forgeBox.display(GetOwningPlayer(js), false)
         forgeBox.addButton("Helm") -> 
             if lvl == 1
-                caster.addItemById(ITEM_UPGRADE_66)
+                js.addItemById(ITEM_UPGRADE_66)
             else if lvl == 2
-                caster.addItemById(ITEM_UPGRADE_67)
+                js.addItemById(ITEM_UPGRADE_67)
             else if lvl == 3
-                caster.addItemById(ITEM_UPGRADE_68)
+                js.addItemById(ITEM_UPGRADE_68)
             else if lvl == 4
-                caster.addItemById(ITEM_UPGRADE_69)
-            forgeBox.display(GetOwningPlayer(caster), false)
+                js.addItemById(ITEM_UPGRADE_69)
+            forgeBox.display(GetOwningPlayer(js), false)
         forgeBox.addButton("Boots") -> 
             if lvl == 1
-                caster.addItemById(ITEM_UPGRADE_70)
+                js.addItemById(ITEM_UPGRADE_70)
             else if lvl == 2
-                caster.addItemById(ITEM_UPGRADE_71)
+                js.addItemById(ITEM_UPGRADE_71)
             else if lvl == 3
-                caster.addItemById(ITEM_UPGRADE_72)
+                js.addItemById(ITEM_UPGRADE_72)
             else if lvl == 4
-                caster.addItemById(ITEM_UPGRADE_73)
-            forgeBox.display(GetOwningPlayer(caster), false)
+                js.addItemById(ITEM_UPGRADE_73)
+            forgeBox.display(GetOwningPlayer(js), false)
         forgeBox.addButton("Gloves") -> 
             if lvl == 1
-                caster.addItemById(ITEM_UPGRADE_74)
+                js.addItemById(ITEM_UPGRADE_74)
             else if lvl == 2
-                caster.addItemById(ITEM_UPGRADE_75)
+                js.addItemById(ITEM_UPGRADE_75)
             else if lvl == 3
-                caster.addItemById(ITEM_UPGRADE_76)
+                js.addItemById(ITEM_UPGRADE_76)
             else if lvl == 4
-                caster.addItemById(ITEM_UPGRADE_77)
-            forgeBox.display(GetOwningPlayer(caster), false)
+                js.addItemById(ITEM_UPGRADE_77)
+            forgeBox.display(GetOwningPlayer(js), false)
         forgeBox.addButton("Shield") -> 
             if lvl == 1
-                caster.addItemById(ITEM_UPGRADE_78)
+                js.addItemById(ITEM_UPGRADE_78)
             else if lvl == 2
-                caster.addItemById(ITEM_UPGRADE_79)
+                js.addItemById(ITEM_UPGRADE_79)
             else if lvl == 3
-                caster.addItemById(ITEM_UPGRADE_80)
+                js.addItemById(ITEM_UPGRADE_80)
             else if lvl == 4
-                caster.addItemById(ITEM_UPGRADE_81)
-            forgeBox.display(GetOwningPlayer(caster), false)
+                js.addItemById(ITEM_UPGRADE_81)
+            forgeBox.display(GetOwningPlayer(js), false)
 
-        forgeBox.display(GetOwningPlayer(caster), true)
+        forgeBox.display(GetOwningPlayer(js), true)
