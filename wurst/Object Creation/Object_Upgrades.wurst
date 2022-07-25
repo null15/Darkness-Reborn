@@ -249,13 +249,13 @@ import Icons
     ..setButtonPositionX(0)
     ..setButtonPositionY(2)
 
-    new UpgradeDefinition(UPGRADE_11, 6) // R00K
+    new UpgradeDefinition(UPGRADE_11, 5) // R00K
     ..setGoldCostBase(7000)
     ..setGoldCostIncrement(12500)
     ..setLumberCostBase(0)
     ..setLumberCostIncrement(0)
     ..setTimeBase(35)
-    ..addEffectAbilityLevelBonus(0, 1, "Aihn")
+    ..addEffectAbilityLevelBonus(1, 1, "Aihn")
     ..setIcon(1, Icons.bTNBox)
     ..setName(1, "Expansion")
     ..setTooltip(1, "Expands Inventory slot for Blacksmith")

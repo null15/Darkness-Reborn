@@ -65,11 +65,10 @@ rect gg_rct_EliteTP6= null
 rect gg_rct_OverlordArea= null
 rect gg_rct_DryadArea= null
 rect gg_rct_HeroPicker= null
+rect gg_rct_DiscardPile= null
 camerasetup gg_cam_CameraHeroPick= null
 camerasetup gg_cam_CameraHeroPicked= null
 trigger gg_trg_TimeUp= null
-unit gg_unit_nfnp_0002= null
-rect gg_rct_DiscardPile= null
 
 
 //JASSHelper struct globals:
