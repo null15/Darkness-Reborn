@@ -4,6 +4,7 @@ import ClosureEvents
 import ClosureTimers
 import Abilities
 import MyUnitIds
+import UnitIds
 
 function calculateDistance (vec2 v1, vec2 v2) returns real
     let a = (v2.x - v1.x)
@@ -16,9 +17,11 @@ function hawkeyeSplit()
     EventListener.onPointCast('A0U1') (unit caster, vec2 target) ->
         let lvl = caster.getAbilityLevel('A0U1')
         let output = caster.getInt(true) * 0.1 * lvl
-        let owl = createUnit(caster.getOwner(),DUMMY_UNIT_3,target)
+        let owl = createUnit(caster.getOwner(),DUMMY_UNIT_2,target)
+        let shooter = createUnit(caster.getOwner(), UnitIds.owl3, target)..setMoveSpeed(0)
         doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
             forUnitsInRange(target, 500, true) (unit u) ->
+                shooter.setFacing(shooter.getPos().angleTo(u.getPos()))
                 if caster.isEnemyOf(u) and u.isAlive()
                     var x = owl.getX()
                     var y = owl.getY()
@@ -37,3 +40,4 @@ function hawkeyeSplit()
                             destroy cb
             if(cb.isLast())
                 owl.remove()
+                shooter.remove()

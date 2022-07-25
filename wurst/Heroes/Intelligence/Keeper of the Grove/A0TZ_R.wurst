@@ -9,7 +9,7 @@ public function thornRoot(unit keeper, unit attacker)
         let chance = lvl * 2
         if(GetRandomInt(0, 2) < chance)
             attacker.pause()
-            attacker.addEffect(Abilities.roots1, "origin")
+            flashEffect(Abilities.roots1, attacker, "origin")
             keeper.damageTarget(attacker, output.toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
             doAfter(1.5) -> 
                 attacker..unpause()

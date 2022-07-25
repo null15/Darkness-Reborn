@@ -16,7 +16,7 @@ function entanglingRoots()
         forUnitsInRange(target, 350, true) (unit u) ->
             if caster.isEnemyOf(u)
                 u.pause()
-                u.addEffect(Abilities.roots1, "origin")
+                flashEffect(Abilities.roots1, u, "overhead")
                 doPeriodicallyTimed(1.00, 5.00) (CallbackCounted cb) ->
                     caster.damageTarget(u, output, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
                     if cb.isLast()

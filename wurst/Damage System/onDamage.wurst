@@ -19,6 +19,7 @@ import A0S8_E
 import A0M3_R
 import A01O_P
 import A0DI_R
+import A0TZ_R
 
 import MyBuffIds
 import MyAbilityIds
@@ -87,6 +88,9 @@ init
                 if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and DamageEvent.getSource().getTypeId() == PLAY_HERO_22 and DamageEvent.getSource().getAbilityLevel('A0DI') > 0
                     if GetRandomInt(1, 100) < 15
                         mindRipper(DamageEvent.getSource(), DamageEvent.getTarget())
+
+                if DamageEvent.getTarget().getTypeId() == PLAY_HERO_20 and DamageEvent.getTarget().getAbilityLevel('A0TZ') > 0
+                    thornRoot(DamageEvent.getTarget(), DamageEvent.getSource())
 
             case SPELL
                 // Dark Ranger (Image Arrows) Q - Active
