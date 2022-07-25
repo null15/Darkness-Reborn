@@ -1,0 +1,23 @@
+package A0TS_Q
+
+import ClosureEvents
+import ClosureForGroups
+import Abilities
+import ClosureTimers
+
+real array entanglingDamage = [20, 40, 60, 90, 120, 160, 210, 260, 320]
+
+init
+    entanglingRoots()
+function entanglingRoots()
+    EventListener.onPointCast('A0TS') (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel('A0TS')
+        let output = 2.00 * lvl * caster.getInt(true) + entanglingDamage[lvl-1]
+        forUnitsInRange(target, 350, true) (unit u) ->
+            if caster.isEnemyOf(u)
+                u.pause()
+                u.addEffect(Abilities.roots1, "origin")
+                doPeriodicallyTimed(1.00, 5.00) (CallbackCounted cb) ->
+                    caster.damageTarget(u, output, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    if cb.isLast()
+                        u.unpause()

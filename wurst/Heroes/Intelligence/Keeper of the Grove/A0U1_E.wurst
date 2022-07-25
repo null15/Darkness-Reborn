@@ -1,0 +1,39 @@
+package A0U1_E
+import ClosureForGroups
+import ClosureEvents
+import ClosureTimers
+import Abilities
+import MyUnitIds
+
+function calculateDistance (vec2 v1, vec2 v2) returns real
+    let a = (v2.x - v1.x)
+    let b = (v2.y - v1.y)
+    return SquareRoot(a*a + b*b)
+
+init
+    hawkeyeSplit()
+function hawkeyeSplit()
+    EventListener.onPointCast('A0U1') (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel('A0U1')
+        let output = caster.getInt(true) * 0.1 * lvl
+        let owl = createUnit(caster.getOwner(),DUMMY_UNIT_3,target)
+        doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
+            forUnitsInRange(target, 500, true) (unit u) ->
+                if caster.isEnemyOf(u) and u.isAlive()
+                    var x = owl.getX()
+                    var y = owl.getY()
+                    let projectile = AddSpecialEffect(Abilities.arrowMissile1, x, y)
+                    projectile.setHeight(50)
+                    doPeriodically(0.05) (CallbackPeriodic cb) ->
+                        let v = u.getPos()
+                        let angle = Atan2(v.y - y, v.x - x)
+                        x = x + 25 * Cos(angle)
+                        y = y + 25 * Sin(angle)
+                        projectile..setX(x)..setY(y)..setHeight(50).setYaw(angle)
+                        let dist = calculateDistance(projectile.getPos(), u.getPos())
+                        if(dist <= 25.00)
+                            projectile.destr()
+                            caster.damageTarget(u, output, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                            destroy cb
+            if(cb.isLast())
+                owl.remove()

@@ -1,0 +1,27 @@
+package A0TU_W
+import ClosureForGroups
+import ClosureEvents
+import Abilities
+import ClosureTimers
+
+init
+    naturalOrb()
+function naturalOrb()
+    EventListener.onPointCast('A0TU') (unit caster, vec2 target) ->
+        let lvl = GetUnitAbilityLevel(caster, 'A0TU')
+        let output = caster.getInt(true) * 0.01 * lvl
+        var x = caster.getX()
+        var y = caster.getY()
+        let spec = AddSpecialEffect(Abilities.manaFlareMissile, x, y)
+        spec..setHeight(50.).setScale(2.)
+        let angle = Atan2(target.y - y, target.x - x)
+        
+        doPeriodicallyTimed(0.05, 3.2) (CallbackCounted cb) ->
+            x = x + 25 * Cos(angle)
+            y = y + 25 * Sin(angle)
+            spec..setX(x)..setY(y).setHeight(50)
+            forUnitsInRange(vec2(x,y), 200, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    caster.damageTarget(u, output, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            if(cb.isLast())
+                spec.destr()

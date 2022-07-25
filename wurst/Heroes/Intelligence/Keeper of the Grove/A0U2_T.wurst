@@ -1,0 +1,12 @@
+package A0U2_T
+import Abilities
+import ClosureEvents
+
+init
+    spiritGuardian()
+function spiritGuardian()
+    EventListener.onPointCast('A0U2') (unit caster, vec2 target) ->
+        let spirit = createUnit(caster.getOwner(), 'e00N', target)
+        spirit..setAbilityLevel('A0U3', caster.getAbilityLevel('A0U2')).setTimedLife(60)
+        let spec = AddSpecialEffect(Abilities.animateDeadTarget, target.x, target.y)
+        spec.destr()
