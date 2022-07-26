@@ -76,8 +76,9 @@ import Units
     ..setHitPointsRegenerationRate(1000)
     ..setSightRadiusDay(30000)
     ..setSightRadiusNight(30000)
-    ..setItemsMade(commaList('I0JR', ITEM_167, ITEM_168))
-    ..setUnitsSold(commaList('hrdh', 'hhdl'))
+    ..setItemsMade(commaList(ITEM_TINKER_13, ITEM_167, ITEM_168))
+    ..setItemsSold(commaList(ITEM_TINKER_13, ITEM_167, ITEM_168))
+    ..setUnitsSold(commaList('h000', 'h001'))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_1, UnitIds.goblinmerchant)

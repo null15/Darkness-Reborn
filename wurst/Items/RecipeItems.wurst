@@ -9,8 +9,147 @@ init
 function recipeItemReplace()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)..addAction() ->
         let u = GetTriggerUnit()
+
+        // Empty Vial & Ruby Fragment +1 -> Ruby Fragments +2
+        if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_DROP_52)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_DROP_52).remove()
+            u.addItemById(ITEM_263)
+
+        // Ruby Fragments +3
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_263)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_263).remove()
+            u.addItemById(ITEM_264)
+
+        // Ruby Fragments +4
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_264)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_264).remove()
+            u.addItemById(ITEM_265)
+
+        // Ruby Fragments +5
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_265)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_265).remove()
+            u.addItemById(ITEM_266)
+
+        // Ruby Fragments +6
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_266)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_266).remove()
+            u.addItemById(ITEM_267)
+
+        // Ruby Fragments +7
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_267)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_267).remove()
+            u.addItemById(ITEM_268)
+
+        // Ruby Fragments +8
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_268)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_268).remove()
+            u.addItemById(ITEM_269)
+
+        // Ruby Fragments +9
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_269)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_269).remove()
+            u.addItemById(ITEM_270)
+
+        // Ruby Fragments +10
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_270)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_270).remove()
+            u.addItemById(ITEM_271)
+
+        // Ruby Fragments +11
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_271)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_271).remove()
+            u.addItemById(ITEM_272)
+
+        // Ruby Fragments +12
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_272)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_272).remove()
+            u.addItemById(ITEM_273)
+
+        // Ruby Fragments +13
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_273)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_273).remove()
+            u.addItemById(ITEM_274)
+
+        // Ruby Fragments +14
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_274)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_274).remove()
+            u.addItemById(ITEM_275)
+
+        // Ruby Fragments +15
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_275)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_275).remove()
+            u.addItemById(ITEM_276)
+
+        // Ruby Fragments +16
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_276)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_276).remove()
+            u.addItemById(ITEM_277)
+
+        // Ruby Fragments +17
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_277)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_277).remove()
+            u.addItemById(ITEM_278)
+
+        // Ruby Fragments +18
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_278)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_278).remove()
+            u.addItemById(ITEM_279)
+
+        // Ruby Fragments +19
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_279)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_279).remove()
+            u.addItemById(ITEM_280)
+
+        // Ruby Fragments +20
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_280)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_280).remove()
+            u.addItemById(ITEM_281)
+
+        // Half Rubystone
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_281)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_281).remove()
+            u.addItemById(ITEM_282)
+
+        // Divine Rubystone
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_282)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_282).remove()
+            u.addItemById(ITEM_283)
+
+        // Rubystone
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_283)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_283).remove()
+            u.addItemById(ITEM_284)
+
+        // Perfect Rubystone
+        else if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_284)
+            u.getItemById(ITEM_168).remove()
+            u.getItemById(ITEM_284).remove()
+            u.addItemById(ITEM_285)
+
         // Ice Sword
-        if u.hasItemById(ITEM_7) and u.hasItemById(ITEM_8) and u.hasItemById(ITEM_26) and u.hasItemById(ITEM_41)
+        else if u.hasItemById(ITEM_7) and u.hasItemById(ITEM_8) and u.hasItemById(ITEM_26) and u.hasItemById(ITEM_41)
             RemoveItem(u.getItemById(ITEM_7))
             RemoveItem(u.getItemById(ITEM_8))
             RemoveItem(u.getItemById(ITEM_26))

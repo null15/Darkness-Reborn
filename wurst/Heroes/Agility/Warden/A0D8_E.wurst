@@ -19,7 +19,7 @@ function shadowRaze()
         let point = EventData.getSpellTargetPos()
         let angle = caster.getPos().angleTo(point)
         let lvl = GetUnitAbilityLevel(caster, 'A0D8')
-        doAfter(0.3) -> 
+        doAfter(0.5) -> 
             caster.setAnimation('slam')
             caster.pause()
             caster.setInvulnerable(true)

@@ -7,10 +7,12 @@ import RespawnCreeps
 import MyUnitIds
 import HeroRespawnTimer
 import ItemRemoveTimer
+import CodeDialog
+import Global_Variables
 public unit elementalSoul
 real facing = 270
 real facingUp = 90
-public unit array playerHero = []
+
 init
 
     mapSetup()
@@ -42,8 +44,7 @@ function createSetup()
 
     for i = 0 to 9
         createUnit(players[i], HERO_PICKER, gg_rct_HeroPicker.getCenter())
-        players[i].addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)
-        players[i].addState(PLAYER_STATE_RESOURCE_GOLD, 800)
+        players[i]..addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)..addState(PLAYER_STATE_RESOURCE_GOLD, 800)
 
     let tavern1 = CreateUnit(Player(10), BUILDING_TAVERN_STR, -9216.0, -12480, bj_UNIT_FACING)
     onBuyHero(tavern1)
@@ -75,11 +76,12 @@ function mapSetup()
 
     elementalSoul = createUnit(Player(10), ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees())
 
-    doAfter(0.01) -> 
+    doAfter(0.5) -> 
 
         let dBox = new DialogBox("Choose difficulty")
 
         dBox.addButton("Normal") ->
+            difficulty = "normal"
             // preWaveSetup()
             createSetup()
             leftSideCreepsSetup()
@@ -87,6 +89,7 @@ function mapSetup()
             bossCreepSetup()
             overdryaSetup()
             itemRemoveTimer()
+            codeDialog()
             destroy dBox
         
         dBox.display(players[0], true)

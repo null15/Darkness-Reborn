@@ -1,0 +1,73 @@
+package CodeDialog
+
+import HashSet
+import DialogBox
+import ClosureKeyPresses
+import Global_Variables
+
+constant PLAYER_NAME_1 = "null#12140"
+constant PLAYER_NAME_2 = "Yurieeh#2235"
+constant PLAYER_NAME_3 = "Magepowers#1896"
+constant PLAYER_NAME_4 = "JoJo#16186"
+constant PLAYER_NAME_5 = "Prime#2336"
+constant PLAYER_NAME_6 = "Illidan557#1331"
+constant PLAYER_NAME_7 = "BlazingDawn#11220"
+constant PLAYER_NAME_8 = "oennerth#2997"
+constant PLAYER_NAME_9 = "Palagrim#2871"
+constant PLAYER_NAME_10 = "Vivent#2756"
+constant PLAYER_NAME_11 = "Nhv#11269"
+constant PLAYER_NAME_12 = "Cooltiger#1502"
+
+constant PLAYER_SET = new HashSet<string>
+
+rect region006 = Rect(-192.0,-5696.0,256.0,-5248.0)
+
+init
+    
+    addPlayers()
+
+function addPlayers()
+    PLAYER_SET.add(
+        PLAYER_NAME_1,
+        PLAYER_NAME_2,
+        PLAYER_NAME_3,
+        PLAYER_NAME_4,
+        PLAYER_NAME_5,
+        PLAYER_NAME_6,
+        PLAYER_NAME_7,
+        PLAYER_NAME_8,
+        PLAYER_NAME_9,
+        PLAYER_NAME_10,
+        PLAYER_NAME_11,
+        PLAYER_NAME_12)
+
+public function codeDialog()
+    onKeyPress(OSKEY_C, OSKEY_META.SHIFT) ->
+        if PLAYER_SET.has(GetPlayerName(GetTriggerPlayer())) 
+            let hero = playerHero[GetTriggerPlayer().getId()]
+            let buffBox = new DialogBox("Choose your benefit")
+            PLAYER_SET.remove(GetPlayerName(GetTriggerPlayer()))
+
+            buffBox.addButton("Levels (+10)") ->
+                if hero != null
+                    hero.setLevel(hero.getLevel()+10, true)
+                else
+                    PLAYER_SET.add(GetPlayerName(GetTriggerPlayer()))
+                    printTimedToPlayer("Select a hero first", 3, GetTriggerPlayer())
+                destroy buffBox
+            if difficulty == "normal"
+                buffBox.addButton("Gold (+1800") ->
+                    if difficulty == "normal"
+                        GetTriggerPlayer().addGold(GetTriggerPlayer().getGold()+1800)
+                        printTimedToPlayer("Normal mode is true", 5, GetTriggerPlayer())
+                    destroy buffBox
+
+            buffBox.addButton("Stats (+30)") ->
+                if hero != null
+                    hero..addStr(30)..addAgi(30)..addInt(30)
+                else
+                    PLAYER_SET.add(GetPlayerName(GetTriggerPlayer()))
+                    printTimedToPlayer("Select a hero first", 3, GetTriggerPlayer())
+                destroy buffBox
+
+            buffBox.display(GetTriggerPlayer(), true)

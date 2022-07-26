@@ -1,0 +1,14 @@
+package ItemPickups
+import ClosureEvents
+import MyItemIds
+init
+    dragonWings()
+function dragonWings()
+    EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
+        let u = GetTriggerUnit()  
+        if u.hasItemById(ITEM_245) and BlzGetUnitWeaponIntegerField(u, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 4) != 4
+            BlzSetUnitWeaponIntegerField(u, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
+        else if u.hasItemById(ITEM_176) and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 5 and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 6
+            BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 5)
+        else if u.hasItemById(ITEM_262) and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) == 5 and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 6
+            BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 6)

@@ -1,5 +1,5 @@
 package A0S8_E
-import onStart
+import Global_Variables
 import DummyCaster
 import StandardTextTags
 import DamageEvent

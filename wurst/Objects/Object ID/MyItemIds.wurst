@@ -104,6 +104,13 @@ public constant BLACKSMITH_ITEM_95 = compiletime(ITEM_ID_GEN.next())
 public constant BLACKSMITH_ITEM_96 = compiletime(ITEM_ID_GEN.next())
 public constant BLACKSMITH_ITEM_97 = compiletime(ITEM_ID_GEN.next())
 public constant BLACKSMITH_ITEM_98 = compiletime(ITEM_ID_GEN.next())
+public constant BLACKSMITH_ITEM_99 = compiletime(ITEM_ID_GEN.next())
+public constant BLACKSMITH_ITEM_100 = compiletime(ITEM_ID_GEN.next())
+public constant BLACKSMITH_ITEM_101 = compiletime(ITEM_ID_GEN.next())
+public constant BLACKSMITH_ITEM_102 = compiletime(ITEM_ID_GEN.next())
+public constant BLACKSMITH_ITEM_103 = compiletime(ITEM_ID_GEN.next())
+public constant BLACKSMITH_ITEM_104 = compiletime(ITEM_ID_GEN.next())
+public constant BLACKSMITH_ITEM_105 = compiletime(ITEM_ID_GEN.next())
 
 // public constant ITEM_TINKER_0 = compiletime(ITEM_ID_GEN.next()) // NOT USED
 // public constant ITEM_TINKER_1 = compiletime(ITEM_ID_GEN.next()) // NOT USED

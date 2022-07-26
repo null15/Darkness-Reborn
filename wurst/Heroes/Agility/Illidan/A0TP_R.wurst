@@ -1,6 +1,6 @@
 package A0TP_R
 import MyUnitIds
-import onStart
+import Global_Variables
 init
     shadowDancer()
 function shadowDancerCond() returns boolean
