@@ -9,6 +9,7 @@ import HeroRespawnTimer
 import ItemRemoveTimer
 import CodeDialog
 import Global_Variables
+import TeleportToMobs
 public unit elementalSoul
 real facing = 270
 real facingUp = 90
@@ -57,10 +58,10 @@ function createSetup()
     CreateUnit(p, BUILDING_3, - 1216.0, - 5312.0, 270.000)
     CreateUnit(p, BUILDING_2, - 1216.0, - 5056.0, 270.000)
     CreateUnit(p, BUILDING_1, - 1216.0, - 4800.0, 270.000)
-    CreateUnit(p, BUILDING_17, - 64.0, - 5568.0, 270.000)
-    CreateUnit(p, BUILDING_16, - 64.0, - 5312.0, 270.000)
-    CreateUnit(p, BUILDING_15, - 64.0, - 5056.0, 270.000)
-    CreateUnit(p, BUILDING_14, - 64.0, - 4800.0, 270.000)
+    let endGamebosses = CreateUnit(p, BUILDING_17, - 64.0, - 5568.0, 270.000) // End-game bosses
+    let eliteGrounds = CreateUnit(p, BUILDING_16, - 64.0, - 5312.0, 270.000) // Elite hunting grounds
+    let intermediateGrounds = CreateUnit(p, BUILDING_15, - 64.0, - 5056.0, 270.000) // Intermediate hunting grounds
+    let easyGrounds = CreateUnit(p, BUILDING_14, - 64.0, - 4800.0, 270.000) // Easy hunting grounds
     CreateUnit(p, BUILDING_8, - 1472.0, - 5568.0, 270.000)
     CreateUnit(p, BUILDING_7, - 1472.0, - 5312.0, 270.000)
     CreateUnit(p, BUILDING_6, - 1472.0, - 5056.0, 270.000)
@@ -69,6 +70,8 @@ function createSetup()
     CreateUnit(p, BUILDING_12, 192.0, - 5312.0, 270.000)
     CreateUnit(p, BUILDING_11, 192.0, - 5056.0, 270.000)
     CreateUnit(p, BUILDING_10, 192.0, - 4800.0, 270.000)
+
+    teleportToMobs(easyGrounds, intermediateGrounds, eliteGrounds, endGamebosses)
 
     Player(0)..addGold(500000)..addLumber(50000)
 

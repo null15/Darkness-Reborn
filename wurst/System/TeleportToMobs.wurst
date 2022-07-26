@@ -1,0 +1,96 @@
+package TeleportToMobs
+import ClosureEvents
+import MyItemIds
+init
+public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
+    EventListener.add(u1, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
+        let buyer = EventData.getBuyingUnit()
+        if EventData.getSoldItem().getTypeId() == ITEM_127
+            buyer.setPos(gg_rct_LeftCreepSpawn1.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_128
+            buyer.setPos(gg_rct_LeftCreepSpawn2.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_129
+            buyer.setPos(gg_rct_LeftCreepSpawn3.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_130
+            buyer.setPos(gg_rct_LeftCreepSpawn4.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_131
+            buyer.setPos(gg_rct_LeftCreepSpawn5.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_132
+            buyer.setPos(gg_rct_LeftCreepSpawn6.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_133
+            buyer.setPos(gg_rct_LeftCreepSpawn7.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_134
+            buyer.setPos(gg_rct_LeftCreepSpawn8.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_135
+            buyer.setPos(gg_rct_LeftCreepSpawn9.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_136
+            buyer.setPos(gg_rct_LeftCreepSpawn10.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_137
+            buyer.setPos(gg_rct_LeftCreepSpawn11.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_138
+            buyer.setPos(gg_rct_LeftCreepSpawn12.getCenter())
+
+    EventListener.add(u2, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
+        let buyer = EventData.getBuyingUnit()
+        if EventData.getSoldItem().getTypeId() == ITEM_139
+            buyer.setPos(gg_rct_LeftCreepSpawn13.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_140
+            buyer.setPos(gg_rct_LeftCreepSpawn14.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_141
+            buyer.setPos(gg_rct_LeftCreepSpawn15.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_142
+            buyer.setPos(gg_rct_LeftCreepSpawn16.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_143
+            buyer.setPos(gg_rct_LeftCreepSpawn17.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_144
+            buyer.setPos(gg_rct_LeftCreepSpawn18.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_145
+            buyer.setPos(gg_rct_LeftCreepSpawn19.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_146
+            buyer.setPos(gg_rct_LeftCreepSpawn20.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_147
+            buyer.setPos(gg_rct_LeftCreepSpawn21.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_148
+            buyer.setPos(gg_rct_LeftCreepSpawn22.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_149
+            buyer.setPos(gg_rct_LeftCreepSpawn23.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_150
+            buyer.setPos(gg_rct_LeftCreepSpawn24.getCenter())
+
+    EventListener.add(u3, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
+        let buyer = EventData.getBuyingUnit()
+        if EventData.getSoldItem().getTypeId() == ITEM_151
+            buyer.setPos(gg_rct_EliteTP1.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_152
+            buyer.setPos(gg_rct_EliteTP2.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_153
+            buyer.setPos(gg_rct_EliteTP3.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_154
+            buyer.setPos(gg_rct_EliteTP4.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_155
+            buyer.setPos(gg_rct_EliteTP5.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_156
+            buyer.setPos(gg_rct_EliteTP8.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_157
+            buyer.setPos(gg_rct_EliteTP9.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_158
+            buyer.setPos(gg_rct_EliteTP10.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_159
+            buyer.setPos(gg_rct_OverlordArea.randomPoint())
+        else if EventData.getSoldItem().getTypeId() == ITEM_160
+            buyer.setPos(gg_rct_DryadArea.randomPoint())
+        else if EventData.getSoldItem().getTypeId() == ITEM_161
+            buyer.setPos(gg_rct_EliteTP6.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_162
+            buyer.setPos(gg_rct_EliteTP7.getCenter())
+
+    EventListener.add(u4, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
+        let buyer = EventData.getBuyingUnit()
+        if EventData.getSoldItem().getTypeId() == ITEM_163
+            buyer.setPos(gg_rct_DragonTP.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_164
+            buyer.setPos(gg_rct_TowerTP.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_165
+            buyer.setPos(gg_rct_DreadlordTP.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_166
+            buyer.setPos(gg_rct_ElementalTP.getCenter())
