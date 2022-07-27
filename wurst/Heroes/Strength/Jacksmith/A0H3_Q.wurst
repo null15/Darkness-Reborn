@@ -1,5 +1,5 @@
 package A0H3_Q
-// import MyItemIds
+import MyItemIds
 import ClosureEvents
 
 init
@@ -9,12 +9,12 @@ function forge()
         let js = caster
         
         // XXXX replaced with the value inside getItemById & 'I000' replaced with what you find in ./Objects/Object_Items.wurst.
-        // (inside Object_Items.wurst) CTRL + F -> I06N -> ITEM_278
+        // (inside Object_Items.wurst) CTRL + F -> I06Y -> ITEM_392
 
-        if js.hasItemById('XXXX') and js.hasItemById('XXXX')
-            js.getItemById('I06N').remove()
-            js.getItemById('I064').remove()
-            js.addItemById('I06Y')
+        if js.hasItemById(ITEM_278) and js.hasItemById(ITEM_391)
+            js.getItemById(ITEM_278).remove()
+            js.getItemById(ITEM_391).remove()
+            js.addItemById(ITEM_392)
 
         else if js.hasItemById('XXXX') and js.hasItemById('XXXX')
             js.getItemById('I06Y').remove()
