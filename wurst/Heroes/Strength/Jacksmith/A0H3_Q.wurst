@@ -8,6 +8,9 @@ function forge()
     EventListener.onCast('A0H3') (unit caster) ->
         let js = caster
         
+        // XXXX replaced with the value inside getItemById & 'I000' replaced with what you find in ./Objects/Object_Items.wurst.
+        // (inside Object_Items.wurst) CTRL + F -> I06N -> ITEM_278
+
         if js.hasItemById('XXXX') and js.hasItemById('XXXX')
             js.getItemById('I06N').remove()
             js.getItemById('I064').remove()
