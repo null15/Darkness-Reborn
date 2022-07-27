@@ -9,7 +9,6 @@ function lightRemoval()
         let dmg = (caster.getInt(true) * 3 * lvl)
         flashEffect("Effects\\Archmage\\ShadowSlam(Normal Size).mdl", target, "chest")
         let buffs = UnitCountBuffsEx(target, false, false, true, false, false, false, false)
-        print(buffs)
         if buffs > 0
             caster.damageTarget(target, dmg*buffs.toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
         else

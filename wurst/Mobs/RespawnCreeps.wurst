@@ -113,10 +113,10 @@ function overdryaCreep(unit u)
         doAfter(5) -> 
             for i = 1 to 10
                 if u1 == overlord[i]
-                    overlord[i] = createUnit(hostile, OVERDRYA_CREEP[2], u1.getPos(), facing.asAngleDegrees())
+                    overlord[i] = createUnit(hostile, OVERDRYA_CREEP[2], gg_rct_OverlordArea.randomPoint(), facing.asAngleDegrees())
                     overdryaCreep(overlord[i])
                 else if u1 == dryad[i]
-                    dryad[i] = createUnit(hostile, OVERDRYA_CREEP[1], u1.getPos(), facing.asAngleDegrees())
+                    dryad[i] = createUnit(hostile, OVERDRYA_CREEP[1], gg_rct_OverlordArea.randomPoint(), facing.asAngleDegrees())
                     overdryaCreep(dryad[i])
 
 public function overdryaSetup()

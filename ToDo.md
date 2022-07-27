@@ -22,17 +22,17 @@ Priestess of the Moon [✓]
 Blademaster [✓]
 
 [Intelligence]
-Time Wizard
-Archmage
-Kel'Thuzad Ghost
-Blood Mage
-Shadow Hunter
-Naga Sea Witch
-Firelord
-Tinker
-Keeper of the Grove
-Far Seer
-Lich
+Time Wizard [✓]
+Archmage [✓]
+Kel'Thuzad Ghost [✓]
+Blood Mage [✓]
+Shadow Hunter [✓]
+Naga Sea Witch [✓]
+Firelord [✓]
+Tinker [✓]
+Keeper of the Grove [✓]
+Far Seer [✓]
+Lich [✓]
 
 [Code]
 Tracker

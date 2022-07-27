@@ -14,5 +14,4 @@ function thunderClap()
                 if caster.isEnemyOf(u) and UnitHasBuffBJ(u, 'BHtc')
                     i = i + 1
                     caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-                    print("ran count: " + I2S(i))
                     destroy cb

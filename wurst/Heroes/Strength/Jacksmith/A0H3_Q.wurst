@@ -10,4 +10,33 @@ function forge()
         
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         js.addEffect("Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl", "chest")

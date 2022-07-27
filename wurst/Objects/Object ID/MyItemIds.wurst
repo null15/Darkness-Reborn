@@ -2,8 +2,6 @@ package MyItemIds
 import ObjectIdGenerator
 import LinkedList
 import ClosureTimers
-integer itemDropIndex = 1
-
 // -------------------------
 public constant ITEM_0 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_1 = compiletime(ITEM_ID_GEN.next())
@@ -695,7 +693,7 @@ public constant ITEM_686 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_687 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_688 = compiletime(ITEM_ID_GEN.next())
 // -------------------------
-
+integer itemDropIndex = 1
 public int array ITEM = []
 public int array ITEM_DROP = []
 public int array ITEM_UPGRADE = []

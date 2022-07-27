@@ -16,7 +16,6 @@ function quilBeast()
         summon.setMaxHP(R2I(summon.getMaxHP()+str*4), true)
         summon.setArmor(summon.getArmor()+str*0.1)
         spirits = spirits + 1
-        print(spirits)
         if spirits % 5 == 0
             spiritText = createLumberBountyTextTag(summoner, spirits)
             spiritText.setColor(colorA(93, 247, 55, 255))

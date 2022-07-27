@@ -8,7 +8,6 @@ function blueSea()
         if GetKillingUnit().getTypeId() == PLAY_HERO_25 and GetKillingUnit().getAbilityLevel('A0AQ') > 0
             let vashj = GetKillingUnit()
             let lvl = vashj.getAbilityLevel('A0AQ')
-            print("DIEEEEEEEEE "+vashj.getName())
             if GetRandomInt(1, 100) < lvl*5
                 if lvl <= 3
                     vashj.addMana(50)
