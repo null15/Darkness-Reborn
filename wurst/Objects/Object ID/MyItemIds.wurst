@@ -692,6 +692,16 @@ public constant ITEM_685 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_686 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_687 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_688 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_689 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_690 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_691 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_692 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_693 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_694 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_695 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_696 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_697 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_698 = compiletime(ITEM_ID_GEN.next())
 // -------------------------
 integer itemDropIndex = 1
 public int array ITEM = []
