@@ -10,8 +10,8 @@ function radiantRing()
         let gold = COLOR_GOLD.toColorString()
         let white = COLOR_WHITE.toColorString()
         let lvl = GetUnitAbilityLevel(js, 'A0DH')
-        let text = color+"Jacksmith created the basic item "+white+GetItemName(GetLastCreatedItem())
-        let text2 = color+"Jacksmith has been blessed, and created the legendary item "+gold+GetItemName(GetLastCreatedItem())
+        let text = color+"Jacksmith created the basic item "+white
+        let text2 = color+"Jacksmith has been blessed, and created the legendary item "+gold
         
         if lvl <= 3
             if GetRandomInt(1, 100) <= 95

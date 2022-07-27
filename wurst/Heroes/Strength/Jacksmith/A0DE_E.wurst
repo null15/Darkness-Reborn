@@ -393,9 +393,9 @@ function forgeSmart()
             printTimed(text+js.addItemById(ITEM_UPGRADE[49]).getName(), 10)
             
 
-        else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(FINAL_BOSS_ITEM_15) and js.hasItemById(ITEM_UPGRADE[47]) and js.hasItemById(ITEM_UPGRADE[48])
+        else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_387) and js.hasItemById(ITEM_UPGRADE[47]) and js.hasItemById(ITEM_UPGRADE[48])
             js.getItemById(ITEM_UPGRADE[1]).remove()
-            js.getItemById(FINAL_BOSS_ITEM_15).remove()
+            js.getItemById(ITEM_387).remove()
             js.getItemById(ITEM_UPGRADE[47]).remove()
             js.getItemById(ITEM_UPGRADE[48]).remove()
             printTimed(text+js.addItemById(ITEM_UPGRADE[50]).getName(), 10)

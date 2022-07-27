@@ -10,5 +10,5 @@ function dragonWings()
             BlzSetUnitWeaponIntegerField(u, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
         else if u.hasItemById(ITEM_176) and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 5 and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 6
             BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 5)
-        else if u.hasItemById(ITEM_262) and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) == 5 and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 6
+        else if u.hasItemById(ITEM_253) and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) == 5 and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 6
             BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 6)
