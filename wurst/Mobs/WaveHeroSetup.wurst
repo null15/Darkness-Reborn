@@ -5,7 +5,7 @@ import Orders
 import ClosureTimers
 import HashMap
 import MyItemIds
-import Victory
+import GameEnd
 
 timer waveHeroTimer = CreateTimer()
 timerdialog waveHeroTimerDialog = CreateTimerDialog(waveHeroTimer)

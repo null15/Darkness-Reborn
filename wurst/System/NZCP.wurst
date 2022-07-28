@@ -1,998 +1,998 @@
-package NZCP
+// package NZCP
 
-hashtable nzHash = InitHashtable( )
+// hashtable nzHash = InitHashtable( )
 
-init
+// init
 
-	initNZCP()
+// 	initNZCP()
 
-function globalHandle () returns integer
-	return GetHandleId( nzHash )
+// function globalHandle () returns integer
+// 	return GetHandleId( nzHash )
 
-function loadTrig (string hashName ) returns trigger
-	if LoadTriggerHandle( nzHash, globalHandle( ), StringHash( hashName ) ) == null 
-		SaveTriggerHandle( nzHash, globalHandle( ), StringHash( hashName ), CreateTrigger( ) )
+// function loadTrig (string hashName ) returns trigger
+// 	if LoadTriggerHandle( nzHash, globalHandle( ), StringHash( hashName ) ) == null 
+// 		SaveTriggerHandle( nzHash, globalHandle( ), StringHash( hashName ), CreateTrigger( ) )
 	
-	return LoadTriggerHandle( nzHash, globalHandle( ), StringHash( hashName ) )
+// 	return LoadTriggerHandle( nzHash, globalHandle( ), StringHash( hashName ) )
 
-function sInt (string hashName, integer i )
-	SaveInteger( nzHash, GetHandleId( GetTriggerPlayer( ) ), StringHash( hashName ), i )
+// function sInt (string hashName, integer i )
+// 	SaveInteger( nzHash, GetHandleId( GetTriggerPlayer( ) ), StringHash( hashName ), i )
 
-function sBool (string hashName, boolean b )
-	SaveBoolean( nzHash, GetHandleId( GetTriggerPlayer( ) ), StringHash( hashName ), b )
+// function sBool (string hashName, boolean b )
+// 	SaveBoolean( nzHash, GetHandleId( GetTriggerPlayer( ) ), StringHash( hashName ), b )
 
-function getInt (string hashName ) returns integer
-	return LoadInteger( nzHash, GetHandleId( GetTriggerPlayer( ) ), StringHash( hashName ) )
+// function getInt (string hashName ) returns integer
+// 	return LoadInteger( nzHash, GetHandleId( GetTriggerPlayer( ) ), StringHash( hashName ) )
 
-function getBool (string hashName ) returns boolean
-	return LoadBoolean( nzHash, GetHandleId( GetTriggerPlayer( ) ), StringHash( hashName ) )
+// function getBool (string hashName ) returns boolean
+// 	return LoadBoolean( nzHash, GetHandleId( GetTriggerPlayer( ) ), StringHash( hashName ) )
 
-function lGInt (string hashName ) returns integer
-	return LoadInteger( nzHash, globalHandle( ), StringHash( hashName ) )
+// function lGInt (string hashName ) returns integer
+// 	return LoadInteger( nzHash, globalHandle( ), StringHash( hashName ) )
 
-function lTUnit (string hashName ) returns unit
-	return LoadUnitHandle(nzHash, GetHandleId( GetExpiredTimer( ) ), StringHash( hashName ) )
+// function lTUnit (string hashName ) returns unit
+// 	return LoadUnitHandle(nzHash, GetHandleId( GetExpiredTimer( ) ), StringHash( hashName ) )
 
-function lTStr (string hashName ) returns string
-	return LoadStr( nzHash, GetHandleId( GetExpiredTimer( ) ), StringHash( hashName ) )
+// function lTStr (string hashName ) returns string
+// 	return LoadStr( nzHash, GetHandleId( GetExpiredTimer( ) ), StringHash( hashName ) )
 
-function lTInt (string hashName ) returns integer
-	return LoadInteger( nzHash, GetHandleId( GetExpiredTimer( ) ), StringHash( hashName ) )
+// function lTInt (string hashName ) returns integer
+// 	return LoadInteger( nzHash, GetHandleId( GetExpiredTimer( ) ), StringHash( hashName ) )
 
-function lTReal (string hashName ) returns real
-	return LoadReal( nzHash, GetHandleId( GetExpiredTimer( ) ), StringHash( hashName ) )
+// function lTReal (string hashName ) returns real
+// 	return LoadReal( nzHash, GetHandleId( GetExpiredTimer( ) ), StringHash( hashName ) )
 
-function initStrings ()
-	SaveStr( nzHash, globalHandle( ), 0, "|cFFff0303" )
-	SaveStr( nzHash, globalHandle( ), 1, "|cFF0041ff" )
-	SaveStr( nzHash, globalHandle( ), 2, "|cFF1ce6b9" )
-	SaveStr( nzHash, globalHandle( ), 3, "|cFF540081" )
-	SaveStr( nzHash, globalHandle( ), 4, "|cFFfffc00" )
-	SaveStr( nzHash, globalHandle( ), 5, "|cFFfe8a0e" )
-	SaveStr( nzHash, globalHandle( ), 6, "|cFF20c000" )
-	SaveStr( nzHash, globalHandle( ), 7, "|cFFde5bb0" )
-	SaveStr( nzHash, globalHandle( ), 8, "|cFF959697" )
-	SaveStr( nzHash, globalHandle( ), 9, "|cFF7ebff1" )
-	SaveStr( nzHash, globalHandle( ), 10, "|cFF106246" )
-	SaveStr( nzHash, globalHandle( ), 11, "|cFF4e2a04" )
-	if bj_MAX_PLAYER_SLOTS > 12 
-		SaveStr( nzHash, globalHandle( ), 12, "|cFF9b0000" )
-		SaveStr( nzHash, globalHandle( ), 13, "|cFF0000c3" )
-		SaveStr( nzHash, globalHandle( ), 14, "|cFF00eaff" )
-		SaveStr( nzHash, globalHandle( ), 15, "|cFFbe00fe" )
-		SaveStr( nzHash, globalHandle( ), 16, "|cFFebcd87" )
-		SaveStr( nzHash, globalHandle( ), 17, "|cFFf8a48b" )
-		SaveStr( nzHash, globalHandle( ), 18, "|cFFdcb9eb" )
-		SaveStr( nzHash, globalHandle( ), 19, "|cFFbfff80" )
-		SaveStr( nzHash, globalHandle( ), 20, "|cFF282828" )
-		SaveStr( nzHash, globalHandle( ), 21, "|cFFebf0ff" )
-		SaveStr( nzHash, globalHandle( ), 22, "|cFF00781e" )
-		SaveStr( nzHash, globalHandle( ), 23, "|cFFa46f33" )
+// function initStrings ()
+// 	SaveStr( nzHash, globalHandle( ), 0, "|cFFff0303" )
+// 	SaveStr( nzHash, globalHandle( ), 1, "|cFF0041ff" )
+// 	SaveStr( nzHash, globalHandle( ), 2, "|cFF1ce6b9" )
+// 	SaveStr( nzHash, globalHandle( ), 3, "|cFF540081" )
+// 	SaveStr( nzHash, globalHandle( ), 4, "|cFFfffc00" )
+// 	SaveStr( nzHash, globalHandle( ), 5, "|cFFfe8a0e" )
+// 	SaveStr( nzHash, globalHandle( ), 6, "|cFF20c000" )
+// 	SaveStr( nzHash, globalHandle( ), 7, "|cFFde5bb0" )
+// 	SaveStr( nzHash, globalHandle( ), 8, "|cFF959697" )
+// 	SaveStr( nzHash, globalHandle( ), 9, "|cFF7ebff1" )
+// 	SaveStr( nzHash, globalHandle( ), 10, "|cFF106246" )
+// 	SaveStr( nzHash, globalHandle( ), 11, "|cFF4e2a04" )
+// 	if bj_MAX_PLAYER_SLOTS > 12 
+// 		SaveStr( nzHash, globalHandle( ), 12, "|cFF9b0000" )
+// 		SaveStr( nzHash, globalHandle( ), 13, "|cFF0000c3" )
+// 		SaveStr( nzHash, globalHandle( ), 14, "|cFF00eaff" )
+// 		SaveStr( nzHash, globalHandle( ), 15, "|cFFbe00fe" )
+// 		SaveStr( nzHash, globalHandle( ), 16, "|cFFebcd87" )
+// 		SaveStr( nzHash, globalHandle( ), 17, "|cFFf8a48b" )
+// 		SaveStr( nzHash, globalHandle( ), 18, "|cFFdcb9eb" )
+// 		SaveStr( nzHash, globalHandle( ), 19, "|cFFbfff80" )
+// 		SaveStr( nzHash, globalHandle( ), 20, "|cFF282828" )
+// 		SaveStr( nzHash, globalHandle( ), 21, "|cFFebf0ff" )
+// 		SaveStr( nzHash, globalHandle( ), 22, "|cFF00781e" )
+// 		SaveStr( nzHash, globalHandle( ), 23, "|cFFa46f33" )
 	
-	SaveStr( nzHash, globalHandle( ), GetHandleId( EVENT_PLAYER_ARROW_LEFT_DOWN  ),  "L" )
-	SaveStr( nzHash, globalHandle( ), GetHandleId( EVENT_PLAYER_ARROW_RIGHT_DOWN ),  "R" )
-	SaveStr( nzHash, globalHandle( ), GetHandleId( EVENT_PLAYER_ARROW_DOWN_DOWN  ),  "D" )
-	SaveStr( nzHash, globalHandle( ), GetHandleId( EVENT_PLAYER_ARROW_UP_DOWN    ),  "U" )
+// 	SaveStr( nzHash, globalHandle( ), GetHandleId( EVENT_PLAYER_ARROW_LEFT_DOWN  ),  "L" )
+// 	SaveStr( nzHash, globalHandle( ), GetHandleId( EVENT_PLAYER_ARROW_RIGHT_DOWN ),  "R" )
+// 	SaveStr( nzHash, globalHandle( ), GetHandleId( EVENT_PLAYER_ARROW_DOWN_DOWN  ),  "D" )
+// 	SaveStr( nzHash, globalHandle( ), GetHandleId( EVENT_PLAYER_ARROW_UP_DOWN    ),  "U" )
 
-function get_Player_Color (player p ) returns string
-	return LoadStr( nzHash, globalHandle( ), GetHandleId( GetPlayerColor( p ) ) ) + GetPlayerName( p ) + "|r"
+// function get_Player_Color (player p ) returns string
+// 	return LoadStr( nzHash, globalHandle( ), GetHandleId( GetPlayerColor( p ) ) ) + GetPlayerName( p ) + "|r"
 
-function initDamageSystem ()
-	if not LoadBoolean( nzHash, GetHandleId( GetTriggerUnit( ) ), StringHash( "RegisteredUnit" ) ) 
-		SaveBoolean( nzHash, GetHandleId( GetTriggerUnit( ) ), StringHash( "RegisteredUnit" ), true )
-		TriggerRegisterUnitEvent( loadTrig( "DamageSystem" ), GetTriggerUnit( ), EVENT_UNIT_DAMAGED )
-	
-
-function stateEvent (trigger trig, playerstate whichState, code act ) returns trigger
-	integer index=0
-	while true
-		if index==bj_MAX_PLAYER_SLOTS
-			break
-		TriggerRegisterPlayerStateEvent(trig,Player(index),whichState,GREATER_THAN,0)
-		index=index+1
-	
-	if act !=null 
-		TriggerAddAction(trig,act)
-	
-	return trig
-
-function chatEvent (trigger trig, string text, boolean boole, code act ) returns trigger
-	integer index=0
-	while true
-		TriggerRegisterPlayerChatEvent(trig,Player(index),text,boole)
-		index=index+1
-		if index==bj_MAX_PLAYER_SLOTS
-			break
-	
-	if act!=null 
-		TriggerAddAction(trig,act)
-	
-	return trig
-
-function unitEvent (trigger trig, playerunitevent whichEvent, code act ) returns trigger
-	integer index=0
-	while true
-		TriggerRegisterPlayerUnitEvent(trig,Player(index),whichEvent,null)
-		index=index+1
-		if index==bj_MAX_PLAYER_SLOTS
-			break
-	
-	if act!=null 
-		TriggerAddAction(trig,act)
-	
-	return trig
-
-function playerEvent (trigger trig, playerevent whichEvent, code act ) returns trigger
-	integer index = 0
-	while true
-		TriggerRegisterPlayerEvent( trig, Player( index ), whichEvent )
-		index = index + 1
-		if index == bj_MAX_PLAYERS
-			break
-	
-	if act != null 
-		TriggerAddAction( trig, act )
-	
-	return trig
-
-function keysEvent (trigger trig, code act ) returns trigger
-	playerEvent( trig, EVENT_PLAYER_ARROW_LEFT_DOWN,  null )
-	playerEvent( trig, EVENT_PLAYER_ARROW_RIGHT_DOWN, null )
-	playerEvent( trig, EVENT_PLAYER_ARROW_DOWN_DOWN,  null )
-	playerEvent( trig, EVENT_PLAYER_ARROW_UP_DOWN,    act  )
-	return trig
-
-function displayText (integer pid, string text )
-	DisplayTimedTextToPlayer( Player( pid ), 0, 0, 12.5, text )
-
-function keyCommand (eventid a_hid ) returns string
-	if LoadStr( nzHash, GetHandleId( GetTriggerPlayer( ) ) + GetPlayerId( GetTriggerPlayer( ) ), GetHandleId( a_hid ) + StringHash( "Command" ) ) == null 
-		return "|cFFff5050NONE|r"
-	else
-		return LoadStr( nzHash, GetHandleId( GetTriggerPlayer( ) ) + GetPlayerId( GetTriggerPlayer( ) ), GetHandleId( a_hid ) + StringHash( "Command" ) )
+// function initDamageSystem ()
+// 	if not LoadBoolean( nzHash, GetHandleId( GetTriggerUnit( ) ), StringHash( "RegisteredUnit" ) ) 
+// 		SaveBoolean( nzHash, GetHandleId( GetTriggerUnit( ) ), StringHash( "RegisteredUnit" ), true )
+// 		TriggerRegisterUnitEvent( loadTrig( "DamageSystem" ), GetTriggerUnit( ), EVENT_UNIT_DAMAGED )
 	
 
-function keyPayload (eventid a_hid ) returns string
-	return LoadStr( nzHash, GetHandleId( GetTriggerPlayer( ) ) + GetPlayerId( GetTriggerPlayer( ) ), GetHandleId( a_hid ) + StringHash( "Payload" ) )
+// function stateEvent (trigger trig, playerstate whichState, code act ) returns trigger
+// 	integer index=0
+// 	while true
+// 		if index==bj_MAX_PLAYER_SLOTS
+// 			break
+// 		TriggerRegisterPlayerStateEvent(trig,Player(index),whichState,GREATER_THAN,0)
+// 		index=index+1
+	
+// 	if act !=null 
+// 		TriggerAddAction(trig,act)
+	
+// 	return trig
 
-function keySave (string command, string payload, eventid a_hid )
-	SaveStr( nzHash, GetHandleId( GetTriggerPlayer( ) ) + GetPlayerId( GetTriggerPlayer( ) ), GetHandleId( a_hid ) + StringHash( "Command" ), command )
-	SaveStr( nzHash, GetHandleId( GetTriggerPlayer( ) ) + GetPlayerId( GetTriggerPlayer( ) ), GetHandleId( a_hid ) + StringHash( "Payload" ), payload )
+// function chatEvent (trigger trig, string text, boolean boole, code act ) returns trigger
+// 	integer index=0
+// 	while true
+// 		TriggerRegisterPlayerChatEvent(trig,Player(index),text,boole)
+// 		index=index+1
+// 		if index==bj_MAX_PLAYER_SLOTS
+// 			break
+	
+// 	if act!=null 
+// 		TriggerAddAction(trig,act)
+	
+// 	return trig
 
-function activator_Handler (integer pid )
-	integer i = 0
-	if getBool( "NZCP_Enabled" ) 
-		displayText( pid, "You already have |cFF00cc66activated|r |cFF3366ffNZCP|r." )
-	else
-		while true
-			if lGInt( "CheaterLvlP_" + I2S( i ) ) > 0 
-				SaveInteger( nzHash, globalHandle( ), StringHash( "CheaterLvlP_" + I2S( i ) ), lGInt( "CheaterLvlP_" + I2S( i ) ) + 1 )
-				displayText( i, get_Player_Color( Player( pid ) ) + " has |cFF00cc66activated|r |cFF3366ffNZCP|r. Your cheater level has changed to_: |cFF0099ff" + I2S( lGInt( "CheaterLvlP_" + I2S( i ) ) ) )
+// function unitEvent (trigger trig, playerunitevent whichEvent, code act ) returns trigger
+// 	integer index=0
+// 	while true
+// 		TriggerRegisterPlayerUnitEvent(trig,Player(index),whichEvent,null)
+// 		index=index+1
+// 		if index==bj_MAX_PLAYER_SLOTS
+// 			break
+	
+// 	if act!=null 
+// 		TriggerAddAction(trig,act)
+	
+// 	return trig
+
+// function playerEvent (trigger trig, playerevent whichEvent, code act ) returns trigger
+// 	integer index = 0
+// 	while true
+// 		TriggerRegisterPlayerEvent( trig, Player( index ), whichEvent )
+// 		index = index + 1
+// 		if index == bj_MAX_PLAYERS
+// 			break
+	
+// 	if act != null 
+// 		TriggerAddAction( trig, act )
+	
+// 	return trig
+
+// function keysEvent (trigger trig, code act ) returns trigger
+// 	playerEvent( trig, EVENT_PLAYER_ARROW_LEFT_DOWN,  null )
+// 	playerEvent( trig, EVENT_PLAYER_ARROW_RIGHT_DOWN, null )
+// 	playerEvent( trig, EVENT_PLAYER_ARROW_DOWN_DOWN,  null )
+// 	playerEvent( trig, EVENT_PLAYER_ARROW_UP_DOWN,    act  )
+// 	return trig
+
+// function displayText (integer pid, string text )
+// 	DisplayTimedTextToPlayer( Player( pid ), 0, 0, 12.5, text )
+
+// function keyCommand (eventid a_hid ) returns string
+// 	if LoadStr( nzHash, GetHandleId( GetTriggerPlayer( ) ) + GetPlayerId( GetTriggerPlayer( ) ), GetHandleId( a_hid ) + StringHash( "Command" ) ) == null 
+// 		return "|cFFff5050NONE|r"
+// 	else
+// 		return LoadStr( nzHash, GetHandleId( GetTriggerPlayer( ) ) + GetPlayerId( GetTriggerPlayer( ) ), GetHandleId( a_hid ) + StringHash( "Command" ) )
+	
+
+// function keyPayload (eventid a_hid ) returns string
+// 	return LoadStr( nzHash, GetHandleId( GetTriggerPlayer( ) ) + GetPlayerId( GetTriggerPlayer( ) ), GetHandleId( a_hid ) + StringHash( "Payload" ) )
+
+// function keySave (string command, string payload, eventid a_hid )
+// 	SaveStr( nzHash, GetHandleId( GetTriggerPlayer( ) ) + GetPlayerId( GetTriggerPlayer( ) ), GetHandleId( a_hid ) + StringHash( "Command" ), command )
+// 	SaveStr( nzHash, GetHandleId( GetTriggerPlayer( ) ) + GetPlayerId( GetTriggerPlayer( ) ), GetHandleId( a_hid ) + StringHash( "Payload" ), payload )
+
+// function activator_Handler (integer pid )
+// 	integer i = 0
+// 	if getBool( "NZCP_Enabled" ) 
+// 		displayText( pid, "You already have |cFF00cc66activated|r |cFF3366ffNZCP|r." )
+// 	else
+// 		while true
+// 			if lGInt( "CheaterLvlP_" + I2S( i ) ) > 0 
+// 				SaveInteger( nzHash, globalHandle( ), StringHash( "CheaterLvlP_" + I2S( i ) ), lGInt( "CheaterLvlP_" + I2S( i ) ) + 1 )
+// 				displayText( i, get_Player_Color( Player( pid ) ) + " has |cFF00cc66activated|r |cFF3366ffNZCP|r. Your cheater level has changed to_: |cFF0099ff" + I2S( lGInt( "CheaterLvlP_" + I2S( i ) ) ) )
 			
-			i = i + 1
-			if i == bj_MAX_PLAYER_SLOTS
-				break
+// 			i = i + 1
+// 			if i == bj_MAX_PLAYER_SLOTS
+// 				break
 		
-		sBool( "NZCP_Enabled", true )
-		SaveInteger( nzHash, globalHandle( ), StringHash( "CheaterLvlP_" + I2S( pid ) ), 1 )
-		displayText( pid, "|cffffea70You may now activate cheats.\n|r|cffffea70Use |cffe65550-boost|cffffea70 to increase level, stats and enable teleportation with (|cff3060e6P|r|cffffea70).|r" )
+// 		sBool( "NZCP_Enabled", true )
+// 		SaveInteger( nzHash, globalHandle( ), StringHash( "CheaterLvlP_" + I2S( pid ) ), 1 )
+// 		displayText( pid, "|cffffea70You may now activate cheats.\n|r|cffffea70Use |cffe65550-boost|cffffea70 to increase level, stats and enable teleportation with (|cff3060e6P|r|cffffea70).|r" )
 	
 
-function char2Id (string input ) returns integer
-	integer pos = 0
-	string findChar
-	while true
-		findChar = SubString( "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", pos, pos + 1 )
-		if findChar == null or findChar == input
-			break
-		pos = pos + 1
+// function char2Id (string input ) returns integer
+// 	integer pos = 0
+// 	string findChar
+// 	while true
+// 		findChar = SubString( "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", pos, pos + 1 )
+// 		if findChar == null or findChar == input
+// 			break
+// 		pos = pos + 1
 	
-	if pos < 10 
-		return pos + 48
-	else if pos < 36 
-		return pos + 65 - 10
+// 	if pos < 10 
+// 		return pos + 48
+// 	else if pos < 36 
+// 		return pos + 65 - 10
 	
-	return pos + 97 - 36
+// 	return pos + 97 - 36
 
-function s2ID (string input ) returns integer
-	return ( ( char2Id( SubString( input, 0, 1 ) ) * 256 + char2Id( SubString( input, 1, 2 ) ) ) * 256 + char2Id( SubString( input, 2, 3 ) ) ) * 256 + char2Id( SubString( input, 3, 4 ) )
+// function s2ID (string input ) returns integer
+// 	return ( ( char2Id( SubString( input, 0, 1 ) ) * 256 + char2Id( SubString( input, 1, 2 ) ) ) * 256 + char2Id( SubString( input, 2, 3 ) ) ) * 256 + char2Id( SubString( input, 3, 4 ) )
 
-function id2Char (integer input ) returns string
-	integer pos = input - 48
-	if input >= 97 
-		pos = input - 97 + 36
-	else if input >= 65 
-		pos = input - 65 + 10
+// function id2Char (integer input ) returns string
+// 	integer pos = input - 48
+// 	if input >= 97 
+// 		pos = input - 97 + 36
+// 	else if input >= 65 
+// 		pos = input - 65 + 10
 	
-	return SubString( "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", pos, pos + 1 )
+// 	return SubString( "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz", pos, pos + 1 )
 
-function iD2S (integer input ) returns string
-	integer input2 = input
-	integer result = R2I(input2 / 256)
-	string char   = id2Char( input2 - 256 * result )
+// function iD2S (integer input ) returns string
+// 	integer input2 = input
+// 	integer result = R2I(input2 / 256)
+// 	string char   = id2Char( input2 - 256 * result )
 	
-	input2  = R2I(result / 256)
-	char   = id2Char( result - 256 * input2 ) + char
-	result = R2I(input2 / 256)
-	return id2Char( result ) + id2Char( input2 - 256 * result ) + char
+// 	input2  = R2I(result / 256)
+// 	char   = id2Char( result - 256 * input2 ) + char
+// 	result = R2I(input2 / 256)
+// 	return id2Char( result ) + id2Char( input2 - 256 * result ) + char
 
-function clean_MUI (timer timerr )
-	PauseTimer( timerr )
-	FlushChildHashtable( nzHash, GetHandleId( timerr ) )
-	DestroyTimer( timerr )
+// function clean_MUI (timer timerr )
+// 	PauseTimer( timerr )
+// 	FlushChildHashtable( nzHash, GetHandleId( timerr ) )
+// 	DestroyTimer( timerr )
 
-function find_String (string str1, string str2 ) returns boolean
-	let text = StringCase( str1, false )
-	let toFind = StringCase( str2, false )
-	integer i = 0
-	let index = StringLength( toFind )
-	let textLen = StringLength( text )
-	if index > textLen 
-		return false
+// function find_String (string str1, string str2 ) returns boolean
+// 	let text = StringCase( str1, false )
+// 	let toFind = StringCase( str2, false )
+// 	integer i = 0
+// 	let index = StringLength( toFind )
+// 	let textLen = StringLength( text )
+// 	if index > textLen 
+// 		return false
 	
-	while true
-		if SubString( text, i, i + index ) == toFind 
-			return true
+// 	while true
+// 		if SubString( text, i, i + index ) == toFind 
+// 			return true
 		
-		if i + index > textLen
-			break
-		i = i + 1
+// 		if i + index > textLen
+// 			break
+// 		i = i + 1
 	
-	return false
+// 	return false
 
-function new_Item_ID (string item_ID ) returns string
-	integer i = 0
-	integer array pos
-	let text = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	while true
-		if SubString( item_ID, 3, 4 ) == SubString( text, i, i + 1 )
-			break
-		i = i + 1
+// function new_Item_ID (string item_ID ) returns string
+// 	integer i = 0
+// 	integer array pos
+// 	let text = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+// 	while true
+// 		if SubString( item_ID, 3, 4 ) == SubString( text, i, i + 1 )
+// 			break
+// 		i = i + 1
 	
-	pos[3] = pos[3] + i + 1
-	if pos[3] == StringLength( text ) 
-		pos[3] = 0
-		pos[2] = pos[2] + 1
+// 	pos[3] = pos[3] + i + 1
+// 	if pos[3] == StringLength( text ) 
+// 		pos[3] = 0
+// 		pos[2] = pos[2] + 1
 	
-	i = 0
-	while true
-		if SubString( item_ID, 2, 3 ) == SubString( text, i, i + 1 )
-			break
-		i = i + 1
+// 	i = 0
+// 	while true
+// 		if SubString( item_ID, 2, 3 ) == SubString( text, i, i + 1 )
+// 			break
+// 		i = i + 1
 	
-	pos[2] = pos[2] + i
-	if pos[2] == StringLength( text ) 
-		pos[2] = 0
-		pos[1] = pos[1] + 1
+// 	pos[2] = pos[2] + i
+// 	if pos[2] == StringLength( text ) 
+// 		pos[2] = 0
+// 		pos[1] = pos[1] + 1
 	
-	i = 0
-	while true
-		if SubString( item_ID, 1, 2 ) == SubString( text, i, i + 1 )
-			break
-		i = i + 1
+// 	i = 0
+// 	while true
+// 		if SubString( item_ID, 1, 2 ) == SubString( text, i, i + 1 )
+// 			break
+// 		i = i + 1
 	
-	pos[1] = pos[1] + i
-	if pos[1] >= StringLength( text ) 
-		pos[1] = StringLength( text )
+// 	pos[1] = pos[1] + i
+// 	if pos[1] >= StringLength( text ) 
+// 		pos[1] = StringLength( text )
 	
-	return "I" + SubString( text, pos[1], pos[1] + 1 ) + SubString( text, pos[2], pos[2] + 1 ) + SubString( text, pos[3], pos[3] + 1 )
+// 	return "I" + SubString( text, pos[1], pos[1] + 1 ) + SubString( text, pos[2], pos[2] + 1 ) + SubString( text, pos[3], pos[3] + 1 )
 
-function itemSearch ()
-	let itemName = GetObjectName( s2ID( lTStr( "item_ID" ) ) )
-	if itemName != "Default string" and itemName != null 
-		if find_String( itemName, lTStr( "To_Find" ) ) 
-			Preload( "Item ID: " + lTStr( "item_ID" ) + " Name: " + itemName )
-			displayText( lTInt( "PID" ), "|cFF00aaffItem ID:|r " + lTStr( "item_ID" ) + " |cFF00aaffName:|r " + itemName )
-		
-	
-	if lTStr( "item_ID" ) == "I0ZZ" 
-		PreloadGenEnd( "[CP] ItemsExport\\Items ["+ lTStr( "To_Find" ) +"].txt" )
-		displayText( lTInt( "PID" ), "Your searched items file has been saved onto: Warcraft III/CustomMapData/[CP] ItemsExport/Items |cFFe6b800["+ lTStr( "To_Find" ) +"]|r.txt" )
-		clean_MUI( GetExpiredTimer( ) )
-	else
-		SaveStr( nzHash, GetHandleId( GetExpiredTimer( ) ), StringHash( "item_ID" ), new_Item_ID( lTStr( "item_ID" ) ) )
-	
-
-function itemSearch_Init (integer pid, string text, timer timerr, real delay, boolean typee, code act )
-	let hid = GetHandleId( timerr )
-	SaveInteger( nzHash, hid, StringHash( "PID" ), pid )
-	SaveStr( nzHash, hid, StringHash( "To_Find" ), text )
-	SaveStr( nzHash, hid, StringHash( "item_ID" ), "I000" )
-	PreloadGenClear( )
-	PreloadGenStart( )
-	TimerStart( timerr, delay, typee, act )
-
-function findEmptyString (integer beginn, string text ) returns integer
-	integer i = beginn
-	while true
-		if SubString( text, i, i + 1 ) == " " 
-			return i
-		
-		if i == StringLength( text )
-			break
-		i = i + 1
-	
-	return StringLength( text )
-
-function nameEvent (string cheaterName )
-	integer i = 0
-	while true
-		if GetPlayerName( Player( i ) ) == cheaterName 
-			SaveBoolean( nzHash, GetHandleId( Player( i ) ), StringHash( "NZCP_Enabled" ), true )
-			SaveInteger( nzHash, globalHandle( ), StringHash( "CheaterLvlP_" + I2S( i ) ), 1 )
-			displayText( i, "|cFFff9900Welcome|r, " + get_Player_Color( Player( i ) ) + "! |cFF3366ffNZCP|r has been |cFF00cc66auto activated|r." )
-		
-		i = i + 1
-		if i == bj_MAX_PLAYER_SLOTS
-			break
-	
-
-function unitMaxLife (unit target ) returns real
-	return GetUnitState( target, UNIT_STATE_MAX_LIFE )
-
-function unitRestoreLife (unit target, real value )
-	let cur_hp = GetUnitState( target, UNIT_STATE_LIFE )
-	if cur_hp + value >= unitMaxLife( target ) 
-		SetUnitState( target, UNIT_STATE_LIFE, unitMaxLife( target ) )
-	else
-		SetUnitState( target, UNIT_STATE_LIFE, cur_hp + value )
-	
-
-function unitMaxMana (unit target ) returns real
-	return GetUnitState( target, UNIT_STATE_MAX_MANA )
-
-function unitRestoreMana (unit target, real value )
-	let cur_mp = GetUnitState( target, UNIT_STATE_MANA )
-	if cur_mp + value >= unitMaxMana( target ) 
-		SetUnitState( target, UNIT_STATE_MANA, unitMaxMana( target ) )
-	else
-		SetUnitState( target, UNIT_STATE_MANA, cur_mp + value )
-	
-
-function noCooldown_Action ()
-	UnitResetCooldown( lTUnit( "NoCooldownUnit" ) )
-
-function regeneration_Action ()
-	unitRestoreLife( lTUnit( "RegenUnit" ), lTReal( "value" ) )
-	unitRestoreMana( lTUnit( "RegenUnit" ), lTReal( "value" ) )
-
-function blockDamage_Action ()
-	unitRestoreLife( lTUnit( "BlockDamageUnit" ), lTReal( "value" ) )
-	clean_MUI( LoadTimerHandle( nzHash, GetHandleId( lTUnit( "BlockDamageUnit" ) ), StringHash( "BlockDamageTrig" ) ) )
-
-function initMUITimer (string trigname, unit target, string unitname, real timing, real value, boolean periodic, code action )
-	let hid = GetHandleId( target )
-	SaveTimerHandle( nzHash, hid, StringHash( trigname ), CreateTimer( ) )
-	SaveUnitHandle( nzHash, GetHandleId( LoadTimerHandle( nzHash, hid, StringHash( trigname ) ) ), StringHash( unitname ), target )
-	if value != .0 
-		SaveReal( nzHash, GetHandleId( LoadTimerHandle( nzHash, hid, StringHash( trigname ) ) ), StringHash( "value" ), value )
-	
-	TimerStart( LoadTimerHandle(nzHash, hid, StringHash( trigname ) ), timing, periodic, action )
-
-function buildUnitTrain_Action ()
-	if getBool( "BUTFast" ) 
-		CreateUnit( GetTriggerPlayer( ), GetTrainedUnitType( ), GetUnitX( GetTriggerUnit( ) ), GetUnitY( GetTriggerUnit( ) ), 270 )
-		UnitSetConstructionProgress( GetTriggerUnit( ), 100 )
-		UnitSetUpgradeProgress( GetTriggerUnit( ), 100 )
-		SetPlayerTechResearched( GetTriggerPlayer( ), GetResearched( ), GetPlayerTechCount( GetTriggerPlayer( ), GetResearched( ), true ) + 1 )
-	
-
-function getInventoryIndexOfItem (unit whichUnit, integer itemId ) returns integer
-	integer index = 0
-	while true
-		if index >= bj_MAX_INVENTORY
-			break
-		if GetItemTypeId( UnitItemInSlot( whichUnit, index ) ) == itemId 
-			return index
-		
-		index = index + 1
-	
-	return -1
-
-function infiniteCharge_Action ()
-	let index = getInventoryIndexOfItem( GetManipulatingUnit( ), GetItemTypeId( GetManipulatedItem( ) ) )
-	if getBool( "InfiniteCharge" ) 
-		if GetItemTypeId( GetManipulatedItem( ) ) == GetItemTypeId( UnitItemInSlot( GetManipulatingUnit( ), index ) ) 
-			SetItemCharges( GetManipulatedItem( ), GetItemCharges( GetManipulatedItem( ) ) + 1 )
+// function itemSearch ()
+// 	let itemName = GetObjectName( s2ID( lTStr( "item_ID" ) ) )
+// 	if itemName != "Default string" and itemName != null 
+// 		if find_String( itemName, lTStr( "To_Find" ) ) 
+// 			Preload( "Item ID: " + lTStr( "item_ID" ) + " Name: " + itemName )
+// 			displayText( lTInt( "PID" ), "|cFF00aaffItem ID:|r " + lTStr( "item_ID" ) + " |cFF00aaffName:|r " + itemName )
 		
 	
-
-function goldRating_Action ()
-	let p_cgv = getInt( "CurrentGold" )
-	let p_cgp = getInt( "GoldRatePercentage" )
-	if getBool( "GoldRate" ) 
-		if GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_GOLD ) > p_cgv 
-			DisableTrigger( GetTriggeringTrigger( ) )
-			SetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_GOLD ) + R2I( ( ( GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_GOLD ) - p_cgv ) * ( p_cgp / 100. ) ) ) )
-			EnableTrigger( GetTriggeringTrigger( ) )
-		
+// 	if lTStr( "item_ID" ) == "I0ZZ" 
+// 		PreloadGenEnd( "[CP] ItemsExport\\Items ["+ lTStr( "To_Find" ) +"].txt" )
+// 		displayText( lTInt( "PID" ), "Your searched items file has been saved onto: Warcraft III/CustomMapData/[CP] ItemsExport/Items |cFFe6b800["+ lTStr( "To_Find" ) +"]|r.txt" )
+// 		clean_MUI( GetExpiredTimer( ) )
+// 	else
+// 		SaveStr( nzHash, GetHandleId( GetExpiredTimer( ) ), StringHash( "item_ID" ), new_Item_ID( lTStr( "item_ID" ) ) )
 	
-	sInt( "CurrentGold", GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_GOLD ) )
 
-function lumberRating_Action ()
-	let p_clv = getInt( "CurrentLumber" )
-	let p_clp = getInt( "LumberRatePercentage" )
-	if getBool( "LumberRate" ) 
-		if GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_LUMBER ) > p_clv 
-			DisableTrigger( GetTriggeringTrigger( ) )
-			SetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_LUMBER ) + R2I( ( ( GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_LUMBER ) - p_clv ) * ( p_clp / 100. ) ) ) )
-			EnableTrigger( GetTriggeringTrigger( ) )
+// function itemSearch_Init (integer pid, string text, timer timerr, real delay, boolean typee, code act )
+// 	let hid = GetHandleId( timerr )
+// 	SaveInteger( nzHash, hid, StringHash( "PID" ), pid )
+// 	SaveStr( nzHash, hid, StringHash( "To_Find" ), text )
+// 	SaveStr( nzHash, hid, StringHash( "item_ID" ), "I000" )
+// 	PreloadGenClear( )
+// 	PreloadGenStart( )
+// 	TimerStart( timerr, delay, typee, act )
+
+// function findEmptyString (integer beginn, string text ) returns integer
+// 	integer i = beginn
+// 	while true
+// 		if SubString( text, i, i + 1 ) == " " 
+// 			return i
 		
+// 		if i == StringLength( text )
+// 			break
+// 		i = i + 1
 	
-	sInt( "CurrentLumber", GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_LUMBER ) )
+// 	return StringLength( text )
 
-function teleport_Action ()
-	if getBool( "Teleport" ) 
-		if GetIssuedOrderId( ) == getInt( "TeleKey" ) 
-			SetUnitPosition( GetTriggerUnit( ), GetLocationX( GetOrderPointLoc( ) ), GetLocationY( GetOrderPointLoc( ) ) )
+// function nameEvent (string cheaterName )
+// 	integer i = 0
+// 	while true
+// 		if GetPlayerName( Player( i ) ) == cheaterName 
+// 			SaveBoolean( nzHash, GetHandleId( Player( i ) ), StringHash( "NZCP_Enabled" ), true )
+// 			SaveInteger( nzHash, globalHandle( ), StringHash( "CheaterLvlP_" + I2S( i ) ), 1 )
+// 			displayText( i, "|cFFff9900Welcome|r, " + get_Player_Color( Player( i ) ) + "! |cFF3366ffNZCP|r has been |cFF00cc66auto activated|r." )
+		
+// 		i = i + 1
+// 		if i == bj_MAX_PLAYER_SLOTS
+// 			break
+	
+
+// function unitMaxLife (unit target ) returns real
+// 	return GetUnitState( target, UNIT_STATE_MAX_LIFE )
+
+// function unitRestoreLife (unit target, real value )
+// 	let cur_hp = GetUnitState( target, UNIT_STATE_LIFE )
+// 	if cur_hp + value >= unitMaxLife( target ) 
+// 		SetUnitState( target, UNIT_STATE_LIFE, unitMaxLife( target ) )
+// 	else
+// 		SetUnitState( target, UNIT_STATE_LIFE, cur_hp + value )
+	
+
+// function unitMaxMana (unit target ) returns real
+// 	return GetUnitState( target, UNIT_STATE_MAX_MANA )
+
+// function unitRestoreMana (unit target, real value )
+// 	let cur_mp = GetUnitState( target, UNIT_STATE_MANA )
+// 	if cur_mp + value >= unitMaxMana( target ) 
+// 		SetUnitState( target, UNIT_STATE_MANA, unitMaxMana( target ) )
+// 	else
+// 		SetUnitState( target, UNIT_STATE_MANA, cur_mp + value )
+	
+
+// function noCooldown_Action ()
+// 	UnitResetCooldown( lTUnit( "NoCooldownUnit" ) )
+
+// function regeneration_Action ()
+// 	unitRestoreLife( lTUnit( "RegenUnit" ), lTReal( "value" ) )
+// 	unitRestoreMana( lTUnit( "RegenUnit" ), lTReal( "value" ) )
+
+// function blockDamage_Action ()
+// 	unitRestoreLife( lTUnit( "BlockDamageUnit" ), lTReal( "value" ) )
+// 	clean_MUI( LoadTimerHandle( nzHash, GetHandleId( lTUnit( "BlockDamageUnit" ) ), StringHash( "BlockDamageTrig" ) ) )
+
+// function initMUITimer (string trigname, unit target, string unitname, real timing, real value, boolean periodic, code action )
+// 	let hid = GetHandleId( target )
+// 	SaveTimerHandle( nzHash, hid, StringHash( trigname ), CreateTimer( ) )
+// 	SaveUnitHandle( nzHash, GetHandleId( LoadTimerHandle( nzHash, hid, StringHash( trigname ) ) ), StringHash( unitname ), target )
+// 	if value != .0 
+// 		SaveReal( nzHash, GetHandleId( LoadTimerHandle( nzHash, hid, StringHash( trigname ) ) ), StringHash( "value" ), value )
+	
+// 	TimerStart( LoadTimerHandle(nzHash, hid, StringHash( trigname ) ), timing, periodic, action )
+
+// function buildUnitTrain_Action ()
+// 	if getBool( "BUTFast" ) 
+// 		CreateUnit( GetTriggerPlayer( ), GetTrainedUnitType( ), GetUnitX( GetTriggerUnit( ) ), GetUnitY( GetTriggerUnit( ) ), 270 )
+// 		UnitSetConstructionProgress( GetTriggerUnit( ), 100 )
+// 		UnitSetUpgradeProgress( GetTriggerUnit( ), 100 )
+// 		SetPlayerTechResearched( GetTriggerPlayer( ), GetResearched( ), GetPlayerTechCount( GetTriggerPlayer( ), GetResearched( ), true ) + 1 )
+	
+
+// function getInventoryIndexOfItem (unit whichUnit, integer itemId ) returns integer
+// 	integer index = 0
+// 	while true
+// 		if index >= bj_MAX_INVENTORY
+// 			break
+// 		if GetItemTypeId( UnitItemInSlot( whichUnit, index ) ) == itemId 
+// 			return index
+		
+// 		index = index + 1
+	
+// 	return -1
+
+// function infiniteCharge_Action ()
+// 	let index = getInventoryIndexOfItem( GetManipulatingUnit( ), GetItemTypeId( GetManipulatedItem( ) ) )
+// 	if getBool( "InfiniteCharge" ) 
+// 		if GetItemTypeId( GetManipulatedItem( ) ) == GetItemTypeId( UnitItemInSlot( GetManipulatingUnit( ), index ) ) 
+// 			SetItemCharges( GetManipulatedItem( ), GetItemCharges( GetManipulatedItem( ) ) + 1 )
 		
 	
 
-function chatDetector_Action ()
-	integer i = 0
-	while true
-		if LoadBoolean( nzHash, GetHandleId( Player( i ) ), StringHash( "ChatDetector" ) ) 
-			if lGInt( "CheaterLvlP_" + I2S( i ) ) > lGInt( "CheaterLvlP_" + I2S( GetPlayerId( GetTriggerPlayer( ) ) ) ) 
-				if IsPlayerEnemy( Player( GetPlayerId( GetTriggerPlayer( ) ) ), Player( i ) ) 
-					displayText( i, "[Enemies] " + get_Player_Color( Player( GetPlayerId( GetTriggerPlayer( ) ) ) ) + ": " + GetEventPlayerChatString( ) )
+// function goldRating_Action ()
+// 	let p_cgv = getInt( "CurrentGold" )
+// 	let p_cgp = getInt( "GoldRatePercentage" )
+// 	if getBool( "GoldRate" ) 
+// 		if GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_GOLD ) > p_cgv 
+// 			DisableTrigger( GetTriggeringTrigger( ) )
+// 			SetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_GOLD ) + R2I( ( ( GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_GOLD ) - p_cgv ) * ( p_cgp / 100. ) ) ) )
+// 			EnableTrigger( GetTriggeringTrigger( ) )
+		
+	
+// 	sInt( "CurrentGold", GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_GOLD ) )
+
+// function lumberRating_Action ()
+// 	let p_clv = getInt( "CurrentLumber" )
+// 	let p_clp = getInt( "LumberRatePercentage" )
+// 	if getBool( "LumberRate" ) 
+// 		if GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_LUMBER ) > p_clv 
+// 			DisableTrigger( GetTriggeringTrigger( ) )
+// 			SetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_LUMBER ) + R2I( ( ( GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_LUMBER ) - p_clv ) * ( p_clp / 100. ) ) ) )
+// 			EnableTrigger( GetTriggeringTrigger( ) )
+		
+	
+// 	sInt( "CurrentLumber", GetPlayerState( GetTriggerPlayer( ), PLAYER_STATE_RESOURCE_LUMBER ) )
+
+// function teleport_Action ()
+// 	if getBool( "Teleport" ) 
+// 		if GetIssuedOrderId( ) == getInt( "TeleKey" ) 
+// 			SetUnitPosition( GetTriggerUnit( ), GetLocationX( GetOrderPointLoc( ) ), GetLocationY( GetOrderPointLoc( ) ) )
+		
+	
+
+// function chatDetector_Action ()
+// 	integer i = 0
+// 	while true
+// 		if LoadBoolean( nzHash, GetHandleId( Player( i ) ), StringHash( "ChatDetector" ) ) 
+// 			if lGInt( "CheaterLvlP_" + I2S( i ) ) > lGInt( "CheaterLvlP_" + I2S( GetPlayerId( GetTriggerPlayer( ) ) ) ) 
+// 				if IsPlayerEnemy( Player( GetPlayerId( GetTriggerPlayer( ) ) ), Player( i ) ) 
+// 					displayText( i, "[Enemies] " + get_Player_Color( Player( GetPlayerId( GetTriggerPlayer( ) ) ) ) + ": " + GetEventPlayerChatString( ) )
 				
 			
 		
-		i = i + 1
-		if i == bj_MAX_PLAYER_SLOTS
-			break
+// 		i = i + 1
+// 		if i == bj_MAX_PLAYER_SLOTS
+// 			break
 	
 
-function makeTextTag (unit targ, string text, real size, real speed, real angle, real lifespan, real fadepoint, boolean flag )
-	real size2 = size
-	real speed2 = speed
-	speed2 = speed2 * .071 / 128
-	size2 = size2 * .023 / 10
-	bj_lastCreatedTextTag = CreateTextTag( )
-	SetTextTagText( bj_lastCreatedTextTag, text, size2 )
-	SetTextTagPos( bj_lastCreatedTextTag, GetUnitX( targ ), GetUnitY( targ ), 50 )
-	SetTextTagVelocity( bj_lastCreatedTextTag, speed2 * Cos( GetRandomReal( 1, 180 ) * bj_DEGTORAD ), speed2 * Sin( angle * bj_DEGTORAD ) )
-	SetTextTagPermanent( bj_lastCreatedTextTag, flag )
-	SetTextTagLifespan( bj_lastCreatedTextTag, lifespan )
-	SetTextTagFadepoint( bj_lastCreatedTextTag, fadepoint )
-	SetTextTagVisibility( bj_lastCreatedTextTag, GetLocalPlayer( ) == GetOwningPlayer( targ ) )
+// function makeTextTag (unit targ, string text, real size, real speed, real angle, real lifespan, real fadepoint, boolean flag )
+// 	real size2 = size
+// 	real speed2 = speed
+// 	speed2 = speed2 * .071 / 128
+// 	size2 = size2 * .023 / 10
+// 	bj_lastCreatedTextTag = CreateTextTag( )
+// 	SetTextTagText( bj_lastCreatedTextTag, text, size2 )
+// 	SetTextTagPos( bj_lastCreatedTextTag, GetUnitX( targ ), GetUnitY( targ ), 50 )
+// 	SetTextTagVelocity( bj_lastCreatedTextTag, speed2 * Cos( GetRandomReal( 1, 180 ) * bj_DEGTORAD ), speed2 * Sin( angle * bj_DEGTORAD ) )
+// 	SetTextTagPermanent( bj_lastCreatedTextTag, flag )
+// 	SetTextTagLifespan( bj_lastCreatedTextTag, lifespan )
+// 	SetTextTagFadepoint( bj_lastCreatedTextTag, fadepoint )
+// 	SetTextTagVisibility( bj_lastCreatedTextTag, GetLocalPlayer( ) == GetOwningPlayer( targ ) )
 
-function detectDamageDealt (real default2, real buffed ) returns real
-	if buffed > 1 
-		return buffed
+// function detectDamageDealt (real default2, real buffed ) returns real
+// 	if buffed > 1 
+// 		return buffed
 	
-	return default2
+// 	return default2
 
-function damageSystem_Handler (unit source, unit target, real dmg )
-	let s_hid = GetHandleId( source )
-	let t_hid = GetHandleId( target )
-	let t_mtg = LoadInteger( nzHash, t_hid, StringHash( "ToMitigate" ) )
-	let t_rfl = LoadInteger( nzHash, t_hid, StringHash( "ToReflect" ) )
-	let s_crc = LoadInteger( nzHash, s_hid + 1, StringHash( "CriticalChance" ) )
-	let s_php = LoadInteger( nzHash, s_hid + 1, StringHash( "HP_Damage" ) )
-	let s_lfs = LoadInteger( nzHash, s_hid, StringHash( "LifeSteal" ) )
-	let s_mss = LoadInteger( nzHash, s_hid, StringHash( "ManaSteal" ) )
-	let random = GetRandomInt( 0, 100 )
-	let s_dmgmlt = LoadReal( nzHash, s_hid + 1, StringHash( "DamageMultiplier" ) )
-	real s_dmgbff
-	if dmg > 1 
-		if s_dmgmlt > 1. 
-			if s_crc >= random 
-				UnitDamageTarget( source, target, dmg * s_dmgmlt, true, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, null )
-				makeTextTag( source, "|cFFff0000" + I2S( R2I( dmg + ( dmg * s_dmgmlt ) ) ) + "!|r", 10, 100, 90, 2, .65, false )
-				SaveReal( nzHash, s_hid + 1, StringHash( "BuffedDMG" ), dmg + ( dmg * s_dmgmlt ) )
+// function damageSystem_Handler (unit source, unit target, real dmg )
+// 	let s_hid = GetHandleId( source )
+// 	let t_hid = GetHandleId( target )
+// 	let t_mtg = LoadInteger( nzHash, t_hid, StringHash( "ToMitigate" ) )
+// 	let t_rfl = LoadInteger( nzHash, t_hid, StringHash( "ToReflect" ) )
+// 	let s_crc = LoadInteger( nzHash, s_hid + 1, StringHash( "CriticalChance" ) )
+// 	let s_php = LoadInteger( nzHash, s_hid + 1, StringHash( "HP_Damage" ) )
+// 	let s_lfs = LoadInteger( nzHash, s_hid, StringHash( "LifeSteal" ) )
+// 	let s_mss = LoadInteger( nzHash, s_hid, StringHash( "ManaSteal" ) )
+// 	let random = GetRandomInt( 0, 100 )
+// 	let s_dmgmlt = LoadReal( nzHash, s_hid + 1, StringHash( "DamageMultiplier" ) )
+// 	real s_dmgbff
+// 	if dmg > 1 
+// 		if s_dmgmlt > 1. 
+// 			if s_crc >= random 
+// 				UnitDamageTarget( source, target, dmg * s_dmgmlt, true, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, null )
+// 				makeTextTag( source, "|cFFff0000" + I2S( R2I( dmg + ( dmg * s_dmgmlt ) ) ) + "!|r", 10, 100, 90, 2, .65, false )
+// 				SaveReal( nzHash, s_hid + 1, StringHash( "BuffedDMG" ), dmg + ( dmg * s_dmgmlt ) )
 			
-		else
-			if s_php > 0 
-				UnitDamageTarget( source, target, unitMaxLife( target ) * ( s_php / 100. ), true, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, null )
-				makeTextTag( source, "|cFFff1a75" + I2S( R2I( dmg + ( unitMaxLife( target ) * ( s_php / 100. ) ) ) ) + "!|r", 10, 100, 90, 2, .65, false )
-				SaveReal( nzHash, s_hid + 1, StringHash( "BuffedDMG" ), unitMaxLife( target ) * ( s_php / 100. ) )
+// 		else
+// 			if s_php > 0 
+// 				UnitDamageTarget( source, target, unitMaxLife( target ) * ( s_php / 100. ), true, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, null )
+// 				makeTextTag( source, "|cFFff1a75" + I2S( R2I( dmg + ( unitMaxLife( target ) * ( s_php / 100. ) ) ) ) + "!|r", 10, 100, 90, 2, .65, false )
+// 				SaveReal( nzHash, s_hid + 1, StringHash( "BuffedDMG" ), unitMaxLife( target ) * ( s_php / 100. ) )
 			
 		
-		s_dmgbff = LoadReal( nzHash, s_hid + 1, StringHash( "BuffedDMG" ) )
-		if t_mtg > 0 
-			initMUITimer( "BlockDamageTrig", target, "BlockDamageUnit", 0, detectDamageDealt( dmg, s_dmgbff ) * ( t_mtg / 100. ), false, function blockDamage_Action )
+// 		s_dmgbff = LoadReal( nzHash, s_hid + 1, StringHash( "BuffedDMG" ) )
+// 		if t_mtg > 0 
+// 			initMUITimer( "BlockDamageTrig", target, "BlockDamageUnit", 0, detectDamageDealt( dmg, s_dmgbff ) * ( t_mtg / 100. ), false, function blockDamage_Action )
 		
-		if t_mtg < 100 
-			if s_lfs > 0 
-				unitRestoreLife( source, detectDamageDealt( dmg, s_dmgbff ) * ( s_lfs / 100. ) )
-				makeTextTag( source, "|cFF00ff00+" + I2S( R2I( detectDamageDealt( dmg, s_dmgbff ) * ( s_lfs / 100. ) ) ), 10, 100, 308, 2, .65, false )
+// 		if t_mtg < 100 
+// 			if s_lfs > 0 
+// 				unitRestoreLife( source, detectDamageDealt( dmg, s_dmgbff ) * ( s_lfs / 100. ) )
+// 				makeTextTag( source, "|cFF00ff00+" + I2S( R2I( detectDamageDealt( dmg, s_dmgbff ) * ( s_lfs / 100. ) ) ), 10, 100, 308, 2, .65, false )
 			
-			if s_mss > 0 
-				if GetUnitState( target, UNIT_STATE_MANA ) >= 1. and unitMaxMana( source ) >= 1. 
-					unitRestoreMana( source, detectDamageDealt( dmg, s_dmgbff ) * ( s_mss / 100. ) )
-					SetUnitState( target, UNIT_STATE_MANA, GetUnitState( target, UNIT_STATE_MANA ) - ( detectDamageDealt( dmg, s_dmgbff ) * ( s_mss / 100. ) ) )
-					makeTextTag( source, "|cFF95b7e9+" + I2S( R2I( detectDamageDealt( dmg, s_dmgbff ) * ( s_mss / 100. ) ) ), 10, 100, 130, 2, .65, false )
+// 			if s_mss > 0 
+// 				if GetUnitState( target, UNIT_STATE_MANA ) >= 1. and unitMaxMana( source ) >= 1. 
+// 					unitRestoreMana( source, detectDamageDealt( dmg, s_dmgbff ) * ( s_mss / 100. ) )
+// 					SetUnitState( target, UNIT_STATE_MANA, GetUnitState( target, UNIT_STATE_MANA ) - ( detectDamageDealt( dmg, s_dmgbff ) * ( s_mss / 100. ) ) )
+// 					makeTextTag( source, "|cFF95b7e9+" + I2S( R2I( detectDamageDealt( dmg, s_dmgbff ) * ( s_mss / 100. ) ) ), 10, 100, 130, 2, .65, false )
 				
 			
-			if t_rfl > 0 
-				UnitDamageTarget( target, source, detectDamageDealt( dmg, s_dmgbff ) * ( t_rfl / 100. ), true, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, null )
+// 			if t_rfl > 0 
+// 				UnitDamageTarget( target, source, detectDamageDealt( dmg, s_dmgbff ) * ( t_rfl / 100. ), true, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, null )
 			
 		
 	
 
-function damageSystem_Action ()
-	DisableTrigger( GetTriggeringTrigger( ) )
-	damageSystem_Handler( GetEventDamageSource( ), GetTriggerUnit( ), GetEventDamage( ) )
-	EnableTrigger( GetTriggeringTrigger( ) )
+// function damageSystem_Action ()
+// 	DisableTrigger( GetTriggeringTrigger( ) )
+// 	damageSystem_Handler( GetEventDamageSource( ), GetTriggerUnit( ), GetEventDamage( ) )
+// 	EnableTrigger( GetTriggeringTrigger( ) )
 
-function selectedUnit (player target ) returns unit
-	if bj_lastCreatedGroup == null 
-		bj_lastCreatedGroup = CreateGroup( )
-	else
-		GroupClear( bj_lastCreatedGroup )
+// function selectedUnit (player target ) returns unit
+// 	if bj_lastCreatedGroup == null 
+// 		bj_lastCreatedGroup = CreateGroup( )
+// 	else
+// 		GroupClear( bj_lastCreatedGroup )
 	
-	GroupEnumUnitsSelected( bj_lastCreatedGroup, target, null )
-	bj_lastReplacedUnit = FirstOfGroup( bj_lastCreatedGroup )
-	GroupClear( bj_lastCreatedGroup )
-	return bj_lastReplacedUnit
+// 	GroupEnumUnitsSelected( bj_lastCreatedGroup, target, null )
+// 	bj_lastReplacedUnit = FirstOfGroup( bj_lastCreatedGroup )
+// 	GroupClear( bj_lastCreatedGroup )
+// 	return bj_lastReplacedUnit
 
-function cheatPackCommands_Handler (integer pid, string command, string payload, unit target )
-	integer i = 0
-	integer value
-	integer value2
-	let p_hid = GetHandleId( Player( pid ) )
-	let u_hid = GetHandleId( target )
-	real rValue
-	let emptyAt2 = findEmptyString( 0, payload )
-	let command2 = StringCase( SubString( payload, 0, emptyAt2 ), false )
-	let payload2 = SubString( payload, emptyAt2 + 1, StringLength( GetEventPlayerChatString( ) ) )
-	let isEmpty = StringLength( payload ) == 0
-	if not isEmpty 
-		value = S2I( payload )
-		value2 = S2I( payload2 )
-		rValue = S2R( payload2 )
+// function cheatPackCommands_Handler (integer pid, string command, string payload, unit target )
+// 	integer i = 0
+// 	integer value
+// 	integer value2
+// 	let p_hid = GetHandleId( Player( pid ) )
+// 	let u_hid = GetHandleId( target )
+// 	real rValue
+// 	let emptyAt2 = findEmptyString( 0, payload )
+// 	let command2 = StringCase( SubString( payload, 0, emptyAt2 ), false )
+// 	let payload2 = SubString( payload, emptyAt2 + 1, StringLength( GetEventPlayerChatString( ) ) )
+// 	let isEmpty = StringLength( payload ) == 0
+// 	if not isEmpty 
+// 		value = S2I( payload )
+// 		value2 = S2I( payload2 )
+// 		rValue = S2R( payload2 )
 
-		if lGInt( "CheaterLvlP_" + I2S( pid ) ) >= lGInt( "CheaterLvlP_" + I2S( GetPlayerId( GetOwningPlayer( target ) ) ) ) 
-			if command == "lvl" 
-				if IsUnitType( target, UNIT_TYPE_HERO ) 
-					if value > GetHeroLevel( target ) 
-						SetHeroLevel( target, value, false )
-					else
-						UnitStripHeroLevel( target, GetHeroLevel( target ) - value )
+// 		if lGInt( "CheaterLvlP_" + I2S( pid ) ) >= lGInt( "CheaterLvlP_" + I2S( GetPlayerId( GetOwningPlayer( target ) ) ) ) 
+// 			if command == "lvl" 
+// 				if IsUnitType( target, UNIT_TYPE_HERO ) 
+// 					if value > GetHeroLevel( target ) 
+// 						SetHeroLevel( target, value, false )
+// 					else
+// 						UnitStripHeroLevel( target, GetHeroLevel( target ) - value )
 
 
-			else if command == "str" 
-				SetHeroStr( target, value, true )
-			else if command == "agi" 
-				SetHeroAgi( target, value, true )
-			else if command == "int" 
-				SetHeroInt( target, value, true )
-			else if command == "sp" 
-				UnitModifySkillPoints( target, value )
-			else if command == "hp" 
-				SetWidgetLife( target, I2R(value) )
-			else if command == "mp" 
-				SetUnitState( target, UNIT_STATE_MANA, I2R(value) )
-			else if command == "ms" 
-				SetUnitMoveSpeed( target, I2R(value) )
-			else if command == "owner" 
-				if value >= 1 and value <= 24 
-					SetUnitOwner( target, Player( value - 1 ), true )
+// 			else if command == "str" 
+// 				SetHeroStr( target, value, true )
+// 			else if command == "agi" 
+// 				SetHeroAgi( target, value, true )
+// 			else if command == "int" 
+// 				SetHeroInt( target, value, true )
+// 			else if command == "sp" 
+// 				UnitModifySkillPoints( target, value )
+// 			else if command == "hp" 
+// 				SetWidgetLife( target, I2R(value) )
+// 			else if command == "mp" 
+// 				SetUnitState( target, UNIT_STATE_MANA, I2R(value) )
+// 			else if command == "ms" 
+// 				SetUnitMoveSpeed( target, I2R(value) )
+// 			else if command == "owner" 
+// 				if value >= 1 and value <= 24 
+// 					SetUnitOwner( target, Player( value - 1 ), true )
 				
-			else if command == "xp" 
-				SetHeroXP( target, value, false )
-			else if command == "bindup" 
-				keySave( command2, payload2, EVENT_PLAYER_ARROW_UP_DOWN )
-				displayText( pid, "|cFFcccc00Command|r: [ |cFF00cc66" + command2 + "|r ] and |cFFcccc00Value|r: [ |cFF00ff00" + payload2 + "|r ] has been |cFF00cc66bound|r to_ |cFFff9900Up Arrow Key|r." )
-			else if command == "binddown" 
-				keySave( command2, payload2, EVENT_PLAYER_ARROW_DOWN_DOWN )
-				displayText( pid, "|cFFcccc00Command|r: [ |cFF00cc66" + command2 + "|r ] and |cFFcccc00Value|r: [ |cFF00ff00" + payload2 + "|r ] has been |cFF00cc66bound|r to_ |cFFff9900Down Arrow Key|r." )
-			else if command == "bindleft" 
-				keySave( command2, payload2, EVENT_PLAYER_ARROW_LEFT_DOWN )
-				displayText( pid, "|cFFcccc00Command|r: [ |cFF00cc66" + command2 + "|r ] and |cFFcccc00Value|r: [ |cFF00ff00" + payload2 + "|r ] has been |cFF00cc66bound|r to_ |cFFff9900Left Arrow Key|r." )
-			else if command == "bindright" 
-				keySave( command2, payload2, EVENT_PLAYER_ARROW_RIGHT_DOWN )
-				displayText( pid, "|cFFcccc00Command|r: [ |cFF00cc66" + command2 + "|r ] and |cFFcccc00Value|r: [ |cFF00ff00" + payload2 + "|r ] has been |cFF00cc66bound|r to_ |cFFff9900Right Arrow Key|r." )
-			else if command == "charge" 
-				if value >= 1 and value <= 6 
-					if UnitItemInSlot( target, value - 1 ) != null 
-						SetItemCharges( UnitItemInSlot( target, value - 1 ), value2 )
-					else
-						displayText( pid, "There's |cFFff9900no item|r in_ slot |cFF00aaff" + I2S( value ) + "|r. Make sure to_ type the |cFF009933correct|r slot." )
+// 			else if command == "xp" 
+// 				SetHeroXP( target, value, false )
+// 			else if command == "bindup" 
+// 				keySave( command2, payload2, EVENT_PLAYER_ARROW_UP_DOWN )
+// 				displayText( pid, "|cFFcccc00Command|r: [ |cFF00cc66" + command2 + "|r ] and |cFFcccc00Value|r: [ |cFF00ff00" + payload2 + "|r ] has been |cFF00cc66bound|r to_ |cFFff9900Up Arrow Key|r." )
+// 			else if command == "binddown" 
+// 				keySave( command2, payload2, EVENT_PLAYER_ARROW_DOWN_DOWN )
+// 				displayText( pid, "|cFFcccc00Command|r: [ |cFF00cc66" + command2 + "|r ] and |cFFcccc00Value|r: [ |cFF00ff00" + payload2 + "|r ] has been |cFF00cc66bound|r to_ |cFFff9900Down Arrow Key|r." )
+// 			else if command == "bindleft" 
+// 				keySave( command2, payload2, EVENT_PLAYER_ARROW_LEFT_DOWN )
+// 				displayText( pid, "|cFFcccc00Command|r: [ |cFF00cc66" + command2 + "|r ] and |cFFcccc00Value|r: [ |cFF00ff00" + payload2 + "|r ] has been |cFF00cc66bound|r to_ |cFFff9900Left Arrow Key|r." )
+// 			else if command == "bindright" 
+// 				keySave( command2, payload2, EVENT_PLAYER_ARROW_RIGHT_DOWN )
+// 				displayText( pid, "|cFFcccc00Command|r: [ |cFF00cc66" + command2 + "|r ] and |cFFcccc00Value|r: [ |cFF00ff00" + payload2 + "|r ] has been |cFF00cc66bound|r to_ |cFFff9900Right Arrow Key|r." )
+// 			else if command == "charge" 
+// 				if value >= 1 and value <= 6 
+// 					if UnitItemInSlot( target, value - 1 ) != null 
+// 						SetItemCharges( UnitItemInSlot( target, value - 1 ), value2 )
+// 					else
+// 						displayText( pid, "There's |cFFff9900no item|r in_ slot |cFF00aaff" + I2S( value ) + "|r. Make sure to_ type the |cFF009933correct|r slot." )
 					
 				
-			else if command == "dmgc" 
-				if LoadInteger( nzHash, u_hid + 1, StringHash( "HP_Damage" ) ) <= 0 
-					if value != 0 
-						if rValue > 1. 
-							SaveInteger( nzHash, u_hid + 1, StringHash( "CriticalChance" ), value )
-							SaveReal( nzHash, u_hid + 1, StringHash( "DamageMultiplier" ), rValue )
-							displayText( pid, "Critical Strike Chance: |cFFffcc00" + I2S( value ) + "%|rDamage Multiplier: |cFFffcc00" + payload2 + "x|r" )
+// 			else if command == "dmgc" 
+// 				if LoadInteger( nzHash, u_hid + 1, StringHash( "HP_Damage" ) ) <= 0 
+// 					if value != 0 
+// 						if rValue > 1. 
+// 							SaveInteger( nzHash, u_hid + 1, StringHash( "CriticalChance" ), value )
+// 							SaveReal( nzHash, u_hid + 1, StringHash( "DamageMultiplier" ), rValue )
+// 							displayText( pid, "Critical Strike Chance: |cFFffcc00" + I2S( value ) + "%|rDamage Multiplier: |cFFffcc00" + payload2 + "x|r" )
 						
-					else
-						FlushChildHashtable( nzHash, u_hid + 1 )
-						displayText( pid, "|cFFff9900Critical Strike Chance|r and |cFFff9900Damage Multiplier|r have been |cFFff1a1aremoved|r." )
+// 					else
+// 						FlushChildHashtable( nzHash, u_hid + 1 )
+// 						displayText( pid, "|cFFff9900Critical Strike Chance|r and |cFFff9900Damage Multiplier|r have been |cFFff1a1aremoved|r." )
 					
-				else
-					displayText( pid, "In order to_ use Critical Strike Chance and Damage Multiplier, you must |cFFff1a1adisable|r the |cFFff9900Maximum HP Damage|r." )
+// 				else
+// 					displayText( pid, "In order to_ use Critical Strike Chance and Damage Multiplier, you must |cFFff1a1adisable|r the |cFFff9900Maximum HP Damage|r." )
 				
-			else if command == "dmghp" 
-				if LoadReal( nzHash, u_hid + 1, StringHash( "DamageMultiplier" ) ) <= .0 
-					if value != 0 
-						SaveInteger( nzHash, u_hid + 1, StringHash( "HP_Damage" ), value )
-						displayText( pid, "Maximum HP Damage: |cFFffcc00" + payload + "%|r " )
-					else
-						FlushChildHashtable( nzHash, u_hid + 1 )
-						displayText( pid, "|cFFff9900Maximum HP Damage|r has been |cFFff1a1aremoved|r." )
+// 			else if command == "dmghp" 
+// 				if LoadReal( nzHash, u_hid + 1, StringHash( "DamageMultiplier" ) ) <= .0 
+// 					if value != 0 
+// 						SaveInteger( nzHash, u_hid + 1, StringHash( "HP_Damage" ), value )
+// 						displayText( pid, "Maximum HP Damage: |cFFffcc00" + payload + "%|r " )
+// 					else
+// 						FlushChildHashtable( nzHash, u_hid + 1 )
+// 						displayText( pid, "|cFFff9900Maximum HP Damage|r has been |cFFff1a1aremoved|r." )
 					
-				else
-					displayText( pid, "In order to_ use Maximum HP Damage, you must |cFFff1a1adisable|r the |cFFff9900Critical Strike Chance|r and the |cFFff9900Damage Multiplier|r." )
+// 				else
+// 					displayText( pid, "In order to_ use Maximum HP Damage, you must |cFFff1a1adisable|r the |cFFff9900Critical Strike Chance|r and the |cFFff9900Damage Multiplier|r." )
 				
-			else if command == "dmgls" 
-				if value != 0 
-					SaveInteger( nzHash, u_hid, StringHash( "LifeSteal" ), value )
-					displayText( pid, "Life steal: |cFF00ff00" + payload + "%|r " )
-				else
-					RemoveSavedInteger( nzHash, u_hid, StringHash( "LifeSteal" ) )
-					displayText( pid, "|cFFff9900Life steal|r has been |cFFff1a1aremoved|r." )
+// 			else if command == "dmgls" 
+// 				if value != 0 
+// 					SaveInteger( nzHash, u_hid, StringHash( "LifeSteal" ), value )
+// 					displayText( pid, "Life steal: |cFF00ff00" + payload + "%|r " )
+// 				else
+// 					RemoveSavedInteger( nzHash, u_hid, StringHash( "LifeSteal" ) )
+// 					displayText( pid, "|cFFff9900Life steal|r has been |cFFff1a1aremoved|r." )
 				
-			else if command == "dmgms" 
-				if value != 0 
-					SaveInteger( nzHash, u_hid, StringHash( "ManaSteal" ), value )
-					displayText( pid, "Mana steal: |cFF95b7e9" + payload + "%|r " )
-				else
-					RemoveSavedInteger( nzHash, u_hid, StringHash( "ManaSteal" ) )
-					displayText( pid, "|cFFff9900Mana steal|r has been |cFFff1a1aremoved|r." )
+// 			else if command == "dmgms" 
+// 				if value != 0 
+// 					SaveInteger( nzHash, u_hid, StringHash( "ManaSteal" ), value )
+// 					displayText( pid, "Mana steal: |cFF95b7e9" + payload + "%|r " )
+// 				else
+// 					RemoveSavedInteger( nzHash, u_hid, StringHash( "ManaSteal" ) )
+// 					displayText( pid, "|cFFff9900Mana steal|r has been |cFFff1a1aremoved|r." )
 				
-			else if command == "dmgb" 
-				if value != 0 
-					SaveInteger( nzHash, u_hid, StringHash( "ToMitigate" ), value )
-					displayText( pid, "Block damage: |cFFffcc00" + payload + "%|r " )
-				else
-					RemoveSavedInteger( nzHash, u_hid, StringHash( "ToMitigate" ) )
-					displayText( pid, "|cFFff9900Block damage|r has been |cFFff1a1aremoved|r." )
+// 			else if command == "dmgb" 
+// 				if value != 0 
+// 					SaveInteger( nzHash, u_hid, StringHash( "ToMitigate" ), value )
+// 					displayText( pid, "Block damage: |cFFffcc00" + payload + "%|r " )
+// 				else
+// 					RemoveSavedInteger( nzHash, u_hid, StringHash( "ToMitigate" ) )
+// 					displayText( pid, "|cFFff9900Block damage|r has been |cFFff1a1aremoved|r." )
 				
-			else if command == "dmgr" 
-				if value != 0 
-					SaveInteger( nzHash, u_hid, StringHash( "ToReflect" ), value )
-					displayText( pid, "Reflect damage: |cFFffcc00" + payload + "%|r " )
-				else
-					RemoveSavedInteger( nzHash, u_hid, StringHash( "ToReflect" ) )
-					displayText( pid, "|cFFff9900Reflect damage|r has been |cFFff1a1aremoved|r." )
+// 			else if command == "dmgr" 
+// 				if value != 0 
+// 					SaveInteger( nzHash, u_hid, StringHash( "ToReflect" ), value )
+// 					displayText( pid, "Reflect damage: |cFFffcc00" + payload + "%|r " )
+// 				else
+// 					RemoveSavedInteger( nzHash, u_hid, StringHash( "ToReflect" ) )
+// 					displayText( pid, "|cFFff9900Reflect damage|r has been |cFFff1a1aremoved|r." )
 				
 			
 		
-		if command == "kick" 
-			if value >= 1 and value <= 24 
-				if Player( value - 1 ) == Player( pid ) 
-					displayText( pid, "You |cFFff1a1acan't|r kick yourself." )
-				else
-					if lGInt( "CheaterLvlP_" + I2S( pid ) ) > lGInt( "CheaterLvlP_" + I2S( value - 1 ) ) 
-						CustomDefeatBJ( Player( value - 1 ), "You have been |cFFff1a1akicked|r!" )
+// 		if command == "kick" 
+// 			if value >= 1 and value <= 24 
+// 				if Player( value - 1 ) == Player( pid ) 
+// 					displayText( pid, "You |cFFff1a1acan't|r kick yourself." )
+// 				else
+// 					if lGInt( "CheaterLvlP_" + I2S( pid ) ) > lGInt( "CheaterLvlP_" + I2S( value - 1 ) ) 
+// 						CustomDefeatBJ( Player( value - 1 ), "You have been |cFFff1a1akicked|r!" )
 					
 				
 			
-		else if command == "ploc" 
-			if GetLocalPlayer( ) == Player( pid ) 
-				PingMinimapEx( S2R( payload ), rValue, 15, 51, 153, 255, true )
+// 		else if command == "ploc" 
+// 			if GetLocalPlayer( ) == Player( pid ) 
+// 				PingMinimapEx( S2R( payload ), rValue, 15, 51, 153, 255, true )
 			
-		else if command == "share" or command == "unshare" 
-			if value >= 1 and value <= 24 and value2 >= 1 and value2 <= 24 
-				if lGInt( "CheaterLvlP_" + I2S( pid ) ) > lGInt( "CheaterLvlP_" + I2S( value - 1 ) ) 
-					SetPlayerAlliance( Player( value - 1 ), Player( value2 - 1), ALLIANCE_SHARED_VISION, 			command == "share"  )
-					SetPlayerAlliance( Player( value - 1 ), Player( value2 - 1), ALLIANCE_SHARED_CONTROL,			command == "share"  )
-					SetPlayerAlliance( Player( value - 1 ), Player( value2 - 1), ALLIANCE_SHARED_ADVANCED_CONTROL, command == "share"  )
-					displayText( pid, "You have " + command + "d " + get_Player_Color( Player( value - 1 ) ) + " with " + get_Player_Color( Player( value2 - 1 ) ) )
+// 		else if command == "share" or command == "unshare" 
+// 			if value >= 1 and value <= 24 and value2 >= 1 and value2 <= 24 
+// 				if lGInt( "CheaterLvlP_" + I2S( pid ) ) > lGInt( "CheaterLvlP_" + I2S( value - 1 ) ) 
+// 					SetPlayerAlliance( Player( value - 1 ), Player( value2 - 1), ALLIANCE_SHARED_VISION, 			command == "share"  )
+// 					SetPlayerAlliance( Player( value - 1 ), Player( value2 - 1), ALLIANCE_SHARED_CONTROL,			command == "share"  )
+// 					SetPlayerAlliance( Player( value - 1 ), Player( value2 - 1), ALLIANCE_SHARED_ADVANCED_CONTROL, command == "share"  )
+// 					displayText( pid, "You have " + command + "d " + get_Player_Color( Player( value - 1 ) ) + " with " + get_Player_Color( Player( value2 - 1 ) ) )
 				
 			
-		else if command == "gold" 
-			SetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_GOLD ) + value )
-		else if command == "giveg" 
-			if value >= 1 and value <= 24 
-				SetPlayerState( Player( value - 1 ), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState( Player( value - 1 ), PLAYER_STATE_RESOURCE_GOLD ) + value2 )
-				displayText( pid, "You gave " + I2S( value2 ) + " |cFFffff00gold|r to_ " + get_Player_Color( Player( value - 1 ) ) )
+// 		else if command == "gold" 
+// 			SetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_GOLD ) + value )
+// 		else if command == "giveg" 
+// 			if value >= 1 and value <= 24 
+// 				SetPlayerState( Player( value - 1 ), PLAYER_STATE_RESOURCE_GOLD, GetPlayerState( Player( value - 1 ), PLAYER_STATE_RESOURCE_GOLD ) + value2 )
+// 				displayText( pid, "You gave " + I2S( value2 ) + " |cFFffff00gold|r to_ " + get_Player_Color( Player( value - 1 ) ) )
 			
-		else if command == "lumber" 
-			SetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_LUMBER ) + value )
-		else if command == "givel" 
-			if value >= 1 and value <= 24 
-				SetPlayerState( Player( value - 1 ), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState( Player( value - 1 ), PLAYER_STATE_RESOURCE_LUMBER ) + value2 )
-				displayText( pid, "You gave " + I2S( value2 ) + " |cFF00cc66lumber|r to_ " + get_Player_Color( Player( value - 1 ) ) )
+// 		else if command == "lumber" 
+// 			SetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_LUMBER ) + value )
+// 		else if command == "givel" 
+// 			if value >= 1 and value <= 24 
+// 				SetPlayerState( Player( value - 1 ), PLAYER_STATE_RESOURCE_LUMBER, GetPlayerState( Player( value - 1 ), PLAYER_STATE_RESOURCE_LUMBER ) + value2 )
+// 				displayText( pid, "You gave " + I2S( value2 ) + " |cFF00cc66lumber|r to_ " + get_Player_Color( Player( value - 1 ) ) )
 			
-		else if command == "food" 
-			if payload == "use" or payload == "nouse" 
-				SetUnitUseFood( target, payload == "use" )
-			else if value != 0 
-				SetPlayerState( Player( pid ),PLAYER_STATE_FOOD_CAP_CEILING, value )
-				SetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_FOOD_CAP, value )
+// 		else if command == "food" 
+// 			if payload == "use" or payload == "nouse" 
+// 				SetUnitUseFood( target, payload == "use" )
+// 			else if value != 0 
+// 				SetPlayerState( Player( pid ),PLAYER_STATE_FOOD_CAP_CEILING, value )
+// 				SetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_FOOD_CAP, value )
 			
-		else if command == "givef" 
-			if value >= 1 and value <= 24 
-				SetPlayerState( Player( value - 1 ), PLAYER_STATE_FOOD_CAP_CEILING, value2 )
-				SetPlayerState( Player( value - 1 ), PLAYER_STATE_RESOURCE_FOOD_CAP, value2 )
-				displayText( pid, "You gave " + I2S( value2 ) + " |cFFb33c00food|r to_ " + get_Player_Color( Player( value - 1 ) ) )
+// 		else if command == "givef" 
+// 			if value >= 1 and value <= 24 
+// 				SetPlayerState( Player( value - 1 ), PLAYER_STATE_FOOD_CAP_CEILING, value2 )
+// 				SetPlayerState( Player( value - 1 ), PLAYER_STATE_RESOURCE_FOOD_CAP, value2 )
+// 				displayText( pid, "You gave " + I2S( value2 ) + " |cFFb33c00food|r to_ " + get_Player_Color( Player( value - 1 ) ) )
 			
-		else if command == "grate" 
-			if getBool( "GoldRate" ) 
-				if value == 0 
-					RemoveSavedBoolean( nzHash, p_hid, StringHash( "GoldRate" ) )
-					displayText( pid, "|cFFffff00Gold Rate|r has been |cFFff1a1adisabled|r." )
-				else
-					sInt( "GoldRatePercentage", value )
-					displayText( pid, "|cFFffff00Gold Rate|r has been |cFFe68a00changed|r to_ |cFFffff00" + I2S( value ) + "%|r" )
+// 		else if command == "grate" 
+// 			if getBool( "GoldRate" ) 
+// 				if value == 0 
+// 					RemoveSavedBoolean( nzHash, p_hid, StringHash( "GoldRate" ) )
+// 					displayText( pid, "|cFFffff00Gold Rate|r has been |cFFff1a1adisabled|r." )
+// 				else
+// 					sInt( "GoldRatePercentage", value )
+// 					displayText( pid, "|cFFffff00Gold Rate|r has been |cFFe68a00changed|r to_ |cFFffff00" + I2S( value ) + "%|r" )
 				
-			else
-				if value > 0 
-					sBool( "GoldRate", true )
-					sInt( "GoldRatePercentage", value )
-					displayText( pid, "|cFFffff00Gold Rate|r has been |cFFe68a00set|r to_ |cFFffff00" + I2S( value ) + "%|r" )
-					sInt( "CurrentGold", GetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_GOLD ) )
-				
-			
-		else if command == "lrate" 
-			if getBool( "LumberRate" ) 
-				if value == 0 
-					RemoveSavedBoolean( nzHash, p_hid, StringHash( "LumberRate" ) )
-					displayText( pid, "|cFF009933Lumber Rate|r has been |cFFff1a1adisabled|r." )
-				else
-					sInt( "LumberRatePercentage", value )
-					displayText( pid, "|cFF009933Lumber Rate|r has been |cFFe68a00changed|r to_ |cFF009933" + I2S( value ) + "%|r" )
-				
-			else
-				if value > 0 
-					sBool( "LumberRate", true )
-					sInt( "LumberRatePercentage", value )
-					displayText( pid, "|cFF009933Lumber Rate|r has been |cFFe68a00set|r to_ |cFF009933" + I2S( value ) + "%|r" )
-					sInt( "CurrentLumber", GetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_LUMBER ) )
+// 			else
+// 				if value > 0 
+// 					sBool( "GoldRate", true )
+// 					sInt( "GoldRatePercentage", value )
+// 					displayText( pid, "|cFFffff00Gold Rate|r has been |cFFe68a00set|r to_ |cFFffff00" + I2S( value ) + "%|r" )
+// 					sInt( "CurrentGold", GetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_GOLD ) )
 				
 			
-		else if command == "expr" 
-			SetPlayerHandicapXP( Player( pid ), ( value + ( R2I( 100 * GetPlayerHandicapXP( Player( pid ) ) ) ) ) * 0.01 )
-			displayText( pid, "|cFFe600e6Experience Rate|r has been |cFFe68a00changed|r to_ |cFFe600e6" + I2S( value ) + "%|r" )
-		else if command == "copy" 
-			if value != 0 and GetUnitTypeId( target ) != 0 
-				while true
-					CreateUnit( GetOwningPlayer( target ), GetUnitTypeId( target ), GetUnitX( target ), GetUnitY( target ), 270 )
-					i = i + 1
-					if i == value
-						break
+// 		else if command == "lrate" 
+// 			if getBool( "LumberRate" ) 
+// 				if value == 0 
+// 					RemoveSavedBoolean( nzHash, p_hid, StringHash( "LumberRate" ) )
+// 					displayText( pid, "|cFF009933Lumber Rate|r has been |cFFff1a1adisabled|r." )
+// 				else
+// 					sInt( "LumberRatePercentage", value )
+// 					displayText( pid, "|cFF009933Lumber Rate|r has been |cFFe68a00changed|r to_ |cFF009933" + I2S( value ) + "%|r" )
+				
+// 			else
+// 				if value > 0 
+// 					sBool( "LumberRate", true )
+// 					sInt( "LumberRatePercentage", value )
+// 					displayText( pid, "|cFF009933Lumber Rate|r has been |cFFe68a00set|r to_ |cFF009933" + I2S( value ) + "%|r" )
+// 					sInt( "CurrentLumber", GetPlayerState( Player( pid ), PLAYER_STATE_RESOURCE_LUMBER ) )
 				
 			
-		else if command == "rg" 
-			rValue = S2R( payload )
-			if LoadTimerHandle( nzHash, u_hid, StringHash( "RegenTrig" ) ) == null and rValue != .0 
-				initMUITimer( "RegenTrig", target, "RegenUnit", .25, rValue, true, function regeneration_Action )
-				displayText( pid, "|cFFff9900[EXTRA]|r |cFF00f600HP|r & |cFF95b7e9MP|r Regen: |cFFff9900" + R2S( rValue ) + "|r/.25s" )
-			else
-				if payload == "off" or rValue == .0 
-					clean_MUI( LoadTimerHandle( nzHash, u_hid, StringHash( "RegenTrig" ) ) )
-					displayText( pid, "|cFFff9900Regeneration buff|r has been |cFFff1a1aremoved|r." )
-					return
-				
-				SaveReal( nzHash, GetHandleId( LoadTimerHandle( nzHash, u_hid, StringHash( "RegenTrig" ) ) ), StringHash( "RegenValue" ), rValue )
-				displayText( pid, "|cFFff9900[EXTRA]|r |cFF00f600HP|r & |cFF95b7e9MP|r Regen: |cFFff9900" + R2S( rValue ) + "|r/.25s" )
-			
-		else if command == "itemid" 
-			if value >= 1 and value <= 6 
-				if UnitItemInSlot( target, value - 1 ) != null 
-					displayText( pid, "|cFF00aaffItem ID:|r "+ iD2S( GetItemTypeId( UnitItemInSlot( target, value - 1 ) ) ) +"  |cFF00aaffName:|r "+ GetObjectName( GetItemTypeId( UnitItemInSlot( target, value - 1 ) ) ) )
+// 		else if command == "expr" 
+// 			SetPlayerHandicapXP( Player( pid ), ( value + ( R2I( 100 * GetPlayerHandicapXP( Player( pid ) ) ) ) ) * 0.01 )
+// 			displayText( pid, "|cFFe600e6Experience Rate|r has been |cFFe68a00changed|r to_ |cFFe600e6" + I2S( value ) + "%|r" )
+// 		else if command == "copy" 
+// 			if value != 0 and GetUnitTypeId( target ) != 0 
+// 				while true
+// 					CreateUnit( GetOwningPlayer( target ), GetUnitTypeId( target ), GetUnitX( target ), GetUnitY( target ), 270 )
+// 					i = i + 1
+// 					if i == value
+// 						break
 				
 			
-		else if command == "ritem" 
-			while true
-				if value > 0 and value <= 99 
-					CreateItem( ChooseRandomItemEx( ITEM_TYPE_ANY, - 1 ), GetUnitX( target ), GetUnitY( target ) )
+// 		else if command == "rg" 
+// 			rValue = S2R( payload )
+// 			if LoadTimerHandle( nzHash, u_hid, StringHash( "RegenTrig" ) ) == null and rValue != .0 
+// 				initMUITimer( "RegenTrig", target, "RegenUnit", .25, rValue, true, function regeneration_Action )
+// 				displayText( pid, "|cFFff9900[EXTRA]|r |cFF00f600HP|r & |cFF95b7e9MP|r Regen: |cFFff9900" + R2S( rValue ) + "|r/.25s" )
+// 			else
+// 				if payload == "off" or rValue == .0 
+// 					clean_MUI( LoadTimerHandle( nzHash, u_hid, StringHash( "RegenTrig" ) ) )
+// 					displayText( pid, "|cFFff9900Regeneration buff|r has been |cFFff1a1aremoved|r." )
+// 					return
 				
-				i = i + 1
-				if i == value
-					break
+// 				SaveReal( nzHash, GetHandleId( LoadTimerHandle( nzHash, u_hid, StringHash( "RegenTrig" ) ) ), StringHash( "RegenValue" ), rValue )
+// 				displayText( pid, "|cFFff9900[EXTRA]|r |cFF00f600HP|r & |cFF95b7e9MP|r Regen: |cFFff9900" + R2S( rValue ) + "|r/.25s" )
 			
-		else if command == "act" 
-			if payload != LoadStr( nzHash, globalHandle( ), StringHash( "Activator" ) ) 
-				SaveStr( nzHash, globalHandle( ), StringHash( "Activator" ), payload )
-				displayText( pid, "|cFFff9900Activator|r has been changed to_: |cFF00cc66" + payload + "|r." )
+// 		else if command == "itemid" 
+// 			if value >= 1 and value <= 6 
+// 				if UnitItemInSlot( target, value - 1 ) != null 
+// 					displayText( pid, "|cFF00aaffItem ID:|r "+ iD2S( GetItemTypeId( UnitItemInSlot( target, value - 1 ) ) ) +"  |cFF00aaffName:|r "+ GetObjectName( GetItemTypeId( UnitItemInSlot( target, value - 1 ) ) ) )
+				
+			
+// 		else if command == "ritem" 
+// 			while true
+// 				if value > 0 and value <= 99 
+// 					CreateItem( ChooseRandomItemEx( ITEM_TYPE_ANY, - 1 ), GetUnitX( target ), GetUnitY( target ) )
+				
+// 				i = i + 1
+// 				if i == value
+// 					break
+			
+// 		else if command == "act" 
+// 			if payload != LoadStr( nzHash, globalHandle( ), StringHash( "Activator" ) ) 
+// 				SaveStr( nzHash, globalHandle( ), StringHash( "Activator" ), payload )
+// 				displayText( pid, "|cFFff9900Activator|r has been changed to_: |cFF00cc66" + payload + "|r." )
 			
 		
-		value = s2ID( payload )
-		if value != 0 
-			if command == "learn" 
-				if GetUnitAbilityLevel( target, value ) == 0 
-					displayText( pid, "|cFFff9900Ability|r: " + "[|cFF00cc66" + GetObjectName( value ) + "|r] has been |cFF00cc66added|r" )
-					UnitAddAbility( target, value )
-				else
-					displayText( pid, "|cFFff9900Ability|r: " + "[ |cFF00cc66" + GetObjectName( value ) + "|r ] has been |cFF00cc66leveled up!|r" )
-					IncUnitAbilityLevel( target, value )
+// 		value = s2ID( payload )
+// 		if value != 0 
+// 			if command == "learn" 
+// 				if GetUnitAbilityLevel( target, value ) == 0 
+// 					displayText( pid, "|cFFff9900Ability|r: " + "[|cFF00cc66" + GetObjectName( value ) + "|r] has been |cFF00cc66added|r" )
+// 					UnitAddAbility( target, value )
+// 				else
+// 					displayText( pid, "|cFFff9900Ability|r: " + "[ |cFF00cc66" + GetObjectName( value ) + "|r ] has been |cFF00cc66leveled up!|r" )
+// 					IncUnitAbilityLevel( target, value )
 				
-			else if command == "unlearn" 
-				displayText( pid, "|cFFff9900Ability|r: " + "[|cFF00cc66" + GetObjectName( value ) + "|r] has been |cFFff1a1aremoved|r" )
-				UnitRemoveAbility( target, value )
-			else if command == "create" 
-				displayText( pid, "|cFFff9900Object|r with ID: " + "[|cFF00cc66" + iD2S( value ) + "|r] has been |cFF00cc66spawned|r" )
-				CreateItem( value, GetUnitX( target ), GetUnitY( target ) )
-				CreateUnit( Player( pid ), value, GetUnitX( target ), GetUnitY( target ), 270 )
+// 			else if command == "unlearn" 
+// 				displayText( pid, "|cFFff9900Ability|r: " + "[|cFF00cc66" + GetObjectName( value ) + "|r] has been |cFFff1a1aremoved|r" )
+// 				UnitRemoveAbility( target, value )
+// 			else if command == "create" 
+// 				displayText( pid, "|cFFff9900Object|r with ID: " + "[|cFF00cc66" + iD2S( value ) + "|r] has been |cFF00cc66spawned|r" )
+// 				CreateItem( value, GetUnitX( target ), GetUnitY( target ) )
+// 				CreateUnit( Player( pid ), value, GetUnitX( target ), GetUnitY( target ), 270 )
 			
 		
 	
-	if command == "fast" 
-		if getBool( "BUTFast" ) 
-			if payload == "off" 
-				RemoveSavedBoolean( nzHash, p_hid, StringHash( "BUTFast" ) )
-				displayText( pid, "|cFFff9900Fast|r |cFF00aaffbuilding|r, |cFF00aaffupgrading|r and |cFF00aafftraining|r have been |cFFff1a1adisabled|r." )
+// 	if command == "fast" 
+// 		if getBool( "BUTFast" ) 
+// 			if payload == "off" 
+// 				RemoveSavedBoolean( nzHash, p_hid, StringHash( "BUTFast" ) )
+// 				displayText( pid, "|cFFff9900Fast|r |cFF00aaffbuilding|r, |cFF00aaffupgrading|r and |cFF00aafftraining|r have been |cFFff1a1adisabled|r." )
 			
-		else
-			sBool( "BUTFast", true )
-			displayText( pid, "|cFFff9900Fast|r |cFF00aaffbuilding|r, |cFF00aaffupgrading|r and |cFF00aafftraining|r have been |cFF00cc66enabled|r.|cFFff1a1aDon't|r forget to_ press |cFF00cc66ESC|r to_ instantly build and train units." )
+// 		else
+// 			sBool( "BUTFast", true )
+// 			displayText( pid, "|cFFff9900Fast|r |cFF00aaffbuilding|r, |cFF00aaffupgrading|r and |cFF00aafftraining|r have been |cFF00cc66enabled|r.|cFFff1a1aDon't|r forget to_ press |cFF00cc66ESC|r to_ instantly build and train units." )
 		
-	else if command == "sitem" 
-		itemSearch_Init( pid, payload, CreateTimer( ), .01, true, function itemSearch )
+// 	else if command == "sitem" 
+// 		itemSearch_Init( pid, payload, CreateTimer( ), .01, true, function itemSearch )
 
-	else if command == "boost" 
-		sBool( "Teleport", true )
-		sInt( "TeleKey", 851990 )
-		SetHeroLevel( target, 900000000, false )
-		SetHeroStr( target, 900000000, true )
-		SetHeroAgi( target, 900000000, true )
-		SetHeroInt( target, 900000000, true )
-		GetTriggerPlayer().addState(PLAYER_STATE_RESOURCE_GOLD, 999999999)
-		GetTriggerPlayer().addState(PLAYER_STATE_RESOURCE_LUMBER, 999999999)
-		GetTriggerPlayer().addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 999999999)
-		printTimed("|cfffdbb41Teleport enabled (|cff3060e6P|r|cfffdbb41). Stats & Level increased.|r", 5)
+// 	else if command == "boost" 
+// 		sBool( "Teleport", true )
+// 		sInt( "TeleKey", 851990 )
+// 		SetHeroLevel( target, 900000000, false )
+// 		SetHeroStr( target, 900000000, true )
+// 		SetHeroAgi( target, 900000000, true )
+// 		SetHeroInt( target, 900000000, true )
+// 		GetTriggerPlayer().addState(PLAYER_STATE_RESOURCE_GOLD, 999999999)
+// 		GetTriggerPlayer().addState(PLAYER_STATE_RESOURCE_LUMBER, 999999999)
+// 		GetTriggerPlayer().addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 999999999)
+// 		printTimed("|cfffdbb41Teleport enabled (|cff3060e6P|r|cfffdbb41). Stats & Level increased.|r", 5)
 
-	else if command == "nc" 
-		if LoadTimerHandle( nzHash, u_hid, StringHash( "NoCooldownTrig" ) ) == null 
-			initMUITimer( "NoCooldownTrig", target, "NoCooldownUnit", .2, .0, true, function noCooldown_Action )
-			displayText( pid, "|cFFff9900No cooldown|r has been |cFF00cc66enabled|r." )
-		else
-			if payload == "off" 
-				clean_MUI( LoadTimerHandle( nzHash, u_hid, StringHash( "NoCooldownTrig" ) ) )
-				displayText( pid, "|cFFff9900No cooldown|r has been |cFFff1a1adisabled|r." )
+// 	else if command == "nc" 
+// 		if LoadTimerHandle( nzHash, u_hid, StringHash( "NoCooldownTrig" ) ) == null 
+// 			initMUITimer( "NoCooldownTrig", target, "NoCooldownUnit", .2, .0, true, function noCooldown_Action )
+// 			displayText( pid, "|cFFff9900No cooldown|r has been |cFF00cc66enabled|r." )
+// 		else
+// 			if payload == "off" 
+// 				clean_MUI( LoadTimerHandle( nzHash, u_hid, StringHash( "NoCooldownTrig" ) ) )
+// 				displayText( pid, "|cFFff9900No cooldown|r has been |cFFff1a1adisabled|r." )
 			
 		
-	else if command == "enemychat" 
-		if getBool( "ChatDetector" ) 
-			if payload == "off" 
-				RemoveSavedBoolean( nzHash, p_hid, StringHash( "ChatDetector" ) )
-				displayText( pid, "|cFFff1a1aEnemy|r's chat |cFFff1a1adisabled|r." )
+// 	else if command == "enemychat" 
+// 		if getBool( "ChatDetector" ) 
+// 			if payload == "off" 
+// 				RemoveSavedBoolean( nzHash, p_hid, StringHash( "ChatDetector" ) )
+// 				displayText( pid, "|cFFff1a1aEnemy|r's chat |cFFff1a1adisabled|r." )
 			
-		else
-			sBool( "ChatDetector", true )
-			displayText( pid, "|cFFff1a1aEnemy|r's chat |cFF00cc66enabled|r. Now you can see |cFFff1a1aenemy|r's chat." )
+// 		else
+// 			sBool( "ChatDetector", true )
+// 			displayText( pid, "|cFFff1a1aEnemy|r's chat |cFF00cc66enabled|r. Now you can see |cFFff1a1aenemy|r's chat." )
 		
-	else if command == "nowaste" 
-		if getBool( "InfiniteCharge" ) 
-			if payload == "off" 
-				RemoveSavedBoolean( nzHash, p_hid, StringHash( "InfiniteCharge" ) )
-				displayText( pid, "|cFFff9900Infinite Charge|r has been |cFFff1a1adisabled|r." )
+// 	else if command == "nowaste" 
+// 		if getBool( "InfiniteCharge" ) 
+// 			if payload == "off" 
+// 				RemoveSavedBoolean( nzHash, p_hid, StringHash( "InfiniteCharge" ) )
+// 				displayText( pid, "|cFFff9900Infinite Charge|r has been |cFFff1a1adisabled|r." )
 			
-		else
-			sBool( "InfiniteCharge", true )
-			displayText( pid, "|cFFff9900Infinite Charge|r has been |cFF00cc66enabled|r. |cFF00aaffAll usable|r items in_ your inventory won't be wasted." )
+// 		else
+// 			sBool( "InfiniteCharge", true )
+// 			displayText( pid, "|cFFff9900Infinite Charge|r has been |cFF00cc66enabled|r. |cFF00aaffAll usable|r items in_ your inventory won't be wasted." )
 		
-	else if command == "mh" 
-		if LoadFogModifierHandle( nzHash, p_hid, StringHash( "MapHack" ) ) == null 
-			SaveFogModifierHandle( nzHash, p_hid, StringHash( "MapHack" ), CreateFogModifierRect( Player( pid ), FOG_OF_WAR_VISIBLE, GetWorldBounds( ), false, false ) )
-			FogModifierStart( LoadFogModifierHandle( nzHash, p_hid, StringHash( "MapHack" ) ) )
-			displayText( pid, "|cFFff9900Map hack|r has been |cFF00cc66enabled|r." )
-		else
-			if payload == "off" 
-				FogModifierStop( LoadFogModifierHandle( nzHash, p_hid, StringHash( "MapHack" ) ) )
-				DestroyFogModifier( LoadFogModifierHandle( nzHash, p_hid, StringHash( "MapHack" ) ) )
-				displayText( pid, "|cFFff9900Map hack|r has been |cFFff1a1adisabled|r." )
+// 	else if command == "mh" 
+// 		if LoadFogModifierHandle( nzHash, p_hid, StringHash( "MapHack" ) ) == null 
+// 			SaveFogModifierHandle( nzHash, p_hid, StringHash( "MapHack" ), CreateFogModifierRect( Player( pid ), FOG_OF_WAR_VISIBLE, GetWorldBounds( ), false, false ) )
+// 			FogModifierStart( LoadFogModifierHandle( nzHash, p_hid, StringHash( "MapHack" ) ) )
+// 			displayText( pid, "|cFFff9900Map hack|r has been |cFF00cc66enabled|r." )
+// 		else
+// 			if payload == "off" 
+// 				FogModifierStop( LoadFogModifierHandle( nzHash, p_hid, StringHash( "MapHack" ) ) )
+// 				DestroyFogModifier( LoadFogModifierHandle( nzHash, p_hid, StringHash( "MapHack" ) ) )
+// 				displayText( pid, "|cFFff9900Map hack|r has been |cFFff1a1adisabled|r." )
 			
 		
-	else if command == "tp" 
-		if getBool( "Teleport" ) 
-			if payload == "M" 
-				sInt( "TeleKey", 851986 )
-				displayText( pid, "|cFFff9900Teleport's|r bind key changed to_ |cFF00aaffMove|r." )
-			else if payload == "P" 
-				sInt( "TeleKey", 851990 )
-				displayText( pid, "|cFFff9900Teleport's|r bind key changed to_ |cFF00aaffPatrol|r." )
-			else if payload == "A" 
-				sInt( "TeleKey", 851983 )
-				displayText( pid, "|cFFff9900Teleport's|r bind key changed to_ |cFF00aaffAttack|r." )
-			else if payload == "off" 
-				RemoveSavedBoolean( nzHash, p_hid, StringHash( "Teleport" ) )
-				displayText( pid, "|cFFff9900Teleport|r has been |cFFff1a1adisabled|r." )
+// 	else if command == "tp" 
+// 		if getBool( "Teleport" ) 
+// 			if payload == "M" 
+// 				sInt( "TeleKey", 851986 )
+// 				displayText( pid, "|cFFff9900Teleport's|r bind key changed to_ |cFF00aaffMove|r." )
+// 			else if payload == "P" 
+// 				sInt( "TeleKey", 851990 )
+// 				displayText( pid, "|cFFff9900Teleport's|r bind key changed to_ |cFF00aaffPatrol|r." )
+// 			else if payload == "A" 
+// 				sInt( "TeleKey", 851983 )
+// 				displayText( pid, "|cFFff9900Teleport's|r bind key changed to_ |cFF00aaffAttack|r." )
+// 			else if payload == "off" 
+// 				RemoveSavedBoolean( nzHash, p_hid, StringHash( "Teleport" ) )
+// 				displayText( pid, "|cFFff9900Teleport|r has been |cFFff1a1adisabled|r." )
 			
-		else
-			sBool( "Teleport", true )
-			sInt( "TeleKey", 851990 )
-			displayText( pid, "|cFFff9900Teleport|r has been |cFF00cc66enabled|r! Press |cFF00aaffP|r (|cFF00aaffpatrol|r) and select the desired to_ teleport.")
+// 		else
+// 			sBool( "Teleport", true )
+// 			sInt( "TeleKey", 851990 )
+// 			displayText( pid, "|cFFff9900Teleport|r has been |cFF00cc66enabled|r! Press |cFF00aaffP|r (|cFF00aaffpatrol|r) and select the desired to_ teleport.")
 		
 	
-	if isEmpty 
-		if lGInt( "CheaterLvlP_" + I2S( pid ) ) >= lGInt( "CheaterLvlP_" + I2S( GetPlayerId( GetOwningPlayer( target ) ) ) ) 
-			if command == "vul" or command == "invul" 
-				SetUnitInvulnerable( target, command == "invul" )
-			else if command == "kill" 
-				KillUnit( target )
-			else if command == "removeu" 
-				RemoveUnit( target )
-			else if command == "status" 
-				if LoadReal( nzHash, u_hid + 1, StringHash( "DamageMultiplier" ) ) > 1. 
-					displayText( pid, "|cFFff9933Current Selected Unit Status|rCritical Chance: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid + 1, StringHash( "CriticalChance" ) ) ) + "%|rDamage Multiplier: |cFFffcc00" + R2S( LoadReal( nzHash, u_hid + 1, StringHash( "DamageMultiplier" ) ) ) + "x|rLife steal: |cFFff0000" + I2S( LoadInteger( nzHash, u_hid, StringHash( "LifeSteal" ) ) ) + "%|rMana steal: |cFF00ff00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ManaSteal" ) ) ) + "%|rBlock: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ToMitigate" ) ) ) + "%|rReflect: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ToReflect" ) ) ) + "%|r" )
-				else if LoadInteger( nzHash, u_hid + 1, StringHash( "HP_Damage" ) ) > 0 
-					displayText( pid, "|cFFff9933Current Selected Unit Status|rMaximum HP Damage: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid + 1, StringHash( "HP_Damage" ) ) ) + "%|rLife steal: |cFFff1a75" + I2S( LoadInteger( nzHash, u_hid, StringHash( "LifeSteal" ) ) ) + "%|rMana steal: |cFF00ff00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ManaSteal" ) ) ) + "%|rBlock: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ToMitigate" ) ) ) + "%|rReflect: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ToReflect" ) ) ) + "%|r" )
+// 	if isEmpty 
+// 		if lGInt( "CheaterLvlP_" + I2S( pid ) ) >= lGInt( "CheaterLvlP_" + I2S( GetPlayerId( GetOwningPlayer( target ) ) ) ) 
+// 			if command == "vul" or command == "invul" 
+// 				SetUnitInvulnerable( target, command == "invul" )
+// 			else if command == "kill" 
+// 				KillUnit( target )
+// 			else if command == "removeu" 
+// 				RemoveUnit( target )
+// 			else if command == "status" 
+// 				if LoadReal( nzHash, u_hid + 1, StringHash( "DamageMultiplier" ) ) > 1. 
+// 					displayText( pid, "|cFFff9933Current Selected Unit Status|rCritical Chance: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid + 1, StringHash( "CriticalChance" ) ) ) + "%|rDamage Multiplier: |cFFffcc00" + R2S( LoadReal( nzHash, u_hid + 1, StringHash( "DamageMultiplier" ) ) ) + "x|rLife steal: |cFFff0000" + I2S( LoadInteger( nzHash, u_hid, StringHash( "LifeSteal" ) ) ) + "%|rMana steal: |cFF00ff00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ManaSteal" ) ) ) + "%|rBlock: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ToMitigate" ) ) ) + "%|rReflect: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ToReflect" ) ) ) + "%|r" )
+// 				else if LoadInteger( nzHash, u_hid + 1, StringHash( "HP_Damage" ) ) > 0 
+// 					displayText( pid, "|cFFff9933Current Selected Unit Status|rMaximum HP Damage: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid + 1, StringHash( "HP_Damage" ) ) ) + "%|rLife steal: |cFFff1a75" + I2S( LoadInteger( nzHash, u_hid, StringHash( "LifeSteal" ) ) ) + "%|rMana steal: |cFF00ff00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ManaSteal" ) ) ) + "%|rBlock: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ToMitigate" ) ) ) + "%|rReflect: |cFFffcc00" + I2S( LoadInteger( nzHash, u_hid, StringHash( "ToReflect" ) ) ) + "%|r" )
 				
 			
 		
-		if command == "clear" 
-			if GetLocalPlayer( ) == Player( pid ) 
-				ClearTextMessages( )
+// 		if command == "clear" 
+// 			if GetLocalPlayer( ) == Player( pid ) 
+// 				ClearTextMessages( )
 			
-		else if command == "showbinds" 
-			displayText( pid, "|cFF00cc66Current Bound Commands|r:|cFFff9900Left:|r [ |cFF00cc66"  + keyCommand( EVENT_PLAYER_ARROW_LEFT_DOWN  )  + "|r |cFF00ff00" + keyPayload( EVENT_PLAYER_ARROW_LEFT_DOWN  ) + "|r ]|cFFff9900Right:|r [ |cFF00cc66" + keyCommand( EVENT_PLAYER_ARROW_RIGHT_DOWN )  + "|r |cFF00ff00" + keyPayload( EVENT_PLAYER_ARROW_RIGHT_DOWN ) + "|r ]|cFFff9900Up:|r [ |cFF00cc66"    + keyCommand( EVENT_PLAYER_ARROW_UP_DOWN    )  + "|r |cFF00ff00" + keyPayload( EVENT_PLAYER_ARROW_UP_DOWN    ) + "|r ]|cFFff9900Down:|r [ |cFF00cc66"  + keyCommand( EVENT_PLAYER_ARROW_DOWN_DOWN  )  + "|r |cFF00ff00" + keyPayload( EVENT_PLAYER_ARROW_DOWN_DOWN  ) + "|r ]" )
-		else if command == "clearbinds" 
-			FlushChildHashtable( nzHash, GetHandleId( Player( pid ) ) + pid )
-			displayText( pid, "|cFFff9900Key bindings|r have been |cFFff1a1aremoved|r." )
-		else if command == "unitid" 
-			displayText( pid, "|cFF00aaffUnit ID:|r "+ iD2S( GetUnitTypeId( target ) ) +"  |cFF00aaffName:|r "+ GetObjectName( GetUnitTypeId( target ) ) )
-		else if command == "noreplay" 
-			DoNotSaveReplay( )
-			displayText( pid, "|cFFff9900Replay|r has been |cFFff1a1adisabled|r." )
-		else if command == "disable" 
-			while true
-				if lGInt( "CheaterLvlP_" + I2S( i ) ) > lGInt( "CheaterLvlP_" + I2S( pid ) ) 
-					SaveInteger( nzHash, globalHandle( ), StringHash( "CheaterLvlP_" + I2S( i ) ), lGInt( "CheaterLvlP_" + I2S( i ) ) - 1 )
-					displayText( i, get_Player_Color( Player( pid ) ) + " has |cFFff1a1adeactivated|r |cFF3366ffNZCP|r. Your cheater level has changed to_: |cFF0099ff" + I2S( lGInt( "CheaterLvlP_" + I2S( i ) ) ) )
+// 		else if command == "showbinds" 
+// 			displayText( pid, "|cFF00cc66Current Bound Commands|r:|cFFff9900Left:|r [ |cFF00cc66"  + keyCommand( EVENT_PLAYER_ARROW_LEFT_DOWN  )  + "|r |cFF00ff00" + keyPayload( EVENT_PLAYER_ARROW_LEFT_DOWN  ) + "|r ]|cFFff9900Right:|r [ |cFF00cc66" + keyCommand( EVENT_PLAYER_ARROW_RIGHT_DOWN )  + "|r |cFF00ff00" + keyPayload( EVENT_PLAYER_ARROW_RIGHT_DOWN ) + "|r ]|cFFff9900Up:|r [ |cFF00cc66"    + keyCommand( EVENT_PLAYER_ARROW_UP_DOWN    )  + "|r |cFF00ff00" + keyPayload( EVENT_PLAYER_ARROW_UP_DOWN    ) + "|r ]|cFFff9900Down:|r [ |cFF00cc66"  + keyCommand( EVENT_PLAYER_ARROW_DOWN_DOWN  )  + "|r |cFF00ff00" + keyPayload( EVENT_PLAYER_ARROW_DOWN_DOWN  ) + "|r ]" )
+// 		else if command == "clearbinds" 
+// 			FlushChildHashtable( nzHash, GetHandleId( Player( pid ) ) + pid )
+// 			displayText( pid, "|cFFff9900Key bindings|r have been |cFFff1a1aremoved|r." )
+// 		else if command == "unitid" 
+// 			displayText( pid, "|cFF00aaffUnit ID:|r "+ iD2S( GetUnitTypeId( target ) ) +"  |cFF00aaffName:|r "+ GetObjectName( GetUnitTypeId( target ) ) )
+// 		else if command == "noreplay" 
+// 			DoNotSaveReplay( )
+// 			displayText( pid, "|cFFff9900Replay|r has been |cFFff1a1adisabled|r." )
+// 		else if command == "disable" 
+// 			while true
+// 				if lGInt( "CheaterLvlP_" + I2S( i ) ) > lGInt( "CheaterLvlP_" + I2S( pid ) ) 
+// 					SaveInteger( nzHash, globalHandle( ), StringHash( "CheaterLvlP_" + I2S( i ) ), lGInt( "CheaterLvlP_" + I2S( i ) ) - 1 )
+// 					displayText( i, get_Player_Color( Player( pid ) ) + " has |cFFff1a1adeactivated|r |cFF3366ffNZCP|r. Your cheater level has changed to_: |cFF0099ff" + I2S( lGInt( "CheaterLvlP_" + I2S( i ) ) ) )
 				
-				i = i + 1
-				if i == bj_MAX_PLAYER_SLOTS
-					break
+// 				i = i + 1
+// 				if i == bj_MAX_PLAYER_SLOTS
+// 					break
 			
-			FlushChildHashtable( nzHash, p_hid )
-			RemoveSavedInteger( nzHash, globalHandle( ), StringHash( "CheaterLvlP_" + I2S( pid ) ) )
-			displayText( pid , "|cFF3366ffNZCP|r has been |cFFff1a1adeactivated|r." )
+// 			FlushChildHashtable( nzHash, p_hid )
+// 			RemoveSavedInteger( nzHash, globalHandle( ), StringHash( "CheaterLvlP_" + I2S( pid ) ) )
+// 			displayText( pid , "|cFF3366ffNZCP|r has been |cFFff1a1adeactivated|r." )
 		
 	
 
-function keyPress_Handler (integer pid, eventid arrow_id )
-	let len = getInt( "Lenght" )
-	if getBool( "NZCP_Enabled" ) 
-		if keyCommand( arrow_id ) != null 
-			cheatPackCommands_Handler( pid, keyCommand( arrow_id ), keyPayload( arrow_id ), selectedUnit( Player( pid ) ) )
+// function keyPress_Handler (integer pid, eventid arrow_id )
+// 	let len = getInt( "Lenght" )
+// 	if getBool( "NZCP_Enabled" ) 
+// 		if keyCommand( arrow_id ) != null 
+// 			cheatPackCommands_Handler( pid, keyCommand( arrow_id ), keyPayload( arrow_id ), selectedUnit( Player( pid ) ) )
 		
-	else
-		if SubString( LoadStr( nzHash, globalHandle( ), StringHash( "ArrowActivator" ) ), len, len + 1 ) == LoadStr( nzHash, globalHandle( ), GetHandleId( arrow_id ) ) 
-			if len == StringLength( LoadStr( nzHash, globalHandle( ), StringHash( "ArrowActivator" ) ) ) - 1 
-				activator_Handler( pid )
-				sInt( "Lenght", 0 )
-			else
-				sInt( "Lenght", len + 1 )
+// 	else
+// 		if SubString( LoadStr( nzHash, globalHandle( ), StringHash( "ArrowActivator" ) ), len, len + 1 ) == LoadStr( nzHash, globalHandle( ), GetHandleId( arrow_id ) ) 
+// 			if len == StringLength( LoadStr( nzHash, globalHandle( ), StringHash( "ArrowActivator" ) ) ) - 1 
+// 				activator_Handler( pid )
+// 				sInt( "Lenght", 0 )
+// 			else
+// 				sInt( "Lenght", len + 1 )
 			
-		else
-			sInt( "Lenght", 0 )
+// 		else
+// 			sInt( "Lenght", 0 )
 		
 	
 
-function keyPress_Action ()
-	keyPress_Handler( GetPlayerId( GetTriggerPlayer( ) ), GetTriggerEventId( ) )
+// function keyPress_Action ()
+// 	keyPress_Handler( GetPlayerId( GetTriggerPlayer( ) ), GetTriggerEventId( ) )
 
-function cheatPack_Action ()
-	let pid = GetPlayerId( GetTriggerPlayer( ) )
-	let symbol = SubString( GetEventPlayerChatString( ), 0, 1 )
-	let text = SubString( GetEventPlayerChatString( ), 1, StringLength( GetEventPlayerChatString( ) ) )
-	let emptyAt = findEmptyString( 0, text )
-	let command = StringCase( SubString( text, 0, emptyAt ), false )
-	let payload = SubString( text, emptyAt + 1, StringLength( GetEventPlayerChatString( ) ) )
-	if symbol == "-" 
-		if text == LoadStr( nzHash, globalHandle( ), StringHash( "Activator" ) ) and text != "" 
-			activator_Handler( pid )
-		else if getBool( "NZCP_Enabled" ) 
-			cheatPackCommands_Handler( pid, command, payload, selectedUnit( Player( pid ) ) )
+// function cheatPack_Action ()
+// 	let pid = GetPlayerId( GetTriggerPlayer( ) )
+// 	let symbol = SubString( GetEventPlayerChatString( ), 0, 1 )
+// 	let text = SubString( GetEventPlayerChatString( ), 1, StringLength( GetEventPlayerChatString( ) ) )
+// 	let emptyAt = findEmptyString( 0, text )
+// 	let command = StringCase( SubString( text, 0, emptyAt ), false )
+// 	let payload = SubString( text, emptyAt + 1, StringLength( GetEventPlayerChatString( ) ) )
+// 	if symbol == "-" 
+// 		if text == LoadStr( nzHash, globalHandle( ), StringHash( "Activator" ) ) and text != "" 
+// 			activator_Handler( pid )
+// 		else if getBool( "NZCP_Enabled" ) 
+// 			cheatPackCommands_Handler( pid, command, payload, selectedUnit( Player( pid ) ) )
 		
 	
 
-public function initNZCP ()
-	SaveStr( nzHash, globalHandle( ), StringHash( "Activator" ), "easymode" )
-	SaveStr( nzHash, globalHandle( ), StringHash( "ArrowActivator" ), "UUDDLR" )
-	initStrings( )
-	nameEvent( "nuzamacuxe" )
-	TriggerAddAction( loadTrig( "DamageSystem" ),								function damageSystem_Action )
-	stateEvent( CreateTrigger( ),	PLAYER_STATE_RESOURCE_LUMBER,				function lumberRating_Action )
-	stateEvent( CreateTrigger( ),	PLAYER_STATE_RESOURCE_GOLD,					function goldRating_Action )
-	unitEvent(  CreateTrigger( ), 	EVENT_PLAYER_UNIT_USE_ITEM,					function infiniteCharge_Action )
-	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_ATTACKED,					function initDamageSystem )
-	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL, 		function buildUnitTrain_Action )
-	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_UPGRADE_CANCEL,   		function buildUnitTrain_Action )
-	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_TRAIN_CANCEL,     		function buildUnitTrain_Action )
-	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_RESEARCH_START,   		function buildUnitTrain_Action )
-	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_ISSUED_ORDER,     		function buildUnitTrain_Action )
-	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_ISSUED_UNIT_ORDER, 		function buildUnitTrain_Action )
-	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER,		function teleport_Action )
-	chatEvent(  CreateTrigger( ), "", false,									function cheatPack_Action )
-	chatEvent(  CreateTrigger( ), "", false,									function chatDetector_Action )
-	keysEvent(  CreateTrigger( ),												function keyPress_Action )
+// public function initNZCP ()
+// 	SaveStr( nzHash, globalHandle( ), StringHash( "Activator" ), "easymode" )
+// 	SaveStr( nzHash, globalHandle( ), StringHash( "ArrowActivator" ), "UUDDLR" )
+// 	initStrings( )
+// 	nameEvent( "nuzamacuxe" )
+// 	TriggerAddAction( loadTrig( "DamageSystem" ),								function damageSystem_Action )
+// 	stateEvent( CreateTrigger( ),	PLAYER_STATE_RESOURCE_LUMBER,				function lumberRating_Action )
+// 	stateEvent( CreateTrigger( ),	PLAYER_STATE_RESOURCE_GOLD,					function goldRating_Action )
+// 	unitEvent(  CreateTrigger( ), 	EVENT_PLAYER_UNIT_USE_ITEM,					function infiniteCharge_Action )
+// 	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_ATTACKED,					function initDamageSystem )
+// 	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL, 		function buildUnitTrain_Action )
+// 	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_UPGRADE_CANCEL,   		function buildUnitTrain_Action )
+// 	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_TRAIN_CANCEL,     		function buildUnitTrain_Action )
+// 	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_RESEARCH_START,   		function buildUnitTrain_Action )
+// 	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_ISSUED_ORDER,     		function buildUnitTrain_Action )
+// 	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_ISSUED_UNIT_ORDER, 		function buildUnitTrain_Action )
+// 	unitEvent(  CreateTrigger( ),	EVENT_PLAYER_UNIT_ISSUED_POINT_ORDER,		function teleport_Action )
+// 	chatEvent(  CreateTrigger( ), "", false,									function cheatPack_Action )
+// 	chatEvent(  CreateTrigger( ), "", false,									function chatDetector_Action )
+// 	keysEvent(  CreateTrigger( ),												function keyPress_Action )
 

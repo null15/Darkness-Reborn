@@ -1,0 +1,29 @@
+package Nozd_spells
+
+import ClosureEvents
+import MyUnitIds
+import ClosureTimers
+import ClosureForGroups
+
+init
+    chronoSphere()
+    chronoSphereActive()
+function chronoSphere()
+    EventListener.add(EVENT_UNIT_DAMAGED) -> 
+        if GetTriggerUnit().getTypeId() == WAVE_HERO_2
+            let nozdomu = GetTriggerUnit()
+            nozdomu.issuePointOrder("carrionswarm", GetEventDamageSource().getPos())
+
+function chronoSphereActive()
+    EventListener.onPointCast('A0CT') (unit caster, vec2 target) ->
+        let dmg = caster.getAbilityLevel('A0CT')*223.00
+        let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", target)
+        sfx.setScale(2)
+        doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
+            forUnitsInRange(sfx.getPos(), 700) (unit u) ->
+                if caster.isEnemyOf(u)
+                    caster.damageTarget(u, dmg)
+                    u.pause()
+                if cb.isLast()
+                    sfx.destr()
+                    u.unpause()

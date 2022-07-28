@@ -1,6 +1,6 @@
 package onStart
 import ClosureTimers
-// import WaveSetup
+import WaveSetup
 import DialogBox
 import MyBuildingsIds
 import RespawnCreeps
@@ -10,6 +10,7 @@ import ItemRemoveTimer
 import CodeDialog
 import Global_Variables
 import TeleportToMobs
+import GameEnd
 public unit elementalSoul
 real facing = 270
 real facingUp = 90
@@ -78,6 +79,7 @@ function createSetup()
 function mapSetup()
 
     elementalSoul = createUnit(Player(10), ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees())
+    onDefeat(elementalSoul)
 
     doAfter(0.5) -> 
 
@@ -85,7 +87,7 @@ function mapSetup()
 
         dBox.addButton("Normal") ->
             difficulty = "normal"
-            // preWaveSetup()
+            preWaveSetup()
             createSetup()
             leftSideCreepsSetup()
             eliteSideCreepsSetup()

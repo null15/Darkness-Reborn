@@ -1,0 +1,43 @@
+package Alex_spells
+import ClosureEvents
+import MyUnitIds
+import ClosureTimers
+import ClosureForGroups
+init
+    freezeActive()
+    freeze()
+function freeze()
+    EventListener.add(EVENT_UNIT_DAMAGED) -> 
+        if GetTriggerUnit().getTypeId() == WAVE_HERO_4
+            let alex = GetTriggerUnit()
+            alex.issueImmediateOrder("roar")
+            alex.issueImmediateOrder("berserk")
+            
+function freezeActive()
+    EventListener.onCast('A0CS') (unit caster) ->
+        doAfter(0.5) -> 
+            caster.pause()
+        doAfter(4) ->
+            caster
+            ..unpause()
+            ..issueImmediateOrder("stomp")
+            doAfter(1) ->
+                caster.removeAbility('Bfrz')    
+                let dmg = caster.getAbilityLevel('A0CS')*24444.00
+                forUnitsInRange(caster.getPos(), 700) (unit u) ->
+                    if caster.isEnemyOf(u)
+                        caster.damageTarget(u, dmg)      
+                              
+    EventListener.onCast('A0ZK') (unit caster) ->
+        let dmg = caster.getAbilityLevel('A0ZK')*211.00
+        doAfter(0.5) -> 
+            let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", caster.getPos())
+            sfx.setScale(2)
+            doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
+                forUnitsInRange(sfx.getPos(), 700) (unit u) ->
+                    if caster.isEnemyOf(u)
+                        caster.damageTarget(u, dmg)
+                        u.pause()
+                        if cb.isLast()
+                            sfx.destr()
+                            u.unpause()

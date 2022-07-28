@@ -1,6 +1,6 @@
 [Strength]
 Arthas [✓]
-Jacksmith
+Jacksmith [✓]
 Pitlord [✓]
 Beastmaster [✓]
 Death Knight [✓]
@@ -38,3 +38,6 @@ Lich [✓]
 Tracker
 Thief
 Pandaren
+
+[Misc]
+1. Add ability to Nozdormu & Alexstraza, the Chronosphere ability (1000 AOE - PAUSE (NOT CASTER) - PERIODIC DAMAGE - 5 SECONDS)

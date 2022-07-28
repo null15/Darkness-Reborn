@@ -1,0 +1,33 @@
+package GameEnd
+import ClosureTimers
+import Dialog
+
+init
+
+function finalBossDamaged(unit u)
+    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DAMAGED)..addAction() ->
+        let final = GetTriggerUnit()
+        if GetUnitLifePercent(final) <= 98
+            IssueImmediateOrder(GetTriggerUnit(),"thunderclap")
+            IssueImmediateOrder(GetTriggerUnit(),"berserk")
+        else
+            IssueImmediateOrder(GetTriggerUnit(),"stomp")
+
+public function onVictorySetup(unit u)
+    finalBossDamaged(u)
+    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+        print("[VICTORY]: Well done! Game will end in 15 seconds (the map is still under Alpha - undergoing massive changes)")
+        doAfter(15) -> 
+            for i = 0 to 9
+                let dia = createDialog()
+                dia..addQuitButton(true, "Victory")
+                ..display(players[i], true)
+
+public function onDefeat(unit u)
+    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+        printTimed("[DEFEAT]: GAME ENDING IN 15 SECONDS", 10)
+        doAfter(15) -> 
+            for i = 0 to 9
+                let dia = createDialog()
+                dia..addQuitButton(true, "Game Over")
+                ..display(players[i], true)

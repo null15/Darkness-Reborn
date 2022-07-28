@@ -14,7 +14,7 @@ timer gracePeriod = CreateTimer()
 timerdialog gracePeriodDialog = CreateTimerDialog(gracePeriod)
 
 integer count = 0
-integer wave_count = 20 // originally 1
+integer wave_count = 1 // originally 1
 
 integer mini_lower = 0
 integer mini_higher = 0
@@ -111,13 +111,13 @@ public function waveSetup()
 
 	gracePeriod.destr()
 	gracePeriodDialog.destr()
-	waveTimer.startPeriodic(10, function spawnWavesNow)
+	waveTimer.startPeriodic(30, function spawnWavesNow)
 	waveTimerDialog.setTitle("Wave "+I2S(wave_count)+" — (1/3)")
 	waveTimerDialog.setTimeColor(155, 155, 155, 0)
 	waveTimerDialog.display(true)
 
 public function preWaveSetup()
-	gracePeriod.start(10, function waveSetup)
+	gracePeriod.start(30, function waveSetup)
 	gracePeriodDialog.setTitle("Preparation Phase")
 	gracePeriodDialog.setTimeColor(155, 155, 155, 0)
 	gracePeriodDialog.display(true)

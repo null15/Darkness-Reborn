@@ -873,7 +873,7 @@ init
         ITEM_346, // potentially not used, filling with dummy not to change array size ITEM_DROP_73
         ITEM_347, // potentially not used, filling with dummy not to change array size ITEM_DROP_74
         ITEM_348, // potentially not used, filling with dummy not to change array size ITEM_DROP_75
-        ITEM_349, // potentially not used, filling with dummy not to change array size ITEM_DROP_76
+        ITEM_348, // potentially not used, filling with dummy not to change array size ITEM_DROP_76
         ITEM_343,
         ITEM_344,
         ITEM_345

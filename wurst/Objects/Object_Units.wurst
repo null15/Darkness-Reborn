@@ -13585,6 +13585,7 @@ init
     ..setGoldBountyAwardedSidesperDie(3)
     ..setHitPointsMaximumBase(23333)
     ..setHitPointsRegenerationRate(233.00)
+    ..setAttack1TargetsAllowed(commaList(TargetsAllowed.ground, TargetsAllowed.air, TargetsAllowed.alive, TargetsAllowed.enemies))
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setName("Siege Engine")

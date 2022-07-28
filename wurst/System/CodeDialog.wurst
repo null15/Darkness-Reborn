@@ -23,9 +23,7 @@ constant PLAYER_SET = new HashSet<string>
 rect region006 = Rect(-192.0,-5696.0,256.0,-5248.0)
 
 init
-    
     addPlayers()
-
 function addPlayers()
     PLAYER_SET.add(
         PLAYER_NAME_1,
