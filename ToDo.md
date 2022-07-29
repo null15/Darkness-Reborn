@@ -8,7 +8,7 @@ Wolfman [✓]
 Mountain King [✓]
 Tauren Chieftain [✓]
 Dreadlord [✓]
-zoobat
+
 [Agility]
 Satyr [✓]
 Illidan [✓]
