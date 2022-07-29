@@ -15,21 +15,21 @@ function radiantRing()
         
         if lvl <= 3
             if GetRandomInt(1, 100) <= 95
-                printTimed(text+js.addItemById(ITEM_DROP[GetRandomInt(1,15)]).getName(), 3)
+                printTimed(text+js.addItemById(ITEM_DROP[GetRandomInt(1,15)]).getName(), 1)
             else 
-                printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 10)
+                printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 5)
 
         else if lvl <= 6
             if GetRandomInt(1, 100) <= 93
-                printTimed(text+js.addItemById(ITEM_DROP[GetRandomInt(10,30)]).getName(), 3)
+                printTimed(text+js.addItemById(ITEM_DROP[GetRandomInt(10,30)]).getName(), 1)
             else 
-                printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 10)
+                printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 5)
 
         else if lvl <= 9
             if GetRandomInt(1, 100) <= 90
-                printTimed(text+js.addItemById(ITEM_DROP[GetRandomInt(20,50)]).getName(), 3)
+                printTimed(text+js.addItemById(ITEM_DROP[GetRandomInt(20,50)]).getName(), 1)
             else 
                 if GetRandomInt(1, 100) <= 90
-                    printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 10)
+                    printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 5)
                 else
-                    printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(130,140)]).getName(), 10)
+                    printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(130,140)]).getName(), 5)

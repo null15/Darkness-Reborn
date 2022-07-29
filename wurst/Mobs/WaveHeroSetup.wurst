@@ -10,7 +10,7 @@ import GameEnd
 timer waveHeroTimer = CreateTimer()
 timerdialog waveHeroTimerDialog = CreateTimerDialog(waveHeroTimer)
 
-int waveHeroIndex = 7 // originally 0
+int waveHeroIndex = 0 // originally 0
 unit waveHero = null
 unit waveHeroNext = null
 real facing = 270
@@ -415,5 +415,5 @@ function waveHeroTimerElapsed()
 
 public function waveHeroSetup()
     waveHeroTimerElapsed()
-    waveHeroTimer.startPeriodic(10, function waveHeroSpawn)
+    waveHeroTimer.startPeriodic(60, function waveHeroSpawn)
     waveHeroTimerDialog..setTitle("Dragon - Ysera")..setTimeColor(155, 155, 155, 0)..display(true)

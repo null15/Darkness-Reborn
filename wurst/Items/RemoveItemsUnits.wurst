@@ -4,6 +4,7 @@ init
     pickUpItem()
     removeUnits()
     dropsItemInRegion()
+
 function pickUpItem()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)..addAction() ->
         GetManipulatedItem().setUserData(1)
@@ -12,7 +13,7 @@ function forceItemsRemove()
     GetEnumItem().remove()
 
 function removeItemsAct()
-    if GetEnumItem().getUserData() != 1 
+    if GetEnumItem().getUserData() != 1 and GetEnumItem().getLevel() != 2
         GetEnumItem().remove()
 
 public function removeItemsInit()

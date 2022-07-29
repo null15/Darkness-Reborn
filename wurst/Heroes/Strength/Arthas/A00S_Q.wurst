@@ -12,7 +12,6 @@ function dragonClaw()
     EventListener.onTargetCast('A00S') (unit caster, unit target) ->
         let lvl = caster.getAbilityLevel('A00S')
         let dmg = (caster.getStr(true)*(lvl*2))
-        print("Dmg: "+I2S(dmg))
         doAfter(0.3) -> 
             caster.setAnimation("slam")
             flashEffect(Abilities.thunderclapTarget, target.getPos(), 2)

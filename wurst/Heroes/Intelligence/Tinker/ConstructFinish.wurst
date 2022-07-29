@@ -1,0 +1,16 @@
+package ConstructFinish
+
+import ClosureEvents
+import ClosureForGroups
+import ClosureTimers
+import MyUnitIds
+
+init
+    constructFinish()
+function constructFinish()
+    EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH) -> 
+        let construction = GetConstructedStructure()
+        doAfter(0.1) -> 
+            forUnitsInRange(construction.getPos(), 500) (unit u) ->
+                if u.getTypeId() == CLOCKWERK_0
+                    u.remove()

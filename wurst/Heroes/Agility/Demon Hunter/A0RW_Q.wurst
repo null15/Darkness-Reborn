@@ -15,7 +15,7 @@ function chainFlash()
         let targetPos = GetSpellTargetUnit().getPos()
         let lvl = GetUnitAbilityLevel(caster, 'A0RW')
         let dmg = ((caster.getAgi(true)*lvl*2)+(lvl*300))
-        doAfter(0.2) -> 
+        doAfter(0.5) -> 
             forUnitsInRange(targetPos, 500, true) (unit u) ->
                 if caster.isEnemyOf(u)
                     u.setPos(targetPos)

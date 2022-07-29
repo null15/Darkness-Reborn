@@ -64,9 +64,9 @@ public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
         else if EventData.getSoldItem().getTypeId() == ITEM_152
             buyer.setPos(gg_rct_EliteTP2.getCenter())
         else if EventData.getSoldItem().getTypeId() == ITEM_153
-            buyer.setPos(gg_rct_EliteTP3.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_154
             buyer.setPos(gg_rct_EliteTP4.getCenter())
+        else if EventData.getSoldItem().getTypeId() == ITEM_154
+            buyer.setPos(gg_rct_EliteTP3.getCenter())
         else if EventData.getSoldItem().getTypeId() == ITEM_155
             buyer.setPos(gg_rct_EliteTP5.getCenter())
         else if EventData.getSoldItem().getTypeId() == ITEM_156

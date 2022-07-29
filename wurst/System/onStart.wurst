@@ -40,9 +40,14 @@ function onBuyHero(unit u)
                 gg_cam_CameraHeroPicked.apply(true, players[i], 0.5)
                 heroRespawn(playerHero[i])
                 playerHero[i].setPos(gg_rct_Base.getCenter())
+                players[i].setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 0)
 
 function createSetup()
     let p = Player(10)
+
+    SetPlayerState(Player(11), PLAYER_STATE_GIVES_BOUNTY, 1)
+    SetPlayerState(Player(12), PLAYER_STATE_GIVES_BOUNTY, 1)
+    SetPlayerState(Player(13), PLAYER_STATE_GIVES_BOUNTY, 1)
 
     for i = 0 to 9
         createUnit(players[i], HERO_PICKER, gg_rct_HeroPicker.getCenter())
@@ -74,12 +79,13 @@ function createSetup()
 
     teleportToMobs(easyGrounds, intermediateGrounds, eliteGrounds, endGamebosses)
 
-    Player(0)..addGold(500000)..addLumber(50000)
-
 function mapSetup()
 
-    elementalSoul = createUnit(Player(10), ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees())
+    elementalSoul = createUnit(Player(10), ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees()) // Elemental Soul
     onDefeat(elementalSoul)
+    
+    CreateUnit(Player(10), BUILDING_0, - 640.0, - 5248.0, 270.000) // Fountain of Healing (at base)
+
 
     doAfter(0.5) -> 
 

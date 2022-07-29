@@ -13,10 +13,13 @@ function punishTimeAct(unit u)
 function punishTimeInit()
 	EventListener.onTargetCast('A0NC') (unit caster, unit target) ->
 		let targetHandle = target.getHandleId()
-		let i = (target).getHandleId()
+		let i = target.getHandleId()
+		target
+		..addStr(14)
+		..addAgi(14)
+		..addInt(14)
 		punishMap.put(targetHandle, target)
 		count[i] += 1
-		print("count["+i.toString()+"]: "+count[i].toString())
 		if run
 			punishTimeAct(caster)
 			run = false

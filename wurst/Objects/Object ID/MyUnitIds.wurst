@@ -13,6 +13,7 @@ public constant DUMMY_BLACKSMITH_WISP = compiletime(UNIT_ID_GEN.next())
 
 public constant HERO_PICKER = compiletime(UNIT_ID_GEN.next())
 
+public constant FACTORYROBO = compiletime(UNIT_ID_GEN.next())
 public constant POCKETFACTORYROBO_0 = compiletime(UNIT_ID_GEN.next())
 public constant POCKETFACTORYROBO_1 = compiletime(UNIT_ID_GEN.next())
 public constant POCKETFACTORYROBO_2 = compiletime(UNIT_ID_GEN.next())
@@ -22,6 +23,8 @@ public constant POCKETFACTORYROBO_5 = compiletime(UNIT_ID_GEN.next())
 public constant POCKETFACTORYROBO_6 = compiletime(UNIT_ID_GEN.next())
 public constant POCKETFACTORYROBO_7 = compiletime(UNIT_ID_GEN.next())
 public constant POCKETFACTORYROBO_8 = compiletime(UNIT_ID_GEN.next())
+
+public constant TINKERTIDECALLER = compiletime(UNIT_ID_GEN.next())
 
 public constant TINKERBUILDING_0 = compiletime(UNIT_ID_GEN.next())
 public constant TINKERBUILDING_1 = compiletime(UNIT_ID_GEN.next())
@@ -222,6 +225,8 @@ public constant PLAY_HERO_29 = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_30 = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_31 = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_32 = compiletime(HERO_ID_GEN.next())
+
+public constant ABILITYUNIT_0 = compiletime(UNIT_ID_GEN.next())
 
 public constant LEFT_CREEP_0 = compiletime(UNIT_ID_GEN.next())
 public constant LEFT_CREEP_1 = compiletime(UNIT_ID_GEN.next())

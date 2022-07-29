@@ -1,0 +1,41 @@
+package TinkerArea
+import MyUnitIds
+import ClosureTimers
+unit array tidecaller = []
+init
+    tinkerAreaEnterLeave() // From Base to Tinker's Area & Vice versa
+    banTinkerArea() // Checks if entering unit is someone who should be allowed to visit Tinker's area or not
+    tideCallerLeave() // Checks if the tidecallers tries to leave their spawn-point
+    tinkerTidecallers() // Spawns 15 tidecallers for tinker to farm
+function tinkerAreaEnterLeave()
+    CreateTrigger()..registerRectEnterEventSource(gg_rct_EnterTinkerArea)..addAction() -> 
+        let enteringUnit = GetEnteringUnit()
+        if enteringUnit.getTypeId() == PLAY_HERO_26 or enteringUnit.getTypeId() == 'N005' or enteringUnit.getTypeId() == CLOCKWERK_0 or enteringUnit.getTypeId() == CLOCKWERK_1
+            enteringUnit.setPos(gg_rct_LeaveTinkerArea.getCenterX(), gg_rct_LeaveTinkerArea.getCenterY()-200)
+    CreateTrigger()..registerRectEnterEventSource(gg_rct_LeaveTinkerArea)..addAction() ->
+        let enteringUnit = GetEnteringUnit()
+        if enteringUnit.getTypeId() == PLAY_HERO_26 or enteringUnit.getTypeId() == 'N005' or enteringUnit.getTypeId() == CLOCKWERK_0 or enteringUnit.getTypeId() == CLOCKWERK_1
+            enteringUnit.setPos(gg_rct_EnterTinkerArea.getCenterX(), gg_rct_EnterTinkerArea.getCenterY()+200)
+function banTinkerArea()
+    CreateTrigger()..registerRectEnterEventSource(gg_rct_TinkerArea)..addAction() ->
+        let enteringUnit = GetEnteringUnit()
+        if enteringUnit.getTypeId() != PLAY_HERO_26 and enteringUnit.getTypeId() != 'N005' and enteringUnit.isType(UNIT_TYPE_HERO) or enteringUnit.getTypeId() == 'h000' or enteringUnit.getTypeId() == 'h001'
+            enteringUnit.setPos(gg_rct_Base.getCenter())
+function tideCallerLeave() 
+    CreateTrigger()..registerRectEnterEventSource(gg_rct_TidecallerEntrance)..addAction() ->
+        if GetEnteringUnit().getTypeId() == TINKERTIDECALLER
+            GetEnteringUnit().setPos(gg_rct_TidecallersSpawn.randomPoint())
+function tidecallerRespawn(unit u)
+    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+        let facingUp = 90.00
+        let u1 = GetDyingUnit()
+        doAfter(5) -> 
+            for i = 1 to 15
+                if u1 == tidecaller[i]
+                    tidecaller[i] = createUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), TINKERTIDECALLER, gg_rct_TidecallersSpawn.randomPoint(), facingUp.asAngleDegrees())
+                    tidecallerRespawn(tidecaller[i])
+function tinkerTidecallers() 
+    let facingUp = 90.00
+    for i = 1 to 15
+        tidecaller[i] = createUnit(Player(PLAYER_NEUTRAL_AGGRESSIVE), TINKERTIDECALLER, gg_rct_TidecallersSpawn.randomPoint(), facingUp.asAngleDegrees())
+        tidecallerRespawn(tidecaller[i])

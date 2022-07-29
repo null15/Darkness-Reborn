@@ -20,6 +20,7 @@ import A0M3_R
 import A01O_P
 import A0DI_R
 import A0TZ_R
+import A0E7_E
 
 import MyBuffIds
 import MyAbilityIds
@@ -98,6 +99,10 @@ init
                 // Keeper of the Grove (Thorns) R - Passive
                 if targ.getTypeId() == PLAY_HERO_20 and targ.getAbilityLevel('A0TZ') > 0
                     thornRoot(targ, src)
+
+                // Fire Mage (Fire Shield) E - Active
+                if targ.getTypeId() == PLAY_HERO_21 and targ.getAbilityLevel('A0E7') > 0
+                    fireShield(src, targ)
 
             case SPELL
 

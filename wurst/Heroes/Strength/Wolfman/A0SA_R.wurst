@@ -11,7 +11,6 @@ function wolfSpirit()
         let wolfman = GetKillingUnit()
         let lvl = wolfman.getAbilityLevel('A0SA')
         let killedUnitLvl = GetDyingUnit().getLevel()
-        print(killedUnitLvl)
         if GetRandomInt(1, 100) < lvl*25 and killedUnitLvl < 30
             wolfman.addStr(1)
         else if GetRandomInt(1, 100) < lvl*25 and killedUnitLvl >= 30 and killedUnitLvl <= 44

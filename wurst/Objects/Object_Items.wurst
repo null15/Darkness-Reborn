@@ -4,6 +4,7 @@ import ItemObjEditing
 import ItemIds
 import MyItemIds
 import ObjectIds
+import MyAbilityIds
 
 init
 
@@ -4077,6 +4078,7 @@ init
     ..setTooltipBasic("|c00FEBA0EPerfect Garnet|r")
     ..setTooltipExtended("|c00FFFC01Effect:|r    \n+300 All Stats\n|c00FEBA0ESpecial Effect:|rIncreases Armor by 9999 and HP/s by 700 for 30 seconds. Cooldown: 60 seconds.")
     ..setHotkey("")
+    ..setLevel(2)
 
 //I0AZ
     new ItemDefinition(ITEM_110, ItemIds.bloodKey)
@@ -4191,7 +4193,7 @@ init
 
 //I0B8
     new ItemDefinition(ITEM_113, ItemIds.bloodKey)
-    ..setAbilities(commaList('A0LA', 'A07B'))
+    ..setAbilities(commaList(ABILITY_14, 'A07B'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe2.blp")
     ..setModelUsed("Red Item.mdl")
     ..setScalingValue(1)
@@ -12225,6 +12227,7 @@ init
     ..setTooltipBasic("")
     ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +1 All Stats\n|c00FEBA0ENote: Buy an Empty Vial from the Fountain to fuse Ruby Fragments together!\n")
     ..setHotkey("")
+    ..setLevel(2)
 
 //I046
     new ItemDefinition(ITEM_329, ItemIds.bloodKey)
@@ -13187,6 +13190,7 @@ init
     ..setTooltipBasic(" |c00FF0303Skull of Mal'ganis|r")
     ..setTooltipExtended("|cffffcc00Effect:|r\n+30.000 HP\n\n")
     ..setHotkey("")
+    ..setLevel(2)
 
 //I05W
     new ItemDefinition(ITEM_355, ItemIds.bloodKey)
@@ -25970,6 +25974,7 @@ init
     ..setTooltipBasic("")
     ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000+235 Agility|r")
     ..setHotkey("V")
+    ..setLevel(2)
 
 //I0BK
     new ItemDefinition(ITEM_696, ItemIds.vampiricPotion)
@@ -26008,6 +26013,7 @@ init
     ..setTooltipBasic("")
     ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000+455 Agility|r")
     ..setHotkey("V")
+    ..setLevel(2)
 
 //I0BL
     new ItemDefinition(ITEM_697, ItemIds.vampiricPotion)
@@ -26046,7 +26052,7 @@ init
     ..setTooltipBasic("")
     ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Agility + 555\nArmor + 50\nEvasion + 30%|r")
     ..setHotkey("V")
-
+    ..setLevel(2)
 //I0BM
     new ItemDefinition(ITEM_698, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
@@ -26084,3 +26090,4 @@ init
     ..setTooltipBasic("")
     ..setTooltipExtended("|c0020C000Agility + 1111\nDamage + 500\nArmor + 100\nEvasion + 40% .|r")
     ..setHotkey("V")
+    ..setLevel(2)

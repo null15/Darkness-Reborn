@@ -1,0 +1,5 @@
+package A0E7_E
+init
+public function fireShield(unit source, unit target)
+    let dmg = target.getInt(true)*0.25
+    target.damageTarget(source, dmg)

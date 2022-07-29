@@ -40,9 +40,9 @@ public function spawnWavesNow()
 
 		createUnit(Player(11), WAVE_MOB[wave_count], gg_rct_LeftSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
 		
-		createUnit(Player(11), WAVE_MOB[wave_count], gg_rct_MiddleSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
+		createUnit(Player(12), WAVE_MOB[wave_count], gg_rct_MiddleSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
 
-		createUnit(Player(11), WAVE_MOB[wave_count], gg_rct_RightSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_RightSpawnMove1.randomPoint())
+		createUnit(Player(13), WAVE_MOB[wave_count], gg_rct_RightSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_RightSpawnMove1.randomPoint())
 
 	if count == 3
 		doAfter(2.5) -> 
@@ -56,10 +56,10 @@ public function spawnWavesNow()
 			miniboss[1] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_LeftSpawn.getCenter(), facing.asAngleDegrees())
 			miniboss[1].issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
 			minibossDeath(miniboss[1])
-			miniboss[2] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_MiddleSpawn.getCenter(), facing.asAngleDegrees())
+			miniboss[2] = createUnit(Player(12), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_MiddleSpawn.getCenter(), facing.asAngleDegrees())
 			miniboss[2].issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
 			minibossDeath(miniboss[2])
-			miniboss[3] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_RightSpawn.getCenter(), facing.asAngleDegrees())
+			miniboss[3] = createUnit(Player(13), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_RightSpawn.getCenter(), facing.asAngleDegrees())
 			miniboss[3].issuePointOrderById(Orders.attack, gg_rct_RightSpawnMove1.randomPoint())
 			minibossDeath(miniboss[3])
 			if (wave_count-1) % 5 == 0
@@ -78,7 +78,7 @@ function minibossDeath(unit u)
 		dropMyItemsMinibosses(u1)
 
 function moveUnitsCond() returns boolean
-	return GetOwningPlayer(GetEnteringUnit()) == Player(11)			
+	return GetOwningPlayer(GetEnteringUnit()) == Player(11) or GetOwningPlayer(GetEnteringUnit()) == Player(12) or GetOwningPlayer(GetEnteringUnit()) == Player(13)
 
 function moveUnit()
 	CreateTrigger()
@@ -117,7 +117,7 @@ public function waveSetup()
 	waveTimerDialog.display(true)
 
 public function preWaveSetup()
-	gracePeriod.start(30, function waveSetup)
+	gracePeriod.start(60, function waveSetup)
 	gracePeriodDialog.setTitle("Preparation Phase")
 	gracePeriodDialog.setTimeColor(155, 155, 155, 0)
 	gracePeriodDialog.display(true)
