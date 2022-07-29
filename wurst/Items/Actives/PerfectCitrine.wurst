@@ -1,0 +1,10 @@
+package PerfectCitrine
+
+import ClosureEvents
+
+init
+    perfectCitrine()
+
+function perfectCitrine()
+    EventListener.onCast('A0LC') caster ->
+        caster.addHP(caster.getInt(true) * 15.)

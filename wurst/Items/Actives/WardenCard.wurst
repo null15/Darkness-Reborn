@@ -1,0 +1,17 @@
+package WardenCard
+
+import ClosureEvents
+import ClosureForGroups
+
+integer u_i = 0
+
+init
+    wardenCard()
+
+function wardenCard()
+    EventListener.onTargetCast('A0TE') (unit caster, unit target) ->
+        u_i = 0
+        forUnitsInRange(caster.getPos(), 400) (unit u) ->
+            if(u_i < 8)
+                caster.damageTarget(u, 25000, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                u_i++

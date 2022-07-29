@@ -1,0 +1,9 @@
+package HelmetofEvil
+
+import ClosureEvents
+init
+    helmetofEvil()
+
+function helmetofEvil()
+    EventListener.onTargetCast('A0GS') (unit caster, unit target) ->
+        caster..setMana(caster.getMaxMana()).setHP(caster.getMaxHP())

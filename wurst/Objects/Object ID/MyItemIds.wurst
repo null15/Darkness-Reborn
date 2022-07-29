@@ -702,6 +702,7 @@ public constant ITEM_695 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_696 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_697 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_698 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_699 = compiletime(ITEM_ID_GEN.next())
 // -------------------------
 integer itemDropIndex = 1
 public int array ITEM = []

@@ -1,0 +1,4 @@
+package LancelotShield
+
+public function lancelotShield(unit holder)
+    holder.setHP(holder.getHP() + 500)

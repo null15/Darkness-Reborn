@@ -1,0 +1,4 @@
+package DeadEyes
+
+public function deadEyes(unit src, unit targ)
+    src.damageTarget(targ, src.getInt(true) * 5., false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

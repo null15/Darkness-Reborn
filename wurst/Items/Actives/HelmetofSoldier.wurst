@@ -1,0 +1,9 @@
+package HelmetofSoldier
+
+import ClosureEvents
+init
+    helmetofSoldier()
+
+function helmetofSoldier()
+    EventListener.onTargetCast('A0BW') (unit caster, unit target) ->
+        caster.setHP(caster.getMaxHP())

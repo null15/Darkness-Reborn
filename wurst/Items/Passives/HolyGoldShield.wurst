@@ -1,0 +1,4 @@
+package HolyGoldShield
+
+public function holyGoldShield(unit holder)
+    holder.setHP(holder.getHP() + 4000)

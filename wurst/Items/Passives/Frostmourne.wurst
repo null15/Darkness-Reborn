@@ -1,0 +1,4 @@
+package Frostmourne
+
+public function frostmourne(unit targ)
+    targ.subHP(targ.getMaxHP() * 0.01)

@@ -1,0 +1,4 @@
+package NobleSword
+
+public function nobleSword(unit src, unit targ, int plus)
+    src.damageTarget(targ, src.getAgi(true) * (2.0 + plus), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

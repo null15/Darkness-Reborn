@@ -1,0 +1,11 @@
+package FrostWand
+
+import ClosureEvents
+
+init
+    frostWand()
+
+function frostWand()
+    EventListener.onTargetCast('A0YA') (unit caster, unit target) ->
+        let dam = caster.getInt(true) * 15.00
+        caster.damageTarget(target, dam, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

@@ -1,0 +1,13 @@
+package WarEnergy
+
+import ClosureEvents
+import ClosureTimers
+
+init
+    warEnergy()
+
+function warEnergy()
+    EventListener.onTargetCast('A0ZN') (unit caster, unit target) ->
+        doPeriodicallyTimed(1, 8) (CallbackCounted cb) ->
+            caster.setHP(caster.getHP() + caster.getMaxHP() * 0.05)
+            

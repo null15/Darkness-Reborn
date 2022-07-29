@@ -1,0 +1,9 @@
+package IceWand
+import ClosureEvents
+init
+    iceWand()
+
+function iceWand()
+    EventListener.onTargetCast('A0Y9') (unit caster, unit target) ->
+        let dam = caster.getInt(true) * 5.00
+        caster.damageTarget(target, dam, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

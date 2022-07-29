@@ -1,0 +1,10 @@
+package CallofFleshGolem
+
+import MyItemIds
+import ClosureEvents
+init
+    callofFleshGolem()
+function callofFleshGolem()
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+        if GetKillingUnit().hasItemById(ITEM_691) and GetRandomInt(0, 100) <= 100
+            GetKillingUnit().addStr(1)

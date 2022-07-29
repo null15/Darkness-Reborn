@@ -1,0 +1,10 @@
+package Oclock
+
+import ClosureEvents
+
+init
+    oClock()
+
+function oClock()
+    EventListener.onTargetCast('A0CL') (unit caster, unit target) ->
+        caster.resetCooldown()

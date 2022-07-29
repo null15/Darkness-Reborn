@@ -1,0 +1,13 @@
+package TaurenCard
+
+import ClosureEvents
+import ClosureForGroups
+
+init
+    taurenCard()
+
+function taurenCard()
+    EventListener.onTargetCast('A0XS') (unit caster, unit target) ->
+        forUnitsInRange(caster.getPos(), 400) (unit u) ->
+            caster.damageTarget(u, 25000, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            

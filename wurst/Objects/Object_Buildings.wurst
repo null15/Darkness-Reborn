@@ -9573,7 +9573,7 @@ import Units
     ..setHitPointsRegenerationRate(81.00)
     ..setManaInitialAmount(175)
     ..setManaMaximum(175)
-    ..setLumberCost(175)
+    ..setLumberCost(0)
     ..setName("Marine")
     ..setManaRegeneration(1.00)
 
@@ -9656,7 +9656,7 @@ import Units
     ..setHitPointsRegenerationRate(855.00)
     ..setManaInitialAmount(175)
     ..setManaMaximum(175)
-    ..setLumberCost(175)
+    ..setLumberCost(0)
     ..setName("Space Fel Orc")
     ..setManaRegeneration(1.00)
 
@@ -9736,7 +9736,7 @@ import Units
     ..setHitPointsRegenerationRate(175.00)
     ..setManaInitialAmount(300)
     ..setManaMaximum(300)
-    ..setLumberCost(300)
+    ..setLumberCost(0)
     ..setName("Flying Machine")
     ..setManaRegeneration(1.00)
 
