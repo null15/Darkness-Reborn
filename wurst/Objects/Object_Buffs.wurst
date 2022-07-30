@@ -128,3 +128,7 @@ init
     ..setTooltipNormalExtended(1, "This unit is under the effect of Blaze, hot hot hot! Liar Liar pants on Fire!")
     ..setArtTarget(1, ".mdl")
     ..setIconNormal(1, Icons.bTNInnerFire)
+
+    new BuffDefinition(BUFF_13, BuffIds.brillianceAura)
+    ..setTooltipNormal(1, "Brilliance Aura")
+    ..setTooltipNormalExtended(1, "This unit is under the effects of Brilliance Aura; it has an increased mana regeneration.")

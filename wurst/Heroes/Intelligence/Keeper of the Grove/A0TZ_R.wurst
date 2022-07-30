@@ -7,7 +7,7 @@ public function thornRoot(unit keeper, unit attacker)
     let output = keeper.getInt(true) * lvl
     if(attacker.isEnemyOf(keeper) and lvl > 0)
         let chance = lvl * 2
-        if(GetRandomInt(0, 2) < chance)
+        if(GetRandomInt(0, 100) < chance)
             attacker.pause()
             flashEffect(Abilities.roots1, attacker, "origin")
             keeper.damageTarget(attacker, output.toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
