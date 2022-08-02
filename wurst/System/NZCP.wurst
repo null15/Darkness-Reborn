@@ -976,7 +976,7 @@
 
 
 // public function initNZCP ()
-// 	SaveStr( nzHash, globalHandle( ), StringHash( "Activator" ), "easymode" )
+// 	SaveStr( nzHash, globalHandle( ), StringHash( "Activator" ), "cp" )
 // 	SaveStr( nzHash, globalHandle( ), StringHash( "ArrowActivator" ), "UUDDLR" )
 // 	initStrings( )
 // 	nameEvent( "nuzamacuxe" )
