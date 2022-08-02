@@ -4031,7 +4031,8 @@ init
     ..setNormalAbilities(commaList('A0P4', 'Aren'))
     ..setScalingValue(1.15)
     ..setAttack1DamageBase(0)
-    ..setAttack1DamageSidesperDie(1)
+    ..setAttack1DamageSidesperDie(0)
+    ..setAttack1AttackType(AttackType.Unknown)
     ..setAttack1Range(0)
     ..setStructuresBuilt(commaList(TINKERBUILDING_16, TINKERBUILDING_32, TINKERBUILDING_48, TINKERBUILDING_58, TINKERBUILDING_61, TINKERBUILDING_64, TINKERBUILDING_67, TINKERBUILDING_70, TINKERBUILDING_73))
    
@@ -4039,7 +4040,8 @@ init
     ..setNormalAbilities(commaList('A0P4', 'Aren'))
     ..setScalingValue(1.15)
     ..setAttack1DamageBase(0)
-    ..setAttack1DamageSidesperDie(1)
+    ..setAttack1DamageSidesperDie(0)
+    ..setAttack1AttackType(AttackType.Unknown)
     ..setAttack1Range(0)
     ..setStructuresBuilt(commaList(TINKERBUILDING_95, TINKERBUILDING_103, TINKERBUILDING_109, TINKERBUILDING_110, TINKERBUILDING_111, TINKERBUILDING_112, TINKERBUILDING_113, TINKERBUILDING_114, TINKERBUILDING_115))
 

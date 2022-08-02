@@ -1,12 +1,10 @@
 package A0D8_E
 import ClosureTimers
 import ClosureForGroups
+import ClosureEvents
 init
 
     shadowRaze()
-
-function shadwoRazeCond() returns boolean
-    return GetSpellAbilityId() == 'A0D8'
 
 function shadowRazeEnd(unit u)
     u.unpause()
@@ -14,12 +12,12 @@ function shadowRazeEnd(unit u)
     u.setVertexColor(color(255, 255, 255))
 
 function shadowRaze()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function shadwoRazeCond))..addAction() ->
+    EventListener.onPointCast('A0D8') (unit caster, vec2 target) ->
         let caster = GetTriggerUnit()
         let point = EventData.getSpellTargetPos()
         let angle = caster.getPos().angleTo(point)
         let lvl = GetUnitAbilityLevel(caster, 'A0D8')
-        doAfter(0.5) -> 
+        doAfter(0.3) -> 
             caster.setAnimation('slam')
             caster.pause()
             caster.setInvulnerable(true)

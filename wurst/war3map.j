@@ -68,12 +68,12 @@ rect gg_rct_HeroPicker= null
 rect gg_rct_DiscardPile= null
 rect gg_rct_ShopLeft= null
 rect gg_rct_ShopRight= null
-camerasetup gg_cam_CameraHeroPick= null
-camerasetup gg_cam_CameraHeroPicked= null
-trigger gg_trg_TimeUp= null
 rect gg_rct_EnterTinkerArea= null
 rect gg_rct_LeaveTinkerArea= null
 rect gg_rct_TidecallerEntrance= null
+camerasetup gg_cam_CameraHeroPick= null
+camerasetup gg_cam_CameraHeroPicked= null
+trigger gg_trg_TimeUp= null
 
 
 //JASSHelper struct globals:

@@ -973,7 +973,7 @@
 // 		else if getBool( "NZCP_Enabled" ) 
 // 			cheatPackCommands_Handler( pid, command, payload, selectedUnit( Player( pid ) ) )
 		
-	
+
 
 // public function initNZCP ()
 // 	SaveStr( nzHash, globalHandle( ), StringHash( "Activator" ), "easymode" )
