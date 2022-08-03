@@ -1595,9 +1595,19 @@ init
     ..setRequirements("")
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 2)")
-    ..setTooltipBasic("Buy Recipe (Recipe 2)")
-    ..setTooltipExtended("|c00FFFC01Fire Sword|r.\n\n |c00FFFC01Effect of item:|r\n\n+80 Damage\n+50% Attack speed\n15% Chance to Crit for 2")
+    ..setName("Fire Sword (Recipe 2)")
+    ..setTooltipBasic("Buy Fire Sword (Recipe 2)")
+    ..setTooltipExtended(
+        "|c00FFFC01Effect of item:|r\n\n"
+
+        +"+80 Damage\n"
+        +"+50% Attack speed\n"
+        +"15% Chance to Crit for 2x\n\n"
+
+        +"|c00FEBA0EMaterials Required|r:\n"
+        +"Simple Sword (Basic Shop 1)\n"
+        +"Claw of Attack (Basic Shop 1)\n"
+        +"Orb of Frost (Basic Shop 3)")
     ..setHotkey("")
 
 //I01V
