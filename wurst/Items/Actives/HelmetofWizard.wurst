@@ -5,5 +5,5 @@ init
     helmetofWizard()
 
 function helmetofWizard()
-    EventListener.onTargetCast('A0BX') (unit caster, unit target) ->
+    EventListener.onCast('A0BX') caster ->
         caster.setMana(caster.getMaxMana())

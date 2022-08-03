@@ -6,5 +6,5 @@ init
     oClock()
 
 function oClock()
-    EventListener.onTargetCast('A0CL') (unit caster, unit target) ->
+    EventListener.onCast('A0CL') caster ->
         caster.resetCooldown()

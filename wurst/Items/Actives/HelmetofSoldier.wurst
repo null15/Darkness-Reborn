@@ -5,5 +5,5 @@ init
     helmetofSoldier()
 
 function helmetofSoldier()
-    EventListener.onTargetCast('A0BW') (unit caster, unit target) ->
+    EventListener.onCast('A0BW') caster ->
         caster.setHP(caster.getMaxHP())

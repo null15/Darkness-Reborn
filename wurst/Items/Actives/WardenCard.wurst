@@ -9,7 +9,7 @@ init
     wardenCard()
 
 function wardenCard()
-    EventListener.onTargetCast('A0TE') (unit caster, unit target) ->
+    EventListener.onCast('A0TE') caster ->
         u_i = 0
         forUnitsInRange(caster.getPos(), 400) (unit u) ->
             if(u_i < 8)
