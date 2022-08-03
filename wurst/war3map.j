@@ -68,12 +68,12 @@ rect gg_rct_HeroPicker= null
 rect gg_rct_DiscardPile= null
 rect gg_rct_ShopLeft= null
 rect gg_rct_ShopRight= null
-camerasetup gg_cam_CameraHeroPick= null
-camerasetup gg_cam_CameraHeroPicked= null
-trigger gg_trg_TimeUp= null
 rect gg_rct_EnterTinkerArea= null
 rect gg_rct_LeaveTinkerArea= null
 rect gg_rct_TidecallerEntrance= null
+camerasetup gg_cam_CameraHeroPick= null
+camerasetup gg_cam_CameraHeroPicked= null
+trigger gg_trg_TimeUp= null
 
 
 //JASSHelper struct globals:
@@ -181,9 +181,9 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_OverlordArea=Rect(2784.0, - 2464.0, 4384.0, - 864.0)
     set gg_rct_DryadArea=Rect(5344.0, - 2464.0, 6944.0, - 864.0)
     set gg_rct_HeroPicker=Rect(- 8896.0, - 12544.0, - 8832.0, - 12480.0)
-    set gg_rct_DiscardPile=Rect(- 288.0, - 6304.0, 256.0, - 5792.0)
-    set gg_rct_ShopLeft=Rect(- 1600.0, - 5664.0, - 1120.0, - 4736.0)
-    set gg_rct_ShopRight=Rect(- 192.0, - 5664.0, 288.0, - 4736.0)
+    set gg_rct_DiscardPile=Rect(- 160.0, - 6208.0, 448.0, - 5856.0)
+    set gg_rct_ShopLeft=Rect(- 1824.0, - 5664.0, - 1344.0, - 4736.0)
+    set gg_rct_ShopRight=Rect(96.0, - 5664.0, 576.0, - 4736.0)
     set gg_rct_EnterTinkerArea=Rect(- 736.0, - 6880.0, - 544.0, - 6688.0)
     set gg_rct_LeaveTinkerArea=Rect(- 736.0, - 8032.0, - 544.0, - 7840.0)
     set gg_rct_TidecallerEntrance=Rect(- 928.0, - 11104.0, - 224.0, - 10976.0)

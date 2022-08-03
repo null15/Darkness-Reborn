@@ -54,7 +54,7 @@ public function codeDialog()
                     printTimedToPlayer("Select a hero first", 3, GetTriggerPlayer())
                 destroy buffBox
             if difficulty == "normal"
-                buffBox.addButton("Gold (+1800") ->
+                buffBox.addButton("Gold (+1800)") ->
                     if difficulty == "normal"
                         GetTriggerPlayer().addGold(GetTriggerPlayer().getGold()+1800)
                         printTimedToPlayer("Normal mode is true", 5, GetTriggerPlayer())

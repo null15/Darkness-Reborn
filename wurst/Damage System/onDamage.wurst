@@ -41,7 +41,6 @@ import OrbofLightning
 
 import MyItemIds
 import MyBuffIds
-import MyAbilityIds
 import ClosureTimers
 
 @configurable constant DETECT_NATIVE_ABILITIES = true
@@ -63,8 +62,8 @@ init
                 if src.getTypeId() == PLAY_HERO_17 and src.getAbilityLevel('A0S8') >= 1 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8')
                     juxtapose(src)
 
-                // Sylvanas (Phantom Arrow) W - Passive
-                if src.getTypeId() == PLAY_HERO_18 and src.getAbilityLevel(ABILITY_3) >= 1
+                // Sylvanas (Phantom Arrow) W - Autocast
+                if src.getTypeId() == PLAY_HERO_18 and targ.hasAbility('B001')
                     phantomArrow(src)
 
                 // Shadow Vengeance (Fury Peak) Q - Active
