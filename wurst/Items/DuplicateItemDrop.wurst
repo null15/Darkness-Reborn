@@ -6,6 +6,6 @@ init
 function duplicateItemDrop()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) -> 
         GetTriggerUnit().forEachItemInInventory() (item t) ->
-            if t == GetManipulatedItem()
+            if t.getTypeId() == GetManipulatedItem().getTypeId() and t != GetManipulatedItem()
                 GetTriggerUnit().removeItem(GetManipulatedItem())
-                printTimedToPlayer(COLOR_GOLD_STR+"You can not hold duplicate items in your inventory.", 3, GetTriggerUnit().getOwner())
+                simError(GetTriggerUnit().getOwner(), "You can not hold two items of the same type")
