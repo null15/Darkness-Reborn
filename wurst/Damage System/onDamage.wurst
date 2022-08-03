@@ -68,22 +68,22 @@ init
                     phantomArrow(src)
 
                 // Shadow Vengeance (Fury Peak) Q - Active
-                if UnitHasBuffBJ(src, 'B00L') and src.getTypeId() == PLAY_HERO_12
+                if src.getTypeId() == PLAY_HERO_12 and src.hasAbility('B00L')
                     furyPeak(src, targ)
 
                 // Shadow Vengeance (Gravitone) R - Passive
-                if src.getTypeId() == PLAY_HERO_12 and not UnitHasBuffBJ(src, 'B00L') and not UnitHasBuffBJ(src, 'B00J') and GetRandomInt(1, 100) < src.getAbilityLevel('A0CG')*2
+                if src.getTypeId() == PLAY_HERO_12 and not src.hasAbility('B00L') and not src.hasAbility('B00J') and GetRandomInt(1, 100) < src.getAbilityLevel('A0CG')*2
                     gravitone(src)
                 // Shadow Vengeance (Black Hole) T - Active
-                if src.getTypeId() == PLAY_HERO_12 and UnitHasBuffBJ((src), 'B00J')
+                if src.getTypeId() == PLAY_HERO_12 and src.hasAbility('B00J')
                     blackHole(src, targ)
 
                 // Dark Ranger (Black Arrow) W - Autocast
-                if src.getTypeId() == PLAY_HERO_16 and UnitHasBuffBJ(targ, 'B000') and DamageEvent.getId() != 'A006'
+                if src.getTypeId() == PLAY_HERO_16 and targ.hasAbility('B000') and DamageEvent.getId() != 'A006'
                     darkArrow(src, targ)
 
                 // Assassin (Last Killer) T - Active
-                if src.getTypeId() == PLAY_HERO_10 and UnitHasBuffBJ(src, 'B00W')
+                if src.getTypeId() == PLAY_HERO_10 and src.hasAbility('B00W')
                     lastKiller(src, targ)
 
                 // Demon Hunter (Demon Power) R - Passive
@@ -91,11 +91,11 @@ init
                     demonPower(src)
 
                 // Death Knight (Curse of Darkness ) E - Passive
-                if targ.getTypeId() == PLAY_HERO_4 and UnitHasBuffBJ(targ, 'B004')
+                if targ.getTypeId() == PLAY_HERO_4 and targ.hasAbility('B004')
                     curseOfDarkness(targ)
 
                 // Mountain King (Over Power) R - Passive
-                if src.getTypeId() == PLAY_HERO_0 and UnitHasBuffBJ(targ, BUFF_5) or UnitHasBuffBJ(targ, 'BPSE') and src.getAbilityLevel('A0DX') >= 1 and GetRandomInt(1, 100) < 35
+                if src.getTypeId() == PLAY_HERO_0 and targ.hasAbility(BUFF_5) or targ.hasAbility('BPSE') and src.getAbilityLevel('A0DX') >= 1 and GetRandomInt(1, 100) < 35
                     overPower(src, targ)
 
                 // Tauren Chieftain (Pulverize) E - Passive
@@ -103,11 +103,11 @@ init
                     pulverize(src, targ)
 
                 // Vashj (Frost Arrows ) X - Autocast
-                if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and src.getTypeId() == PLAY_HERO_25 and UnitHasBuffBJ(targ, 'B002')
+                if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and src.getTypeId() == PLAY_HERO_25 and targ.hasAbility('B002')
                     frostArrows(src)
 
                 // Craggy Hex (Shadow Hunter) R - Passive
-                if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and targ.getTypeId() == PLAY_HERO_23 and UnitHasBuffBJ(targ, 'B00N')
+                if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and targ.getTypeId() == PLAY_HERO_23 and targ.hasAbility('B00N')
                     craggyHex(src, targ)
 
                 // Far Seer (Mind Ripper) R - Passive

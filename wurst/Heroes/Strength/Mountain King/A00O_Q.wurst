@@ -23,7 +23,7 @@ function stormbolt()
             sfx.setPos(sfx.getPos().polarOffset(angle, 45))
             let distance = sfx.getPos().distanceTo(target.getPos())
             forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
-                if caster.isEnemyOf(u) and not UnitHasBuffBJ(u, BUFF_5)
+                if caster.isEnemyOf(u) and not u.hasAbility(BUFF_5)
                     caster.damageTarget(u, semi, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
             if distance < 125
                 new DummyCaster()

@@ -9,17 +9,9 @@ init
 function spirits()
     EventListener.onCast(ABILITY_7) (unit caster) ->
         let lvl = GetUnitAbilityLevel(caster, ABILITY_7)
-        if spirits > 0 and not UnitHasBuffBJ(caster, BUFF_3)
-            let boost = lvl * spirits
-            caster.setStr(caster.getStr(false)+boost)
-        else if spirits <= 0 and not UnitHasBuffBJ(caster, BUFF_3)
-            let boost = lvl * 1
-            caster.setStr(caster.getStr(false)+boost)
-        else
-            printTimedToPlayer("Error: Spirit count is invalid/null or you already have Spirits of the Wild buff applied.", 5, GetOwningPlayer(caster))
         let tempBoost = ((lvl*5+10)*spirits)
         caster.addStr(tempBoost)
         doPeriodically(1) (CallbackPeriodic cb) ->
-            if not UnitHasBuffBJ(caster, BUFF_3)
+            if not caster.hasAbility(BUFF_3)
                 caster.setStr(caster.getStr(false)-tempBoost)
                 destroy cb

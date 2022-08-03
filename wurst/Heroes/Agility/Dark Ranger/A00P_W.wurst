@@ -5,6 +5,7 @@ init
 public function darkArrow(unit caster, unit target)
     let lvl = GetUnitAbilityLevel(caster, 'A00P')
     let dmg = (caster.getAgi(true)*lvl*0.5)
-    if UnitHasBuffBJ(target, 'B000')
+    if target.hasAbility('B000')
         DamageEvent.setAmount(dmg)
         caster.addHP(dmg*0.5)
+        target.removeAbility('B000')

@@ -15,7 +15,7 @@ function imageArrowCond() returns boolean
 
 public function trig_TakeRange_Actions (unit target)
     let lvl = GetUnitAbilityLevel(caster, 'A006')
-    UnitRemoveBuffBJ('B006',GetTriggerUnit())
+    GetTriggerUnit().removeAbility('B006')
     doAfter(2) -> 
         DamageEvent.setNextDamageId('A006')
         caster.damageTarget(target, (caster.getAgi(true)*0.6*lvl), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

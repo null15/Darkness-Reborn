@@ -11,6 +11,6 @@ function soulsKing()
         let boost = souls * 10
         caster.addStr(boost)
         doPeriodically(1) (CallbackPeriodic cb) ->
-            if not UnitHasBuffBJ(caster, BUFF_4)
+            if not caster.hasAbility(BUFF_4)
                 caster.setStr(caster.getStr(false)-boost)
                 destroy cb

@@ -11,7 +11,7 @@ function thunderClap()
             let lvl = caster.getAbilityLevel('A0DV')
             let dmg = ((caster.getStr(true)*0.5)+(150*lvl))
             doPeriodically(0.03) (CallbackPeriodic cb) ->
-                if caster.isEnemyOf(u) and UnitHasBuffBJ(u, 'BHtc')
+                if caster.isEnemyOf(u) and u.hasAbility('BHtc')
                     i = i + 1
                     caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
                     destroy cb

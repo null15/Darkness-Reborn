@@ -24,7 +24,7 @@ function blessedHammer()
         doPeriodicallyTimed(0.03, 1) (CallbackCounted cb) ->
             sfx.setPos(sfx.getPos().polarOffset(angle, 45))
             forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
-                if caster.isEnemyOf(u) and not UnitHasBuffBJ(u, BUFF_6)
+                if caster.isEnemyOf(u) and not u.hasAbility(BUFF_6)
                     caster.damageTarget(u, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
                     new DummyCaster()
                     ..owner(GetOwningPlayer(caster))

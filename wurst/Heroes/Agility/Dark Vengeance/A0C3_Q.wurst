@@ -12,8 +12,8 @@ function furypeakCond() returns boolean
 
 function furyPeakCast()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function furypeakCond))..addAction() ->
-        if UnitHasBuffBJ(GetTriggerUnit(), 'B00J')
-            UnitRemoveBuffBJ('B00J', GetTriggerUnit())
+        if GetTriggerUnit().hasAbility('B00J')
+            GetTriggerUnit().removeAbility('B00J')
 
 public function furyPeak(unit caster, unit target)
     let missingHp = caster.getMissingHP()

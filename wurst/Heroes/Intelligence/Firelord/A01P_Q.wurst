@@ -32,7 +32,7 @@ function sear()
                     DamageEvent.setNextDamageFromCode()
                     DamageEvent.setNextDamageElement(DAMAGE_ELEMENT_FIRE)
                     caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-                    if UnitHasBuffBJ(u, BUFF_12)
+                    if u.hasAbility(BUFF_12)
                         new DummyCaster()..owner(caster.getOwner())..origin(caster.getPos())..castTarget(ABILITY_DUMMY_14, 1, OrderIds.thunderbolt, u)..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u)
                     else
                         new DummyCaster()..owner(caster.getOwner())..origin(caster.getPos())..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u)

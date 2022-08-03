@@ -17,7 +17,7 @@ function eclipse()
         forUnitsInRange(target, 600, true) (unit u) ->
             if caster.isEnemyOf(u)
                 let buffs = UnitCountBuffsEx(u, false, false, true, false, false, false, false)
-                if UnitHasBuffBJ(u, BUFF_9)
+                if u.hasAbility(BUFF_9)
                     caster.damageTarget(u, dmg*buffs, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
                 else
                     caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

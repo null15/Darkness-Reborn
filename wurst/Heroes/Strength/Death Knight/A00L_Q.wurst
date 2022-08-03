@@ -11,7 +11,7 @@ init
     soulCollector()
     unholyExecution()
 function soulCollectorCond() returns boolean
-    return GetUnitTypeId(GetKillingUnit()) == PLAY_HERO_4 or UnitHasBuffBJ(GetKillingUnit(), 'Bslp')
+    return GetUnitTypeId(GetKillingUnit()) == PLAY_HERO_4 or GetKillingUnit().hasAbility('Bslp')
 function soulCollector()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addCondition(Condition(function soulCollectorCond))..addAction() ->
         if GetUnitTypeId(GetKillingUnit()) == PLAY_HERO_4

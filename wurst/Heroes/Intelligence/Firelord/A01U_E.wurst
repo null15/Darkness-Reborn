@@ -19,7 +19,7 @@ function conflagration()
         DamageEvent.setNextDamageId('A01U')
         DamageEvent.setNextDamageFromCode()
         DamageEvent.setNextDamageElement(DAMAGE_ELEMENT_FIRE)
-        if UnitHasBuffBJ(target, BUFF_12)
+        if target.hasAbility(BUFF_12)
             forUnitsInRange(target.getPos(), 400, true) (unit u) ->
                 if caster.isEnemyOf(u)
                     flashEffect(Abilities.fireLordDeathExplode, target.getPos())

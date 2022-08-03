@@ -200,7 +200,7 @@ function blacksmith()
             bs.getItemById(ITEM_530).remove()
             bs.addItemById(ITEM_588)
 
-        else if UnitHasBuffBJ(bs, BUFF_8) // Metal Strength - Improved by Jacksmith R
+        else if bs.hasAbility(BUFF_8) // Metal Strength - Improved by Jacksmith R
 
             if bs.hasItemById(ITEM_501) and bs.hasItemById(ITEM_503) and bs.hasItemById(ITEM_369)
                 bs.getItemById(ITEM_501).remove()

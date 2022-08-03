@@ -9,10 +9,10 @@ function blackHoleCond() returns boolean
 
 function blackHoleCast()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function blackHoleCond))..addAction() ->
-        if UnitHasBuffBJ(GetTriggerUnit(), 'B00L')
-            UnitRemoveBuffBJ('B00L', GetTriggerUnit())
+        if GetTriggerUnit().hasAbility('B00L')
+            GetTriggerUnit().removeAbility('B00L')
 
 public function blackHole(unit caster, unit target)
     let missingHp = target.getMissingHP()
-    UnitRemoveBuffBJ('B00J', caster)
+    caster.removeAbility('B00J')
     DamageEvent.setAmount(missingHp)

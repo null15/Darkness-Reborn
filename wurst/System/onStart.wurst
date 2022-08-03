@@ -93,7 +93,7 @@ function mapSetup()
 
         dBox.addButton("Normal") ->
             difficulty = "normal"
-            preWaveSetup()
+            // preWaveSetup()
             createSetup()
             leftSideCreepsSetup()
             eliteSideCreepsSetup()
