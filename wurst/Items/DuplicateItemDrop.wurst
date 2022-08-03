@@ -1,0 +1,14 @@
+package DuplicateItemDrop
+
+init
+    duplicateItemDrop()
+
+
+function duplicateItemDrop()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)..addAction() ->
+        let u = GetTriggerUnit()
+        let pickeditem = GetManipulatedItem()
+        for i = 0 to 5
+            let itm = u.itemInSlot(i)
+            if(itm.getTypeId() == pickeditem.getTypeId() and itm != pickeditem)
+                u.removeItem(pickeditem)

@@ -1,0 +1,62 @@
+package ResourceGL
+import ClosureTimers
+import MyUnitIds
+integer lumberGain
+integer goldGain
+player owner
+
+init
+    lumberConstruct()
+    goldConstruct()
+
+function lumberMillCheck()
+    let building = GetConstructedStructure().getTypeId()
+    if(building == TINKERBUILDING_103)
+        lumberGain = 1
+        lumberPeriodic()
+        owner = GetConstructedStructure().getOwner()
+    else if(building == TINKERBUILDING_104)
+        lumberGain = 2
+    else if(building == TINKERBUILDING_105)
+        lumberGain = 4
+    else if(building == TINKERBUILDING_106)
+        lumberGain = 8
+    else if(building == TINKERBUILDING_107)
+        lumberGain = 16
+    else if(building == TINKERBUILDING_108)
+        lumberGain = 32
+
+function goldMineCheck()
+    let building = GetConstructedStructure().getTypeId()
+    if(building == TINKERBUILDING_95)
+        goldGain = 2
+        goldPeriodic()
+        owner = GetConstructedStructure().getOwner()
+    else if(building == TINKERBUILDING_96)
+        goldGain = 4
+    else if(building == TINKERBUILDING_97)
+        goldGain = 8
+    else if(building == TINKERBUILDING_98)
+        goldGain = 16
+    else if(building == TINKERBUILDING_99)
+        goldGain = 32
+    else if(building == TINKERBUILDING_100)
+        goldGain = 64
+    else if(building == TINKERBUILDING_101)
+        goldGain = 128
+    else if(building == TINKERBUILDING_102)
+        goldGain = 256
+
+function lumberConstruct()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH)..addCondition(Condition(function lumberMillCheck))
+
+function goldConstruct()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH)..addCondition(Condition(function goldMineCheck))
+
+function goldPeriodic()
+    doPeriodically(0.4) (CallbackPeriodic cb) ->
+        owner.addGold(goldGain)
+
+function lumberPeriodic()
+    doPeriodically(32) (CallbackPeriodic cb) ->
+        owner.addLumber(lumberGain)

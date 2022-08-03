@@ -733,6 +733,85 @@ function recipeItemReplace()
             RemoveItem(u.getItemById(ITEM_189))
             RemoveItem(u.getItemById(ITEM_498))
             u.addItemById(ITEM_252)
+        
+        //Jewelry of Life
+        else if u.hasItemById(ITEM_37) and u.hasItemById(ITEM_38)
+            RemoveItem(u.getItemById(ITEM_37))
+            RemoveItem(u.getItemById(ITEM_38))
+            u.addItemById(ITEM_195)
+
+        //Jewelry of Life
+        else if u.hasItemById(ITEM_37) and u.hasItemById(ITEM_195) and u.hasItemById(ITEM_15)
+            RemoveItem(u.getItemById(ITEM_37))
+            RemoveItem(u.getItemById(ITEM_195))
+            RemoveItem(u.getItemById(ITEM_15))
+            u.addItemById(ITEM_192)
+
+        //Jewelry of Life
+        else if u.hasItemById(ITEM_36) and u.hasItemById(ITEM_35)
+            RemoveItem(u.getItemById(ITEM_36))
+            RemoveItem(u.getItemById(ITEM_35))
+            u.addItemById(ITEM_194)
+
+        //Perfect Carnelian
+        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_351)
+            RemoveItem(u.getItemById(ITEM_276))
+            RemoveItem(u.getItemById(ITEM_351))
+            u.addItemById(ITEM_110)
+
+        //Perfect Aquamarine
+        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_232)
+            RemoveItem(u.getItemById(ITEM_276))
+            RemoveItem(u.getItemById(ITEM_232))
+            u.addItemById(ITEM_112)
+
+        //Perfect Topaz
+        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_175)
+            RemoveItem(u.getItemById(ITEM_276))
+            RemoveItem(u.getItemById(ITEM_175))
+            u.addItemById(ITEM_191)
+
+        //Perfect Nephrite
+        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_337)
+            RemoveItem(u.getItemById(ITEM_276))
+            RemoveItem(u.getItemById(ITEM_337))
+            u.addItemById(ITEM_115)
+            
+        //Perfect Hippopus
+        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_341)
+            RemoveItem(u.getItemById(ITEM_276))
+            RemoveItem(u.getItemById(ITEM_341))
+            u.addItemById(ITEM_118)
+
+        //Perfect Pearl
+        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_240) and u.hasItemById(ITEM_190)
+            RemoveItem(u.getItemById(ITEM_276))
+            RemoveItem(u.getItemById(ITEM_240))
+            RemoveItem(u.getItemById(ITEM_190))
+            u.addItemById(ITEM_117)
+
+        //Perfect Emerald
+        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_211) and u.hasItemById(ITEM_208) and u.hasItemById(ITEM_209) and u.hasItemById(ITEM_210)
+            RemoveItem(u.getItemById(ITEM_276))
+            RemoveItem(u.getItemById(ITEM_211))
+            RemoveItem(u.getItemById(ITEM_208))
+            RemoveItem(u.getItemById(ITEM_209))
+            RemoveItem(u.getItemById(ITEM_210))
+            u.addItemById(ITEM_116)
+
+        //Perfect Sapphire
+        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_236) and u.hasItemById(ITEM_24)
+            RemoveItem(u.getItemById(ITEM_276))
+            RemoveItem(u.getItemById(ITEM_236))
+            RemoveItem(u.getItemById(ITEM_24))
+            u.addItemById(ITEM_119)
+
+        //Perfect Amethyst
+        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_173) and u.hasItemById(ITEM_22)
+            RemoveItem(u.getItemById(ITEM_276))
+            RemoveItem(u.getItemById(ITEM_173))
+            RemoveItem(u.getItemById(ITEM_22))
+            u.addItemById(ITEM_191)
 
         // // 
         // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)

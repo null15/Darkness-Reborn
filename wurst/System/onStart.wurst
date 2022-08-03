@@ -51,7 +51,7 @@ function createSetup()
 
     for i = 0 to 9
         createUnit(players[i], HERO_PICKER, gg_rct_HeroPicker.getCenter())
-        players[i]..addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)..addState(PLAYER_STATE_RESOURCE_GOLD, 800)
+        players[i]..addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)..addState(PLAYER_STATE_RESOURCE_GOLD, 80000)
 
     let tavern1 = CreateUnit(Player(10), BUILDING_TAVERN_STR, -9216.0, -12480, bj_UNIT_FACING)
     onBuyHero(tavern1)

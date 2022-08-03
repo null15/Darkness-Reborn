@@ -16,7 +16,7 @@ init
 function hawkeyeSplit()
     EventListener.onPointCast('A0U1') (unit caster, vec2 target) ->
         let lvl = caster.getAbilityLevel('A0U1')
-        let output = caster.getInt(true) * 0.1 * lvl
+        let output = (caster.getInt(true) * 0.1 + 20) * lvl
         let owl = createUnit(caster.getOwner(),DUMMY_UNIT_2,target)
         let shooter = createUnit(caster.getOwner(), UnitIds.owl3, target)..setMoveSpeed(0)
         doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->

@@ -5,6 +5,6 @@ init
     spiritGuardian()
 function spiritGuardian()
     EventListener.onPointCast('A0U2') (unit caster, vec2 target) ->
-        let spirit = createUnit(caster.getOwner(), 'e003', target)
+        let spirit = createUnit(caster.getOwner(), 'e003', target)..setTimedLife(60)
         spirit.setAbilityLevel('A11E', caster.getAbilityLevel('A0U2'))
         AddSpecialEffect(Abilities.animateDeadTarget, target.x, target.y).destr()
