@@ -1,0 +1,27 @@
+package TheKingOfLoasW
+import ClosureEvents
+import DummyCaster
+import OrderIds
+import ClosureTimers
+import MyAbilityIds
+import MyUnitIds
+import MyBuffIds
+// Embodiment of Gral
+init
+    embodimentOfGral()
+function embodimentOfGral()
+    EventListener.add(EVENT_PLAYER_UNIT_ATTACKED) -> 
+        if GetAttacker().getTypeId() == PLAY_HERO_33_ASCENDED and GetAttacker().getAbilityLevel(ABILITY_47) >= 1 and GetRandomInt(1, 100) <= 15
+            let attacker = GetAttacker()
+            let attacked = GetTriggerUnit()
+            new DummyCaster()
+            ..owner(attacker.getOwner())
+            ..origin(attacker.getPos())
+            ..castTarget(ABILITY_48, 1, OrderIds.bloodlust, attacker)
+            if not attacked.hasAbility(BUFF_22)
+                new DummyCaster()
+                ..owner(attacked.getOwner())
+                ..castTarget(ABILITY_55, 1, OrderIds.innerfire, attacked)
+                doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
+                    attacker.damageTarget(attacked, (attacker.getInt(true) * 1.00))
+            

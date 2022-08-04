@@ -1,0 +1,34 @@
+package KingOfLoasW
+import ClosureTimers
+import DummyCaster
+import OrderIds
+import Simulate3dSound
+import ClosureEvents
+import MyAbilityIds
+import MyUnitIds
+import MyBuffIds
+sound gralBite = CreateSound("Loas Assets\\Shark\\gralBite.mp3", false, false, false, 12700, 12700, "CombatSoundsEAX")
+init
+    finsofGral()
+function finsofGral()
+    EventListener.add(EVENT_PLAYER_UNIT_ATTACKED) ->
+        if GetAttacker().getTypeId() == PLAY_HERO_33 and GetRandomInt(1, 100) <= 15 and not GetAttacker().hasAbility(BUFF_15) and GetAttacker().hasAbility(ABILITY_39)
+            let attacker = GetAttacker()
+            let attacked = GetTriggerUnit()
+            let lvl = attacker.getAbilityLevel(ABILITY_39)
+            let pos = attacker.getPos()
+            let owner = GetOwningPlayer(attacker)
+            let vec2_target = attacked.getPos()
+            let shark = createUnit(owner, DUMMY_UNIT_5, pos, pos.angleTo(vec2_target))
+            new DummyCaster()
+                ..owner(GetOwningPlayer(attacker))
+                ..origin(attacker.getPos())
+                ..castTarget(ABILITY_38, lvl, OrderIds.bloodlust, attacker)
+                ..delay(0.2)
+            doAfter(0.01) -> 
+                SetUnitAnimationByIndex(shark, 0)
+                bindSoundToUnit(gralBite, attacker, 1000, 2000, 3000)
+                doAfter(0.5) -> 
+                    SetUnitAnimationByIndex(shark, 1)
+                    doAfter(0.8) -> 
+                        RemoveUnit(shark)

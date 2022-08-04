@@ -52,7 +52,7 @@ import Units
     ..setArmorType(ArmorType.Unarmored)
     ..setPathingMap("")
     ..setPlacementRequires("")
-    ..setUnitsSold(commaList(PLAY_HERO_19, PLAY_HERO_20, PLAY_HERO_21, PLAY_HERO_22, PLAY_HERO_23, PLAY_HERO_24, PLAY_HERO_25, PLAY_HERO_26, PLAY_HERO_27, PLAY_HERO_28, PLAY_HERO_29))
+    ..setUnitsSold(commaList(PLAY_HERO_33, PLAY_HERO_19, PLAY_HERO_20, PLAY_HERO_21, PLAY_HERO_22, PLAY_HERO_23, PLAY_HERO_24, PLAY_HERO_25, PLAY_HERO_26, PLAY_HERO_27, PLAY_HERO_28, PLAY_HERO_29))
 
 @compiletime function buildings()
 

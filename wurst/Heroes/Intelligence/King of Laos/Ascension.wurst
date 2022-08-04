@@ -1,0 +1,43 @@
+package Ascension
+import ClosureTimers
+import MoonUtils
+import ClosureEvents
+import MyAbilityIds
+import MyUnitIds
+// when all base skills maxed, ascends
+init
+    ascension()
+function ascension()
+    EventListener.add(EVENT_PLAYER_HERO_SKILL) -> 
+        let u = GetTriggerUnit()
+        if u.getTypeId() == PLAY_HERO_33 and u.getAbilityLevel(ABILITY_35) == 9 and u.getAbilityLevel(ABILITY_39) == 9 and u.getAbilityLevel(ABILITY_40) == 9 and u.getAbilityLevel(ABILITY_41) == 9 and u.getAbilityLevel(ABILITY_42) == 9
+            let sfx = addEffect("Loas Assets\\effect60.mdx", u.getPos())
+            let sfx2 = addEffect("Loas Assets\\effect_az_qiliu4_red.mdx", u.getPos())..playAnimation(ANIM_TYPE_BIRTH)
+            u.pause()
+            u.setInvulnerable(true)
+            doAfter(4) ->
+                sfx2.playAnimation(ANIM_TYPE_DEATH)
+                doAfter(1) -> 
+                    sfx.destr()
+                    sfx2..setZ(-9999)..destr()
+                    u.unpause()
+                    u.setInvulnerable(false)
+                    item array loasItems = [] 
+                    let lvl = GetUnitLevel(u)
+                    let loas_str = u.getStr(false)
+                    let loas_agi = u.getAgi(false)
+                    let loas_int = u.getInt(false)
+                    let loas_hp = u.getHP()
+                    let loas_mp = u.getMana()
+                    for i = 0 to 5
+                        loasItems[i] = u.itemInSlot(i)
+                    let u1 = u.replace(createUnit(u.getOwner(), PLAY_HERO_33_ASCENDED, u.getPos()))
+                    u1
+                    ..setLevel(lvl, true)
+                    ..setStr(loas_str)
+                    ..setAgi(loas_agi)
+                    ..setInt(loas_int)
+                    ..setHP(loas_hp)
+                    ..setMana(loas_mp)
+                    for i = 0 to 5
+                        u1.addItemToSlot(GetItemTypeId(loasItems[i]), i)

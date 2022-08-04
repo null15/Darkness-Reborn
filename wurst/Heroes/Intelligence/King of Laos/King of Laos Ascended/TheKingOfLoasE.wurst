@@ -1,0 +1,25 @@
+package TheKingOfLoasE
+import DummyCaster
+import OrderIds
+import ClosureForGroups
+import ClosureEvents
+import ClosureTimers
+import MyAbilityIds
+import MyUnitIds
+public unit ascendedloas
+// Storm of Akunda
+init
+    superKingOfloasE()
+function superKingOfloasE()
+    EventListener.add(EVENT_PLAYER_UNIT_ATTACKED) ->
+        if GetAttacker().getTypeId() == PLAY_HERO_33_ASCENDED and GetAttacker().getAbilityLevel(ABILITY_50) >= 1 and GetRandomInt(1, 100) <= 30
+            let attacker = GetAttacker()
+            let attacked = GetTriggerUnit()
+            forUnitsInRange(attacked.getPos(), 450) (unit u) ->
+                if attacker.isEnemyOf(u)
+                    new DummyCaster()
+                    ..owner(GetOwningPlayer(attacker))
+                    ..origin(attacker.getPos())
+                    ..castTarget(ABILITY_49, 1, OrderIds.forkedlightning, u)
+                    doAfter(0.05) -> 
+                        attacker.damageTarget(u, 27.00*attacker.getInt(true), false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

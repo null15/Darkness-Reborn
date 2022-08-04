@@ -1,0 +1,14 @@
+package KingOfLoasR
+import DummyCaster
+import OrderIds
+import ClosureEvents
+import MyAbilityIds
+// Blood of Hakkar
+init
+    kingOfloasRact()
+function kingOfloasRact()
+    EventListener.onCast(ABILITY_41) (unit caster) ->
+        new DummyCaster()
+        ..owner(caster.getOwner())
+        ..origin(caster.getPos())
+        ..castTarget(ABILITY_52, 1, OrderIds.innerfire, caster)

@@ -1,0 +1,13 @@
+package KingOfLoasE
+import ClosureEvents
+import MyAbilityIds
+import MyUnitIds
+import Abilities
+init
+    thunderOfAkunda()
+function thunderOfAkunda()
+    EventListener.add(EVENT_PLAYER_UNIT_ATTACKED) -> 
+        if GetAttacker().getTypeId() == PLAY_HERO_33 and GetRandomInt(1, 100) <= (GetAttacker().getAbilityLevel(ABILITY_40)*3)
+            let dmg = (GetAttacker().getAbilityLevel(ABILITY_40)*3.00)*GetAttacker().getInt(true)
+            flashEffect(Abilities.chimaeraLightningMissile, GetTriggerUnit().getPos())
+            GetAttacker().damageTarget(GetTriggerUnit(), dmg)

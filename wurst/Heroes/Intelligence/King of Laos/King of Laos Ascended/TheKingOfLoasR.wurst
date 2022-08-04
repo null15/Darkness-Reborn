@@ -1,0 +1,20 @@
+package TheKingOfLoasR
+import ClosureForGroups
+import OrderIds
+import DummyCaster
+import ClosureEvents
+import MyAbilityIds
+import MyUnitIds
+// Cursed Blood of Hakkar
+init
+    bloodOfHakkar()
+function bloodOfHakkar()
+    EventListener.onCast(ABILITY_54) (unit caster) ->
+        if caster.getTypeId() == PLAY_HERO_33_ASCENDED 
+            forUnitsInRange(caster.getPos(), 600) (unit u) ->
+                if u.isAllyOf(GetOwningPlayer(caster))
+                    new DummyCaster()
+                    ..owner(caster.getOwner())
+                    ..origin(caster.getPos())
+                    ..castTarget(ABILITY_53, 1, OrderIds.innerfire, u)
+                    ..delay(0.5)

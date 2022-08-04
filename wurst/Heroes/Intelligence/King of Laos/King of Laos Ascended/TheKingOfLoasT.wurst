@@ -1,0 +1,25 @@
+package TheKingOfLoasT
+import ClosureTimers
+import ClosureForGroups
+import DummyCaster
+import OrderIds
+import ClosureEvents
+import MyAbilityIds
+import MyBuffIds
+// Avatar of Bwonsamdi
+init
+    avatarOfBwonsamdi()
+function avatarOfBwonsamdi()
+    EventListener.add(EVENT_PLAYER_HERO_SKILL) -> 
+        if GetLearnedSkill() == ABILITY_51
+            let caster = GetTriggerUnit()
+            doPeriodically(2) (CallbackPeriodic cb) ->
+                forUnitsInRange(caster.getPos(), 800) (unit u) ->
+                    if caster.isEnemyOf(u)
+                        new DummyCaster()
+                        ..owner(caster.getOwner())
+                        ..origin(caster.getPos())
+                        ..castTarget(ABILITY_36, 1, OrderIds.slow, u)
+                        caster.damageTarget(u, (caster.getInt(true)*4.00), false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                        if caster.hasAbility(BUFF_21)
+                            caster.addHP((caster.getInt(true)*4.00)*0.8)

@@ -1,0 +1,33 @@
+package TheKingOfLoasQ
+import ClosureTimers
+import ClosureForGroups
+import Artillery
+import SoundUtils
+import DummyCaster
+import OrderIds
+import ClosureEvents
+import MyAbilityIds
+constant POISON_SPIT_ARTILLERY = compiletime(ArtilleryDetection.createArtilleryDummy(0, 120, 160, 1, "Loas Assets\\Chaos Missile\\Chaos Missile.mdx", 500, 0.3))
+constant SOUND_POISON_SPIT = new SoundDefinition(Sounds.corrosiveBreathMissileTarget1, false, true)
+constant real array POISON_SPIT_AOE = [350, 350, 350, 350, 350, 350, 350, 350, 350]
+real array POISON_SPIT_DURATION = [5, 5, 5, 5, 5, 5, 5, 5, 5]
+// Deadly Venom of Shadra
+init
+    superShadraPoison()
+function superShadraPoison()
+    EventListener.onPointCast(ABILITY_46) (unit caster, vec2 target) ->
+        ArtilleryDetection.fireArtillery(caster, POISON_SPIT_ARTILLERY, caster.getPos(), vec2(GetSpellTargetX(), GetSpellTargetY())) (unit detectionUnit, unit caster, int data) ->
+            let targetPos = detectionUnit.getPos()
+            SOUND_POISON_SPIT.playOnPoint(targetPos.toVec3())
+            forUnitsInRange(targetPos, 350, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    new DummyCaster()
+                    ..owner(caster.getOwner())
+                    ..origin(caster.getPos())
+                    ..castTarget(ABILITY_37, 1, OrderIds.slow, u)
+                    ..castTarget(ABILITY_45, 1, OrderIds.innerfire, u)
+                    var dmg = I2R(caster.getAbilityLevel(ABILITY_46) * GetHeroInt(caster, true))
+                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    doPeriodicallyCounted(1, 4) (CallbackCounted cb) ->
+                        dmg = I2R(caster.getAbilityLevel(ABILITY_46) * GetHeroInt(caster, true))
+                        caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

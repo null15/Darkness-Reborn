@@ -55,6 +55,28 @@ public constant ABILITY_32 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_33 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_34 = compiletime(ABIL_ID_GEN.next())
 
+public constant ABILITY_35 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_36 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_37 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_38 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_39 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_40 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_41 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_42 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_43 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_44 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_45 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_46 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_47 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_48 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_49 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_50 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_51 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_52 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_53 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_54 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_55 = compiletime(ABIL_ID_GEN.next())
+
 
 
 init
