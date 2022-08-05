@@ -1,0 +1,26 @@
+package CleanItems
+import ClosureEvents
+import ClosureTimers
+bool clean = false
+init
+    cleanItems()
+function cleanItemsFilter() returns boolean
+    return GetEnumItem().getPos().isInRect(gg_rct_DiscardPile) or GetEnumItem().getPos().isInRect(gg_rct_CleanItemsArea1) or GetEnumItem().getPos().isInRect(gg_rct_CleanItemsArea2) or GetEnumItem().getPos().isInRect(gg_rct_CleanItemsArea3)
+
+function cleanItemsAct()
+    GetEnumItem().remove()
+    
+function cleanItems()
+    EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
+        if GetTriggerPlayer() == Player(0) and EventData.getChatMessage() == "-clean" and not clean
+            clean = true
+            printTimed(COLOR_GOLD_STR+"Cleaning items in 10 seconds, use '|r"+COLOR_WHITE_STR+"-stopclean|r'"+COLOR_GOLD_STR+" to stop this action|r", 5)
+            doAfter(10) ->
+                if clean 
+                    EnumItemsInRect(GetPlayableMapRect(), Filter(function cleanItemsFilter), function cleanItemsAct)
+                    clean = false
+                    printTimed(COLOR_GOLD_STR+"Cleaning finished", 3)
+
+        else if GetTriggerPlayer() == Player(0) and EventData.getChatMessage() == "-stopclean"
+            clean = false
+            printTimed(COLOR_GOLD_STR+"Cleaning stopped", 3)

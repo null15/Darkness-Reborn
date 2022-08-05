@@ -3,13 +3,10 @@ import ClosureTimers
 import MyUnitIds
 import Icons
 import ClosureEvents
-import MoonUtils
 bool onceLumber = true
 bool onceGold = true
 int lumberGain = 0
-int lumberMillCount = 0
 int goldGain = 0
-int goldMineCount = 0
 unit lumberMill = null
 unit goldMine = null
 init
@@ -23,11 +20,7 @@ function addGold(unit u)
 
 function tinkerResourceProduction()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH)..registerAnyUnitEvent(EVENT_PLAYER_UNIT_UPGRADE_FINISH)..addAction() ->
-        if(GetConstructedStructure().getTypeId() == TINKERBUILDING_58)
-            SetPlayerTechMaxAllowed(GetConstructedStructure().getOwner(), TINKERBUILDING_58, 0)
-
         if GetTriggerUnit().getIcon() == Icons.bTNHumanLumberMill
-            lumberMillCount += 1
             lumberMill = GetTriggerUnit()
             if lumberMill.getTypeId() == TINKERBUILDING_103
                 lumberGain = 1
@@ -47,7 +40,6 @@ function tinkerResourceProduction()
                     addLumber(lumberMill)
 
         if GetTriggerUnit().getIcon() == Icons.bTNGoldmine
-            goldMineCount += 1
             goldMine = GetTriggerUnit()
             if goldMine.getTypeId() == TINKERBUILDING_95
                 goldGain = 2
@@ -71,21 +63,12 @@ function tinkerResourceProduction()
                     addGold(goldMine)
 
     EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_START) -> // limit count to 1
-        if GetConstructingStructure().getIcon() == Icons.bTNHumanLumberMill and lumberMillCount > 0
+        if GetConstructingStructure().getIcon() == Icons.bTNHumanLumberMill or GetConstructingStructure().getIcon() == Icons.bTNGoldmine
             let u = GetTriggerUnit()
-            doAfter(0.1) -> 
-                u.explode()
-                simError(u.getOwner(), "You may only have one building of this type")
-        else if GetConstructingStructure().getIcon() == Icons.bTNGoldmine and goldMineCount > 0
-            let u = GetTriggerUnit()
-            doAfter(0.1) -> 
-                u.explode()
-                simError(u.getOwner(), "You may only have one building of this type")
+            SetPlayerTechMaxAllowedSwap(GetConstructingStructure().getTypeId(), 1, u.getOwner())
 
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() -> // reset income if said building dies
         if GetTriggerUnit() == lumberMill
             lumberGain = 0
-            lumberMillCount = 0
         else if GetTriggerUnit() == goldMine
             goldGain = 0
-            goldMineCount = 0

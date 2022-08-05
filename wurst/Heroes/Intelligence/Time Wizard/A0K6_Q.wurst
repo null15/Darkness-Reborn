@@ -11,14 +11,15 @@ function timeTravel()
         let sfx2 = addEffect("Effects\\Void Teleport Silver To.mdl", target)
         let angle1 = sfx.getPos().angleTo(sfx2.getPos())
         let angle2 = sfx2.getPos().angleTo(sfx.getPos())
-        doPeriodicallyTimed(0.05, 7) (CallbackCounted cb) ->
-            forUnitsInRange(sfx.getPos(), 25, true) (unit u) ->
+        sfx.setPos(sfx.getPos().polarOffset(angle1, 200))
+        doPeriodicallyTimed(0.05, 10) (CallbackCounted cb) ->
+            forUnitsInRange(sfx.getPos(), 75, true) (unit u) ->
                 if caster.isAllyOf(u)
                     u.setPos(target.polarOffset(angle2, 200))
                     flashEffect("Teleport.mdl", u.getPos())
-            forUnitsInRange(sfx2.getPos(), 25, true) (unit u) ->
+            forUnitsInRange(sfx2.getPos(), 75, true) (unit u) ->
                 if caster.isAllyOf(u)
-                    u.setPos(casterPos.polarOffset(angle1, 200))
+                    u.setPos(casterPos.polarOffset(angle1, 400))
                     flashEffect("Teleport.mdl", u.getPos())
             if cb.isLast()
                 sfx.destr()
