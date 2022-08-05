@@ -1072,7 +1072,7 @@ init
 
     new HeroDefinition(PLAY_HERO_8, UnitIds.arthaswithfrostmourne)// Athas (H00B)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A00S', 'A00B', 'A00A', 'A0DJ', ABILITY_53))
+    ..setHeroAbilities(commaList('A00S', 'A00B', 'A00A', 'A0DJ', 'A118'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     
     ..setPrimaryAttribute("Strength")
@@ -1170,7 +1170,7 @@ init
 
     new HeroDefinition(PLAY_HERO_9, UnitIds.priestessofthemoon)// Priestess of the Moon (E001)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A08A', 'A087', 'A089', 'A08C', ABILITY_54))
+    ..setHeroAbilities(commaList('A08A', 'A087', 'A089', 'A08C', 'A119'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     
     ..setPrimaryAttribute("Agility")
@@ -1368,7 +1368,7 @@ init
 
     new HeroDefinition(PLAY_HERO_11, UnitIds.demonhunter)// Demon Hunter (E002)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A0RW', 'A0TK', 'A008', 'A0E6', ABILITY_50))
+    ..setHeroAbilities(commaList('A0RW', 'A0TK', 'A008', 'A0E6', 'A115'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
 
     ..setPrimaryAttribute("Agility")
@@ -1567,7 +1567,7 @@ init
 
     new HeroDefinition(PLAY_HERO_13, UnitIds.warden)// Warden (E013)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A002', ABILITY_51, 'A0D8', 'A014', 'A00T'))
+    ..setHeroAbilities(commaList('A002', 'A116', 'A0D8', 'A014', 'A00T'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     
     ..setPrimaryAttribute("Agility")
@@ -14424,7 +14424,7 @@ init
     ..setLevel(9)
 
     new UnitDefinition(WAVE_BOSS_50, UnitIds.war2warlock)// Orc Warlock (n02F)
-    ..setNormalAbilities(commaList(ABILITY_35, ABILITY_36, 'A0ZZ'))
+    ..setNormalAbilities(commaList('A100', 'A101', 'A0ZZ'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -15056,7 +15056,7 @@ init
     ..setLevel(45)
 
     new UnitDefinition(WAVE_BOSS_58, UnitIds.chaosgrunt)// Fel Orc Grunt (n02G)
-    ..setNormalAbilities(commaList(ABILITY_37, 'A0ZP', 'A0ZZ'))
+    ..setNormalAbilities(commaList('A102', 'A0ZP', 'A0ZZ'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -15372,7 +15372,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_62, UnitIds.riderlesswyvern)// Wyvern (o00A)
-    ..setNormalAbilities(commaList('A0ZZ', ABILITY_38))
+    ..setNormalAbilities(commaList('A0ZZ', 'A103'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -15767,7 +15767,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_BOSS_67, UnitIds.shaman)// Shaman (o00B)
-    ..setNormalAbilities(commaList('A0ZY', ABILITY_39, ABILITY_40))
+    ..setNormalAbilities(commaList('A0ZY', 'A104', 'A105'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -16162,7 +16162,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_72, UnitIds.nazgrel)// Nazgrel (o00C)
-    ..setNormalAbilities(commaList(ABILITY_36, ABILITY_37, 'A08H'))
+    ..setNormalAbilities(commaList('A101', 'A102', 'A08H'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.60)
@@ -16557,7 +16557,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_77, UnitIds.chaoswolfrider)// Fel Orc Raider (n02H)
-    ..setNormalAbilities(commaList(ABILITY_41, 'Amim'))
+    ..setNormalAbilities(commaList('A106', 'Amim'))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(1.70)
@@ -17110,7 +17110,7 @@ init
     ..setLevel(46)
 
     new UnitDefinition(WAVE_BOSS_84, UnitIds.spiritwyvern)// Spirit Wyvern (o00D)
-    ..setNormalAbilities(commaList(ABILITY_42, ABILITY_38))
+    ..setNormalAbilities(commaList('A107', 'A103'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.75)
@@ -17584,7 +17584,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_90, UnitIds.nagaroyalguard)// Naga Royal Guard (n02J)
-    ..setNormalAbilities(commaList(ABILITY_43, ABILITY_44, 'A10A', 'ACsk'))
+    ..setNormalAbilities(commaList('A108', 'A109', 'A10A', 'ACsk'))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(2.25)
@@ -17979,7 +17979,7 @@ init
     ..setLevel(6)
 
     new UnitDefinition(WAVE_BOSS_95, UnitIds.dragonturtle)// Dragon Turtle (n050)
-    ..setNormalAbilities(commaList('A10B', 'Ansk', ABILITY_43, 'A10C', ABILITY_37, 'A0NL'))
+    ..setNormalAbilities(commaList('A10B', 'Ansk', 'A108', 'A10C', 'A102', 'A0NL'))
 
     ..setScalingValue(1.30)
     ..setSelectionScale(4.00)

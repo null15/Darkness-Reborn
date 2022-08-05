@@ -67,7 +67,7 @@ init
 
                 // Sylvanas (Phantom Arrow) W - Autocast
                 if src.getTypeId() == PLAY_HERO_18 and targ.hasAbility('B001')
-                    phantomArrow(src)
+                    phantomArrow(src, targ)
 
                 // Shadow Vengeance (Fury Peak) Q - Active
                 if src.getTypeId() == PLAY_HERO_12 and src.hasAbility('B00L')

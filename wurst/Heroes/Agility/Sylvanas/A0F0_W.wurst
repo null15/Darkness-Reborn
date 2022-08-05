@@ -6,14 +6,14 @@ init
 
 
 
-public function phantomArrow(unit u)
+public function phantomArrow(unit src, unit targ)
     
-    let hp = u.getMaxHP()
-    let lvl = u.getAbilityLevel('A0F0')
+    let hp = src.getMaxHP()
+    let lvl = src.getAbilityLevel('A0F0')
     let dmg = (lvl*0.03)*hp
 
     //u.damageTarget(target, dmg, false, true, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-    if u.hasAbility('B001')
-        DamageEvent.setAmount(dmg+u.getBaseDamage(1))
-        u.removeAbility('B001')
+    if targ.hasAbility('B001')
+        DamageEvent.addAmount(dmg)
+        targ.removeAbility('B001')
     

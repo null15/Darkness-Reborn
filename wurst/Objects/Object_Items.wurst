@@ -9843,7 +9843,7 @@ init
 
 //I0K2
     new ItemDefinition(ITEM_250, ItemIds.clawsofAttack9)
-    ..setAbilities(commaList('A0MB', ABILITY_45))
+    ..setAbilities(commaList('A0MB', 'A110'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAxeStrike.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -9880,7 +9880,7 @@ init
 
 //I0K4
     new ItemDefinition(ITEM_251, ItemIds.ringofProtection4)
-    ..setAbilities(commaList(ABILITY_46, 'A0W5'))
+    ..setAbilities(commaList('A111', 'A0W5'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpikedArmor.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -9917,7 +9917,7 @@ init
 
 //I0K6
     new ItemDefinition(ITEM_252, ItemIds.bootsofSpeed)
-    ..setAbilities(commaList(ABILITY_47, 'A035', 'A07B'))
+    ..setAbilities(commaList('A112', 'A035', 'A07B'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHoly Heavy Boots.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
