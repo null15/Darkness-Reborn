@@ -1661,7 +1661,7 @@ init
     +" |c00FFFC01Effect of item:|r\n\n"
     +"+80 Damage\n"
     +"+50% Attack speed\n"
-    +"15% Chance to Crit for 2"
+    +"15% Chance to Crit for 2\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Simple Sword (|c007EBFF1Basic Shop 1|r) \n"
     +"Claw of Attack (|c007EBFF1Basic Shop 1|r)\n"
@@ -3269,7 +3269,7 @@ init
     +"+50 Armor\n"
     +"+25 HP/s\n"
     +"+1000 HP\n\n"
-    +"Active: Activate Avatar for 30 seconds"
+    +"Active: Activate Avatar for 30 seconds\n"
     +"|c00FEBA0EMaterial that's used to craft items:|r\n"
     +"Light Armor (|c001CE6B9Recipe Shop 1|r)\n"
     +"Khadgar's Pendant of Health (|c007EBFF1Basic Shop 4|r)\n"
@@ -3539,7 +3539,7 @@ init
     ..setTooltipBasic("Buy Recipe (Recipe 44)")
     ..setTooltipExtended("|c00FFFC01Helm Hermes|r.\n\n"
     +" |c00FFFC01Effect of item:|r\n"
-    +"Increased 100 Strength "
+    +"Increased 100 Strength \n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Helm of Valor (|c001CE6B9Recipe Shop 2|r)\n"
     +"Split Armor (|c001CE6B9Recipe Shop 2|r)")
@@ -3673,7 +3673,7 @@ init
     +"|c00FFFC01Effect of item:|r\n"
     +"+180 Intelligence\n"
     +"+3200 HP\n"
-    +"|c00FFFC01Special Effect: Active: Sends a Frost Nova on the target"
+    +"|c00FFFC01Special Effect: Active: Sends a Frost Nova on the target\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Seer Staff (|c001CE6B9Recipe Shop 2|r)\n"
     +"Orb of Frost (|c001CE6B9Basic Shop 3|r)\n"
@@ -3714,9 +3714,9 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 48)")
     ..setTooltipBasic("Buy Recipe (Recipe 48)")
-    ..setTooltipExtended("|c00FFFC01War Enery|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01War Energy|r.\n\n "
     +"|c00FFFC01Effect of item:|r\n"
-    +"Increase 7000 MP "
+    +"Increase 7000 MP \n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Soul of Kil'jaeden (|c001CE6B9Recipe Shop 3|r)\n"
     +"Arkenstone Fragment (|c001CE6B9Basic Shop 1|r)")
@@ -3760,7 +3760,7 @@ init
     +" |c00FFFC01Effect of item:|r\n\n"
     +"+400 Damage\n"
     +"30% Chance to Freeze Target for 0.1s + deal 1000 Damage\n"
-    +"28% Chance to Crit for 5"
+    +"28% Chance to Crit for 5\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Fire Sword (|c001CE6B9Recipe Shop 1|r)\n"
     +"Ice Sword (|c001CE6B9Recipe Shop 1|r)\n"
@@ -3894,7 +3894,7 @@ init
     +"|c00FFFC01Effect of item:|r\n\n"
     +"+500 Damage\n"
     +"+120 Strength\n"
-    +"25% Chance to Bash for 0"
+    +"25% Chance to Bash for 0\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Silver Hammer (|c001CE6B9Recipe Shop 1|r)\n"
     +"Kraken Dagger (|c001CE6B9Recipe Shop 2|r)\n"
@@ -3982,7 +3982,7 @@ init
     +"+4000 Damage\n"
     +"+100% Attack speed\n"
     +"-80 Armor on-hit.\n"
-    +"Effect cannot be used together with Orb of Corruption"
+    +"Effect cannot be used together with Orb of Corruption\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Midnight Blade (|c001CE6B9Recipe Shop 3|r)\n"
     +"Gloves of Speed (|c001CE6B9Recipe Shop 1|r)\n"
@@ -4209,8 +4209,8 @@ init
     ..setTooltipExtended("|c00FFFC01Gold Axe|r\n"
     +"|c00FFFC01Effect:|r  \n\n"
     +"+700 Damage\n"
-    +"70% Chance to Crit for 2 times Damage.\n\n"
-    +"|c00FEBA0EAdvanced Recipe (Recipe :|r\n"
+    +"70% Chance to Crit for 2 times Damage.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Blade of Hell.\n"
     +"Steel Axe.")
     ..setHotkey("")
@@ -4402,7 +4402,7 @@ init
     +"\n\n"
     +"+130 Armor.\n"
     +"+HP 5000\n\n"
-    +"When attacked you have a 30% to heal for 500 HP"
+    +"When attacked you have a 30% to heal for 500 HP\n"
     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
     +"Scepter of Healing (|c007EBFF1Monster Drop|r)\n"
     +"Steel Shield (|c007EBFF1Basic Shop 1|r)")
@@ -4447,7 +4447,7 @@ init
     +"+190 Armor.\n"
     +"+2000HP.\n"
     +"+200 Intelligence.\n"
-    +"When attacked you have a 20% to gain back 1xint mana"
+    +"When attacked you have a 20% to gain back 1xint mana\n"
     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
     +"Shiny Armor (|c001CE6B9Advanced Recipe Shop 1|r)\n"
     +"Soul of Kil'jeaden(|c007EBFF1Basic Shop 1|r)\n"
@@ -5241,7 +5241,7 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FF0303Dragon Wings|r")
     ..setTooltipBasic("Buy |c00FF0303Dragon Wings|r")
-    ..setTooltipExtended("|c00FF0303Mét chiÕc c¸nh rång cæ ®¹i ! vÉn cßn mang trong m×nh søc m¹nh cña loµi rång ")
+    ..setTooltipExtended("|c00FF0303Dragon Wings require Dragon Bone, Dragon Spirit, Dragon Claw and Dragon Skin|r")
     ..setHotkey("")
 
 //I0CZ
@@ -9465,8 +9465,8 @@ init
     ..setRequirements("")
     ..setRequirementsLevels("")
     ..setDescription("|c00FFFC01Effect:|r \nIncrease 7000 MP ")
-    ..setName("War Enery")
-    ..setTooltipBasic("War Enery")
+    ..setName("War Energy")
+    ..setTooltipBasic("War Energy")
     ..setTooltipExtended("|c00FFFC01Effect:|r \nIncrease 7000 MP ")
     ..setHotkey("W")
 
@@ -18985,9 +18985,10 @@ init
     ..setRequirements("")
     ..setRequirementsLevels("")
     ..setDescription("|c00FFFC01Destroy Sword II|r.\n\n "
-    +"|c00FFFC01Effect of item:|r\n|"
-    +"c00FEBA0E\n+1700 Damage. 25% Chance to Crit for 11 times damage.\n.|r\n\n|"
-    +"c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"|c00FEBA0E+1700 Damage. \n"
+    +"25% Chance to Crit for 11 times damage.|r\n"
+    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
     +"Dark Steel Sword\n"
     +"Crystal Sword")
     ..setName("Treasure of Tinker (Recipe 3)")

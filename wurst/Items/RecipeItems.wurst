@@ -627,14 +627,12 @@ function recipeItemReplace()
             u.addItemById(ITEM_181)
 
         // Lancelot Shield
-        else if u.hasItemById(ITEM_104) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_231) and u.hasItemById(ITEM_335)
-            RemoveItem(u.getItemById(ITEM_105))
-            RemoveItem(u.getItemById(ITEM_199))
-            RemoveItem(u.getItemById(ITEM_231))
-            RemoveItem(u.getItemById(ITEM_335))
-            u.addItemById(ITEM_183)
+        else if u.hasItemById(ITEM_104) and u.hasItemById(ITEM_314)
+            RemoveItem(u.getItemById(ITEM_104))
+            RemoveItem(u.getItemById(ITEM_314))
+            u.addItemById(ITEM_182)
 
-        // Lancelot Armor
+        // Lancelot Armor   
         else if u.hasItemById(ITEM_105) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_231) and u.hasItemById(ITEM_335)
             RemoveItem(u.getItemById(ITEM_105))
             RemoveItem(u.getItemById(ITEM_199))
