@@ -1285,14 +1285,14 @@ import Icons
 
     new AbilityDefinitionInferno(ABILITY_14)
     ..setLevels(1)
-    ..setDamage(3000, 1)
+    ..setDamage(1, 3000)
     ..setDuration(1, 160)
     ..setSummonedUnit(1, ABILITYUNIT_0.toRawCode())
     ..setAreaofEffect(1, 400)
     ..setHeroAbility(false)
     ..setItemAbility(true)
     ..setManaCost(1, 999)
-    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris))
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris, TargetsAllowed.enemies))
 
     new AbilityDefinitionBladeMasterCriticalStrike(ABILITY_15)
     ..setLevels(1)

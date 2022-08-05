@@ -11,6 +11,7 @@ import CodeDialog
 import Global_Variables
 import TeleportToMobs
 import GameEnd
+import EternalFlame
 public unit elementalSoul
 real facing = 270
 real facingUp = 90
@@ -41,6 +42,9 @@ function onBuyHero(unit u)
                 heroRespawn(playerHero[i])
                 playerHero[i].setPos(gg_rct_Base.getCenter())
                 players[i].setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 0)
+                GetBuyingUnit().remove()
+                if(soldUnit.getTypeId() == PLAY_HERO_21)
+                    fireMage = soldUnit
 
 function createSetup()
     let p = Player(10)

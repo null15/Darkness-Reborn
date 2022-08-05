@@ -22,6 +22,7 @@ import A01O_P
 import A0DI_R
 import A0TZ_R
 import A0E7_E
+import EternalFlame
 
 import LancelotSet
 import HelmofHermes
@@ -120,11 +121,15 @@ init
                     thornRoot(targ, src)
 
                 // Fire Mage (Fire Shield) E - Active
-                if targ.getTypeId() == PLAY_HERO_21 and targ.getAbilityLevel('A0E7') > 0
+                if targ.getTypeId() == PLAY_HERO_21 and targ.getAbilityLevel('B900') > 0
                     fireShield(src, targ)
 
                 if targ.hasItemById(ITEM_233)
                     hermesHelm(targ, src)
+
+                //Lancelot Armor
+                if targ.hasItemById(ITEM_183) and GetRandomInt(0, 100) < 20
+                    lancelotSetMana(targ)
 
                 if targ.hasItemById(ITEM_362)
                     
@@ -168,11 +173,11 @@ init
                 if src.hasItemById(ITEM_640) and GetRandomInt(0, 100) < 14
                     ravenBlade(src, targ, 3)
 
-                if src.hasItemById(ITEM_385) and GetRandomInt(0, 100) < 33 
-                    apolloHelm(src, targ)
+                if targ.hasItemById(ITEM_385) and GetRandomInt(0, 100) < 33 
+                    apolloHelm(targ, src)
 
-                if src.hasItemById(ITEM_122) and GetRandomInt(0, 100) < 50
-                    crystalArmor(src, targ)
+                if targ.hasItemById(ITEM_122) and GetRandomInt(0, 100) < 50
+                    crystalArmor(targ, src)
 
                 if src.hasItemById(ITEM_125) and GetRandomInt(0, 100) < 15
                     crystalSpear(src, targ)
@@ -212,11 +217,16 @@ init
                     count_A006 = count_A006 + 1
                     doAfter(5) -> 
                         count_A006 = 0    
+                if DamageEvent.getSource().getAbilityLevel('A11C') > 0 or DamageEvent.getSource().getAbilityLevel('A0N0') > 0
+                    eternalFlame(DamageEvent.getSource(), DamageEvent.getTarget())
                 
             case CODE
 
                 // Fire Lord (Blaze)
                 if DamageEvent.getId() == 'A01P' or DamageEvent.getId() == 'AO1T' or DamageEvent.getId() == 'A01U' or DamageEvent.getId() == 'A01S'
                     blaze(DamageEvent.getSource(), DamageEvent.getTarget())
+                // Firemage
+                if DamageEvent.getId() == 'A0MN' or DamageEvent.getId() == 'AOE7'
+                    eternalFlame(DamageEvent.getSource(), DamageEvent.getTarget())
 
             default

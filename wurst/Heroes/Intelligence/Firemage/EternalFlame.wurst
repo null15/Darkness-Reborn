@@ -1,0 +1,7 @@
+package EternalFlame
+
+public unit fireMage
+
+public function eternalFlame(unit src, unit target)
+    let amount = (fireMage.getAbilityLevel('A004')*0.1 + fireMage.getAbilityLevel('A901')*0.4 + 0.1) * fireMage.getInt(true) 
+    src.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

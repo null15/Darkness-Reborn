@@ -23,6 +23,9 @@ function addGold(unit u)
 
 function tinkerResourceProduction()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH)..registerAnyUnitEvent(EVENT_PLAYER_UNIT_UPGRADE_FINISH)..addAction() ->
+        if(GetConstructedStructure().getTypeId() == TINKERBUILDING_58)
+            SetPlayerTechMaxAllowed(GetConstructedStructure().getOwner(), TINKERBUILDING_58, 0)
+
         if GetTriggerUnit().getIcon() == Icons.bTNHumanLumberMill
             lumberMillCount += 1
             lumberMill = GetTriggerUnit()

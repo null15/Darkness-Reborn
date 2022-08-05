@@ -740,18 +740,31 @@ function recipeItemReplace()
             RemoveItem(u.getItemById(ITEM_38))
             u.addItemById(ITEM_195)
 
-        //Jewelry of Life
+        //Lancelot's ring
+        else if u.hasItemById(ITEM_194) and u.hasItemById(ITEM_36)
+            RemoveItem(u.getItemById(ITEM_194))
+            RemoveItem(u.getItemById(ITEM_36))
+            u.addItemById(ITEM_191)
+
+        //Guinevere's Ring
         else if u.hasItemById(ITEM_37) and u.hasItemById(ITEM_195) and u.hasItemById(ITEM_15)
             RemoveItem(u.getItemById(ITEM_37))
             RemoveItem(u.getItemById(ITEM_195))
             RemoveItem(u.getItemById(ITEM_15))
             u.addItemById(ITEM_192)
 
-        //Jewelry of Life
+        //Jewelry of Mana
         else if u.hasItemById(ITEM_36) and u.hasItemById(ITEM_35)
             RemoveItem(u.getItemById(ITEM_36))
             RemoveItem(u.getItemById(ITEM_35))
             u.addItemById(ITEM_194)
+
+        //ArkenstoneFragment
+        else if u.hasItemById(ITEM_192) and u.hasItemById(ITEM_191) and u.hasItemById(ITEM_35)
+            RemoveItem(u.getItemById(ITEM_192))
+            RemoveItem(u.getItemById(ITEM_191))
+            RemoveItem(u.getItemById(ITEM_35))
+            u.addItemById(ITEM_193)
 
         //Perfect Carnelian
         else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_351)
