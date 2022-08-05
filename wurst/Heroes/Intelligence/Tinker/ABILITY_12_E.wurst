@@ -8,7 +8,7 @@ init
     factorySpawn()
 function factorySpawn()
     EventListener.onPointCast(ABILITY_12) (unit caster, vec2 target) ->
-        doAfter(1.5) -> 
-            forUnitsInRange(target, 200) (unit u) ->
+        doAfter(1) -> 
+            forUnitsInRange(target, 500) (unit u) ->
                 if u.getTypeId() == FACTORYROBO
                     u.setInvulnerable(true)

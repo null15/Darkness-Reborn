@@ -72,12 +72,12 @@ rect gg_rct_EnterTinkerArea= null
 rect gg_rct_LeaveTinkerArea= null
 rect gg_rct_TidecallerEntrance= null
 rect gg_rct_BlockTinkerBuildings= null
-camerasetup gg_cam_CameraHeroPick= null
-camerasetup gg_cam_CameraHeroPicked= null
-trigger gg_trg_TimeUp= null
 rect gg_rct_CleanItemsArea1= null
 rect gg_rct_CleanItemsArea2= null
 rect gg_rct_CleanItemsArea3= null
+camerasetup gg_cam_CameraHeroPick= null
+camerasetup gg_cam_CameraHeroPicked= null
+trigger gg_trg_TimeUp= null
 
 
 //JASSHelper struct globals:
