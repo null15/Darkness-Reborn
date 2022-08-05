@@ -822,7 +822,7 @@ function recipeItemReplace()
             RemoveItem(u.getItemById(ITEM_276))
             RemoveItem(u.getItemById(ITEM_173))
             RemoveItem(u.getItemById(ITEM_22))
-            u.addItemById(ITEM_191)
+            u.addItemById(ITEM_120)
 
         // // 
         // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)
