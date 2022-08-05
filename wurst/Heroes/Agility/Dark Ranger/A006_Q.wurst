@@ -33,6 +33,7 @@ function imageArrow()
         location polarProj3 = PolarProjectionBJ(polarProj,(200.00*I2R(GetForLoopIndexA())),(angleBetween-45.00))
         bj_forLoopAIndex=1
         bj_forLoopAIndexEnd=3
+        caster.startAbilityCooldown('A006')
         while true
             if bj_forLoopAIndex>bj_forLoopAIndexEnd
                 break

@@ -1,5 +1,4 @@
 package A00G_E
-
 init
 
     darkDrain()
@@ -8,10 +7,11 @@ function darkDrainCond() returns boolean
     return GetSpellAbilityId() == 'A00G'
 
 function darkDrain()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function darkDrainCond))..addAction() ->
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function darkDrainCond))..addAction() ->   
         let target = GetSpellTargetUnit()
         let caster = GetTriggerUnit()
         let lvl = GetUnitAbilityLevel(caster, 'A00G')
         let dmg = (caster.getAgi(true)*(lvl*2))
         caster.damageTarget(target, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
         caster.addMana(I2R(caster.getAgi(true)))
+        caster.startAbilityCooldown('A00G')

@@ -34,17 +34,18 @@ function eliteSideCreeps(unit u)
         dropMyItemsEliteCreeps(u1)
         for i = 1 to 10
             if u1 == eliteCreep[i]
-                doAfter(5) -> 
-                    if i < 6
+                if i == 6 or i == 7
+                    doAfter(1) -> 
                         eliteCreep[i] = createUnit(hostile, GetUnitTypeId(eliteCreep[i]), eliteLoc[i].getCenter(), facingUp.asAngleDegrees())
                         eliteSideCreeps(eliteCreep[i])
-                    else if i == 6 or i == 7
+                if i <= 5 
+                    doAfter(5) -> 
                         eliteCreep[i] = createUnit(hostile, GetUnitTypeId(eliteCreep[i]), eliteLoc[i].getCenter(), facing.asAngleDegrees())
                         eliteSideCreeps(eliteCreep[i])
-                    else if i == 10
-                        doAfter(15) -> 
-                            eliteCreep[i] = createUnit(hostile, GetUnitTypeId(eliteCreep[i]), eliteLoc[i].getCenter(), facing.asAngleDegrees())
-                            eliteSideCreeps(eliteCreep[i])
+                if i == 10
+                    doAfter(15) -> 
+                        eliteCreep[10] = createUnit(hostile, ELITE_CREEP[10], eliteLoc[10].getCenter(), facing.asAngleDegrees())
+                        eliteSideCreeps(eliteCreep[10])
 
 public function eliteSideCreepsSetup()
     for i = 1 to 5

@@ -63,12 +63,16 @@ function tinkerResourceProduction()
                     addGold(goldMine)
 
     EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_START) -> // limit count to 1
-        if GetConstructingStructure().getIcon() == Icons.bTNHumanLumberMill or GetConstructingStructure().getIcon() == Icons.bTNGoldmine
-            let u = GetTriggerUnit()
-            SetPlayerTechMaxAllowedSwap(GetConstructingStructure().getTypeId(), 1, u.getOwner())
+        let u = GetTriggerUnit()
+        if GetConstructingStructure().getIcon() == Icons.bTNHumanLumberMill
+            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, 0, u.getOwner())
+        else if GetConstructingStructure().getIcon() == Icons.bTNGoldmine
+            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 0, u.getOwner())
 
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() -> // reset income if said building dies
         if GetTriggerUnit() == lumberMill
             lumberGain = 0
+            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, 1, GetTriggerUnit().getOwner())
         else if GetTriggerUnit() == goldMine
+            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 1, GetTriggerUnit().getOwner())
             goldGain = 0
