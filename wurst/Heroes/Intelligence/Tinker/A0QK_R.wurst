@@ -1,7 +1,6 @@
 package A0QK_R
 import ClosureEvents
 import ClosureTimers
-bool run = true
 init
     repair()
 function repair()

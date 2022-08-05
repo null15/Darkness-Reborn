@@ -75,6 +75,9 @@ rect gg_rct_BlockTinkerBuildings= null
 camerasetup gg_cam_CameraHeroPick= null
 camerasetup gg_cam_CameraHeroPicked= null
 trigger gg_trg_TimeUp= null
+rect gg_rct_CleanItemsArea1= null
+rect gg_rct_CleanItemsArea2= null
+rect gg_rct_CleanItemsArea3= null
 
 
 //JASSHelper struct globals:
@@ -189,6 +192,9 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_LeaveTinkerArea=Rect(- 736.0, - 8032.0, - 544.0, - 7840.0)
     set gg_rct_TidecallerEntrance=Rect(- 928.0, - 11104.0, - 224.0, - 10976.0)
     set gg_rct_BlockTinkerBuildings=Rect(- 1440.0, - 6240.0, 160.0, - 2720.0)
+    set gg_rct_CleanItemsArea1=Rect(- 9600.0, - 6400.0, - 2944.0, - 2048.0)
+    set gg_rct_CleanItemsArea2=Rect(- 5088.0, - 704.0, 3936.0, 5312.0)
+    set gg_rct_CleanItemsArea3=Rect(- 1504.0, - 3872.0, 192.0, - 672.0)
 endfunction
 
 //***************************************************************************
@@ -227,35 +233,6 @@ function CreateCameras takes nothing returns nothing
     call CameraSetupSetField(gg_cam_CameraHeroPicked, CAMERA_FIELD_LOCAL_ROLL, 0.0, 0.0)
     call CameraSetupSetDestPosition(gg_cam_CameraHeroPicked, - 636.8, - 5570.0, 0.0)
 
-endfunction
-
-//***************************************************************************
-//*
-//*  Triggers
-//*
-//***************************************************************************
-
-//===========================================================================
-// Trigger: TimeUp
-//===========================================================================
-function Trig_TimeUp_Actions takes nothing returns nothing
-    call SetTimeOfDayScalePercentBJ(0.00)
-    call LockGameSpeedBJ()
-    call SetTimeOfDay(0.00)
-    call SetDayNightModels("DNCDarkNightsTerrain.mdl", "DNCDarkNightsUnit.mdl")
-    call CreateFogModifierRectBJ(true, Player(0), FOG_OF_WAR_VISIBLE, GetPlayableMapRect())
-endfunction
-
-//===========================================================================
-function InitTrig_TimeUp takes nothing returns nothing
-    set gg_trg_TimeUp=CreateTrigger()
-    call TriggerRegisterTimerEventSingle(gg_trg_TimeUp, 0.10)
-    call TriggerAddAction(gg_trg_TimeUp, function Trig_TimeUp_Actions)
-endfunction
-
-//===========================================================================
-function InitCustomTriggers takes nothing returns nothing
-    call InitTrig_TimeUp()
 endfunction
 
 //***************************************************************************
@@ -833,7 +810,6 @@ function main takes nothing returns nothing
 
 
     call InitGlobals()
-    call InitTrig_TimeUp() // INLINED!!
 
 endfunction
 

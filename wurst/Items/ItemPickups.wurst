@@ -12,5 +12,10 @@ function dragonWings()
             BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 5)
         else if u.hasItemById(ITEM_253) and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) == 5 and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 6
             BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 6)
+<<<<<<< Updated upstream
 
         GetManipulatedItem().setUserData(1)
+=======
+        
+        GetManipulatedItem().setUserData(1)
+>>>>>>> Stashed changes

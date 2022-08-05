@@ -6,7 +6,6 @@ import MyBuildingsIds
 import RespawnCreeps
 import MyUnitIds
 import HeroRespawnTimer
-import ItemRemoveTimer
 import CodeDialog
 import Global_Variables
 import TeleportToMobs
@@ -101,7 +100,6 @@ function mapSetup()
             eliteSideCreepsSetup()
             bossCreepSetup()
             overdryaSetup()
-            itemRemoveTimer()
             codeDialog()
             destroy dBox
         
