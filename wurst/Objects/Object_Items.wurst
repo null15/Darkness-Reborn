@@ -4449,9 +4449,9 @@ init
     +"+200 Intelligence.\n"
     +"When attacked you have a 20% to gain back 1xint mana\n"
     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Shiny Armor (|c001CE6B9Advanced Recipe Shop 1|r)\n"
+    +"Light Armor (|c001CE6B9Recipe Shop 1|r)\n"
     +"Soul of Kil'jeaden(|c007EBFF1Basic Shop 1|r)\n"
-    +"Crown of Wizard(Monster Drop)")
+    +"Crown of Soldier(Monster Drop)")
     ..setHotkey("")
 
 //I0EF
