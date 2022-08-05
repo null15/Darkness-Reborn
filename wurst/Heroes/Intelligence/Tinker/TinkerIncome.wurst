@@ -1,0 +1,88 @@
+package TinkerIncome
+import ClosureTimers
+import MyUnitIds
+import Icons
+import ClosureEvents
+import MoonUtils
+bool onceLumber = true
+bool onceGold = true
+int lumberGain = 0
+int lumberMillCount = 0
+int goldGain = 0
+int goldMineCount = 0
+unit lumberMill = null
+unit goldMine = null
+init
+    tinkerResourceProduction()
+
+function addLumber(unit u)
+    u.getOwner().addLumber(lumberGain)
+
+function addGold(unit u)
+    u.getOwner().addGold(goldGain)
+
+function tinkerResourceProduction()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH)..registerAnyUnitEvent(EVENT_PLAYER_UNIT_UPGRADE_FINISH)..addAction() ->
+        if GetTriggerUnit().getIcon() == Icons.bTNHumanLumberMill
+            lumberMillCount += 1
+            lumberMill = GetTriggerUnit()
+            if lumberMill.getTypeId() == TINKERBUILDING_103
+                lumberGain = 1
+            else if lumberMill.getTypeId() == TINKERBUILDING_104
+                lumberGain = 2
+            else if lumberMill.getTypeId() == TINKERBUILDING_105
+                lumberGain = 4
+            else if lumberMill.getTypeId() == TINKERBUILDING_106
+                lumberGain = 8
+            else if lumberMill.getTypeId() == TINKERBUILDING_107
+                lumberGain = 16
+            else if lumberMill.getTypeId() == TINKERBUILDING_108
+                lumberGain = 32
+            if onceLumber
+                onceLumber = false
+                doPeriodically(32) (CallbackPeriodic cb) ->
+                    addLumber(lumberMill)
+
+        if GetTriggerUnit().getIcon() == Icons.bTNGoldmine
+            goldMineCount += 1
+            goldMine = GetTriggerUnit()
+            if goldMine.getTypeId() == TINKERBUILDING_95
+                goldGain = 2
+            else if goldMine.getTypeId() == TINKERBUILDING_96
+                goldGain = 4
+            else if goldMine.getTypeId() == TINKERBUILDING_97
+                goldGain = 8
+            else if goldMine.getTypeId() == TINKERBUILDING_98
+                goldGain = 16
+            else if goldMine.getTypeId() == TINKERBUILDING_99
+                goldGain = 32
+            else if goldMine.getTypeId() == TINKERBUILDING_100
+                goldGain = 64
+            else if goldMine.getTypeId() == TINKERBUILDING_101
+                goldGain = 128
+            else if goldMine.getTypeId() == TINKERBUILDING_102
+                goldGain = 256
+            if onceGold
+                onceGold = false
+                doPeriodically(.4) (CallbackPeriodic cb) ->
+                    addGold(goldMine)
+
+    EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_START) -> // limit count to 1
+        if GetConstructingStructure().getIcon() == Icons.bTNHumanLumberMill and lumberMillCount > 0
+            let u = GetTriggerUnit()
+            doAfter(0.1) -> 
+                u.explode()
+                simError(u.getOwner(), "You may only have one building of this type")
+        else if GetConstructingStructure().getIcon() == Icons.bTNGoldmine and goldMineCount > 0
+            let u = GetTriggerUnit()
+            doAfter(0.1) -> 
+                u.explode()
+                simError(u.getOwner(), "You may only have one building of this type")
+
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() -> // reset income if said building dies
+        if GetTriggerUnit() == lumberMill
+            lumberGain = 0
+            lumberMillCount = 0
+        else if GetTriggerUnit() == goldMine
+            goldGain = 0
+            goldMineCount = 0

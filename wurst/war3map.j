@@ -71,6 +71,7 @@ rect gg_rct_ShopRight= null
 rect gg_rct_EnterTinkerArea= null
 rect gg_rct_LeaveTinkerArea= null
 rect gg_rct_TidecallerEntrance= null
+rect gg_rct_BlockTinkerBuildings= null
 camerasetup gg_cam_CameraHeroPick= null
 camerasetup gg_cam_CameraHeroPicked= null
 trigger gg_trg_TimeUp= null
@@ -187,6 +188,7 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_EnterTinkerArea=Rect(- 736.0, - 6880.0, - 544.0, - 6688.0)
     set gg_rct_LeaveTinkerArea=Rect(- 736.0, - 8032.0, - 544.0, - 7840.0)
     set gg_rct_TidecallerEntrance=Rect(- 928.0, - 11104.0, - 224.0, - 10976.0)
+    set gg_rct_BlockTinkerBuildings=Rect(- 1440.0, - 6240.0, 160.0, - 2720.0)
 endfunction
 
 //***************************************************************************
@@ -820,7 +822,7 @@ endfunction
 //===========================================================================
 function main takes nothing returns nothing
     call SetCameraBounds(- 9984.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), - 13184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 8832.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 5504.0 - GetCameraMargin(CAMERA_MARGIN_TOP), - 9984.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 5504.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 8832.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), - 13184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM))
-    call SetDayNightModels("Environment\\DNC\\DNCDungeon\\DNCDungeonTerrain\\DNCDungeonTerrain.mdl", "Environment\\DNC\\DNCDungeon\\DNCDungeonUnit\\DNCDungeonUnit.mdl")
+    call SetDayNightModels("Environment\\DNC\\DNCUnderground\\DNCUndergroundTerrain\\DNCUndergroundTerrain.mdl", "Environment\\DNC\\DNCUnderground\\DNCUndergroundUnit\\DNCUndergroundUnit.mdl")
     call NewSoundEnvironment("Default")
     call SetAmbientDaySound("DungeonDay")
     call SetAmbientNightSound("DungeonNight")

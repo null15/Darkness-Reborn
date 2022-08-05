@@ -1,10 +1,9 @@
 package ConstructFinish
-
 import ClosureEvents
 import ClosureForGroups
 import ClosureTimers
 import MyUnitIds
-
+import MoonUtils
 init
     constructFinish()
 function constructFinish()
@@ -14,3 +13,7 @@ function constructFinish()
             forUnitsInRange(construction.getPos(), 500) (unit u) ->
                 if u.getTypeId() == CLOCKWERK_0
                     u.remove()
+    CreateTrigger()..registerEnterRect(gg_rct_BlockTinkerBuildings)..addAction() ->
+        if GetEnteringUnit().isType(UNIT_TYPE_STRUCTURE) and GetEnteringUnit().getOwner() != Player(10)
+            GetEnteringUnit().kill()
+            simError(GetEnteringUnit().getOwner(), "You may not build here")

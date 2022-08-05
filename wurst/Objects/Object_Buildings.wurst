@@ -7511,6 +7511,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_95, UnitIds.goldmine)// Gold Mine + 2 (e00S)
+    ..setIconGameInterface(Icons.bTNGoldmine)
+    ..setIconScoreScreen(Icons.bTNGoldmine)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -7592,6 +7594,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_96, UnitIds.goldmine)// Gold Mine + 4 (e00V)
+    ..setIconGameInterface(Icons.bTNGoldmine)
+    ..setIconScoreScreen(Icons.bTNGoldmine)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -7673,6 +7677,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_97, UnitIds.goldmine)// Gold Mine + 8 (e00X)
+    ..setIconGameInterface(Icons.bTNGoldmine)
+    ..setIconScoreScreen(Icons.bTNGoldmine)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -7754,6 +7760,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_98, UnitIds.goldmine)// Gold Mine + 16 (e00R)
+    ..setIconGameInterface(Icons.bTNGoldmine)
+    ..setIconScoreScreen(Icons.bTNGoldmine)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -7835,6 +7843,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_99, UnitIds.goldmine)// Gold Mine + 32 (e00U)
+    ..setIconGameInterface(Icons.bTNGoldmine)
+    ..setIconScoreScreen(Icons.bTNGoldmine)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -7916,6 +7926,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_100, UnitIds.goldmine)// Gold Mine + 64 (e00W)
+    ..setIconGameInterface(Icons.bTNGoldmine)
+    ..setIconScoreScreen(Icons.bTNGoldmine)
     ..setGroundTexture("")
     ..setRequirements(TINKERBUILDING_59.toRawCode())
     ..setNormalAbilities(commaList(""))
@@ -7997,6 +8009,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_101, UnitIds.goldmine)// Gold Mine + 128 (e00Q)
+    ..setIconGameInterface(Icons.bTNGoldmine)
+    ..setIconScoreScreen(Icons.bTNGoldmine)
     ..setGroundTexture("")
     ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setNormalAbilities(commaList(""))
@@ -8078,6 +8092,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_102, UnitIds.goldmine)// Gold Mine + 256 (e00T)
+    ..setIconGameInterface(Icons.bTNGoldmine)
+    ..setIconScoreScreen(Icons.bTNGoldmine)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -8159,6 +8175,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_103, UnitIds.humanlumbermill)// Lumber Mill + 1 (e01C)
+    ..setIconGameInterface(Icons.bTNHumanLumberMill)
+    ..setIconScoreScreen(Icons.bTNHumanLumberMill)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -8243,6 +8261,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_104, UnitIds.humanlumbermill)// Lumber Mill + 2 (e01D)
+    ..setIconGameInterface(Icons.bTNHumanLumberMill)
+    ..setIconScoreScreen(Icons.bTNHumanLumberMill)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -8325,6 +8345,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_105, UnitIds.humanlumbermill)// Lumber Mill + 4 (e01E)
+    ..setIconGameInterface(Icons.bTNHumanLumberMill)
+    ..setIconScoreScreen(Icons.bTNHumanLumberMill)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -8407,6 +8429,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_106, UnitIds.humanlumbermill)// Lumber Mill + 8 (e01F)
+    ..setIconGameInterface(Icons.bTNHumanLumberMill)
+    ..setIconScoreScreen(Icons.bTNHumanLumberMill)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -8489,6 +8513,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_107, UnitIds.humanlumbermill)// Lumber Mill + 16 (e01G)
+    ..setIconGameInterface(Icons.bTNHumanLumberMill)
+    ..setIconScoreScreen(Icons.bTNHumanLumberMill)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -8571,6 +8597,8 @@ import Units
     ..setManaRegeneration(0.00)
 
     new BuildingDefinition(TINKERBUILDING_108, UnitIds.humanlumbermill)// Lumber Mill + 32 (e01H)
+    ..setIconGameInterface(Icons.bTNHumanLumberMill)
+    ..setIconScoreScreen(Icons.bTNHumanLumberMill)
     ..setGroundTexture("")
     ..setRequirements("")
     ..setNormalAbilities(commaList(""))
@@ -8913,7 +8941,7 @@ import Units
     new BuildingDefinition(TINKERBUILDING_112, UnitIds.arcanevault)// Goblin Magic Vault (n053)
     ..setGroundTexture("")
     ..setRequirements("")
-    ..setNormalAbilities(commaList('_'))
+    ..setNormalAbilities(commaList('Aneu', 'Avul', 'Apit'))
     ..setScalingValue(1.00)
     ..setSelectionScale(3.30)
     ..setAttack1CooldownTime(0.00)
