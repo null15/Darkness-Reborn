@@ -77,7 +77,7 @@ rect gg_rct_CleanItemsArea2= null
 rect gg_rct_CleanItemsArea3= null
 camerasetup gg_cam_CameraHeroPick= null
 camerasetup gg_cam_CameraHeroPicked= null
-trigger gg_trg_TimeUp= null
+trigger gg_trg_GameSpeed= null
 
 
 //JASSHelper struct globals:
@@ -233,6 +233,32 @@ function CreateCameras takes nothing returns nothing
     call CameraSetupSetField(gg_cam_CameraHeroPicked, CAMERA_FIELD_LOCAL_ROLL, 0.0, 0.0)
     call CameraSetupSetDestPosition(gg_cam_CameraHeroPicked, - 636.8, - 5570.0, 0.0)
 
+endfunction
+
+//***************************************************************************
+//*
+//*  Triggers
+//*
+//***************************************************************************
+
+//===========================================================================
+// Trigger: GameSpeed
+//===========================================================================
+function Trig_GameSpeed_Actions takes nothing returns nothing
+    call SetTimeOfDay(12)
+    call SetTimeOfDayScalePercentBJ(350.00)
+endfunction
+
+//===========================================================================
+function InitTrig_GameSpeed takes nothing returns nothing
+    set gg_trg_GameSpeed=CreateTrigger()
+    call TriggerRegisterTimerEventSingle(gg_trg_GameSpeed, 0.01)
+    call TriggerAddAction(gg_trg_GameSpeed, function Trig_GameSpeed_Actions)
+endfunction
+
+//===========================================================================
+function InitCustomTriggers takes nothing returns nothing
+    call InitTrig_GameSpeed()
 endfunction
 
 //***************************************************************************
@@ -810,6 +836,7 @@ function main takes nothing returns nothing
 
 
     call InitGlobals()
+    call InitTrig_GameSpeed() // INLINED!!
 
 endfunction
 
