@@ -35,9 +35,9 @@ function boostUnit()
         ..addItemToSlot(ITEM_384, 1)
     boostMap.put(WAVE_HERO_8) (u) -> // Jacksmith
         u
-        ..addStr(50000)
-        ..addAgi(10000)
-        ..addInt(50000)
+        ..setStr(50000)
+        ..setAgi(10000)
+        ..setInt(50000)
         ..setLevel(150, false)
         ..addItemToSlot(ITEM_380, 0)
         ..addItemToSlot(ITEM_381, 1)
@@ -48,9 +48,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_9) (u) -> // Beastmaster (N02A)
         u
-        ..addStr(60000)
-        ..addAgi(20000)
-        ..addInt(20000)
+        ..setStr(60000)
+        ..setAgi(20000)
+        ..setInt(20000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)
@@ -62,9 +62,9 @@ function boostUnit()
         
     boostMap.put(WAVE_HERO_10) (u) -> // Satyr
         u
-        ..addStr(90000)
-        ..addAgi(55000)
-        ..addInt(10000)
+        ..setStr(90000)
+        ..setAgi(55000)
+        ..setInt(10000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)
@@ -81,9 +81,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_11) (u) -> // Warden
         u
-        ..addStr(130000)
-        ..addAgi(55000)
-        ..addInt(10000)
+        ..setStr(130000)
+        ..setAgi(55000)
+        ..setInt(10000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)
@@ -98,9 +98,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_12) (u) -> // Blademaster
         u
-        ..addStr(100000)
-        ..addAgi(55000)
-        ..addInt(15000)
+        ..setStr(100000)
+        ..setAgi(55000)
+        ..setInt(15000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)
@@ -114,9 +114,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_13) (u) -> // Tauren Chieftain
         u
-        ..addStr(70000)
-        ..addAgi(50000)
-        ..addInt(20000)
+        ..setStr(70000)
+        ..setAgi(50000)
+        ..setInt(20000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)
@@ -133,9 +133,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_14) (u) -> // Wolfman
         u
-        ..addStr(70000)
-        ..addAgi(50000)
-        ..addInt(25000)
+        ..setStr(70000)
+        ..setAgi(50000)
+        ..setInt(25000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)
@@ -152,9 +152,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_15) (u) -> // Mountain King
         u
-        ..addStr(75000)
-        ..addAgi(40000)
-        ..addInt(30000)
+        ..setStr(75000)
+        ..setAgi(40000)
+        ..setInt(30000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)
@@ -169,9 +169,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_16) (u) -> // Dark Ranger
         u
-        ..addStr(100000)
-        ..addAgi(50000)
-        ..addInt(40000)
+        ..setStr(100000)
+        ..setAgi(50000)
+        ..setInt(40000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)
@@ -186,9 +186,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_17) (u) -> // Dreadlord
         u
-        ..addStr(111000)
-        ..addAgi(60000)
-        ..addInt(45000)
+        ..setStr(111000)
+        ..setAgi(60000)
+        ..setInt(45000)
         ..setLevel(150, false)
         ..setScale(1.5)
         ..addItemToSlot(ITEM_380, 0)
@@ -205,9 +205,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_18) (u) -> // Pit Lord
         u
-        ..addStr(55000)
-        ..addAgi(100000)
-        ..addInt(50000)
+        ..setStr(55000)
+        ..setAgi(100000)
+        ..setInt(50000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)
@@ -223,9 +223,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_19) (u) -> // Ranger
         u
-        ..addStr(120000)
-        ..addAgi(90000)
-        ..addInt(55000)
+        ..setStr(120000)
+        ..setAgi(90000)
+        ..setInt(55000)
         ..setLevel(150, false)
         ..setScale(1.5)
         ..addItemToSlot(ITEM_380, 0)
@@ -243,9 +243,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_20) (u) -> // Demon Hunter
         u
-        ..addStr(100000)
-        ..addAgi(100000)
-        ..addInt(100000)
+        ..setStr(100000)
+        ..setAgi(100000)
+        ..setInt(100000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)
@@ -261,9 +261,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_21) (u) -> // Shodow Hunter
         u
-        ..addStr(200000)
-        ..addAgi(200000)
-        ..addInt(200000)
+        ..setStr(200000)
+        ..setAgi(200000)
+        ..setInt(200000)
         ..setLevel(150, false)
         ..setScale(1.5)
         ..addItemToSlot(ITEM_122, 0)
@@ -278,9 +278,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_22) (u) -> // Assasin
         u
-        ..addStr(400000)
-        ..addAgi(200000)
-        ..addInt(300000)
+        ..setStr(400000)
+        ..setAgi(200000)
+        ..setInt(300000)
         ..setLevel(150, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_227, 0)
@@ -296,9 +296,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_23) (u) -> // Priestess of the Moon
         u
-        ..addStr(700000)
-        ..addAgi(200000)
-        ..addInt(300000)
+        ..setStr(700000)
+        ..setAgi(200000)
+        ..setInt(300000)
         ..setLevel(150, false)
         ..setScale(1.5)
         ..addItemToSlot(ITEM_387, 0)
@@ -313,9 +313,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_24) (u) -> // Naga Sea Witch
         u
-        ..addStr(900000)
-        ..addAgi(200000)
-        ..addInt(200000)
+        ..setStr(900000)
+        ..setAgi(200000)
+        ..setInt(200000)
         ..setLevel(150, false)
         ..setScale(1.5)
         ..addItemToSlot(ITEM_388, 0)
@@ -330,9 +330,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_25) (u) -> // Time Wizard
         u
-        ..addStr(900000)
-        ..addAgi(200000)
-        ..addInt(250000)
+        ..setStr(900000)
+        ..setAgi(200000)
+        ..setInt(250000)
         ..setLevel(150, false)
         ..setScale(1.5)
         ..addItemToSlot(ITEM_388, 0)
@@ -347,9 +347,9 @@ function boostUnit()
 
     boostMap.put(WAVE_HERO_26) (u) -> // Death Eyes
         u
-        ..addStr(90000)
-        ..addAgi(55000)
-        ..addInt(10000)
+        ..setStr(90000)
+        ..setAgi(55000)
+        ..setInt(10000)
         ..setLevel(70, false)
         ..setScale(2)
         ..addItemToSlot(ITEM_380, 0)

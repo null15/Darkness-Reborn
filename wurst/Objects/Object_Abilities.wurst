@@ -1959,7 +1959,7 @@ import Icons
     ..setBuffs(8, BUFF_16.toRawCode())
     ..setBuffs(9, BUFF_16.toRawCode())
 
-    ..setLevelSkipRequirement(8)
+    ..setLevelSkipRequirement(5)
     ..setRequiredLevel(8)
 
     ..setButtonPositionNormalX(2)
