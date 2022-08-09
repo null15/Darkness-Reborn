@@ -2,6 +2,7 @@ package KingOfLoasR
 import DummyCaster
 import OrderIds
 import ClosureEvents
+import ClosureTimers
 import MyAbilityIds
 // Blood of Hakkar
 init
@@ -12,3 +13,7 @@ function kingOfloasRact()
         ..owner(caster.getOwner())
         ..origin(caster.getPos())
         ..castTarget(ABILITY_52, 1, OrderIds.innerfire, caster)
+        doAfter(0.2) ->      
+            caster
+            ..issueImmediateOrderById(OrderIds.stop)
+            ..startAbilityCooldown(ABILITY_41)

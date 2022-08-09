@@ -8,6 +8,7 @@ import MyAbilityIds
 import MyBuffIds
 bool once = true
 real array healMultiplier = [0, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.70]
+real array range = [200, 350, 450, 600]
 // Aura of Bwonsamdi
 init
     kingOfloasTinit()
@@ -18,15 +19,15 @@ function kingOfloasTinit()
             once = false
             doPeriodically(2) (CallbackPeriodic cb) ->
                 let lvl = caster.getAbilityLevel(ABILITY_42)
-                let dmg = caster.getInt(true)*(0.25*lvl+1.75)
-                forUnitsInRange(caster.getPos(), 600, true) (unit u) ->
+                let dmg = caster.getInt(true)* (2 + lvl * 0.5)
+                forUnitsInRange(caster.getPos(), range[lvl], true) (unit u) ->
                     if caster.isEnemyOf(u)
                         new DummyCaster()
                         ..owner(GetOwningPlayer(caster))
                         ..origin(caster.getPos())
-                        ..castTarget(ABILITY_43, caster.getAbilityLevel(ABILITY_42), OrderIds.slow, u)
+                        ..castTarget(ABILITY_43, lvl, OrderIds.slow, u)
                         ..delay(1)
                         if u.isAlive()
                             caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
                             if caster.hasAbility(BUFF_20)
-                                caster.addHP(dmg*healMultiplier[lvl])
+                                caster.addHP(dmg*healMultiplier[caster.getAbilityLevel(ABILITY_41)])

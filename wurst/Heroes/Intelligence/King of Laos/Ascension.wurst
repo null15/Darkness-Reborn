@@ -10,7 +10,7 @@ init
 function ascension()
     EventListener.add(EVENT_PLAYER_HERO_SKILL) -> 
         let u = GetTriggerUnit()
-        if u.getTypeId() == PLAY_HERO_33 and u.getAbilityLevel(ABILITY_35) == 9 and u.getAbilityLevel(ABILITY_39) == 9 and u.getAbilityLevel(ABILITY_40) == 9 and u.getAbilityLevel(ABILITY_41) == 9 and u.getAbilityLevel(ABILITY_42) == 9
+        if u.getTypeId() == PLAY_HERO_33 and u.getAbilityLevel(ABILITY_35) == 9 and u.getAbilityLevel(ABILITY_39) == 9 and u.getAbilityLevel(ABILITY_40) == 9 and u.getAbilityLevel(ABILITY_41) == 9 and u.getAbilityLevel(ABILITY_42) == 4
             let sfx = addEffect("Loas Assets\\effect60.mdx", u.getPos())
             let sfx2 = addEffect("Loas Assets\\effect_az_qiliu4_red.mdx", u.getPos())..playAnimation(ANIM_TYPE_BIRTH)
             u.pause()
