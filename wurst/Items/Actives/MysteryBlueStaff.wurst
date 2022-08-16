@@ -1,0 +1,11 @@
+package MysteryBlueStaff
+
+import ClosureEvents
+
+init
+    masteryBlueStaff()
+
+function masteryBlueStaff()
+    EventListener.onTargetCast('A0XO') (unit caster, unit target) ->
+        let dam = 14800.
+        caster.damageTarget(target, dam, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

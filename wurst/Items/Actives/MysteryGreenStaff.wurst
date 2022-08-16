@@ -1,0 +1,11 @@
+package MysteryGreenStaff
+
+import ClosureEvents
+
+init
+    masteryGreenStaff()
+
+function masteryGreenStaff()
+    EventListener.onTargetCast('A0XN') (unit caster, unit target) ->
+        let dam = 7800.
+        caster.damageTarget(target, dam, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
