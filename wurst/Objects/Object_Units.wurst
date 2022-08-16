@@ -6664,7 +6664,7 @@ init
 
     new UnitDefinition(ELITE_CREEP_1, UnitIds.hydralisk)// Hydralisk (z000)
     ..setNormalAbilities(commaList(""))
-    ..setModelFile("Units\\HydraliskREVISED.mdx")
+    ..setModelFile("HydraliskREVISED.mdx")
     ..setScalingValue(2.50)
     ..setSelectionScale(2.00)
     ..setAttack1CooldownTime(0.20)
@@ -17626,7 +17626,7 @@ init
 
     new UnitDefinition(WAVE_BOSS_86, UnitIds.hydralisk)// Hydralisk (zhyd)
     ..setNormalAbilities(commaList(""))
-    ..setModelFile("Units\\HydraliskREVISED.mdx")
+    ..setModelFile("HydraliskREVISED.mdx")
     ..setScalingValue(1.80)
     ..setSelectionScale(2.00)
     ..setAttack1CooldownTime(1.00)
@@ -19681,7 +19681,7 @@ init
 
     new HeroDefinition(WAVE_HERO_7, UnitIds.paladin)// Death King (H03N)
     ..setNormalAbilities(commaList('A0NQ', 'A0NL', 'A0NP', 'A0MO', 'A0M2', 'A0DF', 'AInv'))
-    ..setModelFile("Units\\Arthas Frostmourne\\King Arthas.mdx")
+    ..setModelFile("Units\\Arthas Frostmourne\\KingArthas.mdx")
     ..setPrimaryAttribute("Strength")
     ..setStartingStrength(100)
     ..setStartingAgility(100)

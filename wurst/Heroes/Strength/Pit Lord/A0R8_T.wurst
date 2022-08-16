@@ -8,5 +8,8 @@ function noblesseAura()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addCondition(Condition(function noblesseAuraCond))..addAction() ->
         let killer = GetKillingUnit()
         let lvl = killer.getAbilityLevel('A0R8')
-        killer.addStr(1)
+        if(lvl == 4)
+            killer.addStr(2)
+        else
+            killer.addStr(1)
         killer.setMaxHP(R2I(killer.getMaxHP()+lvl*25), true)

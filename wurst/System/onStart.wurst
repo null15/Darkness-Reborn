@@ -39,7 +39,7 @@ public function questSetup()
     QuestSetDiscovered(commands, true)
     QuestSetIconPath(commands, "ReplaceableTextures\\CommandButtons\\BTNSpy.blp")
     QuestSetTitle(commands, "Commands")
-    QuestSetDescription(commands, "-cam 500-4000 : Adjusts the camera view \n")
+    QuestSetDescription(commands, "-cam 500-4000 : Adjusts the camera view \n-clean : Cleans items in 10 seconds\n-stopclean : Stops cleaning process")
 
     QuestSetDiscovered(discord, true)
     QuestSetIconPath(discord, "ReplaceableTextures\\Icons\\discordIcon.blp")
