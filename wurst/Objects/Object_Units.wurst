@@ -4270,6 +4270,9 @@ init
     ..setAttack1Range(650)
     ..setAttack1DamageBase(72)
     ..setDefenseBase(5)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
     ..setHitPointsMaximumBase(750)
     ..setArmorType(ArmorType.Normal)
 
@@ -4283,6 +4286,9 @@ init
     ..setAttack1AttackType(AttackType.Magic)
     ..setAttack1Range(650)
     ..setDefenseBase(10)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
     ..setHitPointsMaximumBase(1000)
     ..setArmorType(ArmorType.Normal)
 
@@ -4296,6 +4302,9 @@ init
     ..setAttack1AttackType(AttackType.Magic)
     ..setAttack1Range(650)
     ..setDefenseBase(15)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
     ..setHitPointsMaximumBase(1250)
     ..setArmorType(ArmorType.Normal)
 
@@ -4309,6 +4318,9 @@ init
     ..setAttack1AttackType(AttackType.Magic)
     ..setAttack1Range(650)
     ..setDefenseBase(20)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
     ..setHitPointsMaximumBase(1500)
     ..setArmorType(ArmorType.Normal)
 
@@ -4322,6 +4334,9 @@ init
     ..setAttack1AttackType(AttackType.Magic)
     ..setAttack1Range(850)
     ..setDefenseBase(25)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
     ..setHitPointsMaximumBase(1750)
     ..setArmorType(ArmorType.Normal)
 
@@ -4334,6 +4349,9 @@ init
     ..setAttack1DamageBase(148)
     ..setAttack1Range(650)
     ..setDefenseBase(30)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
     ..setHitPointsMaximumBase(2000)
     ..setArmorType(ArmorType.Normal)
 
@@ -4347,6 +4365,9 @@ init
     ..setAttack1AttackType(AttackType.Magic)
     ..setAttack1Range(650)
     ..setDefenseBase(35)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
     ..setHitPointsMaximumBase(2250)
     ..setArmorType(ArmorType.Normal)
 
@@ -4360,6 +4381,9 @@ init
     ..setAttack1AttackType(AttackType.Magic)
     ..setAttack1Range(650)
     ..setDefenseBase(40)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
     ..setHitPointsMaximumBase(2500)
     ..setArmorType(ArmorType.Normal)
 
@@ -4373,6 +4397,9 @@ init
     ..setAttack1AttackType(AttackType.Chaos)
     ..setAttack1Range(650)
     ..setDefenseBase(40)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
     ..setHitPointsRegenerationRate(1.5)
     ..setHitPointsMaximumBase(3000)
     ..setArmorType(ArmorType.Normal)
@@ -6637,7 +6664,7 @@ init
 
     new UnitDefinition(ELITE_CREEP_1, UnitIds.hydralisk)// Hydralisk (z000)
     ..setNormalAbilities(commaList(""))
-    
+    ..setModelFile("Units\\HydraliskREVISED.mdx")
     ..setScalingValue(2.50)
     ..setSelectionScale(2.00)
     ..setAttack1CooldownTime(0.20)
@@ -7195,8 +7222,8 @@ init
     ..setSelectionScale(3.00)
     ..setAttack1CooldownTime(0.10)
     ..setAttack1DamageBase(10000)
-    ..setAttack1DamageNumberofDice(95)
-    ..setAttack1DamageSidesperDie(9)
+    ..setAttack1DamageNumberofDice(5)
+    ..setAttack1DamageSidesperDie(6)
     ..setAttack1Range(100)
     ..setAttack1ProjectileArc(0.00)
     ..setAttack1ProjectileArt("None")
@@ -12858,7 +12885,7 @@ init
 
     new UnitDefinition(WAVE_BOSS_26, UnitIds.ancienthydra)// Ancient Hydra (n03C)
     ..setNormalAbilities(commaList('Aspo', 'A0A1'))
-
+    ..setModelFile("Units\\Mobs\\Dragons\\Dragon1.mdx")
     ..setScalingValue(2.70)
     ..setSelectionScale(6.00)
     ..setAttack1CooldownTime(1.00)
@@ -17599,7 +17626,7 @@ init
 
     new UnitDefinition(WAVE_BOSS_86, UnitIds.hydralisk)// Hydralisk (zhyd)
     ..setNormalAbilities(commaList(""))
-
+    ..setModelFile("Units\\HydraliskREVISED.mdx")
     ..setScalingValue(1.80)
     ..setSelectionScale(2.00)
     ..setAttack1CooldownTime(1.00)
@@ -19258,9 +19285,8 @@ init
     ..setManaRegeneration(5000.00)
     ..setLevel(52)
 
-    new UnitDefinition(WAVE_HERO_2, UnitIds.bronzedragon)// Dragon - Nozdomu (n03Z)
+    new UnitDefinition(WAVE_HERO_2, UnitIds.bronzedragon)// Dragon - Nozdormu (n03Z)
     ..setNormalAbilities(commaList('A0CT', 'A07D'))
-    ..setModelFile("Units\\Mobs\\Dragons\\Dragon1.mdx")
     ..setScalingValue(2.50)
     ..setSelectionScale(2.25)
     ..setAttack1CooldownTime(0.30)
@@ -19333,11 +19359,11 @@ init
     ..setHitPointsRegenerationRate(7667.00)
     ..setManaInitialAmount(66000)
     ..setManaMaximum(66000)
-    ..setName("Dragon - Nozdomu")
+    ..setName("Dragon - Nozdormu")
     ..setManaRegeneration(5000.00)
     ..setLevel(54)
 
-    new UnitDefinition(WAVE_HERO_3, UnitIds.reddragon)// Dragon - Neltharion (n040)
+    new UnitDefinition(WAVE_HERO_3, UnitIds.blackdragon)// Dragon - Neltharion (n040)
     ..setNormalAbilities(commaList('A0CV', 'A07D'))
 
     ..setScalingValue(2.50)
@@ -19348,7 +19374,7 @@ init
     ..setAttack1DamageSidesperDie(9)
     ..setAttack1Range(1000)
     ..setAttack1ProjectileArc(0.00)
-    ..setAttack1ProjectileArt("Abilities\\Weapons\\RedDragonBreath\\RedDragonMissile.mdl")
+    ..setAttack1ProjectileArt("Abilities\\Weapons\\RedDragonBreath\\BlackDragonMissile.mdl")
     ..setAttack1ProjectileHomingEnabled(false)
     ..setAttack1WeaponType(WeaponType.MissileSplash)
     ..setAttack1DamageSpillDistance(0.00)
@@ -19416,7 +19442,7 @@ init
     ..setManaRegeneration(5000.00)
     ..setLevel(56)
 
-    new UnitDefinition(WAVE_HERO_4, UnitIds.blackdragon)// Dragon - Alexstrasza (n041)
+    new UnitDefinition(WAVE_HERO_4, UnitIds.reddragon)// Dragon - Alexstrasza (n041)
     ..setNormalAbilities(commaList('A0CR', 'A0CS', 'A0ZK', 'A07D'))
 
     ..setScalingValue(2.50)
@@ -21330,8 +21356,8 @@ init
     ..setSelectionScale(3.00)
     ..setAttack1CooldownTime(3.00)
     ..setAttack1DamageBase(7255)
-    ..setAttack1DamageNumberofDice(92)
-    ..setAttack1DamageSidesperDie(3)
+    ..setAttack1DamageNumberofDice(6)
+    ..setAttack1DamageSidesperDie(5)
     ..setAttack1Range(100)
     ..setAttack1ProjectileArc(0.00)
     ..setAttack1ProjectileArt("None")

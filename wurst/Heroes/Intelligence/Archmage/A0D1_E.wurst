@@ -15,11 +15,11 @@ function ultima()
         doPeriodicallyCounted(1, 5) (CallbackCounted cb) ->
             
             flashEffect("Effects\\Archmage\\Ultima.mdl", target)
-            forUnitsInRange(target, 600, true) (unit u) ->
+            forUnitsInRange(target, 500, true) (unit u) ->
                 if caster.isEnemyOf(u)
-                    let buffs = UnitCountBuffsEx(u, false, false, true, false, false, false, false)
+                    let buffs = UnitCountBuffsEx(u, false, false, true, false, false, false, false) - 1.
                     if buffs > 0
-                        caster.damageTarget(u, dmg*buffs, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                        caster.damageTarget(u, dmg * Pow(2, buffs), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
                     else
                         caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
                     new DummyCaster()

@@ -31,6 +31,31 @@ public function heroRespawn(unit u)
             doAfter(10) -> 
                 playerHero[i].revive(gg_rct_Base.getCenter(), true)
 
+public function questSetup()
+    let commands = CreateQuest()
+    let discord = CreateQuest()
+    let recipe = CreateQuest()
+    
+    QuestSetDiscovered(commands, true)
+    QuestSetIconPath(commands, "ReplaceableTextures\\CommandButtons\\BTNSpy.blp")
+    QuestSetTitle(commands, "Commands")
+    QuestSetDescription(commands, "-cam 500-4000 : Adjusts the camera view \n")
+
+    QuestSetDiscovered(discord, true)
+    QuestSetIconPath(discord, "ReplaceableTextures\\Icons\\discordIcon.blp")
+    QuestSetTitle(discord, "Discord")
+    QuestSetDescription(discord, "Discord invite: https://discord.gg/pnrhrHS")
+
+    QuestSetDiscovered(recipe, true)
+    QuestSetRequired(recipe, false)
+    QuestSetIconPath(recipe, "ReplaceableTextures\\CommandButtons\\BTNAdvStruct.blp")
+    QuestSetTitle(recipe, "Recipe for non-store items")
+    QuestSetDescription(recipe, "Khadgar's Pendant of Health + Periapt of Vitality = Jewelry of Life\n"
+    +"Pendant of Mana + Pendant of Energy = jewelry of Mana\n"
+    +"Jewelry of Life + Periapt of Vitality + Ring of Regeneration = Guinevere's Ring\n"
+    +"Jewelry of Mana + Pendant of Mana = Lancelot's Ring\n"
+    +"Lancelot's Ring + Guinevere's Ring + Pendant of Energy = Arkenstone Fragment")
+
 function onBuyHero(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_SELL)..addAction() ->
         let soldUnit = GetSoldUnit()
@@ -53,6 +78,8 @@ function createSetup()
     for i = 0 to 9
         createUnit(players[i], HERO_PICKER, gg_rct_HeroPicker.getCenter())
         players[i]..addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)..addState(PLAYER_STATE_RESOURCE_GOLD, 800)
+        
+
 
     let tavern1 = CreateUnit(Player(10), BUILDING_TAVERN_STR, -9216.0, -12480, bj_UNIT_FACING)
     onBuyHero(tavern1)
@@ -95,6 +122,7 @@ function mapSetup()
         dBox.addButton("Normal") ->
             difficulty = "normal"
             preWaveSetup()
+            questSetup()
             createSetup()
             leftSideCreepsSetup()
             eliteSideCreepsSetup()

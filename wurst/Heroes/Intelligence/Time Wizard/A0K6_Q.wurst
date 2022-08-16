@@ -2,6 +2,9 @@ package A0K6_Q
 import ClosureEvents
 import ClosureTimers
 import ClosureForGroups
+
+group teleportedUnits
+
 init
     timeTravel()
 function timeTravel()
@@ -12,15 +15,21 @@ function timeTravel()
         let angle1 = sfx.getPos().angleTo(sfx2.getPos())
         let angle2 = sfx2.getPos().angleTo(sfx.getPos())
         sfx.setPos(sfx.getPos().polarOffset(angle1, 200))
-        doPeriodicallyTimed(0.05, 10) (CallbackCounted cb) ->
+        doPeriodicallyTimed(0.05, 12) (CallbackCounted cb) ->
             forUnitsInRange(sfx.getPos(), 75, true) (unit u) ->
-                if caster.isAllyOf(u)
+                if caster.isAllyOf(u) and not(teleportedUnits.has(u)) and not(IsUnitType(u, UNIT_TYPE_STRUCTURE))
                     u.setPos(target.polarOffset(angle2, 200))
                     flashEffect("Teleport.mdl", u.getPos())
+                    teleportedUnits.add(u)
+                    doAfter(2) -> 
+                        teleportedUnits.remove(u)
             forUnitsInRange(sfx2.getPos(), 75, true) (unit u) ->
-                if caster.isAllyOf(u)
-                    u.setPos(casterPos.polarOffset(angle1, 400))
+                if caster.isAllyOf(u) and not(teleportedUnits.has(u)) and not(IsUnitType(u, UNIT_TYPE_STRUCTURE))
+                    u.setPos(casterPos.polarOffset(angle1, 200))
                     flashEffect("Teleport.mdl", u.getPos())
+                    teleportedUnits.add(u)
+                    doAfter(2) -> 
+                        teleportedUnits.remove(u)
             if cb.isLast()
                 sfx.destr()
                 sfx2.destr()

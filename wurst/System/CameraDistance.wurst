@@ -7,7 +7,7 @@ function changeCameraDistInit()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
         if EventData.getChatMessage().substring(0, 4) == "-cam"
             let distance = EventData.getChatMessage().substring(5, EventData.getChatMessage().length()).toReal()
-            if distance > 4000 or distance < 500
-                printTimedToPlayer("Input has to be between 4000 & 500", 3, GetTriggerPlayer())
+            if distance >= 4000 or distance <= 500
+                printTimedToPlayer("Input has to be between 500 and 4000", 3, GetTriggerPlayer())
             else
                 cam.setCameraField(GetTriggerPlayer(), distance, 1.5)
