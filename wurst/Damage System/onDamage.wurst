@@ -201,13 +201,16 @@ init
                     thunderBow2(src)
 
                 // Ordinary Hakkar Buff
-                if DamageEvent.getSource().hasAbility(BUFF_20)
-                    let lvl = DamageEvent.getSource().getAbilityLevel(ABILITY_41)
-                    DamageEvent.getSource().addHP(DamageEvent.getAmount()*healMultiplier[lvl-1])
+                if src.hasAbility(BUFF_20)
+                    let lvl = src.getAbilityLevel(ABILITY_41)
+                    src.addHP(DamageEvent.getAmount()*healMultiplier[lvl-1])
 
                 // Improved Hakkar Buff
-                if DamageEvent.getSource().hasAbility(BUFF_21)
-                    DamageEvent.getSource().addHP(DamageEvent.getAmount()*0.8)
+                if src.hasAbility(BUFF_21)
+                    src.addHP(DamageEvent.getAmount()*0.8)
+
+                if src.hasAbility('B003')
+                    src.removeAbility('B003')
 
             case SPELL
 

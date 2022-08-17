@@ -25,7 +25,7 @@ function sear()
         doPeriodicallyTimed(0.03, 5) (CallbackCounted cb) ->
             sfx.setPos(sfx.getPos().polarOffset(angle, 30))
             forUnitsInRange(sfx.getPos(), 100, true) (unit u) ->
-                if caster.isEnemyOf(u) and run
+                if caster.isEnemyOf(u) and run and u.isAlive()
                     run = false
                     sfx.destr()
                     DamageEvent.setNextDamageId('A01P')

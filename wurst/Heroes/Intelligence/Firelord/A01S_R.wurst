@@ -2,7 +2,6 @@ package A01S_R
 
 import Abilities
 import ClosureEvents
-import MyUnitIds
 import MyBuffIds
 import DamageEvent
 import Global_Variables
@@ -16,6 +15,7 @@ real array udg_FireBallDamage = [100,200,300,500,700,1000,1300,1600,2000]
 integer array udg_BounceAmount = [4,5,6,7,8,9,10,11,12]
 integer counter
 unit currentTarget
+unit previousTarget
 
 init
     fireballCast()
@@ -25,24 +25,24 @@ function fireballCast()
         currentTarget = target
         var pos2 = currentTarget.getPos()
         var angle = pos1.angleTo(pos2)
-        let dummy = CreateUnit(GetOwningPlayer(caster), DUMMY_UNIT_0, pos1.x, pos1.y, angle.degrees())
+        let sfx = addEffect(Abilities.fireBallMissile, caster.getPos())..setZ(20)..setScale(1.5)
         let level = caster.getAbilityLevel('A01S')
         counter = 0
         doPeriodically(0.05) (CallbackPeriodic cb) ->
-            pos1 = dummy.getPos()
+            pos1 = sfx.getPos()
             angle = pos1.angleTo(pos2)
             let pos3 = pos1.polarOffset(angle, 25.)
-            let dist = pos1.distanceTo(pos2)
             let isAlive = currentTarget.isAlive()
-            dummy..setPos(pos3).setFacing(angle)
+            sfx..setPos(pos3).setYaw(angle.radians())
             if(isAlive)
                 pos2 = currentTarget.getPos()
+            let dist = pos1.distanceTo(pos2)
             if(dist <= 25.)
                 if(isAlive)
                     let damage = udg_FireBallDamage[level-1] + level * 0.8 * caster.getInt(true)
                     new DummyCaster()
                     ..owner(caster.getOwner())
-                    ..origin(dummy.getPos())
+                    ..origin(sfx.getPos())
                     ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, currentTarget)
                     DamageEvent.setNextDamageId('A01S')
                     DamageEvent.setNextDamageFromCode()
@@ -50,19 +50,21 @@ function fireballCast()
                     caster.damageTarget(currentTarget, damage, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
                 flashEffect(Abilities.fireBallMissile, currentTarget.getPos())
                 if(counter >= udg_BounceAmount[level-1])
-                    dummy.remove()
+                    sfx.destr()
                     flashEffect(Abilities.fireLordDeathExplode, currentTarget.getPos())
-                    destroy(cb)
+                    destroy cb
                 else
+                    previousTarget = currentTarget
                     forUnitsInRange(currentTarget.getPos(), 400) (unit u) ->
-                        if (u.isEnemyOf(caster.getOwner()))
-                            if(u.isAlive() and u.getHandleId() != currentTarget.getHandleId())
+                        if (u.isEnemyOf(caster.getOwner()) and u.getHandleId() != currentTarget.getHandleId())
+                            if(u.isAlive())
                                 let pos4 = u.getPos()
                                 if(pos1.distanceTo(pos2) < pos1.distanceTo(pos4))
                                     currentTarget = u
                                 else if (u.hasAbility(BUFF_12))
                                     currentTarget = u
-                            else
-                                dummy.remove()
-                                destroy(cb)
+                    if(currentTarget == previousTarget)
+                        sfx.destr()
+                        flashEffect(Abilities.fireLordDeathExplode, currentTarget.getPos())
+                        destroy cb
                 counter++

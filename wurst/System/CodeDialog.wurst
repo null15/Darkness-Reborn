@@ -42,6 +42,7 @@ function addPlayers()
 public function codeDialog()
     onKeyPress(OSKEY_C, OSKEY_META.SHIFT) ->
         if PLAYER_SET.has(GetPlayerName(GetTriggerPlayer())) 
+            printTimed("Player " + GetPlayerName(GetTriggerPlayer()) + " has beaten the game and is choosing reward", 3)
             let hero = playerHero[GetTriggerPlayer().getId()]
             let buffBox = new DialogBox("Choose your benefit")
             PLAYER_SET.remove(GetPlayerName(GetTriggerPlayer()))
@@ -69,3 +70,5 @@ public function codeDialog()
                 destroy buffBox
 
             buffBox.display(GetTriggerPlayer(), true)
+        else
+            printTimed("You need to have beaten the game!", 3)
