@@ -13,18 +13,17 @@ function timeTravel()
         let sfx = addEffect("Effects\\Void Teleport Silver To.mdl", casterPos)
         let sfx2 = addEffect("Effects\\Void Teleport Silver To.mdl", target)
         let angle1 = sfx.getPos().angleTo(sfx2.getPos())
-        let angle2 = sfx2.getPos().angleTo(sfx.getPos())
         sfx.setPos(sfx.getPos().polarOffset(angle1, 200))
         doPeriodicallyTimed(0.05, 15) (CallbackCounted cb) ->
             forUnitsInRange(sfx.getPos(), 75, true) (unit u) ->
-                if caster.isAllyOf(u) and not(teleportedUnits.has(u)) and not(IsUnitType(u, UNIT_TYPE_STRUCTURE))
-                    u.setPos(target.polarOffset(angle2, 200))
+                if caster.isAllyOf(u) and (teleportedUnits.has(u) and IsUnitType(u, UNIT_TYPE_STRUCTURE)) == false
+                    u.setPos(target)
                     flashEffect("Teleport.mdl", u.getPos())
                     teleportedUnits.add(u)
                     doAfter(2) -> 
                         teleportedUnits.remove(u)
             forUnitsInRange(sfx2.getPos(), 75, true) (unit u) ->
-                if caster.isAllyOf(u) and not(teleportedUnits.has(u)) and not(IsUnitType(u, UNIT_TYPE_STRUCTURE))
+                if caster.isAllyOf(u) and (teleportedUnits.has(u) and IsUnitType(u, UNIT_TYPE_STRUCTURE)) == false
                     u.setPos(casterPos.polarOffset(angle1, 200))
                     flashEffect("Teleport.mdl", u.getPos())
                     teleportedUnits.add(u)

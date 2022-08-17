@@ -18797,7 +18797,7 @@ init
     ..setDescription("Gives gold to player.")
     ..setName("Gold Tinker 10")
     ..setTooltipBasic("Gold")
-    ..setTooltipExtended("Convert 10 Lumber into 9")
+    ..setTooltipExtended("Convert 10 Lumber into 9.000 gold")
     ..setHotkey("")
 
 //I0JR
