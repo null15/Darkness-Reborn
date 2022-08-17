@@ -770,17 +770,17 @@ function recipeItemReplace()
             RemoveItem(u.getItemById(ITEM_351))
             u.addItemById(ITEM_110)
 
-        //Perfect Aquamarine
+        //Perfect Topaz
         else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_232)
             RemoveItem(u.getItemById(ITEM_276))
             RemoveItem(u.getItemById(ITEM_232))
             u.addItemById(ITEM_112)
 
-        //Perfect Topaz
+        //Perfect Aquamarine
         else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_175)
             RemoveItem(u.getItemById(ITEM_276))
             RemoveItem(u.getItemById(ITEM_175))
-            u.addItemById(ITEM_191)
+            u.addItemById(ITEM_114)
 
         //Perfect Nephrite
         else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_337)

@@ -7,7 +7,7 @@ import ClosureEvents
 import MyAbilityIds
 import MyUnitIds
 import MyBuffIds
-sound gralBite = CreateSound("Loas Assets\\Shark\\gralBite.mp3", false, false, false, 12700, 12700, "CombatSoundsEAX")
+sound gralBite = CreateSound("Loas Assets\\Shark\\gralBite.mp3", false, true, true, 12700, 12700, "CombatSoundsEAX")
 init
     finsofGral()
 function finsofGral()

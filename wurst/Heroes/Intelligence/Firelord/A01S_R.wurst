@@ -9,114 +9,60 @@ import Global_Variables
 import DummyCaster
 import MyAbilityIds
 import OrderIds
+import ClosureTimers
+import ClosureForGroups
 
-hashtable udg_GenericSpellTable = InitHashtable()
 real array udg_FireBallDamage = [100,200,300,500,700,1000,1300,1600,2000]
 integer array udg_BounceAmount = [4,5,6,7,8,9,10,11,12]
+integer counter
+unit currentTarget
 
 init
     fireballCast()
-function calculateDistance (real x1, real y1, real x2, real y2 ) returns real
-    let a = (x2 - x1)
-    let b = (y2 - y1)
-    return SquareRoot(a*a + b*b)
-
-function calculateNewTarget ()
-    let t = GetExpiredTimer()
-    let hashId = GetHandleId(t)
-    let u1 = udg_GenericSpellTable.loadUnitHandle(hashId, 1)
-    let u2 = udg_GenericSpellTable.loadUnitHandle(hashId, 2)
-    let u3 = GetEnumUnit()
-    if(u3.isAlive())
-        let x1 = GetUnitX(u1)
-        let y1 = GetUnitY(u1)
-        let x2 = GetUnitX(u2)
-        let y2 = GetUnitY(u2)
-        let x3 = GetUnitX(u3)
-        let y3 = GetUnitY(u3)
-        if(calculateDistance(x1,y1,x2,y2) < calculateDistance(x1,y1,x3,y3)) 
-            SaveUnitHandle(udg_GenericSpellTable, hashId, 2, u3)
-            SaveReal(udg_GenericSpellTable, hashId, 4, GetUnitX(u3))
-            SaveReal(udg_GenericSpellTable, hashId, 5, GetUnitY(u3))
-        else if u3.hasAbility(BUFF_12) and GetHandleId(u2) != GetHandleId(u3)
-            SaveUnitHandle(udg_GenericSpellTable, hashId, 2, u3)
-            SaveReal(udg_GenericSpellTable, hashId, 4, GetUnitX(u3))
-            SaveReal(udg_GenericSpellTable, hashId, 5, GetUnitY(u3))
-
-function fireBall_Boolexpr_InRange() returns boolean
-    let t = GetExpiredTimer()
-    let hashId = GetHandleId(t)
-    let source = udg_GenericSpellTable.loadUnitHandle(hashId, 1)
-    let ret = IsUnitEnemy(GetFilterUnit(), GetOwningPlayer(source)) 
-    return ret
-
-function fireballPeriodic ()
-    let t = GetExpiredTimer()
-    let hashId = GetHandleId(t)
-    let u1 = LoadUnitHandle(udg_GenericSpellTable, hashId, 1)
-    let u2 = LoadUnitHandle(udg_GenericSpellTable, hashId, 2)
-    let u3 = LoadUnitHandle(udg_GenericSpellTable, hashId, 6)
-    let x1 = GetUnitX(u1)
-    let y1 = GetUnitY(u1)
-    let x2 = LoadReal(udg_GenericSpellTable, hashId, 4)
-    let y2 = LoadReal(udg_GenericSpellTable, hashId, 5)
-    let angle = bj_RADTODEG * Atan2(y2 - y1, x2 - x1)
-    let x3 = x1 + 25.00 * Cos(angle * bj_DEGTORAD)
-    let y3 = y1 + 25.00 * Sin(angle * bj_DEGTORAD)
-    let dist = calculateDistance(x1,y1,x2,y2)
-    integer level
-    effect spec
-    group units
-    SetUnitX(u1, x3)
-    SetUnitY(u1, y3)
-    SetUnitFacing(u1, angle)
-    if(u2.isAlive())
-        SaveReal(udg_GenericSpellTable, hashId, 4, GetUnitX(u2))
-        SaveReal(udg_GenericSpellTable, hashId, 5, GetUnitY(u2))
-    if(dist <= 25.00) 
-
-        level = LoadInteger(udg_GenericSpellTable, hashId, 3) - 1
-        if(u2.isAlive())
-            new DummyCaster()
-            ..owner(u1.getOwner())
-            ..origin(u1.getPos())
-            ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u2)
-            DamageEvent.setNextDamageId('A01S')
-            DamageEvent.setNextDamageFromCode()
-            DamageEvent.setNextDamageElement(DAMAGE_ELEMENT_FIRE)
-            u1.damageTarget(u2, udg_FireBallDamage[level] + (level+1) * 0.8 * u3.getInt(true), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-        spec = AddSpecialEffect(Abilities.fireBallMissile, x2, y2)
-        spec.destr()
-        if(LoadInteger(udg_GenericSpellTable, hashId, 0) >= udg_BounceAmount[level]) 
-            u1.remove()
-            spec = AddSpecialEffect(Abilities.fireLordDeathExplode, x2, y2)
-            spec.destr()
-            FlushChildHashtable(udg_GenericSpellTable, hashId)
-            t.destr()
-        else
-            units = GetUnitsInRangeOfLocMatching(400.00, Location(x2,y2), Filter(function fireBall_Boolexpr_InRange))
-            SaveInteger(udg_GenericSpellTable, hashId, 0, LoadInteger(udg_GenericSpellTable, hashId, 0) + 1)
-            ForGroup(units, function calculateNewTarget)
-            if(IsUnitGroupEmptyBJ(units))
-                u1.remove()
-                t.destr()
-                FlushChildHashtable(udg_GenericSpellTable, hashId)
- 
 function fireballCast()
     EventListener.onTargetCast('A01S') (unit caster, unit target) ->
-        let t = CreateTimer()
-        let x1 = caster.getX()
-        let y1 = caster.getY()
-        let x2 = target.getX()
-        let y2 = target.getY()
-        let angle = bj_RADTODEG * Atan2(y2 - y1, x2 - x1)
-        let dummy = CreateUnit(GetOwningPlayer(caster), DUMMY_UNIT_0, x1, y1, angle)
-        let hashId = GetHandleId(t)
-        t.startPeriodic(0.05, function fireballPeriodic)
-        udg_GenericSpellTable..saveInt(hashId, 0, 0)
-        ..saveUnitHandle(hashId, 1, dummy)
-        ..saveUnitHandle(hashId, 2, target)
-        ..saveInt(hashId, 3, caster.getAbilityLevel('A01S'))
-        ..saveReal(hashId, 4, x2)
-        ..saveReal(hashId, 5, y2)
-        ..saveUnitHandle(hashId, 6, caster)
+        var pos1 = caster.getPos()
+        currentTarget = target
+        var pos2 = currentTarget.getPos()
+        var angle = pos1.angleTo(pos2)
+        let dummy = CreateUnit(GetOwningPlayer(caster), DUMMY_UNIT_0, pos1.x, pos1.y, angle.degrees())
+        let level = caster.getAbilityLevel('A01S')
+        counter = 0
+        doPeriodically(0.05) (CallbackPeriodic cb) ->
+            pos1 = dummy.getPos()
+            angle = pos1.angleTo(pos2)
+            let pos3 = pos1.polarOffset(angle, 25.)
+            let dist = pos1.distanceTo(pos2)
+            let isAlive = currentTarget.isAlive()
+            dummy..setPos(pos3).setFacing(angle)
+            if(isAlive)
+                pos2 = currentTarget.getPos()
+            if(dist <= 25.)
+                if(isAlive)
+                    let damage = udg_FireBallDamage[level-1] + level * 0.8 * caster.getInt(true)
+                    new DummyCaster()
+                    ..owner(caster.getOwner())
+                    ..origin(dummy.getPos())
+                    ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, currentTarget)
+                    DamageEvent.setNextDamageId('A01S')
+                    DamageEvent.setNextDamageFromCode()
+                    DamageEvent.setNextDamageElement(DAMAGE_ELEMENT_FIRE)
+                    caster.damageTarget(currentTarget, damage, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                flashEffect(Abilities.fireBallMissile, currentTarget.getPos())
+                if(counter >= udg_BounceAmount[level-1])
+                    dummy.remove()
+                    flashEffect(Abilities.fireLordDeathExplode, currentTarget.getPos())
+                    destroy(cb)
+                else
+                    forUnitsInRange(currentTarget.getPos(), 400) (unit u) ->
+                        if (u.isEnemyOf(caster.getOwner()))
+                            if(u.isAlive() and u.getHandleId() != currentTarget.getHandleId())
+                                let pos4 = u.getPos()
+                                if(pos1.distanceTo(pos2) < pos1.distanceTo(pos4))
+                                    currentTarget = u
+                                else if (u.hasAbility(BUFF_12))
+                                    currentTarget = u
+                            else
+                                dummy.remove()
+                                destroy(cb)
+                counter++
