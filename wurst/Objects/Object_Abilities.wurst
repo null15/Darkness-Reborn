@@ -599,15 +599,6 @@ import Icons
     ..setSummonedUnit(7, MISHABEAR_6.toRawCode())
     ..setSummonedUnit(8, MISHABEAR_7.toRawCode())
     ..setSummonedUnit(9, MISHABEAR_8.toRawCode())
-    ..setTooltipNormal(1, "Summon Misha Bear [|cffffcc00W|r] - [|cffffcc00Level 1|r]")
-    ..setTooltipNormal(2, "Summon Misha Bear [|cffffcc00W|r] - [|cffffcc00Level 2|r]")
-    ..setTooltipNormal(3, "Summon Misha Bear [|cffffcc00W|r] - [|cffffcc00Level 3|r]")
-    ..setTooltipNormal(4, "Summon Misha Bear [|cffffcc00W|r] - [|cffffcc00Level 4|r]")
-    ..setTooltipNormal(5, "Summon Misha Bear [|cffffcc00W|r] - [|cffffcc00Level 5|r]")
-    ..setTooltipNormal(6, "Summon Misha Bear [|cffffcc00W|r] - [|cffffcc00Level 6|r]")
-    ..setTooltipNormal(7, "Summon Misha Bear [|cffffcc00W|r] - [|cffffcc00Level 7|r]")
-    ..setTooltipNormal(8, "Summon Misha Bear [|cffffcc00W|r] - [|cffffcc00Level 8|r]")
-    ..setTooltipNormal(9, "Summon Misha Bear [|cffffcc00W|r] - [|cffffcc00Level 9|r]")
     for int i = 1 to 9
         abi4..setTooltipNormalExtended(i, "Summon \"Misha\"\n"+
     "Ability: Bash (35%)\n" + 
