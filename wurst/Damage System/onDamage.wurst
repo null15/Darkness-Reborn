@@ -219,7 +219,8 @@ init
                     trig_TakeRange_Actions(DamageEvent.getTarget())
                     count_A006 = count_A006 + 1
                     doAfter(5) -> 
-                        count_A006 = 0    
+                        count_A006 = 0
+                //Firemage
                 if DamageEvent.getSource().getAbilityLevel('A11C') > 0 or DamageEvent.getSource().getAbilityLevel('A0N0') > 0
                     eternalFlame(DamageEvent.getSource(), DamageEvent.getTarget())
                 

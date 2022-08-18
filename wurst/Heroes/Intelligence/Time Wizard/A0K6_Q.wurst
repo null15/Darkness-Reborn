@@ -3,7 +3,7 @@ import ClosureEvents
 import ClosureTimers
 import ClosureForGroups
 
-group teleportedUnits
+integer array teleportedUnitIDs
 
 init
     timeTravel()
@@ -16,19 +16,21 @@ function timeTravel()
         sfx.setPos(sfx.getPos().polarOffset(angle1, 200))
         doPeriodicallyTimed(0.05, 15) (CallbackCounted cb) ->
             forUnitsInRange(sfx.getPos(), 75, true) (unit u) ->
-                if caster.isAllyOf(u) and (teleportedUnits.has(u) and IsUnitType(u, UNIT_TYPE_STRUCTURE)) == false
-                    u.setPos(target)
-                    flashEffect("Teleport.mdl", u.getPos())
-                    teleportedUnits.add(u)
-                    doAfter(2) -> 
-                        teleportedUnits.remove(u)
+                if caster.isAllyOf(u) and IsUnitType(u, UNIT_TYPE_STRUCTURE) == false
+                    if teleportedUnitIDs[u.getOwner().getId()] != u.getHandleId()
+                        u.setPos(target)
+                        flashEffect("Teleport.mdl", u.getPos())
+                        teleportedUnitIDs[u.getOwner().getId()] = u.getHandleId()
+                        doAfter(2) -> 
+                            teleportedUnitIDs[u.getOwner().getId()] = 0
             forUnitsInRange(sfx2.getPos(), 75, true) (unit u) ->
-                if caster.isAllyOf(u) and (teleportedUnits.has(u) and IsUnitType(u, UNIT_TYPE_STRUCTURE)) == false
-                    u.setPos(casterPos.polarOffset(angle1, 200))
-                    flashEffect("Teleport.mdl", u.getPos())
-                    teleportedUnits.add(u)
-                    doAfter(2) -> 
-                        teleportedUnits.remove(u)
+                if caster.isAllyOf(u) and IsUnitType(u, UNIT_TYPE_STRUCTURE) == false
+                    if teleportedUnitIDs[u.getOwner().getId()] != u.getHandleId()
+                        u.setPos(casterPos.polarOffset(angle1, 200))
+                        flashEffect("Teleport.mdl", u.getPos())
+                        teleportedUnitIDs[u.getOwner().getId()] = u.getHandleId()
+                        doAfter(2) -> 
+                            teleportedUnitIDs[u.getOwner().getId()] = 0
             if cb.isLast()
                 sfx.destr()
                 sfx2.destr()

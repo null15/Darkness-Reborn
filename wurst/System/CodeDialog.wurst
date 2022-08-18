@@ -71,4 +71,4 @@ public function codeDialog()
 
             buffBox.display(GetTriggerPlayer(), true)
         else
-            printTimed("You need to have beaten the game!", 3)
+            printTimed("You need to have beaten the game or you may have used your code!", 5)
