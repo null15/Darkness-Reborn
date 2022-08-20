@@ -1,7 +1,6 @@
 package A006_Q
 import MyUnitIds
 import ClosureTimers
-import DamageEvent
 import MyAbilityIds
 import ClosureEvents
 import OrderIds
@@ -32,8 +31,7 @@ function arrowCreate(vec2 pos, unit caster, unit target)
         let dist = pos1.distanceTo(pos2)
         if(dist <= 25.)
             if(isAlive)
-                let damage = caster.getInt(true) * 0.6 * caster.getAbilityLevel(DARKRANGER_ABIL_1)
-                DamageEvent.setNextDamageId(DARKRANGER_ABIL_1)
+                let damage = caster.getAgi(true) * 0.6 * caster.getAbilityLevel(DARKRANGER_ABIL_1)
                 caster.damageTarget(target, damage, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
             arrowMissile.destr()
             destroy cb
@@ -50,7 +48,6 @@ function imageArrow()
             ..setVertexColor(100, 100, 100, 60)
             ..addAbility(DARKRANGER_DUMMYABIL_1)
             ..setAbilityLevel(DARKRANGER_DUMMYABIL_1, lvl)
-            ..setExploded(true)
             arrowCreate(polarProj, caster, target)
 
         for int i = 1 to 3
@@ -61,5 +58,4 @@ function imageArrow()
             ..setVertexColor(100, 100, 100, 60)
             ..addAbility(DARKRANGER_DUMMYABIL_1)
             ..setAbilityLevel(DARKRANGER_DUMMYABIL_1, lvl)
-            ..setExploded(true)
             arrowCreate(polarProj, caster, target)

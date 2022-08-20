@@ -3,6 +3,7 @@ import DamageEvent
 import ClosureEvents
 import MyUnitIds
 import OrderIds
+import MyAbilityIds
 public boolean frostArrowOn = false
 
 init
@@ -11,11 +12,15 @@ init
 function frostArrowToggle()
     EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
         let u = GetTriggerUnit()
-        if(u.getTypeId() == PLAY_HERO_16)
-            if(GetIssuedOrderId() == OrderIds.flamingarrows or GetIssuedOrderId() == OrderIds.flamingarrowstarg)
-                frostArrowOn = not(frostArrowOn)
+        if(u.getTypeId() == PLAY_HERO_25)
+            if(GetIssuedOrderId() == OrderIds.flamingarrows)
+                frostArrowOn = true
+            else if GetIssuedOrderId() == OrderIds.flamingarrows + 1
+                frostArrowOn = false          
 
 public function frostArrows(unit vashj)
-    let lvl = GetUnitAbilityLevel(vashj, 'A000')
+    let lvl = GetUnitAbilityLevel(vashj, NAGAWITCH_ABIL_2)
     let dmg = vashj.getMaxMana()*(0.04*lvl)
+    if(vashj.getMana() < (7.08333 * lvl + 20.6944).round())
+        vashj.issueImmediateOrderById(OrderIds.flamingarrows + 1)
     DamageEvent.addAmount(dmg)

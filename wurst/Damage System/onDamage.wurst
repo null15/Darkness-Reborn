@@ -80,7 +80,7 @@ init
                     blackHole(src, targ)
 
                 // Dark Ranger (Black Arrow) W - Autocast
-                if darkArrowOn
+                if darkArrowOn and src.getTypeId() == PLAY_HERO_16
                     darkArrow(src)
 
                 // Assassin (Last Killer) T - Active
@@ -104,7 +104,7 @@ init
                     pulverize(src, targ)
 
                 // Vashj (Frost Arrows ) X - Autocast
-                if frostArrowOn
+                if frostArrowOn and src.getTypeId() == PLAY_HERO_16
                     frostArrows(src)    
 
                 // Craggy Hex (Shadow Hunter) R - Passive

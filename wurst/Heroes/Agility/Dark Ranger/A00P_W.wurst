@@ -14,11 +14,15 @@ function darkArrowToggle()
     EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
         let u = GetTriggerUnit()
         if(u.getTypeId() == PLAY_HERO_16)
-            if(GetIssuedOrderId() == OrderIds.flamingarrows or GetIssuedOrderId() == OrderIds.flamingarrowstarg)
-                darkArrowOn = not(darkArrowOn)
+            if(GetIssuedOrderId() == OrderIds.flamingarrows)
+                darkArrowOn = true
+            else if GetIssuedOrderId() == OrderIds.flamingarrows + 1
+                darkArrowOn = false
 
 public function darkArrow(unit caster)
     let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_2)
     let dmg = (caster.getAgi(true)*lvl*0.5)
+    if(caster.getMana() < 5 * lvl)
+        caster.issueImmediateOrderById(OrderIds.flamingarrows + 1)
     DamageEvent.addAmount(dmg)
     caster.addHP(dmg*0.5)
