@@ -627,9 +627,10 @@ function recipeItemReplace()
             u.addItemById(ITEM_181)
 
         // Lancelot Shield
-        else if u.hasItemById(ITEM_104) and u.hasItemById(ITEM_314)
+        else if u.hasItemById(ITEM_104) and u.hasItemById(ITEM_314) and u.hasItemById(ITEM_223)
             RemoveItem(u.getItemById(ITEM_104))
             RemoveItem(u.getItemById(ITEM_314))
+            RemoveItem(u.getItemById(ITEM_223))
             u.addItemById(ITEM_182)
 
         // Lancelot Armor   
@@ -765,9 +766,9 @@ function recipeItemReplace()
             u.addItemById(ITEM_193)
 
         //Perfect Carnelian
-        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_351)
+        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_333)
             RemoveItem(u.getItemById(ITEM_276))
-            RemoveItem(u.getItemById(ITEM_351))
+            RemoveItem(u.getItemById(ITEM_333))
             u.addItemById(ITEM_110)
 
         //Perfect Topaz

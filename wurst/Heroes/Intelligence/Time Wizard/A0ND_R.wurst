@@ -14,6 +14,7 @@ function hourglass()
         if not running
             count = 0
             running = true
+            caster..removeAbility('A007')..addAbility('A0NG')
             doPeriodically(1) (CallbackPeriodic cb) ->
                 if boom
                     boom = false
@@ -22,7 +23,6 @@ function hourglass()
                 hourglass = createShadowStrikeTextTag(caster, count, false)
                 hourglass.setColor(colorA(79, 211, 252, 255))
                 hourglass.setText(count.toString())
-                caster..removeAbility('A007')..addAbility('A0NG')
 
     EventListener.onCast('A0NG') (unit caster) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0ND')

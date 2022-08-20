@@ -1,7 +1,21 @@
 package A000_W
 import DamageEvent
+import ClosureEvents
+import MyUnitIds
+import OrderIds
+public boolean frostArrowOn = false
+
 init
+    frostArrowToggle()
+
+function frostArrowToggle()
+    EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
+        let u = GetTriggerUnit()
+        if(u.getTypeId() == PLAY_HERO_16)
+            if(GetIssuedOrderId() == OrderIds.flamingarrows or GetIssuedOrderId() == OrderIds.flamingarrowstarg)
+                frostArrowOn = not(frostArrowOn)
+
 public function frostArrows(unit vashj)
     let lvl = GetUnitAbilityLevel(vashj, 'A000')
     let dmg = vashj.getMaxMana()*(0.04*lvl)
-    DamageEvent.setAmount(dmg)
+    DamageEvent.addAmount(dmg)

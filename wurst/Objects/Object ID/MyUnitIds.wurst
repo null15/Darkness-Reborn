@@ -4,6 +4,9 @@ import ObjectIdGenerator
 
 // public constant DUMMY_HERO_0 = compiletime(HERO_ID_GEN.next())
 
+public constant HORSE_UNIT_1 = compiletime(UNIT_ID_GEN.next())
+public constant HORSE_UNIT_2 = compiletime(UNIT_ID_GEN.next())
+
 public constant SKIN_1 = compiletime(HERO_ID_GEN.next())
 
 public constant DUMMY_UNIT_0 = compiletime(UNIT_ID_GEN.next())

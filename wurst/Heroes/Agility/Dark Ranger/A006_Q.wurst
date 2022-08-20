@@ -2,68 +2,64 @@ package A006_Q
 import MyUnitIds
 import ClosureTimers
 import DamageEvent
+import MyAbilityIds
+import ClosureEvents
+import OrderIds
+import Abilities
 unit abilUnit
 int dmg
 unit caster = null
 
 init
-
     imageArrow()
 
-function imageArrowCond() returns boolean
-    return GetSpellAbilityId() == 'A006'
-
-public function trig_TakeRange_Actions (unit target)
-    let lvl = GetUnitAbilityLevel(caster, 'A006')
-    GetTriggerUnit().removeAbility('B006')
-    doAfter(2) -> 
-        DamageEvent.setNextDamageId('A006')
-        caster.damageTarget(target, (caster.getAgi(true)*0.6*lvl), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+function arrowCreate(vec2 pos, unit caster, unit target)
+    let arrowMissile = AddSpecialEffect(Abilities.moonPriestessMissile, pos.x, pos.y)
+    var pos1 = pos
+    var pos2 = target.getPos()
+    var angle = pos.angleTo(pos2)
+    arrowMissile.setYaw(angle.degrees())
+    doPeriodically(0.05) (CallbackPeriodic cb) ->
+        angle = arrowMissile.getPos().angleTo(target.getPos())
+        arrowMissile.setYaw(angle.degrees())
+        pos1 = arrowMissile.getPos()
+        angle = pos1.angleTo(pos2)
+        let pos3 = pos1.polarOffset(angle, 25.)
+        let isAlive = target.isAlive()
+        arrowMissile..setPos(pos3).setYaw(angle.radians())
+        if(isAlive)
+            pos2 = target.getPos()
+        let dist = pos1.distanceTo(pos2)
+        if(dist <= 25.)
+            if(isAlive)
+                let damage = caster.getInt(true) * 0.6 * caster.getAbilityLevel(DARKRANGER_ABIL_1)
+                DamageEvent.setNextDamageId(DARKRANGER_ABIL_1)
+                caster.damageTarget(target, damage, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            arrowMissile.destr()
+            destroy cb
 
 function imageArrow()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function imageArrowCond))..addAction() ->
-        caster = GetTriggerUnit()
-        abilUnit = GetSpellAbilityUnit()
-        dmg=(GetUnitAbilityLevelSwapped('A006',GetSpellAbilityUnit())*R2I((0.60*I2R(GetHeroStatBJ(bj_HEROSTAT_AGI,GetSpellAbilityUnit(),true)))))
-        let targetLoc=GetSpellTargetLoc()
-        let unitLoc=GetUnitLoc(GetSpellAbilityUnit())
-        let angleBetween=AngleBetweenPoints(targetLoc,unitLoc)
-        let polarProj=PolarProjectionBJ(unitLoc,200.00,(angleBetween+180.00))
-        location polarProj2 = PolarProjectionBJ(polarProj,(200.00*I2R(GetForLoopIndexA())),(angleBetween+45.00))
-        location polarProj3 = PolarProjectionBJ(polarProj,(200.00*I2R(GetForLoopIndexA())),(angleBetween-45.00))
-        bj_forLoopAIndex=1
-        bj_forLoopAIndexEnd=3
-        caster.startAbilityCooldown('A006')
-        while true
-            if bj_forLoopAIndex>bj_forLoopAIndexEnd
-                break
-            polarProj2=PolarProjectionBJ(polarProj,(200.00*I2R(GetForLoopIndexA())),(angleBetween+45.00))
-            CreateNUnitsAtLoc(1,DUMMY_UNIT_1,GetOwningPlayer(GetSpellAbilityUnit()),polarProj2,bj_UNIT_FACING)
-            SetUnitVertexColorBJ(GetLastCreatedUnit(),100,100,100,60.00)
-            UnitApplyTimedLifeBJ(1.00,'BTLF',GetLastCreatedUnit())
-            UnitAddAbilityBJ('A009',GetLastCreatedUnit())
-            SetUnitAbilityLevelSwapped('A009',GetLastCreatedUnit(),GetUnitAbilityLevelSwapped('A009',abilUnit))
-            IssueTargetOrderBJ(GetLastCreatedUnit(),"thunderbolt",GetSpellTargetUnit())
-            SetUnitExplodedBJ(GetLastCreatedUnit(),true)
-            bj_forLoopAIndex=bj_forLoopAIndex+1
+    EventListener.onTargetCast(DARKRANGER_ABIL_1) (unit caster, unit target) ->
+        let lvl = caster.getAbilityLevel(DARKRANGER_ABIL_1)
+        let angle = caster.getPos().angleTo(target.getPos())
+        for int i = 1 to 3
+            let polarProj = caster.getPos().polarOffset(angle.op_plus(225.0.asAngleRadians()), -200.*i)
+            let archer = createUnit(caster.getOwner(), DUMMY_UNIT_1, polarProj, angle)
+            archer..setTimedLife(1.0)
+            ..issueImmediateOrderById(OrderIds.thunderbolt)
+            ..setVertexColor(100, 100, 100, 60)
+            ..addAbility(DARKRANGER_DUMMYABIL_1)
+            ..setAbilityLevel(DARKRANGER_DUMMYABIL_1, lvl)
+            ..setExploded(true)
+            arrowCreate(polarProj, caster, target)
 
-        bj_forLoopAIndex=1
-        bj_forLoopAIndexEnd=3
-        while true
-            if bj_forLoopAIndex>bj_forLoopAIndexEnd
-                break
-            polarProj3=PolarProjectionBJ(polarProj,(200.00*I2R(GetForLoopIndexA())),(angleBetween-45.00))
-            CreateNUnitsAtLoc(1,DUMMY_UNIT_1,GetOwningPlayer(GetSpellAbilityUnit()),polarProj3,bj_UNIT_FACING)
-            SetUnitVertexColorBJ(GetLastCreatedUnit(),100,100,100,60.00)
-            UnitAddAbilityBJ('A009',GetLastCreatedUnit())
-            SetUnitAbilityLevelSwapped('A009',GetLastCreatedUnit(),GetUnitAbilityLevelSwapped('A009',abilUnit))
-            IssueTargetOrderBJ(GetLastCreatedUnit(),"thunderbolt",GetSpellTargetUnit())
-            UnitApplyTimedLifeBJ(1.00,'BTLF',GetLastCreatedUnit())
-            SetUnitExplodedBJ(GetLastCreatedUnit(),true)
-            bj_forLoopAIndex=bj_forLoopAIndex+1
-
-        RemoveLocation(targetLoc)
-        RemoveLocation(unitLoc)
-        RemoveLocation(polarProj)
-        RemoveLocation(polarProj2)
-        RemoveLocation(polarProj3)
+        for int i = 1 to 3
+            let polarProj = caster.getPos().polarOffset(angle.op_minus(225.0.asAngleRadians()), -200.*i)
+            let archer = createUnit(caster.getOwner(), DUMMY_UNIT_1, polarProj, angle)
+            archer..setTimedLife(1.0)
+            ..issueImmediateOrderById(OrderIds.thunderbolt)
+            ..setVertexColor(100, 100, 100, 60)
+            ..addAbility(DARKRANGER_DUMMYABIL_1)
+            ..setAbilityLevel(DARKRANGER_DUMMYABIL_1, lvl)
+            ..setExploded(true)
+            arrowCreate(polarProj, caster, target)

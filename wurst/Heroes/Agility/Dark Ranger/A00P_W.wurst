@@ -1,11 +1,24 @@
 package A00P_W
 import DamageEvent
-init
+import MyUnitIds
+import OrderIds
+import MyAbilityIds
+import ClosureEvents
 
-public function darkArrow(unit caster, unit target)
-    let lvl = GetUnitAbilityLevel(caster, 'A00P')
+public boolean darkArrowOn = false
+
+init
+    darkArrowToggle()
+
+function darkArrowToggle()
+    EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
+        let u = GetTriggerUnit()
+        if(u.getTypeId() == PLAY_HERO_16)
+            if(GetIssuedOrderId() == OrderIds.flamingarrows or GetIssuedOrderId() == OrderIds.flamingarrowstarg)
+                darkArrowOn = not(darkArrowOn)
+
+public function darkArrow(unit caster)
+    let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_2)
     let dmg = (caster.getAgi(true)*lvl*0.5)
-    if target.hasAbility('B000')
-        DamageEvent.addAmount(dmg)
-        caster.addHP(dmg*0.5)
-        target.removeAbility('B000')
+    DamageEvent.addAmount(dmg)
+    caster.addHP(dmg*0.5)

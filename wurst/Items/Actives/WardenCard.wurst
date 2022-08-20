@@ -12,6 +12,7 @@ function wardenCard()
     EventListener.onCast('A0TE') caster ->
         u_i = 0
         forUnitsInRange(caster.getPos(), 400) (unit u) ->
-            if(u_i < 8)
-                caster.damageTarget(u, 25000, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-                u_i++
+            if(u.isEnemyOf(caster))
+                if(u_i < 8)
+                    caster.damageTarget(u, 25000, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    u_i++

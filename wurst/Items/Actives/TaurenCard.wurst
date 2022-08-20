@@ -9,4 +9,5 @@ init
 function taurenCard()
     EventListener.onCast('A0XS') caster ->
         forUnitsInRange(caster.getPos(), 400) (unit u) ->
-            caster.damageTarget(u, 25000, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            if(u.isEnemyOf(caster))
+                caster.damageTarget(u, 25000, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

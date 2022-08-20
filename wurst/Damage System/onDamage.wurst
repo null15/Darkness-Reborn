@@ -8,7 +8,6 @@ import A0F0_W
 import A0C3_Q
 import A0CG_R
 import A0CE_T
-import A006_Q
 import A00P_W
 import A0GJ_T
 import A0E6_R
@@ -43,7 +42,7 @@ import OrbofLightning
 
 import MyItemIds
 import MyBuffIds
-import ClosureTimers
+
 
 @configurable constant DETECT_NATIVE_ABILITIES = true
 
@@ -81,8 +80,8 @@ init
                     blackHole(src, targ)
 
                 // Dark Ranger (Black Arrow) W - Autocast
-                if src.getTypeId() == PLAY_HERO_16 and targ.hasAbility('B000') and DamageEvent.getId() != 'A006'
-                    darkArrow(src, targ)
+                if darkArrowOn
+                    darkArrow(src)
 
                 // Assassin (Last Killer) T - Active
                 if src.getTypeId() == PLAY_HERO_10 and src.hasAbility('B00W')
@@ -105,8 +104,8 @@ init
                     pulverize(src, targ)
 
                 // Vashj (Frost Arrows ) X - Autocast
-                if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and src.getTypeId() == PLAY_HERO_25 and targ.hasAbility('B002')
-                    frostArrows(src)
+                if frostArrowOn
+                    frostArrows(src)    
 
                 // Craggy Hex (Shadow Hunter) R - Passive
                 if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and targ.getTypeId() == PLAY_HERO_23 and targ.hasAbility('B00N')
@@ -213,13 +212,6 @@ init
                     src.removeAbility('B003')
 
             case SPELL
-
-                // Dark Ranger (Image Arrows) Q - Active
-                if GetUnitTypeId(DamageEvent.getSource()) == DUMMY_UNIT_1 and count_A006 < 6
-                    trig_TakeRange_Actions(DamageEvent.getTarget())
-                    count_A006 = count_A006 + 1
-                    doAfter(5) -> 
-                        count_A006 = 0
                 //Firemage
                 if DamageEvent.getSource().getAbilityLevel('A11C') > 0 or DamageEvent.getSource().getAbilityLevel('A0N0') > 0
                     eternalFlame(DamageEvent.getSource(), DamageEvent.getTarget())

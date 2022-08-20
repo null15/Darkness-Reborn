@@ -8,7 +8,8 @@ integer counter = 0
 public function orbofLightning(unit src)
     counter = 0
     forUnitsInRange(src.getPos(), 900) (unit u) ->
-        if(counter < 4)
-            src.damageTarget(u, 1000., false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-            flashEffect(Abilities.forkedLightningTarget, u.getPos())
-            counter++
+        if(u.isEnemyOf(src))
+            if(counter < 4)
+                src.damageTarget(u, 1000., false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                flashEffect(Abilities.forkedLightningTarget, u.getPos())
+                counter++

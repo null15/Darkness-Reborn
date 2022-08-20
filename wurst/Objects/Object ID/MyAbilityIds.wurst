@@ -2,6 +2,12 @@ package MyAbilityIds
 
 import ObjectIdGenerator
 
+public constant HORSE_INVENTORY_1 = compiletime(ABIL_ID_GEN.next())
+public constant HORSE_INVENTORY_2 = compiletime(ABIL_ID_GEN.next())
+
+public constant FOUNTAIN_HEALING = compiletime(ABIL_ID_GEN.next())
+public constant FOUNTAIN_MANAREGEN = compiletime(ABIL_ID_GEN.next())
+
 public constant ABILITY_DUMMY_0 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_DUMMY_1 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_DUMMY_2 = compiletime(ABIL_ID_GEN.next())
@@ -77,6 +83,38 @@ public constant ABILITY_53 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_54 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_55 = compiletime(ABIL_ID_GEN.next())
 
+public constant DARKRANGER_DUMMYABIL_1 = compiletime(ABIL_ID_GEN.next())
+public constant DARKRANGER_ABIL_1 = compiletime(ABIL_ID_GEN.next())
+public constant DARKRANGER_ABIL_2 = compiletime(ABIL_ID_GEN.next())
+public constant DARKRANGER_ABIL_3 = compiletime(ABIL_ID_GEN.next())
+public constant DARKRANGER_ABIL_4 = compiletime(ABIL_ID_GEN.next())
+public constant DARKRANGER_ABIL_5 = compiletime(ABIL_ID_GEN.next())
 
+public constant NAGAWITCH_ABIL_1 = compiletime(ABIL_ID_GEN.next())
+public constant NAGAWITCH_ABIL_2 = compiletime(ABIL_ID_GEN.next())
+public constant NAGAWITCH_ABIL_3 = compiletime(ABIL_ID_GEN.next())
+public constant NAGAWITCH_ABIL_4 = compiletime(ABIL_ID_GEN.next())
+public constant NAGAWITCH_ABIL_5 = compiletime(ABIL_ID_GEN.next())
+
+public constant BOSS_ABILITY_1 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_2 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_3 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_4 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_5 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_6 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_7 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_8 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_9 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_10 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_11 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_12 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_13 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_14 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_15 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_16 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_17 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_18 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_19 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_20 = compiletime(ABIL_ID_GEN.next())
 
 init

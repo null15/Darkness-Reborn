@@ -1,17 +1,13 @@
 package A00G_E
+import MyAbilityIds
+import ClosureEvents
 init
 
     darkDrain()
 
-function darkDrainCond() returns boolean
-    return GetSpellAbilityId() == 'A00G'
-
 function darkDrain()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function darkDrainCond))..addAction() ->   
-        let target = GetSpellTargetUnit()
-        let caster = GetTriggerUnit()
-        let lvl = GetUnitAbilityLevel(caster, 'A00G')
+    EventListener.onTargetCast(DARKRANGER_ABIL_3) (unit caster, unit target) ->
+        let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_3)
         let dmg = (caster.getAgi(true)*(lvl*2))
         caster.damageTarget(target, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
         caster.addMana(I2R(caster.getAgi(true)))
-        caster.startAbilityCooldown('A00G')
