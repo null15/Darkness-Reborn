@@ -2436,7 +2436,7 @@ import OrderIds
     ..setHeroAbility(false)
     ..setItemAbility(false)
 
-    new AbilityDefinitionEvasioncreep(BOSS_ABILITY_21) //ACes
+    new AbilityDefinitionEvasioncreep(BOSS_ABILITY_22) //ACes
     ..setLevels(1)
     ..setChancetoEvade(1, 100)
     ..setHeroAbility(false)
