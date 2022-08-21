@@ -2,6 +2,7 @@ package A00K_R
 import ClosureEvents
 import ClosureForGroups
 import Abilities
+import codeDamageTypings
 init
     holyWrath()
 function holyWrath()
@@ -11,7 +12,7 @@ function holyWrath()
         forUnitsInRange(target, 600, true) (unit u) ->
             flashEffect(Abilities.holyBoltSpecialArt, u.getPos())
             if caster.isEnemyOf(u)
-                caster.damageTarget(u, output, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                magicalDamage(output, caster, u)
             else if caster.isAllyOf(u)
                 u.addHP(output)
             else

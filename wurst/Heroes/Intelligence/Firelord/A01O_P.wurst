@@ -1,5 +1,6 @@
 package A01O_P
 import ClosureTimers
+import codeDamageTypings
 init
 
 public function blaze(unit source, unit target)
@@ -7,4 +8,4 @@ public function blaze(unit source, unit target)
         var damage = 100.
         if(IsUnitType(target, UNIT_TYPE_HERO))
             damage = damage + target.getMaxHP() * 0.02
-        source.damageTarget(target, damage, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+        magicalDamage(damage, source, target)

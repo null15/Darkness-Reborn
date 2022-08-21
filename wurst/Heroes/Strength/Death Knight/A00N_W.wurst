@@ -4,14 +4,15 @@ import A00L_Q
 import ClosureEvents
 import ClosureForGroups
 import Abilities
+import codeDamageTypings
 
 init
     tasteOfDeath()
 function tasteOfDeath()
     EventListener.onCast('A00N') (unit caster) ->
         let lvl = GetUnitAbilityLevel(caster, 'A00N')
-        let dmg = (10*lvl)*souls
+        let dmg = (10.*lvl)*souls
         forUnitsInRange(caster.getPos(), 500, true) (unit u) ->
             if caster.isEnemyOf(u)
-                caster.damageTarget(u, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                magicalDamage(dmg, caster, u)
                 flashEffect(Abilities.illidanMissile, u.getPos(), 1)

@@ -1,15 +1,16 @@
 package A0D7_T
 import ClosureEvents
 // import ClosureTimers
+import codeDamageTypings
 init
     lightRemoval()
 function lightRemoval()
     EventListener.onTargetCast('A0D7') (unit caster, unit target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0D7')
-        let dmg = (caster.getInt(true) * 3 * lvl)
+        let dmg = (caster.getInt(true) * 3. * lvl)
         flashEffect("Effects\\Archmage\\ShadowSlam(Normal Size).mdl", target, "chest")
         let buffs = UnitCountBuffsEx(target, false, false, true, false, false, false, false).toReal()
         if buffs > 0
-            caster.damageTarget(target, dmg * Pow(2, buffs), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            magicalDamage(dmg * Pow(2, buffs), caster, target)
         else
-            caster.damageTarget(target, dmg.toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            magicalDamage(dmg, caster, target)

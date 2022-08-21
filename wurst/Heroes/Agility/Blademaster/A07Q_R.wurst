@@ -2,6 +2,7 @@ package A07Q_R
 import ClosureTimers
 import Abilities
 import ClosureForGroups
+import codeDamageTypings
 init
 
     rampage()
@@ -22,7 +23,7 @@ function rampage2(unit caster, unit target)
                 else
                     caster.setAnimation("attack")
                     flashEffect(Abilities.warStompCaster, target.getPos())
-                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    physicalDamage(dmg, caster, target)
         if cb.isLast()
             caster.unpause()
             caster.setInvulnerable(false)

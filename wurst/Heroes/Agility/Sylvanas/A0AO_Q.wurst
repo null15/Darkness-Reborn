@@ -2,7 +2,8 @@ package A0AO_Q
 import MyAbilityIds
 import ClosureTimers
 import Abilities
-import MyUnitIds
+import ClosureEvents
+import codeDamageTypings
 import ClosureForGroups
 bool run = true
 init
@@ -13,33 +14,28 @@ function goldenArrowCond() returns boolean
     return GetSpellAbilityId() == ABILITY_2
 
 function goldenArrow()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function goldenArrowCond))..addAction() ->
-        let caster  = GetTriggerUnit()
-        let target = EventData.getSpellTargetPos()
-        let casterPos = GetTriggerUnit().getPos()
+    EventListener.onPointCast(ABILITY_2) (unit caster, vec2 target) ->
+        let casterPos = caster.getPos()
         let angle = caster.getPos().angleTo(target)
         let sfx = addEffect("HighElvenArrow.mdl", caster.getPos())
-        let i = GetOwningPlayer(caster).getId()
-        let dummy = createUnit(players[i], DUMMY_UNIT_0, casterPos)
         var distance = caster.getPos().distanceTo(sfx.getPos())
         let lvl = GetUnitAbilityLevel(caster, ABILITY_2)
-        sfx.setScale(3)   
+        var pos = sfx.getPos()
+        sfx.setScale(3)
         sfx.setYaw(angle.radians())
-        
-        
+        let amount = caster.getAgi(true) * lvl * 0.15
         doPeriodicallyTimed(0.03, 0.9) cb -> 
             if cb.isLast()
                 sfx.destr()
-                RemoveUnit(dummy)
                 run = true
             else
                 sfx.setPos(sfx.getPos().polarOffset(angle,45))
-                dummy.setPos(sfx.getPos())
+                pos = sfx.getPos()
                 distance = casterPos.distanceTo(sfx.getPos())
                 if distance > 1000 and run == true
                     run = false
                     flashEffect(Abilities.fireLordDeathExplode, sfx.getPos3())
 
-                forUnitsInRange(dummy.getPos(), 300, true) (unit u) ->
-                    if caster.isEnemyOf(u) and GetOwningPlayer(u) != Player(10)
-                        caster.damageTarget(u, (caster.getAgi(true)*(lvl*0.15)), false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                forUnitsInRange(pos, 300, true) (unit u) ->
+                    if u.isEnemyOf(caster)
+                        magicalDamage(amount, caster, u)

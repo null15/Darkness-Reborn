@@ -3,14 +3,13 @@ package A01S_R
 import Abilities
 import ClosureEvents
 import MyBuffIds
-import DamageEvent
 import Global_Variables
 import DummyCaster
 import MyAbilityIds
 import OrderIds
 import ClosureTimers
 import ClosureForGroups
-
+import codeDamageTypings
 real array udg_FireBallDamage = [100,200,300,500,700,1000,1300,1600,2000]
 integer array udg_BounceAmount = [4,5,6,7,8,9,10,11,12]
 integer counter
@@ -44,10 +43,7 @@ function fireballCast()
                     ..owner(caster.getOwner())
                     ..origin(sfx.getPos())
                     ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, currentTarget)
-                    DamageEvent.setNextDamageId('A01S')
-                    DamageEvent.setNextDamageFromCode()
-                    DamageEvent.setNextDamageElement(DAMAGE_ELEMENT_FIRE)
-                    caster.damageTarget(currentTarget, damage, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    magicalDamageCodeElementId(damage, caster, currentTarget, DAMAGE_ELEMENT_FIRE, 'A01S')
                 flashEffect(Abilities.fireBallMissile, currentTarget.getPos())
                 if(counter >= udg_BounceAmount[level-1])
                     sfx.destr()

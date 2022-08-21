@@ -2,7 +2,7 @@ package A01Q_Q
 
 import ClosureEvents
 import ClosureForGroups
-
+import codeDamageTypings
 init
     frostNova()
 function frostNova()
@@ -10,4 +10,4 @@ function frostNova()
         let dmg = caster.getInt(true) * (caster.getAbilityLevel('A01Q') * 2.00)
         forUnitsInRange(target.getPos(), 200, true) (unit u) ->
             if(u.isEnemyOf(caster.getOwner()))
-                caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                magicalDamage(dmg, caster, target)

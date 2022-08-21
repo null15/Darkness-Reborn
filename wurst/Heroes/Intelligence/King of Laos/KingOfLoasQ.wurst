@@ -7,6 +7,7 @@ import DummyCaster
 import OrderIds
 import ClosureEvents
 import MyAbilityIds
+import codeDamageTypings
 constant POISON_SPIT_ARTILLERY = compiletime(ArtilleryDetection.createArtilleryDummy(0, 120, 160, 1, "Loas Assets\\Chaos Missile\\Chaos Missile.mdx", 500, 0.3))
 constant SOUND_POISON_SPIT = new SoundDefinition(Sounds.corrosiveBreathMissileTarget1, false, true)
 constant real array POISON_SPIT_AOE = [350, 350, 350, 350, 350, 350, 350, 350, 350]
@@ -18,6 +19,7 @@ function loasQact()
     EventListener.onPointCast(ABILITY_35) (unit caster, vec2 target) ->
         ArtilleryDetection.fireArtillery(caster, POISON_SPIT_ARTILLERY, caster.getPos(), target) (unit detectionUnit, unit caster, int data) ->
             let targetPos = detectionUnit.getPos()
+            let dmg = caster.getAbilityLevel(ABILITY_35) * caster.getInt(true).toReal()
             SOUND_POISON_SPIT.playOnPoint(targetPos.toVec3())
             forUnitsInRange(targetPos, 350, true) (unit u) ->
                 if caster.isEnemyOf(u)
@@ -26,7 +28,7 @@ function loasQact()
                     ..origin(vec2(caster.getX(), caster.getY()))
                     ..delay(1)
                     ..castTarget(ABILITY_36, 1, OrderIds.slow, u)
-                    caster.damageTarget(u, I2R(caster.getAbilityLevel(ABILITY_35) * GetHeroInt(caster, true)))
+                    magicalDamage(dmg, caster, u)
                     doPeriodicallyCounted(1, 4) (CallbackCounted cb) ->
                         if u.isAlive()
-                            caster.damageTarget(u, I2R(caster.getAbilityLevel(ABILITY_35) * GetHeroInt(caster, true)))
+                            magicalDamage(dmg, caster, u)

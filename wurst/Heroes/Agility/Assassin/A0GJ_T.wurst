@@ -1,6 +1,7 @@
 package A0GJ_T
 import Abilities
 import ClosureTimers
+import codeDamageTypings
 bool once = true
 init
 
@@ -8,9 +9,9 @@ public function lastKiller(unit caster, unit target)
     if once == true
         once = false
         let lvl = ((GetUnitAbilityLevel(caster, 'A0GJ'))*5)+37
-        let dmg = caster.getAgi(true)*lvl
+        let dmg = caster.getAgi(true)*lvl.toReal()
         flashEffect(Abilities.meatwagonMissile, target.getPos()) 
-        caster.damageTarget(target, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+        physicalDamage(dmg, caster, target)
         caster.removeAbility('B00W')
         doAfter(3) -> 
             once = true

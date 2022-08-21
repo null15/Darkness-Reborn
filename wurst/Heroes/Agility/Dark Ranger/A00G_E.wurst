@@ -1,6 +1,7 @@
 package A00G_E
 import MyAbilityIds
 import ClosureEvents
+import codeDamageTypings
 init
 
     darkDrain()
@@ -8,6 +9,6 @@ init
 function darkDrain()
     EventListener.onTargetCast(DARKRANGER_ABIL_3) (unit caster, unit target) ->
         let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_3)
-        let dmg = (caster.getAgi(true)*(lvl*2))
-        caster.damageTarget(target, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+        let dmg = (caster.getAgi(true)*(lvl*2.))
+        magicalDamage(dmg, caster, target)
         caster.addMana(I2R(caster.getAgi(true)))

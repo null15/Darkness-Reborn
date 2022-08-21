@@ -116,5 +116,8 @@ public constant BOSS_ABILITY_17 = compiletime(ABIL_ID_GEN.next())
 public constant BOSS_ABILITY_18 = compiletime(ABIL_ID_GEN.next())
 public constant BOSS_ABILITY_19 = compiletime(ABIL_ID_GEN.next())
 public constant BOSS_ABILITY_20 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_21 = compiletime(ABIL_ID_GEN.next())
+public constant BOSS_ABILITY_22 = compiletime(ABIL_ID_GEN.next())
+
 
 init

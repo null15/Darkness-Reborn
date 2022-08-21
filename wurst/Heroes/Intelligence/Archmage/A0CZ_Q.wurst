@@ -5,7 +5,7 @@ import ClosureForGroups
 import DummyCaster
 import OrderIds
 import MyAbilityIds
-
+import codeDamageTypings
 init
     eclipse()
 function eclipse()
@@ -17,12 +17,10 @@ function eclipse()
             if caster.isEnemyOf(u)
                 let buffs = UnitCountBuffsEx(u, false, false, true, false, false, false, false) - 1.
                 if buffs > 0
-                    caster.damageTarget(u, dmg * Pow(2, buffs), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    magicalDamage(dmg * Pow(2, buffs), caster, u)
                 else
-                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    magicalDamage(dmg, caster, u)
                 new DummyCaster()
                 ..owner(GetOwningPlayer(caster))
                 ..origin(caster.getPos())
                 ..castTarget(ABILITY_DUMMY_9, 1, OrderIds.curse, u)
-
-                

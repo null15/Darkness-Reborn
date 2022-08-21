@@ -1,0 +1,77 @@
+package codeDamageTypings
+import HashMap
+import DamageEvent
+
+let magicResistMap = new HashMap<integer, real>
+
+public function enumerateMagicResistanceUnit(integer unitId, real magicResistance)
+    magicResistMap.put(unitId, magicResistance)
+
+public function magicalDamageCodeElementId(real amount, unit source, unit target, DamageElement element, integer id)
+    DamageEvent.setNextDamageElement(element)
+    DamageEvent.setNextDamageFromCode()
+    DamageEvent.setNextDamageId(id)
+    source.damageTarget(target, amount * magicResistMap.get(target.getTypeId()), false, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+
+public function magicalDamageCodeElement(real amount, unit source, unit target, DamageElement element)
+    DamageEvent.setNextDamageElement(element)
+    DamageEvent.setNextDamageFromCode()
+    source.damageTarget(target, amount * magicResistMap.get(target.getTypeId()), false, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+
+public function magicalDamageCodeId(real amount, unit source, unit target, integer id)
+    DamageEvent.setNextDamageFromCode()
+    DamageEvent.setNextDamageId(id)
+    source.damageTarget(target, amount * magicResistMap.get(target.getTypeId()), false, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+
+public function magicalDamageCode(real amount, unit source, unit target)
+    DamageEvent.setNextDamageFromCode()
+    source.damageTarget(target, amount * magicResistMap.get(target.getTypeId()), false, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+
+public function magicalDamage(real amount, unit source, unit target)
+    source.damageTarget(target, amount * magicResistMap.get(target.getTypeId()), false, false, ATTACK_TYPE_MAGIC, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+
+public function physicalDamageCodeElementId(real amount, unit source, unit target, DamageElement element, integer id)
+    DamageEvent.setNextDamageElement(element)
+    DamageEvent.setNextDamageFromCode()
+    DamageEvent.setNextDamageId(id)
+    source.damageTarget(target, amount, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+
+public function physicalDamageCodeId(real amount, unit source, unit target, integer id)
+    DamageEvent.setNextDamageFromCode()
+    DamageEvent.setNextDamageId(id)
+    source.damageTarget(target, amount, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+
+public function physicalDamageCodeElement(real amount, unit source, unit target, DamageElement element)
+    DamageEvent.setNextDamageElement(element)
+    DamageEvent.setNextDamageFromCode()
+    source.damageTarget(target, amount, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+
+public function physicalDamageCode(real amount, unit source, unit target)
+    DamageEvent.setNextDamageFromCode()
+    source.damageTarget(target, amount, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+
+public function physicalDamage(real amount, unit source, unit target)
+    source.damageTarget(target, amount, false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+
+public function pureDamageCodeElementId(real amount, unit source, unit target, DamageElement element, integer id)
+    DamageEvent.setNextDamageElement(element)
+    DamageEvent.setNextDamageFromCode()
+    DamageEvent.setNextDamageId(id)
+    source.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+
+public function pureDamageCodeElementId(real amount, unit source, unit target, integer id)
+    DamageEvent.setNextDamageFromCode()
+    DamageEvent.setNextDamageId(id)
+    source.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+
+public function pureDamageCodeElement(real amount, unit source, unit target, DamageElement element)
+    DamageEvent.setNextDamageElement(element)
+    DamageEvent.setNextDamageFromCode()
+    source.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+
+public function pureDamageCode(real amount, unit source, unit target)
+    DamageEvent.setNextDamageFromCode()
+    source.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+
+public function pureDamage(real amount, unit source, unit target)
+    source.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

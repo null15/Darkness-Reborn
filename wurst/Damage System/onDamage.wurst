@@ -61,7 +61,7 @@ init
                 let targ = DamageEvent.getTarget()
 
                 // Illidan (Juxtapose) E
-                if src.getTypeId() == PLAY_HERO_17 and src.getAbilityLevel('A0S8') >= 1 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8')
+                if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8')
                     juxtapose(src)
 
                 // Sylvanas (Phantom Arrow) W - Autocast
@@ -74,14 +74,14 @@ init
 
                 // Shadow Vengeance (Gravitone) R - Passive
                 if src.getTypeId() == PLAY_HERO_12 and not src.hasAbility('B00L') and not src.hasAbility('B00J') and GetRandomInt(1, 100) < src.getAbilityLevel('A0CG')*2
-                    gravitone(src)
+                    gravitone(src, targ)
                 // Shadow Vengeance (Black Hole) T - Active
                 if src.getTypeId() == PLAY_HERO_12 and src.hasAbility('B00J')
                     blackHole(src, targ)
 
                 // Dark Ranger (Black Arrow) W - Autocast
                 if darkArrowOn and src.getTypeId() == PLAY_HERO_16
-                    darkArrow(src)
+                    darkArrow(src, targ)
 
                 // Assassin (Last Killer) T - Active
                 if src.getTypeId() == PLAY_HERO_10 and src.hasAbility('B00W')
@@ -105,7 +105,7 @@ init
 
                 // Vashj (Frost Arrows ) X - Autocast
                 if frostArrowOn and src.getTypeId() == PLAY_HERO_16
-                    frostArrows(src)    
+                    frostArrows(src, targ)    
 
                 // Craggy Hex (Shadow Hunter) R - Passive
                 if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and targ.getTypeId() == PLAY_HERO_23 and targ.hasAbility('B00N')
@@ -215,6 +215,9 @@ init
                 //Firemage
                 if DamageEvent.getSource().getAbilityLevel('A11C') > 0 or DamageEvent.getSource().getAbilityLevel('A0N0') > 0
                     eternalFlame(DamageEvent.getSource(), DamageEvent.getTarget())
+
+                if DamageEvent.getSource().getTypeId() == PLAY_HERO_22 and GetRandomInt(1, 100) < 15
+                    mindRipper(DamageEvent.getSource(), DamageEvent.getTarget())
                 
             case CODE
 

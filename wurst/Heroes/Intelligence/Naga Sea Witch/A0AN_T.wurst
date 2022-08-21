@@ -3,6 +3,7 @@ import ClosureEvents
 import ClosureTimers
 import Abilities
 import ClosureForGroups
+import codeDamageTypings
 bool run = false
 init
     tornado()
@@ -23,7 +24,7 @@ function tornado()
                 sfx.destr()
                 forUnitsInRange(sfx.getPos(), 500, true) (unit u) ->
                     if caster.isEnemyOf(u)
-                        caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                        magicalDamage(dmg, caster, u)
                 destroy cb
             if cb.isLast()
                 sfx.destr()

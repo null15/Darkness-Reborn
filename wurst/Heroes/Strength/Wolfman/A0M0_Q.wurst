@@ -2,13 +2,14 @@ package A0M0_Q
 import ClosureEvents
 import ClosureTimers
 import Abilities
+import codeDamageTypings
 init
     wolfLancer()
 function wolfLancer()
     EventListener.onTargetCast('A0M0') (unit caster, unit target) ->
         let lvl = caster.getAbilityLevel('A0M0')
-        let dmg = (lvl*3)*caster.getStr(true) + lvl*150
+        let dmg = (lvl*3.)*caster.getStr(true) + lvl*150
         caster.setAnimation("attack")
         doAfter(0.3) -> 
-            caster.damageTarget(target, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            physicalDamage(dmg, caster, target)
             flashEffect(Abilities.fireLordDeathExplode, target.getPos(), 2)

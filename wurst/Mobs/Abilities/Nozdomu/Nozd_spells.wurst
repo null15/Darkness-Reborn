@@ -4,7 +4,7 @@ import ClosureEvents
 import MyUnitIds
 import ClosureTimers
 import ClosureForGroups
-
+import codeDamageTypings
 init
     chronoSphere()
     chronoSphereActive()
@@ -22,7 +22,7 @@ function chronoSphereActive()
         doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
             forUnitsInRange(sfx.getPos(), 700) (unit u) ->
                 if caster.isEnemyOf(u)
-                    caster.damageTarget(u, dmg)
+                    magicalDamage(dmg, caster, u)
                     u.pause()
                 if cb.isLast()
                     sfx.destr()

@@ -1,9 +1,9 @@
 package A000_W
-import DamageEvent
 import ClosureEvents
 import MyUnitIds
 import OrderIds
 import MyAbilityIds
+import codeDamageTypings
 public boolean frostArrowOn = false
 
 init
@@ -18,9 +18,9 @@ function frostArrowToggle()
             else if GetIssuedOrderId() == OrderIds.flamingarrows + 1
                 frostArrowOn = false          
 
-public function frostArrows(unit vashj)
+public function frostArrows(unit vashj, unit target)
     let lvl = GetUnitAbilityLevel(vashj, NAGAWITCH_ABIL_2)
     let dmg = vashj.getMaxMana()*(0.04*lvl)
     if(vashj.getMana() < (7.08333 * lvl + 20.6944).round())
         vashj.issueImmediateOrderById(OrderIds.flamingarrows + 1)
-    DamageEvent.addAmount(dmg)
+    magicalDamage(dmg, vashj, target)

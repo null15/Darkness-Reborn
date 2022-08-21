@@ -4,6 +4,7 @@ import MyUnitIds
 import ClosureEvents
 import StandardTextTags
 import ClosureTimers
+import codeDamageTypings
 public int souls = 0
 texttag soulsText
 unit deathKnight
@@ -24,9 +25,9 @@ function soulCollector()
 function unholyExecution()
     EventListener.onTargetCast('A00L') (unit caster, unit target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A00L')
-        let dmg = ((caster.getStr(true) * 2) + souls) * lvl
+        let dmg = ((caster.getStr(true) * 2.) + souls) * lvl
         doAfter(0.2) -> 
-            caster.damageTarget(target, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-            caster.addHP(I2R(dmg))
+            physicalDamage(dmg, caster, target)
+            caster.addHP(dmg)
             doAfter(0.2) -> 
                 caster.issueImmediateOrder("stop")

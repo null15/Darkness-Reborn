@@ -1,7 +1,7 @@
 package A0CG_R
-import DamageEvent
+import codeDamageTypings
 init
 
-public function gravitone(unit caster)
+public function gravitone(unit caster, unit target)
     let missingHp = caster.getMissingHP()
-    DamageEvent.setAmount(missingHp+175)
+    magicalDamage(missingHp + 175 * caster.getAbilityLevel('A0CG'), caster, target)

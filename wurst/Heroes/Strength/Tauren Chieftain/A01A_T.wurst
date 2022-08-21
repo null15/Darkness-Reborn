@@ -3,20 +3,21 @@ import ClosureEvents
 import ClosureForGroups
 import ClosureTimers
 import Abilities
+import codeDamageTypings
 init
     warStomp()
 function warStomp()
     EventListener.onCast('A01A') (unit caster) ->
         let str = caster.getStr(true)
         let lvl = caster.getAbilityLevel('A01A')
-        let dmg = (1000 + str) * lvl
+        let dmg = (1000. + str) * lvl
         addEffect("WindWeak(Thicker).mdl", caster.getPos())
         flashEffect(Abilities.warStompCaster, caster.getPos(), 2)
         caster.addStr(9)
         doAfter(0.25) -> 
             forUnitsInRange(caster.getPos(), 99999) (unit u) ->
                 if caster.isEnemyOf(u)
-                    caster.damageTarget(u, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    physicalDamage(dmg, caster, u)
                     u.pause()
                     doAfter(10) -> 
                         u.unpause()

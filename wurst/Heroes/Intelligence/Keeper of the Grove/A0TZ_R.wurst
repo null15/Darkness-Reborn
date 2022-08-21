@@ -1,15 +1,16 @@
 package A0TZ_R
 import Abilities
 import ClosureTimers
+import codeDamageTypings
 init
 public function thornRoot(unit keeper, unit attacker)
     let lvl = GetUnitAbilityLevel(keeper, 'A0TZ')
-    let output = keeper.getInt(true) * lvl
+    let output = keeper.getInt(true) * lvl.toReal()
     if(attacker.isEnemyOf(keeper) and lvl > 0)
         let chance = lvl * 2
         if(GetRandomInt(0, 100) < chance)
             attacker.pause()
             flashEffect(Abilities.roots1, attacker, "origin")
-            keeper.damageTarget(attacker, output.toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            magicalDamage(output, keeper, attacker)
             doAfter(1.5) -> 
                 attacker..unpause()

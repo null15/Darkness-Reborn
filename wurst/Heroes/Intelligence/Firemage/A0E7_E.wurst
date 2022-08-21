@@ -1,8 +1,6 @@
 package A0E7_E
-import DamageEvent
+import codeDamageTypings
 init
 public function fireShield(unit source, unit target)
-    DamageEvent.setNextDamageId('A0E7')
-    DamageEvent.setNextDamageFromCode()
     let dmg = target.getInt(true)*0.25
-    target.damageTarget(source, dmg)
+    magicalDamageCodeId(dmg, source, target, 'A0E7')

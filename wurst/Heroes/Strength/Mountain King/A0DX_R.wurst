@@ -1,14 +1,14 @@
 package A0DX_R
 import MyBuffIds
-import DamageEvent
+import codeDamageTypings
 init
 public function overPower(unit source, unit target)
     let lvl = source.getAbilityLevel('A0DX')
     let str = source.getStr(true)
-    let dmg = I2R((str*(2*lvl)))
+    let dmg = (str*(2.*lvl))
     source.addStr(lvl*1)
     if target.hasAbility(BUFF_5)
         target.removeAbility(BUFF_5)
     else if target.hasAbility('BPSE')
         target.removeAbility('BPSE')
-    DamageEvent.setAmount(dmg)
+    physicalDamage(dmg, source, target)

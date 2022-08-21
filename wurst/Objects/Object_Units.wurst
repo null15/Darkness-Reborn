@@ -445,7 +445,7 @@ init
 
     new HeroDefinition(PLAY_HERO_1, UnitIds.blademaster)// Wolfman (O007)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A0M0', 'A0S9', 'A0SE', 'A0SA', 'A11A'))
+    ..setHeroAbilities(commaList(BOSS_ABILITY_6, 'A0S9', 'A0SE', 'A0SA', 'A11A'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     
     ..setPrimaryAttribute("Strength")
@@ -6781,7 +6781,7 @@ init
     ..setLevel(25)
 
     new UnitDefinition(ELITE_CREEP_2, UnitIds.furbolgancient)// Furbolg Ursa Warrior (n014)
-    ..setNormalAbilities(commaList('A0S6', 'ACac'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_4, 'ACac'))
     
     ..setScalingValue(2.50)
     ..setSelectionScale(1.75)
@@ -7018,7 +7018,7 @@ init
     ..setLevel(45)
 
     new UnitDefinition(ELITE_CREEP_5, UnitIds.footman)// Betray Footman (h00C)
-    ..setNormalAbilities(commaList('A08S'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_10))
     
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -7097,7 +7097,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(ELITE_CREEP_6, UnitIds.thecaptain)// Captain (h00D)
-    ..setNormalAbilities(commaList('A08S'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_10))
     
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -7255,7 +7255,7 @@ init
     ..setLevel(70)
 
     new UnitDefinition(ELITE_CREEP_8, UnitIds.chaoswarlord)// Frosty the Snowman (o005)
-    ..setNormalAbilities(commaList('Amim', 'A0NP', 'A0MO', 'A0C4', 'Aasl'))
+    ..setNormalAbilities(commaList('Amim', BOSS_ABILITY_5, BOSS_ABILITY_6, BOSS_ABILITY_7, 'Aasl'))
     ..setModelFile("Units\\Frosty\\Frosty.mdx")
     ..setScalingValue(1.80)
     ..setSelectionScale(3.00)
@@ -7571,7 +7571,7 @@ init
     ..setLevel(50)
 
     new UnitDefinition(BOSS_CREEP_2, UnitIds.azuredragon)// GhostDragon III (u007)
-    ..setNormalAbilities(commaList('A08H', 'Afrz', 'Afrb'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1, 'Afrz', 'Afrb'))
     ..setScalingValue(2.00)
     ..setSelectionScale(2.50)
     ..setAttack1CooldownTime(0.40)
@@ -7649,7 +7649,7 @@ init
     ..setLevel(50)
 
     new UnitDefinition(BOSS_CREEP_3, UnitIds.azuredragon)// GhostDragon IV (u008)
-    ..setNormalAbilities(commaList('A08H', 'A08S', 'Afrz', 'Afrb'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1, BOSS_ABILITY_10, 'Afrz', 'Afrb'))
     ..setScalingValue(2.25)
     ..setSelectionScale(2.50)
     ..setAttack1CooldownTime(0.30)
@@ -7727,7 +7727,7 @@ init
     ..setLevel(50)
 
     new UnitDefinition(BOSS_CREEP_4, UnitIds.azuredragon)// GhostDragon V (u009)
-    ..setNormalAbilities(commaList('A08H', 'A08S', 'Afrz', 'Afrb'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1, BOSS_ABILITY_10, 'Afrz', 'Afrb'))
     ..setScalingValue(2.50)
     ..setSelectionScale(2.50)
     ..setAttack1CooldownTime(0.20)
@@ -7805,7 +7805,7 @@ init
     ..setLevel(50)
 
     new UnitDefinition(BOSS_CREEP_5, UnitIds.azuredragon)// GhostDragon VI (u00R)
-    ..setNormalAbilities(commaList('A08H', 'A08S', 'Afrz', 'Afrb'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1, BOSS_ABILITY_10, 'Afrz', 'Afrb'))
     ..setScalingValue(2.50)
     ..setSelectionScale(2.60)
     ..setAttack1CooldownTime(0.10)
@@ -7883,7 +7883,7 @@ init
     ..setLevel(50)
 
     new UnitDefinition(BOSS_CREEP_6, UnitIds.azuredragon)// GhostDragon VII (u00S)
-    ..setNormalAbilities(commaList('A08H', 'A08S', 'Afrz', 'Afrb'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1, BOSS_ABILITY_10, 'Afrz', 'Afrb'))
     ..setScalingValue(2.60)
     ..setSelectionScale(2.60)
     ..setAttack1CooldownTime(0.10)
@@ -7961,7 +7961,7 @@ init
     ..setLevel(50)
 
     new UnitDefinition(BOSS_CREEP_7, UnitIds.azuredragon)// GhostDragon VIII (u00T)
-    ..setNormalAbilities(commaList('A08H', 'A08S', 'Afrz', 'Afrb'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1, BOSS_ABILITY_10, 'Afrz', 'Afrb'))
     ..setScalingValue(2.70)
     ..setSelectionScale(2.70)
     ..setAttack1CooldownTime(0.10)
@@ -8039,7 +8039,7 @@ init
     ..setLevel(50)
 
     new UnitDefinition(BOSS_CREEP_8, UnitIds.seaelemental)// Sea Elemental I (n04X)
-    ..setNormalAbilities(commaList('A0NP', 'ACbh', 'A0ZJ'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_5, 'ACbh', 'A0ZJ'))
     ..setScalingValue(2.00)
     ..setSelectionScale(3.00)
     ..setAttack1CooldownTime(0.20)
@@ -8117,7 +8117,7 @@ init
     ..setLevel(50)
 
     new UnitDefinition(BOSS_CREEP_9, UnitIds.seaelemental)// Sea Elemental II (n04Y)
-    ..setNormalAbilities(commaList('A0NP', 'ACbh', 'A0ZJ'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_5, 'ACbh', 'A0ZJ'))
     ..setScalingValue(2.50)
     ..setSelectionScale(3.00)
     ..setAttack1CooldownTime(0.10)
@@ -8195,7 +8195,7 @@ init
     ..setLevel(50)
 
     new UnitDefinition(BOSS_CREEP_10, UnitIds.seaelemental)// Sea Elemental III (n04Z)
-    ..setNormalAbilities(commaList('A0NP', 'ACbh', 'A0ZJ', 'wtex'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_5, 'ACbh', 'A0ZJ', 'wtex'))
     ..setScalingValue(3.00)
     ..setSelectionScale(4.00)
     ..setAttack1CooldownTime(0.20)
@@ -8351,7 +8351,7 @@ init
     ..setLevel(50)
 
     new HeroDefinition(BOSS_CREEP_12, UnitIds.dreadlord)// Dreadlord (U00U)
-    ..setNormalAbilities(commaList('A07W', 'A08S', 'A0NL', 'A08H', 'A0NS', 'A0NN', 'AInv'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_3, BOSS_ABILITY_10, 'A0NL', BOSS_ABILITY_1, 'A0NS', 'A0NN', 'AInv'))
     ..setStartingStrength(902)
     ..setStartingAgility(866)
     ..setStartingIntelligence(759)
@@ -8432,7 +8432,7 @@ init
     ..setLevel(80)
 
     new HeroDefinition(BOSS_CREEP_13, UnitIds.dreadlord)// Vampire (U00V)
-    ..setNormalAbilities(commaList('A0NL', 'A08H', 'A07W', 'A0NS', 'AInv', 'A0NN'))
+    ..setNormalAbilities(commaList('A0NL', BOSS_ABILITY_1, BOSS_ABILITY_3, 'A0NS', 'AInv', 'A0NN'))
     ..setScalingValue(1.60)
     ..setStartingStrength(1326)
     ..setStartingAgility(1132)
@@ -12528,7 +12528,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_21, UnitIds.marine)// Marine (zmar)
-    ..setNormalAbilities(commaList('A08H'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -13476,7 +13476,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_33, UnitIds.archer)// Archer (nhea)
-    ..setNormalAbilities(commaList('A08H'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.00)
@@ -14583,7 +14583,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_47, UnitIds.headhunter)// Troll Headhunter (ohun)
-    ..setNormalAbilities(commaList('A08H'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.10)
@@ -15136,7 +15136,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_54, UnitIds.foresttrolltrapper)// Forest Troll Trapper (nftt)
-    ..setNormalAbilities(commaList('A08H'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -15215,7 +15215,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_55, UnitIds.corruptedent)// Corrupted Treant (Big Boss 10) (n03J)
-    ..setNormalAbilities(commaList('A08J', 'A0A5', 'A0A4', 'A0BR', 'A0BE', 'A08H', 'A0O8'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_18, 'A0A5', 'A0A4', 'A0BR', 'A0BE', BOSS_ABILITY_1, 'A0O8'))
 
     ..setScalingValue(0.90)
     ..setSelectionScale(0.25)
@@ -15294,7 +15294,7 @@ init
     ..setLevel(45)
 
     new UnitDefinition(WAVE_BOSS_56, UnitIds.infernal)// Infernal (n03L)
-    ..setNormalAbilities(commaList('A08H', 'A0A5', 'ACmi', 'A081', 'ACrk'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1, 'A0A5', 'ACmi', 'A081', 'ACrk'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(3.50)
@@ -15373,7 +15373,7 @@ init
     ..setLevel(45)
 
     new UnitDefinition(WAVE_BOSS_57, UnitIds.overlordarachnathid)// Overlord Arachnathid (n03K)
-    ..setNormalAbilities(commaList('A08H', 'A07U', 'A080', 'A08G'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1, 'A07U', 'A080', 'A08G'))
 
     ..setScalingValue(3.00)
     ..setSelectionScale(1.80)
@@ -15689,7 +15689,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_61, UnitIds.doomguard)// Doom Guard (nbal)
-    ..setNormalAbilities(commaList('A08H'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(2.00)
@@ -16558,7 +16558,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_72, UnitIds.nazgrel)// Nazgrel (o00C)
-    ..setNormalAbilities(commaList('A101', 'A102', 'A08H'))
+    ..setNormalAbilities(commaList('A101', 'A102', BOSS_ABILITY_1))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.60)
@@ -17190,7 +17190,7 @@ init
     ..setLevel(6)
 
     new UnitDefinition(WAVE_BOSS_80, UnitIds.direwolf)// Dire Wolf (nwld)
-    ..setNormalAbilities(commaList('A0S6', 'ACro'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_4, 'ACro'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.30)
@@ -17348,7 +17348,7 @@ init
     ..setLevel(6)
 
     new UnitDefinition(WAVE_BOSS_82, UnitIds.banshee)// Banshee (Big Boss 15) (u00O)
-    ..setNormalAbilities(commaList('A0NL', 'A0A6', 'A08S'))
+    ..setNormalAbilities(commaList('A0NL', BOSS_ABILITY_21, BOSS_ABILITY_10))
 
     ..setScalingValue(3.00)
     ..setSelectionScale(3.00)
@@ -17901,7 +17901,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_89, UnitIds.siren)// Naga Siren (nnsw)
-    ..setNormalAbilities(commaList('A08H'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -18296,7 +18296,7 @@ init
     ..setLevel(9)
 
     new UnitDefinition(WAVE_BOSS_94, UnitIds.darktrollwarlord)// Dark Troll Warlord (ndtw)
-    ..setNormalAbilities(commaList('A08H', 'A08E'))
+    ..setNormalAbilities(commaList(BOSS_ABILITY_1, 'A08E'))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(3.00)
@@ -19640,7 +19640,7 @@ init
     ..setLevel(80)
 
     new UnitDefinition(WAVE_HERO_6, UnitIds.ghoul)// Death (u00P)
-    ..setNormalAbilities(commaList('A0B1', 'A0NL', 'A0A6', 'A08S'))
+    ..setNormalAbilities(commaList('A0B1', 'A0NL', BOSS_ABILITY_21, BOSS_ABILITY_10))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.00)
@@ -19719,7 +19719,7 @@ init
     ..setLevel(2)
 
     new HeroDefinition(WAVE_HERO_7, UnitIds.paladin)// Death King (H03N)
-    ..setNormalAbilities(commaList('A0NQ', 'A0NL', 'A0NP', 'A0MO', 'A0M2', 'A0DF', 'AInv'))
+    ..setNormalAbilities(commaList('A0NQ', 'A0NL', BOSS_ABILITY_5, BOSS_ABILITY_6, 'A0M2', 'A0DF', 'AInv'))
     ..setModelFile("Units\\Arthas Frostmourne\\KingArthas.mdx")
     ..setPrimaryAttribute("Strength")
     ..setStartingStrength(100)
@@ -21384,7 +21384,7 @@ init
     ..setLevel(5)
 
     new HeroDefinition(WAVE_HERO_27, UnitIds.paladin)// Cronus (H03Z)
-    ..setNormalAbilities(commaList('A0NH', 'A0M2', 'AInv', 'A0NJ', 'A0NE', 'A0NM', 'Nbls'))
+    ..setNormalAbilities(commaList('A0NH', 'A0M2', 'AInv', 'A0NJ', BOSS_ABILITY_2, 'A0NM', 'Nbls'))
 
     ..setPrimaryAttribute("Strength")
     ..setStartingStrength(0)
@@ -21547,7 +21547,7 @@ init
     ..setLevel(0)
 
     new UnitDefinition(WAVE_HERO_29, UnitIds.infernal)// Shadow Infernal (n04P)
-    ..setNormalAbilities(commaList('ACmi', 'ACrk', 'A0XW', 'A0YQ', 'A0NE'))
+    ..setNormalAbilities(commaList('ACmi', 'ACrk', 'A0XW', 'A0YQ', BOSS_ABILITY_2))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(3.50)

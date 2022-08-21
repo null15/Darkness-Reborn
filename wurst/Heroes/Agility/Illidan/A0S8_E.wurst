@@ -1,26 +1,19 @@
 package A0S8_E
 import Global_Variables
 import DummyCaster
-import StandardTextTags
+import ClosureTimers
 import DamageEvent
 import MyAbilityIds
 import OrderIds
-texttag justaposeCrit
-unit illidan
-int illidanLvl
-init
+
 public function juxtapose(unit source)
-    let i = GetOwningPlayer(GetDyingUnit()).getId()
+    let i = source.getOwner().getId()
     if playerHero[i] == source
-        illidan = source
-        illidanLvl = illidan.getAbilityLevel('A0S8')
         new DummyCaster()
-        ..owner(GetOwningPlayer(DamageEvent.getSource()))
+        ..owner(GetOwningPlayer(source))
         ..origin(DamageEvent.getSource().getPos())
-        ..castTarget(ABILITY_1, illidanLvl, OrderIds.wandOfIllusion, DamageEvent.getSource())
-    let dmg = I2R(illidan.getAgi(true)*illidanLvl)
-    justaposeCrit = createCriticalStrikeTextTag(DamageEvent.getSource(), R2I(dmg))
-    justaposeCrit.setText("(|cffb81b22"+R2S(dmg)+"|r)")
-    justaposeCrit.setColor(colorA(92, 39, 39, 255))
-    justaposeCrit.setFadepoint(1)
-    DamageEvent.setAmount(dmg)
+        ..castTarget(ABILITY_1, 1, OrderIds.wandOfIllusion, source)
+    let bonusAttack = source.getBaseDamage(0) * 3
+    source.setBaseDamage(bonusAttack + source.getBaseDamage(0), 0)
+    doAfter(6) -> 
+        source.setBaseDamage(source.getBaseDamage(0) - bonusAttack, 0)

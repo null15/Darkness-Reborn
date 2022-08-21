@@ -6,6 +6,7 @@ import ClosureTimers
 import MyAbilityIds
 import MyUnitIds
 import MyBuffIds
+import codeDamageTypings
 // Embodiment of Gral
 init
     embodimentOfGral()
@@ -23,4 +24,4 @@ function embodimentOfGral()
                 ..owner(attacked.getOwner())
                 ..castTarget(ABILITY_55, 1, OrderIds.innerfire, attacked)
                 doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
-                    attacker.damageTarget(attacked, (attacker.getInt(true) * 1.00))
+                    physicalDamage(attacker.getInt(true) * 1., attacker, attacked)

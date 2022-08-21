@@ -1,6 +1,6 @@
 package A0F0_W
 
-import DamageEvent
+import codeDamageTypings
 
 init
 
@@ -12,8 +12,4 @@ public function phantomArrow(unit src, unit targ)
     let lvl = src.getAbilityLevel('A0F0')
     let dmg = (lvl*0.03)*hp
 
-    //u.damageTarget(target, dmg, false, true, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-    if targ.hasAbility('B001')
-        DamageEvent.addAmount(dmg)
-        targ.removeAbility('B001')
-    
+    magicalDamage(dmg, src, targ)

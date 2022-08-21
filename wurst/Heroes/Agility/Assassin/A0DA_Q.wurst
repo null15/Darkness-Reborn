@@ -1,6 +1,7 @@
 package A0DA_Q
 import ClosureTimers
 import ClosureForGroups
+import codeDamageTypings
 init
 
     shadowWalk()
@@ -21,7 +22,7 @@ function shadowWalk()
             caster.setPos(caster.getPos().polarOffset(angle,20))
             forUnitsInRange(caster.getPos(), 175, true) (unit u) ->
                 if caster.isEnemyOf(u)
-                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    physicalDamage(dmg, caster, u)
             if cb.isLast()
                 caster
                 ..setVertexColor(color(255, 255, 255))

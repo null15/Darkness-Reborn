@@ -4,6 +4,7 @@ import ClosureEvents
 import ClosureForGroups
 import Abilities
 import ClosureTimers
+import codeDamageTypings
 
 real array entanglingDamage = [20, 40, 60, 90, 120, 160, 210, 260, 320]
 
@@ -18,6 +19,6 @@ function entanglingRoots()
                 u.pause()
                 flashEffect(Abilities.roots1, u, "overhead")
                 doPeriodicallyTimed(1.00, 5.00) (CallbackCounted cb) ->
-                    caster.damageTarget(u, output, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    magicalDamage(output, caster, u)
                     if cb.isLast()
                         u.unpause()

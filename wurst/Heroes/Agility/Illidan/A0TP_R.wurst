@@ -10,6 +10,6 @@ public function shadowDancer()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addCondition(Condition(function shadowDancerCond))..addAction() ->
         let illidan = playerHero[GetOwningPlayer(GetDyingUnit()).getId()]
         let lvl = GetUnitAbilityLevel(illidan, 'A0TP')
-        let i = illidan.getAgi(false)
         if GetRandomInt(1, 100) < lvl*7
+            let i = illidan.getAgi(false)
             illidan.setAgi(i+2)

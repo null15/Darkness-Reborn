@@ -18,30 +18,29 @@ function summonDeath(unit beastmaster, unit summon)
             spiritText.setColor(colorA(93, 247, 55, 255))
             spiritText.setText("Spirits: "+I2S(spirits))
 
-function quilBeastCond() returns boolean
-    return GetUnitTypeId(GetSummoningUnit()) == PLAY_HERO_5
 function quilBeast()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SUMMON)..addCondition(Condition(function quilBeastCond))..addAction() ->
-        let summon = GetSummonedUnit()
-        let summoner = GetSummoningUnit()
-        let str = summoner.getStr(true)
-        
-        if summon.getName() == "Misha Bear"
-            let lvl = summoner.getAbilityLevel(ABILITY_4)
-            summon.setMaxHP(((0.5*str+summon.getMaxHP()*0.04)*25 + lvl * 125).toInt(), true)
-            summon.setArmor(0.5 * summoner.getArmor() + lvl * 8 + summon.getArmor())
-            summon.setBaseDamage((0.25 * str + lvl * 10).toInt() + summon.getBaseDamage(1), 0)
-        
-        if summon.getName() == "Quilbeast"
-            let lvl = summoner.getAbilityLevel(ABILITY_5)
-            summon.setMaxHP(((0.25*str+summon.getMaxHP()*0.04)*25 + lvl * 125).toInt(), true)
-            summon.setArmor(0.25 * summoner.getArmor() + summon.getArmor() + lvl * 4)
-            summon.setBaseDamage((0.5 * str).toInt() + summon.getBaseDamage(1) + lvl * 15, 0)
-        
-        if summon.getName() == "Hawk"
-            let lvl = summoner.getAbilityLevel(ABILITY_6)
-            summon.setMaxHP(((0.1*str+summon.getMaxHP()*0.04)*25 + lvl * 125).toInt(), true)
-            summon.setArmor(0.1 * summoner.getArmor() + summon.getArmor() + lvl * 2)
-            summon.setBaseDamage(1 * str + summon.getBaseDamage(1) + lvl * 20, 0)
 
-        summonDeath(summoner, summon)
+    EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
+        let summoner = GetSummoningUnit()
+        if(summoner.getTypeId() == PLAY_HERO_5)
+            let summon = GetSummonedUnit()
+            let str = summoner.getStr(true)
+            
+            if summon.getName() == "Misha Bear"
+                let lvl = summoner.getAbilityLevel(ABILITY_4)
+                summon.setMaxHP(((0.5*str+summon.getMaxHP()*0.04)*25 + lvl * 125).toInt(), true)
+                summon.setArmor(0.5 * summoner.getArmor() + lvl * 8 + summon.getArmor())
+                summon.setBaseDamage((0.25 * str + lvl * 10).toInt() + summon.getBaseDamage(1), 0)
+            
+            if summon.getName() == "Quilbeast"
+                let lvl = summoner.getAbilityLevel(ABILITY_5)
+                summon.setMaxHP(((0.25*str+summon.getMaxHP()*0.04)*25 + lvl * 125).toInt(), true)
+                summon.setArmor(0.25 * summoner.getArmor() + summon.getArmor() + lvl * 4)
+                summon.setBaseDamage((0.5 * str).toInt() + summon.getBaseDamage(1) + lvl * 15, 0)
+            
+            if summon.getName() == "Hawk"
+                let lvl = summoner.getAbilityLevel(ABILITY_6)
+                summon.setMaxHP(((0.1*str+summon.getMaxHP()*0.04)*25 + lvl * 125).toInt(), true)
+                summon.setArmor(0.1 * summoner.getArmor() + summon.getArmor() + lvl * 2)
+                summon.setBaseDamage(1 * str + summon.getBaseDamage(1) + lvl * 20, 0)
+            summonDeath(summoner, summon)

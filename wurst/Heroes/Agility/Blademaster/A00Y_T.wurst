@@ -4,6 +4,7 @@ import ClosureTimers
 import ClosureEvents
 import Abilities
 import StandardTextTags
+import codeDamageTypings
 texttag slashText
 init
     hasteSlash()
@@ -20,7 +21,7 @@ function hasteSlash()
             caster.setAnimation("slam")
             forUnitsInRange(caster.getPos(), 350, true) (unit u) ->
                 if caster.isEnemyOf(u)
-                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    physicalDamage(dmg, caster, u)
             if cb.isLast()
                 flashEffect(Abilities.warStompCaster, target, 3)
                 forUnitsInRange(caster.getPos(), 600, true) (unit u) ->
@@ -28,6 +29,6 @@ function hasteSlash()
                         slashText = createCriticalStrikeTextTag(caster, R2I(dmg*4))
                         slashText.setColor(colorA(252, 25, 25, 225))
                         slashText.setScaledText("SLAM", 1.5)
-                        caster.damageTarget(u, dmg*4, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                        physicalDamage(dmg * 4, caster, u)
                         caster.unpause()
                         caster.setPathing(true)

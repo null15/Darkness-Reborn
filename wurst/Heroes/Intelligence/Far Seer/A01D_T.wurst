@@ -5,7 +5,7 @@ import ClosureForGroups
 import MyAbilityIds
 import OrderIds
 import InstantDummyCaster
-
+import codeDamageTypings
 init
     thunderRage()
 function thunderRage()
@@ -15,4 +15,4 @@ function thunderRage()
         forUnitsInRange(target.getPos(), 500) (unit u) ->
             if caster.isEnemyOf(u)
                 InstantDummyCaster.castTarget(caster.getOwner(), ABILITY_13, 1, OrderIds.chainlightning, u, caster.getPos().withZ(800))
-                caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                magicalDamage(dmg, caster, target)

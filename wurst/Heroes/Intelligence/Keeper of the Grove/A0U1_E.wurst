@@ -5,7 +5,7 @@ import ClosureTimers
 import Abilities
 import MyUnitIds
 import UnitIds
-
+import codeDamageTypings
 function calculateDistance (vec2 v1, vec2 v2) returns real
     let a = (v2.x - v1.x)
     let b = (v2.y - v1.y)
@@ -36,7 +36,7 @@ function hawkeyeSplit()
                         let dist = calculateDistance(projectile.getPos(), u.getPos())
                         if(dist <= 25.00)
                             projectile.destr()
-                            caster.damageTarget(u, output, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                            magicalDamage(output, caster, u)
                             destroy cb
             if(cb.isLast())
                 owl.remove()

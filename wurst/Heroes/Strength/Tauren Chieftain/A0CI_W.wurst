@@ -6,6 +6,7 @@ import MyBuffIds
 import DummyCaster
 import OrderIds
 import MyAbilityIds
+import codeDamageTypings
 init
     blessedHammer()
 function blessedHammer()
@@ -15,7 +16,7 @@ function blessedHammer()
         let sfx = addEffect("BladeBeamFinal.mdl", caster.getPos())
         let sfx2 = addEffect("DustWindFaster3.mdl", caster.getPos())
         let angle = sfx.getPos().angleTo(target)
-        let dmg = str*lvl
+        let dmg = str*lvl.toReal()
         let i = GetOwningPlayer(caster).getId()
         sfx.setYaw(angle.radians())
         sfx2.setYaw(angle.radians())
@@ -25,7 +26,7 @@ function blessedHammer()
             sfx.setPos(sfx.getPos().polarOffset(angle, 45))
             forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
                 if caster.isEnemyOf(u) and not u.hasAbility(BUFF_6)
-                    caster.damageTarget(u, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    physicalDamage(dmg, caster, u)
                     new DummyCaster()
                     ..owner(GetOwningPlayer(caster))
                     ..castTarget(ABILITY_DUMMY_6, 1, OrderIds.cripple, u)

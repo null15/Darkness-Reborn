@@ -3,6 +3,7 @@ import ClosureEvents
 import ClosureForGroups
 import ClosureTimers
 import Abilities
+import codeDamageTypings
 init
     deathandnDecay()
 function deathandnDecay()
@@ -14,4 +15,4 @@ function deathandnDecay()
             forUnitsInRange(target, 250, true) (unit u) ->
                 if caster.isEnemyOf(u)
                     flashEffect(Abilities.deathandDecayTarget, u.getPos())
-                    caster.damageTarget(u, (damage*u.getMaxHP()), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    magicalDamage(damage*u.getMaxHP(), caster, u)

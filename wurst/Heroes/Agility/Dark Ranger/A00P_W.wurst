@@ -1,10 +1,9 @@
 package A00P_W
-import DamageEvent
 import MyUnitIds
 import OrderIds
 import MyAbilityIds
 import ClosureEvents
-
+import codeDamageTypings
 public boolean darkArrowOn = false
 
 init
@@ -19,10 +18,10 @@ function darkArrowToggle()
             else if GetIssuedOrderId() == OrderIds.flamingarrows + 1
                 darkArrowOn = false
 
-public function darkArrow(unit caster)
+public function darkArrow(unit caster, unit target)
     let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_2)
     let dmg = (caster.getAgi(true)*lvl*0.5)
     if(caster.getMana() < 5 * lvl)
         caster.issueImmediateOrderById(OrderIds.flamingarrows + 1)
-    DamageEvent.addAmount(dmg)
+    magicalDamage(dmg, caster, target)
     caster.addHP(dmg*0.5)

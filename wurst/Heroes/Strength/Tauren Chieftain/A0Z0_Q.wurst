@@ -4,6 +4,7 @@ import ClosureTimers
 import ClosureForGroups
 import Objects
 import Abilities
+import codeDamageTypings
 init
     shockExplosion()
 function shockExplosion()
@@ -12,7 +13,7 @@ function shockExplosion()
             let sfx = addEffect(Objects.impaleTargetDust, caster.getPos())
             let angle = sfx.getPos().angleTo(target)
             let sfx2 = addEffect("WindWeak2.mdl", caster.getPos())
-            let dmg = (caster.getAbilityLevel('A0Z0')*2)*caster.getStr(true)
+            let dmg = (caster.getAbilityLevel('A0Z0')*2.)*caster.getStr(true)
             sfx2.setScale(4)
             doPeriodicallyTimed(0.03, 5) (CallbackCounted cb) ->
                 sfx.setPos(sfx.getPos().polarOffset(angle, 50))
@@ -23,6 +24,6 @@ function shockExplosion()
                         flashEffect("NewMassiveEX.mdl", target, 3)
                         forUnitsInRange(target, 500, true) (unit u) ->
                             if caster.isEnemyOf(u)
-                                caster.damageTarget(u, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                                physicalDamage(dmg, caster, u)
                     sfx.destr()
                     destroy cb

@@ -6,7 +6,7 @@ import ClosureEvents
 import ClosureTimers
 import MyAbilityIds
 import MyUnitIds
-public unit ascendedloas
+import codeDamageTypings
 // Storm of Akunda
 init
     superKingOfloasE()
@@ -15,6 +15,7 @@ function superKingOfloasE()
         if GetAttacker().getTypeId() == PLAY_HERO_33_ASCENDED and GetAttacker().getAbilityLevel(ABILITY_50) >= 1 and GetRandomInt(1, 100) <= 30
             let attacker = GetAttacker()
             let attacked = GetTriggerUnit()
+            let dmg = attacker.getInt(true) * 27.
             forUnitsInRange(attacked.getPos(), 450) (unit u) ->
                 if attacker.isEnemyOf(u)
                     new DummyCaster()
@@ -22,4 +23,4 @@ function superKingOfloasE()
                     ..origin(attacker.getPos())
                     ..castTarget(ABILITY_49, 1, OrderIds.forkedlightning, u)
                     doAfter(0.05) -> 
-                        attacker.damageTarget(u, 27.00*attacker.getInt(true), false, false, ATTACK_TYPE_NORMAL, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                        magicalDamage(dmg, attacker, attacked)

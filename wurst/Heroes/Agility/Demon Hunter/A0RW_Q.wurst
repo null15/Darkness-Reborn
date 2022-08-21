@@ -2,6 +2,7 @@ package A0RW_Q
 import ClosureForGroups
 import Abilities
 import ClosureTimers
+import codeDamageTypings
 init
 
     chainFlash()
@@ -14,11 +15,10 @@ function chainFlash()
         let caster = GetTriggerUnit()
         let targetPos = GetSpellTargetUnit().getPos()
         let lvl = GetUnitAbilityLevel(caster, 'A0RW')
-        let dmg = ((caster.getAgi(true)*lvl*2)+(lvl*300))
+        let dmg = ((caster.getAgi(true)*lvl*2)+(lvl*300.))
         doAfter(0.5) -> 
             forUnitsInRange(targetPos, 500, true) (unit u) ->
                 if caster.isEnemyOf(u)
                     u.setPos(targetPos)
                     flashEffect(Abilities.warStompCaster, targetPos)
-                    caster.damageTarget(u, I2R(dmg), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-            
+                    physicalDamage(dmg, caster, u)

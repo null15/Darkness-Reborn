@@ -2,6 +2,7 @@ package A0DV_W
 import ClosureForGroups
 import ClosureEvents
 import ClosureTimers
+import codeDamageTypings
 int i = 0
 init
     thunderClap()
@@ -13,5 +14,5 @@ function thunderClap()
             doPeriodically(0.03) (CallbackPeriodic cb) ->
                 if caster.isEnemyOf(u) and u.hasAbility('BHtc')
                     i = i + 1
-                    caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    physicalDamage(dmg, caster, u)
                     destroy cb

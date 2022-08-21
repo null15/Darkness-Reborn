@@ -2,6 +2,7 @@ package A0D8_E
 import ClosureTimers
 import ClosureForGroups
 import ClosureEvents
+import codeDamageTypings
 init
 
     shadowRaze()
@@ -13,10 +14,9 @@ function shadowRazeEnd(unit u)
 
 function shadowRaze()
     EventListener.onPointCast('A0D8') (unit caster, vec2 target) ->
-        let caster = GetTriggerUnit()
-        let point = EventData.getSpellTargetPos()
-        let angle = caster.getPos().angleTo(point)
+        let angle = caster.getPos().angleTo(target)
         let lvl = GetUnitAbilityLevel(caster, 'A0D8')
+        let dmg = caster.getAgi(true) * 2. * lvl
         doAfter(0.3) -> 
             caster.setAnimation('slam')
             caster.pause()
@@ -29,6 +29,6 @@ function shadowRaze()
                 caster.setPos(caster.getPos().polarOffset(angle,100))
                 forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
                     if caster.isEnemyOf(u)
-                        caster.damageTarget(u, I2R(caster.getAgi(true)*(2*lvl)), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                        physicalDamage(dmg, caster, u)
                 if cb.isLast()
                     shadowRazeEnd(caster)

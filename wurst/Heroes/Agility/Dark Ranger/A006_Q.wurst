@@ -5,6 +5,7 @@ import MyAbilityIds
 import ClosureEvents
 import OrderIds
 import Abilities
+import codeDamageTypings
 unit abilUnit
 int dmg
 unit caster = null
@@ -32,7 +33,7 @@ function arrowCreate(vec2 pos, unit caster, unit target)
         if(dist <= 25.)
             if(isAlive)
                 let damage = caster.getAgi(true) * 0.6 * caster.getAbilityLevel(DARKRANGER_ABIL_1)
-                caster.damageTarget(target, damage, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                magicalDamage(damage, caster, target)
             arrowMissile.destr()
             destroy cb
 

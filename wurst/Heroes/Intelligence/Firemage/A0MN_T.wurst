@@ -4,7 +4,8 @@ import ClosureEvents
 import MyUnitIds
 import ClosureForGroups
 import ClosureTimers
-import DamageEvent
+import codeDamageTypings
+
 real array dist = []
 unit array phoenix = []
 init
@@ -15,9 +16,7 @@ function explosion(unit caster, vec2 target)
     flashEffect("NewMassiveEX.mdl", target, 3)
     forUnitsInRange(target, 800, true) (unit u) ->
         if caster.isEnemyOf(u)
-            DamageEvent.setNextDamageId('A0MN')
-            DamageEvent.setNextDamageFromCode()
-            caster.damageTarget(u, dmg, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            magicalDamageCodeId(dmg, caster, u, 'A0MN')
 function meltingPhoenix()
     EventListener.onPointCast('A0MN') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0MN')
@@ -43,6 +42,6 @@ function meltingPhoenix()
             forUnitsInRange(target, 900, true) (unit u) ->
                 if caster.isEnemyOf(u)
                     if u.getHPRatio() < 0.05
-                        caster.damageTarget(u, u.getMaxHP(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                        pureDamage(u.getMaxHP(), caster, u)
             if cb.isLast()
                 explosion(caster, target)

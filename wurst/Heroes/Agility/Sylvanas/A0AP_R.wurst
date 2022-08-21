@@ -9,5 +9,4 @@ function longRangeCond() returns boolean
 function longRange()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_HERO_SKILL)..addCondition(Condition(function longRangeCond))..addAction() ->
         let u = GetTriggerUnit()
-        BlzSetUnitWeaponRealField(u, UNIT_WEAPON_RF_ATTACK_RANGE, 1, I2R(1275 - 700))
-        
+        u.setFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 0, u.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 0) + 75)

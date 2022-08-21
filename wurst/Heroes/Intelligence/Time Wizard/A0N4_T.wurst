@@ -2,6 +2,7 @@ package A0N4_T
 import ClosureEvents
 import ClosureForGroups
 import ClosureTimers
+import codeDamageTypings
 init
     radarTime()
 function radarTime()
@@ -12,7 +13,7 @@ function radarTime()
             forUnitsInRange(target, 200, true) (unit u) ->
                 u.pause()
                 if caster.isEnemyOf(u)
-                    caster.damageTarget(u, dmg.toReal(), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    magicalDamage(dmg.toReal(), caster, u)
                 if caster.isAllyOf(u) and u != caster and u.getMaxHP() != u.getHP()
                     u.addHP(u.getMaxHP()*0.01)
                     u.resetCooldown()

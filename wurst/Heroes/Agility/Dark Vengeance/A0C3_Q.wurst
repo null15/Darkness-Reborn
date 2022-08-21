@@ -1,8 +1,8 @@
 package A0C3_Q
-import DamageEvent
 import DummyCaster
 import OrderIds
 import MyAbilityIds
+import codeDamageTypings
 init
 
     furyPeakCast()
@@ -17,9 +17,8 @@ function furyPeakCast()
 
 public function furyPeak(unit caster, unit target)
     let missingHp = caster.getMissingHP()
-    let attack = caster.getBaseDamage(1)
     new DummyCaster()
     ..owner(GetOwningPlayer(caster))
     ..origin(caster.getPos())
     ..castTarget(ABILITY_DUMMY_1, 1, OrderIds.thunderbolt, target)
-    DamageEvent.setAmount(missingHp + attack)
+    magicalDamage(missingHp, caster, target)
