@@ -1,11 +1,11 @@
 package MysteryRedStaff
 
 import ClosureEvents
-
+import codeDamageTypings
 init
     masteryRedStaff()
 
 function masteryRedStaff()
     EventListener.onTargetCast('A0YB') (unit caster, unit target) ->
         let dam = caster.getInt(true) * 89 + 30000.
-        caster.damageTarget(target, dam, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+        magicalDamageCode(dam, caster, target)

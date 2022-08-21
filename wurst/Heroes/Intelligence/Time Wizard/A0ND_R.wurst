@@ -35,4 +35,4 @@ function hourglass()
             caster..removeAbility('A0NG')..addAbility('A007')
         forUnitsInRange(caster.getPos(), 99999, true) (unit u) ->
             if caster.isEnemyOf(u)
-                magicalDamage(dmg, caster, u)
+                magicalDamageCode(dmg, caster, u)

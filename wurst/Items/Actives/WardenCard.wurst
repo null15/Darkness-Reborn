@@ -2,7 +2,7 @@ package WardenCard
 
 import ClosureEvents
 import ClosureForGroups
-
+import codeDamageTypings
 integer u_i = 0
 
 init
@@ -14,5 +14,5 @@ function wardenCard()
         forUnitsInRange(caster.getPos(), 400) (unit u) ->
             if(u.isEnemyOf(caster))
                 if(u_i < 8)
-                    caster.damageTarget(u, 25000, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                    physicalDamageCode(25000, caster, u)
                     u_i++

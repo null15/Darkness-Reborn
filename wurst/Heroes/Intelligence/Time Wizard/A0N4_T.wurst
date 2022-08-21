@@ -13,7 +13,7 @@ function radarTime()
             forUnitsInRange(target, 200, true) (unit u) ->
                 u.pause()
                 if caster.isEnemyOf(u)
-                    magicalDamage(dmg.toReal(), caster, u)
+                    magicalDamageCode(dmg.toReal(), caster, u)
                 if caster.isAllyOf(u) and u != caster and u.getMaxHP() != u.getHP()
                     u.addHP(u.getMaxHP()*0.01)
                     u.resetCooldown()

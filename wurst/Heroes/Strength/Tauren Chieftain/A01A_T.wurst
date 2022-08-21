@@ -17,7 +17,7 @@ function warStomp()
         doAfter(0.25) -> 
             forUnitsInRange(caster.getPos(), 99999) (unit u) ->
                 if caster.isEnemyOf(u)
-                    physicalDamage(dmg, caster, u)
+                    physicalDamageCode(dmg, caster, u)
                     u.pause()
                     doAfter(10) -> 
                         u.unpause()

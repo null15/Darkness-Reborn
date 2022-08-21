@@ -42,6 +42,6 @@ function meltingPhoenix()
             forUnitsInRange(target, 900, true) (unit u) ->
                 if caster.isEnemyOf(u)
                     if u.getHPRatio() < 0.05
-                        pureDamage(u.getMaxHP(), caster, u)
+                        pureDamageCode(u.getMaxHP(), caster, u)
             if cb.isLast()
                 explosion(caster, target)

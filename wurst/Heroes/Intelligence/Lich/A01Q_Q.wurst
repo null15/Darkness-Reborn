@@ -10,4 +10,4 @@ function frostNova()
         let dmg = caster.getInt(true) * (caster.getAbilityLevel('A01Q') * 2.00)
         forUnitsInRange(target.getPos(), 200, true) (unit u) ->
             if(u.isEnemyOf(caster.getOwner()))
-                magicalDamage(dmg, caster, target)
+                magicalDamageCode(dmg, caster, target)

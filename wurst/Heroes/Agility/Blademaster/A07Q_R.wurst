@@ -23,7 +23,7 @@ function rampage2(unit caster, unit target)
                 else
                     caster.setAnimation("attack")
                     flashEffect(Abilities.warStompCaster, target.getPos())
-                    physicalDamage(dmg, caster, target)
+                    physicalDamageCode(dmg, caster, target)
         if cb.isLast()
             caster.unpause()
             caster.setInvulnerable(false)

@@ -1,4 +1,4 @@
 package RavenBlade
-
+import codeDamageTypings
 public function ravenBlade(unit src, unit targ, int mul)
-    src.damageTarget(targ, src.getStr(true) * (2.0 * mul), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    physicalDamageCode(src.getStr(true) * (2.*mul), src, targ)

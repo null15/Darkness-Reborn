@@ -14,5 +14,5 @@ function darkArrow()
         doAfter(0.5) -> 
             forUnitsInRange(target, 400, true) (unit u) ->
                 if caster.isEnemyOf(u)
-                    magicalDamage(amount, caster, u)
+                    magicalDamageCode(amount, caster, u)
                     flashEffect(Abilities.manaBurnTarget, target)

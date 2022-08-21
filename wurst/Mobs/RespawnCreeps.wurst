@@ -13,6 +13,8 @@ real facing = 270
 real facingUp = 90
 init
 
+
+
 function leftSideCreeps(unit u1)
     CreateTrigger()..registerUnitEvent(u1, EVENT_UNIT_DEATH)..addAction() ->
         let u = GetDyingUnit()

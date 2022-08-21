@@ -2,7 +2,7 @@ package TaurenCard
 
 import ClosureEvents
 import ClosureForGroups
-
+import codeDamageTypings
 init
     taurenCard()
 
@@ -10,4 +10,4 @@ function taurenCard()
     EventListener.onCast('A0XS') caster ->
         forUnitsInRange(caster.getPos(), 400) (unit u) ->
             if(u.isEnemyOf(caster))
-                caster.damageTarget(u, 25000, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                physicalDamageCode(25000, caster, u)

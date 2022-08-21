@@ -2,7 +2,7 @@ package ThunderBow2
 
 import ClosureForGroups
 import Abilities
-
+import codeDamageTypings
 integer counter = 0
 
 public function thunderBow2(unit src)
@@ -10,6 +10,6 @@ public function thunderBow2(unit src)
     forUnitsInRange(src.getPos(), 900) (unit u) ->
         if(u.isEnemyOf(src))
             if(counter < 4)
-                src.damageTarget(u, 5000., false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+                magicalDamageCode(5000, src, u)
                 flashEffect(Abilities.forkedLightningTarget, u.getPos())
                 counter++

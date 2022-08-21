@@ -11,6 +11,6 @@ public function thornRoot(unit keeper, unit attacker)
         if(GetRandomInt(0, 100) < chance)
             attacker.pause()
             flashEffect(Abilities.roots1, attacker, "origin")
-            magicalDamage(output, keeper, attacker)
+            magicalDamageCode(output, keeper, attacker)
             doAfter(1.5) -> 
                 attacker..unpause()

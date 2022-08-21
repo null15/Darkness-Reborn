@@ -36,7 +36,7 @@ function hawkeyeSplit()
                         let dist = calculateDistance(projectile.getPos(), u.getPos())
                         if(dist <= 25.00)
                             projectile.destr()
-                            magicalDamage(output, caster, u)
+                            magicalDamageCode(output, caster, u)
                             destroy cb
             if(cb.isLast())
                 owl.remove()

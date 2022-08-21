@@ -24,4 +24,4 @@ function embodimentOfGral()
                 ..owner(attacked.getOwner())
                 ..castTarget(ABILITY_55, 1, OrderIds.innerfire, attacked)
                 doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
-                    physicalDamage(attacker.getInt(true) * 1., attacker, attacked)
+                    physicalDamageCode(attacker.getInt(true) * 1., attacker, attacked)

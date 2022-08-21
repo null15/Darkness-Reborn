@@ -12,4 +12,4 @@ public function phantomArrow(unit src, unit targ)
     let lvl = src.getAbilityLevel('A0F0')
     let dmg = (lvl*0.03)*hp
 
-    magicalDamage(dmg, src, targ)
+    magicalDamageCode(dmg, src, targ)

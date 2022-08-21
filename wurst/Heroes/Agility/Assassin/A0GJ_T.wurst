@@ -11,7 +11,7 @@ public function lastKiller(unit caster, unit target)
         let lvl = ((GetUnitAbilityLevel(caster, 'A0GJ'))*5)+37
         let dmg = caster.getAgi(true)*lvl.toReal()
         flashEffect(Abilities.meatwagonMissile, target.getPos()) 
-        physicalDamage(dmg, caster, target)
+        physicalDamageCode(dmg, caster, target)
         caster.removeAbility('B00W')
         doAfter(3) -> 
             once = true

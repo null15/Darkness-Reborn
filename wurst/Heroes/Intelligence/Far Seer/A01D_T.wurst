@@ -15,4 +15,4 @@ function thunderRage()
         forUnitsInRange(target.getPos(), 500) (unit u) ->
             if caster.isEnemyOf(u)
                 InstantDummyCaster.castTarget(caster.getOwner(), ABILITY_13, 1, OrderIds.chainlightning, u, caster.getPos().withZ(800))
-                magicalDamage(dmg, caster, target)
+                magicalDamageCode(dmg, caster, target)

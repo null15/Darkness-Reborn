@@ -16,6 +16,6 @@ function lightningShock()
                 if caster.isEnemyOf(u)
                     let buffs = UnitCountBuffsEx(u, false, false, true, false, false, false, false) - 1.
                     if buffs > 0
-                        magicalDamage(dmg * Pow(2, buffs), caster, u)
+                        magicalDamageCode(dmg * Pow(2, buffs), caster, u)
                     else
-                        magicalDamage(dmg, caster, u)
+                        magicalDamageCode(dmg, caster, u)

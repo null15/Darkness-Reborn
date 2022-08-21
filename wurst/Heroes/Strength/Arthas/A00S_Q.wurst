@@ -18,7 +18,7 @@ function dragonClaw()
             flashEffect(Abilities.thunderclapTarget, target.getPos(), 2)
             forUnitsInRange(target.getPos(), 350, true) (unit u) ->
                 if caster.isEnemyOf(u)
-                    physicalDamage(dmg, caster, u)
+                    physicalDamageCode(dmg, caster, u)
                     new DummyCaster()
                     ..owner(GetOwningPlayer(caster))
                     ..origin(caster.getPos())

@@ -5,10 +5,8 @@ import DummyCaster
 import OrderIds
 import ClosureEvents
 import MyAbilityIds
-import MyBuffIds
 import codeDamageTypings
 bool once = true
-real array healMultiplier = [0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.70]
 // Aura of Bwonsamdi
 init
     kingOfloasTinit()
@@ -28,6 +26,4 @@ function kingOfloasTinit()
                         ..castTarget(ABILITY_43, lvl, OrderIds.slow, u)
                         ..delay(1)
                         if u.isAlive()
-                            magicalDamage(dmg, caster, u)
-                            if caster.hasAbility(BUFF_20)
-                                caster.addHP(dmg*healMultiplier[caster.getAbilityLevel(ABILITY_41)-1])
+                            magicalDamageCode(dmg, caster, u)

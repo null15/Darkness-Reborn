@@ -26,7 +26,7 @@ function blessedHammer()
             sfx.setPos(sfx.getPos().polarOffset(angle, 45))
             forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
                 if caster.isEnemyOf(u) and not u.hasAbility(BUFF_6)
-                    physicalDamage(dmg, caster, u)
+                    physicalDamageCode(dmg, caster, u)
                     new DummyCaster()
                     ..owner(GetOwningPlayer(caster))
                     ..castTarget(ABILITY_DUMMY_6, 1, OrderIds.cripple, u)

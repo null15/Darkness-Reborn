@@ -1,5 +1,5 @@
 package ApolloHelm
-
+import codeDamageTypings
 public function apolloHelm(unit holder, unit attacker)
     let dam = holder.getStr(true) * 3.
-    holder.damageTarget(attacker, dam, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    physicalDamageCode(dam, holder, attacker)

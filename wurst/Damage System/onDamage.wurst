@@ -39,7 +39,7 @@ import Frostmourne
 import ThunderBow
 import ThunderBow2
 import OrbofLightning
-
+import codeDamageTypings
 import MyItemIds
 import MyBuffIds
 
@@ -59,6 +59,8 @@ init
             case ATTACK
                 let src = DamageEvent.getSource()
                 let targ = DamageEvent.getTarget()
+                if(targ.getArmor() > 10)
+                    DamageEvent.setAmount(DamageEvent.getUnreducedAmount() * (1+physicalPenetrationMap.get(targ.getTypeId())))
 
                 // Illidan (Juxtapose) E
                 if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8')
@@ -75,6 +77,7 @@ init
                 // Shadow Vengeance (Gravitone) R - Passive
                 if src.getTypeId() == PLAY_HERO_12 and not src.hasAbility('B00L') and not src.hasAbility('B00J') and GetRandomInt(1, 100) < src.getAbilityLevel('A0CG')*2
                     gravitone(src, targ)
+
                 // Shadow Vengeance (Black Hole) T - Active
                 if src.getTypeId() == PLAY_HERO_12 and src.hasAbility('B00J')
                     blackHole(src, targ)
@@ -105,7 +108,7 @@ init
 
                 // Vashj (Frost Arrows ) X - Autocast
                 if frostArrowOn and src.getTypeId() == PLAY_HERO_16
-                    frostArrows(src, targ)    
+                    frostArrows(src, targ)
 
                 // Craggy Hex (Shadow Hunter) R - Passive
                 if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and targ.getTypeId() == PLAY_HERO_23 and targ.hasAbility('B00N')
@@ -212,20 +215,40 @@ init
                     src.removeAbility('B003')
 
             case SPELL
+                let src = DamageEvent.getSource()
+                let targ = DamageEvent.getTarget()
                 //Firemage
-                if DamageEvent.getSource().getAbilityLevel('A11C') > 0 or DamageEvent.getSource().getAbilityLevel('A0N0') > 0
-                    eternalFlame(DamageEvent.getSource(), DamageEvent.getTarget())
+                if src.getAbilityLevel('A11C') > 0 or src.getAbilityLevel('A0N0') > 0
+                    eternalFlame(src, targ)
 
-                if DamageEvent.getSource().getTypeId() == PLAY_HERO_22 and GetRandomInt(1, 100) < 15
-                    mindRipper(DamageEvent.getSource(), DamageEvent.getTarget())
+                if src.getTypeId() == PLAY_HERO_22 and GetRandomInt(1, 100) < 15
+                    mindRipper(src, targ)
+
+                // Improved Hakkar Buff
+                if src.hasAbility(BUFF_21)
+                    src.addHP(DamageEvent.getAmount()*0.8)
                 
             case CODE
+                let src = DamageEvent.getSource()
+                let targ = DamageEvent.getTarget()
+                let damId = DamageEvent.getId()
 
+                if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
+                    DamageEvent.setAmount(DamageEvent.getUnreducedAmount() * (1+physicalPenetrationMap.get(targ.getTypeId())))
                 // Fire Lord (Blaze)
-                if DamageEvent.getId() == 'A01P' or DamageEvent.getId() == 'AO1T' or DamageEvent.getId() == 'A01U' or DamageEvent.getId() == 'A01S'
-                    blaze(DamageEvent.getSource(), DamageEvent.getTarget())
+                if damId == 'A01P' or damId == 'AO1T' or damId == 'A01U' or damId == 'A01S'
+                    blaze(src, targ)
                 // Firemage
-                if DamageEvent.getId() == 'A0MN' or DamageEvent.getId() == 'AOE7'
-                    eternalFlame(DamageEvent.getSource(), DamageEvent.getTarget())
+                if damId == 'A0MN' or damId == 'AOE7'
+                    eternalFlame(src, targ)
+
+                // Ordinary Hakkar Buff
+                if src.hasAbility(BUFF_20)
+                    let lvl = src.getAbilityLevel(ABILITY_41)
+                    src.addHP(DamageEvent.getAmount()*healMultiplier[lvl-1])
+
+                // Improved Hakkar Buff
+                if src.hasAbility(BUFF_21)
+                    src.addHP(DamageEvent.getAmount()*0.8)
 
             default

@@ -1,6 +1,6 @@
 package HelmofHermes
-
+import codeDamageTypings
 
 public function hermesHelm(unit holder, unit attacker)
     let dam = holder.getStr(true) * 0.5
-    holder.damageTarget(attacker, dam, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    physicalDamageCode(dam, holder, attacker)

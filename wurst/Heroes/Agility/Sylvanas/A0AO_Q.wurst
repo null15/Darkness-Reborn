@@ -38,4 +38,4 @@ function goldenArrow()
 
                 forUnitsInRange(pos, 300, true) (unit u) ->
                     if u.isEnemyOf(caster)
-                        magicalDamage(amount, caster, u)
+                        magicalDamageCode(amount, caster, u)

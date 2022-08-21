@@ -1,5 +1,5 @@
 package CrystalArmor
-
+import codeDamageTypings
 public function crystalArmor(unit holder, unit attacker)
     let dam = holder.getStr(true) * 2.
-    holder.damageTarget(attacker, dam, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    physicalDamageCode(dam, holder, attacker)

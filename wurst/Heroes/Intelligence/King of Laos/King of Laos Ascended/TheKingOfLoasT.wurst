@@ -5,7 +5,6 @@ import DummyCaster
 import OrderIds
 import ClosureEvents
 import MyAbilityIds
-import MyBuffIds
 import codeDamageTypings
 // Avatar of Bwonsamdi
 init
@@ -21,6 +20,4 @@ function avatarOfBwonsamdi()
                         ..owner(caster.getOwner())
                         ..origin(caster.getPos())
                         ..castTarget(ABILITY_36, 1, OrderIds.slow, u)
-                        magicalDamage(caster.getInt(true) * 4., caster, u)
-                        if caster.hasAbility(BUFF_21)
-                            caster.addHP((caster.getInt(true)*4.00)*0.8)
+                        magicalDamageCode(caster.getInt(true) * 4., caster, u)

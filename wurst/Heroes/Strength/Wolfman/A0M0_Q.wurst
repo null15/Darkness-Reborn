@@ -11,5 +11,5 @@ function wolfLancer()
         let dmg = (lvl*3.)*caster.getStr(true) + lvl*150
         caster.setAnimation("attack")
         doAfter(0.3) -> 
-            physicalDamage(dmg, caster, target)
+            physicalDamageCode(dmg, caster, target)
             flashEffect(Abilities.fireLordDeathExplode, target.getPos(), 2)

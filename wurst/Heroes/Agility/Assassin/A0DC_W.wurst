@@ -21,7 +21,7 @@ function quickSlash()
             target.pause()
             doPeriodicallyCounted(0.2, 3) (CallbackCounted cb) ->
                 caster.setAnimation("attack")
-                physicalDamage(dmg, caster, target)
+                physicalDamageCode(dmg, caster, target)
                 flashEffect(Abilities.meatwagonMissile, target.getPos())
                 if cb.isLast()
                     caster.unpause()

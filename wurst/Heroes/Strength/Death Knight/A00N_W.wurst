@@ -14,5 +14,5 @@ function tasteOfDeath()
         let dmg = (10.*lvl)*souls
         forUnitsInRange(caster.getPos(), 500, true) (unit u) ->
             if caster.isEnemyOf(u)
-                magicalDamage(dmg, caster, u)
+                magicalDamageCode(dmg, caster, u)
                 flashEffect(Abilities.illidanMissile, u.getPos(), 1)
