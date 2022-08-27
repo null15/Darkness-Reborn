@@ -22,7 +22,8 @@ function leftSideCreeps(unit u1)
         doAfter(1) -> 
             for i = 1 to 24
                 if u == leftCreep[i]
-                    leftCreep[i] = createUnit(hostile, LEFT_CREEP[i], creepLoc[i].getCenter(), facing.asAngleDegrees())
+                    let pos = u.getPos()
+                    leftCreep[i] = createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle())
                     leftSideCreeps(leftCreep[i])
             
 public function leftSideCreepsSetup()
@@ -36,17 +37,18 @@ function eliteSideCreeps(unit u)
         dropMyItemsEliteCreeps(u1)
         for i = 1 to 10
             if u1 == eliteCreep[i]
+                let pos = u1.getPos()
                 if i == 6 or i == 7
                     doAfter(1) -> 
-                        eliteCreep[i] = createUnit(hostile, GetUnitTypeId(eliteCreep[i]), eliteLoc[i].getCenter(), facingUp.asAngleDegrees())
+                        eliteCreep[i] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
                         eliteSideCreeps(eliteCreep[i])
                 if i <= 5 
                     doAfter(5) -> 
-                        eliteCreep[i] = createUnit(hostile, GetUnitTypeId(eliteCreep[i]), eliteLoc[i].getCenter(), facing.asAngleDegrees())
+                        eliteCreep[i] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
                         eliteSideCreeps(eliteCreep[i])
                 if i == 10
-                    doAfter(15) -> 
-                        eliteCreep[10] = createUnit(hostile, ELITE_CREEP[10], eliteLoc[10].getCenter(), facing.asAngleDegrees())
+                    doAfter(10) -> 
+                        eliteCreep[10] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
                         eliteSideCreeps(eliteCreep[10])
 
 public function eliteSideCreepsSetup()
@@ -114,12 +116,13 @@ function overdryaCreep(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
         let u1 = GetDyingUnit()
         doAfter(5) -> 
+            let pos = u1.getPos()
             for i = 1 to 10
                 if u1 == overlord[i]
-                    overlord[i] = createUnit(hostile, OVERDRYA_CREEP[2], gg_rct_OverlordArea.randomPoint(), facing.asAngleDegrees())
+                    overlord[i] = createUnit(hostile, OVERDRYA_CREEP[2], pos, u1.getFacingAngle())
                     overdryaCreep(overlord[i])
                 else if u1 == dryad[i]
-                    dryad[i] = createUnit(hostile, OVERDRYA_CREEP[1], gg_rct_DryadArea.randomPoint(), facing.asAngleDegrees())
+                    dryad[i] = createUnit(hostile, OVERDRYA_CREEP[1], pos, u1.getFacingAngle())
                     overdryaCreep(dryad[i])
 
 public function overdryaSetup()

@@ -79,40 +79,84 @@ function createSetup()
         createUnit(players[i], HERO_PICKER, gg_rct_HeroPicker.getCenter())
         players[i]..addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)..addState(PLAYER_STATE_RESOURCE_GOLD, 800)
         
+    var posX = GetRectCenterX(gg_rct_HeroPicker) - 384.
+    var posY = GetRectCenterY(gg_rct_HeroPicker)
 
-
-    let tavern1 = CreateUnit(Player(10), BUILDING_TAVERN_STR, -9216.0, -12480, bj_UNIT_FACING)
+    let tavern1 = CreateUnit(Player(10), BUILDING_TAVERN_STR, posX, posY, bj_UNIT_FACING)
     onBuyHero(tavern1)
-    let tavern2 = CreateUnit(Player(10), BUILDING_TAVERN_AGI, -8832.0, -12480, bj_UNIT_FACING)
+    posX = GetRectCenterX(gg_rct_HeroPicker)
+    let tavern2 = CreateUnit(Player(10), BUILDING_TAVERN_AGI, posX, posY, bj_UNIT_FACING)
     onBuyHero(tavern2)
-    let tavern3 = CreateUnit(Player(10), BUILDING_TAVERN_INT, -8448.0, -12480, bj_UNIT_FACING)
+    posX = GetRectCenterX(gg_rct_HeroPicker) + 384.
+    let tavern3 = CreateUnit(Player(10), BUILDING_TAVERN_INT, posX, posY, bj_UNIT_FACING)
     onBuyHero(tavern3)
 
-    CreateUnit(p, BUILDING_4, - 1479.0, - 5505.8, 270.000) // Basic Items 4
-    CreateUnit(p, BUILDING_3, - 1483.8, - 5289.4, 270.000) // Basic Items 3
-    CreateUnit(p, BUILDING_2, - 1479.6, - 5061.5, 270.000) // Basic Items 2
-    CreateUnit(p, BUILDING_1, - 1478.7, - 4841.5, 270.000) // Basic Items 1
-    let endGamebosses = CreateUnit(p, BUILDING_17, 204.8, - 5520.4, 270.000) // End-game bosses
-    let eliteGrounds = CreateUnit(p, BUILDING_16, 202.2, - 5313.4, 270.000) // Elite hunting grounds
-    let intermediateGrounds = CreateUnit(p, BUILDING_15, 195.2, - 5066.8, 270.000) // Intermediate hunting grounds
-    let easyGrounds = CreateUnit(p, BUILDING_14, 190.9, - 4837.0, 270.000) // Easy hunting grounds
-    CreateUnit(p, BUILDING_8, - 1740.5, - 5484.2, 270.000) // Recipe shop 4
-    CreateUnit(p, BUILDING_7, - 1734.9, - 5263.3, 270.000) // Recipe Shop 3
-    CreateUnit(p, BUILDING_6, - 1730.9, - 5047.2, 270.000) // Recipe Shop 2
-    CreateUnit(p, BUILDING_5, - 1734.1, - 4827.9, 270.000) // Recipe Shop 1
-    CreateUnit(p, BUILDING_13, 468.8, - 5517.1, 270.000) // End Game Items
-    CreateUnit(p, BUILDING_12, 466.5, - 5291.8, 270.000) // Decent Items
-    CreateUnit(p, BUILDING_11, 455.5, - 5074.8, 270.000) // Late Game Items
-    CreateUnit(p, BUILDING_10, 459.8, - 4848.5, 270.000) // Late Game Items
+    posX = GetRectCenterX(gg_rct_ShopLeft) + 150
+    var posMax = GetRectMaxY(gg_rct_ShopLeft)
+    var posMin = GetRectMinY(gg_rct_ShopLeft)
+    var dividend = (posMax - posMin) / 4
+    posY = posMin + 100
+
+    CreateUnit(p, BUILDING_4, posX, posY, 270.000) // Basic Items 4
+    posY = posY + dividend
+    CreateUnit(p, BUILDING_3, posX, posY, 270.000) // Basic Items 3
+    posY = posY + dividend
+    CreateUnit(p, BUILDING_2, posX, posY, 270.000) // Basic Items 2
+    posY = posY + dividend
+    CreateUnit(p, BUILDING_1, posX, posY, 270.000) // Basic Items 1
+
+    posX = GetRectCenterX(gg_rct_ShopRight) - 150
+    posMax = GetRectMaxY(gg_rct_ShopRight)
+    posMin = GetRectMinY(gg_rct_ShopRight)
+    dividend = (posMax - posMin) / 4
+    posY = posMin + 100
+
+    let endGamebosses = CreateUnit(p, BUILDING_17, posX, posY, 270.000) // End-game bosses
+    posY = posY + dividend
+    let eliteGrounds = CreateUnit(p, BUILDING_16, posX, posY, 270.000) // Elite hunting grounds
+    posY = posY + dividend
+    let intermediateGrounds = CreateUnit(p, BUILDING_15, posX, posY, 270.000) // Intermediate hunting grounds
+    posY = posY + dividend
+    let easyGrounds = CreateUnit(p, BUILDING_14, posX, posY, 270.000) // Easy hunting grounds
+
+    posX = GetRectCenterX(gg_rct_ShopLeft) - 150
+    posMax = GetRectMaxY(gg_rct_ShopLeft)
+    posMin = GetRectMinY(gg_rct_ShopLeft)
+    dividend = (posMax - posMin) / 4
+    posY = posMin + 100
+
+    CreateUnit(p, BUILDING_8, posX, posY, 270.000) // Recipe shop 4
+    posY = posY + dividend
+    CreateUnit(p, BUILDING_7, posX, posY, 270.000) // Recipe Shop 3
+    posY = posY + dividend
+    CreateUnit(p, BUILDING_6, posX, posY, 270.000) // Recipe Shop 2
+    posY = posY + dividend
+    CreateUnit(p, BUILDING_5, posX, posY, 270.000) // Recipe Shop 1
+
+    posX = GetRectCenterX(gg_rct_ShopRight) + 150
+    posMax = GetRectMaxY(gg_rct_ShopRight)
+    posMin = GetRectMinY(gg_rct_ShopRight)
+    dividend = (posMax - posMin) / 4
+    posY = posMin + 100
+
+    CreateUnit(p, BUILDING_13, posX, posY, 270.000) // End Game Items
+    posY = posY + dividend
+    CreateUnit(p, BUILDING_12, posX, posY, 270.000) // Decent Items
+    posY = posY + dividend
+    CreateUnit(p, BUILDING_11, posX, posY, 270.000) // Late Game Items
+    posY = posY + dividend
+    CreateUnit(p, BUILDING_10, posX, posY, 270.000) // Late Game Items
 
     teleportToMobs(easyGrounds, intermediateGrounds, eliteGrounds, endGamebosses)
 
 function mapSetup()
-
     elementalSoul = createUnit(Player(10), ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees()) // Elemental Soul
     onDefeat(elementalSoul)
-    
-    CreateUnit(Player(10), BUILDING_0, - 640.0, - 5248.0, 270.000) // Fountain of Healing (at base)
+
+    let posX = GetRectCenterX(gg_rct_Base)
+    let posY = GetRectCenterY(gg_rct_Base) + 200
+
+    CreateUnit(Player(10), BUILDING_0, posX, posY, 270.000) // Fountain of Healing (at base)
 
 
     doAfter(0.5) -> 
