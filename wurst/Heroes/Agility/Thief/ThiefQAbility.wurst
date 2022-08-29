@@ -106,22 +106,23 @@ function steal()
     dropListHash.put(ELITE_CREEP_4, dropList.CALL)
 
     EventListener.onTargetCast('A0X5') (unit caster, unit target) ->
-        let unitDrop = dropListHash.get(target.getTypeId())
-        switch unitDrop
-            case LOWER
-                genericLoot(caster)
+        if(GetRandomInt(0, 100) < caster.getAbilityLevel('A0X5') * 10)
+            let unitDrop = dropListHash.get(target.getTypeId())
+            switch unitDrop
+                case LOWER
+                    genericLoot(caster)
 
-            case HIGHER
-                higherLoot(caster)
+                case HIGHER
+                    higherLoot(caster)
 
-            case BOSS
-                bossLoot(target.getTypeId(), caster)
+                case BOSS
+                    bossLoot(target.getTypeId(), caster)
 
-            case CALL
-                callLoot(target.getTypeId(), caster)
+                case CALL
+                    callLoot(target.getTypeId(), caster)
 
-            case ELITE
-                eliteLoot(caster)
+                case ELITE
+                    eliteLoot(caster)
 
-            default
-                genericLoot(caster)
+                default
+                    genericLoot(caster)
