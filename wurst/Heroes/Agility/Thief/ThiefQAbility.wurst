@@ -1,0 +1,127 @@
+package ThiefQAbility
+
+import ClosureEvents
+import HashMap
+import MyUnitIds
+import MyItemIds
+
+enum dropList
+    LOWER
+    HIGHER
+    ELITE
+    BOSS
+    CALL
+
+let dropListHash = new HashMap<integer, dropList>
+
+integer array lowerItems = [ITEM_500, ITEM_560, ITEM_581, ITEM_505, ITEM_574, ITEM_566, ITEM_527, ITEM_542, ITEM_536, ITEM_551, ITEM_519, ITEM_511]
+integer array higherItems = [ITEM_583, ITEM_544, ITEM_562, ITEM_521, ITEM_576, ITEM_513, ITEM_568, ITEM_553, ITEM_529, ITEM_507, ITEM_504, ITEM_538, ITEM_502]
+integer array eliteItems = [ITEM_516, ITEM_531, ITEM_523, ITEM_555, ITEM_570, ITEM_585, ITEM_366, ITEM_517, ITEM_515, ITEM_563,ITEM_530, ITEM_578, ITEM_572, ITEM_548, ITEM_557, ITEM_533, ITEM_509, ITEM_525]
+
+init
+    steal()
+
+function genericLoot(unit caster)
+    let itemId = lowerItems[GetRandomInt(0, 11)]
+    caster.addItemById(itemId)
+
+function higherLoot(unit caster)
+    let itemId = higherItems[GetRandomInt(0, 12)]
+    caster.addItemById(itemId)
+
+function eliteLoot(unit caster)
+    let itemId = eliteItems[GetRandomInt(0, 17)]
+    caster.addItemById(itemId)
+
+function bossLoot(int unitId, unit caster)
+    var itemId = ITEM_677
+    if unitId == WAVE_BOSS_27
+        itemId = ITEM_678
+    else if unitId == WAVE_BOSS_28
+        itemId = ITEM_681
+    else if unitId == WAVE_BOSS_29
+        itemId = ITEM_679
+    else if unitId == WAVE_BOSS_55
+        itemId = ITEM_700
+    else if unitId == WAVE_BOSS_56
+        itemId = ITEM_702
+    else if unitId == WAVE_BOSS_57
+        itemId = ITEM_703
+    else if unitId == WAVE_BOSS_83
+        itemId = ITEM_701
+    else if unitId == WAVE_HERO_7
+        itemId = ITEM_699
+    caster.addItemById(itemId)
+
+function callLoot(int unitId, unit caster)
+    var itemId = ITEM_691
+    if unitId == ELITE_CREEP_3
+        itemId = ITEM_689
+    else if unitId == ELITE_CREEP_4
+        itemId = ITEM_690
+    caster.addItemById(itemId)
+
+function steal()
+    dropListHash.put(LEFT_CREEP_0, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_1, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_2, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_3, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_4, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_5, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_6, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_7, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_8, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_9, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_10, dropList.LOWER)
+    dropListHash.put(LEFT_CREEP_11, dropList.LOWER)
+
+    dropListHash.put(LEFT_CREEP_12, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_13, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_14, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_15, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_16, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_17, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_18, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_19, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_20, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_21, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_22, dropList.HIGHER)
+    dropListHash.put(LEFT_CREEP_23, dropList.HIGHER)
+
+    dropListHash.put(ELITE_CREEP_0, dropList.ELITE)
+    dropListHash.put(ELITE_CREEP_1, dropList.ELITE)
+
+    dropListHash.put(WAVE_BOSS_26, dropList.BOSS)
+    dropListHash.put(WAVE_BOSS_27, dropList.BOSS)
+    dropListHash.put(WAVE_BOSS_28, dropList.BOSS)
+    dropListHash.put(WAVE_BOSS_29, dropList.BOSS)
+    dropListHash.put(WAVE_BOSS_55, dropList.BOSS)
+    dropListHash.put(WAVE_BOSS_56, dropList.BOSS)
+    dropListHash.put(WAVE_BOSS_57, dropList.BOSS)
+    dropListHash.put(WAVE_BOSS_83, dropList.BOSS)
+    dropListHash.put(WAVE_HERO_7, dropList.BOSS)
+
+    dropListHash.put(ELITE_CREEP_2, dropList.CALL)
+    dropListHash.put(ELITE_CREEP_3, dropList.CALL)
+    dropListHash.put(ELITE_CREEP_4, dropList.CALL)
+
+    EventListener.onTargetCast('A0X5') (unit caster, unit target) ->
+        let unitDrop = dropListHash.get(target.getTypeId())
+        switch unitDrop
+            case LOWER
+                genericLoot(caster)
+
+            case HIGHER
+                higherLoot(caster)
+
+            case BOSS
+                bossLoot(target.getTypeId(), caster)
+
+            case CALL
+                callLoot(target.getTypeId(), caster)
+
+            case ELITE
+                eliteLoot(caster)
+
+            default
+                genericLoot(caster)

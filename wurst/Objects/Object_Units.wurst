@@ -261,6 +261,21 @@ init
     ..setAnimationCastBackswing(100)
     ..setNormalAbilities(commaList(AbilityIds.locust, AbilityIds.invulnerable))
 
+    new UnitDefinition(DUMMY_UNIT_6, UnitIds.gryphonrider)
+    ..setName("sorceress dummy")
+    ..setModelFile("Units\\Thief\\FelOrcAssassin.mdx")
+    ..setLevel(1)
+    ..setCanFlee(false)
+    ..setManaMaximum(5000)
+    ..setManaInitialAmount(5000)
+    ..setAttacksEnabled(0)
+    ..setAttack1Range(0)
+    ..setAttack2Range(0)
+    ..setAttack1TargetsAllowed("Dead")
+    ..setAnimationCastPoint(100)
+    ..setAnimationCastBackswing(100)
+    ..setNormalAbilities(commaList(AbilityIds.locust, AbilityIds.invulnerable))
+
     new UnitDefinition(DUMMY_BLACKSMITH_WISP, 'ewsp') // For blacksmith
     ..setName("Craft(?)")
     ..setManaMaximum(1000000)
@@ -3142,7 +3157,7 @@ init
 
     new HeroDefinition(PLAY_HERO_26, UnitIds.tinker)// Tinker (N04B)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A0KW', ABILITY_11, ABILITY_12, 'A0QK', 'A11D'))
+    ..setHeroAbilities(commaList(TINKER_ABIL_1, TINKER_ABIL_2, TINKER_ABIL_3, 'A0QK', 'A11D'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     ..setPrimaryAttribute("Intelligence")
     ..setStartingStrength(20)

@@ -22,7 +22,8 @@ import A0DI_R
 import A0TZ_R
 import A0E7_E
 import EternalFlame
-
+import ThiefWAbility
+import ThiefTAbility
 import LancelotSet
 import HelmofHermes
 import LancelotShield
@@ -213,6 +214,12 @@ init
 
                 if src.hasAbility('B003')
                     src.removeAbility('B003')
+
+                if src.getTypeId() == PLAY_HERO_31 and isWindwalk
+                    windwalkAttack(src, targ)
+
+                if src.getTypeId() == PLAY_HERO_31 and GetRandomInt(0, 100) < src.getAbilityLevel('A0XG')
+                    noCommand(src, targ)
 
             case SPELL
                 let src = DamageEvent.getSource()

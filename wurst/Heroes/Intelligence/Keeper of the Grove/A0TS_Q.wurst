@@ -5,6 +5,9 @@ import ClosureForGroups
 import Abilities
 import ClosureTimers
 import codeDamageTypings
+import DummyCaster
+import OrderIds
+import MyAbilityIds
 
 real array entanglingDamage = [20, 40, 60, 90, 120, 160, 210, 260, 320]
 
@@ -16,9 +19,11 @@ function entanglingRoots()
         let output = 2.00 * lvl * caster.getInt(true) + entanglingDamage[lvl-1]
         forUnitsInRange(target, 350, true) (unit u) ->
             if caster.isEnemyOf(u)
-                u.pause()
+                new DummyCaster()
+                ..owner(caster.getOwner())
+                ..origin(caster.getPos())
+                ..castTarget(ABILITY_DUMMY_17, 1, OrderIds.entanglingroots, u)
+                ..delay(0)
                 flashEffect(Abilities.roots1, u, "overhead")
                 doPeriodicallyTimed(1.00, 5.00) (CallbackCounted cb) ->
                     magicalDamageCode(output, caster, u)
-                    if cb.isLast()
-                        u.unpause()

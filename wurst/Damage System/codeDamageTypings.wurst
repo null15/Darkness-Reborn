@@ -2,8 +2,8 @@ package codeDamageTypings
 import HashMap
 import DamageEvent
 
-public var magicResistMap = new HashMap<integer, real>
-public var physicalPenetrationMap = new HashMap<integer, real>
+public let magicResistMap = new HashMap<integer, real>
+public let physicalPenetrationMap = new HashMap<integer, real>
 
 public function enumerateMagicResistanceUnit(integer unitId, real magicResistance)
     magicResistMap.put(unitId, magicResistance)

@@ -1,0 +1,51 @@
+package TinkerAbility_Q
+
+import ClosureEvents
+import MyAbilityIds
+import ClosureTimers
+import Abilities
+import Artillery
+import ClosureForGroups
+import DummyCaster
+import codeDamageTypings
+import OrderIds
+import SoundUtils
+
+vec2 currentTarget
+integer counter
+constant ROCKET_ARTILLERY = compiletime(ArtilleryDetection.createArtilleryDummy(0, 120, 160, 1, Abilities.rocketMissile, 500, 0.3))
+constant ROCKET_LAUNCH_SOUND = new SoundDefinition(Sounds.tinkerMissileLaunch1, false, true)
+init
+    clusterRockets()
+
+function clusterRockets()
+    EventListener.onPointCast(TINKER_ABIL_1) (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel(TINKER_ABIL_1)
+        let missileCount = lvl * 2 + 8
+        let angle = 6.283185 / missileCount
+        counter = 0
+        let timerDuration = caster.getAbility(TINKER_ABIL_1).getField(ABILITY_RLF_DURATION_NORMAL, lvl)
+        let interval = timerDuration / missileCount
+        let pos = caster.getPos()
+        doPeriodicallyTimed(interval, timerDuration) (CallbackCounted cb) ->
+            if(caster.getCurrentOrder() == OrderIds.clusterrockets)
+                ROCKET_LAUNCH_SOUND.playOnPoint(caster.getPos3Real())
+                let randx = GetRandomReal(0, 0.4)
+                let randy = GetRandomReal(0, 0.4)
+                let randx2 = GetRandomReal(-20, 20)
+                let randy2 = GetRandomReal(-20, 20)
+                counter++
+                currentTarget = vec2(target.x + 125 * Cos(angle * counter + randx) + randx2, target.y + 125 * Sin(angle * counter + randy) + randy2)
+                ArtilleryDetection.fireArtillery(caster, ROCKET_ARTILLERY, pos, currentTarget) (unit detectionUnit, unit caster, int data) -> 
+                    let targetPos = detectionUnit.getPos()
+                    let dmg = 0.25 * caster.getInt(true) + 20 * lvl
+                    forUnitsInRange(targetPos, 100, true) (unit u) ->
+                        if caster.isEnemyOf(u)
+                            new DummyCaster()
+                            ..owner(GetOwningPlayer(caster))
+                            ..origin(vec2(caster.getX(), caster.getY()))
+                            ..delay(1)
+                            ..castTarget(ABILITY_DUMMY_16, 1, OrderIds.thunderbolt, u)
+                            magicalDamageCode(dmg, caster, u)
+                if(cb.isLast())
+                    caster.issueImmediateOrderById(OrderIds.stop)

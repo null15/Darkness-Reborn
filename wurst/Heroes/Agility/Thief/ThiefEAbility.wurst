@@ -1,0 +1,35 @@
+package ThiefEAbility
+
+import ClosureEvents
+
+texttag goldText
+
+init
+    sell()
+
+function sell()
+    EventListener.onCast('A0XF') (unit caster) ->
+        let p = caster.getOwner()
+        let itemType = caster.itemInSlot(0).getItemtype()
+        if(itemType == ITEM_TYPE_MISCELLANEOUS)
+            p.addGold(GetRandomInt(1000,5000))
+        else if itemType == ITEM_TYPE_PERMANENT
+            p.addGold(GetRandomInt(1000,15000))
+        else if itemType == ITEM_TYPE_CHARGED
+            p.addGold(GetRandomInt(100,3000))
+        else if itemType == ITEM_TYPE_POWERUP
+            p.addGold(GetRandomInt(200,2000))
+        else if itemType == ITEM_TYPE_ARTIFACT
+            p.addGold(GetRandomInt(10000,25000))
+        else if itemType == ITEM_TYPE_PURCHASABLE
+            p.addGold(GetRandomInt(500,5000))
+        else if itemType == ITEM_TYPE_CAMPAIGN
+            p.addGold(GetRandomInt(50000,200000))
+        caster.itemInSlot(0).remove()
+        goldText = CreateTextTag()
+        goldText..setPos(caster.getPos3Real())
+        ..setColor(255, 215, 0, 255)
+        ..setVelocity(GetRandomReal(0,1), GetRandomReal(0,1))
+        ..setLifespan(5)
+        ..setPermanent(false)
+        ..setVisibility(true)

@@ -1,7 +1,8 @@
 package A0TZ_R
-import Abilities
-import ClosureTimers
 import codeDamageTypings
+import MyAbilityIds
+import OrderIds
+import DummyCaster
 init
 public function thornRoot(unit keeper, unit attacker)
     let lvl = GetUnitAbilityLevel(keeper, 'A0TZ')
@@ -9,8 +10,9 @@ public function thornRoot(unit keeper, unit attacker)
     if(attacker.isEnemyOf(keeper) and lvl > 0)
         let chance = lvl * 2
         if(GetRandomInt(0, 100) < chance)
-            attacker.pause()
-            flashEffect(Abilities.roots1, attacker, "origin")
+            new DummyCaster()
+            ..owner(keeper.getOwner())
+            ..origin(keeper.getPos())
+            ..castTarget(ABILITY_DUMMY_17, 1, OrderIds.entanglingroots, attacker)
+            ..delay(0)
             magicalDamageCode(output, keeper, attacker)
-            doAfter(1.5) -> 
-                attacker..unpause()

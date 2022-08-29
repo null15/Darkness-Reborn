@@ -11,6 +11,7 @@ unit array overlord = []
 unit array dryad = []
 real facing = 270
 real facingUp = 90
+integer frostyCounter = 0
 init
 
 
@@ -46,6 +47,16 @@ function eliteSideCreeps(unit u)
                     doAfter(5) -> 
                         eliteCreep[i] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
                         eliteSideCreeps(eliteCreep[i])
+                if i == 8
+                    doAfter(10) ->
+                        eliteCreep[8] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
+                        eliteSideCreeps(eliteCreep[8])
+                if i == 9
+                    if(frostyCounter < 2)
+                        frostyCounter++
+                        doAfter(30) -> 
+                            eliteCreep[9] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
+                            eliteSideCreeps(eliteCreep[9])
                 if i == 10
                     doAfter(10) -> 
                         eliteCreep[10] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())

@@ -15,6 +15,7 @@ public constant DUMMY_UNIT_2 = compiletime(UNIT_ID_GEN.next())
 public constant DUMMY_UNIT_3 = compiletime(UNIT_ID_GEN.next())
 public constant DUMMY_UNIT_4 = compiletime(UNIT_ID_GEN.next())
 public constant DUMMY_UNIT_5 = compiletime(UNIT_ID_GEN.next())
+public constant DUMMY_UNIT_6 = compiletime(UNIT_ID_GEN.next())
 
 public constant DUMMY_BLACKSMITH_WISP = compiletime(UNIT_ID_GEN.next())
 

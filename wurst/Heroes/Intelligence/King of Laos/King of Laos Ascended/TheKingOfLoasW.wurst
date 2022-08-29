@@ -6,6 +6,7 @@ import ClosureTimers
 import MyAbilityIds
 import MyUnitIds
 import MyBuffIds
+import KingOfLoasW
 import codeDamageTypings
 // Embodiment of Gral
 init
@@ -20,8 +21,16 @@ function embodimentOfGral()
             ..origin(attacker.getPos())
             ..castTarget(ABILITY_48, 1, OrderIds.bloodlust, attacker)
             if not attacked.hasAbility(BUFF_22)
+                let shark = createUnit(attacker.getOwner(), DUMMY_UNIT_5, attacker.getPos(), attacker.getPos().angleTo(attacked.getPos()))
                 new DummyCaster()
                 ..owner(attacked.getOwner())
                 ..castTarget(ABILITY_55, 1, OrderIds.innerfire, attacked)
                 doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
                     physicalDamageCode(attacker.getInt(true) * 1., attacker, attacked)
+                doAfter(0.01) -> 
+                    SetUnitAnimationByIndex(shark, 0)
+                    gralBite.playOnPoint(attacked.getPos3Real())
+                    doAfter(0.5) -> 
+                        SetUnitAnimationByIndex(shark, 1)
+                        doAfter(0.8) -> 
+                            RemoveUnit(shark)

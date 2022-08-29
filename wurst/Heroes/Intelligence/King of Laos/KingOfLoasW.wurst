@@ -2,12 +2,12 @@ package KingOfLoasW
 import ClosureTimers
 import DummyCaster
 import OrderIds
-import Simulate3dSound
 import ClosureEvents
 import MyAbilityIds
 import MyUnitIds
 import MyBuffIds
-sound gralBite = CreateSound("Loas Assets\\Shark\\gralBite.mp3", false, true, true, 12700, 12700, "CombatSoundsEAX")
+import SoundUtils
+public constant gralBite = new SoundDefinition("Loas Assets\\Shark\\gralBite.mp3", false, true)
 init
     finsofGral()
 function finsofGral()
@@ -27,7 +27,7 @@ function finsofGral()
                 ..delay(0.2)
             doAfter(0.01) -> 
                 SetUnitAnimationByIndex(shark, 0)
-                bindSoundToUnit(gralBite, attacker, 1000, 2000, 3000)
+                gralBite.playOnPoint(attacked.getPos3Real())
                 doAfter(0.5) -> 
                     SetUnitAnimationByIndex(shark, 1)
                     doAfter(0.8) -> 

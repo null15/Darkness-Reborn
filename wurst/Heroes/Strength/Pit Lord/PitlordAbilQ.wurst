@@ -1,0 +1,13 @@
+package PitlordAbilQ
+
+import ClosureEvents
+import ClosureTimers
+import ClosureForGroups
+import MyAbilityIds
+
+init
+    rainofFire()
+
+function rainofFire()
+    EventListener.onPointCast(PITLORD_ABIL_1) (unit caster, vec2 target) ->
+        

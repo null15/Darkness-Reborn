@@ -7,7 +7,7 @@ import ClosureForGroups
 init
     factorySpawn()
 function factorySpawn()
-    EventListener.onPointCast(ABILITY_12) (unit caster, vec2 target) ->
+    EventListener.onPointCast(TINKER_ABIL_3) (unit caster, vec2 target) ->
         doAfter(1) -> 
             forUnitsInRange(target, 500) (unit u) ->
                 if u.getTypeId() == FACTORYROBO

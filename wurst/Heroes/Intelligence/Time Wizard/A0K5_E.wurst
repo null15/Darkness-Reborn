@@ -1,13 +1,14 @@
 package A0K5_E
 import ClosureEvents
-import ClosureForGroups
-import ClosureTimers
+import OrderIds
+import MyAbilityIds
+import DummyCaster
 init
     timeStop()
 function timeStop()
     EventListener.onCast('A0K5') (unit caster) ->
-        forUnitsInRange(caster.getPos(), 99999, true) (unit u) ->
-            if caster.isEnemyOf(u)
-                u.pause()
-                doAfter(10) -> 
-                    u.unpause()
+        new DummyCaster()
+        ..origin(caster.getPos())
+        ..owner(caster.getOwner())
+        ..castImmediate(ABILITY_DUMMY_18, 1, OrderIds.stomp)
+        ..delay(0)
