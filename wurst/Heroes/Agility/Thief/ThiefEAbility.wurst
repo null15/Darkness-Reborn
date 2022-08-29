@@ -10,26 +10,30 @@ init
 function sell()
     EventListener.onCast('A0XF') (unit caster) ->
         let p = caster.getOwner()
-        let itemType = caster.itemInSlot(0).getItemtype()
+        let ite = caster.itemInSlot(0)
+        let itemType = ite.getItemtype()
+        var t = 0
         if(itemType == ITEM_TYPE_MISCELLANEOUS)
-            p.addGold(GetRandomInt(1000,5000))
+            t = GetRandomInt(1000,5000)
         else if itemType == ITEM_TYPE_PERMANENT
-            p.addGold(GetRandomInt(1000,15000))
+            t = GetRandomInt(1000,15000)
         else if itemType == ITEM_TYPE_CHARGED
-            p.addGold(GetRandomInt(100,3000))
+            t = GetRandomInt(100,3000)
         else if itemType == ITEM_TYPE_POWERUP
-            p.addGold(GetRandomInt(200,2000))
+            t = GetRandomInt(200,2000)
         else if itemType == ITEM_TYPE_ARTIFACT
-            p.addGold(GetRandomInt(10000,25000))
+            t = GetRandomInt(10000,25000)
         else if itemType == ITEM_TYPE_PURCHASABLE
-            p.addGold(GetRandomInt(500,5000))
+            t = GetRandomInt(500,5000)
         else if itemType == ITEM_TYPE_CAMPAIGN
-            p.addGold(GetRandomInt(50000,200000))
-        caster.itemInSlot(0).remove()
+            t = GetRandomInt(50000,200000)
+        p.addGold(t)
         goldText = CreateTextTag()
         goldText..setPos(caster.getPos3Real())
         ..setColor(255, 215, 0, 255)
-        ..setVelocity(GetRandomReal(0,1), GetRandomReal(0,1))
+        ..setVelocity(GetRandomReal(0,0.005), GetRandomReal(0,0.02))
         ..setLifespan(5)
         ..setPermanent(false)
         ..setVisibility(true)
+        ..setText("You sold " + ite.getName() + " and got " + t.toString() + " gold." , 5)
+        ite.remove()
