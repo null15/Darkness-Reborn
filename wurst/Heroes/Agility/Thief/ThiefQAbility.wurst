@@ -55,7 +55,7 @@ function bossLoot(int unitId, unit caster)
 
 function callLoot(int unitId, unit caster)
     var itemId = ITEM_691
-    if unitId == ELITE_CREEP_3
+    if unitId == ELITE_CREEP_2
         itemId = ITEM_689
     else if unitId == ELITE_CREEP_4
         itemId = ITEM_690
@@ -106,23 +106,32 @@ function steal()
     dropListHash.put(ELITE_CREEP_4, dropList.CALL)
 
     EventListener.onTargetCast('A0X5') (unit caster, unit target) ->
-        if(GetRandomInt(0, 100) < caster.getAbilityLevel('A0X5') * 10)
-            let unitDrop = dropListHash.get(target.getTypeId())
-            switch unitDrop
-                case LOWER
-                    genericLoot(caster)
+        if(target.getHPRatio() <= 80)
+            if(GetRandomInt(0, 100) < caster.getAbilityLevel('A0X5') * 10)
+                let unitDrop = dropListHash.get(target.getTypeId())
+                switch unitDrop
+                    case LOWER
+                        genericLoot(caster)
 
-                case HIGHER
-                    higherLoot(caster)
+                    case HIGHER
+                        higherLoot(caster)
 
-                case BOSS
-                    bossLoot(target.getTypeId(), caster)
+                    case BOSS
+                        bossLoot(target.getTypeId(), caster)
 
-                case CALL
-                    callLoot(target.getTypeId(), caster)
+                    case CALL
+                        callLoot(target.getTypeId(), caster)
 
-                case ELITE
-                    eliteLoot(caster)
+                    case ELITE
+                        eliteLoot(caster)
 
-                default
-                    genericLoot(caster)
+                    default
+                        genericLoot(caster)
+            else
+                CreateTextTag()..setText("Miss!", 5)
+                ..setColor(255, 128, 128, 255)
+                ..setPos(caster.getPos3Real())
+                ..setVelocity(GetRandomReal(0,0.005), GetRandomReal(0,0.02))
+                ..setLifespan(5)
+                ..setPermanent(false)
+                ..setVisibility(true)

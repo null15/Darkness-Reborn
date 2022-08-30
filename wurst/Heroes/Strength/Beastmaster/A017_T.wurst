@@ -11,7 +11,11 @@ function spirits()
         let lvl = GetUnitAbilityLevel(caster, ABILITY_7)
         let tempBoost = ((lvl*5+10)*spirits)
         caster.addStr(tempBoost)
+        caster.addAgi(tempBoost)
+        caster.addInt(tempBoost)
         doPeriodically(1) (CallbackPeriodic cb) ->
             if not caster.hasAbility(BUFF_3)
                 caster.setStr(caster.getStr(false)-tempBoost)
+                caster.setAgi(caster.getAgi(false)-tempBoost)
+                caster.setInt(caster.getInt(false)-tempBoost)
                 destroy cb

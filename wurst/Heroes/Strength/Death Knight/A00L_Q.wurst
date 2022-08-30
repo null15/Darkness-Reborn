@@ -18,6 +18,7 @@ function soulCollector()
         if GetUnitTypeId(GetKillingUnit()) == PLAY_HERO_4
             deathKnight = GetKillingUnit()
         souls = souls + 1
+        deathKnight.addStr(1)
         if souls % 5 == 0
             soulsText = createLumberBountyTextTag(deathKnight, souls)
             soulsText.setColor(colorA(93, 247, 55, 255))

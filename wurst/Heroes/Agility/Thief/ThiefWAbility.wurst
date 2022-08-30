@@ -4,7 +4,6 @@ import ClosureEvents
 import MyUnitIds
 import ClosureForGroups
 import codeDamageTypings
-import ClosureTimers
 
 public boolean isWindwalk
 
@@ -13,12 +12,7 @@ init
 
 function windwalk()
     EventListener.onCast('A0XE') (unit caster) ->
-        createUnit(DUMMY_UNIT_6, caster.getPos()).setTimedLife(10)
-        isWindwalk = true
-        doAfter(10) ->
-            isWindwalk = false 
-
-public function windwalkAttack(unit src, unit targ)
-    forUnitsInRange(targ.getPos(), 300, true) (unit u) ->
-        physicalDamageCode(src.getAgi(true) * src.getAbilityLevel('A0XE').toReal(), src, targ)
-        isWindwalk = false
+        createUnit(DUMMY_UNIT_6, caster.getPos())..setTimedLife(10)
+        forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
+            if(u.isEnemyOf(caster))
+                physicalDamageCode(caster.getAgi(true) * caster.getAbilityLevel('A0XE').toReal(), caster, u)

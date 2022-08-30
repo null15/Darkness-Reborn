@@ -39,3 +39,4 @@ function goldenArrow()
                 forUnitsInRange(pos, 300, true) (unit u) ->
                     if u.isEnemyOf(caster)
                         magicalDamageCode(amount, caster, u)
+                        u.setPos(sfx.getPos())

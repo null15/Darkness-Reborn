@@ -9233,7 +9233,7 @@ import Units
 
     new BuildingDefinition(TINKERBUILDING_114, UnitIds.blacksmith)// Blacksmith (h04A)
     ..setGroundTexture("")
-    ..setRequirements(TINKERBUILDING_60.toRawCode())
+    ..setRequirements(TINKERBUILDING_58.toRawCode())
     ..setNormalAbilities(commaList('Abds', 'Aihn'))
     ..setScalingValue(1.00)
     ..setSelectionScale(4.00)

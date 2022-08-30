@@ -22,7 +22,6 @@ import A0DI_R
 import A0TZ_R
 import A0E7_E
 import EternalFlame
-import ThiefWAbility
 import ThiefTAbility
 import LancelotSet
 import HelmofHermes
@@ -60,8 +59,7 @@ init
             case ATTACK
                 let src = DamageEvent.getSource()
                 let targ = DamageEvent.getTarget()
-                if(targ.getArmor() > 10)
-                    DamageEvent.setAmount(DamageEvent.getUnreducedAmount() * (1+physicalPenetrationMap.get(targ.getTypeId())))
+                DamageEvent.addAmount(DamageEvent.getNativeDamageReductionPercent() * physicalPenetrationMap.get(targ.getTypeId()))
 
                 // Illidan (Juxtapose) E
                 if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8')
@@ -215,10 +213,7 @@ init
                 if src.hasAbility('B003')
                     src.removeAbility('B003')
 
-                if src.getTypeId() == PLAY_HERO_31 and isWindwalk
-                    windwalkAttack(src, targ)
-
-                if src.getTypeId() == PLAY_HERO_31 and GetRandomInt(0, 100) < src.getAbilityLevel('A0XG')
+                if src.getTypeId() == PLAY_HERO_31 and GetRandomInt(0, 100) < src.getAbilityLevel('A0XG') * 2
                     noCommand(src, targ)
 
             case SPELL
