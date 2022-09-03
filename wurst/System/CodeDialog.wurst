@@ -49,7 +49,7 @@ public function codeDialog()
 
             buffBox.addButton("Levels (+10)") ->
                 if hero != null
-                    hero.setLevel(hero.getLevel()+10, true)
+                    hero.setLevel(10, true)
                 else
                     PLAYER_SET.add(GetPlayerName(GetTriggerPlayer()))
                     printTimedToPlayer("Select a hero first", 3, GetTriggerPlayer())

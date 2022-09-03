@@ -10,9 +10,8 @@ function blueSea()
             let lvl = vashj.getAbilityLevel('A0AQ')
             if GetRandomInt(1, 100) < lvl*5
                 if lvl <= 3
-                    vashj.addMana(50)
+                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 50)
                 else if lvl <=6
-                    vashj.addMana(100)
+                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 100)
                 else if lvl <=9
-                    vashj.addMana(150)
-        
+                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 150)

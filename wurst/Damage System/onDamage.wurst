@@ -59,10 +59,10 @@ init
             case ATTACK
                 let src = DamageEvent.getSource()
                 let targ = DamageEvent.getTarget()
-                DamageEvent.addAmount(DamageEvent.getNativeDamageReductionPercent() * physicalPenetrationMap.get(targ.getTypeId()))
+                DamageEvent.addAmount((DamageEvent.getUnreducedOriginalAmount() - DamageEvent.getAmount()) * physicalPenetrationMap.get(targ.getTypeId()))
 
                 // Illidan (Juxtapose) E
-                if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8')
+                if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8') and src.isIllusion() == false
                     juxtapose(src)
 
                 // Sylvanas (Phantom Arrow) W - Autocast

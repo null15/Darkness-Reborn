@@ -31,8 +31,7 @@ function hourglass()
         boom = true
         running = false
         hourglass.destr()
-        doAfter(1.5) -> 
-            caster..removeAbility('A0NG')..addAbility('A007')
+        caster..removeAbility('A0NG')..addAbility('A007')
         forUnitsInRange(caster.getPos(), 99999, true) (unit u) ->
             if caster.isEnemyOf(u)
                 caster.magicalDamageCode(dmg, u)
