@@ -52,10 +52,13 @@ function chainFrost()
                 else
                     previousTarget = currentTarget
                     forUnitsInRange(currentTarget.getPos(), 400) (unit u) ->
-                        if (u.isEnemyOf(caster.getOwner()) and u.getHandleId() != currentTarget.getHandleId())
+                        if (u.isEnemyOf(caster) and u != currentTarget)
                             if(u.isAlive())
-                                let pos4 = u.getPos()
-                                if(pos1.distanceTo(pos2) > pos1.distanceTo(pos4))
+                                if(currentTarget != previousTarget)
+                                    let pos4 = u.getPos()
+                                    if(pos2.distanceTo(pos4) < pos2.distanceTo(currentTarget.getPos()))
+                                        currentTarget = u
+                                else
                                     currentTarget = u
                     if(currentTarget == previousTarget)
                         sfx.destr()

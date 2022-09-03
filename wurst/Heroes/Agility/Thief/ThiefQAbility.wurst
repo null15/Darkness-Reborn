@@ -23,15 +23,24 @@ init
 
 function genericLoot(unit caster)
     let itemId = lowerItems[GetRandomInt(0, 11)]
-    caster.addItemById(itemId)
+    if(caster.isAlive())
+        caster.addItemById(itemId)
+    else
+        createItem(itemId, caster.getPos())
 
 function higherLoot(unit caster)
     let itemId = higherItems[GetRandomInt(0, 12)]
-    caster.addItemById(itemId)
+    if(caster.isAlive())
+        caster.addItemById(itemId)
+    else
+        createItem(itemId, caster.getPos())
 
 function eliteLoot(unit caster)
     let itemId = eliteItems[GetRandomInt(0, 17)]
-    caster.addItemById(itemId)
+    if(caster.isAlive())
+        caster.addItemById(itemId)
+    else
+        createItem(itemId, caster.getPos())
 
 function bossLoot(int unitId, unit caster)
     var itemId = ITEM_677
@@ -51,15 +60,27 @@ function bossLoot(int unitId, unit caster)
         itemId = ITEM_701
     else if unitId == WAVE_HERO_7
         itemId = ITEM_699
-    caster.addItemById(itemId)
+    if(caster.isAlive())
+        caster.addItemById(itemId)
+    else
+        createItem(itemId, caster.getPos())
 
 function callLoot(int unitId, unit caster)
-    var itemId = ITEM_691
-    if unitId == ELITE_CREEP_2
-        itemId = ITEM_689
-    else if unitId == ELITE_CREEP_4
-        itemId = ITEM_690
-    caster.addItemById(itemId)
+    var itemId = ITEM_0
+    let random = GetRandomInt(0, 18)
+    if(random == 18)
+        if unitId == ELITE_CREEP_3
+            itemId = ITEM_691
+        else if unitId == ELITE_CREEP_2
+            itemId = ITEM_689
+        else if unitId == ELITE_CREEP_4
+            itemId = ITEM_690
+    else
+        itemId = eliteItems[random]
+    if(caster.isAlive())
+        caster.addItemById(itemId)
+    else
+        createItem(itemId, caster.getPos())
 
 function steal()
     dropListHash.put(LEFT_CREEP_0, dropList.LOWER)
@@ -106,7 +127,7 @@ function steal()
     dropListHash.put(ELITE_CREEP_4, dropList.CALL)
 
     EventListener.onTargetCast('A0X5') (unit caster, unit target) ->
-        if(target.getHPRatio() <= 80)
+        if(target.getHPRatio() <= 0.80)
             if(GetRandomInt(0, 100) < caster.getAbilityLevel('A0X5') * 10)
                 let unitDrop = dropListHash.get(target.getTypeId())
                 switch unitDrop

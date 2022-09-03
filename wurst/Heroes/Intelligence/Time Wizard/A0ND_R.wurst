@@ -36,3 +36,9 @@ function hourglass()
         forUnitsInRange(caster.getPos(), 99999, true) (unit u) ->
             if caster.isEnemyOf(u)
                 caster.magicalDamageCode(dmg, u)
+            else
+                if u.getOwner() != Player(10)
+                    if(u.getHP() + dmg < u.getMaxHP())
+                        u.setHP(dmg)
+                    else
+                        u.setHP(u.getMaxHP())

@@ -1,0 +1,17 @@
+package KillAndDropOnLeave
+
+import ClosureEvents
+import Global_Variables
+
+init
+    onLeave()
+
+
+function onLeave()
+    EventListener.add(EVENT_PLAYER_LEAVE) -> 
+        let leavingHero = playerHero[GetConvertedPlayerId(GetTriggerPlayer())]
+
+        for int x = 0 to 5
+            let i = leavingHero.itemInSlot(x)
+            i.setPos(leavingHero.getPos())
+        leavingHero.remove()

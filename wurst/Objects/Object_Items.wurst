@@ -3773,7 +3773,7 @@ init
     +" |c00FFFC01Effect of item:|r\n\n"
     +"+400 Damage\n"
     +"30% Chance to Freeze Target for 0.1s + deal 1000 Damage\n"
-    +"28% Chance to Crit for 5\n"
+    +"28% Chance to Crit for 5x damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Fire Sword (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Ice Sword (|c001CE6B9" + recipeShop1 + "|r)\n"
@@ -3862,7 +3862,7 @@ init
     ..setTooltipExtended("|c00FFFC01Destroy Sword|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+700 Damage\n"
-    +"25% Chance to Crit for 8"
+    +"25% Chance to Crit for 8\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Fire Sword (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Kraken Dagger (|c001CE6B9" + recipeShop2 + "|r)\n"
@@ -3907,7 +3907,7 @@ init
     +"|c00FFFC01Effect of item:|r\n\n"
     +"+500 Damage\n"
     +"+120 Strength\n"
-    +"25% Chance to Bash for 0\n"
+    +"25% Chance to Bash for 0.5s dealing 1000 bonus Damage.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Silver Hammer (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Kraken Dagger (|c001CE6B9" + recipeShop2 + "|r)\n"
@@ -5150,7 +5150,7 @@ init
     ..setDescription("")
     ..setName("|c000050FF Crystal Dual Sword|r")
     ..setTooltipBasic("|c000050FF Crystal Dual Sword|r")
-    ..setTooltipExtended("|c000050FF+1500 Damage\n+690 Agility\nSpecial abilities: +4% Chance to deal 60 x Damage\n5% Armor Pen|r")
+    ..setTooltipExtended("|c000050FF+1500 Damage\n+690 Agility\n5% Armor Pen\nSpecial abilities: +4% Chance to deal 60 x Damage|r")
     ..setHotkey("V")
 
 //I0CJ
@@ -7005,7 +7005,7 @@ init
     ..setDescription("+400 Damage\n30% Chance to Freeze Target for 0.1s + deal 1000 Damage\n28% Chance to Crit for 5")
     ..setName("|c00FFFC01Ice & Fire Sword|r")
     ..setTooltipBasic("Purchase Ice & Fire Sword")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n+400 Damage\n30% Chance to Freeze Target for 0.1s + deal 1000 Damage\n28% Chance to Crit for 5")
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n+400 Damage\n30% Chance to Freeze Target for 0.1s + deal 1000 Damage\n28% Chance to Crit for 5x damage")
     ..setHotkey("E")
 
 //I004
@@ -7566,7 +7566,7 @@ init
     ..setDescription("+500 Damage\n+120 Strength\n25% Chance to Bash for 0.5s dealing 1000 bonus Damage.")
     ..setName("|c00FFFC01Platinum Hammer|r")
     ..setTooltipBasic("Purchase Platinum Hammer")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+500 Damage +120 Strength\n25% Chance to Bash for 0.5s dealing 1000 bonus Damage.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+500 Damage \n+120 Strength\n25% Chance to Bash for 0.5s dealing 1000 bonus Damage.")
     ..setHotkey("C")
 
 //I00G
