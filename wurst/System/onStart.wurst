@@ -62,6 +62,9 @@ function onBuyHero(unit u)
         for i = 0 to 9
             if GetOwningPlayer(soldUnit) == players[i]
                 playerHero[i] = soldUnit
+                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_114, 1, soldUnit.getOwner())
+                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_111, 1, soldUnit.getOwner())
+                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_112, 1, soldUnit.getOwner())
                 gg_cam_CameraHeroPicked.apply(true, players[i], 0.5)
                 heroRespawn(playerHero[i])
                 playerHero[i].setPos(gg_rct_Base.getCenter())

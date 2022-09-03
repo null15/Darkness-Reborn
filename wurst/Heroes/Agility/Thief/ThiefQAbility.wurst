@@ -67,16 +67,27 @@ function bossLoot(int unitId, unit caster)
 
 function callLoot(int unitId, unit caster)
     var itemId = ITEM_0
-    let random = GetRandomInt(0, 18)
-    if(random == 18)
-        if unitId == ELITE_CREEP_3
+    if unitId == ELITE_CREEP_3
+        let random = GetRandomInt(0, 8)
+        if(random == 8)
             itemId = ITEM_691
-        else if unitId == ELITE_CREEP_2
+        else
+            itemId = ITEM_DROP[57+random]
+    else if unitId == ELITE_CREEP_2
+        let random = GetRandomInt(0, 10)
+        if(random == 10)
             itemId = ITEM_689
-        else if unitId == ELITE_CREEP_4
+        else
+            itemId = ITEM_DROP[54+random]
+    else if unitId == ELITE_CREEP_4
+        
+        let random = GetRandomInt(0, 8)
+        if(random == 8)
             itemId = ITEM_690
-    else
-        itemId = eliteItems[random]
+        else if random < 5
+            itemId = ITEM_DROP[60+random]
+        else
+            itemId = ITEM_DROP[61+random]
     if(caster.isAlive())
         caster.addItemById(itemId)
     else

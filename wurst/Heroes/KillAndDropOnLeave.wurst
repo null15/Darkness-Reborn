@@ -9,7 +9,7 @@ init
 
 function onLeave()
     EventListener.add(EVENT_PLAYER_LEAVE) -> 
-        let leavingHero = playerHero[GetConvertedPlayerId(GetTriggerPlayer())]
+        let leavingHero = playerHero[GetConvertedPlayerId(GetTriggerPlayer())-1]
 
         for int x = 0 to 5
             let i = leavingHero.itemInSlot(x)
