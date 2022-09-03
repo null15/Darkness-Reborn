@@ -7,4 +7,4 @@ init
 function iceWand()
     EventListener.onTargetCast('A0Y9') (unit caster, unit target) ->
         let dam = caster.getInt(true) * 5.00
-        magicalDamageCode(dam, caster, target)
+        caster.magicalDamageCode(dam, target)

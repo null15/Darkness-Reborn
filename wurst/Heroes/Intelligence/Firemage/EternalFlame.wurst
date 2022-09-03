@@ -5,4 +5,4 @@ import Global_Variables
 public function eternalFlame(unit src, unit target)
     let fireMage = playerHero[src.getOwner().getId()]
     let amount = (fireMage.getAbilityLevel('A004')*0.1 + fireMage.getAbilityLevel('A901')*0.4 + 0.1) * fireMage.getInt(true) 
-    magicalDamageCode(amount, src, target)
+    src.magicalDamageCode(amount, target)

@@ -28,7 +28,7 @@ function sear()
                 if caster.isEnemyOf(u) and run and u.isAlive()
                     run = false
                     sfx.destr()
-                    magicalDamageCodeElementId(dmg, caster, u, DAMAGE_ELEMENT_FIRE, 'A01P')
+                    caster.magicalDamageCodeElementId(dmg, u, DAMAGE_ELEMENT_FIRE, 'A01P')
                     if u.hasAbility(BUFF_12)
                         new DummyCaster()..owner(caster.getOwner())..origin(caster.getPos())..castTarget(ABILITY_DUMMY_14, 1, OrderIds.thunderbolt, u)..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u)
                     else

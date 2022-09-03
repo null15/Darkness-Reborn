@@ -19,6 +19,6 @@ function naturalOrb()
             sfx.setPos(sfx.getPos().polarOffset(angle, 13))
             forUnitsInRange(sfx.getPos(), 350, true) (unit u) ->
                 if caster.isEnemyOf(u)
-                    magicalDamageCode(output, caster, u)
+                    caster.magicalDamageCode(output, u)
             if(cb.isLast())
                 sfx.destr()

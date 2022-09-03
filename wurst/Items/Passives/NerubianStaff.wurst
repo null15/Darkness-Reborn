@@ -1,4 +1,4 @@
 package NerubianStaff
 import codeDamageTypings
 public function nerubianStaff(unit src, unit targ)
-    magicalDamageCode(src.getInt(true) * 3., src, targ)
+    src.magicalDamageCode(src.getInt(true) * 3., targ)

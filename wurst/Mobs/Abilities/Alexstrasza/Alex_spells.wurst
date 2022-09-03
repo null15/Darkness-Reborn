@@ -27,7 +27,7 @@ function freezeActive()
                 let dmg = caster.getAbilityLevel('A0CS')*24444.00
                 forUnitsInRange(caster.getPos(), 700) (unit u) ->
                     if caster.isEnemyOf(u)
-                        magicalDamageCode(dmg, caster, u)     
+                        caster.magicalDamageCode(dmg, u)     
                               
     EventListener.onCast('A0ZK') (unit caster) ->
         let dmg = caster.getAbilityLevel('A0ZK')*211.00
@@ -37,7 +37,7 @@ function freezeActive()
             doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
                 forUnitsInRange(sfx.getPos(), 700) (unit u) ->
                     if caster.isEnemyOf(u)
-                        magicalDamageCode(dmg, caster, u)
+                        caster.magicalDamageCode(dmg, u)
                         u.pause()
                         if cb.isLast()
                             sfx.destr()

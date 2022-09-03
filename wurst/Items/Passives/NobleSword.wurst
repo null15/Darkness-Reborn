@@ -1,4 +1,4 @@
 package NobleSword
 import codeDamageTypings
 public function nobleSword(unit src, unit targ, int plus)
-    physicalDamageCode(src.getAgi(true) * (2. + plus), src, targ)
+    src.physicalDamageCode(src.getAgi(true) * (2. + plus), targ)

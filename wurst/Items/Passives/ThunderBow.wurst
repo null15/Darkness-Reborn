@@ -10,6 +10,6 @@ public function thunderBow(unit src)
     forUnitsInRange(src.getPos(), 900) (unit u) ->
         if(u.isEnemyOf(src))
             if(counter < 4)
-                magicalDamageCode(1000, src, u)
+                src.magicalDamageCode(1000, u)
                 flashEffect(Abilities.forkedLightningTarget, u.getPos())
                 counter++

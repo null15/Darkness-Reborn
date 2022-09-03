@@ -3950,7 +3950,8 @@ init
     ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 5)|r.")
     ..setTooltipExtended(" |c00FFFC01Effect of item:|r\n\n"
     +"+200 Damage\n"
-    +"+180% Attack speed.\n\n"
+    +"+180% Attack speed."
+    +"10% Armor Pen\n\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Gloves of Speed (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Claws of Attack (|c007EBFF1" + basicShop1 + "|r)")
@@ -5149,7 +5150,7 @@ init
     ..setDescription("")
     ..setName("|c000050FF Crystal Dual Sword|r")
     ..setTooltipBasic("|c000050FF Crystal Dual Sword|r")
-    ..setTooltipExtended("|c000050FF+1500 Damage\n+690 Agility\nSpecial abilities: +4% Chance to deal 60 x Damage|r")
+    ..setTooltipExtended("|c000050FF+1500 Damage\n+690 Agility\nSpecial abilities: +4% Chance to deal 60 x Damage\n5% Armor Pen|r")
     ..setHotkey("V")
 
 //I0CJ
@@ -7602,7 +7603,7 @@ init
     ..setDescription("Increases attack speed.")
     ..setName("Gloves of Flash")
     ..setTooltipBasic("Purchase Gloves of Flash")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n+200 Damage\n+180% Attack speed")
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n+200 Damage\n+180% Attack speed\n10% Armor Pen")
     ..setHotkey("")
 
 //I007
@@ -9831,7 +9832,7 @@ init
     ..setDescription("+1700 Damage. 25% Chance to Crit for 11 times damage.")
     ..setName("|c00FFFC01Destroy Sword II|r")
     ..setTooltipBasic("Purchase Destroy Sword II")
-    ..setTooltipExtended("|c00FFFC01Effect:|r     \n\n+1700 Damage. 25% Chance to Crit for 11 times damage.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r     \n\n+1700 Damage. 25% Chance to Crit for 11 times damage.\n 8% Armor Pen")
     ..setHotkey("E")
 
 //I0K0
@@ -9905,7 +9906,7 @@ init
     ..setDescription("+7000 Damage. 70% Chance to Crit for 5 times Damage.")
     ..setName("|c00FFFC01Gold Axe II|r")
     ..setTooltipBasic("Purchase Gold Axe II")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+7000 Damage\n70% Chance to Crit for 5 times Damage.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+7000 Damage\n70% Chance to Crit for 5 times Damage.\n 10% Armor Pen")
     ..setHotkey("G")
 
 //I0K4
@@ -12495,7 +12496,7 @@ init
     ..setDescription("+240 Damage")
     ..setName("Shamanic Totem")
     ..setTooltipBasic("Purchase S|cffffcc00h|ramanic Totem")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+240 Damage")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n+240 Damage\n1% Armor Pen")
     ..setHotkey("H")
 
 //I03K
@@ -12680,7 +12681,7 @@ init
     ..setDescription("+355 Damage")
     ..setName("Druid of the Claw Master ")
     ..setTooltipBasic("Purchase Amulet of |cffffcc00R|recall")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+ 355 Damage")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+ 355 Damage\n2% Armor Pen")
     ..setHotkey("R")
 
 //I06P
@@ -15375,7 +15376,7 @@ init
     ..setDescription("")
     ..setName("|c007EBFF1Slash Sword 1|r")
     ..setTooltipBasic("|c007EBFF1Slash Sword 1|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 155.\nStats + 20.\nAttack speed + 45%.\n+ 15% chance to cause x 2.5 times Damage.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 155.\nStats + 20.\nAttack speed + 45%.\n+ 15% chance to cause x 2.5 times Damage.\n2% Armor Pen|r")
     ..setHotkey("")
 
 //I073
@@ -15413,7 +15414,7 @@ init
     ..setDescription("")
     ..setName("|c007EBFF1Slash Sword 2|r")
     ..setTooltipBasic("|c007EBFF1Slash Sword 2|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 255.\nStats + 40.\nAttack speed + 75%.\n+ 15% chance to cause x 4.5 times Damage.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 255.\nStats + 40.\nAttack speed + 75%.\n+ 15% chance to cause x 4.5 times Damage.\n4% Armor Pen|r")
     ..setHotkey("")
 
 //I074
@@ -15451,7 +15452,7 @@ init
     ..setDescription("")
     ..setName("|c007EBFF1Slash Sword 3|r")
     ..setTooltipBasic("|c007EBFF1Slash Sword 3|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 455.\nStats + 60.\nAttack speed + 85%.\n+ 15% chance to cause x 7.5 times Damage.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 455.\nStats + 60.\nAttack speed + 85%.\n+ 15% chance to cause x 7.5 times Damage.\n6% Armor Pen|r")
     ..setHotkey("")
 
 //I076
@@ -15527,7 +15528,7 @@ init
     ..setDescription("")
     ..setName("|c007EBFF1Slash Sword 4|r")
     ..setTooltipBasic("|c007EBFF1Slash Sword 4|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 555.\nStats + 80.\nAttack speed + 95%.\n+ 15% chance to cause x 9.5 times Damage.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 555.\nStats + 80.\nAttack speed + 95%.\n+ 15% chance to cause x 9.5 times Damage.\n 8% Armor Pen|r")
     ..setHotkey("")
 
 //I06X
@@ -15565,7 +15566,7 @@ init
     ..setDescription("")
     ..setName("|c007EBFF1Slash Sword 5|r")
     ..setTooltipBasic("|c007EBFF1Slash Sword 5|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 755.\nStats + 100.\nAttack speed + 115%.\n+ 15% chance to cause x 12.5 times Damage.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 755.\nStats + 100.\nAttack speed + 115%.\n+ 15% chance to cause x 12.5 times Damage.\n10% Armor Pen|r")
     ..setHotkey("")
 
 //I071
@@ -15868,7 +15869,7 @@ init
     ..setDescription("")
     ..setName("|c00FF0303Ares|r")
     ..setTooltipBasic("|c00FF0303Ares|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c00FF0303+2500 Damage\n+333 All Stats\n+220% Attack speed\n+20% chance to deal 20 times Damage.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c00FF0303+2500 Damage\n+333 All Stats\n+220% Attack speed\n+20% chance to deal 20 times Damage.\n 15% Armor Pen|r")
     ..setHotkey("")
 
 //I0EM
@@ -17017,7 +17018,7 @@ init
     ..setDescription("|c00FFFC01Effect:|r \n|c0020C000 +7700 Damage.|r")
     ..setName("|c007EBFF1Battle Axe *&&&&|r")
     ..setTooltipBasic("|c007EBFF1Battle Axe *&&&&|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000S+7700 Damage.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000S+7700 Damage.\n4% Armor Pen|r")
     ..setHotkey("V")
 
 //I0FM
@@ -17055,7 +17056,7 @@ init
     ..setDescription("|c00FFFC01Effect:\n+9700 Damage.|r")
     ..setName("|cffffcc00Battle Axe +2|r")
     ..setTooltipBasic("|cffffcc00Battle Axe +2|r")
-    ..setTooltipExtended("|c00FFFC01Effect:\n+9700 Damage.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+9700 Damage.\n8% Armor Pen|r")
     ..setHotkey("V")
 
 //I0FL
@@ -17093,7 +17094,7 @@ init
     ..setDescription("|c00FFFC01Effect:\n+12500 Damage.|r")
     ..setName("|c00FFFC01Battle Axe +3|r")
     ..setTooltipBasic("|c00FFFC01Battle Axe +3|r")
-    ..setTooltipExtended("|c00FFFC01Effect:\n+12500 Damage.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+12500 Damage.\n12% Armor Pen|r")
     ..setHotkey("V")
 
 //I0FN
@@ -17131,7 +17132,7 @@ init
     ..setDescription("|c00FFFC01Effect:\n+18000 Damage.|r")
     ..setName("|c00FFFC01Battle Axe +4|r")
     ..setTooltipBasic("|c00FFFC01Battle Axe +4|r")
-    ..setTooltipExtended("|c00FFFC01Effect:\n+18000 Damage.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+18000 Damage.\n16% Armor Pen|r")
     ..setHotkey("V")
 
 //I0FO
@@ -17169,7 +17170,7 @@ init
     ..setDescription("|c00FF0303Effect:\n+29000 Damage.|r")
     ..setName("|c00FF0303Battle Axe +5|r")
     ..setTooltipBasic("|c00FF0303Battle Axe *****|r")
-    ..setTooltipExtended("|c00FF0303Effect:\n+29000 Damage.|r")
+    ..setTooltipExtended("|c00FF0303Effect:\n+29000 Damage.\n20% Armor Pen|r")
     ..setHotkey("V")
 
 //I0BY
@@ -19028,7 +19029,7 @@ init
     +"Crystal Sword")
     ..setName("Treasure of Tinker (Recipe 3)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 3)")
-    ..setTooltipExtended("|c00FFFC01Destroy Sword II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n+1700 Damage. 25% Chance to Crit for 11 times damage.\n.|r\n\n|c00FEBA0EMaterials required to craft this item: :|r\nDestroy Sword\nDream Sword\nBlade of Hell")
+    ..setTooltipExtended("|c00FFFC01Destroy Sword II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n+1700 Damage. 25% Chance to Crit for 11 times damage.\n8% Armor Pen|r\n\n|c00FEBA0EMaterials required to craft this item: :|r\nDestroy Sword\nDream Sword\nBlade of Hell")
     ..setHotkey("")
 
 //I0JZ
@@ -19112,7 +19113,7 @@ init
     ..setDescription("|c00FFFC01Gold Axe II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n\n+7000 Damage. 70% Chance to Crit for 5 times Damage.|r\n|c00FEBA0EMaterials required to craft this item: :|r\nGold Axe\nCriticial Axe (Jack Smith)")
     ..setName("Treasure of Tinker (Recipe 5)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 5)")
-    ..setTooltipExtended("|c00FFFC01Gold Axe II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n\n+7000 Damage. 70% Chance to Crit for 5 times Damage.|r\n|c00FEBA0EMaterials required to craft this item: :|r\nGold Axe\nCriticial Axe (Jack Smith)")
+    ..setTooltipExtended("|c00FFFC01Gold Axe II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n\n+7000 Damage. 70% Chance to Crit for 5 times Damage.|r\n10% Armor Pen\n|c00FEBA0EMaterials required to craft this item: :|r\nGold Axe\nCriticial Axe (Jack Smith)")
     ..setHotkey("")
 
 //I0K3
@@ -25815,7 +25816,7 @@ init
     ..setDescription("")
     ..setName("|c00FF0303 Amulet of Lucifer|r")
     ..setTooltipBasic("|c00FF0303 Amulet of Lucifer|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c00FF0303+999 All Stats\n+9999 Damage|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c00FF0303+999 All Stats\n+9999 Damage\n5% Armor Pen|r")
     ..setHotkey("V")
 
 //I0IQ
@@ -26724,7 +26725,7 @@ init
     ..setDescription("")
     ..setName("|c00FF0303Frostmourne +5|r")
     ..setTooltipBasic("|c00FF0303Frostmourne +5|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n|c00FF0303 + 7700 Damage.\n+ 600 Strength.|r\n|c00FFFC01Special Effect:|r\n|c00FF0303+ 10% chance to cause Damage 10 times.|r\n|c000050FF+ 15% chance to cause 1 amount of Damage by 1% HP the enemy.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n|c00FF0303 + 7700 Damage.\n+ 600 Strength.|r\n|c00FFFC01Special Effect:|r\n|c00FF0303+ 10% chance to cause Damage 10 times.|r\n|c000050FF+ 15% chance to cause 1 amount of Damage by 1% HP the enemy.\n10% Armor Pen|r")
     ..setHotkey("V")
 
     new ItemDefinition(ITEM_700, ItemIds.vampiricPotion)

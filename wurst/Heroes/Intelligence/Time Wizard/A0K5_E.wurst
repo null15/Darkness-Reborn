@@ -3,12 +3,15 @@ import ClosureEvents
 import OrderIds
 import MyAbilityIds
 import DummyCaster
+import ClosureForGroups
 init
     timeStop()
 function timeStop()
     EventListener.onCast('A0K5') (unit caster) ->
-        new DummyCaster()
-        ..origin(caster.getPos())
-        ..owner(caster.getOwner())
-        ..castImmediate(ABILITY_DUMMY_18, 1, OrderIds.stomp)
-        ..delay(0)
+        forUnitsAll() (unit u) ->
+            if(u.isEnemyOf(caster))
+                new DummyCaster()
+                ..origin(u.getPos())
+                ..owner(caster.getOwner())
+                ..castTarget(ABILITY_DUMMY_18, 1, OrderIds.firebolt, u)
+                ..delay(0)

@@ -24,7 +24,7 @@ function tornado()
                 sfx.destr()
                 forUnitsInRange(sfx.getPos(), 500, true) (unit u) ->
                     if caster.isEnemyOf(u)
-                        magicalDamageCode(dmg, caster, u)
+                        caster.magicalDamageCode(dmg, u)
                 destroy cb
             if cb.isLast()
                 sfx.destr()

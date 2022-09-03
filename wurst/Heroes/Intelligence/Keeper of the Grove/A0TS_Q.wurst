@@ -26,4 +26,4 @@ function entanglingRoots()
                 ..delay(0)
                 flashEffect(Abilities.roots1, u, "overhead")
                 doPeriodicallyTimed(1.00, 5.00) (CallbackCounted cb) ->
-                    magicalDamageCode(output, caster, u)
+                    caster.magicalDamageCode(output, u)

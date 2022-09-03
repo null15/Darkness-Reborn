@@ -219,6 +219,9 @@ init
             case SPELL
                 let src = DamageEvent.getSource()
                 let targ = DamageEvent.getTarget()
+
+                DamageEvent.setAmount(DamageEvent.getAmount() * (1-magicResistMap.get(targ.getTypeId())))
+
                 //Firemage
                 if src.getAbilityLevel('A11C') > 0 or src.getAbilityLevel('A0N0') > 0
                     eternalFlame(src, targ)

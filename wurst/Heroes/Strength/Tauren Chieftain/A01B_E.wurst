@@ -23,7 +23,7 @@ public function pulverize(unit caster, unit target)
                     sfx.setPos(targetPos.polarOffset(angle, distance))
     if lvl < 9
         if GetRandomInt(1, 100) < lvl*3+17
-            physicalDamageCode(dmg, caster, target)
+            caster.physicalDamageCode(dmg, target)
     else
         if GetRandomInt(1, 100) < 50
-            physicalDamageCode(dmg, caster, target)
+            caster.physicalDamageCode(dmg, target)

@@ -1,4 +1,4 @@
 package BerserkerStaff
 import codeDamageTypings
 public function berserkerStaff(unit src, unit targ)
-    magicalDamageCode(src.getInt(true) * 7., src, targ)
+    src.magicalDamageCode(src.getInt(true) * 7., targ)

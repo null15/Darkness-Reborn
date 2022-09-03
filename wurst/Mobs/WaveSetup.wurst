@@ -6,6 +6,7 @@ import ClosureTimers
 import MyUnitIds
 import Orders
 import ItemDrops
+import codeDamageTypings
 
 timer waveTimer = CreateTimer()
 timerdialog waveTimerDialog = CreateTimerDialog(waveTimer)
@@ -31,9 +32,68 @@ unit array miniboss = []
 unit bigboss = null
 
 init
+	LEFT_CREEP_1.enumerateMagicResistanceId(80)
+	LEFT_CREEP_7.enumerateMagicResistanceId(80)
+	LEFT_CREEP_13.enumerateMagicResistanceId(80)
+
+	ELITE_CREEP_8.enumerateMagicResistanceId(40)
+
+	WAVE_MOB[1]..enumeratePhysicalPenetrationId(0).enumeratePhysicalPenetrationId(0)
+	WAVE_MOB[2]..enumeratePhysicalPenetrationId(10).enumeratePhysicalPenetrationId(50)
+	WAVE_MOB[3]..enumeratePhysicalPenetrationId(30).enumeratePhysicalPenetrationId(0)
+	WAVE_MOB[4]..enumeratePhysicalPenetrationId(0).enumeratePhysicalPenetrationId(20)
+
+	WAVE_MOB[5]..enumeratePhysicalPenetrationId(15).enumeratePhysicalPenetrationId(40)
+	WAVE_MOB[6]..enumeratePhysicalPenetrationId(0).enumeratePhysicalPenetrationId(80)
+	WAVE_MOB[7]..enumeratePhysicalPenetrationId(25).enumeratePhysicalPenetrationId(40)
+	WAVE_MOB[8]..enumeratePhysicalPenetrationId(10).enumeratePhysicalPenetrationId(0)
+
+	WAVE_MOB[9]..enumeratePhysicalPenetrationId(10).enumeratePhysicalPenetrationId(0)
+	WAVE_MOB[10]..enumeratePhysicalPenetrationId(0).enumeratePhysicalPenetrationId(0)
+	WAVE_MOB[11]..enumeratePhysicalPenetrationId(40).enumeratePhysicalPenetrationId(10)
+	WAVE_MOB[12]..enumeratePhysicalPenetrationId(0).enumeratePhysicalPenetrationId(0)
+
+	WAVE_MOB[13]..enumeratePhysicalPenetrationId(1).enumeratePhysicalPenetrationId(40)
+	WAVE_MOB[14]..enumeratePhysicalPenetrationId(10).enumeratePhysicalPenetrationId(20)
+	WAVE_MOB[15]..enumeratePhysicalPenetrationId(15).enumeratePhysicalPenetrationId(15)
+	WAVE_MOB[16]..enumeratePhysicalPenetrationId(9).enumeratePhysicalPenetrationId(0)
+
+	WAVE_MOB[17]..enumeratePhysicalPenetrationId(40).enumeratePhysicalPenetrationId(0)
+	WAVE_MOB[18]..enumeratePhysicalPenetrationId(0).enumeratePhysicalPenetrationId(20)
+	WAVE_MOB[19]..enumeratePhysicalPenetrationId(0).enumeratePhysicalPenetrationId(60)
+	WAVE_MOB[20]..enumeratePhysicalPenetrationId(0).enumeratePhysicalPenetrationId(0)
+
+	for int x = 1 to 105
+		WAVE_BOSS[x]..enumeratePhysicalPenetrationId(15).enumerateMagicResistanceId(15)
+
+	WAVE_BOSS_39.enumerateMagicResistanceId(60)
+	WAVE_BOSS_93.enumerateMagicResistanceId(80)
+	WAVE_BOSS_56.enumerateMagicResistanceId(80)
+	WAVE_BOSS_66.enumerateMagicResistanceId(80)
+	WAVE_BOSS_68.enumerateMagicResistanceId(80)
+	WAVE_BOSS_76.enumerateMagicResistanceId(80)
+
+	WAVE_HERO_29.enumerateMagicResistanceId(80)
+
+function unitStats(unit u, int whichSide)
+	let uId = u.getTypeId()
+	switch whichSide
+		case 1
+			printTimed("Left Side Boss" + "\n|c00ffff00Unit: " + u.getName() + "|r\n|c00aa3101Physical Pen: " + (physicalPenetrationMap.get(uId) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (magicResistMap.get(uId) * 100).toString() + "%|r\n", 5)
+		case 2
+			printTimed("Middle Boss " + "\n|c00ffff00Unit: " + u.getName() + "|r\n|c00aa3101Physical Pen: " + (physicalPenetrationMap.get(uId) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (magicResistMap.get(uId) * 100).toString() + "%|r\n", 5)
+		case 3
+			printTimed("Right Side Boss " + "\n|c00ffff00Unit: " + u.getName() + "|r\n|c00aa3101Physical Pen: " + (physicalPenetrationMap.get(uId) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (magicResistMap.get(uId) * 100).toString() + "%|r", 5)
+		case 4
+			printTimed("Big Boss " + "\n|c00ffff00Unit: " + u.getName() + "|r\n|c00aa3101Physical Pen: " + (physicalPenetrationMap.get(uId) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (magicResistMap.get(uId) * 100).toString() + "%|r", 5)
+		default
+			printTimed("Wave: " + wave_count.toString() + "\n|c00ffff00Unit: " + u.getName() + "|r\n|c00aa3101Physical Pen: " + (physicalPenetrationMap.get(uId) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (magicResistMap.get(uId) * 100).toString() + "%|r", 5)
 
 public function spawnWavesNow()
-
+	if(count == 0)
+		let temp = createUnit(WAVE_MOB[wave_count])
+		unitStats(temp, 0)
+		temp.remove()
 	count = count + 1
 
 	doPeriodicallyCounted(0.2, 12) (CallbackCounted cb) ->
@@ -55,12 +115,15 @@ public function spawnWavesNow()
 				waveTimerDialog.destr()
 			miniboss[1] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_LeftSpawn.getCenter(), facing.asAngleDegrees())
 			miniboss[1].issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
+			unitStats(miniboss[1], 1)
 			minibossDeath(miniboss[1])
 			miniboss[2] = createUnit(Player(12), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_MiddleSpawn.getCenter(), facing.asAngleDegrees())
 			miniboss[2].issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
+			unitStats(miniboss[2], 2)
 			minibossDeath(miniboss[2])
 			miniboss[3] = createUnit(Player(13), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_RightSpawn.getCenter(), facing.asAngleDegrees())
 			miniboss[3].issuePointOrderById(Orders.attack, gg_rct_RightSpawnMove1.randomPoint())
+			unitStats(miniboss[3], 3)
 			minibossDeath(miniboss[3])
 			if (wave_count-1) % 5 == 0
 				doAfter(2.5) -> 

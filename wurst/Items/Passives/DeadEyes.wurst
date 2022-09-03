@@ -1,4 +1,4 @@
 package DeadEyes
 import codeDamageTypings
 public function deadEyes(unit src, unit targ)
-    magicalDamageCode(src.getInt(true) * 5., src, targ)
+    src.magicalDamageCode(src.getInt(true) * 5., targ)

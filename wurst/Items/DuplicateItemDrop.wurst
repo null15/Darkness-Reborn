@@ -1,11 +1,16 @@
 package DuplicateItemDrop
 import MoonUtils
+import ItemPickups
 import ClosureEvents
 init
     duplicateItemDrop()
+
 function duplicateItemDrop()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) -> 
-        GetTriggerUnit().forEachItemInInventory() (item t) ->
-            if t.getTypeId() == GetManipulatedItem().getTypeId() and t != GetManipulatedItem()
-                GetTriggerUnit().removeItem(GetManipulatedItem())
-                simError(GetTriggerUnit().getOwner(), "You can not hold two items of the same type")
+        let u = GetTriggerUnit()
+        let manip = GetManipulatedItem()
+        u.forEachItemInInventory() (item t) ->
+            if t.getTypeId() == manip.getTypeId() and t != manip
+                u.removeItem(manip)
+                simError(u.getOwner(), "You can not hold two items of the same type")
+                u.subtractPhysPenItem(manip)

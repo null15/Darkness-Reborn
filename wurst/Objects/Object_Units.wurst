@@ -4826,7 +4826,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(LEFT_CREEP_1, UnitIds.mudgolem)// Mud Golem(Creep) (n00E)
-    ..setNormalAbilities(commaList('ACmi', 'ACsw'))
+    ..setNormalAbilities(commaList('ACsw'))
     
     ..setScalingValue(0.60)
     ..setSelectionScale(1.75)
@@ -5300,7 +5300,7 @@ init
     ..setLevel(10)
 
     new UnitDefinition(LEFT_CREEP_7, UnitIds.rockgolem)// Rock Golem (Creep) (n00M)
-    ..setNormalAbilities(commaList('ACmi'))
+    ..setNormalAbilities(commaList(""))
     
     ..setScalingValue(1.05)
     ..setSelectionScale(1.85)
@@ -5774,7 +5774,7 @@ init
     ..setLevel(18)
 
     new UnitDefinition(LEFT_CREEP_13, UnitIds.granitegolem)// Granite Golem (Creep) (n00U)
-    ..setNormalAbilities(commaList('ACmi', 'ACtb', 'ACtc'))
+    ..setNormalAbilities(commaList('ACtb', 'ACtc'))
     
     ..setScalingValue(1.50)
     ..setSelectionScale(3.00)
@@ -7277,7 +7277,7 @@ init
     ..setLevel(70)
 
     new UnitDefinition(ELITE_CREEP_8, UnitIds.chaoswarlord)// Frosty the Snowman (o005)
-    ..setNormalAbilities(commaList('Amim', CREEP_ABILITY_5, CREEP_ABILITY_6, CREEP_ABILITY_7, 'Aasl'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_5, CREEP_ABILITY_6, CREEP_ABILITY_7, 'Aasl'))
     ..setModelFile("Units\\Frosty\\Frosty.mdx")
     ..setScalingValue(1.80)
     ..setSelectionScale(3.00)
@@ -9153,7 +9153,7 @@ init
 @compiletime function overlorddryad()
 
     new UnitDefinition(OVERDRYA_CREEP_0, UnitIds.dryad)// Dryad (e006)
-    ..setNormalAbilities(commaList('Aadm', 'Amim', 'Aspo', 'Ault'))
+    ..setNormalAbilities(commaList('Aadm', 'Aspo', 'Ault'))
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
     ..setAttack1CooldownTime(0.10)
@@ -9467,7 +9467,7 @@ init
     ..setLevel(1)
 
     new UnitDefinition(WAVE_MOB_2, UnitIds.ghoul)// Ghoul (u00B)
-    ..setNormalAbilities(commaList('Acan', 'Ahrl', 'Aiun'))
+    ..setNormalAbilities(commaList(""))
 
     ..setScalingValue(1.00)
     ..setSelectionScale(1.10)
@@ -9546,7 +9546,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_MOB_3, UnitIds.cryptfiend)// Crypt Fiend (ucry)
-    ..setNormalAbilities(commaList('Aweb', 'Aspa', 'Abur', 'Aiun'))
+    ..setNormalAbilities(commaList('Aweb'))
 
     ..setScalingValue(0.90)
     ..setSelectionScale(1.85)
@@ -9625,7 +9625,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_MOB_4, UnitIds.footman)// Footman (hfoo)
-    ..setNormalAbilities(commaList('Adef', 'Aihn'))
+    ..setNormalAbilities(commaList(""))
 
     ..setScalingValue(1.00)
     ..setSelectionScale(1.00)
@@ -9704,7 +9704,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_MOB_5, UnitIds.bloodelflieutenant)// Blood Elf Lieutenant (nbel)
-    ..setNormalAbilities(commaList('Asps', 'Amim', 'Aiun'))
+    ..setNormalAbilities(commaList(""))
 
     ..setScalingValue(1.00)
     ..setSelectionScale(1.20)
@@ -9783,7 +9783,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_MOB_6, UnitIds.knight)// Knight (hkni)
-    ..setNormalAbilities(commaList('Aihn', 'Ahsb'))
+    ..setNormalAbilities(commaList('Ahsb'))
 
     ..setScalingValue(1.00)
     ..setSelectionScale(1.40)
@@ -12787,7 +12787,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_24, UnitIds.spellbreaker)// Spell Breaker (hspt)
-    ..setNormalAbilities(commaList('Amim', 'A06K'))
+    ..setNormalAbilities(commaList('A06K'))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.20)
@@ -13261,7 +13261,7 @@ init
     ..setLevel(41)
 
     new UnitDefinition(WAVE_BOSS_30, UnitIds.bloodelflieutenant)// Blood Elf Lieutenant (n02E)
-    ..setNormalAbilities(commaList('Asps', 'Amim', 'Aiun'))
+    ..setNormalAbilities(commaList('Asps', 'Aiun'))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(1.50)
@@ -13972,7 +13972,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_39, UnitIds.battlegolem)// Battle Golem (narg)
-    ..setNormalAbilities(commaList('Amim', 'A07U'))
+    ..setNormalAbilities(commaList('A07U'))
 
     ..setScalingValue(1.30)
     ..setSelectionScale(1.50)
@@ -15316,7 +15316,7 @@ init
     ..setLevel(45)
 
     new UnitDefinition(WAVE_BOSS_56, UnitIds.infernal)// Infernal (n03L)
-    ..setNormalAbilities(commaList(CREEP_ABILITY_1, 'A0A5', 'ACmi', 'A081', 'ACrk'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_1, 'A0A5', 'A081', 'ACrk'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(3.50)
@@ -16106,7 +16106,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_66, UnitIds.infernalcontraption)// Infernal Contraption (ninc)
-    ..setNormalAbilities(commaList('Amim'))
+    ..setNormalAbilities(commaList(""))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(3.00)
@@ -16264,7 +16264,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_68, UnitIds.infernalmachine)// Infernal Machine (ninm)
-    ..setNormalAbilities(commaList('Amim', 'A080'))
+    ..setNormalAbilities(commaList('A080'))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(3.50)
@@ -16896,7 +16896,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_76, UnitIds.infernal)// Infernal (ninf)
-    ..setNormalAbilities(commaList('ACmi', 'A081', 'ACrk'))
+    ..setNormalAbilities(commaList('A081', 'ACrk'))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(2.50)
@@ -16975,7 +16975,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_77, UnitIds.chaoswolfrider)// Fel Orc Raider (n02H)
-    ..setNormalAbilities(commaList('A106', 'Amim'))
+    ..setNormalAbilities(commaList('A106'))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(1.70)
@@ -17449,7 +17449,7 @@ init
     ..setLevel(30)
 
     new UnitDefinition(WAVE_BOSS_83, UnitIds.cryptlord)// Cryptlord (h037)
-    ..setNormalAbilities(commaList('A0AF', 'A0CM', 'Amim', 'A0MM'))
+    ..setNormalAbilities(commaList('A0AF', 'A0CM', 'A0MM'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(3.50)
@@ -18239,7 +18239,7 @@ init
     ..setLevel(7)
 
     new UnitDefinition(WAVE_BOSS_93, UnitIds.granitegolem)// Granite Golem (nggr)
-    ..setNormalAbilities(commaList('ACmi', 'ACtb', 'A07U'))
+    ..setNormalAbilities(commaList('ACtb', 'A07U'))
 
     ..setScalingValue(1.80)
     ..setSelectionScale(3.00)
@@ -21323,7 +21323,7 @@ init
     ..setLevel(5)
 
     new HeroDefinition(WAVE_HERO_26, UnitIds.paladin)// Death Eyes (H03Y)
-    ..setNormalAbilities(commaList('A0DU', 'A0M2', 'A0DT', 'AInv', 'A0DF', 'ACm3', 'Arsk'))
+    ..setNormalAbilities(commaList('A0DU', 'A0M2', 'A0DT', 'AInv', 'A0DF', 'Arsk'))
 
     ..setPrimaryAttribute("Strength")
     ..setStartingStrength(100)
@@ -21490,8 +21490,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_HERO_28, UnitIds.phoenix)// RA (h03L)
-    // ..setNormalAbilities(commaList('A0DK', 'A0DM', 'ACrk', 'ACmi', 'A0XT', 'A0XV'))
-    ..setNormalAbilities("")
+    ..setNormalAbilities(commaList('A0DK', 'A0DM', 'ACrk', 'A0XT', 'A0XV'))
     ..setScalingValue(2.00)
     ..setSelectionScale(3.00)
     ..setAttack1CooldownTime(1.00)
@@ -21569,7 +21568,7 @@ init
     ..setLevel(0)
 
     new UnitDefinition(WAVE_HERO_29, UnitIds.infernal)// Shadow Infernal (n04P)
-    ..setNormalAbilities(commaList('ACmi', 'ACrk', 'A0XW', 'A0YQ', CREEP_ABILITY_2))
+    ..setNormalAbilities(commaList('ACrk', 'A0XW', 'A0YQ', CREEP_ABILITY_2))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(3.50)
@@ -21648,7 +21647,7 @@ init
     ..setLevel(8)
 
     new HeroDefinition(FINAL_BOSS, UnitIds.admiralproudmoore)// Captain - Lord (H007)
-    ..setNormalAbilities(commaList('AInv', 'A0DF', 'ACm3', 'Arsk'))
+    ..setNormalAbilities(commaList('AInv', 'A0DF', 'Arsk'))
     ..setScalingValue(2.00)
     ..setSelectionScale(1.10)
     ..setAttack1CooldownTime(0.80)

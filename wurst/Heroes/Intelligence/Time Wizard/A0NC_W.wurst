@@ -10,7 +10,7 @@ init
 function punishTimeAct(unit u)
 	EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) ->
 		punishMap.forEach() (integer key, unit value) ->
-			pureDamageCode(count[(value).getHandleId()]*7000., u, value)
+			u.pureDamageCode(count[(value).getHandleId()]*7000., value)
 function punishTimeInit()
 	EventListener.onTargetCast('A0NC') (unit caster, unit target) ->
 		let targetHandle = target.getHandleId()

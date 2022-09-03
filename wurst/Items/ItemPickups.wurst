@@ -1,9 +1,52 @@
 package ItemPickups
 import ClosureEvents
 import MyItemIds
+import codeDamageTypings
+import HashMap
+
+let physPenItemHash = new HashMap<int, real>
+
+
+
 init
-    dragonWings()
-function dragonWings()
+    itemPickup()
+    initializePhysPenItems()
+
+function unit.addPhysPenItem(item i)
+    let physPen = physPenItemHash.get(i.getTypeId())
+    if(physPen > 0)
+        this.enumeratePhysicalPenetration(physicalPenetrationMap.get(i.getTypeId()) + physPen)
+
+public function unit.subtractPhysPenItem(item i)
+    let physPen = physPenItemHash.get(i.getTypeId())
+    if(physPen > 0)
+        this.enumeratePhysicalPenetration(physicalPenetrationMap.get(i.getTypeId()) - physPen)
+
+function int.putInItemHash(real input)
+    physPenItemHash.put(this, input/100)    
+
+function initializePhysPenItems()
+    ITEM_675.putInItemHash(5)
+    ITEM_699.putInItemHash(10)
+    ITEM_123.putInItemHash(5)
+    ITEM_250.putInItemHash(10)
+    ITEM_188.putInItemHash(10)
+    ITEM_248.putInItemHash(8)
+    ITEM_325.putInItemHash(2)
+    ITEM_340.putInItemHash(1)
+    ITEM_402.putInItemHash(10)
+    ITEM_401.putInItemHash(8)
+    ITEM_399.putInItemHash(6)
+    ITEM_398.putInItemHash(4)
+    ITEM_397.putInItemHash(2)
+    ITEM_410.putInItemHash(15)
+    ITEM_441.putInItemHash(4)
+    ITEM_442.putInItemHash(8)
+    ITEM_443.putInItemHash(12)
+    ITEM_444.putInItemHash(16)
+    ITEM_445.putInItemHash(20)
+
+function itemPickup()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
         let u = GetTriggerUnit()  
         if u.hasItemById(ITEM_245) and BlzGetUnitWeaponIntegerField(u, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 4) != 4
@@ -12,5 +55,7 @@ function dragonWings()
             BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 5)
         else if u.hasItemById(ITEM_253) and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) == 5 and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 6
             BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 6)
-
+        u.addPhysPenItem(GetManipulatedItem())
         GetManipulatedItem().setUserData(1)
+    EventListener.add(EVENT_PLAYER_UNIT_DROP_ITEM) -> 
+        GetTriggerUnit().subtractPhysPenItem(GetManipulatedItem())

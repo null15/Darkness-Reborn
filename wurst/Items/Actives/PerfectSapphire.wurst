@@ -8,4 +8,4 @@ init
 function perfectSapphire()
     EventListener.onTargetCast('A0LE') (unit caster, unit target) ->
         let dam = caster.getInt(true) * 42. + 3000
-        magicalDamageCode(dam, caster, target)
+        caster.magicalDamageCode(dam, target)

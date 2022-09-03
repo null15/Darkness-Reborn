@@ -5,6 +5,7 @@ import Abilities
 import ClosureEvents
 import codeDamageTypings
 import ClosureForGroups
+import TerrainUtils
 bool run = true
 init
 
@@ -24,12 +25,12 @@ function goldenArrow()
         sfx.setScale(3)
         sfx.setYaw(angle.radians())
         let amount = caster.getAgi(true) * lvl * 0.15
-        doPeriodicallyTimed(0.03, 0.9) cb -> 
+        doPeriodicallyTimed(0.03, 1.2) cb -> 
             if cb.isLast()
                 sfx.destr()
                 run = true
             else
-                sfx.setPos(sfx.getPos().polarOffset(angle,45))
+                sfx.setPos(sfx.getPos().polarOffset(angle,30))
                 pos = sfx.getPos()
                 distance = casterPos.distanceTo(sfx.getPos())
                 if distance > 1000 and run == true
@@ -38,5 +39,6 @@ function goldenArrow()
 
                 forUnitsInRange(pos, 300, true) (unit u) ->
                     if u.isEnemyOf(caster)
-                        magicalDamageCode(amount, caster, u)
-                        u.setPos(sfx.getPos())
+                        caster.magicalDamageCode(amount, u)
+                        if sfx.getPos().isTerrainWalkable()
+                            u.setPos(sfx.getPos())

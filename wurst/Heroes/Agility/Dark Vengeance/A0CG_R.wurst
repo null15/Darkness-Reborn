@@ -4,4 +4,4 @@ init
 
 public function gravitone(unit caster, unit target)
     let missingHp = caster.getMissingHP()
-    magicalDamageCode(missingHp + 175 * caster.getAbilityLevel('A0CG'), caster, target)
+    caster.magicalDamageCode(missingHp + 175 * caster.getAbilityLevel('A0CG'), target)

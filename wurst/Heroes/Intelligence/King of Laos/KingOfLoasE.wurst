@@ -14,6 +14,6 @@ function thunderOfAkunda()
         if src.getTypeId() == PLAY_HERO_33 and GetRandomInt(1, 100) <= src.getAbilityLevel(ABILITY_40)*3
             let dmg = (src.getAbilityLevel(ABILITY_40)*3.00)*src.getInt(true)
             flashEffect(Abilities.chimaeraLightningMissile, target.getPos())
-            magicalDamageCode(dmg, src, target)
+            src.magicalDamageCode(dmg, target)
             if(target.isAlive() == false)
                 src.issueImmediateOrderById(OrderIds.stop)

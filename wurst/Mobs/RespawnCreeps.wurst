@@ -38,29 +38,30 @@ function eliteSideCreeps(unit u)
         dropMyItemsEliteCreeps(u1)
         for i = 1 to 10
             if u1 == eliteCreep[i]
+                let uId = u1.getTypeId()
                 let pos = u1.getPos()
                 if i == 6 or i == 7
                     doAfter(1) -> 
-                        eliteCreep[i] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
+                        eliteCreep[i] = createUnit(hostile, uId, pos, u1.getFacingAngle())
                         eliteSideCreeps(eliteCreep[i])
                 if i <= 5 
                     doAfter(5) -> 
-                        eliteCreep[i] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
+                        eliteCreep[i] = createUnit(hostile, uId, pos, u1.getFacingAngle())
                         eliteSideCreeps(eliteCreep[i])
                 if i == 8
                     doAfter(10) ->
-                        eliteCreep[8] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
-                        eliteSideCreeps(eliteCreep[8])
+                        eliteCreep[8] = createUnit(hostile, uId, pos, u1.getFacingAngle())
+                        eliteSideCreeps(eliteCreep[i])
                 if i == 9
                     if(frostyCounter < 2)
                         frostyCounter++
                         doAfter(30) -> 
-                            eliteCreep[9] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
-                            eliteSideCreeps(eliteCreep[9])
+                            eliteCreep[9] = createUnit(hostile, uId, pos, u1.getFacingAngle())
+                            eliteSideCreeps(eliteCreep[i])
                 if i == 10
                     doAfter(10) -> 
-                        eliteCreep[10] = createUnit(hostile, u1.getTypeId(), pos, u1.getFacingAngle())
-                        eliteSideCreeps(eliteCreep[10])
+                        eliteCreep[10] = createUnit(hostile, uId, pos, u1.getFacingAngle())
+                        eliteSideCreeps(eliteCreep[i])
 
 public function eliteSideCreepsSetup()
     for i = 1 to 5

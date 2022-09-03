@@ -24,6 +24,6 @@ function shockExplosion()
                         flashEffect("NewMassiveEX.mdl", target, 3)
                         forUnitsInRange(target, 500, true) (unit u) ->
                             if caster.isEnemyOf(u)
-                                physicalDamageCode(dmg, caster, u)
+                                caster.physicalDamageCode(dmg, u)
                     sfx.destr()
                     destroy cb

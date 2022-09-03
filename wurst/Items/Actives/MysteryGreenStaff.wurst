@@ -8,4 +8,4 @@ init
 function masteryGreenStaff()
     EventListener.onTargetCast('A0XN') (unit caster, unit target) ->
         let dam = 7800.
-        magicalDamageCode(dam, caster, target)
+        caster.magicalDamageCode(dam, target)

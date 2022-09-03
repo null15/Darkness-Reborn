@@ -8,4 +8,4 @@ init
 function masteryRedStaff()
     EventListener.onTargetCast('A0YB') (unit caster, unit target) ->
         let dam = caster.getInt(true) * 89 + 30000.
-        magicalDamageCode(dam, caster, target)
+        caster.magicalDamageCode(dam, target)

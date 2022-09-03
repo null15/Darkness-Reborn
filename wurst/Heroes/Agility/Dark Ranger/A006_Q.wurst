@@ -33,7 +33,7 @@ function arrowCreate(vec2 pos, unit caster, unit target)
         if(dist <= 25.)
             if(isAlive)
                 let damage = caster.getAgi(true) * 0.6 * caster.getAbilityLevel(DARKRANGER_ABIL_1)
-                magicalDamageCode(damage, caster, target)
+                caster.magicalDamageCode(damage, target)
             arrowMissile.destr()
             destroy cb
 

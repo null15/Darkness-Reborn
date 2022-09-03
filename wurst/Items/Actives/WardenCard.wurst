@@ -14,5 +14,5 @@ function wardenCard()
         forUnitsInRange(caster.getPos(), 400) (unit u) ->
             if(u.isEnemyOf(caster))
                 if(u_i < 8)
-                    physicalDamageCode(25000, caster, u)
+                    caster.physicalDamageCode(25000, u)
                     u_i++

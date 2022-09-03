@@ -5,65 +5,74 @@ import DamageEvent
 public let magicResistMap = new HashMap<integer, real>
 public let physicalPenetrationMap = new HashMap<integer, real>
 
-public function enumerateMagicResistanceUnit(integer unitId, real magicResistance)
-    magicResistMap.put(unitId, magicResistance)
+public function unit.enumerateMagicResistance(real magicResistance)
+    magicResistMap.put(this.getTypeId(), magicResistance/100)
 
-public function magicalDamageCodeElementId(real amount, unit source, unit target, DamageElement element, integer id)
+public function integer.enumerateMagicResistanceId(real magicResistance)
+    magicResistMap.put(this, magicResistance/100)
+
+public function unit.enumeratePhysicalPenetration(real physicalPenetration)
+    physicalPenetrationMap.put(this.getTypeId(), physicalPenetration/100)
+
+public function integer.enumeratePhysicalPenetrationId(real physicalPenetration)
+    physicalPenetrationMap.put(this, physicalPenetration/100)
+
+public function unit.magicalDamageCodeElementId(real amount, unit target, DamageElement element, integer id)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    source.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
-public function magicalDamageCodeElement(real amount, unit source, unit target, DamageElement element)
+public function unit.magicalDamageCodeElement(real amount, unit target, DamageElement element)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
-    source.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
-public function magicalDamageCodeId(real amount, unit source, unit target, integer id)
+public function unit.magicalDamageCodeId(real amount, unit target, integer id)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    source.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
-public function magicalDamageCode(real amount, unit source, unit target)
+public function unit.magicalDamageCode(real amount, unit target)
     DamageEvent.setNextDamageFromCode()
-    source.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
-public function physicalDamageCodeElementId(real amount, unit source, unit target, DamageElement element, integer id)
-    DamageEvent.setNextDamageElement(element)
-    DamageEvent.setNextDamageFromCode()
-    DamageEvent.setNextDamageId(id)
-    source.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-
-public function physicalDamageCodeId(real amount, unit source, unit target, integer id)
-    DamageEvent.setNextDamageFromCode()
-    DamageEvent.setNextDamageId(id)
-    source.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-
-public function physicalDamageCodeElement(real amount, unit source, unit target, DamageElement element)
-    DamageEvent.setNextDamageElement(element)
-    DamageEvent.setNextDamageFromCode()
-    source.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-
-public function physicalDamageCode(real amount, unit source, unit target)
-    DamageEvent.setNextDamageFromCode()
-    source.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-
-public function pureDamageCodeElementId(real amount, unit source, unit target, DamageElement element, integer id)
+public function unit.physicalDamageCodeElementId(real amount, unit target, DamageElement element, integer id)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    source.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
-public function pureDamageCodeElementId(real amount, unit source, unit target, integer id)
+public function unit.physicalDamageCodeId(real amount, unit target, integer id)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    source.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
-public function pureDamageCodeElement(real amount, unit source, unit target, DamageElement element)
+public function unit.physicalDamageCodeElement(real amount, unit target, DamageElement element)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
-    source.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
-public function pureDamageCode(real amount, unit source, unit target)
+public function unit.physicalDamageCode(real amount, unit target)
     DamageEvent.setNextDamageFromCode()
-    source.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+
+public function unit.pureDamageCodeElementId(real amount, unit target, DamageElement element, integer id)
+    DamageEvent.setNextDamageElement(element)
+    DamageEvent.setNextDamageFromCode()
+    DamageEvent.setNextDamageId(id)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+
+public function unit.pureDamageCodeElementId(real amount, unit target, integer id)
+    DamageEvent.setNextDamageFromCode()
+    DamageEvent.setNextDamageId(id)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+
+public function unit.pureDamageCodeElement(real amount, unit target, DamageElement element)
+    DamageEvent.setNextDamageElement(element)
+    DamageEvent.setNextDamageFromCode()
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+
+public function unit.pureDamageCode(real amount, unit target)
+    DamageEvent.setNextDamageFromCode()
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

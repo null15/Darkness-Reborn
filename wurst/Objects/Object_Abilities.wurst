@@ -399,7 +399,7 @@ import OrderIds
     ..setDurationNormal(2, 1.5)
     ..presetDamageperSecond(int lvl -> 0)
 
-    new AbilityDefinitionTaurenChieftainWarStomp(ABILITY_DUMMY_18) //Timewizard E
+    new AbilityDefinitionFireBolt(ABILITY_DUMMY_18) //Timewizard E
     ..setLevels(1)
     ..setManaCost(1, 0)
     ..setCastRange(1, 9999)
@@ -413,9 +413,9 @@ import OrderIds
     ..setArtEffect(".mdl")
     ..setArtCaster(".mdl")
     ..setMissileArt(".mdl")
-    ..setAreaofEffect(1, 99999)
     ..setDurationHero(1, 10)
     ..setDurationNormal(1, 10)
+    ..setMissileSpeed(9999)
 
     new AbilityDefinitionFireBolt(ABILITY_DUMMY_19) //Timewizard T
     ..setLevels(1)

@@ -3,7 +3,6 @@ package A01H_E
 import Abilities
 import ClosureEvents
 import ClosureTimers
-import MyBuffIds
 import DummyCaster
 import MyAbilityIds
 import ClosureForGroups
@@ -40,12 +39,12 @@ function chainFrost()
                     ..owner(caster.getOwner())
                     ..origin(sfx.getPos())
                     ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, currentTarget)
-                    magicalDamageCode(damage, caster, currentTarget)
+                    caster.magicalDamageCode(damage, currentTarget)
                     new DummyCaster()
                     ..owner(caster.getOwner())
                     ..origin(sfx.getPos())
                     ..castTarget(ABILITY_DUMMY_4, 1, OrderIds.thunderbolt, currentTarget)
-                flashEffect(Abilities.fireBallMissile, currentTarget.getPos())
+                flashEffect(Abilities.frostArmorDamage, currentTarget.getPos())
                 if(counter >= level+5)
                     sfx.destr()
                     flashEffect(Abilities.frostNovaTarget, currentTarget.getPos())
@@ -56,9 +55,7 @@ function chainFrost()
                         if (u.isEnemyOf(caster.getOwner()) and u.getHandleId() != currentTarget.getHandleId())
                             if(u.isAlive())
                                 let pos4 = u.getPos()
-                                if(pos1.distanceTo(pos2) < pos1.distanceTo(pos4))
-                                    currentTarget = u
-                                else if (u.hasAbility(BUFF_12))
+                                if(pos1.distanceTo(pos2) > pos1.distanceTo(pos4))
                                     currentTarget = u
                     if(currentTarget == previousTarget)
                         sfx.destr()

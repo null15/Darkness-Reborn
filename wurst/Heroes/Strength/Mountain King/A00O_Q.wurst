@@ -25,13 +25,13 @@ function stormbolt()
             let distance = sfx.getPos().distanceTo(target.getPos())
             forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
                 if caster.isEnemyOf(u) and not u.hasAbility(BUFF_5)
-                    magicalDamageCode(semi, caster, u)
+                    caster.magicalDamageCode(semi, u)
             if distance < 125
                 new DummyCaster()
                 ..owner(GetOwningPlayer(caster))
                 ..origin(sfx.getPos())
                 ..castImmediate(ABILITY_DUMMY_5, 1, OrderIds.stomp)
-                physicalDamageCode(final, caster, target)
+                caster.physicalDamageCode(final, target)
                 flashEffect(Abilities.fireLordDeathExplode, target.getPos())
                 sfx.destr()
                 destroy cb

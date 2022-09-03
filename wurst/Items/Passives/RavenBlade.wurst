@@ -1,4 +1,4 @@
 package RavenBlade
 import codeDamageTypings
 public function ravenBlade(unit src, unit targ, int mul)
-    physicalDamageCode(src.getStr(true) * (2.*mul), src, targ)
+    src.physicalDamageCode(src.getStr(true) * (2.*mul), targ)

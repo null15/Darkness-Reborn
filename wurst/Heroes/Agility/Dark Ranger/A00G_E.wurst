@@ -10,5 +10,5 @@ function darkDrain()
     EventListener.onTargetCast(DARKRANGER_ABIL_3) (unit caster, unit target) ->
         let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_3)
         let dmg = (caster.getAgi(true)*(lvl*2.))
-        magicalDamageCode(dmg, caster, target)
+        caster.magicalDamageCode(dmg, target)
         caster.addMana(caster.getAgi(true).toReal())

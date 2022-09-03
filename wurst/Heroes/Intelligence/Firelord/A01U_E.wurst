@@ -19,9 +19,9 @@ function conflagration()
             forUnitsInRange(target.getPos(), 400, true) (unit u) ->
                 if caster.isEnemyOf(u)
                     flashEffect(Abilities.fireLordDeathExplode, target.getPos())
-                    magicalDamageCodeElementId(dmg, caster, u, DAMAGE_ELEMENT_FIRE, 'A01U')
+                    caster.magicalDamageCodeElementId(dmg, u, DAMAGE_ELEMENT_FIRE, 'A01U')
                     new DummyCaster()..owner(caster.getOwner())..origin(caster.getPos())..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, u)
         else
             flashEffect(Abilities.fireLordDeathExplode, target.getPos())
-            magicalDamageCodeElementId(dmg, caster, target, DAMAGE_ELEMENT_FIRE, 'A01U')
+            caster.magicalDamageCodeElementId(dmg, target, DAMAGE_ELEMENT_FIRE, 'A01U')
             new DummyCaster()..owner(caster.getOwner())..origin(caster.getPos())..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, target)

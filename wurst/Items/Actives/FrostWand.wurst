@@ -8,4 +8,4 @@ init
 function frostWand()
     EventListener.onTargetCast('A0YA') (unit caster, unit target) ->
         let dam = caster.getInt(true) * 15.00
-        magicalDamageCode(dam, caster, target)
+        caster.magicalDamageCode(dam, target)

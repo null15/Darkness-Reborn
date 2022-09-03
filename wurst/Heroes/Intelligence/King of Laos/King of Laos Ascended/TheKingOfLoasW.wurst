@@ -26,7 +26,7 @@ function embodimentOfGral()
                 ..owner(attacked.getOwner())
                 ..castTarget(ABILITY_55, 1, OrderIds.innerfire, attacked)
                 doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
-                    physicalDamageCode(attacker.getInt(true) * 1., attacker, attacked)
+                    attacker.physicalDamageCode(attacker.getInt(true) * 1., attacked)
                 doAfter(0.01) -> 
                     SetUnitAnimationByIndex(shark, 0)
                     gralBite.playOnPoint(attacked.getPos3Real())

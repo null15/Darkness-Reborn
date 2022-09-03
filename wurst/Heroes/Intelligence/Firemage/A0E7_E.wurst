@@ -3,4 +3,4 @@ import codeDamageTypings
 init
 public function fireShield(unit source, unit target)
     let dmg = target.getInt(true)*0.25
-    magicalDamageCodeId(dmg, source, target, 'A0E7')
+    source.magicalDamageCodeId(dmg, target, 'A0E7')
