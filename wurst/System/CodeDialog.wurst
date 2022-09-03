@@ -47,7 +47,7 @@ public function codeDialog()
             let buffBox = new DialogBox("Choose your benefit")
             PLAYER_SET.remove(GetPlayerName(GetTriggerPlayer()))
 
-            buffBox.addButton("Levels (+10)") ->
+            buffBox.addButton("Set level to 10") ->
                 if hero != null
                     hero.setLevel(10, true)
                 else

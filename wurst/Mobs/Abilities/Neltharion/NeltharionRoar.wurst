@@ -17,7 +17,7 @@ function neltharionAttacked()
 function neltharionBeam()
     EventListener.onCast('A0CV') (unit caster) ->
         doPeriodicallyTimed(0.5, 4) (CallbackCounted cb) ->
-            forUnitsInRange(caster.getPos(), 99999) (unit u) ->
-                if(u.isEnemyOf(caster))
+            forUnitsInRange(caster.getPos(), 1000) (unit u) ->
+                if(u.isEnemyOf(caster) and u.isType(UNIT_TYPE_STRUCTURE))
                     flashEffect("Units\\Mobs\\Soul Beam Red.mdx", u.getPos())
                     caster.magicalDamageCode(3500, u)
