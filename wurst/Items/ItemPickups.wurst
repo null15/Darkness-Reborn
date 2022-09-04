@@ -2,28 +2,10 @@ package ItemPickups
 import ClosureEvents
 import MyItemIds
 import codeDamageTypings
-import HashMap
-
-let physPenItemHash = new HashMap<int, real>
-
-
 
 init
     itemPickup()
     initializePhysPenItems()
-
-function unit.addPhysPenItem(item i)
-    let physPen = physPenItemHash.get(i.getTypeId())
-    if(physPen > 0)
-        this.enumeratePhysicalPenetration(physicalPenetrationMap.get(i.getTypeId()) + physPen)
-
-public function unit.subtractPhysPenItem(item i)
-    let physPen = physPenItemHash.get(i.getTypeId())
-    if(physPen > 0)
-        this.enumeratePhysicalPenetration(physicalPenetrationMap.get(i.getTypeId()) - physPen)
-
-function int.putInItemHash(real input)
-    physPenItemHash.put(this, input/100)    
 
 function initializePhysPenItems()
     ITEM_675.putInItemHash(5)

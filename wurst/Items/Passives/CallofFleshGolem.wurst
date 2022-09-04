@@ -2,9 +2,11 @@ package CallofFleshGolem
 
 import MyItemIds
 import ClosureEvents
+import Global_Variables
 init
     callofFleshGolem()
 function callofFleshGolem()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
-        if GetKillingUnit().hasItemById(ITEM_691) and GetRandomInt(0, 100) <= 100
-            GetKillingUnit().addStr(1)
+        let p = GetKillingUnit().getOwner().getId()
+        if playerHero[p].hasItemById(ITEM_691) and GetRandomInt(0, 100) <= 100
+            playerHero[p].addStr(1)

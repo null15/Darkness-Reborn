@@ -4,8 +4,8 @@ import MyAbilityIds
 import ClosureTimers
 import MyUnitIds
 import Summons
-real counter
-CallbackPeriodic beastTimer
+real array counter
+integer lastOne = 0
 boolean notTeleporting = true
 
 init
@@ -19,24 +19,25 @@ function spirits()
         caster.addStr(tempBoost)
         caster.addAgi(tempBoost)
         caster.addInt(tempBoost)
+        counter[lastOne] = 0
+        let current = lastOne
+        lastOne++
         if(attackType != 4)
             BlzSetUnitWeaponIntegerField(caster, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
         doPeriodically(0.05) (CallbackPeriodic cb) ->
-            print(counter.toString())
-            if(counter >= 10. + caster.getAbilityLevel(ABILITY_7))
+            if(counter[current] >= 10. + caster.getAbilityLevel(ABILITY_7) * 5)
                 caster.setStr(caster.getStr(false)-tempBoost)
                 caster.setAgi(caster.getAgi(false)-tempBoost)
                 caster.setInt(caster.getInt(false)-tempBoost)
                 BlzSetUnitWeaponIntegerField(caster, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, attackType)
                 destroy cb
             else if notTeleporting
-                counter = counter + 0.05
+                counter[current] = counter[current] + 0.05
 
 function spiritTeleporting()
     EventListener.add(EVENT_PLAYER_UNIT_SPELL_CHANNEL) -> 
         if(GetSpellAbilityId() == 'A007')
             if(GetTriggerUnit().getTypeId() == PLAY_HERO_5)
-                print("Channel!")
                 notTeleporting = false
                 doAfter(2.2) -> 
                     notTeleporting = true

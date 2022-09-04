@@ -623,7 +623,8 @@ import OrderIds
     "\nArmor: 0.5 * str + 8 * lvl" + 
     "\nDamage: 0.25 * str + 10 * lvl" + 
     "\nDuration: Infinite" +
-    "\nCooldown: 35s\n\n"+
+    "\nCooldown: 35s"+
+    "\nArmor Penetration: 1% of summoner Armor Pen per level\n\n"+
     "|cffff0000Upgrades give flat health/damage/armor + summoned amount|r")
     ..setNumberofSummonedUnits(1, 1)
     ..setNumberofSummonedUnits(2, 1)
@@ -650,7 +651,8 @@ import OrderIds
     "\nArmor: 0.5 * str + " + (8*i).toString() + 
     "\nDamage: 0.25 * str + " + (10*i).toString() + 
     "\nDuration: 70s" +
-    "\nCooldown: 35s\n\n"+
+    "\nCooldown: 35s"+
+    "\nArmor Penetration: " + (1*i).toString() + "% of summoner Armor Pen\n\n"+
     "|cffff0000Upgrades give flat health/damage/armor + summoned amount|r")
         ..setTooltipNormal(i, "Summon Misha [|cffffcc00W|r] - [|cffffcc00Level "+ i.toString() + "|r]")
         ..setDurationHero(i, 0)
@@ -670,7 +672,8 @@ import OrderIds
         "\nArmor: 0.25 * str + 4 * lvl" + 
         "\nDamage: 0.5 * str + 15 * lvl" + 
         "\nDuration: 70s" +
-        "\nCooldown: 35s\n\n"+
+        "\nCooldown: 35s"+
+        "\nArmor Penetration: 2% of summoner Armor Pen per level\n\n"+
         "|cffff0000Upgrades give flat health/damage/armor + summoned amount|r")
     ..setSummonedUnitCount(1, 2)
     ..setSummonedUnitCount(2, 2)
@@ -697,7 +700,8 @@ import OrderIds
         "\nArmor: 0.25 * str + " + (4*i).toString() + 
         "\nDamage: 0.5 * str + " + (15*i).toString() + 
         "\nDuration: 70s" +
-        "\nCooldown: 35s\n\n"+
+        "\nCooldown: 35s"+
+        "\nArmor Penetration: " + (2*i).toString() + "% of summoner Armor Pen\n\n"+
         "|cffff0000Upgrades give flat health/damage/armor + summoned amount|r")
         ..setTooltipNormal(i, "Summon Quilbeast [|cffffcc00W|r] - [|cffffcc00Level "+ i.toString() + "|r]")
         ..setDurationHero(i, 70)
@@ -717,7 +721,8 @@ import OrderIds
         "\nArmor: 0.1 * str + 2 * lvl" + 
         "\nDamage: 1 * str + 20 * lvl" + 
         "\nDuration: 70s" +
-        "\nCooldown: 35s\n\n"+
+        "\nCooldown: 35s"+
+        "\nArmor Penetration: 3% of summoner Armor Pen per level\n\n"+
         "|cffff0000Upgrades give flat health/damage/armor + summoned amount|r")
     ..setSummonedUnitCount(1, 1)
     ..setSummonedUnitCount(2, 1)
@@ -744,7 +749,8 @@ import OrderIds
         "\nArmor: 0.1 * str + " + (2*i).toString() + 
         "\nDamage: 1 * str + " + (20*i).toString() + 
         "\nDuration: 70s" +
-        "\nCooldown: 35s\n\n"+
+        "\nCooldown: 35s"+
+        "\nArmor Penetration: " + (3*i).toString() + "% of summoner Armor Pen\n\n"+
         "|cffff0000Upgrades give flat health/damage/armor + summoned amount|r")
         ..setTooltipNormal(i, "Summon Hawk [|cffffcc00W|r] - [|cffffcc00Level "+ i.toString() + "|r]")
         ..setDurationHero(i, 70)

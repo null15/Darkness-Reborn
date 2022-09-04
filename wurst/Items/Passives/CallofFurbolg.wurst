@@ -2,9 +2,11 @@ package CallofFurbolg
 
 import MyItemIds
 import ClosureEvents
+import Global_Variables
 init
     callofFurbolg()
 function callofFurbolg()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
-        if GetKillingUnit().hasItemById(ITEM_689) and GetRandomInt(0, 100) <= 100
-            GetKillingUnit().addInt(1)
+        let p = GetKillingUnit().getOwner().getId()
+        if playerHero[p].hasItemById(ITEM_689) and GetRandomInt(0, 100) <= 100
+            playerHero[p].addInt(1)

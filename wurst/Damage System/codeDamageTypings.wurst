@@ -4,6 +4,20 @@ import DamageEvent
 
 public let magicResistMap = new HashMap<integer, real>
 public let physicalPenetrationMap = new HashMap<integer, real>
+let physPenItemHash = new HashMap<int, real>
+
+public function unit.addPhysPenItem(item i)
+    let physPen = physPenItemHash.get(i.getTypeId())
+    if(physPen > 0)
+        this.enumeratePhysicalPenetration(physicalPenetrationMap.get(this.getTypeId()) * 100 + physPen)
+
+public function unit.subtractPhysPenItem(item i)
+    let physPen = physPenItemHash.get(i.getTypeId())
+    if(physPen > 0)
+        this.enumeratePhysicalPenetration(physicalPenetrationMap.get(this.getTypeId()) * 100 - physPen)
+
+public function int.putInItemHash(real input)
+    physPenItemHash.put(this, input)  
 
 public function unit.enumerateMagicResistance(real magicResistance)
     magicResistMap.put(this.getTypeId(), magicResistance/100)

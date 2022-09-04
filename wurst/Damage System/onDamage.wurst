@@ -59,7 +59,7 @@ init
             case ATTACK
                 let src = DamageEvent.getSource()
                 let targ = DamageEvent.getTarget()
-                DamageEvent.addAmount((DamageEvent.getUnreducedOriginalAmount() - DamageEvent.getAmount()) * physicalPenetrationMap.get(targ.getTypeId()))
+                DamageEvent.addAmount((DamageEvent.getUnreducedOriginalAmount() - DamageEvent.getAmount()) * physicalPenetrationMap.get(src.getTypeId()))
 
                 // Illidan (Juxtapose) E
                 if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8') and src.isIllusion() == false
@@ -239,7 +239,8 @@ init
                 let damId = DamageEvent.getId()
 
                 if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
-                    DamageEvent.setAmount(DamageEvent.getUnreducedAmount() * (1+physicalPenetrationMap.get(targ.getTypeId())))
+                    DamageEvent.setAmount((DamageEvent.getUnreducedOriginalAmount() - DamageEvent.getAmount()) * physicalPenetrationMap.get(src.getTypeId()))
+
                 // Fire Lord (Blaze)
                 if damId == 'A01P' or damId == 'AO1T' or damId == 'A01U' or damId == 'A01S'
                     blaze(src, targ)
