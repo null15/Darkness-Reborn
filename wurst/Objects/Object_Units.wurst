@@ -2825,7 +2825,7 @@ init
     ..setName("Far Seer")
     ..setTooltipBasic("|c00F7EC46Far Seer|r")
     ..setTooltipExtended("|c00F7EC46Far Seer|r\n"
-+ "Roles: " + farmer + "/" + summoner + "\n\n"
++ "Roles: " + farmer + "\n\n"
 + "|c00EE0404Physical Damage|r: 2/5\n"
 + "|c0076ECF9Magical Damage|r: 3/5\n"
 + "|c00B0B0B0Defense|r: 1/5\n"
@@ -3050,7 +3050,7 @@ init
 
     new HeroDefinition(PLAY_HERO_25, UnitIds.seawitch)// Naga Sea Witch (H000)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A0AJ', NAGAWITCH_ABIL_2, 'A0AI', 'A0AQ', 'A0AN'))
+    ..setHeroAbilities(commaList(NAGAWITCH_ABIL_1, NAGAWITCH_ABIL_2, NAGAWITCH_ABIL_3, NAGAWITCH_ABIL_4, NAGAWITCH_ABIL_5))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     
     ..setPrimaryAttribute("Intelligence")

@@ -4,28 +4,34 @@ import ClosureTimers
 import Abilities
 import ClosureForGroups
 import codeDamageTypings
+import TerrainUtils
+import MyAbilityIds
 bool run = false
 init
     tornado()
 function tornado()
-    EventListener.onPointCast('A0AN') (unit caster, vec2 target) ->
-        let lvl = caster.getAbilityLevel('A0AN')
+    EventListener.onPointCast(NAGAWITCH_ABIL_5) (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel(NAGAWITCH_ABIL_5)
         let sfx = addEffect(Abilities.tornado, caster.getPos())
+        var pos = sfx.getPos()
         let angle = sfx.getPos().angleTo(target)
-        let dmg = caster.getMaxMana() * lvl*0.5
-        var distance = 0.00
-        run = true
-        doPeriodicallyTimed(0.03, 6) (CallbackCounted cb) ->
-            sfx.setPos(sfx.getPos().polarOffset(angle, 10))
-            distance = sfx.getPos().distanceTo(target)
-            if distance < 125 and run
-                run = false
-                flashEffect("Effects\\Vashj\\WaterBlast.mdl", sfx.getPos(), 8)
-                sfx.destr()
-                forUnitsInRange(sfx.getPos(), 500, true) (unit u) ->
-                    if caster.isEnemyOf(u)
-                        caster.magicalDamageCode(dmg, u)
-                destroy cb
+        let dmg = caster.getMaxMana() * lvl*0.75
+        doPeriodicallyTimed(0.05, 6) (CallbackCounted cb) ->
+            sfx.setPos(sfx.getPos().polarOffset(angle, 5))
             if cb.isLast()
                 sfx.destr()
+                flashEffect("Effects\\Vashj\\WaterBlast.mdl", sfx.getPos(), 8)
+                forUnitsInRange(pos, 300, true) (unit u) ->
+                    if u.isEnemyOf(caster)
+                        caster.magicalDamageCode(dmg, u)
+                        if sfx.getPos().isTerrainWalkable()
+                            u.setPos(sfx.getPos())
                 destroy cb
+            else
+                sfx.setPos(sfx.getPos().polarOffset(angle,5))
+                pos = sfx.getPos()
+                forUnitsInRange(pos, 300, true) (unit u) ->
+                    if u.isEnemyOf(caster)
+                        caster.magicalDamageCode(dmg, u)
+                        if sfx.getPos().isTerrainWalkable()
+                            u.setPos(sfx.getPos())

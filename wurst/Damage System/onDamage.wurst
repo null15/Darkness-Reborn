@@ -106,7 +106,7 @@ init
                     pulverize(src, targ)
 
                 // Vashj (Frost Arrows ) X - Autocast
-                if frostArrowOn and src.getTypeId() == PLAY_HERO_16
+                if frostArrowOn and src.getTypeId() == PLAY_HERO_25
                     frostArrows(src, targ)
 
                 // Craggy Hex (Shadow Hunter) R - Passive
@@ -239,7 +239,7 @@ init
                 let damId = DamageEvent.getId()
 
                 if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
-                    DamageEvent.setAmount((DamageEvent.getUnreducedOriginalAmount() - DamageEvent.getAmount()) * physicalPenetrationMap.get(src.getTypeId()))
+                    DamageEvent.addAmount((DamageEvent.getUnreducedOriginalAmount() - DamageEvent.getAmount()) * physicalPenetrationMap.get(src.getTypeId()))
 
                 // Fire Lord (Blaze)
                 if damId == 'A01P' or damId == 'AO1T' or damId == 'A01U' or damId == 'A01S'
