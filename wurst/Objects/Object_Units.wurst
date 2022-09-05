@@ -21078,7 +21078,7 @@ init
     ..setStartingIntelligence(15)
     ..setScalingValue(1.00)
     ..setSelectionScale(2.25)
-    ..setAttack1CooldownTime(0.40)
+    ..setAttack1CooldownTime(1.70)
     ..setAttack1DamageBase(0)
     ..setAttack1DamageNumberofDice(2)
     ..setAttack1DamageSidesperDie(6)
@@ -21489,7 +21489,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_HERO_28, UnitIds.phoenix)// RA (h03L)
-    ..setNormalAbilities(commaList('A0DK', 'A0DM', 'ACrk', 'A0XT', 'A0XV'))
+    ..setNormalAbilities(commaList('A0DM', 'ACrk', 'A0XT', 'A0XV'))
     ..setScalingValue(2.00)
     ..setSelectionScale(3.00)
     ..setAttack1CooldownTime(1.00)

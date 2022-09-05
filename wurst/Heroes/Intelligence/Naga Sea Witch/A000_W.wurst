@@ -9,18 +9,18 @@ public boolean frostArrowOn = false
 init
     frostArrowToggle()
 
-function frostArrowToggle()
+function frostArrowToggle() //For some reason orderID is not getting updated to flamingarrows, putting it to coldarrows
     EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
         let u = GetTriggerUnit()
         if(u.getTypeId() == PLAY_HERO_25)
-            if(GetIssuedOrderId() == OrderIds.flamingarrows)
+            if(GetIssuedOrderId() == OrderIds.coldarrows)
                 frostArrowOn = true
-            else if GetIssuedOrderId() == OrderIds.flamingarrows + 1
+            else if GetIssuedOrderId() == OrderIds.coldarrows + 1
                 frostArrowOn = false          
 
 public function frostArrows(unit vashj, unit target)
     let lvl = GetUnitAbilityLevel(vashj, NAGAWITCH_ABIL_2)
     let dmg = vashj.getMaxMana()*(0.04*lvl)
     if(vashj.getMana() < (7.08333 * lvl + 20.6944).round())
-        vashj.issueImmediateOrderById(OrderIds.flamingarrows + 1)
+        vashj.issueImmediateOrderById(OrderIds.coldarrows + 1)
     vashj.magicalDamageCode(dmg, target)
