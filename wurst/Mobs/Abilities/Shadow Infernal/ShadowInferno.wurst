@@ -1,0 +1,22 @@
+package ShadowInferno
+
+import ClosureEvents
+import MyUnitIds
+import DummyCaster
+import MyAbilityIds
+import ClosureTimers
+bool canRun = true
+init
+    shadowInfernoAttacked()
+function shadowInfernoAttacked()
+    EventListener.add(EVENT_UNIT_DAMAGED) -> 
+        if(canRun)
+            canRun = false
+            doAfter(15) -> 
+                canRun = true
+            if GetTriggerUnit().getTypeId() == WAVE_HERO_29
+                let shadowinfernal = GetTriggerUnit()
+                new DummyCaster()
+                ..origin(shadowinfernal.getPos())
+                ..owner(shadowinfernal.getOwner())
+                ..castPoint(CREEP_ABILITY_23, 1, 0, shadowinfernal.getPos())

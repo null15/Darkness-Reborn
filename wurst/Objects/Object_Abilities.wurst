@@ -2536,6 +2536,24 @@ import OrderIds
     ..setHeroAbility(false)
     ..setItemAbility(false)
 
+    new AbilityDefinitionRainofChaos(CREEP_ABILITY_23) //Shadow Infernal
+    ..setLevels(1)
+    ..setHeroAbility(false)
+    ..setCheckDependencies(false)
+    ..setNumberofUnitsCreated(1, 9)
+    ..setAbilityforUnitCreation(1, CREEP_ABILITY_24.toRawCode())
+    ..setCooldown(1, 15)
+    
+    new AbilityDefinitionInferno(CREEP_ABILITY_24)
+    ..setLevels(1)
+    ..setDuration(1, 30)
+    ..setAreaofEffect(1, 400)
+    ..setCooldown(1, 15)
+    ..setDurationHero(1, 7)
+    ..setSummonedUnit(1, ABILITYUNIT_0.toRawCode())
+    ..setDurationNormal(1, 7)
+
+
 @compiletime function itemAbils()
     new AbilityDefinitionCryptLordSpikedCarapace(ITEM_ABIL_1) //Spike of Crypt
     ..setLevels(1)

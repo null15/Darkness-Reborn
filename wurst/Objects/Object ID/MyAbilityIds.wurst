@@ -157,6 +157,8 @@ public constant CREEP_ABILITY_19 = compiletime(ABIL_ID_GEN.next())
 public constant CREEP_ABILITY_20 = compiletime(ABIL_ID_GEN.next())
 public constant CREEP_ABILITY_21 = compiletime(ABIL_ID_GEN.next())
 public constant CREEP_ABILITY_22 = compiletime(ABIL_ID_GEN.next())
+public constant CREEP_ABILITY_23 = compiletime(ABIL_ID_GEN.next())
+public constant CREEP_ABILITY_24 = compiletime(ABIL_ID_GEN.next())
 
 public constant ITEM_ABIL_1 = compiletime(ABIL_ID_GEN.next())
 public constant ITEM_ABIL_2 = compiletime(ABIL_ID_GEN.next())

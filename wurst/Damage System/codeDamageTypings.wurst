@@ -2,9 +2,21 @@ package codeDamageTypings
 import HashMap
 import DamageEvent
 
-public let magicResistMap = new HashMap<integer, real>
-public let physicalPenetrationMap = new HashMap<integer, real>
+let magicResistMap = new HashMap<integer, real>
+let physicalPenetrationMap = new HashMap<integer, real>
 let physPenItemHash = new HashMap<int, real>
+
+public function integer.getPhysPenetration() returns real
+    return physicalPenetrationMap.get(this)
+
+public function unit.getPhysPenetration() returns real
+    return physicalPenetrationMap.get(this.getTypeId())
+
+public function unit.getMagicResist() returns real
+    return magicResistMap.get(this.getTypeId())
+
+public function integer.getMagicResist() returns real
+    return magicResistMap.get(this)
 
 public function unit.addPhysPenItem(item i)
     let physPen = physPenItemHash.get(i.getTypeId())

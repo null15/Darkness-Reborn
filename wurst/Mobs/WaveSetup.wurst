@@ -75,19 +75,22 @@ init
 
 	WAVE_HERO_29.enumerateMagicResistanceId(80)
 
+function continueUnitStats(integer uId) returns string
+	return "|r\n|c00aa3101Physical Pen: " + (uId.getPhysPenetration() * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (uId.getMagicResist() * 100).toString() + "%|r\n"
+
 function unitStats(unit u, int whichSide)
 	let uId = u.getTypeId()
 	switch whichSide
 		case 1
-			printTimed("Left Side Boss" + "\n|c00ffff00Unit: " + u.getName() + "|r\n|c00aa3101Physical Pen: " + (physicalPenetrationMap.get(uId) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (magicResistMap.get(uId) * 100).toString() + "%|r\n", 5)
+			printTimed("Left Side Boss" + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
 		case 2
-			printTimed("Middle Boss " + "\n|c00ffff00Unit: " + u.getName() + "|r\n|c00aa3101Physical Pen: " + (physicalPenetrationMap.get(uId) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (magicResistMap.get(uId) * 100).toString() + "%|r\n", 5)
+			printTimed("Middle Boss " + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
 		case 3
-			printTimed("Right Side Boss " + "\n|c00ffff00Unit: " + u.getName() + "|r\n|c00aa3101Physical Pen: " + (physicalPenetrationMap.get(uId) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (magicResistMap.get(uId) * 100).toString() + "%|r", 5)
+			printTimed("Right Side Boss " + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
 		case 4
-			printTimed("Big Boss " + "\n|c00ffff00Unit: " + u.getName() + "|r\n|c00aa3101Physical Pen: " + (physicalPenetrationMap.get(uId) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (magicResistMap.get(uId) * 100).toString() + "%|r", 5)
+			printTimed("Big Boss " + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
 		default
-			printTimed("Wave: " + wave_count.toString() + "\n|c00ffff00Unit: " + u.getName() + "|r\n|c00aa3101Physical Pen: " + (physicalPenetrationMap.get(uId) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (magicResistMap.get(uId) * 100).toString() + "%|r", 5)
+			printTimed("Wave: " + wave_count.toString() + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
 
 public function spawnWavesNow()
 	if(count == 0)

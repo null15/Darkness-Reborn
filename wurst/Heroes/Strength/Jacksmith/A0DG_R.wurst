@@ -4,7 +4,7 @@ import ClosureEvents
 import DummyCaster
 import OrderIds
 import MyAbilityIds
-
+import Blacksmith
 init
     metalStrength()
 function metalStrength()
@@ -13,4 +13,4 @@ function metalStrength()
         ..owner(GetOwningPlayer(caster))
         ..origin(caster.getPos())
         ..castTarget(ABILITY_DUMMY_8, 1, OrderIds.innerfire, target)
-        
+        blacksmithJackedUp(target)
