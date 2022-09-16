@@ -24,7 +24,7 @@ function clusterRockets()
         let missileCount = lvl * 2 + 8
         let angle = 6.283185 / missileCount
         counter = 0
-        let timerDuration = caster.getAbility(TINKER_ABIL_1).getField(ABILITY_RLF_DURATION_NORMAL, lvl)
+        let timerDuration = caster.getAbility(TINKER_ABIL_1).getField(ABILITY_RLF_DURATION_NORMAL, lvl-1)
         let interval = timerDuration / missileCount
         let pos = caster.getPos()
         doPeriodicallyTimed(interval, timerDuration) (CallbackCounted cb) ->

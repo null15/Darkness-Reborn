@@ -12,13 +12,15 @@ init
 function tinkerAreaEnterLeave()
     CreateTrigger()..registerRectEnterEventSource(gg_rct_EnterTinkerArea)..addAction() -> 
         let enteringUnit = GetEnteringUnit()
-        if playerHero[enteringUnit.getOwner().getId()].getTypeId() == PLAY_HERO_26
+        let unitId = playerHero[enteringUnit.getOwner().getId()].getTypeId()
+        if unitId == PLAY_HERO_26 or unitId == 'N005'
             enteringUnit.setPos(gg_rct_LeaveTinkerArea.getCenterX(), gg_rct_LeaveTinkerArea.getCenterY()-200)
         else
             enteringUnit.setPos(gg_rct_EnterTinkerArea.getCenterX(), gg_rct_EnterTinkerArea.getCenterY()+200)
     CreateTrigger()..registerRectEnterEventSource(gg_rct_LeaveTinkerArea)..addAction() ->
         let enteringUnit = GetEnteringUnit()
-        if playerHero[enteringUnit.getOwner().getId()].getTypeId() == PLAY_HERO_26
+        let unitId = playerHero[enteringUnit.getOwner().getId()].getTypeId()
+        if unitId == PLAY_HERO_26 or unitId == 'N005'
             enteringUnit.setPos(gg_rct_EnterTinkerArea.getCenterX(), gg_rct_EnterTinkerArea.getCenterY()+200)
         else
             enteringUnit.setPos(gg_rct_LeaveTinkerArea.getCenterX(), gg_rct_LeaveTinkerArea.getCenterY()-200)
