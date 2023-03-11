@@ -28,6 +28,8 @@ public constant ABILITY_DUMMY_16 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_DUMMY_17 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_DUMMY_18 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_DUMMY_19 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_DUMMY_20 = compiletime(ABIL_ID_GEN.next())
+public constant ABILITY_DUMMY_21 = compiletime(ABIL_ID_GEN.next())
 
 public constant ABILITY_0 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_1 = compiletime(ABIL_ID_GEN.next())

@@ -2,7 +2,6 @@ package TinkerIncome
 import ClosureTimers
 import MyUnitIds
 import Icons
-import ClosureEvents
 bool onceLumber = true
 bool onceGold = true
 int lumberGain = 0
@@ -60,14 +59,7 @@ function tinkerResourceProduction()
             if onceGold
                 onceGold = false
                 doPeriodically(.4) (CallbackPeriodic cb) ->
-                    addGold(goldMine)
-
-    EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_START) -> // limit count to 1
-        let u = GetTriggerUnit()
-        if GetConstructingStructure().getIcon() == Icons.bTNHumanLumberMill
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, 0, u.getOwner())
-        else if GetConstructingStructure().getIcon() == Icons.bTNGoldmine
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 0, u.getOwner())
+                    addGold(goldMine)  
 
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() -> // reset income if said building dies
         if GetTriggerUnit() == lumberMill

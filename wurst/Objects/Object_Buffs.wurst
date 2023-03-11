@@ -133,6 +133,20 @@ init
     ..setTooltipNormal(1, "Brilliance Aura")
     ..setTooltipNormalExtended(1, "This unit is under the effects of Brilliance Aura; it has an increased mana regeneration.")
 
+    new BuffDefinition(BUFF_23, BuffIds.stunned)
+    ..setTooltipNormal(1, "Recently hit by Naga Sea Witch Q")
+    ..setTooltipNormalExtended(1, "Recently hit by Naga Sea Witch Q")
+    ..setArtTarget(1, ".mdl")
+    ..setArtSpecial(1, ".mdl")
+    ..setIconNormal(1, Icons.bTNStun)
+
+    new BuffDefinition(BUFF_24, BuffIds.flameStrike)
+    ..setTooltipNormal(1, "Recently hit by Pit Lord Q")
+    ..setTooltipNormalExtended(1, "Recently hit by Pit Lord Q")
+    ..setArtTarget(1, ".mdl")
+    ..setArtSpecial(1, ".mdl")
+    ..setIconNormal(1, Icons.bTNLiquidFire)
+
 @compiletime function gen()
     new BuffDefinition(BUFF_14, BuffIds.slow)
     ..setTooltipNormal(1, "Slow")

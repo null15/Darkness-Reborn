@@ -1,0 +1,29 @@
+package NagaSeaWitch_Q
+import ClosureForGroups
+import Artillery
+import SoundUtils
+import DummyCaster
+import OrderIds
+import ClosureEvents
+import MyAbilityIds
+import codeDamageTypings
+constant WATER_BUBBLE_ARTILLERY = compiletime(ArtilleryDetection.createArtilleryDummy(0, 120, 160, 1, "Units\\NagaWitch\\Water_egg.mdx", 500, 0.3))
+constant WATER_BUBBLE_SOUND = new SoundDefinition(Sounds.waterWaterFallLoop1, false, true)
+init
+    blueSea()
+function blueSea()
+    EventListener.onPointCast(NAGAWITCH_ABIL_1) (unit caster, vec2 target) ->
+        ArtilleryDetection.fireArtillery(caster, WATER_BUBBLE_ARTILLERY, caster.getPos(), target) (unit detectionUnit, unit caster, int data) ->
+            let targetPos = detectionUnit.getPos3Zero()
+            let lvl = caster.getAbilityLevel(NAGAWITCH_ABIL_1)
+            let dmg = (0.1*lvl) * caster.getMaxMana() + 200 * lvl
+            WATER_BUBBLE_SOUND.playOnPoint(targetPos)
+            flashEffect("Effects\\Vashj\\WaterBlast.mdl", targetPos, 4)
+            forUnitsInRange(targetPos.toVec2(), 400, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    new DummyCaster()
+                    ..owner(GetOwningPlayer(caster))
+                    ..origin(vec2(caster.getX(), caster.getY()))
+                    ..delay(1)
+                    ..castTarget(ABILITY_DUMMY_20, 1, OrderIds.firebolt, u)
+                    caster.magicalDamageCode(dmg, u)

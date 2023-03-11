@@ -1005,7 +1005,7 @@ init
 
     new HeroDefinition(PLAY_HERO_6, UnitIds.pitlord)// Pit Lord (N04F)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A0RP', 'A0RS', 'A0RL', 'A0RI', 'A0R8'))
+    ..setHeroAbilities(commaList(PITLORD_ABIL_1, 'A0RS', 'A0RL', 'A0RI', 'A0R8'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     
     ..setPrimaryAttribute("Strength")

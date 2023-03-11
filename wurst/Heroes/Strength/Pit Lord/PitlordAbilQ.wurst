@@ -1,13 +1,38 @@
 package PitlordAbilQ
 
-import ClosureEvents
 import ClosureTimers
 import ClosureForGroups
+import Artillery
+import SoundUtils
+import Abilities
+import DummyCaster
+import OrderIds
+import ClosureEvents
 import MyAbilityIds
+import codeDamageTypings
+constant METEOR_ARTILLERY = compiletime(ArtilleryDetection.createArtilleryDummy(0, 120, 160, 1, Abilities.catapultMissile, 500, 0.3))
+constant METEOR_SOUND = new SoundDefinition(Sounds.catapultMissile4, false, true)
 
 init
     rainofFire()
 
 function rainofFire()
     EventListener.onPointCast(PITLORD_ABIL_1) (unit caster, vec2 target) ->
-        
+        ArtilleryDetection.fireArtillery(caster, METEOR_ARTILLERY, caster.getPos(), target) (unit detectionUnit, unit caster, int data) ->
+            let targetPos = detectionUnit.getPos3Zero()
+            let lvl = caster.getAbilityLevel(PITLORD_ABIL_1)
+            let dmg = lvl * 3 * caster.getStr(true).toReal()
+            METEOR_SOUND.playOnPoint(targetPos)
+            flashEffect(Abilities.fireLordDeathExplode, targetPos, 2)
+            forUnitsInRange(targetPos.toVec2(), 400, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    new DummyCaster()
+                    ..owner(GetOwningPlayer(caster))
+                    ..origin(vec2(caster.getX(), caster.getY()))
+                    ..delay(1)
+                    ..castTarget(ABILITY_DUMMY_21, lvl, OrderIds.cripple, u)
+                    caster.magicalDamageCode(dmg, u)
+                    doPeriodicallyCounted(1, lvl) (CallbackCounted cb) ->
+                        if u.isAlive()
+                            let dmg2 = lvl * caster.getStr(true).toReal()
+                            caster.magicalDamageCode(dmg2, u)
