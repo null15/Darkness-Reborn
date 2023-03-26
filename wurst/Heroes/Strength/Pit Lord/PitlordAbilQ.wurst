@@ -34,5 +34,4 @@ function rainofFire()
                     caster.magicalDamageCode(dmg, u)
                     doPeriodicallyCounted(1, lvl) (CallbackCounted cb) ->
                         if u.isAlive()
-                            let dmg2 = lvl * caster.getStr(true).toReal()
-                            caster.magicalDamageCode(dmg2, u)
+                            caster.magicalDamageCode(caster.getStr(true).toReal(), u)

@@ -5,6 +5,7 @@ import MyUnitIds
 import ClosureTimers
 import ClosureForGroups
 import codeDamageTypings
+import MyAbilityIds
 init
     chronoSphere()
     chronoSphereActive()
@@ -15,8 +16,8 @@ function chronoSphere()
             nozdomu.issuePointOrder("carrionswarm", GetEventDamageSource().getPos())
 
 function chronoSphereActive()
-    EventListener.onPointCast('A0CT') (unit caster, vec2 target) ->
-        let dmg = caster.getAbilityLevel('A0CT')*223.00
+    EventListener.onPointCast(CREEP_ABILITY_103) (unit caster, vec2 target) ->
+        let dmg = caster.getAbilityLevel(CREEP_ABILITY_103)*223.00
         let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", target)
         sfx.setScale(2)
         doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->

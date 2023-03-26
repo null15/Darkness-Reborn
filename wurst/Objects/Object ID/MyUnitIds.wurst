@@ -17,6 +17,15 @@ public constant DUMMY_UNIT_4 = compiletime(UNIT_ID_GEN.next())
 public constant DUMMY_UNIT_5 = compiletime(UNIT_ID_GEN.next())
 public constant DUMMY_UNIT_6 = compiletime(UNIT_ID_GEN.next())
 
+public constant SUMMONED_UNIT_1 = compiletime(UNIT_ID_GEN.next())
+public constant SUMMONED_UNIT_2 = compiletime(UNIT_ID_GEN.next())
+public constant SUMMONED_UNIT_3 = compiletime(UNIT_ID_GEN.next())
+public constant SUMMONED_UNIT_4 = compiletime(UNIT_ID_GEN.next())
+public constant SUMMONED_UNIT_5 = compiletime(UNIT_ID_GEN.next())
+public constant SUMMONED_UNIT_6 = compiletime(UNIT_ID_GEN.next())
+public constant SUMMONED_UNIT_7 = compiletime(UNIT_ID_GEN.next())
+public constant SUMMONED_UNIT_8 = compiletime(UNIT_ID_GEN.next())
+
 public constant DUMMY_BLACKSMITH_WISP = compiletime(UNIT_ID_GEN.next())
 
 public constant HERO_PICKER = compiletime(UNIT_ID_GEN.next())

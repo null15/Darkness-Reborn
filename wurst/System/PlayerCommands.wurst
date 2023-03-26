@@ -1,0 +1,26 @@
+package PlayerCommands
+import ChatCommands
+import PlayerUtility
+import Votekick
+
+
+constant string COMMAND_VOTEKICK = "votekick"
+
+public quest g_playerCommandsQuest
+ChatCommandHandler g_playerChatCommandHandler
+
+function startVoteKick()
+  let command = getChatCommand()
+  let commandPlayer = getChatCommandPlayer()
+  let playerPartialNameColorOrId = command.getArgument(0).getString()
+
+  let targetPlayer = getPlayerFromPartialNameColorOrId(playerPartialNameColorOrId, commandPlayer)
+  if (targetPlayer == null)
+    chatCommandPrintToPlayer(commandPlayer, "Could not find player " + playerPartialNameColorOrId)
+    return
+
+  if (not targetPlayer.isIngame())
+    chatCommandPrintToPlayer(commandPlayer, "Player {0} is not a playing human player".format(targetPlayer.getName()))
+    return
+
+  VoteKick.start(commandPlayer, targetPlayer)

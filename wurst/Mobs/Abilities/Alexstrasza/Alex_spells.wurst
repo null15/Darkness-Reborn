@@ -4,6 +4,7 @@ import MyUnitIds
 import ClosureTimers
 import ClosureForGroups
 import codeDamageTypings
+import MyAbilityIds
 init
     freezeActive()
     freeze()
@@ -12,10 +13,10 @@ function freeze()
         if GetTriggerUnit().getTypeId() == WAVE_HERO_4
             let alex = GetTriggerUnit()
             alex.issueImmediateOrder("roar")
-            alex.issueImmediateOrder("berserk")
+            alex.issueImmediateOrder("carrionswarm")
             
 function freezeActive()
-    EventListener.onCast('A0CS') (unit caster) ->
+    EventListener.onCast(CREEP_ABILITY_104) (unit caster) ->
         doAfter(0.5) -> 
             caster.pause()
         doAfter(4) ->
@@ -24,21 +25,23 @@ function freezeActive()
             ..issueImmediateOrder("stomp")
             doAfter(1) ->
                 caster.removeAbility('Bfrz')    
-                let dmg = caster.getAbilityLevel('A0CS')*24444.00
+                let dmg = caster.getAbilityLevel(CREEP_ABILITY_104)*24444.00
                 forUnitsInRange(caster.getPos(), 700) (unit u) ->
                     if caster.isEnemyOf(u)
                         caster.magicalDamageCode(dmg, u)     
                               
-    EventListener.onCast('A0ZK') (unit caster) ->
-        let dmg = caster.getAbilityLevel('A0ZK')*211.00
-        doAfter(0.5) -> 
-            let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", caster.getPos())
+    EventListener.onCast(CREEP_ABILITY_103) (unit caster) ->
+        EventListener.onPointCast(CREEP_ABILITY_103) (unit caster, vec2 target) ->
+            let dmg = caster.getAbilityLevel(CREEP_ABILITY_103)*223.00
+            let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", target)
             sfx.setScale(2)
             doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
                 forUnitsInRange(sfx.getPos(), 700) (unit u) ->
                     if caster.isEnemyOf(u)
                         caster.magicalDamageCode(dmg, u)
                         u.pause()
-                        if cb.isLast()
-                            sfx.destr()
-                            u.unpause()
+                    if cb.isLast()
+                        sfx.destr()
+                        u.unpause()
+
+                            

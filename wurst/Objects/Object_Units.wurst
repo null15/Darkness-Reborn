@@ -452,13 +452,13 @@ init
     ..setName("Mountain King")
     ..setTooltipBasic("|c00F7EC46Mountain King|r")
     ..setTooltipExtended("|c00F7EC46Mountain King|r\n"
-+ "Roles: " + defender + "/" + farmer + "/" + stacker + "\n\n"
-+ "|c00EE0404Physical Damage|r: 1/5\n"
-+ "|c0076ECF9Magical Damage|r: 4/5\n"
-+ "|c00B0B0B0Defense|r: 5/5\n"
-+ "|c00663300Utility|r: 3/5\n"
-+ "|c0066FF66Healing|r: 0/5\n"
-+ "Difficulty: 1/5\n")
+    + "Roles: " + defender + "/" + farmer + "/" + stacker + "\n\n"
+    + "|c00EE0404Physical Damage|r: 1/5\n"
+    + "|c0076ECF9Magical Damage|r: 4/5\n"
+    + "|c00B0B0B0Defense|r: 5/5\n"
+    + "|c00663300Utility|r: 3/5\n"
+    + "|c0066FF66Healing|r: 0/5\n"
+    + "Difficulty: 1/5\n")
     ..setManaRegeneration(0.01)
 
     new HeroDefinition(PLAY_HERO_1, UnitIds.blademaster)// Wolfman (O007)
@@ -562,13 +562,13 @@ init
     ..setName("Wolfman")
     ..setTooltipBasic("|c00F7EC46Wolfman|r")
     ..setTooltipExtended("|c00F7EC46Wolfman|r\n"
-+ "Roles: " + defender + "/" + farmer + "/" + stacker + "\n\n"
-+ "|c00EE0404Physical Damage|r: 3/5\n"
-+ "|c0076ECF9Magical Damage|r: 2/5\n"
-+ "|c00B0B0B0Defense|r: 4/5\n"
-+ "|c00663300Utility|r: 2/5\n"
-+ "|c0066FF66Healing|r: 3/5\n"
-+ "Difficulty: 2/5\n")
+    + "Roles: " + defender + "/" + farmer + "/" + stacker + "\n\n"
+    + "|c00EE0404Physical Damage|r: 3/5\n"
+    + "|c0076ECF9Magical Damage|r: 2/5\n"
+    + "|c00B0B0B0Defense|r: 4/5\n"
+    + "|c00663300Utility|r: 2/5\n"
+    + "|c0066FF66Healing|r: 3/5\n"
+    + "Difficulty: 2/5\n")
     ..setManaRegeneration(0.01)
 
     new HeroDefinition(PLAY_HERO_2, UnitIds.taurenchieftain)// Tauren Chieftain (O00T)
@@ -669,13 +669,13 @@ init
     ..setName("Tauren Chieftain")
     ..setTooltipBasic("|c00F7EC46Tauren Chieftain|r")
     ..setTooltipExtended("|c00F7EC46Tauren Chieftain|r\n"
-+ "Roles: " + defender + "\n\n"
-+ "|c00EE0404Physical Damage|r: 2/5\n"
-+ "|c0076ECF9Magical Damage|r: 2/5\n"
-+ "|c00B0B0B0Defense|r: 3/5\n"
-+ "|c00663300Utility|r: 5/5\n"
-+ "|c0066FF66Healing|r: 0/5\n"
-+ "Difficulty: 1/5\n")
+    + "Roles: " + defender + "\n\n"
+    + "|c00EE0404Physical Damage|r: 2/5\n"
+    + "|c0076ECF9Magical Damage|r: 2/5\n"
+    + "|c00B0B0B0Defense|r: 3/5\n"
+    + "|c00663300Utility|r: 5/5\n"
+    + "|c0066FF66Healing|r: 0/5\n"
+    + "Difficulty: 1/5\n")
     ..setManaRegeneration(0.01)
 
     new HeroDefinition(PLAY_HERO_3, UnitIds.dreadlord)// Dreadlord (U00X)
@@ -776,13 +776,13 @@ init
     ..setName("Dreadlord")
     ..setTooltipBasic("|c00F7EC46Dreadlord|r")
     ..setTooltipExtended("|c00F7EC46Dreadlord|r\n"
-+ "Roles: " + defender + "/" + farmer + "\n\n"
-+ "|c00EE0404Physical Damage|r: 3/5\n"
-+ "|c0076ECF9Magical Damage|r: 1/5\n"
-+ "|c00B0B0B0Defense|r: 4/5\n"
-+ "|c00663300Utility|r: 2/5\n"
-+ "|c0066FF66Healing|r: 3/5\n"
-+ "Difficulty: 3/5\n")
+    + "Roles: " + defender + "/" + farmer + "\n\n"
+    + "|c00EE0404Physical Damage|r: 3/5\n"
+    + "|c0076ECF9Magical Damage|r: 1/5\n"
+    + "|c00B0B0B0Defense|r: 4/5\n"
+    + "|c00663300Utility|r: 2/5\n"
+    + "|c0066FF66Healing|r: 3/5\n"
+    + "Difficulty: 3/5\n")
     ..setManaRegeneration(0.01)
 
     new HeroDefinition(PLAY_HERO_4, UnitIds.paladin)// Death Knight (U000)
@@ -887,13 +887,13 @@ init
     ..setName("Death Knight")
     ..setTooltipBasic("|c00F7EC46Death Knight|r")
     ..setTooltipExtended("|c00F7EC46Death Knight|r\n"
-+ "Roles: " + defender + "/" + farmer + "/" + stacker + "\n\n"
-+ "|c00EE0404Physical Damage|r: 4/5\n"
-+ "|c0076ECF9Magical Damage|r: 3/5\n"
-+ "|c00B0B0B0Defense|r: 3/5\n"
-+ "|c00663300Utility|r: 2/5\n"
-+ "|c0066FF66Healing|r: 3/5\n"
-+ "Difficulty: 4/5\n")
+    + "Roles: " + defender + "/" + farmer + "/" + stacker + "\n\n"
+    + "|c00EE0404Physical Damage|r: 4/5\n"
+    + "|c0076ECF9Magical Damage|r: 3/5\n"
+    + "|c00B0B0B0Defense|r: 3/5\n"
+    + "|c00663300Utility|r: 2/5\n"
+    + "|c0066FF66Healing|r: 3/5\n"
+    + "Difficulty: 4/5\n")
     ..setManaRegeneration(0.01)
 
     new HeroDefinition(PLAY_HERO_5, UnitIds.beastmaster)// Beastmaster (N003)
@@ -994,13 +994,13 @@ init
     ..setName("Beastmaster")
     ..setTooltipBasic("|c00F7EC46Beastmaster|r")
     ..setTooltipExtended("|c00F7EC46Beastmaster|r\n"
-+ "Roles: " + defender + "/" + farmer + "/" + stacker + "/" + summoner + "\n\n"
-+ "|c00EE0404Physical Damage|r: 5/5\n"
-+ "|c0076ECF9Magical Damage|r: 0/5\n"
-+ "|c00B0B0B0Defense|r: 3/5\n"
-+ "|c00663300Utility|r: 0/5\n"
-+ "|c0066FF66Healing|r: 0/5\n"
-+ "Difficulty: 3/5\n")
+    + "Roles: " + defender + "/" + farmer + "/" + stacker + "/" + summoner + "\n\n"
+    + "|c00EE0404Physical Damage|r: 5/5\n"
+    + "|c0076ECF9Magical Damage|r: 0/5\n"
+    + "|c00B0B0B0Defense|r: 3/5\n"
+    + "|c00663300Utility|r: 0/5\n"
+    + "|c0066FF66Healing|r: 0/5\n"
+    + "Difficulty: 3/5\n")
     ..setManaRegeneration(0.01)
 
     new HeroDefinition(PLAY_HERO_6, UnitIds.pitlord)// Pit Lord (N04F)
@@ -1101,13 +1101,13 @@ init
     ..setName("Pit Lord")
     ..setTooltipBasic("|c00F7EC46Pit Lord|r")
     ..setTooltipExtended("|c00F7EC46Pit Lord|r\n"
-+ "Roles: " + defender + "/" + stacker + "\n\n"
-+ "|c00EE0404Physical Damage|r: 1/5\n"
-+ "|c0076ECF9Magical Damage|r: 2/5\n"
-+ "|c00B0B0B0Defense|r: 5/5\n"
-+ "|c00663300Utility|r: 3/5\n"
-+ "|c0066FF66Healing|r: 0/5\n"
-+ "Difficulty: 1/5\n")
+    + "Roles: " + defender + "/" + stacker + "\n\n"
+    + "|c00EE0404Physical Damage|r: 1/5\n"
+    + "|c0076ECF9Magical Damage|r: 2/5\n"
+    + "|c00B0B0B0Defense|r: 5/5\n"
+    + "|c00663300Utility|r: 3/5\n"
+    + "|c0066FF66Healing|r: 0/5\n"
+    + "Difficulty: 1/5\n")
     ..setManaRegeneration(0.01)
 
     new HeroDefinition(PLAY_HERO_7, UnitIds.paladin)// JackSmith (H03O)
@@ -1208,13 +1208,13 @@ init
     ..setName("JackSmith")
     ..setTooltipBasic("|c00F7EC46Jacksmith|r")
     ..setTooltipExtended("|c00F7EC46Jacksmith|r\n"
-+ "Roles: " + crafter + "\n\n"
-+ "|c00EE0404Physical Damage|r: 1/5\n"
-+ "|c0076ECF9Magical Damage|r: 0/5\n"
-+ "|c00B0B0B0Defense|r: 2/5\n"
-+ "|c00663300Utility|r: 5/5\n"
-+ "|c0066FF66Healing|r: 0/5\n"
-+ "Difficulty: 5/5\n")
+    + "Roles: " + crafter + "\n\n"
+    + "|c00EE0404Physical Damage|r: 1/5\n"
+    + "|c0076ECF9Magical Damage|r: 0/5\n"
+    + "|c00B0B0B0Defense|r: 2/5\n"
+    + "|c00663300Utility|r: 5/5\n"
+    + "|c0066FF66Healing|r: 0/5\n"
+    + "Difficulty: 5/5\n")
     ..setManaRegeneration(0.01)
 
     new HeroDefinition(PLAY_HERO_8, UnitIds.arthaswithfrostmourne)// Athas (H00B)
@@ -1315,13 +1315,13 @@ init
     ..setName("Arthas")
     ..setTooltipBasic("|c00F7EC46Arthas|r")
     ..setTooltipExtended("|c00F7EC46Arthas|r\n"
-+ "Roles: " + farmer + "\n\n"
-+ "|c00EE0404Physical Damage|r: 4/5\n"
-+ "|c0076ECF9Magical Damage|r: 2/5\n"
-+ "|c00B0B0B0Defense|r: 2/5\n"
-+ "|c00663300Utility|r: 1/5\n"
-+ "|c0066FF66Healing|r: 2/5\n"
-+ "Difficulty: 3/5\n")
+    + "Roles: " + farmer + "\n\n"
+    + "|c00EE0404Physical Damage|r: 4/5\n"
+    + "|c0076ECF9Magical Damage|r: 2/5\n"
+    + "|c00B0B0B0Defense|r: 2/5\n"
+    + "|c00663300Utility|r: 1/5\n"
+    + "|c0066FF66Healing|r: 2/5\n"
+    + "Difficulty: 3/5\n")
     ..setManaRegeneration(0.01)
 
     new HeroDefinition(PLAY_HERO_9, UnitIds.priestessofthemoon)// Priestess of the Moon (E001)
@@ -1422,13 +1422,13 @@ init
     ..setName("Priestess of the Moon")
     ..setTooltipBasic("|c00F7EC46Priestess of the Moon|r")
     ..setTooltipExtended("|c00F7EC46Priestess of the Moon|r\n"
-+ "Roles: " + farmer + "/" + support + "\n\n"
-+ "|c00EE0404Physical Damage|r: 5/5\n"
-+ "|c0076ECF9Magical Damage|r: 2/5\n"
-+ "|c00B0B0B0Defense|r: 1/5\n"
-+ "|c00663300Utility|r: 4/5\n"
-+ "|c0066FF66Healing|r: 3/5\n"
-+ "Difficulty: 2/5\n")
+    + "Roles: " + farmer + "/" + support + "\n\n"
+    + "|c00EE0404Physical Damage|r: 5/5\n"
+    + "|c0076ECF9Magical Damage|r: 2/5\n"
+    + "|c00B0B0B0Defense|r: 1/5\n"
+    + "|c00663300Utility|r: 4/5\n"
+    + "|c0066FF66Healing|r: 3/5\n"
+    + "Difficulty: 2/5\n")
     ..setManaRegeneration(0.01)
 
     new HeroDefinition(PLAY_HERO_10, UnitIds.blademaster)// Assasin (O00P)
@@ -7355,7 +7355,7 @@ init
     ..setLevel(99)
 
     new UnitDefinition(ELITE_CREEP_9, UnitIds.icerevenant)// Ice Revenant (n016)
-    ..setNormalAbilities(commaList('A0BR', 'ACvp'))
+    ..setNormalAbilities(commaList('ACvp'))
     
     ..setScalingValue(2.00)
     ..setSelectionScale(2.50)
@@ -10890,7 +10890,7 @@ init
 @compiletime function waveBoss()
 
     new UnitDefinition(WAVE_BOSS_0, UnitIds.zombie)// Zombie (n02C)
-    ..setNormalAbilities(commaList('A0ZP'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_26))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -11048,7 +11048,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_2, UnitIds.centaurimpaler)// Centaur Impaler (ncim)
-    ..setNormalAbilities(commaList('A00M'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_27))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.25)
@@ -11127,7 +11127,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_3, UnitIds.murlocnightcrawler)// Murloc Nightcrawler (nmrm)
-    ..setNormalAbilities(commaList('A04L'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_28))
 
     ..setScalingValue(1.60)
     ..setSelectionScale(1.00)
@@ -11206,7 +11206,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_4, UnitIds.skeletalarcher)// Skeleton Archer (nska)
-    ..setNormalAbilities(commaList('A04F'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_29))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.00)
@@ -11285,7 +11285,7 @@ init
     ..setLevel(1)
 
     new UnitDefinition(WAVE_BOSS_5, UnitIds.skeletonwarrior)// Skeleton Warrior (u00K)
-    ..setNormalAbilities(commaList('A0ZQ'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_30))
 
     ..setScalingValue(1.80)
     ..setSelectionScale(1.50)
@@ -11364,12 +11364,11 @@ init
     ..setLevel(1)
 
     new UnitDefinition(WAVE_BOSS_6, UnitIds.obsidianstatue)// Obsidian Statue (uobs)
-    ..setNormalAbilities(commaList('A057'))
-
-    ..setScalingValue(0.85)
+    ..setNormalAbilities("")
+    ..setScalingValue(0.8)
     ..setSelectionScale(2.10)
     ..setAttack1CooldownTime(2.10)
-    ..setAttack1DamageBase(170)
+    ..setAttack1DamageBase(195)
     ..setAttack1DamageNumberofDice(3)
     ..setAttack1DamageSidesperDie(7)
     ..setAttack1Range(575)
@@ -11443,7 +11442,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_7, UnitIds.acolyte)// Acolyte (uaco)
-    ..setNormalAbilities(commaList('A04U'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_31))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.00)
@@ -11601,7 +11600,7 @@ init
     ..setLevel(1)
 
     new UnitDefinition(WAVE_BOSS_9, UnitIds.burningarcher)// Burning Archer (nskf)
-    ..setNormalAbilities(commaList('A04S'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_32))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.00)
@@ -11680,7 +11679,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_10, UnitIds.ghoul)// Ghoul (u00L)
-    ..setNormalAbilities(commaList('A0ZR'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_32))
 
     ..setScalingValue(1.80)
     ..setSelectionScale(1.50)
@@ -11759,7 +11758,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_11, UnitIds.abomination)// Abomination (uabo)
-    ..setNormalAbilities(commaList('A059'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_33))
 
     ..setScalingValue(1.30)
     ..setSelectionScale(2.10)
@@ -11838,7 +11837,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_12, UnitIds.necromancer)// Necromancer (unec)
-    ..setNormalAbilities(commaList('A064'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_34))
 
     ..setScalingValue(1.74)
     ..setSelectionScale(1.25)
@@ -11917,7 +11916,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_13, UnitIds.sylvanusbanshee)// Sylvanas Windrunner (uswb)
-    ..setNormalAbilities(commaList('ACam', 'Acrs'))
+    ..setNormalAbilities(commaList('ACam', CREEP_ABILITY_35))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.30)
@@ -11996,7 +11995,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_14, UnitIds.ancientsasquatch)// Ancient Sasquatch (nsqa)
-    ..setNormalAbilities(commaList('A07U'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_36))
 
     ..setScalingValue(1.60)
     ..setSelectionScale(1.45)
@@ -12075,7 +12074,7 @@ init
     ..setLevel(9)
 
     new UnitDefinition(WAVE_BOSS_15, UnitIds.cryptfiend)// Crypt Fiend (u00M)
-    ..setNormalAbilities(commaList('A0ZS', 'Aspa'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_37, 'Aspa'))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.85)
@@ -12154,7 +12153,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_16, UnitIds.greatervoidwalker)// Greater Voidwalker (nvdg)
-    ..setNormalAbilities(commaList('ACf2', 'A06H'))
+    ..setNormalAbilities(commaList('ACf2', CREEP_ABILITY_38))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.30)
@@ -12233,7 +12232,7 @@ init
     ..setLevel(6)
 
     new UnitDefinition(WAVE_BOSS_17, UnitIds.draeneiharbinger)// Draenei Harbinger (ndrh)
-    ..setNormalAbilities(commaList('ACbb', 'A065'))
+    ..setNormalAbilities(commaList('ACbb', CREEP_ABILITY_39))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.05)
@@ -12312,7 +12311,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_18, UnitIds.queenofsuffering)// Queen of Suffering (ndqs)
-    ..setNormalAbilities(commaList('A06B'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_40))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(1.50)
@@ -12470,7 +12469,7 @@ init
     ..setLevel(6)
 
     new UnitDefinition(WAVE_BOSS_20, UnitIds.footman)// Footman (h02S)
-    ..setNormalAbilities(commaList('A0ZU', 'Adef'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_41, 'Adef'))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(1.50)
@@ -12786,7 +12785,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_24, UnitIds.spellbreaker)// Spell Breaker (hspt)
-    ..setNormalAbilities(commaList('A06K'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_42))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.20)
@@ -12865,7 +12864,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_25, UnitIds.tuskarrsorceror)// Tuskarr Sorcerer (n03E)
-    ..setNormalAbilities(commaList('ACif', 'A08Y'))
+    ..setNormalAbilities(commaList('ACif', CREEP_ABILITY_44))
 
     ..setScalingValue(2.40)
     ..setSelectionScale(3.00)
@@ -12944,7 +12943,7 @@ init
     ..setLevel(41)
 
     new UnitDefinition(WAVE_BOSS_26, UnitIds.ancienthydra)// Ancient Hydra (n03C)
-    ..setNormalAbilities(commaList('Aspo', 'A0A1'))
+    ..setNormalAbilities(commaList('Aspo', CREEP_ABILITY_45))
     ..setModelFile("Units\\Mobs\\Dragons\\Dragon1.mdx")
     ..setScalingValue(2.70)
     ..setSelectionScale(6.00)
@@ -13023,7 +13022,7 @@ init
     ..setLevel(41)
 
     new UnitDefinition(WAVE_BOSS_27, UnitIds.broodmother)// Brood Mother (n03D)
-    ..setNormalAbilities(commaList('A08L', 'A09W'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_49, CREEP_ABILITY_47))
 
     ..setScalingValue(3.00)
     ..setSelectionScale(4.00)
@@ -13102,7 +13101,7 @@ init
     ..setLevel(41)
 
     new UnitDefinition(WAVE_BOSS_28, UnitIds.abomination)// Abomination (u00N)
-    ..setNormalAbilities(commaList('A092', 'A059'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_50, CREEP_ABILITY_33))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(2.10)
@@ -13339,7 +13338,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_31, UnitIds.razormanechieftain)// Razormane Chieftain (nrzg)
-    ..setNormalAbilities(commaList('ACah', 'A06Q'))
+    ..setNormalAbilities(commaList('ACah', CREEP_ABILITY_51))
 
     ..setScalingValue(1.80)
     ..setSelectionScale(1.00)
@@ -13418,7 +13417,7 @@ init
     ..setLevel(7)
 
     new UnitDefinition(WAVE_BOSS_32, UnitIds.hydromancer)// Hydromancer (nhym)
-    ..setNormalAbilities(commaList('A06M', 'A06O'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_52, CREEP_ABILITY_53))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.50)
@@ -13576,7 +13575,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_34, UnitIds.sorceress)// Sorceress (hsor)
-    ..setNormalAbilities(commaList('A06L'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_54))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.00)
@@ -13655,7 +13654,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_35, UnitIds.knight)// Knight (h02T)
-    ..setNormalAbilities(commaList('A0ZV', 'A0ZW'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_55, CREEP_ABILITY_56))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.70)
@@ -13734,7 +13733,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_36, UnitIds.dragonhawk)// Dragonhawk Rider (hdhw)
-    ..setNormalAbilities(commaList('A073', 'A072'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_58, CREEP_ABILITY_57))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(2.00)
@@ -13813,7 +13812,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_37, UnitIds.priest)// Priest (hmpr)
-    ..setNormalAbilities(commaList('A07E'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_59))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -13971,7 +13970,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_39, UnitIds.battlegolem)// Battle Golem (narg)
-    ..setNormalAbilities(commaList('A07U'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_36))
 
     ..setScalingValue(1.30)
     ..setSelectionScale(1.50)
@@ -14050,7 +14049,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_40, UnitIds.rifleman)// Rifleman (h02U)
-    ..setNormalAbilities(commaList('Aihn', 'A0ZX'))
+    ..setNormalAbilities(commaList('Aihn', CREEP_ABILITY_60))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(1.50)
@@ -14208,7 +14207,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_BOSS_42, UnitIds.siegeengine)// Siege Engine (hmtt)
-    ..setNormalAbilities(commaList('Srtt', 'A07F'))
+    ..setNormalAbilities(commaList('Srtt', CREEP_ABILITY_61))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(4.00)
@@ -14367,7 +14366,7 @@ init
     ..setLevel(1)
 
     new UnitDefinition(WAVE_BOSS_44, UnitIds.furbolgancient)// Furbolg Ursa Warrior (nfra)
-    ..setNormalAbilities(commaList('ACac', 'A07U'))
+    ..setNormalAbilities(commaList('ACac', CREEP_ABILITY_36))
 
     ..setScalingValue(1.80)
     ..setSelectionScale(1.75)
@@ -14446,7 +14445,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_45, UnitIds.garthok)// Garthok (o009)
-    ..setNormalAbilities(commaList('A0ZZ', 'A0ZY'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_63, CREEP_ABILITY_62))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -14525,7 +14524,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_46, UnitIds.spiritwalker)// Spirit Walker (ospw)
-    ..setNormalAbilities(commaList('Acpf', 'Aspl', 'Adcn', 'Aast', 'Aion', 'ACsk'))
+    ..setNormalAbilities(commaList('Acpf', 'Aspl', 'Adcn', 'Aast', 'Aion'))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(2.00)
@@ -14762,7 +14761,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_BOSS_49, UnitIds.satyrhellcaller)// Satyr Hellcaller (nsth)
-    ..setNormalAbilities(commaList('ACbl', 'ACua', 'A07G'))
+    ..setNormalAbilities(commaList('ACbl', 'ACua', CREEP_ABILITY_64))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.25)
@@ -14841,7 +14840,7 @@ init
     ..setLevel(9)
 
     new UnitDefinition(WAVE_BOSS_50, UnitIds.war2warlock)// Orc Warlock (n02F)
-    ..setNormalAbilities(commaList('A100', 'A101', 'A0ZZ'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_65, CREEP_ABILITY_66, CREEP_ABILITY_63))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -14999,7 +14998,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_BOSS_52, UnitIds.witchdoctor)// Troll Witch Doctor (odoc)
-    ..setNormalAbilities(commaList('A07H', 'A07I'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_67, CREEP_ABILITY_68))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.00)
@@ -15078,7 +15077,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_53, UnitIds.kotobeast)// Kodo Beast (okod)
-    ..setNormalAbilities(commaList('Aakb'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_69))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(3.00)
@@ -15236,7 +15235,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_55, UnitIds.corruptedent)// Corrupted Treant (Big Boss 10) (n03J)
-    ..setNormalAbilities(commaList(CREEP_ABILITY_18, 'A0A5', 'A0A4', 'A0BR', 'A0BE', CREEP_ABILITY_1, 'A0O8'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_18, CREEP_ABILITY_25, REDUCE_ARMOR_80_BOSS, CREEP_ABILITY_1, REDUCE_ARMOR_75))
 
     ..setScalingValue(0.90)
     ..setSelectionScale(0.25)
@@ -15315,7 +15314,7 @@ init
     ..setLevel(45)
 
     new UnitDefinition(WAVE_BOSS_56, UnitIds.infernal)// Infernal (n03L)
-    ..setNormalAbilities(commaList(CREEP_ABILITY_1, 'A0A5', 'A081', 'ACrk'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_1, CREEP_ABILITY_25, CREEP_ABILITY_70))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(3.50)
@@ -15394,7 +15393,7 @@ init
     ..setLevel(45)
 
     new UnitDefinition(WAVE_BOSS_57, UnitIds.overlordarachnathid)// Overlord Arachnathid (n03K)
-    ..setNormalAbilities(commaList(CREEP_ABILITY_1, 'A07U', 'A080', 'A08G'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_1, CREEP_ABILITY_36, CREEP_ABILITY_71, CREEP_ABILITY_72))
 
     ..setScalingValue(3.00)
     ..setSelectionScale(1.80)
@@ -15473,7 +15472,7 @@ init
     ..setLevel(45)
 
     new UnitDefinition(WAVE_BOSS_58, UnitIds.chaosgrunt)// Fel Orc Grunt (n02G)
-    ..setNormalAbilities(commaList('A102', 'A0ZP', 'A0ZZ'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_73, CREEP_ABILITY_26, CREEP_ABILITY_63))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -15552,7 +15551,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_59, UnitIds.trollbatrider)// Troll Batrider (otbr)
-    ..setNormalAbilities(commaList('A07L'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_74))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -15631,7 +15630,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_60, UnitIds.demolisher)// Demolisher (ocat)
-    ..setNormalAbilities(commaList('A07P'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_75))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(3.00)
@@ -15789,7 +15788,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_62, UnitIds.riderlesswyvern)// Wyvern (o00A)
-    ..setNormalAbilities(commaList('A0ZZ', 'A103'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_63, CREEP_ABILITY_76))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -15868,7 +15867,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_BOSS_63, UnitIds.drakthul)// Drakthul (odkt)
-    ..setNormalAbilities(commaList('A07V', 'A07T'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_78, CREEP_ABILITY_77))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -15947,7 +15946,7 @@ init
     ..setLevel(6)
 
     new UnitDefinition(WAVE_BOSS_64, UnitIds.chaoskotobeast)// Fel Orc Kodo Beast (nckb)
-    ..setNormalAbilities(commaList('A07X'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_73))
 
     ..setScalingValue(1.40)
     ..setSelectionScale(3.00)
@@ -16026,7 +16025,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_65, UnitIds.chaoswarlord)// Orc Warchief (owar)
-    ..setNormalAbilities(commaList('A07U'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_36))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -16184,7 +16183,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_BOSS_67, UnitIds.shaman)// Shaman (o00B)
-    ..setNormalAbilities(commaList('A0ZY', 'A104', 'A105'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_62, CREEP_ABILITY_79, CREEP_ABILITY_80))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -16263,7 +16262,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_68, UnitIds.infernalmachine)// Infernal Machine (ninm)
-    ..setNormalAbilities(commaList('A080'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_71))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(3.50)
@@ -16342,7 +16341,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_69, UnitIds.furbolgeldershaman)// Furbolg Elder Shaman (nfre)
-    ..setNormalAbilities(commaList('A07Z'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_81))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(1.50)
@@ -16421,7 +16420,7 @@ init
     ..setLevel(7)
 
     new UnitDefinition(WAVE_BOSS_70, UnitIds.darktrollhighpriest)// Dark Troll High Priest (ndth)
-    ..setNormalAbilities(commaList('A07Y', 'Afr2'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_82, 'Afr2'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -16579,7 +16578,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_72, UnitIds.nazgrel)// Nazgrel (o00C)
-    ..setNormalAbilities(commaList('A101', 'A102', CREEP_ABILITY_1))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_66, CREEP_ABILITY_73, CREEP_ABILITY_1))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.60)
@@ -16737,7 +16736,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_74, UnitIds.lightninglizard)// Lightning Lizard (nltl)
-    ..setNormalAbilities(commaList('Alit'))
+    ..setNormalAbilities("")
 
     ..setScalingValue(1.80)
     ..setSelectionScale(2.50)
@@ -16895,7 +16894,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_76, UnitIds.infernal)// Infernal (ninf)
-    ..setNormalAbilities(commaList('A081', 'ACrk'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_70))
 
     ..setScalingValue(1.50)
     ..setSelectionScale(2.50)
@@ -16974,7 +16973,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_77, UnitIds.chaoswolfrider)// Fel Orc Raider (n02H)
-    ..setNormalAbilities(commaList('A106'))
+    ..setNormalAbilities("")
 
     ..setScalingValue(1.70)
     ..setSelectionScale(1.70)
@@ -17053,7 +17052,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_BOSS_78, UnitIds.harpyhag)// Harpy Storm-hag (nhrh)
-    ..setNormalAbilities(commaList('A082'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_41))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(2.00)
@@ -17132,7 +17131,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_BOSS_79, UnitIds.enragedowlbear)// Enraged Wildkin (nowe)
-    ..setNormalAbilities(commaList('A07U'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_36))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(3.00)
@@ -17369,7 +17368,7 @@ init
     ..setLevel(6)
 
     new UnitDefinition(WAVE_BOSS_82, UnitIds.banshee)// Banshee (Big Boss 15) (u00O)
-    ..setNormalAbilities(commaList('A0NL', CREEP_ABILITY_21, CREEP_ABILITY_10))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_21, CREEP_ABILITY_10))
 
     ..setScalingValue(3.00)
     ..setSelectionScale(3.00)
@@ -17448,7 +17447,7 @@ init
     ..setLevel(30)
 
     new UnitDefinition(WAVE_BOSS_83, UnitIds.cryptlord)// Cryptlord (h037)
-    ..setNormalAbilities(commaList('A0AF', 'A0CM', 'A0MM'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_83, CREEP_ABILITY_84, CREEP_ABILITY_85))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(3.50)
@@ -17527,7 +17526,7 @@ init
     ..setLevel(46)
 
     new UnitDefinition(WAVE_BOSS_84, UnitIds.spiritwyvern)// Spirit Wyvern (o00D)
-    ..setNormalAbilities(commaList('A107', 'A103'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_86, CREEP_ABILITY_76))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.75)
@@ -17606,7 +17605,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_BOSS_85, UnitIds.murgulreaver)// Murgul Reaver (n02I)
-    ..setNormalAbilities(commaList('Afra', 'A0ZP', 'A0ZZ'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_26, CREEP_ABILITY_63))
 
     ..setScalingValue(3.00)
     ..setSelectionScale(1.15)
@@ -17764,7 +17763,7 @@ init
     ..setLevel(7)
 
     new UnitDefinition(WAVE_BOSS_87, UnitIds.felravager)// Greater Spirit Beast (nsw3)
-    ..setNormalAbilities(commaList('A08R'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_87))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(3.00)
@@ -17843,7 +17842,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_88, UnitIds.snapdragon)// Snap Dragon (nsnp)
-    ..setNormalAbilities(commaList('A083'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_88))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(3.00)
@@ -18001,7 +18000,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_90, UnitIds.nagaroyalguard)// Naga Royal Guard (n02J)
-    ..setNormalAbilities(commaList('A108', 'A109', 'A10A', 'ACsk'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_89, CREEP_ABILITY_90, CREEP_ABILITY_91))
 
     ..setScalingValue(1.70)
     ..setSelectionScale(2.25)
@@ -18080,7 +18079,7 @@ init
     ..setLevel(6)
 
     new UnitDefinition(WAVE_BOSS_91, UnitIds.eldervoidwalker)// Elder Voidwalker (nvde)
-    ..setNormalAbilities(commaList('A08F'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_92))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(3.00)
@@ -18159,7 +18158,7 @@ init
     ..setLevel(9)
 
     new UnitDefinition(WAVE_BOSS_92, UnitIds.ogrelord)// Ogre Lord (nogl)
-    ..setNormalAbilities(commaList('ACav', 'A08D'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_93, CREEP_ABILITY_94))
 
     ..setScalingValue(2.30)
     ..setSelectionScale(2.00)
@@ -18238,7 +18237,7 @@ init
     ..setLevel(7)
 
     new UnitDefinition(WAVE_BOSS_93, UnitIds.granitegolem)// Granite Golem (nggr)
-    ..setNormalAbilities(commaList('ACtb', 'A07U'))
+    ..setNormalAbilities(commaList('ACtb', CREEP_ABILITY_36))
 
     ..setScalingValue(1.80)
     ..setSelectionScale(3.00)
@@ -18317,7 +18316,7 @@ init
     ..setLevel(9)
 
     new UnitDefinition(WAVE_BOSS_94, UnitIds.darktrollwarlord)// Dark Troll Warlord (ndtw)
-    ..setNormalAbilities(commaList(CREEP_ABILITY_1, 'A08E'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_1, CREEP_ABILITY_95))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(3.00)
@@ -18396,7 +18395,7 @@ init
     ..setLevel(6)
 
     new UnitDefinition(WAVE_BOSS_95, UnitIds.dragonturtle)// Dragon Turtle (n050)
-    ..setNormalAbilities(commaList('A10B', 'Ansk', 'A108', 'A10C', 'A102', 'A0NL'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_96, 'Ansk', CREEP_ABILITY_89, CREEP_ABILITY_97, CREEP_ABILITY_73))
 
     ..setScalingValue(1.30)
     ..setSelectionScale(4.00)
@@ -18475,7 +18474,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_BOSS_96, UnitIds.icerevenant)// Ice Revenant (nrvi)
-    ..setNormalAbilities(commaList('ACvp', 'A08G'))
+    ..setNormalAbilities(commaList('ACvp', CREEP_ABILITY_72))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -18554,7 +18553,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_97, UnitIds.darkwizard)// Dark Wizard (nwzd)
-    ..setNormalAbilities(commaList('ACba', 'A08K'))
+    ..setNormalAbilities(commaList('ACba', CREEP_ABILITY_98))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.50)
@@ -18633,7 +18632,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_98, UnitIds.giantpolarbear)// Giant Polar Bear (nplg)
-    ..setNormalAbilities(commaList('A07U'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_36))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.40)
@@ -18712,7 +18711,7 @@ init
     ..setLevel(6)
 
     new UnitDefinition(WAVE_BOSS_99, UnitIds.ancientwendigo)// Ancient Wendigo (nwna)
-    ..setNormalAbilities(commaList('A07U'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_36))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(2.50)
@@ -18791,7 +18790,7 @@ init
     ..setLevel(9)
 
     new UnitDefinition(WAVE_BOSS_100, UnitIds.nagacoutl)// Couatl (n02D)
-    ..setNormalAbilities(commaList('Andm', 'A10D', 'A0BR'))
+    ..setNormalAbilities(commaList('Andm', CREEP_ABILITY_99))
 
     ..setScalingValue(1.20)
     ..setSelectionScale(2.00)
@@ -18870,7 +18869,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_BOSS_101, UnitIds.nerubianwebspinner)// Nerubian Webspinner (nnwl)
-    ..setNormalAbilities(commaList('A08N', 'A08L', 'Aspa'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_100, CREEP_ABILITY_49, 'Aspa'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -18949,7 +18948,7 @@ init
     ..setLevel(3)
 
     new UnitDefinition(WAVE_BOSS_102, UnitIds.furbolgpanda)// Pandaren (nfrp)
-    ..setNormalAbilities(commaList('A07U'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_36))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(2.00)
@@ -19028,7 +19027,7 @@ init
     ..setLevel(4)
 
     new UnitDefinition(WAVE_BOSS_103, UnitIds.polarfurbolgursawarrior)// Polar Furbolg Ursa Warrior (nfpu)
-    ..setNormalAbilities(commaList('A08P', 'A07U'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_73, CREEP_ABILITY_36))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(1.75)
@@ -19107,7 +19106,7 @@ init
     ..setLevel(8)
 
     new UnitDefinition(WAVE_BOSS_104, UnitIds.overlord)// Overlord (nfov)
-    ..setNormalAbilities(commaList('ACce', 'A07U', 'ACvp'))
+    ..setNormalAbilities(commaList('ACce', CREEP_ABILITY_36, 'ACvp'))
 
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -19185,10 +19184,421 @@ init
     ..setManaRegeneration(0.75)
     ..setLevel(6)
 
+@compiletime function creepSummons()
+    new UnitDefinition(SUMMONED_UNIT_1, UnitIds.hydra)
+    ..setNormalAbilities(commaList('Aspo', CREEP_ABILITY_46))
+    ..setModelFile("Units\\Mobs\\Dragons\\Dragon1.mdx")
+    ..setScalingValue(1.8)
+    ..setSelectionScale(6.00)
+    ..setAttack1CooldownTime(1.00)
+    ..setAttack1DamageBase(600)
+    ..setAttack1DamageNumberofDice(9)
+    ..setAttack1DamageSidesperDie(9)
+    ..setAttack1Range(1200)
+    ..setAttack1ProjectileArc(0.00)
+    ..setAttack1ProjectileArt("Abilities\\Weapons\\ChimaeraAcidMissile\\ChimaeraAcidMissile.mdl")
+    ..setAttack1ProjectileHomingEnabled(false)
+    ..setAttack1WeaponType(WeaponType.Missile)
+    ..setAttack1DamageSpillDistance(0.00)
+    ..setAttack1DamageSpillRadius(0.00)
+    ..setAttack1MaximumNumberofTargets(1)
+    ..setAttack1AreaofEffectFullDamage(100)
+    ..setAttack1AreaofEffectMediumDamage(250)
+    ..setAttack1AreaofEffectSmallDamage(300)
+    ..setAttack1AnimationBackswingPoint(0.300)
+    ..setAttack1AnimationDamagePoint(0.700)
+    ..setAttack1AttackType(AttackType.Chaos)
+    ..setAttack1TargetsAllowed(commaList("air", "debris", "enemies", "ground", "structure"))
+    ..setAttack1AreaofEffectTargets(commaList("air", "debris", "enemies", "ground", "structure"))
+    ..setAttack2CooldownTime(0.00)
+    ..setAttack2DamageBase(0)
+    ..setAttack2DamageNumberofDice(0)
+    ..setAttack2DamageSidesperDie(0)
+    ..setAttack2Range(0)
+    ..setAttack2ProjectileArc(0.00)
+    ..setAttack2ProjectileArt("None")
+    ..setAttack2ProjectileHomingEnabled(false)
+    ..setAttack2WeaponType(WeaponType.None)
+    ..setAttack2DamageSpillDistance(0.00)
+    ..setAttack2DamageSpillRadius(0.00)
+    ..setAttack2MaximumNumberofTargets(1)
+    ..setAttack2AreaofEffectFullDamage(0)
+    ..setAttack2AreaofEffectMediumDamage(0)
+    ..setAttack2AreaofEffectSmallDamage(0)
+    ..setAttack2AnimationBackswingPoint(0.000)
+    ..setAttack2AnimationDamagePoint(0.000)
+    ..setAttack2AttackType(AttackType.Normal)
+    ..setAttack2TargetsAllowed(commaList(""))
+    ..setAttack2AreaofEffectTargets(commaList(""))
+    ..setTargetedAs(commaList("ground"))
+    ..setAttacksEnabled(1)
+    ..setMinimumAttackRange(0)
+    ..setCanDropItemsOnDeath(true)
+    ..setAcquisitionRange(800)
+    ..setSpeedBase(300)
+    ..setMovementHeight(0.00)
+    ..setMovementHeightMinimum(0.00)
+    ..setSpeedMaximum(0)
+    ..setSpeedMinimum(0)
+    ..setTurnRate(0.60)
+    ..setMovementType(MovementType.Amphipic)
+    ..setFoodCost(8)
+    ..setCanFlee(true)
+    ..setGoldCost(745)
+    ..setSightRadiusDay(1400)
+    ..setSightRadiusNight(800)
+    ..setSleeps(false)
+    ..setCollisionSize(48.00)
+    ..setHitPointsRegenerationType("always")
+    ..setDefenseBase(45)
+    ..setArmorType(ArmorType.Large)
+    ..setDefenseUpgradeBonus(15)
+    ..setGoldBountyAwardedBase(150)
+    ..setGoldBountyAwardedNumberofDice(3)
+    ..setGoldBountyAwardedSidesperDie(8)
+    ..setHitPointsMaximumBase(15000)
+    ..setHitPointsRegenerationRate(350.00)
+    ..setManaInitialAmount(600)
+    ..setManaMaximum(600)
+    ..setName("Hydra")
+    ..setManaRegeneration(1.50)
+    ..setLevel(41)
+
+    new UnitDefinition(SUMMONED_UNIT_2, UnitIds.hydrahatchling)
+    ..setNormalAbilities(commaList('Aspo'))
+    ..setModelFile("Units\\Mobs\\Dragons\\Dragon1.mdx")
+    ..setScalingValue(1.2)
+    ..setSelectionScale(6.00)
+    ..setAttack1CooldownTime(1.00)
+    ..setAttack1DamageBase(400)
+    ..setAttack1DamageNumberofDice(9)
+    ..setAttack1DamageSidesperDie(9)
+    ..setAttack1Range(1200)
+    ..setAttack1ProjectileArc(0.00)
+    ..setAttack1ProjectileArt("Abilities\\Weapons\\ChimaeraAcidMissile\\ChimaeraAcidMissile.mdl")
+    ..setAttack1ProjectileHomingEnabled(false)
+    ..setAttack1WeaponType(WeaponType.Missile)
+    ..setAttack1DamageSpillDistance(0.00)
+    ..setAttack1DamageSpillRadius(0.00)
+    ..setAttack1MaximumNumberofTargets(1)
+    ..setAttack1AreaofEffectFullDamage(100)
+    ..setAttack1AreaofEffectMediumDamage(250)
+    ..setAttack1AreaofEffectSmallDamage(300)
+    ..setAttack1AnimationBackswingPoint(0.300)
+    ..setAttack1AnimationDamagePoint(0.700)
+    ..setAttack1AttackType(AttackType.Chaos)
+    ..setAttack1TargetsAllowed(commaList("air", "debris", "enemies", "ground", "structure"))
+    ..setAttack1AreaofEffectTargets(commaList("air", "debris", "enemies", "ground", "structure"))
+    ..setAttack2CooldownTime(0.00)
+    ..setAttack2DamageBase(0)
+    ..setAttack2DamageNumberofDice(0)
+    ..setAttack2DamageSidesperDie(0)
+    ..setAttack2Range(0)
+    ..setAttack2ProjectileArc(0.00)
+    ..setAttack2ProjectileArt("None")
+    ..setAttack2ProjectileHomingEnabled(false)
+    ..setAttack2WeaponType(WeaponType.None)
+    ..setAttack2DamageSpillDistance(0.00)
+    ..setAttack2DamageSpillRadius(0.00)
+    ..setAttack2MaximumNumberofTargets(1)
+    ..setAttack2AreaofEffectFullDamage(0)
+    ..setAttack2AreaofEffectMediumDamage(0)
+    ..setAttack2AreaofEffectSmallDamage(0)
+    ..setAttack2AnimationBackswingPoint(0.000)
+    ..setAttack2AnimationDamagePoint(0.000)
+    ..setAttack2AttackType(AttackType.Normal)
+    ..setAttack2TargetsAllowed(commaList(""))
+    ..setAttack2AreaofEffectTargets(commaList(""))
+    ..setTargetedAs(commaList("ground"))
+    ..setAttacksEnabled(1)
+    ..setMinimumAttackRange(0)
+    ..setCanDropItemsOnDeath(true)
+    ..setAcquisitionRange(800)
+    ..setSpeedBase(300)
+    ..setMovementHeight(0.00)
+    ..setMovementHeightMinimum(0.00)
+    ..setSpeedMaximum(0)
+    ..setSpeedMinimum(0)
+    ..setTurnRate(0.60)
+    ..setMovementType(MovementType.Amphipic)
+    ..setFoodCost(8)
+    ..setCanFlee(true)
+    ..setGoldCost(745)
+    ..setSightRadiusDay(1400)
+    ..setSightRadiusNight(800)
+    ..setSleeps(false)
+    ..setCollisionSize(48.00)
+    ..setHitPointsRegenerationType("always")
+    ..setDefenseBase(45)
+    ..setArmorType(ArmorType.Large)
+    ..setDefenseUpgradeBonus(15)
+    ..setGoldBountyAwardedBase(150)
+    ..setGoldBountyAwardedNumberofDice(3)
+    ..setGoldBountyAwardedSidesperDie(8)
+    ..setHitPointsMaximumBase(5000)
+    ..setHitPointsRegenerationRate(350.00)
+    ..setManaInitialAmount(600)
+    ..setManaMaximum(600)
+    ..setName("Hydra")
+    ..setManaRegeneration(1.50)
+    ..setLevel(41)
+
+    new UnitDefinition(SUMMONED_UNIT_3, UnitIds.spider)
+    ..setNormalAbilities(commaList(CREEP_ABILITY_48))
+    ..setScalingValue(2.00)
+    ..setSelectionScale(2.00)
+    ..setAttack1CooldownTime(1.35)
+    ..setAttack1DamageBase(455)
+    ..setAttack1DamageNumberofDice(8)
+    ..setAttack1DamageSidesperDie(9)
+    ..setAttack1Range(100)
+    ..setAttack1ProjectileArc(0.00)
+    ..setAttack1ProjectileArt("None")
+    ..setAttack1ProjectileHomingEnabled(false)
+    ..setAttack1WeaponType(WeaponType.Normal)
+    ..setAttack1DamageSpillDistance(0.00)
+    ..setAttack1DamageSpillRadius(0.00)
+    ..setAttack1MaximumNumberofTargets(1)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
+    ..setAttack1AnimationBackswingPoint(0.300)
+    ..setAttack1AnimationDamagePoint(0.500)
+    ..setAttack1AttackType(AttackType.Chaos)
+    ..setAttack1TargetsAllowed(commaList("ground", "structure", "debris", "item", "ward"))
+    ..setAttack1AreaofEffectTargets(commaList(""))
+    ..setAttack2CooldownTime(0.00)
+    ..setAttack2DamageBase(0)
+    ..setAttack2DamageNumberofDice(0)
+    ..setAttack2DamageSidesperDie(0)
+    ..setAttack2Range(0)
+    ..setAttack2ProjectileArc(0.00)
+    ..setAttack2ProjectileArt("None")
+    ..setAttack2ProjectileHomingEnabled(false)
+    ..setAttack2WeaponType(WeaponType.None)
+    ..setAttack2DamageSpillDistance(0.00)
+    ..setAttack2DamageSpillRadius(0.00)
+    ..setAttack2MaximumNumberofTargets(1)
+    ..setAttack2AreaofEffectFullDamage(0)
+    ..setAttack2AreaofEffectMediumDamage(0)
+    ..setAttack2AreaofEffectSmallDamage(0)
+    ..setAttack2AnimationBackswingPoint(0.000)
+    ..setAttack2AnimationDamagePoint(0.000)
+    ..setAttack2AttackType(AttackType.Normal)
+    ..setAttack2TargetsAllowed(commaList(""))
+    ..setAttack2AreaofEffectTargets(commaList(""))
+    ..setTargetedAs(commaList("ground"))
+    ..setAttacksEnabled(1)
+    ..setMinimumAttackRange(0)
+    ..setCanDropItemsOnDeath(true)
+    ..setAcquisitionRange(800)
+    ..setSpeedBase(320)
+    ..setMovementHeight(0.00)
+    ..setMovementHeightMinimum(0.00)
+    ..setSpeedMaximum(0)
+    ..setSpeedMinimum(0)
+    ..setTurnRate(0.50)
+    ..setMovementType(MovementType.Foot)
+    ..setFoodCost(5)
+    ..setCanFlee(true)
+    ..setGoldCost(365)
+    ..setSightRadiusDay(1400)
+    ..setSightRadiusNight(800)
+    ..setSleeps(false)
+    ..setCollisionSize(32.00)
+    ..setHitPointsRegenerationType("always")
+    ..setDefenseBase(47)
+    ..setArmorType(ArmorType.Large)
+    ..setDefenseUpgradeBonus(15)
+    ..setGoldBountyAwardedBase(40)
+    ..setGoldBountyAwardedNumberofDice(4)
+    ..setGoldBountyAwardedSidesperDie(3)
+    ..setHitPointsMaximumBase(17250)
+    ..setHitPointsRegenerationRate(370.00)
+    ..setManaInitialAmount(0)
+    ..setManaMaximum(0)
+    ..setName("Spider")
+    ..setManaRegeneration(0.00)
+    ..setLevel(41)
+
+    new UnitDefinition(SUMMONED_UNIT_4, UnitIds.spiderling)
+    ..setNormalAbilities("")
+    ..setScalingValue(1.50)
+    ..setSelectionScale(2.00)
+    ..setAttack1CooldownTime(1.35)
+    ..setAttack1DamageBase(355)
+    ..setAttack1DamageNumberofDice(8)
+    ..setAttack1DamageSidesperDie(9)
+    ..setAttack1Range(100)
+    ..setAttack1ProjectileArc(0.00)
+    ..setAttack1ProjectileArt("None")
+    ..setAttack1ProjectileHomingEnabled(false)
+    ..setAttack1WeaponType(WeaponType.Normal)
+    ..setAttack1DamageSpillDistance(0.00)
+    ..setAttack1DamageSpillRadius(0.00)
+    ..setAttack1MaximumNumberofTargets(1)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
+    ..setAttack1AnimationBackswingPoint(0.300)
+    ..setAttack1AnimationDamagePoint(0.500)
+    ..setAttack1AttackType(AttackType.Chaos)
+    ..setAttack1TargetsAllowed(commaList("ground", "structure", "debris", "item", "ward"))
+    ..setAttack1AreaofEffectTargets(commaList(""))
+    ..setAttack2CooldownTime(0.00)
+    ..setAttack2DamageBase(0)
+    ..setAttack2DamageNumberofDice(0)
+    ..setAttack2DamageSidesperDie(0)
+    ..setAttack2Range(0)
+    ..setAttack2ProjectileArc(0.00)
+    ..setAttack2ProjectileArt("None")
+    ..setAttack2ProjectileHomingEnabled(false)
+    ..setAttack2WeaponType(WeaponType.None)
+    ..setAttack2DamageSpillDistance(0.00)
+    ..setAttack2DamageSpillRadius(0.00)
+    ..setAttack2MaximumNumberofTargets(1)
+    ..setAttack2AreaofEffectFullDamage(0)
+    ..setAttack2AreaofEffectMediumDamage(0)
+    ..setAttack2AreaofEffectSmallDamage(0)
+    ..setAttack2AnimationBackswingPoint(0.000)
+    ..setAttack2AnimationDamagePoint(0.000)
+    ..setAttack2AttackType(AttackType.Normal)
+    ..setAttack2TargetsAllowed(commaList(""))
+    ..setAttack2AreaofEffectTargets(commaList(""))
+    ..setTargetedAs(commaList("ground"))
+    ..setAttacksEnabled(1)
+    ..setMinimumAttackRange(0)
+    ..setCanDropItemsOnDeath(true)
+    ..setAcquisitionRange(800)
+    ..setSpeedBase(320)
+    ..setMovementHeight(0.00)
+    ..setMovementHeightMinimum(0.00)
+    ..setSpeedMaximum(0)
+    ..setSpeedMinimum(0)
+    ..setTurnRate(0.50)
+    ..setMovementType(MovementType.Foot)
+    ..setFoodCost(5)
+    ..setCanFlee(true)
+    ..setGoldCost(365)
+    ..setSightRadiusDay(1400)
+    ..setSightRadiusNight(800)
+    ..setSleeps(false)
+    ..setCollisionSize(32.00)
+    ..setHitPointsRegenerationType("always")
+    ..setDefenseBase(47)
+    ..setArmorType(ArmorType.Large)
+    ..setDefenseUpgradeBonus(15)
+    ..setGoldBountyAwardedBase(40)
+    ..setGoldBountyAwardedNumberofDice(4)
+    ..setGoldBountyAwardedSidesperDie(3)
+    ..setHitPointsMaximumBase(12250)
+    ..setHitPointsRegenerationRate(370.00)
+    ..setManaInitialAmount(0)
+    ..setManaMaximum(0)
+    ..setName("Spiderling")
+    ..setManaRegeneration(0.00)
+    ..setLevel(41)
+
+    new UnitDefinition(SUMMONED_UNIT_5, UnitIds.knight)
+    ..setNormalAbilities(commaList(CREEP_ABILITY_37))
+
+    ..setScalingValue(1.0)
+    ..setSelectionScale(1.70)
+    ..setAttack1CooldownTime(1.00)
+    ..setAttack1DamageBase(888)
+    ..setAttack1DamageNumberofDice(7)
+    ..setAttack1DamageSidesperDie(9)
+    ..setAttack1Range(100)
+    ..setAttack1ProjectileArc(0.00)
+    ..setAttack1ProjectileArt("None")
+    ..setAttack1ProjectileHomingEnabled(false)
+    ..setAttack1WeaponType(WeaponType.Normal)
+    ..setAttack1DamageSpillDistance(0.00)
+    ..setAttack1DamageSpillRadius(0.00)
+    ..setAttack1MaximumNumberofTargets(1)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
+    ..setAttack1AnimationBackswingPoint(0.440)
+    ..setAttack1AnimationDamagePoint(0.660)
+    ..setAttack1AttackType(AttackType.Chaos)
+    ..setAttack1TargetsAllowed(commaList("ground", "structure", "debris", "item", "ward"))
+    ..setAttack1AreaofEffectTargets(commaList(""))
+    ..setAttack2CooldownTime(0.00)
+    ..setAttack2DamageBase(0)
+    ..setAttack2DamageNumberofDice(0)
+    ..setAttack2DamageSidesperDie(0)
+    ..setAttack2Range(0)
+    ..setAttack2ProjectileArc(0.00)
+    ..setAttack2ProjectileArt("None")
+    ..setAttack2ProjectileHomingEnabled(false)
+    ..setAttack2WeaponType(WeaponType.None)
+    ..setAttack2DamageSpillDistance(0.00)
+    ..setAttack2DamageSpillRadius(0.00)
+    ..setAttack2MaximumNumberofTargets(1)
+    ..setAttack2AreaofEffectFullDamage(0)
+    ..setAttack2AreaofEffectMediumDamage(0)
+    ..setAttack2AreaofEffectSmallDamage(0)
+    ..setAttack2AnimationBackswingPoint(0.000)
+    ..setAttack2AnimationDamagePoint(0.000)
+    ..setAttack2AttackType(AttackType.Normal)
+    ..setAttack2TargetsAllowed(commaList(""))
+    ..setAttack2AreaofEffectTargets(commaList(""))
+    ..setTargetedAs(commaList("ground"))
+    ..setAttacksEnabled(1)
+    ..setMinimumAttackRange(0)
+    ..setCanDropItemsOnDeath(true)
+    ..setAcquisitionRange(800)
+    ..setSpeedBase(350)
+    ..setMovementHeight(0.00)
+    ..setMovementHeightMinimum(0.00)
+    ..setSpeedMaximum(0)
+    ..setSpeedMinimum(0)
+    ..setTurnRate(0.50)
+    ..setMovementType(MovementType.Horse)
+    ..setFoodCost(4)
+    ..setCanFlee(true)
+    ..setGoldCost(245)
+    ..setSightRadiusDay(1400)
+    ..setSightRadiusNight(800)
+    ..setSleeps(false)
+    ..setCollisionSize(32.00)
+    ..setHitPointsRegenerationType("always")
+    ..setDefenseBase(27)
+    ..setArmorType(ArmorType.Large)
+    ..setDefenseUpgradeBonus(15)
+    ..setGoldBountyAwardedBase(1800)
+    ..setGoldBountyAwardedNumberofDice(2)
+    ..setGoldBountyAwardedSidesperDie(3)
+    ..setHitPointsMaximumBase(37000)
+    ..setHitPointsRegenerationRate(185.00)
+    ..setManaInitialAmount(0)
+    ..setManaMaximum(0)
+    ..setName("Knight")
+    ..setManaRegeneration(0.00)
+    ..setLevel(4)
+
+    new UnitDefinition(SUMMONED_UNIT_6, UnitIds.locust)
+    ..setAttack1DamageBase(255)
+    ..setScalingValue(1.2)
+    ..setAttack1CooldownTime(0.8)
+
+    new UnitDefinition(SUMMONED_UNIT_7, UnitIds.locust)
+    ..setAttack1DamageBase(355)
+    ..setScalingValue(1.2)
+    ..setAttack1CooldownTime(0.8)
+    ..setModelFile("units\\orc\\SpiritWyvern\\SpiritWyvern.mdl")
+
+    new UnitDefinition(SUMMONED_UNIT_8, UnitIds.seaelemental)
+    ..setHitPointsMaximumBase(15000)
+    ..setAttack1DamageBase(255)
+    ..setScalingValue(1.6)
+    ..setSelectionScale(1.6)
+
 @compiletime function waveHeroes()
 
     new UnitDefinition(WAVE_HERO_0, UnitIds.bronzedragon)// Dragon - Ysera (n03X)
-    ..setNormalAbilities(commaList('A0ZK', 'A0CP', 'A07D'))
+    ..setNormalAbilities(commaList('A0ZK', CREEP_ABILITY_101))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(2.25)
@@ -19267,7 +19677,7 @@ init
     ..setLevel(50)
 
     new UnitDefinition(WAVE_HERO_1, UnitIds.azuredragon)// Dragon - Malygos (n03Y)
-    ..setNormalAbilities(commaList('A0CS', 'A0ZJ', 'A0CR', 'A07D', 'A0CU'))
+    ..setNormalAbilities(commaList('A0ZJ', CREEP_ABILITY_101, CREEP_ABILITY_102))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(2.25)
@@ -19346,7 +19756,7 @@ init
     ..setLevel(52)
 
     new UnitDefinition(WAVE_HERO_2, UnitIds.bronzedragon)// Dragon - Nozdormu (n03Z)
-    ..setNormalAbilities(commaList('A0CT', 'A07D'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_103))
     ..setScalingValue(2.50)
     ..setSelectionScale(2.25)
     ..setAttack1CooldownTime(0.30)
@@ -19424,7 +19834,7 @@ init
     ..setLevel(54)
 
     new UnitDefinition(WAVE_HERO_3, UnitIds.blackdragon)// Dragon - Neltharion (n040)
-    ..setNormalAbilities(commaList('A0CV', 'A07D'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_103))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(2.25)
@@ -19503,7 +19913,7 @@ init
     ..setLevel(56)
 
     new UnitDefinition(WAVE_HERO_4, UnitIds.reddragon)// Dragon - Alexstrasza (n041)
-    ..setNormalAbilities(commaList('A0CR', 'A0CS', 'A0ZK', 'A07D'))
+    ..setNormalAbilities(commaList(CREEP_ABILITY_101, CREEP_ABILITY_104, CREEP_ABILITY_103))
 
     ..setScalingValue(2.50)
     ..setSelectionScale(2.25)

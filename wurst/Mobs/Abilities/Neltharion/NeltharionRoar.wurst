@@ -5,6 +5,7 @@ import MyUnitIds
 import ClosureTimers
 import ClosureForGroups
 import codeDamageTypings
+import MyAbilityIds
 init
     neltharionBeam()
     neltharionAttacked()
@@ -15,7 +16,7 @@ function neltharionAttacked()
             neltharion.issuePointOrder("carrionswarm", GetEventDamageSource().getPos())
             
 function neltharionBeam()
-    EventListener.onCast('A0CV') (unit caster) ->
+    EventListener.onCast(CREEP_ABILITY_103) (unit caster) ->
         doPeriodicallyTimed(0.5, 4) (CallbackCounted cb) ->
             forUnitsInRange(caster.getPos(), 1000) (unit u) ->
                 if(u.isEnemyOf(caster) and u.isType(UNIT_TYPE_STRUCTURE))

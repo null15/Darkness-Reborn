@@ -15,7 +15,6 @@ real facing = 270
 real facingUp = 90
 
 init
-
     mapSetup()
 
     doAfter(0.01) -> 

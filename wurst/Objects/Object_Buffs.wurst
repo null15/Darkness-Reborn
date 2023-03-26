@@ -237,3 +237,13 @@ init
     ..setTargetAttachmentPoint0(1, "origin")
     ..setTargetAttachments(1, 1)
     ..setArtTarget("Loas Assets\\L_order.mdx")
+
+    new BuffDefinition(BUFF_25, BuffIds.curse)
+    ..setIcon("ReplaceableTextures\\CommandButtons\\BTNEclipse.blp")
+    ..setTargetAttachmentPoint0("overhead")
+    ..setName("Eclipse")
+    ..setTooltipNormal("Eclipse")
+    ..setTooltipNormalExtended("Eclipse")
+
+    new BuffDefinition(BUFF_26, BuffIds.stunned)
+    ..setArtTarget(1, Abilities.freezingBreathTargetArt)

@@ -1,0 +1,201 @@
+package Votekick
+
+import TimerUtils
+import DialogBox
+import LinkedList
+import RegisterEvents
+
+constant real VOTE_KICK_DURATION = 30.0
+constant real VOTE_KICK_COOLDOWN = 30.0
+
+public enum PlayerStateVote
+    No
+    Yes
+    Undecided
+
+public class VoteKick
+    private static timer m_timer
+    private static timer m_cooldown
+    private static player m_playerRequesting
+    private static player m_playerToKick
+    private static PlayerStateVote array m_playerVotes
+    private static DialogBox array m_voteKickDialogs
+    private static LinkedList<player> m_votingPlayers = new LinkedList<player>()
+
+    static function isActive() returns bool
+        return getTimeRemaining() > 0
+
+    static function getTimeRemaining() returns real
+        return m_timer != null ? m_timer.getRemaining() : 0
+
+    static function getRequestingPlayer() returns player
+        return m_playerRequesting
+
+    static function getPlayerToKick() returns player    
+        return m_playerToKick
+    
+    static function getVotingPlayers() returns LinkedList<player>
+        return m_votingPlayers
+
+    static function getVoteCast(player byPlayer) returns PlayerStateVote
+        return m_playerVotes[byPlayer.getId()]
+
+    static function isCoolingDown() returns bool
+        return getCooldownTimeRemaining() > 0
+
+    static function getCooldownTimeRemaining() returns real
+        return m_cooldown != null ? m_cooldown.getRemaining() : 0
+
+    static function start(player playerRequesting, player playerToKick)
+
+        if (isActive())
+            printTimedToPlayer("A vote is already in progress", 5, playerRequesting)
+            return
+
+        if (isCoolingDown())
+            printTimedToPlayer("Votekicking needs to cooldown", 10, playerRequesting)
+            return
+
+        m_votingPlayers.clear()
+        
+        for i = 0 to 9
+            let p = players[i]
+            if(p.isIngame())
+                m_playerVotes[p.getId()] = Undecided
+            if(p != playerRequesting and p != playerToKick)
+                m_votingPlayers.add(p)
+
+            if(m_votingPlayers.isEmpty())
+                printTimed("Not enough people to votekick", 10)
+
+            m_playerRequesting = playerRequesting
+            m_playerToKick = playerToKick
+
+            m_timer = getTimer()
+            m_timer.start(VOTE_KICK_DURATION, function onVoteKickExpired)
+
+    static function onVoteKickExpired()
+        if (not evaluateVotesCast())
+            onVoteDecided(false)
+
+    static function onVoteDecided(bool value)
+        let message = getPlayerToKick().getName() + "Has been " + (value ? "{0} was kicked" : "{0} was not kicked")
+
+        for p in m_votingPlayers
+            printTimedToPlayer(message, 12, p)
+
+        if(value)
+            CustomDefeatBJ(getPlayerToKick(), "You were voted to be kicked from the game")
+            getPlayerToKick().setName(getPlayerToKick().getName() + " <Kicked>")
+
+        cleanup()
+
+    static function evaluateVotesCast() returns bool
+        var playerCount = 1
+        var voteYesCount = 1
+        var votenoCount = 0
+
+        for p in m_votingPlayers
+            playerCount++
+            if(m_playerVotes[p.getId()] == Yes)
+                voteYesCount++
+            else if (m_playerVotes[p.getId()] == No)
+                votenoCount++
+
+        let halfPlayerCount = playerCount / 2
+
+        Log.info("halfPlayerCount: " + halfPlayerCount.toString() + " yes: " + voteYesCount.toString())
+
+        if(voteYesCount > halfPlayerCount)
+            onVoteDecided(true)
+            return true
+        else if(votenoCount > halfPlayerCount)
+            onVoteDecided(false)
+            return true
+
+        return false
+
+    private static function cleanup()
+        m_timer.release()
+        m_timer = null
+
+        m_playerRequesting = null
+        m_playerToKick = null
+        m_votingPlayers.clear()
+
+        for p in m_votingPlayers
+            closeVoteKickDialog(p)
+        
+        m_cooldown = getTimer()
+        m_cooldown.start(VOTE_KICK_COOLDOWN, function onCooldownTimerExpired)
+
+    private static function onCooldownTimerExpired()
+        m_cooldown.release()
+        m_cooldown = null
+
+    static function castVote(player votingPlayer, bool value)
+        if (not isActive())
+            return
+        if (m_playerVotes[votingPlayer.getId()] != Undecided)
+            return
+
+        let voteValue = value ? PlayerStateVote.Yes : PlayerStateVote.No
+        if (m_playerVotes[votingPlayer.getId()] == voteValue)
+            return
+
+        m_playerVotes[votingPlayer.getId()] = voteValue
+
+        evaluateVotesCast()
+
+    static function isVoteKickDialogVisible(player forPlayer) returns bool
+        return m_voteKickDialogs[forPlayer.getId()] != null
+
+    static function showVoteKickDialog(player toPlayer)
+        if (isVoteKickDialogVisible(toPlayer) or getVoteCast(toPlayer) != Undecided)
+            return
+        let dialogBox = new DialogBox("{0} wants to kick {1}".format(m_playerRequesting.getNameColored(), m_playerToKick.getNameColored()))
+
+        dialogBox.addButton("Vote Yes", 'Y') () ->
+            destroy dialogBox
+            m_voteKickDialogs[toPlayer.getId()] = null
+            castVote(toPlayer, true)
+
+        dialogBox.addButton("Vote No", 'N') () ->
+            destroy dialogBox
+            m_voteKickDialogs[toPlayer.getId()] = null
+            castVote(toPlayer, false)
+
+        dialogBox.addButton("Close", 'C') () ->
+            destroy dialogBox
+            m_voteKickDialogs[toPlayer.getId()] = null
+
+        dialogBox.display(toPlayer, true)
+
+        m_voteKickDialogs[toPlayer.getId()] = dialogBox
+
+    static function closeVoteKickDialog(player p)
+        if (m_voteKickDialogs[p.getId()] != null)
+            destroy m_voteKickDialogs[p.getId()]
+            m_voteKickDialogs[p.getId()] = null
+
+    protected static function onPlayerLeave(player leavingPlayer)
+        if (leavingPlayer == m_playerRequesting or leavingPlayer == m_playerToKick)
+            cancel()
+            return
+        if (m_votingPlayers.remove(leavingPlayer) == false)
+            return
+
+    static function cancel()
+        if (not isActive())
+            return
+
+        for p in m_votingPlayers
+            printTimedToPlayer("Vote kick canceled", 7, p)
+
+        cleanup()
+
+function onPlayerLeave()
+    VoteKick.onPlayerLeave(GetTriggerPlayer())
+
+init
+    registerPlayerEvent(EVENT_PLAYER_LEAVE, function onPlayerLeave)
