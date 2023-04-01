@@ -62,7 +62,8 @@ init
             case ATTACK
                 let src = DamageEvent.getSource()
                 let targ = DamageEvent.getTarget()
-                DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
+                if(returnReducedDamage() > 0)
+                    DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
 
                 // Illidan (Juxtapose) E
                 if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8') and src.isIllusion() == false
@@ -251,7 +252,8 @@ init
                 let damId = DamageEvent.getId()
 
                 if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
-                    DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
+                    if(returnReducedDamage() > 0)
+                        DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
                     physicalDamageChecks(damId, src, targ)
                 else if (DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)
                     DamageEvent.setAmount(DamageEvent.getAmount() * (1-targ.getMagicResist()))
