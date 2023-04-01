@@ -2437,6 +2437,14 @@ import OrderIds
     ..setDurationHero(1, 10)
     ..setDurationNormal(1, 10)
 
+    new AbilityDefinitionCurse(VIVPIRE_DUMMYABIL_3)
+    ..setLevels(1)
+    ..setChancetoMiss(1, 0)
+    ..setManaCost(1, 0)
+    ..setDurationHero(1, 10)
+    ..setDurationNormal(1, 10)
+    ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_1))
+
     new AbilityDefinitionDeathKnightDeathCoil(VIVPIRE_ABIL_1)
     ..setLevels(9)
     ..setHotkeyLearn("Q")
@@ -2488,7 +2496,7 @@ import OrderIds
     ..presetTooltipNormalExtended(lvl -> "Gives nearby allied heroes " + (5*lvl).toString() + "% lifesteal to physical damage.")
     ..presetAttackDamageStolen(lvl -> 0)
     ..presetAreaofEffect(lvl -> 1500)
-    ..presetBuffs(lvl -> commaList(""))
+    ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_4))
 
     new AbilityDefinitionFireBolt(VIVPIRE_ABIL_4)
     ..setLevels(9)
@@ -2502,7 +2510,7 @@ import OrderIds
     ..setIconNormal("Units\\Vivpire\\Vampire bite\\BTNvampirebite.blp")
     ..setIconResearch("Units\\Vivpire\\Vampire bite\\BTNvampirebite.blp")
     ..presetDamage(lvl -> 0)
-    ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_4))
+    ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_2))
     ..setMissileArt("")
     ..setButtonPositionNormalX(3)
     ..setButtonPositionNormalY(2)

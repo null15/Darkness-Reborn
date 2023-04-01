@@ -109,6 +109,7 @@ public constant VIVPIRE_ABIL_5 = compiletime(ABIL_ID_GEN.next())
 
 public constant VIVPIRE_DUMMYABIL_1 = compiletime(ABIL_ID_GEN.next())
 public constant VIVPIRE_DUMMYABIL_2 = compiletime(ABIL_ID_GEN.next())
+public constant VIVPIRE_DUMMYABIL_3 = compiletime(ABIL_ID_GEN.next())
 
 public constant TINKER_OBELISK_ABILITY_1 = compiletime(ABIL_ID_GEN.next())
 public constant TINKER_OBELISK_ABILITY_2 = compiletime(ABIL_ID_GEN.next())

@@ -8,7 +8,7 @@ var blood = 0
 
 function bloodGain()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() ->
-        if(GetDyingUnit().hasAbility(VIVPIRE_BUFF_4))
+        if(GetDyingUnit().hasAbility(VIVPIRE_BUFF_2))
             blood++
 
 function bloodCommand()

@@ -1,8 +1,9 @@
 package VivpireW
 import MyAbilityIds
 import HashMap
+import DummyCaster
 import codeDamageTypings
-
+import OrderIds
 real array limit = [1.25, 2.5, 3.75, 5, 6.25, 7.5, 8.75, 10, 11.25]
 let hunterHashMap = new HashMap<unit, real>
 
@@ -15,6 +16,10 @@ public function bloodHunter(unit src, unit targ)
             hunterHashMap.put(targ, limit[src.getAbilityLevel(VIVPIRE_ABIL_4)-1])
         else
             hunterHashMap.put(targ, hunterHashMap.get(targ) + calculateHuntGain(targ))
+    new DummyCaster()
+    ..owner(GetOwningPlayer(src))
+    ..castTarget(VIVPIRE_DUMMYABIL_3, 1, OrderIds.curse, targ)
+    ..origin(src.getPos())
     let amount = hunterHashMap.get(targ) * src.getStr(true)
     src.physicalDamageCode(amount, targ, false)
 
