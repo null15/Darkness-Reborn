@@ -13,7 +13,6 @@ init
 
 public function demonPower(unit u)
     if attackCount < 25
-        print("Here!")
         attackCount = attackCount + 1
         if attackCount % 5 == 0 and attackCount != 25
             count = createCriticalStrikeTextTag(u, attackCount)

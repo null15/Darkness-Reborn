@@ -94,7 +94,6 @@ init
 
                 // Demon Hunter (Demon Power) R - Passive
                 if src.getTypeId() == PLAY_HERO_11 and GetUnitAbilityLevel(src, 'A0E6') >= 1 and src.isIllusion() == false
-                    print("Here!")
                     demonPower(src)
 
                 // Death Knight (Curse of Darkness ) E - Passive
