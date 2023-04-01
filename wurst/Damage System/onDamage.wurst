@@ -63,8 +63,6 @@ init
                 let src = DamageEvent.getSource()
                 let targ = DamageEvent.getTarget()
                 DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
-                if(src.getTypeId() == PLAY_HERO_3)
-                    print(DamageEvent.getAmount().toString())
 
                 // Illidan (Juxtapose) E
                 if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8') and src.isIllusion() == false
@@ -95,7 +93,8 @@ init
                     lastKiller(src, targ)
 
                 // Demon Hunter (Demon Power) R - Passive
-                if src.getTypeId() == PLAY_HERO_11 and GetUnitAbilityLevel(src, 'A0E6') >= 1 and src.isIllusion() != false
+                if src.getTypeId() == PLAY_HERO_11 and GetUnitAbilityLevel(src, 'A0E6') >= 1 and src.isIllusion() == false
+                    print("Here!")
                     demonPower(src)
 
                 // Death Knight (Curse of Darkness ) E - Passive

@@ -13,6 +13,7 @@ init
 
 public function demonPower(unit u)
     if attackCount < 25
+        print("Here!")
         attackCount = attackCount + 1
         if attackCount % 5 == 0 and attackCount != 25
             count = createCriticalStrikeTextTag(u, attackCount)
@@ -33,7 +34,8 @@ public function demonPower(unit u)
             doAfter(I2R(lvl+1)) -> 
                 u.setAgi(oldagi)
                 BlzSetUnitSkin(u, oldskin)
-                attackCount = 0
+                if(attackCount == 25)
+                    attackCount = 0
     else if attackLeft > 0
         attackLeft--
     else
