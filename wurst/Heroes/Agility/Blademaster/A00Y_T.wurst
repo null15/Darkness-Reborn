@@ -5,6 +5,7 @@ import ClosureEvents
 import Abilities
 import StandardTextTags
 import codeDamageTypings
+import PauseAllocation
 texttag slashText
 init
     hasteSlash()
@@ -12,7 +13,7 @@ function hasteSlash()
     EventListener.onPointCast('A00Y') (unit caster, vec2 target) ->
         let lvl = caster.getAbilityLevel('A00Y')
         let dmg = caster.getAgi(true)*lvl*0.75
-        caster.pause()
+        caster.pauseIndef()
         caster.setPathing(false)
         doPeriodicallyTimed(0.3, 3) (CallbackCounted cb) ->
             flashEffect(Abilities.warStompCaster, target)
@@ -21,14 +22,14 @@ function hasteSlash()
             caster.setAnimation("slam")
             forUnitsInRange(caster.getPos(), 350, true) (unit u) ->
                 if caster.isEnemyOf(u)
-                    caster.physicalDamageCode(dmg, u)
+                    caster.physicalDamageCode(dmg, u, false)
             if cb.isLast()
                 flashEffect(Abilities.warStompCaster, target, 3)
+                caster.unPauseUnitIndef()
+                caster.setPathing(true)
                 forUnitsInRange(caster.getPos(), 600, true) (unit u) ->
                     if caster.isEnemyOf(u)
                         slashText = createCriticalStrikeTextTag(caster, R2I(dmg*4))
                         slashText.setColor(colorA(252, 25, 25, 225))
                         slashText.setScaledText("SLAM", 1.5)
-                        caster.physicalDamageCode(dmg * 4, u)
-                        caster.unpause()
-                        caster.setPathing(true)
+                        caster.physicalDamageCode(dmg * 4, u, false)

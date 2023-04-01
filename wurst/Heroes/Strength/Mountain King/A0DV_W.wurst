@@ -14,5 +14,5 @@ function thunderClap()
             doPeriodically(0.03) (CallbackPeriodic cb) ->
                 if caster.isEnemyOf(u) and u.hasAbility('BHtc')
                     i = i + 1
-                    caster.physicalDamageCode(dmg, u)
+                    caster.physicalDamageCode(dmg, u, true)
                     destroy cb

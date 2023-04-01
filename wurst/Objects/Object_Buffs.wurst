@@ -9,6 +9,32 @@ import Abilities
 init
 
 
+@compiletime function vivpirebuffs()
+    new BuffDefinition(VIVPIRE_BUFF_1, BuffIds.animateDead)
+    ..setName("Blood Hunter")
+    ..setTooltipNormal("This unit has been afflicted by Blood Hunter.")
+    ..setTooltipNormalExtended("This unit recieves additional damage by Vivpire.")
+
+    new BuffDefinition(VIVPIRE_BUFF_2, BuffIds.berserk)
+    ..setName("Prey")
+    ..setTooltipNormal("This is the prey of the Vivpire.")
+    ..setTooltipNormalExtended("This is the prey of the Vivpire, grants blood upon death.")
+
+    new BuffDefinition(VIVPIRE_BUFF_3, BuffIds.curse)
+    ..setName("Vampiric Bite")
+    ..setTooltipNormal("This unit has been bitten by Vivpire.")
+    ..setTooltipNormalExtended("This unit is cursed by the Vivpire.")
+
+    new BuffDefinition(VIVPIRE_BUFF_4, BuffIds.vampiricAura)
+    ..setName("Vampiric Aura")
+    ..setTooltipNormal("This unit will receive healing from physical attacks")
+    ..setTooltipNormalExtended("This unit will receive healing from physical attacks")
+
+    new BuffDefinition(VIVPIRE_BUFF_5, BuffIds.vampiricPotion)
+    ..setName("Form Unleashed")
+    ..setTooltipNormal("Vivpire's True Form")
+    ..setTooltipNormalExtended("The Vivpire has returned to their ancestral form, receiving power from their foes.")
+
 @compiletime function buffs()
     new BuffDefinition(BUFF_0, BuffIds.faerieFire)
     ..setTooltipNormal(1, "This unit is under Bite of Death")

@@ -680,16 +680,15 @@ init
 
     new HeroDefinition(PLAY_HERO_3, UnitIds.dreadlord)// Dreadlord (U00X)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A0R4', 'A0RD', 'A0R7', 'A0R5', 'A0R6'))
+    ..setHeroAbilities(commaList(VIVPIRE_ABIL_1, VIVPIRE_ABIL_2, VIVPIRE_ABIL_3, VIVPIRE_ABIL_4, VIVPIRE_ABIL_5))
     ..setNormalAbilities(commaList('A007', 'AInv'))
-    
     ..setPrimaryAttribute("Strength")
     ..setStartingStrength(20)
     ..setStartingAgility(16)
     ..setStartingIntelligence(18)
     ..setScalingValue(1.00)
     ..setSelectionScale(1.50)
-    ..setAttack1CooldownTime(1.80)
+
     ..setAttack1DamageBase(0)
     ..setAttack1DamageNumberofDice(2)
     ..setAttack1DamageSidesperDie(6)
@@ -773,9 +772,9 @@ init
     ..setStockReplenishInterval(3600)
     ..setStockStartDelay(1)
     ..setManaMaximum(0)
-    ..setName("Dreadlord")
-    ..setTooltipBasic("|c00F7EC46Dreadlord|r")
-    ..setTooltipExtended("|c00F7EC46Dreadlord|r\n"
+    ..setName("Vivpire")
+    ..setTooltipBasic("|c00F7EC46Vivpire|r")
+    ..setTooltipExtended("|c00F7EC46Vivpire|r\n"
     + "Roles: " + defender + "/" + farmer + "\n\n"
     + "|c00EE0404Physical Damage|r: 3/5\n"
     + "|c0076ECF9Magical Damage|r: 1/5\n"

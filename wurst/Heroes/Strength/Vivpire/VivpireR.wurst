@@ -1,0 +1,29 @@
+package VivpireR
+import ClosureEvents
+import MyBuffIds
+import Global_Variables
+import MyUnitIds
+
+var blood = 0
+
+function bloodGain()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() ->
+        if(GetDyingUnit().hasAbility(VIVPIRE_BUFF_4))
+            blood++
+
+function bloodCommand()
+    EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
+        if EventData.getChatMessage().substring(0, 6) == "-blood"
+            let p = GetTriggerPlayer()
+            let pid = p.getId()
+            if (playerHero[pid] != null)
+                if (playerHero[pid].getTypeId() == PLAY_HERO_3)
+                    printTimedToPlayer("You currently have |cffcf0505" + (blood.toCharsetString()) + " blood|r", 5, p)
+
+
+public function getBlood() returns int
+    return blood
+
+init
+    bloodGain()
+    bloodCommand()

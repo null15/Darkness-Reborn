@@ -13,4 +13,4 @@ function duplicateItemDrop()
             if t.getTypeId() == manip.getTypeId() and t != manip
                 u.removeItem(manip)
                 simError(u.getOwner(), "You can not hold two items of the same type")
-                u.subtractPhysPenItem(manip)
+                u..physPenAddSub().magicResAddSub()

@@ -6,6 +6,7 @@ import MyAbilityIds
 import MyUnitIds
 import Global_Variables
 import onStart
+import PauseAllocation
 // when all base skills maxed, ascends
 init
     ascension()
@@ -15,14 +16,14 @@ function ascension()
         if u.getTypeId() == PLAY_HERO_33 and u.getAbilityLevel(ABILITY_35) == 9 and u.getAbilityLevel(ABILITY_39) == 9 and u.getAbilityLevel(ABILITY_40) == 9 and u.getAbilityLevel(ABILITY_41) == 9 and u.getAbilityLevel(ABILITY_42) == 4
             let sfx = addEffect("Loas Assets\\effect60.mdx", u.getPos())
             let sfx2 = addEffect("Loas Assets\\effect_az_qiliu4_red.mdx", u.getPos())..playAnimation(ANIM_TYPE_BIRTH)
-            u.pause()
+            u.pauseIndef()
             u.setInvulnerable(true)
             doAfter(4) ->
                 sfx2.playAnimation(ANIM_TYPE_DEATH)
                 doAfter(1) -> 
                     sfx.destr()
                     sfx2..setZ(-9999)..destr()
-                    u.unpause()
+                    u.unPauseUnitIndef()
                     u.setInvulnerable(false)
                     item array loasItems = [] 
                     let xp = u.getXp()

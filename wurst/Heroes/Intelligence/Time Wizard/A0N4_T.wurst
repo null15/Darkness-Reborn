@@ -2,10 +2,8 @@ package A0N4_T
 import ClosureEvents
 import ClosureForGroups
 import ClosureTimers
-import DummyCaster
-import MyAbilityIds
-import OrderIds
 import codeDamageTypings
+import PauseAllocation
 init
     radarTime()
 function radarTime()
@@ -14,11 +12,7 @@ function radarTime()
         let dmg = caster.getInt(true) * lvl
         doPeriodicallyTimed(0.05, 4) (CallbackCounted cb) ->
             forUnitsInRange(target, 200, true) (unit u) ->
-                new DummyCaster()
-                ..origin(caster.getPos())
-                ..owner(caster.getOwner())
-                ..castTarget(ABILITY_DUMMY_19, 1, OrderIds.firebolt, u)
-                ..delay(0)
+                u.pauseTimed(0.05)
                 if caster.isEnemyOf(u)
                     caster.magicalDamageCode(dmg.toReal(), u)
                 if caster.isAllyOf(u) and u != caster and u.getMaxHP() != u.getHP()

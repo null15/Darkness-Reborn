@@ -5,6 +5,12 @@ import DamageEvent
 let magicResistMap = new HashMap<integer, real>
 let physicalPenetrationMap = new HashMap<integer, real>
 let physPenItemHash = new HashMap<int, real>
+let magicResItemHash = new HashMap<int, real>
+real physPen
+real magicRes
+
+function unit.getItemBySlot(int slot) returns item
+    return UnitItemInSlot(this, slot)
 
 public function integer.getPhysPenetration() returns real
     return physicalPenetrationMap.get(this)
@@ -18,18 +24,27 @@ public function unit.getMagicResist() returns real
 public function integer.getMagicResist() returns real
     return magicResistMap.get(this)
 
-public function unit.addPhysPenItem(item i)
-    let physPen = physPenItemHash.get(i.getTypeId())
-    if(physPen > 0)
-        this.enumeratePhysicalPenetration(physicalPenetrationMap.get(this.getTypeId()) * 100 + physPen)
+public function unit.physPenAddSub()
+    for int i = 0 to 5
+        let hashValue = this.getItemBySlot(i).getTypeId()
+        if(physPenItemHash.has(hashValue))
+            physPen = physPen + physPenItemHash.get(hashValue)
+    this.enumeratePhysicalPenetration(physPen * 100)
 
-public function unit.subtractPhysPenItem(item i)
-    let physPen = physPenItemHash.get(i.getTypeId())
-    if(physPen > 0)
-        this.enumeratePhysicalPenetration(physicalPenetrationMap.get(this.getTypeId()) * 100 - physPen)
+public function unit.magicResAddSub()
+    for int i = 0 to 5
+        let hashValue = this.getItemBySlot(i).getTypeId()
+        if(magicResItemHash.has(hashValue))
+            let magicAdd = 1 - magicResItemHash.get(hashValue) * 0.01
+            let currentMagic = 1 - magicRes
+            magicRes = (1-currentMagic*magicAdd)
+    this.enumerateMagicResistance(magicRes * 100)
 
 public function int.putInItemHash(real input)
-    physPenItemHash.put(this, input)  
+    physPenItemHash.put(this, input)
+
+public function int.putInMagicResItemHash(real input)
+    magicResItemHash.put(this, input)
 
 public function unit.enumerateMagicResistance(real magicResistance)
     magicResistMap.put(this.getTypeId(), magicResistance/100)
@@ -43,45 +58,51 @@ public function unit.enumeratePhysicalPenetration(real physicalPenetration)
 public function integer.enumeratePhysicalPenetrationId(real physicalPenetration)
     physicalPenetrationMap.put(this, physicalPenetration/100)
 
+//########## Magical DAMAGE ############//
+
 public function unit.magicalDamageCodeElementId(real amount, unit target, DamageElement element, integer id)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.magicalDamageCodeElement(real amount, unit target, DamageElement element)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.magicalDamageCodeId(real amount, unit target, integer id)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.magicalDamageCode(real amount, unit target)
     DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount * (1-magicResistMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
-public function unit.physicalDamageCodeElementId(real amount, unit target, DamageElement element, integer id)
+//########## PHYSICAL DAMAGE ############//
+
+public function unit.physicalDamageCodeElementId(real amount, unit target, DamageElement element, integer id, bool ranged)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, ranged, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
-public function unit.physicalDamageCodeId(real amount, unit target, integer id)
+public function unit.physicalDamageCodeId(real amount, unit target, integer id, bool ranged)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, ranged, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
-public function unit.physicalDamageCodeElement(real amount, unit target, DamageElement element)
+public function unit.physicalDamageCodeElement(real amount, unit target, DamageElement element, bool ranged)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, ranged, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
-public function unit.physicalDamageCode(real amount, unit target)
+public function unit.physicalDamageCode(real amount, unit target, bool ranged)
     DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount * (1-physicalPenetrationMap.get(target.getTypeId())), false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, ranged, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+
+//########## PURE DAMAGE ############//
 
 public function unit.pureDamageCodeElementId(real amount, unit target, DamageElement element, integer id)
     DamageEvent.setNextDamageElement(element)
@@ -89,7 +110,7 @@ public function unit.pureDamageCodeElementId(real amount, unit target, DamageEle
     DamageEvent.setNextDamageId(id)
     this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
 
-public function unit.pureDamageCodeElementId(real amount, unit target, integer id)
+public function unit.pureDamageCodeId(real amount, unit target, integer id)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
     this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)

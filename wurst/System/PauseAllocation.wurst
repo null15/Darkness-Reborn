@@ -1,0 +1,41 @@
+package PauseAllocation
+import HashMap
+
+
+let timerHashMap = new HashMap<timer, unit>
+let unitHashMap = new HashMap<unit, timer>
+let indefHashMap = new HashMap<unit, bool>
+
+function timer.cleanup()
+    indefHashMap.remove(timerHashMap.get(this))
+    timerHashMap.remove(this)
+    this.destr()
+
+public function unit.pauseIndef()
+    if(this.isPaused() == false)
+        this.pause()
+        indefHashMap.put(this, true)
+
+public function unit.pauseTimed(real duration)
+    if(unitHashMap.get(this) == null)
+        let newTimer = CreateTimer()
+        this.pause()
+        timerHashMap.put(newTimer, this)
+        unitHashMap.put(this, newTimer)
+        newTimer.start(duration, function unPauseUnitTimed)
+    else if (unitHashMap.get(this).getRemaining() < duration)
+        unitHashMap.get(this).start(duration, function unPauseUnitTimed)
+
+public function unPauseUnitTimed()
+    let timed = GetExpiredTimer()
+    let u = timerHashMap.get(timed)
+    if(indefHashMap.get(u) == false)
+        if(u.isPaused())
+            u.unpause()
+            timerHashMap.remove(timed)
+            unitHashMap.remove(u)
+
+public function unit.unPauseUnitIndef()
+    indefHashMap.remove(this)
+    if(unitHashMap.get(this) == null)
+        this.unpause()

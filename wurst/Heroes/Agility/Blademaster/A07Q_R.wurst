@@ -3,6 +3,7 @@ import ClosureTimers
 import Abilities
 import ClosureForGroups
 import codeDamageTypings
+import PauseAllocation
 init
 
     rampage()
@@ -17,17 +18,17 @@ function rampage2(unit caster, unit target)
         forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
             if caster.isEnemyOf(u)
                 if not target.isAlive()
-                    caster.unpause()
+                    caster.unPauseUnitIndef()
                     caster.setInvulnerable(false)
-                    target.unpause()
+                    target.unPauseUnitIndef()
                 else
                     caster.setAnimation("attack")
                     flashEffect(Abilities.warStompCaster, target.getPos())
-                    caster.physicalDamageCode(dmg, target)
+                    caster.physicalDamageCode(dmg, target, false)
         if cb.isLast()
-            caster.unpause()
+            caster.unPauseUnitIndef()
             caster.setInvulnerable(false)
-            target.unpause()
+            target.unPauseUnitIndef()
 
 function rampage()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function rampageCond))..addAction() ->
@@ -35,16 +36,16 @@ function rampage()
         let caster = GetTriggerUnit()
         let angle = caster.getPos().angleTo(target.getPos())
         doAfter(0.5) -> 
-            caster.pause()
+            caster.pauseIndef()
             caster.setInvulnerable(true)
-            target.pause()
+            target.pauseIndef()
             SetUnitPathing(caster, false)
             doPeriodicallyTimed(0.03, 5) (CallbackCounted cb) ->
                 if cb.isLast()
                     printTimedToPlayer("Error: Something did not go as expected, destroying loop . . .", 5, GetOwningPlayer(caster))
-                    caster.unpause()
+                    caster.unPauseUnitIndef()
                     caster.setInvulnerable(false)
-                    target.unpause()
+                    target.unPauseUnitIndef()
                     SetUnitPathing(caster, true)
                 caster.setPos(caster.getPos().polarOffset(angle,30))
                 if caster.getPos().distanceTo(target.getPos()) < 150

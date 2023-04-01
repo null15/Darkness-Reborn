@@ -101,6 +101,15 @@ public constant NAGAWITCH_ABIL_3 = compiletime(ABIL_ID_GEN.next())
 public constant NAGAWITCH_ABIL_4 = compiletime(ABIL_ID_GEN.next())
 public constant NAGAWITCH_ABIL_5 = compiletime(ABIL_ID_GEN.next())
 
+public constant VIVPIRE_ABIL_1 = compiletime(ABIL_ID_GEN.next())
+public constant VIVPIRE_ABIL_2 = compiletime(ABIL_ID_GEN.next())
+public constant VIVPIRE_ABIL_3 = compiletime(ABIL_ID_GEN.next())
+public constant VIVPIRE_ABIL_4 = compiletime(ABIL_ID_GEN.next())
+public constant VIVPIRE_ABIL_5 = compiletime(ABIL_ID_GEN.next())
+
+public constant VIVPIRE_DUMMYABIL_1 = compiletime(ABIL_ID_GEN.next())
+public constant VIVPIRE_DUMMYABIL_2 = compiletime(ABIL_ID_GEN.next())
+
 public constant TINKER_OBELISK_ABILITY_1 = compiletime(ABIL_ID_GEN.next())
 public constant TINKER_OBELISK_ABILITY_2 = compiletime(ABIL_ID_GEN.next())
 public constant TINKER_OBELISK_ABILITY_3 = compiletime(ABIL_ID_GEN.next())

@@ -5,6 +5,9 @@ import StandardTextTags
 import MyUnitIds
 // import ObjectIds
 int attackCount = 0
+int attackLeft = 0
+int oldagi
+int oldskin
 texttag count
 init
 
@@ -18,8 +21,9 @@ public function demonPower(unit u)
             ..setFadepoint(0.75)
         if attackCount == 25
             let lvl = GetUnitAbilityLevel(u, 'A0E6')
-            let oldAgi = u.getAgi(false)
-            let oldSkin = BlzGetUnitSkin(u)
+            oldagi = u.getAgi(false)
+            oldskin = BlzGetUnitSkin(u)
+            attackLeft = 1 + lvl
             count
             ..setColor(colorA(252, 25, 25, 225))
             ..setScaledText("Demon Unleashed", 1.5)
@@ -27,6 +31,12 @@ public function demonPower(unit u)
             BlzSetUnitSkin(u, SKIN_1)
             flashEffect(Abilities.roarCaster, u.getPos())
             doAfter(I2R(lvl+1)) -> 
-                u.setAgi(oldAgi)
-                BlzSetUnitSkin(u, oldSkin)
+                u.setAgi(oldagi)
+                BlzSetUnitSkin(u, oldskin)
                 attackCount = 0
+    else if attackLeft > 0
+        attackLeft--
+    else
+        u.setAgi(oldagi)
+        BlzSetUnitSkin(u, oldskin)
+        attackCount = 0

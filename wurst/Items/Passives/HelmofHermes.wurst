@@ -3,4 +3,4 @@ import codeDamageTypings
 
 public function hermesHelm(unit holder, unit attacker)
     let dam = holder.getStr(true) * 0.5
-    holder.physicalDamageCode(dam, attacker)
+    holder.physicalDamageCode(dam, attacker, true)

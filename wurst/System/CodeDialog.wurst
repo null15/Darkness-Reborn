@@ -5,18 +5,19 @@ import DialogBox
 import ClosureKeyPresses
 import Global_Variables
 
-constant PLAYER_NAME_1 = "null#12140"
-constant PLAYER_NAME_2 = "Yurieeh#2235"
-constant PLAYER_NAME_3 = "Magepowers#1896"
-constant PLAYER_NAME_4 = "JoJo#16186"
-constant PLAYER_NAME_5 = "Prime#2336"
-constant PLAYER_NAME_6 = "Illidan557#1331"
-constant PLAYER_NAME_7 = "BlazingDawn#11220"
-constant PLAYER_NAME_8 = "oennerth#2997"
-constant PLAYER_NAME_9 = "Palagrim#2871"
-constant PLAYER_NAME_10 = "Vivent#2756"
-constant PLAYER_NAME_11 = "Nhv#11269"
-constant PLAYER_NAME_12 = "Cooltiger#1502"
+constant PLAYER_NAME_1 = "null#12140".toUpperCase()
+constant PLAYER_NAME_2 = "Yurieeh#2235".toUpperCase()
+constant PLAYER_NAME_3 = "Magepowers#1896".toUpperCase()
+constant PLAYER_NAME_4 = "JoJo#16186".toUpperCase()
+constant PLAYER_NAME_5 = "Prime#2336".toUpperCase()
+constant PLAYER_NAME_6 = "Illidan557#1331".toUpperCase()
+constant PLAYER_NAME_7 = "BlazingDawn#11220".toUpperCase()
+constant PLAYER_NAME_8 = "oennerth#2997".toUpperCase()
+constant PLAYER_NAME_9 = "Palagrim#2871".toUpperCase()
+constant PLAYER_NAME_10 = "Vivent#2756".toUpperCase()
+constant PLAYER_NAME_11 = "Nhv#11269".toUpperCase()
+constant PLAYER_NAME_12 = "Cooltiger#1502".toUpperCase()
+constant PLAYER_NAME_13 = "sethnik#2428".toUpperCase()
 
 constant PLAYER_SET = new HashSet<string>
 
@@ -37,38 +38,42 @@ function addPlayers()
         PLAYER_NAME_9,
         PLAYER_NAME_10,
         PLAYER_NAME_11,
-        PLAYER_NAME_12)
+        PLAYER_NAME_12,
+        PLAYER_NAME_13)
 
 public function codeDialog()
     onKeyPress(OSKEY_C, OSKEY_META.SHIFT) ->
-        if PLAYER_SET.has(GetPlayerName(GetTriggerPlayer())) 
-            printTimed("Player " + GetPlayerName(GetTriggerPlayer()) + " has beaten the game and is choosing reward", 3)
-            let hero = playerHero[GetTriggerPlayer().getId()]
+        let pt = GetTriggerPlayer()
+        let pn = pt.getName()
+        let pnu = pn.toUpperCase()
+        if PLAYER_SET.has(pnu) 
+            printTimed("Player " + pn + " has beaten the game and is choosing reward", 3)
+            let hero = playerHero[pt.getId()]
             let buffBox = new DialogBox("Choose your benefit")
-            PLAYER_SET.remove(GetPlayerName(GetTriggerPlayer()))
+            PLAYER_SET.remove(pnu)
 
             buffBox.addButton("Set level to 10") ->
                 if hero != null
                     hero.setLevel(10, true)
                 else
-                    PLAYER_SET.add(GetPlayerName(GetTriggerPlayer()))
-                    printTimedToPlayer("Select a hero first", 3, GetTriggerPlayer())
+                    PLAYER_SET.add(pnu)
+                    printTimedToPlayer("Select a hero first", 3, pt)
                 destroy buffBox
             if difficulty == "normal"
                 buffBox.addButton("Gold (+1800)") ->
                     if difficulty == "normal"
-                        GetTriggerPlayer().addGold(GetTriggerPlayer().getGold()+1800)
-                        printTimedToPlayer("Normal mode is true", 5, GetTriggerPlayer())
+                        pt.addGold(1800)
+                        printTimedToPlayer("Normal mode is true", 5, pt)
                     destroy buffBox
 
             buffBox.addButton("Stats (+30)") ->
                 if hero != null
                     hero..addStr(30)..addAgi(30)..addInt(30)
                 else
-                    PLAYER_SET.add(GetPlayerName(GetTriggerPlayer()))
-                    printTimedToPlayer("Select a hero first", 3, GetTriggerPlayer())
+                    PLAYER_SET.add(pnu)
+                    printTimedToPlayer("Select a hero first", 3, pt)
                 destroy buffBox
 
-            buffBox.display(GetTriggerPlayer(), true)
+            buffBox.display(pt, true)
         else
             printTimed("You need to have beaten the game or you may have used your code!", 5)

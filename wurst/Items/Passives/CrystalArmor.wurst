@@ -2,4 +2,4 @@ package CrystalArmor
 import codeDamageTypings
 public function crystalArmor(unit holder, unit attacker)
     let dam = holder.getStr(true) * 2.
-    holder.physicalDamageCode(dam, attacker)
+    holder.physicalDamageCode(dam, attacker, true)

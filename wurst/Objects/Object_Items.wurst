@@ -3682,7 +3682,7 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 47)")
     ..setTooltipBasic("Buy Recipe (Recipe 47)")
-    ..setTooltipExtended("|c00FFFC01Ice Wand|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01Ice Wand|r.\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+180 Intelligence\n"
     +"+3200 HP\n"
@@ -3777,7 +3777,7 @@ init
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Fire Sword (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Ice Sword (|c001CE6B9" + recipeShop1 + "|r)\n"
-    +"Blade of Hell (|c001CE6B9" + recipeShop2 + "|r)")
+    +"Blade of Hell (|c001CE6B9" + recipeShop3 + "|r)")
     ..setHotkey("")
 
 //I01G
@@ -4816,7 +4816,7 @@ init
 
 //I0B6
     new ItemDefinition(ITEM_115, ItemIds.bloodKey)
-    ..setAbilities(commaList('A0L8', 'A0BJ', 'A03G', 'A07B'))
+    ..setAbilities(commaList('A0L8', 'A0BJ', 'A07B'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green2.blp")
     ..setModelUsed("Green Item.mdl")
     ..setCooldownGroup("A0L8")
@@ -7047,7 +7047,7 @@ init
 
 //I00H
     new ItemDefinition(ITEM_174, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('A04C', 'A02U', 'A05D', 'A044'))
+    ..setAbilities(commaList('A04C', 'A02U','A044'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNShinyArmor.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -7121,7 +7121,7 @@ init
 
 //I02F
     new ItemDefinition(ITEM_176, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('A02C', 'A05O', 'A075', 'A045'))
+    ..setAbilities(commaList('A02C', 'A05O', 'A045'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHoly Armor.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -13096,7 +13096,7 @@ init
 
 //I0BB
     new ItemDefinition(ITEM_337, ItemIds.bloodKey)
-    ..setAbilities(commaList('A0L8', 'A04C', 'A05D'))
+    ..setAbilities(commaList('A0L8', 'A04C'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (5).blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -13540,7 +13540,7 @@ init
 
 //I06V
     new ItemDefinition(ITEM_349, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('A0AR', 'A05E', 'A06X', 'A033'))
+    ..setAbilities(commaList('A0AR', 'A06X', 'A033'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInjusticePlate.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -14739,7 +14739,7 @@ init
 //I088
     new ItemDefinition(ITEM_381, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
-    ..setAbilities(commaList('A0H0', 'A0H7', 'A0H6'))
+    ..setAbilities(commaList('A0H0', 'A0H7'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBerserkersHelm.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -18010,7 +18010,7 @@ init
 //I08A
     new ItemDefinition(ITEM_468, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
-    ..setAbilities(commaList('A0BC', 'A060', 'A0HC'))
+    ..setAbilities(commaList('A0BC', 'A060'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSteelPlateArmorHelmetFinal.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -18048,7 +18048,7 @@ init
 //I08B
     new ItemDefinition(ITEM_469, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
-    ..setAbilities(commaList('A0HB', 'A061', 'A0HD'))
+    ..setAbilities(commaList('A0HB', 'A061'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSteelPlateArmorHelmetFinal.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -23276,7 +23276,7 @@ init
 //I084
     new ItemDefinition(ITEM_609, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
-    ..setAbilities(commaList('A029', 'A022', 'A03H'))
+    ..setAbilities(commaList('A029', 'A022'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Battle Helmet.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -23314,7 +23314,7 @@ init
 //I085
     new ItemDefinition(ITEM_610, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
-    ..setAbilities(commaList('A01V', 'A02U', 'A03J'))
+    ..setAbilities(commaList('A01V', 'A02U'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Battle Helmet.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -23352,7 +23352,7 @@ init
 //I087
     new ItemDefinition(ITEM_611, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
-    ..setAbilities(commaList('A02B', 'A02V', 'A05F'))
+    ..setAbilities(commaList('A02B', 'A02V'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Battle Helmet.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)

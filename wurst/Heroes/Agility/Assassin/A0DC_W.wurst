@@ -1,6 +1,7 @@
 package A0DC_W
 import ClosureTimers
 import Abilities
+import PauseAllocation
 import codeDamageTypings
 init
 
@@ -16,14 +17,14 @@ function quickSlash()
         let lvl = GetUnitAbilityLevel(caster, 'A0DC')
         let dmg = caster.getAgi(true)*lvl.toReal()
         doAfter(0.35) -> 
-            caster.pause()
+            caster.pauseIndef()
             caster.setInvulnerable(true)
-            target.pause()
+            target.pauseIndef()
             doPeriodicallyCounted(0.2, 3) (CallbackCounted cb) ->
                 caster.setAnimation("attack")
-                caster.physicalDamageCode(dmg, target)
+                caster.physicalDamageCode(dmg, target, true)
                 flashEffect(Abilities.meatwagonMissile, target.getPos())
                 if cb.isLast()
-                    caster.unpause()
-                    target.unpause()
+                    caster.unPauseUnitIndef()
+                    target.unPauseUnitIndef()
                     caster.setInvulnerable(false)

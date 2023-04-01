@@ -15,4 +15,4 @@ function windwalk()
         createUnit(DUMMY_UNIT_6, caster.getPos())..setTimedLife(10)
         forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
             if(u.isEnemyOf(caster))
-                caster.physicalDamageCode((caster.getAgi(true) * caster.getAbilityLevel('A0XE')).toReal(), u)
+                caster.physicalDamageCode((caster.getAgi(true) * caster.getAbilityLevel('A0XE')).toReal(), u, false)

@@ -16,6 +16,16 @@ import MyUpgradesIds
 import Units
 
 @compiletime function taverns()
+    new BuildingDefinition(TEST_TURRET, UnitIds.humanarcanetower)
+    ..setName("TEST TURRET")
+    ..setAttack1DamageBase(250000)
+    ..setHitPointsMaximumBase(5000000)
+    ..setDefenseBase(250000)
+    ..setHitPointsRegenerationRate(1000)
+    ..setHitPointsRegenerationType("Always")
+    ..setAttack1CooldownTime(0.1)
+
+
     new BuildingDefinition(BUILDING_TAVERN_STR, UnitIds.cantina)// Tavern Build Strenght Heroes (n00C)
     ..setName("Strength Heroes")
     ..setGroundTexture("")

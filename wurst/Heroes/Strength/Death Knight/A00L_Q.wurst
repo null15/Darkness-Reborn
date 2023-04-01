@@ -28,7 +28,7 @@ function unholyExecution()
         let lvl = GetUnitAbilityLevel(caster, 'A00L')
         let dmg = ((caster.getStr(true) * 2.) + souls) * lvl
         doAfter(0.2) -> 
-            caster.physicalDamageCode(dmg, target)
+            caster.physicalDamageCode(dmg, target, true)
             caster.addHP(dmg)
             doAfter(0.2) -> 
                 caster.issueImmediateOrder("stop")

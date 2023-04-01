@@ -10,4 +10,4 @@ function taurenCard()
     EventListener.onCast('A0XS') caster ->
         forUnitsInRange(caster.getPos(), 400) (unit u) ->
             if(u.isEnemyOf(caster))
-                caster.physicalDamageCode(25000, u)
+                caster.physicalDamageCode(25000, u, true)

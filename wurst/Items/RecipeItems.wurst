@@ -517,10 +517,11 @@ function recipeItemReplace()
             u.addItemById(ITEM_239)
 
         // Ice & Fire Sword
-        else if u.hasItemById(ITEM_89) and u.hasItemById(ITEM_240) and u.hasItemById(ITEM_190)
+        else if u.hasItemById(ITEM_89) and u.hasItemById(ITEM_240) and u.hasItemById(ITEM_190) and u.hasItemById(ITEM_219)
             RemoveItem(u.getItemById(ITEM_89))
             RemoveItem(u.getItemById(ITEM_240))
             RemoveItem(u.getItemById(ITEM_190))
+            RemoveItem(u.getItemById(ITEM_219))
             u.addItemById(ITEM_172)
 
         // Boots of Crystal Gold

@@ -1,0 +1,24 @@
+package VivpireQ
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+import codeDamageTypings
+import MyBuffIds
+import ClosureEvents
+
+function vampiricBite()
+    EventListener.onTargetCast(VIVPIRE_ABIL_1) (unit caster, unit target) ->
+        let amount = caster.getStr(true) * caster.getAbilityLevel(VIVPIRE_ABIL_1) * 3.
+        if(target.hasAbility(VIVPIRE_BUFF_2))
+            new DummyCaster()
+            ..owner(GetOwningPlayer(caster))
+            ..castTarget(VIVPIRE_DUMMYABIL_1, 1, OrderIds.cripple, target)
+            ..origin(caster.getPos())
+            new DummyCaster()
+            ..owner(GetOwningPlayer(caster))
+            ..castTarget(VIVPIRE_DUMMYABIL_2, 1, OrderIds.curse, target)
+            ..origin(caster.getPos())
+        caster.physicalDamageCode(amount, target, false)
+
+init
+    vampiricBite()

@@ -6,6 +6,7 @@ import ClosureTimers
 import ClosureForGroups
 import codeDamageTypings
 import MyAbilityIds
+import PauseAllocation
 init
     chronoSphere()
     chronoSphereActive()
@@ -17,14 +18,15 @@ function chronoSphere()
 
 function chronoSphereActive()
     EventListener.onPointCast(CREEP_ABILITY_103) (unit caster, vec2 target) ->
-        let dmg = caster.getAbilityLevel(CREEP_ABILITY_103)*223.00
-        let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", target)
-        sfx.setScale(2)
-        doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
-            forUnitsInRange(sfx.getPos(), 700) (unit u) ->
-                if caster.isEnemyOf(u)
-                    caster.magicalDamageCode(dmg, u)
-                    u.pause()
-                if cb.isLast()
-                    sfx.destr()
-                    u.unpause()
+        if (caster.getTypeId() == WAVE_HERO_2)
+            let dmg = caster.getAbilityLevel(CREEP_ABILITY_103)*223.00
+            let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", target)
+            sfx.setScale(2)
+            doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
+                forUnitsInRange(sfx.getPos(), 700) (unit u) ->
+                    if caster.isEnemyOf(u)
+                        caster.magicalDamageCode(dmg, u)
+                        u.pauseIndef()
+                    if cb.isLast()
+                        sfx.destr()
+                        u.unPauseUnitIndef()

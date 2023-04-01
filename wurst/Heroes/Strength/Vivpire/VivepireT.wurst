@@ -1,0 +1,28 @@
+package VivepireT
+import VivpireR
+import MyAbilityIds
+import ClosureEvents
+import ClosureTimers
+
+int array damage = [100,300,600,1000]
+int array armor = [50,100,150,250]
+int oldBlood = 0
+
+function vivpireUnleashed()
+    EventListener.onCast(VIVPIRE_ABIL_5) (unit caster) ->
+        let lvl = caster.getAbilityLevel(VIVPIRE_ABIL_5)
+        oldBlood = getBlood()
+        caster.setArmor(caster.getArmor() + armor[lvl-1] + 5* oldBlood)
+        caster.setMaxHP(caster.getMaxHP().toInt() + (1000 * Pow(2, lvl-1.).toInt()))
+        caster.addInt(oldBlood * 30)
+        caster.addStr(oldBlood * 30)
+        caster.addAgi(oldBlood * 30)
+        doAfter(10. + lvl * 5) -> 
+            caster.setArmor(caster.getArmor() - armor[lvl-1] - 5* oldBlood)
+            caster.setMaxHP(caster.getMaxHP().toInt() - 1000 * Pow(2, lvl-1.).toInt())
+            caster.addAgi(oldBlood * -30)
+            caster.addStr(oldBlood * -30)
+            caster.addInt(oldBlood * -30)
+
+init
+    vivpireUnleashed()

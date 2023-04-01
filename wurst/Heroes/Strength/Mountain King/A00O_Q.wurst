@@ -31,7 +31,7 @@ function stormbolt()
                 ..owner(GetOwningPlayer(caster))
                 ..origin(sfx.getPos())
                 ..castImmediate(ABILITY_DUMMY_5, 1, OrderIds.stomp)
-                caster.physicalDamageCode(final, target)
+                caster.physicalDamageCode(final, target, true)
                 flashEffect(Abilities.fireLordDeathExplode, target.getPos())
                 sfx.destr()
                 destroy cb

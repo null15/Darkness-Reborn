@@ -3,12 +3,13 @@ import ClosureTimers
 import ClosureForGroups
 import ClosureEvents
 import codeDamageTypings
+import PauseAllocation
 init
 
     shadowRaze()
 
 function shadowRazeEnd(unit u)
-    u.unpause()
+    u.unPauseUnitIndef()
     u.setInvulnerable(false)
     u.setVertexColor(color(255, 255, 255))
 
@@ -19,7 +20,7 @@ function shadowRaze()
         let dmg = caster.getAgi(true) * 2. * lvl
         doAfter(0.3) -> 
             caster.setAnimation('slam')
-            caster.pause()
+            caster.pauseIndef()
             caster.setInvulnerable(true)
             doPeriodicallyTimed(0.3, 2) (CallbackCounted cb) ->
                 caster.setAnimation("slam")
@@ -29,6 +30,6 @@ function shadowRaze()
                 caster.setPos(caster.getPos().polarOffset(angle,100))
                 forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
                     if caster.isEnemyOf(u)
-                        caster.physicalDamageCode(dmg, u)
+                        caster.physicalDamageCode(dmg, u, false)
                 if cb.isLast()
                     shadowRazeEnd(caster)
