@@ -57,6 +57,10 @@ init
     ..setUnitSoundSet("")
     ..setModelFile("Units\\Demon Hunter\\DemonHunter2.mdx")
 
+    new HeroDefinition(SKIN_2, UnitIds.paladin)
+    ..setUnitSoundSet("")
+    ..setModelFile("Units\\Vivpire\\Dreadlord\\Dreadlord.mdx")
+
 @compiletime function dummyUnits()
     new UnitDefinition(DUMMY_UNIT_0, UnitIds.footman)
     ..setName("Effect Dummy Unit")

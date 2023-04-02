@@ -1,15 +1,41 @@
 package VivpireR
 import ClosureEvents
-import MyBuffIds
 import Global_Variables
 import MyUnitIds
-
+import MyAbilityIds
+import HashMap
 var blood = 0
+
+let preyTimers = new HashMap<timer, unit>
+let preyUnitTimer = new HashMap<unit, timer>
 
 function bloodGain()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() ->
-        if(GetDyingUnit().hasAbility(VIVPIRE_BUFF_2))
+        let uDie = GetDyingUnit()
+        let curTime = preyUnitTimer.get(uDie)
+        if(curTime != null)
+            printTimedToPlayer("|cffcf0505Delicious Prey|r", 5, GetKillingUnit().getOwner())
+            preyTimers.remove(curTime)
+            preyUnitTimer.remove(uDie)
+            curTime.destr()
             blood++
+    
+    EventListener.onTargetCast(VIVPIRE_ABIL_4) (unit caster, unit target) ->
+        if(preyUnitTimer.has(target) == false)
+            let newTime = CreateTimer()
+            newTime.start(10, function removebloodGain)
+            preyTimers.put(newTime, target)
+            preyUnitTimer.put(target, newTime)
+        else
+            let curTime = preyUnitTimer.get(target)
+            curTime.start(10, function removebloodGain)
+
+function removebloodGain()
+    let expire = GetExpiredTimer()
+    let u = preyTimers.get(expire)
+    preyTimers.remove(expire)
+    preyUnitTimer.remove(u)
+    expire.destr()
 
 function bloodCommand()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
@@ -18,7 +44,7 @@ function bloodCommand()
             let pid = p.getId()
             if (playerHero[pid] != null)
                 if (playerHero[pid].getTypeId() == PLAY_HERO_3)
-                    printTimedToPlayer("You currently have |cffcf0505" + (blood.toCharsetString()) + " blood|r", 5, p)
+                    printTimedToPlayer("You currently have |cffcf0505" + (blood.toString()) + " blood|r", 5, p)
 
 
 public function getBlood() returns int

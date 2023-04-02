@@ -24,15 +24,28 @@ public function unit.getMagicResist() returns real
 public function integer.getMagicResist() returns real
     return magicResistMap.get(this)
 
-public function unit.physPenAddSub()
+public function unit.physPenAdd()
     physPen = 0
     for int i = 0 to 5
-        let hashValue = this.getItemBySlot(i).getTypeId()
+        let ite = this.getItemBySlot(i)
+        let hashValue = ite.getTypeId()
         if(physPenItemHash.has(hashValue))
             physPen = physPen + physPenItemHash.get(hashValue)
-    this.enumeratePhysicalPenetration(physPen * 100)
+    print(physPen.toString())
+    this.enumeratePhysicalPenetration(physPen)
 
-public function unit.magicResAddSub()
+public function unit.physpenSub(item dropped)
+    physPen = 0
+    for int i = 0 to 5
+        let ite = this.getItemBySlot(i)
+        if(ite != dropped)
+            let hashValue = ite.getTypeId()
+            if(physPenItemHash.has(hashValue))
+                physPen = physPen + physPenItemHash.get(hashValue)
+    print(physPen.toString())
+    this.enumeratePhysicalPenetration(physPen)
+
+public function unit.magicResAdd()
     magicRes = 0
     for int i = 0 to 5
         let hashValue = this.getItemBySlot(i).getTypeId()
@@ -42,6 +55,18 @@ public function unit.magicResAddSub()
             magicRes = (1-currentMagic*magicAdd)
     this.enumerateMagicResistance(magicRes * 100)
 
+public function unit.magicResSub(item dropped)
+    magicRes = 0
+    for int i = 0 to 5
+        let ite = this.getItemBySlot(i)
+        if(ite != dropped)
+            let hashValue = ite.getTypeId()
+            if(magicResItemHash.has(hashValue))
+                let magicAdd = 1 - magicResItemHash.get(hashValue) * 0.01
+                let currentMagic = 1 - magicRes
+                magicRes = (1-currentMagic*magicAdd)
+    this.enumerateMagicResistance(magicRes * 100)
+
 public function int.putInItemHash(real input)
     physPenItemHash.put(this, input)
 
@@ -49,16 +74,16 @@ public function int.putInMagicResItemHash(real input)
     magicResItemHash.put(this, input)
 
 public function unit.enumerateMagicResistance(real magicResistance)
-    magicResistMap.put(this.getTypeId(), magicResistance/100)
+    magicResistMap.put(this.getTypeId(), magicResistance * 0.01)
 
 public function integer.enumerateMagicResistanceId(real magicResistance)
-    magicResistMap.put(this, magicResistance/100)
+    magicResistMap.put(this, magicResistance * 0.01)
 
 public function unit.enumeratePhysicalPenetration(real physicalPenetration)
-    physicalPenetrationMap.put(this.getTypeId(), physicalPenetration/100)
+    physicalPenetrationMap.put(this.getTypeId(), physicalPenetration * 0.01)
 
 public function integer.enumeratePhysicalPenetrationId(real physicalPenetration)
-    physicalPenetrationMap.put(this, physicalPenetration/100)
+    physicalPenetrationMap.put(this, physicalPenetration * 0.01)
 
 //########## Magical DAMAGE ############//
 

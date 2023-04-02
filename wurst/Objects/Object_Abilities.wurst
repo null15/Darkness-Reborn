@@ -2465,6 +2465,7 @@ import OrderIds
     ..presetManaCost(lvl -> 75 + 10 * lvl + 10 * lvl + 10 * (lvl-2))
     ..presetAmountHealedDamaged(lvl -> 0)
     ..presetCastRange(lvl -> 180)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
 
     new AbilityDefinitionBladeMasterCriticalStrike(VIVPIRE_ABIL_2)
     ..setLevels(9)
@@ -2498,7 +2499,7 @@ import OrderIds
     ..presetAreaofEffect(lvl -> 1500)
     ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_4))
 
-    new AbilityDefinitionFireBolt(VIVPIRE_ABIL_4)
+    new AbilityDefinitionCurse(VIVPIRE_ABIL_4)
     ..setLevels(9)
     ..setHotkeyLearn("R")
     ..setHotkeyNormal("R")
@@ -2509,7 +2510,6 @@ import OrderIds
     ..presetTooltipNormalExtended(lvl -> "Marks the target as Prey, making them able to be cursed by Vampiric Bite, they also drop Blood upon death. -Blood to see your current amount.")
     ..setIconNormal("Units\\Vivpire\\Vampire bite\\BTNvampirebite.blp")
     ..setIconResearch("Units\\Vivpire\\Vampire bite\\BTNvampirebite.blp")
-    ..presetDamage(lvl -> 0)
     ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_2))
     ..setMissileArt("")
     ..setButtonPositionNormalX(3)
@@ -2518,6 +2518,7 @@ import OrderIds
     ..setButtonPositionResearchY(0)
     ..presetDurationHero(lvl -> 10)
     ..presetDurationNormal(lvl -> 10)
+    ..presetChancetoMiss(lvl -> 0)
     ..presetCastRange(lvl -> 180)
     ..presetCooldown(lvl -> 63.5 - lvl * 3.5)
 

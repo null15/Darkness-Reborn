@@ -24,7 +24,7 @@ function rainofFire()
             let dmg = lvl * 3 * caster.getStr(true).toReal()
             METEOR_SOUND.playOnPoint(targetPos)
             flashEffect(Abilities.fireLordDeathExplode, targetPos, 2)
-            forUnitsInRange(targetPos.toVec2(), 400, true) (unit u) ->
+            forUnitsInRange(targetPos.toVec2(), 175. + 25 * lvl, true) (unit u) ->
                 if caster.isEnemyOf(u)
                     new DummyCaster()
                     ..owner(GetOwningPlayer(caster))

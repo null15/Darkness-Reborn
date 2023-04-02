@@ -3,10 +3,12 @@ import VivpireR
 import MyAbilityIds
 import ClosureEvents
 import ClosureTimers
+import MyUnitIds
 
 int array damage = [100,300,600,1000]
 int array armor = [50,100,150,250]
 int oldBlood = 0
+int oldskin
 
 function vivpireUnleashed()
     EventListener.onCast(VIVPIRE_ABIL_5) (unit caster) ->
@@ -17,7 +19,10 @@ function vivpireUnleashed()
         caster.addInt(oldBlood * 30)
         caster.addStr(oldBlood * 30)
         caster.addAgi(oldBlood * 30)
+        oldskin = BlzGetUnitSkin(caster)
+        BlzSetUnitSkin(caster, SKIN_2)
         doAfter(10. + lvl * 5) -> 
+            BlzSetUnitSkin(caster, oldskin)
             caster.setArmor(caster.getArmor() - armor[lvl-1] - 5* oldBlood)
             caster.setMaxHP(caster.getMaxHP().toInt() - 1000 * Pow(2, lvl-1.).toInt())
             caster.addAgi(oldBlood * -30)

@@ -55,7 +55,8 @@ function itemPickup()
             BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 5)
         else if u.hasItemById(ITEM_253) and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) == 5 and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 6
             BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 6)
-        u..physPenAddSub().magicResAddSub()
+        u..physPenAdd().magicResAdd()
         GetManipulatedItem().setUserData(1)
     EventListener.add(EVENT_PLAYER_UNIT_DROP_ITEM) -> 
-        GetTriggerUnit()..physPenAddSub().magicResAddSub()
+        let ite = GetManipulatedItem()
+        GetTriggerUnit()..physpenSub(ite).magicResSub(ite)

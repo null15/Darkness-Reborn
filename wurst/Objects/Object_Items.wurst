@@ -3552,7 +3552,9 @@ init
     ..setTooltipBasic("Buy Recipe (Recipe 44)")
     ..setTooltipExtended("|c00FFFC01Helm Hermes|r.\n\n"
     +" |c00FFFC01Effect of item:|r\n"
-    +"Increased 100 Strength \n"
+    +"+100 Strength\n"
+    +"+2500 Health\n"
+    +"100% to return 0.5xstr damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Helm of Valor (|c001CE6B9" + recipeShop2 + "|r)\n"
     +"Split Armor (|c001CE6B9" + recipeShop4 + "|r)")
@@ -9271,7 +9273,7 @@ init
     ..setDescription("Provides bonuses to Agility and Intelligence.")
     ..setName("Helm Hermes")
     ..setTooltipBasic("Purchase Hood of Cunning")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\nIncreased 100 Strength ")
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n+100 Strength\n+2500 Health\n100% to return 0.5xstr damage ")
     ..setHotkey("")
 
 //I0CL
@@ -13681,10 +13683,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("T¨ng 220 Agility")
+    ..setDescription("|cffffcc00Effect:|r 50% Evasion")
     ..setName("|c000042FFTitanium|r")
     ..setTooltipBasic("|c000042FFTitanium|r")
-    ..setTooltipExtended("|cffffcc00Effect:|r Increase 50% evade")
+    ..setTooltipExtended("|cffffcc00Effect:|r 50% Evasion")
     ..setHotkey("K")
 
 //I0C0
@@ -14433,7 +14435,7 @@ init
     ..setDescription("|cffffcc00Effect:|r\n+250 Armor\n+10000 HP\n\n|c00FEBA0ESpecial Effect:|r \n |c00FF0303When attacked you have a 50% Chance to restore 4000 HP.\nInfinite Revival with no Cooldown.|r")
     ..setName(" |c00FF0303Holy Gold Shield|r")
     ..setTooltipBasic(" |c00FF0303Holy Gold Shield|r")
-    ..setTooltipExtended("Mét mãn quµ v« gi¸ mµ tr­íc khi mÊt tÝch thÇn Aelion ®· ban tÆng cho loµi ng­êi ")
+    ..setTooltipExtended("|cffffcc00Effect:|r\n+250 Armor\n+10000 HP\n\n|c00FEBA0ESpecial Effect:|r \n |c00FF0303When attacked you have a 50% Chance to restore 4000 HP.\nInfinite Revival with no Cooldown.|r")
     ..setHotkey("")
 
 //I0CP
@@ -26340,7 +26342,7 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("CÈn thËn vì ®Çu nh­ ch¬i...\n|c00FFFC01Effect:|r    \n+200 Intelligence.\n|c00FFFC01Special effects :|r \nGain +1 Intelligence per kill.")
+    ..setDescription("Call of Furbolg Ursa Warrior\n|c00FFFC01Effect:|r    \n+200 Intelligence.\n|c00FFFC01Special effects :|r \nGain +1 Intelligence per kill.")
     ..setName("|c00FFFC01Call of Furbolg Ursa Warrior|r")
     ..setTooltipBasic("|c00FFFC01Call of Furbolg Ursa Warrior|r")
     ..setTooltipExtended("|c00FFFC01Effect:|r    \n+200 Intelligence.\n|c00FFFC01Special effects :|r \nGain +1 Intelligence per kill.")
@@ -26377,7 +26379,7 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("N¨ng l­îng h¾c ¸m ®nag l­u l¹i ®©u ®ã...\n|c00FFFC01Effect:|r    \n+200 Agility\n|c00FFFC01Special effects :|r \nGain +1 Agility per kill.")
+    ..setDescription("Call of Doom\n|c00FFFC01Effect:|r    \n+200 Agility\n|c00FFFC01Special effects :|r \nGain +1 Agility per kill.")
     ..setName("|c00FFFC01Call of Doom|r")
     ..setTooltipBasic("|c00FFFC01Call of Doom|r")
     ..setTooltipExtended("|c00FFFC01Effect:|r    \n+200 Agility\n|c00FFFC01Special effects :|r \nGain +1 Agility per kill.")
@@ -26414,7 +26416,7 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Mét chót ®Êt ®¸ sÏ gióp cë thÓ v÷ng ch¶i h¬n...\n|c00FFFC01Effect:|r    \n+200 Strength.\n|c00FFFC01Special effects :|r \nGain +1 Strength per kill.")
+    ..setDescription("Call of Flesh Golem\n|c00FFFC01Effect:|r    \n+200 Strength.\n|c00FFFC01Special effects :|r \nGain +1 Strength per kill.")
     ..setName("|c00FFFC01Call of Flesh Golem|r")
     ..setTooltipBasic("|c00FFFC01Call of Flesh Golem|r")
     ..setTooltipExtended("|c00FFFC01Effect:|r    \n+ 200 Strength.\n|c00FFFC01Special effects :|r \nGain +1 Strength per kill.")
