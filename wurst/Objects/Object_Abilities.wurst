@@ -2681,6 +2681,8 @@ import OrderIds
     "\nDamage: 0.1 * str + " + (20*lvl).toString() + 
     "\nDuration: Infinite" +
     "\nCooldown: 35s")
+    ..presetDurationHero(lvl -> 0)
+    ..presetDurationNormal(lvl -> 0)
 
     new AbilityDefinitionAuraDevotionCreep(WOLF_INITIATE_DUMMY_1)
     ..setLevels(9)
@@ -2773,7 +2775,7 @@ import OrderIds
     "\nDuration: Infinite" +
     "\nCooldown: 35s"+
     "\n\n|cffff0000Upgrades give flat health/damage/armor|r")
-    ..presetSummonedUnit(lvl -> commaList(MAN_WOLF_INITIAL))
+    ..presetSummonedUnit(lvl -> commaList(MAN_WOLF_INITIATE))
     ..presetNumberofSummonedUnits(lvl -> 1)
     ..setIconNormal(Icons.bTNDireWolf)
     ..setIconResearch(Icons.bTNDireWolf)
@@ -2784,6 +2786,8 @@ import OrderIds
     "\nDamage: 0.2 * str + " + (40*lvl).toString() + 
     "\nDuration: Infinite" +
     "\nCooldown: 35s")
+    ..presetDurationHero(lvl -> 0)
+    ..presetDurationNormal(lvl -> 0)
 
     new AbilityDefinitionAuraDevotionCreep(WOLF_FINAL_DUMMY_1)
     ..setLevels(1)
@@ -2857,6 +2861,7 @@ import OrderIds
     ..setIconResearch(Icons.bTNBerserk)
     ..setIconNormal(Icons.bTNBerserk)
     ..presetBuffs(lvl -> commaList(WOLF_BUFF_1))
+    
 
     new AbilityDefinitionFarseerSpiritWolf(WOLF_FINAL_ABIL_4)
     ..setLevels(1)
@@ -2869,7 +2874,7 @@ import OrderIds
     ..setName("Wolfman - R - Dog's Best Friend")
     ..setTooltipLearn("Learn Dog's Best Friend [|cffffcc00R|r]  - [|cffffcc00Level %d|r]")
     ..setTooltipLearnExtended("Summon \"Spirit Wolf\"\n"+
-    "Ability: Raise Wolf\n" + 
+    "Ability: Call Pack\n" + 
     "Health: 0.25 * maxHP + 125 * lvl" + 
     "\nArmor: 0.5 * armor + 2 * lvl" + 
     "\nDamage: 0.4 * str + 40 * lvl" + 
@@ -2880,11 +2885,13 @@ import OrderIds
     ..presetNumberofSummonedUnits(lvl -> 1)
     ..setIconNormal(Icons.bTNDireWolf)
     ..setIconResearch(Icons.bTNDireWolf)
+    ..presetDurationHero(lvl -> 0)
+    ..presetDurationNormal(lvl -> 0)
     ..presetTooltipNormalExtended(lvl -> "Summon \"Alpha Wolf\"\n"+
     "Ability: Call Pack\n" + 
-    "Health: 0.25 * maxHP + " + (125*lvl).toString() + 
-    "\nArmor: 0.5 * armor + " + (2*lvl).toString() + 
-    "\nDamage: 0.4 * str + " + (40*lvl).toString() + 
+    "Health: 0.25 * maxHP + " + (2500*lvl).toString() + 
+    "\nArmor: 0.5 * armor + " + (40*lvl).toString() + 
+    "\nDamage: 0.4 * str + " + (400*lvl).toString() + 
     "\nDuration: Infinite" +
     "\nCooldown: 35s"+
     "\nArmor Penetration: " + (10*lvl).toString() + "% of summoner Armor Pen")
@@ -2909,6 +2916,8 @@ import OrderIds
     ..setSummonedUnit(1, commaList(MAN_WOLF_INITIATE))
     ..setNumberofSummonedUnits(1, 4)
     ..setManaCost(1, 0)
+    ..presetDurationHero(lvl -> 0)
+    ..presetDurationNormal(lvl -> 0)
     ..setName("Call Pack")
     ..presetTooltipNormalExtended(lvl -> "Call \"Pack\"\n"+
     "Ability: N/A\n" + 

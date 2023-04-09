@@ -4,6 +4,7 @@ import TimerUtils
 import DialogBox
 import LinkedList
 import RegisterEvents
+import Global_Variables
 
 constant real VOTE_KICK_DURATION = 30.0
 constant real VOTE_KICK_COOLDOWN = 30.0
@@ -82,7 +83,7 @@ public class VoteKick
             onVoteDecided(false)
 
     static function onVoteDecided(bool value)
-        let message = getPlayerToKick().getName() + "Has been " + (value ? "{0} was kicked" : "{0} was not kicked")
+        let message = getPlayerToKick().getName() + "Has been " + (value ? " was kicked" : " was not kicked")
 
         for p in m_votingPlayers
             printTimedToPlayer(message, 12, p)
@@ -90,6 +91,11 @@ public class VoteKick
         if(value)
             CustomDefeatBJ(getPlayerToKick(), "You were voted to be kicked from the game")
             getPlayerToKick().setName(getPlayerToKick().getName() + " <Kicked>")
+            let leavingHero = playerHero[getPlayerToKick().getId()-1]
+            for int x = 0 to 5
+                let i = leavingHero.itemInSlot(x)
+                i.setPos(leavingHero.getPos())
+            leavingHero.remove()
 
         cleanup()
 
@@ -156,7 +162,7 @@ public class VoteKick
     static function showVoteKickDialog(player toPlayer)
         if (isVoteKickDialogVisible(toPlayer) or getVoteCast(toPlayer) != Undecided)
             return
-        let dialogBox = new DialogBox("{0} wants to kick {1}".format(m_playerRequesting.getNameColored(), m_playerToKick.getNameColored()))
+        let dialogBox = new DialogBox("{0} wants to kick {1}".format(m_playerRequesting.getNameColored(false), m_playerToKick.getNameColored(false)))
 
         dialogBox.addButton("Vote Yes", 'Y') () ->
             destroy dialogBox
