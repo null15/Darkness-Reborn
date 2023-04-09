@@ -29,6 +29,8 @@ public constant SUMMONED_UNIT_8 = compiletime(UNIT_ID_GEN.next())
 
 public constant DUMMY_BLACKSMITH_WISP = compiletime(UNIT_ID_GEN.next())
 
+public constant VIVPIRE_THRALL = compiletime(UNIT_ID_GEN.next())
+
 public constant HERO_PICKER = compiletime(UNIT_ID_GEN.next())
 
 public constant FACTORYROBO = compiletime(UNIT_ID_GEN.next())
@@ -182,6 +184,10 @@ public constant SERPENT_WARD_6 = compiletime(UNIT_ID_GEN.next())
 public constant SERPENT_WARD_7 = compiletime(UNIT_ID_GEN.next())
 public constant SERPENT_WARD_8 = compiletime(UNIT_ID_GEN.next())
 
+public constant MAN_WOLF_INITIAL = compiletime(UNIT_ID_GEN.next())
+public constant MAN_WOLF_INITIATE = compiletime(UNIT_ID_GEN.next())
+public constant MAN_WOLF_FINAL = compiletime(UNIT_ID_GEN.next())
+
 public constant QUILBEAST_0 = compiletime(UNIT_ID_GEN.next())
 public constant QUILBEAST_1 = compiletime(UNIT_ID_GEN.next())
 public constant QUILBEAST_2 = compiletime(UNIT_ID_GEN.next())
@@ -211,7 +217,9 @@ public constant HAWK_7 = compiletime(UNIT_ID_GEN.next())
 public constant HAWK_8 = compiletime(UNIT_ID_GEN.next())
 
 public constant PLAY_HERO_0 = compiletime(HERO_ID_GEN.next())
-public constant PLAY_HERO_1 = compiletime(HERO_ID_GEN.next())
+public constant PLAY_HERO_1_INITIAL = compiletime(HERO_ID_GEN.next())
+public constant PLAY_HERO_1_INITIATE = compiletime(HERO_ID_GEN.next())
+public constant PLAY_HERO_1_FINAL = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_2 = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_3 = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_4 = compiletime(HERO_ID_GEN.next())
@@ -511,7 +519,7 @@ init
     BEASTMASTER_SUMMON[26] = HAWK_8
 
     PLAY_HERO[1] = PLAY_HERO_0
-    PLAY_HERO[2] = PLAY_HERO_1
+    PLAY_HERO[2] = PLAY_HERO_1_INITIAL
     PLAY_HERO[3] = PLAY_HERO_2
     PLAY_HERO[4] = PLAY_HERO_3
     PLAY_HERO[5] = PLAY_HERO_4

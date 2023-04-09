@@ -35,6 +35,8 @@ function boostUnit()
         ..setLevel(50, false)
         ..addItemToSlot(ITEM_379, 0)
         ..addItemToSlot(ITEM_384, 1)
+        ..enumerateMagicResistance(60)
+        ..enumeratePhysicalPenetration(20)
     boostMap.put(WAVE_HERO_8) (u) -> // Jacksmith
         u
         ..setStr(50000)
@@ -48,6 +50,7 @@ function boostUnit()
         ..addItemToSlot(ITEM_383, 3)
         ..addItemToSlot(ITEM_384, 4)
         ..addItemToSlot(ITEM_379, 5)
+        ..enumeratePhysicalPenetration(10)
 
     boostMap.put(WAVE_HERO_9) (u) -> // Beastmaster (N02A)
         u
@@ -63,6 +66,7 @@ function boostUnit()
         ..addItemToSlot(ITEM_383, 3)
         ..addItemToSlot(ITEM_384, 4)
         ..addItemToSlot(ITEM_379, 5)
+        ..enumeratePhysicalPenetration(10)
         
     boostMap.put(WAVE_HERO_10) (u) -> // Satyr
         u
@@ -83,6 +87,7 @@ function boostUnit()
         ..addAbility('A0RG', 9)
         ..addAbility('A0RE', 9)
         ..addAbility('A01K', 4)
+        ..enumeratePhysicalPenetration(10)
 
     boostMap.put(WAVE_HERO_11) (u) -> // Warden
         u
@@ -101,6 +106,7 @@ function boostUnit()
         ..addAbility('A0D8', 9)
         ..addAbility('A00R', 9)
         ..addAbility('A00T', 9)
+        ..enumeratePhysicalPenetration(30)
 
     boostMap.put(WAVE_HERO_12) (u) -> // Blademaster
         u
@@ -118,6 +124,7 @@ function boostUnit()
         ..addItemToSlot(ITEM_379, 5)
         ..addAbility(CREEP_ABILITY_8, 1)
         ..addAbility('A07N', 9)
+        ..enumeratePhysicalPenetration(15)
 
     boostMap.put(WAVE_HERO_13) (u) -> // Tauren Chieftain
         u
@@ -138,6 +145,7 @@ function boostUnit()
         ..addAbility('A01B', 9)
         ..addAbility('A01E', 9)
         ..addAbility('A01A', 4)
+        ..enumeratePhysicalPenetration(30)
 
     boostMap.put(WAVE_HERO_14) (u) -> // Wolfman
         u
@@ -158,6 +166,7 @@ function boostUnit()
         ..addAbility('A0SE', 9)
         ..addAbility('A0SD', 4)
         ..addAbility('A0SA', 4)
+        ..enumeratePhysicalPenetration(10)
 
     boostMap.put(WAVE_HERO_15) (u) -> // Mountain King
         u
@@ -176,6 +185,7 @@ function boostUnit()
         ..addAbility(CREEP_ABILITY_7, 9)
         ..addAbility('A0DW', 9)
         ..addAbility('A0DZ', 4)
+        ..enumeratePhysicalPenetration(10)
 
     boostMap.put(WAVE_HERO_16) (u) -> // Dark Ranger
         u
@@ -215,6 +225,7 @@ function boostUnit()
         ..addAbility('A0R5', 9)
         ..addAbility('A0R6', 4)
         ..addAbility('A0RD', 4)
+        ..enumeratePhysicalPenetration(20)
 
     boostMap.put(WAVE_HERO_18) (u) -> // Pit Lord
         u
@@ -234,6 +245,7 @@ function boostUnit()
         ..addAbility('A0RS', 9)
         ..addAbility('A0RL', 9)
         ..addAbility('A0RI', 9)
+        ..enumeratePhysicalPenetration(15)
 
     boostMap.put(WAVE_HERO_19) (u) -> // Ranger
         u
@@ -255,6 +267,7 @@ function boostUnit()
         ..addAbility('A0CH', 9)
         ..addAbility('A0AP', 9)
         ..addAbility('A0F1', 4)
+        ..issueImmediateOrder(OrderIds.flamingarrows.toString())
 
     boostMap.put(WAVE_HERO_20) (u) -> // Demon Hunter
         u
@@ -274,6 +287,7 @@ function boostUnit()
         ..addAbility('A0RW', 9)
         ..addAbility('A0TK', 9)
         ..addAbility('A008', 9)
+        ..enumeratePhysicalPenetration(15)
 
     boostMap.put(WAVE_HERO_21) (u) -> // Shodow Hunter
         u
@@ -311,6 +325,7 @@ function boostUnit()
         ..addAbility('A0DC', 9)
         ..addAbility('A0GM', 9)
         ..addAbility('A0GJ', 4)
+        ..enumeratePhysicalPenetration(15)
 
     boostMap.put(WAVE_HERO_23) (u) -> // Priestess of the Moon
         u
@@ -380,6 +395,8 @@ function boostUnit()
         ..addItemToSlot(ITEM_351, 3)
         ..addItemToSlot(ITEM_371, 4)
         ..addItemToSlot(ITEM_379, 5)
+        ..enumeratePhysicalPenetration(15)
+        ..enumerateMagicResistance(90)
 
 function preloadWaveHeroes()
     for i = 1 to 30
@@ -442,6 +459,7 @@ function waveHeroDeath()
             final.setLevel(199, false)
             final.addAbility('A00W', 1)
             final.addAbility('A0ZA', 4)
+            final..enumerateMagicResistance(90).enumeratePhysicalPenetration(15)
             final.issueImmediateOrder("thunderclap")
             final.issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove2.randomPoint())
             onVictorySetup(final)

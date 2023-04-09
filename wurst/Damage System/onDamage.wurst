@@ -46,7 +46,7 @@ import VivpireW
 @configurable constant DETECT_NATIVE_ABILITIES = true
 
 real array healLoaMultiplier = [0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.70]
-real array healVivpireMultiplier = [0.05, 0.1, 0.15, 0.2, 0.25, 0.30, 0.35, 0.40, 0.45]
+real array healVivpireMultiplier = [0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525, 0.6, 0.675]
 texttag justaposeCrit
 unit illidan
 int illidanLvl
@@ -65,169 +65,167 @@ init
                 if(returnReducedDamage() > 0)
                     DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
 
-                // Illidan (Juxtapose) E
-                if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8') and src.isIllusion() == false
-                    juxtapose(src)
+                if (DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL or DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC) 
+                    //Reflection for Melee only
+                    if(src.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1) < 128)
+                        reflectionChecks(src, targ)
+                    // Far Seer (Mind Ripper) R - Passive
+                    if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and src.getTypeId() == PLAY_HERO_22 and src.getAbilityLevel('A0DI') > 0 and GetRandomInt(1, 100) < 15
+                        mindRipper(src, targ)
+                    // Sylvanas (Phantom Arrow) W - Autocast
+                    if src.getTypeId() == PLAY_HERO_18 and targ.hasAbility('B001')
+                        phantomArrow(src, targ)
+                    // Illidan (Juxtapose) E
+                    if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8') and src.isIllusion() == false 
+                        juxtapose(src)
+                    // Shadow Vengeance (Fury Peak) Q - Active
+                    if src.getTypeId() == PLAY_HERO_12 and src.hasAbility('B00L')
+                        furyPeak(src, targ)
+                    // Shadow Vengeance (Gravitone) R - Passive
+                    if src.getTypeId() == PLAY_HERO_12 and not src.hasAbility('B00L') and not src.hasAbility('B00J') and GetRandomInt(1, 100) < src.getAbilityLevel('A0CG')*2
+                        gravitone(src, targ)
+                    // Shadow Vengeance (Black Hole) T - Active
+                    if src.getTypeId() == PLAY_HERO_12 and src.hasAbility('B00J')
+                        blackHole(src, targ)
+                    //Thief noCommand
+                    if src.getTypeId() == PLAY_HERO_31 and GetRandomInt(0, 100) < src.getAbilityLevel('A0XG') * 2
+                        noCommand(src, targ)
+                    // Dark Ranger (Black Arrow) W - Autocast
+                    if darkArrowOn and src.getTypeId() == PLAY_HERO_16
+                        darkArrow(src, targ)
 
-                // Sylvanas (Phantom Arrow) W - Autocast
-                if src.getTypeId() == PLAY_HERO_18 and targ.hasAbility('B001')
-                    phantomArrow(src, targ)
+                    // Assassin (Last Killer) T - Active
+                    if src.getTypeId() == PLAY_HERO_10 and src.hasAbility('B00W')
+                        lastKiller(src, targ)
 
-                // Shadow Vengeance (Fury Peak) Q - Active
-                if src.getTypeId() == PLAY_HERO_12 and src.hasAbility('B00L')
-                    furyPeak(src, targ)
+                    // Demon Hunter (Demon Power) R - Passive
+                    if src.getTypeId() == PLAY_HERO_11 and GetUnitAbilityLevel(src, 'A0E6') >= 1 and src.isIllusion() == false
+                        demonPower(src)
 
-                // Shadow Vengeance (Gravitone) R - Passive
-                if src.getTypeId() == PLAY_HERO_12 and not src.hasAbility('B00L') and not src.hasAbility('B00J') and GetRandomInt(1, 100) < src.getAbilityLevel('A0CG')*2
-                    gravitone(src, targ)
+                    // Death Knight (Curse of Darkness ) E - Passive
+                    if targ.getTypeId() == PLAY_HERO_4 and targ.hasAbility('B004')
+                        curseOfDarkness(targ)
 
-                // Shadow Vengeance (Black Hole) T - Active
-                if src.getTypeId() == PLAY_HERO_12 and src.hasAbility('B00J')
-                    blackHole(src, targ)
+                    // Mountain King (Over Power) R - Passive
+                    if src.getTypeId() == PLAY_HERO_0 and targ.hasAbility(BUFF_5) or targ.hasAbility('BPSE') and src.getAbilityLevel('A0DX') >= 1 and GetRandomInt(1, 100) < 35
+                        overPower(src, targ)
 
-                // Dark Ranger (Black Arrow) W - Autocast
-                if darkArrowOn and src.getTypeId() == PLAY_HERO_16
-                    darkArrow(src, targ)
+                    // Tauren Chieftain (Pulverize) E - Passive
+                    if src.getTypeId() == PLAY_HERO_2 and src.getAbilityLevel('A01B') >= 1
+                        pulverize(src, targ)
 
-                // Assassin (Last Killer) T - Active
-                if src.getTypeId() == PLAY_HERO_10 and src.hasAbility('B00W')
-                    lastKiller(src, targ)
+                    // Vashj (Frost Arrows ) X - Autocast
+                    if frostArrowOn and src.getTypeId() == PLAY_HERO_25
+                        frostArrows(src, targ)
 
-                // Demon Hunter (Demon Power) R - Passive
-                if src.getTypeId() == PLAY_HERO_11 and GetUnitAbilityLevel(src, 'A0E6') >= 1 and src.isIllusion() == false
-                    demonPower(src)
+                    // Craggy Hex (Shadow Hunter) R - Passive
+                    if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and targ.getTypeId() == PLAY_HERO_23 and targ.hasAbility('B00N')
+                        craggyHex(src, targ)
 
-                // Death Knight (Curse of Darkness ) E - Passive
-                if targ.getTypeId() == PLAY_HERO_4 and targ.hasAbility('B004')
-                    curseOfDarkness(targ)
+                    // Keeper of the Grove (Thorns) R - Passive
+                    if targ.getTypeId() == PLAY_HERO_20 and targ.getAbilityLevel('A0TZ') > 0
+                        thornRoot(targ, src)
 
-                // Mountain King (Over Power) R - Passive
-                if src.getTypeId() == PLAY_HERO_0 and targ.hasAbility(BUFF_5) or targ.hasAbility('BPSE') and src.getAbilityLevel('A0DX') >= 1 and GetRandomInt(1, 100) < 35
-                    overPower(src, targ)
+                    // Fire Mage (Fire Shield) E - Active
+                    if targ.getTypeId() == PLAY_HERO_21 and targ.getAbilityLevel('B900') > 0
+                        fireShield(src, targ)
+                    //HermesHelm
+                    if targ.hasItemById(ITEM_233)
+                        hermesHelm(targ, src)
 
-                // Tauren Chieftain (Pulverize) E - Passive
-                if src.getTypeId() == PLAY_HERO_2 and src.getAbilityLevel('A01B') >= 1 and DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL
-                    pulverize(src, targ)
-
-                // Vashj (Frost Arrows ) X - Autocast
-                if frostArrowOn and src.getTypeId() == PLAY_HERO_25
-                    frostArrows(src, targ)
-
-                // Craggy Hex (Shadow Hunter) R - Passive
-                if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and targ.getTypeId() == PLAY_HERO_23 and targ.hasAbility('B00N')
-                    craggyHex(src, targ)
-
-                // Far Seer (Mind Ripper) R - Passive
-                if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and src.getTypeId() == PLAY_HERO_22 and src.getAbilityLevel('A0DI') > 0 and GetRandomInt(1, 100) < 15
-                    mindRipper(src, targ)
-
-                // Keeper of the Grove (Thorns) R - Passive
-                if targ.getTypeId() == PLAY_HERO_20 and targ.getAbilityLevel('A0TZ') > 0
-                    thornRoot(targ, src)
-
-                // Fire Mage (Fire Shield) E - Active
-                if targ.getTypeId() == PLAY_HERO_21 and targ.getAbilityLevel('B900') > 0
-                    fireShield(src, targ)
-
-                if targ.hasItemById(ITEM_233)
-                    hermesHelm(targ, src)
-
-                //Lancelot Armor
-                if targ.hasItemById(ITEM_183) and GetRandomInt(0, 100) < 20
-                    lancelotSetMana(targ)
-
-                if targ.hasItemById(ITEM_362)
-                    
-                    if(GetRandomInt(0, 100) < 30)
+                    //Lancelot Armor
+                    if targ.hasItemById(ITEM_183) and GetRandomInt(0, 100) < 20
                         lancelotSetMana(targ)
-                    if(GetRandomInt(0, 100) < 50)
-                        lancelotSetHealth(targ)
+                    //LanceSet
+                    if targ.hasItemById(ITEM_362)
+                        if(GetRandomInt(0, 100) < 30)
+                            lancelotSetMana(targ)
+                        if(GetRandomInt(0, 100) < 50)
+                            lancelotSetHealth(targ)
+                    //LanceShield
+                    if targ.hasItemById(ITEM_182) and GetRandomInt(0, 100) < 30
+                        lancelotShield(targ)
+                    //holyGoldShield
+                    if targ.hasItemById(ITEM_372) and GetRandomInt(0, 100) < 50
+                        holyGoldShield(targ)
+                    //deadEyes
+                    if src.hasItemById(ITEM_659) and GetRandomInt(0, 100) < 14
+                        deadEyes(src, targ)
 
-                if targ.hasItemById(ITEM_182) and GetRandomInt(0, 100) < 30
-                    lancelotShield(targ)
+                    //Noble Sword levels, integer is additive with 2xagi
+                    if src.hasItemById(ITEM_403) and GetRandomInt(0, 100) < 11
+                        nobleSword(src, targ, 0)
 
-                if targ.hasItemById(ITEM_372) and GetRandomInt(0, 100) < 50
-                    holyGoldShield(targ)
+                    if src.hasItemById(ITEM_404) and GetRandomInt(0, 100) < 12
+                        nobleSword(src, targ, 1)
 
-                if src.hasItemById(ITEM_659) and GetRandomInt(0, 100) < 14
-                    deadEyes(src, targ)
+                    if src.hasItemById(ITEM_405) and GetRandomInt(0, 100) < 13
+                        nobleSword(src, targ, 2)
 
-                //Noble Sword levels, integer is additive with 2xagi
-                if src.hasItemById(ITEM_403) and GetRandomInt(0, 100) < 11
-                    nobleSword(src, targ, 0)
+                    if src.hasItemById(ITEM_406) and GetRandomInt(0, 100) < 14
+                        nobleSword(src, targ, 3)
 
-                if src.hasItemById(ITEM_404) and GetRandomInt(0, 100) < 12
-                    nobleSword(src, targ, 1)
+                    if src.hasItemById(ITEM_408) and GetRandomInt(0, 100) < 18
+                        nobleSword(src, targ, 4)
 
-                if src.hasItemById(ITEM_405) and GetRandomInt(0, 100) < 13
-                    nobleSword(src, targ, 2)
+                    //Raven Blade levels, integer is multiplier by 2xstr
+                    if src.hasItemById(ITEM_638) and GetRandomInt(0, 100) < 12
+                        ravenBlade(src, targ, 1)
 
-                if src.hasItemById(ITEM_406) and GetRandomInt(0, 100) < 14
-                    nobleSword(src, targ, 3)
+                    if src.hasItemById(ITEM_639) and GetRandomInt(0, 100) < 13
+                        ravenBlade(src, targ, 2)
 
-                if src.hasItemById(ITEM_408) and GetRandomInt(0, 100) < 18
-                    nobleSword(src, targ, 4)
+                    if src.hasItemById(ITEM_640) and GetRandomInt(0, 100) < 14
+                        ravenBlade(src, targ, 3)
+                    //ApolloHelm
+                    if targ.hasItemById(ITEM_385) and GetRandomInt(0, 100) < 33 
+                        apolloHelm(targ, src)
+                    //Crystal Armor
+                    if targ.hasItemById(ITEM_122) and GetRandomInt(0, 100) < 50
+                        crystalArmor(targ, src)
+                    //Crystal Spear
+                    if src.hasItemById(ITEM_125) and GetRandomInt(0, 100) < 15
+                        crystalSpear(src, targ)
+                    //Int Staff
+                    if src.hasItemById(ITEM_388) and GetRandomInt(0, 100) < 24
+                        berserkerStaff(src, targ)
 
-                //Raven Blade levels, integer is multiplier by 2xstr
-                if src.hasItemById(ITEM_638) and GetRandomInt(0, 100) < 12
-                    ravenBlade(src, targ, 1)
+                    if src.hasItemById(ITEM_658) and GetRandomInt(0, 100) < 24
+                        nerubianStaff(src, targ)
+                    //Frostmourne
+                    if src.hasItemById(ITEM_699) and GetRandomInt(0, 100) < 15
+                        frostmourne(targ)
+                    //Orb of Lightning
+                    if src.hasItemById(ITEM_24) and GetRandomInt(0, 100) < 20
+                        orbofLightning(src)
+                    //ThunderBows
+                    if src.hasItemById(ITEM_230) and GetRandomInt(0, 100) < 10
+                        thunderBow(src)
 
-                if src.hasItemById(ITEM_639) and GetRandomInt(0, 100) < 13
-                    ravenBlade(src, targ, 2)
-
-                if src.hasItemById(ITEM_640) and GetRandomInt(0, 100) < 14
-                    ravenBlade(src, targ, 3)
-
-                if targ.hasItemById(ITEM_385) and GetRandomInt(0, 100) < 33 
-                    apolloHelm(targ, src)
-
-                if targ.hasItemById(ITEM_122) and GetRandomInt(0, 100) < 50
-                    crystalArmor(targ, src)
-
-                if src.hasItemById(ITEM_125) and GetRandomInt(0, 100) < 15
-                    crystalSpear(src, targ)
-
-                if src.hasItemById(ITEM_388) and GetRandomInt(0, 100) < 24
-                    berserkerStaff(src, targ)
-
-                if src.hasItemById(ITEM_658) and GetRandomInt(0, 100) < 24
-                    nerubianStaff(src, targ)
+                    if src.hasItemById(ITEM_680) and GetRandomInt(0, 100) < 15
+                        thunderBow2(src)
+                    //VivpireBloodhunter
+                    if src.getAbilityLevel(VIVPIRE_ABIL_2) > 0
+                        bloodHunter(src, targ)
                 
-                if src.hasItemById(ITEM_699) and GetRandomInt(0, 100) < 15
-                    frostmourne(targ)
-
-                if src.hasItemById(ITEM_24) and GetRandomInt(0, 100) < 20
-                    orbofLightning(src)
-
-                if src.hasItemById(ITEM_230) and GetRandomInt(0, 100) < 10
-                    thunderBow(src)
-
-                if src.hasItemById(ITEM_680) and GetRandomInt(0, 100) < 15
-                    thunderBow2(src)
-
-                // Ordinary Hakkar Buff
+                // Ordinary Hakkar Buff or improved Hakkar Buff
                 if src.hasAbility(BUFF_20)
                     let lvl = src.getAbilityLevel(ABILITY_41)
                     src.addHP(DamageEvent.getAmount()*healLoaMultiplier[lvl-1])
-
-                // Improved Hakkar Buff
-                if src.hasAbility(BUFF_21)
+                else if src.hasAbility(BUFF_21)
                     src.addHP(DamageEvent.getAmount()*0.8)
 
                 if src.hasAbility('B003')
                     src.removeAbility('B003')
 
-                if src.getTypeId() == PLAY_HERO_31 and GetRandomInt(0, 100) < src.getAbilityLevel('A0XG') * 2
-                    noCommand(src, targ)
-
-                //VivpireBloodhunter
-                if src.getAbilityLevel(VIVPIRE_ABIL_2) > 0
-                    bloodHunter(src, targ)
-
-                //VampiricAura
+                //VampiricAura Vivpire
                 if src.hasAbility(VIVPIRE_BUFF_4)
                     let lvl = src.getAbilityLevel(VIVPIRE_BUFF_4)
                     src.addHP(DamageEvent.getAmount() * healVivpireMultiplier[lvl-1])
+
+                //Wolfman attack
+                if src.hasAbility(WOLF_BUFF_1)
+                    src.addHP(DamageEvent.getAmount() * 0.25)
 
             case SPELL
                 let src = DamageEvent.getSource()
@@ -250,11 +248,12 @@ init
                 let src = DamageEvent.getSource()
                 let targ = DamageEvent.getTarget()
                 let damId = DamageEvent.getId()
+                
 
                 if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
                     if(returnReducedDamage() > 0)
                         DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
-                    physicalDamageChecks(damId, src, targ)
+                    physicalDamageChecks(damId, src, targ, DamageEvent.getWeaponType())
                 else if (DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)
                     DamageEvent.setAmount(DamageEvent.getAmount() * (1-targ.getMagicResist()))
                     magicDamageChecks(damId, src, targ)
@@ -276,8 +275,17 @@ function magicDamageChecks(int damId, unit src, unit targ)
     if damId == 'A0MN' or damId == 'AOE7'
         eternalFlame(src, targ)
 
-function physicalDamageChecks(int damId, unit src, unit targ)
+function physicalDamageChecks(int damId, unit src, unit targ, weapontype notRanged)
     //Vivpire Vampiric Aura
     if src.hasAbility(VIVPIRE_BUFF_4)
         let lvl = src.getAbilityLevel(VIVPIRE_BUFF_4)
         src.addHP(DamageEvent.getAmount() * healVivpireMultiplier[lvl-1])
+    //Wolfman attack
+    if src.hasAbility(WOLF_BUFF_1)
+        src.addHP(DamageEvent.getAmount() * 0.25)
+    //Reflection non-ranged
+    if(notRanged == WEAPON_TYPE_WHOKNOWS)
+        reflectionChecks(src,targ)
+
+
+function reflectionChecks(unit src, unit targ)

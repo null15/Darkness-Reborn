@@ -1,0 +1,13 @@
+package ManPunch
+
+import ClosureEvents
+import codeDamageTypings
+import MyAbilityIds
+
+function punch()
+    EventListener.onTargetCast(MAN_ABIL_1) (unit caster, unit target) ->
+        let amount = caster.getStr(true) * 2. * caster.getAbilityLevel(MAN_ABIL_1)
+        caster.physicalDamageCode(amount, target, false)
+
+init
+    punch()

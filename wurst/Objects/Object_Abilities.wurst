@@ -660,13 +660,17 @@ import OrderIds
     ..setLevels(9)
     ..setHotkeyLearn("Q")
     ..setHotkeyNormal("Q")
+    ..setButtonPositionNormalX(0)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(0)
+    ..setButtonPositionResearchY(0)
     ..setName("Beastmaster - 1 - Summon Misha Bear")
-    ..setTooltipLearn("Learn Summon Misha Bear [|cffffcc00W|r] - [|cffffcc00Level %d|r]")
+    ..setTooltipLearn("Learn Summon Misha Bear [|cffffcc00Q|r] - [|cffffcc00Level %d|r]")
     ..setTooltipLearnExtended("Summon \"Misha\"\n"+
     "Ability: Bash (35%)\n" + 
-    "Health: 0.5 * str + 125 * lvl" + 
-    "\nArmor: 0.5 * str + 8 * lvl" + 
-    "\nDamage: 0.25 * str + 10 * lvl" + 
+    "Health: 0.25 * maxHP + 125 * lvl" + 
+    "\nArmor: 0.4 * armor + 8 * lvl" + 
+    "\nDamage: 0.15 * str + 10 * lvl" + 
     "\nDuration: Infinite" +
     "\nCooldown: 35s"+
     "\nArmor Penetration: 1% of summoner Armor Pen per level\n\n"+
@@ -692,14 +696,14 @@ import OrderIds
     for int i = 1 to 9
         abi4..setTooltipNormalExtended(i, "Summon \"Misha\"\n"+
     "Ability: Bash (35%)\n" + 
-    "Health: 0.5 * str + " + (125*i).toString() + 
-    "\nArmor: 0.5 * str + " + (8*i).toString() + 
-    "\nDamage: 0.25 * str + " + (10*i).toString() + 
-    "\nDuration: 70s" +
+    "Health: 0.25 * maxHP + " + (125*i).toString() + 
+    "\nArmor: 0.4 * armor + " + (8*i).toString() + 
+    "\nDamage: 0.15 * str + " + (10*i).toString() + 
+    "\nDuration: Infinite" +
     "\nCooldown: 35s"+
     "\nArmor Penetration: " + (1*i).toString() + "% of summoner Armor Pen\n\n"+
     "|cffff0000Upgrades give flat health/damage/armor + summoned amount|r")
-        ..setTooltipNormal(i, "Summon Misha [|cffffcc00W|r] - [|cffffcc00Level "+ i.toString() + "|r]")
+        ..setTooltipNormal(i, "Summon Misha [|cffffcc00Q|r] - [|cffffcc00Level "+ i.toString() + "|r]")
         ..setDurationHero(i, 0)
         ..setDurationNormal(i, 0)
         ..setCooldown(i, 35)
@@ -709,13 +713,17 @@ import OrderIds
     ..setLevels(9)
     ..setHotkeyLearn("W")
     ..setHotkeyNormal("W")
+    ..setButtonPositionNormalX(1)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(1)
+    ..setButtonPositionResearchY(0)
     ..setName("Beastmaster - 2 - Summon Quilbeast")
     ..setTooltipLearn("Learn Summon QuilBeast [|cffffcc00W|r] - [|cffffcc00Level %d|r]")
     ..setTooltipLearnExtended("Summon \"Quilbeast\"\n"+
         "Ability: Bloodrage (25% attackspeed)\n" + 
-        "Health: 0.25 * str + 125 * lvl" + 
-        "\nArmor: 0.25 * str + 4 * lvl" + 
-        "\nDamage: 0.5 * str + 15 * lvl" + 
+        "Health: 0.1 * maxHP + 125 * lvl" + 
+        "\nArmor: 0.15 * armor + 4 * lvl" + 
+        "\nDamage: 0.4 * str + 15 * lvl" + 
         "\nDuration: 70s" +
         "\nCooldown: 35s"+
         "\nArmor Penetration: 2% of summoner Armor Pen per level\n\n"+
@@ -741,9 +749,9 @@ import OrderIds
     for int i = 1 to 9
         abi5..setTooltipNormalExtended(i, "Summon \"Quilbeast\"\n"+
         "Ability: Bloodrage (25% attackspeed)\n" + 
-        "Health: 0.25 * str + " + (125*i).toString() + 
-        "\nArmor: 0.25 * str + " + (4*i).toString() + 
-        "\nDamage: 0.5 * str + " + (15*i).toString() + 
+        "Health: 0.1 * maxHP + " + (125*i).toString() + 
+        "\nArmor: 0.15 * armor + " + (4*i).toString() + 
+        "\nDamage: 0.4 * str + " + (15*i).toString() + 
         "\nDuration: 70s" +
         "\nCooldown: 35s"+
         "\nArmor Penetration: " + (2*i).toString() + "% of summoner Armor Pen\n\n"+
@@ -758,13 +766,17 @@ import OrderIds
     ..setLevels(9)
     ..setHotkeyLearn("E")
     ..setHotkeyNormal("E")
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(2)
+    ..setButtonPositionResearchY(0)
     ..setName("Beastmaster - 3 - Summon Hawk")
-    ..setTooltipLearn("Learn Summon Hawk [|cffffcc00W|r] - [|cffffcc00Level %d|r]")
+    ..setTooltipLearn("Learn Summon Hawk [|cffffcc00E|r] - [|cffffcc00Level %d|r]")
     ..setTooltipLearnExtended("Summon \"Falcon\"\n"+
         "Ability: None\n" + 
-        "Health: 0.1 * str + 125 * lvl" + 
-        "\nArmor: 0.1 * str + 2 * lvl" + 
-        "\nDamage: 1 * str + 20 * lvl" + 
+        "Health: 0.05 * maxHP + 125 * lvl" + 
+        "\nArmor: 0.1 * armor + 2 * lvl" + 
+        "\nDamage: 0.75 * str + 20 * lvl" + 
         "\nDuration: 70s" +
         "\nCooldown: 35s"+
         "\nArmor Penetration: 3% of summoner Armor Pen per level\n\n"+
@@ -790,14 +802,14 @@ import OrderIds
     for int i = 1 to 9
         abi6..setTooltipNormalExtended(i, "Summon \"Falcon\"\n"+
         "Ability: None\n" + 
-        "Health: 0.1 * str + " + (125*i).toString() + 
-        "\nArmor: 0.1 * str + " + (2*i).toString() + 
-        "\nDamage: 1 * str + " + (20*i).toString() + 
+        "Health: 0.05 * maxHP + " + (125*i).toString() + 
+        "\nArmor: 0.1 * armor + " + (2*i).toString() + 
+        "\nDamage: 0.75 * str + " + (20*i).toString() + 
         "\nDuration: 70s" +
         "\nCooldown: 35s"+
         "\nArmor Penetration: " + (3*i).toString() + "% of summoner Armor Pen\n\n"+
         "|cffff0000Upgrades give flat health/damage/armor + summoned amount|r")
-        ..setTooltipNormal(i, "Summon Hawk [|cffffcc00W|r] - [|cffffcc00Level "+ i.toString() + "|r]")
+        ..setTooltipNormal(i, "Summon Hawk [|cffffcc00E|R] - [|cffffcc00Level "+ i.toString() + "|r]")
         ..setDurationHero(i, 70)
         ..setDurationNormal(i, 70)
         ..setCooldown(i, 35)
@@ -850,10 +862,10 @@ import OrderIds
     ..setDurationNormal(2, 20)
     ..setDurationNormal(3, 25)
     ..setDurationNormal(4, 30)
-    ..setTargetsAllowed(1, "self")
-    ..setTargetsAllowed(2, "self")
-    ..setTargetsAllowed(3, "self")
-    ..setTargetsAllowed(4, "self")
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.self))
+    ..setTargetsAllowed(2, commaList(TargetsAllowed.self))
+    ..setTargetsAllowed(3, commaList(TargetsAllowed.self))
+    ..setTargetsAllowed(4, commaList(TargetsAllowed.self))
     ..setName("Beastmaster - 5 - Spirits")
     ..setHotkeyLearn("T")
     ..setHotkeyNormal("T")
@@ -1376,24 +1388,24 @@ import OrderIds
 
     new AbilityDefinitionBloodlust(ABILITY_38) // on dummy
     ..setLevels(9)
-    ..setAttackSpeedIncrease(1, 0.25)
-    ..setAttackSpeedIncrease(2, 0.50)
-    ..setAttackSpeedIncrease(3, 0.75)
-    ..setAttackSpeedIncrease(4, 1.00)
-    ..setAttackSpeedIncrease(5, 1.25)
-    ..setAttackSpeedIncrease(6, 1.50)
-    ..setAttackSpeedIncrease(7, 1.75)
-    ..setAttackSpeedIncrease(8, 2.00)
-    ..setAttackSpeedIncrease(9, 2.50)
-    ..setMovementSpeedIncrease(1, 0.10)
-    ..setMovementSpeedIncrease(2, 0.20)
-    ..setMovementSpeedIncrease(3, 0.30)
-    ..setMovementSpeedIncrease(4, 0.40)
-    ..setMovementSpeedIncrease(5, 0.50)
-    ..setMovementSpeedIncrease(6, 0.60)
-    ..setMovementSpeedIncrease(7, 0.70)
-    ..setMovementSpeedIncrease(8, 0.80)
-    ..setMovementSpeedIncrease(9, 1.00)
+    ..setAttackSpeedIncrease(1, 0.15)
+    ..setAttackSpeedIncrease(2, 0.30)
+    ..setAttackSpeedIncrease(3, 0.45)
+    ..setAttackSpeedIncrease(4, 0.60)
+    ..setAttackSpeedIncrease(5, 0.75)
+    ..setAttackSpeedIncrease(6, 0.9)
+    ..setAttackSpeedIncrease(7, 1.05)
+    ..setAttackSpeedIncrease(8, 1.20)
+    ..setAttackSpeedIncrease(9, 1.35)
+    ..setMovementSpeedIncrease(1, 0.0)
+    ..setMovementSpeedIncrease(2, 0.0)
+    ..setMovementSpeedIncrease(3, 0.0)
+    ..setMovementSpeedIncrease(4, 0.0)
+    ..setMovementSpeedIncrease(5, 0.0)
+    ..setMovementSpeedIncrease(6, 0.0)
+    ..setMovementSpeedIncrease(7, 0.0)
+    ..setMovementSpeedIncrease(8, 0.0)
+    ..setMovementSpeedIncrease(9, 0.0)
     ..setScalingFactor(1, 0.05)
     ..setScalingFactor(2, 0.10)
     ..setScalingFactor(3, 0.15)
@@ -1464,7 +1476,7 @@ import OrderIds
     new AbilityDefinitionBladeMasterCriticalStrike(ABILITY_39)
     ..setName("Fins of Gral")
     ..setTooltipLearn("Fins of Gral")
-    ..setTooltipLearnExtended("On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 50-250% for 10 seconds.")
+    ..setTooltipLearnExtended("On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 15-135% for 10 seconds.")
     ..setTooltipNormal(1, "Fins of Gral")
     ..setTooltipNormal(2, "Fins of Gral")
     ..setTooltipNormal(3, "Fins of Gral")
@@ -1474,15 +1486,15 @@ import OrderIds
     ..setTooltipNormal(7, "Fins of Gral")
     ..setTooltipNormal(8, "Fins of Gral")
     ..setTooltipNormal(9, "Fins of Gral")
-    ..setTooltipNormalExtended(1, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 50-250% for 10 seconds.")
-    ..setTooltipNormalExtended(2, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 50-250% for 10 seconds.")
-    ..setTooltipNormalExtended(3, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 50-250% for 10 seconds.")
-    ..setTooltipNormalExtended(4, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 50-250% for 10 seconds.")
-    ..setTooltipNormalExtended(5, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 50-250% for 10 seconds.")
-    ..setTooltipNormalExtended(6, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 50-250% for 10 seconds.")
-    ..setTooltipNormalExtended(7, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 50-250% for 10 seconds.")
-    ..setTooltipNormalExtended(8, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 50-250% for 10 seconds.")
-    ..setTooltipNormalExtended(9, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 50-250% for 10 seconds.")
+    ..setTooltipNormalExtended(1, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 15-135% for 10 seconds.")
+    ..setTooltipNormalExtended(2, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 15-135% for 10 seconds.")
+    ..setTooltipNormalExtended(3, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 15-135% for 10 seconds.")
+    ..setTooltipNormalExtended(4, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 15-135% for 10 seconds.")
+    ..setTooltipNormalExtended(5, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 15-135% for 10 seconds.")
+    ..setTooltipNormalExtended(6, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 15-135% for 10 seconds.")
+    ..setTooltipNormalExtended(7, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 15-135% for 10 seconds.")
+    ..setTooltipNormalExtended(8, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 15-135% for 10 seconds.")
+    ..setTooltipNormalExtended(9, "On every attack the King of loas has a 15% chance to enrage, increasing attackspeed by 15-135% for 10 seconds.")
     ..setIconNormal(Icons.bTNBerserk)
     ..setIconResearch(Icons.bTNBerserk)
     ..setLevels(9)
@@ -1507,7 +1519,7 @@ import OrderIds
     
     ..setName("Thunder of Akunda")
     ..setTooltipLearn("Thunder of Akunda")
-    ..setTooltipLearnExtended("Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 3-27x int damage to the attacked enemy.")
+    ..setTooltipLearnExtended("Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 1.5-13.5x damage to the attacked enemy.")
     ..setTooltipNormal(1, "Thunder of Akunda")
     ..setTooltipNormal(2, "Thunder of Akunda")
     ..setTooltipNormal(3, "Thunder of Akunda")
@@ -1517,15 +1529,15 @@ import OrderIds
     ..setTooltipNormal(7, "Thunder of Akunda")
     ..setTooltipNormal(8, "Thunder of Akunda")
     ..setTooltipNormal(9, "Thunder of Akunda")
-    ..setTooltipNormalExtended(1, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 3-27x int damage to the attacked enemy.")
-    ..setTooltipNormalExtended(2, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 3-27x int damage to the attacked enemy.")
-    ..setTooltipNormalExtended(3, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 3-27x int damage to the attacked enemy.")
-    ..setTooltipNormalExtended(4, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 3-27x int damage to the attacked enemy.")
-    ..setTooltipNormalExtended(5, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 3-27x int damage to the attacked enemy.")
-    ..setTooltipNormalExtended(6, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 3-27x int damage to the attacked enemy.")
-    ..setTooltipNormalExtended(7, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 3-27x int damage to the attacked enemy.")
-    ..setTooltipNormalExtended(8, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 3-27x int damage to the attacked enemy.")
-    ..setTooltipNormalExtended(9, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 3-27x int damage to the attacked enemy.")
+    ..setTooltipNormalExtended(1, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 1.5-13.5x int damage to the attacked enemy.")
+    ..setTooltipNormalExtended(2, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 1.5-13.5x damage to the attacked enemy.")
+    ..setTooltipNormalExtended(3, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 1.5-13.5x damage to the attacked enemy.")
+    ..setTooltipNormalExtended(4, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 1.5-13.5x damage to the attacked enemy.")
+    ..setTooltipNormalExtended(5, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 1.5-13.5x damage to the attacked enemy.")
+    ..setTooltipNormalExtended(6, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 1.5-13.5x damage to the attacked enemy.")
+    ..setTooltipNormalExtended(7, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 1.5-13.5x damage to the attacked enemy.")
+    ..setTooltipNormalExtended(8, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 1.5-13.5x damage to the attacked enemy.")
+    ..setTooltipNormalExtended(9, "Every attack, the King of loas has a 3-27% (+3%) chance to release the thundering might of Akunda dealing 1.5-13.5x damage to the attacked enemy.")
     ..setIconNormal(Icons.bTNAkama)
     ..setIconResearch(Icons.bTNAkama)
     ..setLevels(9)
@@ -1870,13 +1882,22 @@ import OrderIds
     ..setButtonPositionResearchY(0)
     ..setHotkeyLearn("Q")
     ..setHotkeyNormal("Q")
+    ..setCooldown(1, 16)
+    ..setCooldown(2, 15)
+    ..setCooldown(3, 14)
+    ..setCooldown(4, 13)
+    ..setCooldown(5, 12)
+    ..setCooldown(6, 11)
+    ..setCooldown(7, 10)
+    ..setCooldown(8, 9)
+    ..setCooldown(9, 8)
 
     new AbilityDefinitionBladeMasterCriticalStrike(ABILITY_47)
     ..setName("Embodiment of Gral")
     ..setTooltipLearn("Embodiment of Gral")
-    ..setTooltipLearnExtended("Every attack the King of Loas has a 15% to enrage increasing attack speed by 350% and adds a bleed effect dealing 5x int every second over 5 seconds")
+    ..setTooltipLearnExtended("Every attack the King of Loas has a 15% to enrage increasing attack speed by 250% and adds a bleed effect dealing 5x int every second over 5 seconds")
     ..setTooltipNormal(1, "Embodiment of Gral")
-    ..setTooltipNormalExtended(1, "Every attack the King of Loas has a 15% to enrage increasing attack speed by 350% and adds a bleed effect dealing 5x int every second over 5 seconds")
+    ..setTooltipNormalExtended(1, "Every attack the King of Loas has a 15% to enrage increasing attack speed by 250% and adds a bleed effect dealing 5x int every second over 5 seconds")
     ..setIconNormal(Icons.bTNBerserk)
     ..setIconResearch(Icons.bTNBerserk)
     ..setLevels(1)
@@ -1891,8 +1912,8 @@ import OrderIds
 
     new AbilityDefinitionBloodlust(ABILITY_48) // on dummy
     ..setLevels(1)
-    ..setAttackSpeedIncrease(1, 3.5)
-    ..setMovementSpeedIncrease(1, 1.5)
+    ..setAttackSpeedIncrease(1, 2.5)
+    ..setMovementSpeedIncrease(1, 0)
     ..setScalingFactor(1, 0.75)
     ..setCastRange(1, 2000)
     ..setCooldown(1, 0)
@@ -2019,6 +2040,15 @@ import OrderIds
     ..setArtCaster("Loas Assets\\az_ts_v2.mdx")
     ..setArtSpecial("Loas Assets\\az_ts_v2.mdx")
     ..setAreaEffect("Loas Assets\\az_ts_v2.mdx")
+    ..setCooldown(1, 20)
+    ..setCooldown(2, 19)
+    ..setCooldown(3, 18)
+    ..setCooldown(4, 17)
+    ..setCooldown(5, 16)
+    ..setCooldown(6, 15)
+    ..setCooldown(7, 14)
+    ..setCooldown(8, 13)
+    ..setCooldown(9, 12)
 
     new AbilityDefinitionInnerFire(ABILITY_55)
     ..setName("Embodiment of Gral Bleed")
@@ -2310,9 +2340,9 @@ import OrderIds
     ..presetTooltipNormal(lvl -> "Blue Sea [ |c00FFFC01R|r ] -[|c00FFFC01Level " + lvl.toString() + "|r ]")
     ..presetTooltipNormalExtended(lvl -> "On kill of enemy " + (5*lvl).toString() + "% lvl chance to get permanent mana. Level 1-3 gives 50, level 4-6 gives 100 and 7 or up is 150.")
 
-    new AbilityDefinitionStasisTrap(NAGAWITCH_ABIL_5)
+    new AbilityDefinitionSentryWard(NAGAWITCH_ABIL_5)
     ..setName("Tornado")
-    ..setLevels(9)
+    ..setLevels(4)
     ..setButtonPositionNormalX(2)
     ..setButtonPositionNormalY(1)
     ..setButtonPositionResearchX(3)
@@ -2327,7 +2357,6 @@ import OrderIds
     ..setRequirements("")
     ..setTooltipLearn("Learn Tornado  [ |c00FFFC01T|r ] - [|c00FFFC01Level %d|r] ")
     ..setTooltipLearnExtended("Naga Sea Witch shoots out a giant tornado dealing 75% * lvl max mana damage to all enemies in 400 range")
-    ..presetStunDuration(lvl -> 0.01)
     ..presetWardUnitType(lvl -> "")
     ..presetAreaofEffect(lvl -> 0.)
     ..presetCastRange(lvl -> 700.)
@@ -2429,6 +2458,8 @@ import OrderIds
     ..setDurationHero(1, 10)
     ..setDurationNormal(1, 10)
     ..setManaCost(1, 0)
+    ..setBuffs(1, commaList(VIVPIRE_BUFF_3))
+    ..setCastRange(1, 99999)
 
     new AbilityDefinitionCursecreep(VIVPIRE_DUMMYABIL_2)
     ..setLevels(1)
@@ -2436,6 +2467,7 @@ import OrderIds
     ..setManaCost(1, 0)
     ..setDurationHero(1, 10)
     ..setDurationNormal(1, 10)
+    ..setCastRange(1, 99999)
 
     new AbilityDefinitionCurse(VIVPIRE_DUMMYABIL_3)
     ..setLevels(1)
@@ -2445,7 +2477,7 @@ import OrderIds
     ..setDurationNormal(1, 10)
     ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_1))
 
-    new AbilityDefinitionDeathKnightDeathCoil(VIVPIRE_ABIL_1)
+    new AbilityDefinitionCripple(VIVPIRE_ABIL_1)
     ..setLevels(9)
     ..setHotkeyLearn("Q")
     ..setHotkeyNormal("Q")
@@ -2457,15 +2489,19 @@ import OrderIds
     ..setIconResearch("Units\\Vivpire\\BTNBloodyBite\\BTNBloodyBite.blp")
     ..setName("Vivpire - Q - Vampiric Bite")
     ..setMissileArt("")
+    ..setArtTarget("")
+    ..presetBuffs(lvl -> commaList(""))
+    ..setRequirements("")
     ..setTooltipLearn("Learn Vampiric Bite [|cffffcc00Q|r]  - [|cffffcc00Level %d|r]")
     ..setTooltipLearnExtended("Bites the victim, dealing 3 x str x lvl physical damage. If 'Prey' debuff applied, cripple enemy with 75% attack speed, movespeed, attack damage and miss chance.")
     ..presetTooltipNormalExtended(lvl -> "Bites the victim, dealing " + (lvl * 3).toString() + " str physical damage. If 'Prey' debuff applied, cripple enemy with 75% attack speed, movespeed, attack damage and miss chance.")
     ..presetTooltipNormal(lvl -> "Learn Vampiric Bite [|cffffcc00Q|r]  - [|cffffcc00"+ lvl.toString() +"|r]")
     ..presetCooldown(lvl -> 21. - lvl)
     ..presetManaCost(lvl -> 75 + 10 * lvl + 10 * lvl + 10 * (lvl-2))
-    ..presetAmountHealedDamaged(lvl -> 0)
     ..presetCastRange(lvl -> 180)
     ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetDurationHero(lvl -> 0.01)
+    ..presetDurationNormal(lvl -> 0.01)
 
     new AbilityDefinitionBladeMasterCriticalStrike(VIVPIRE_ABIL_2)
     ..setLevels(9)
@@ -2478,8 +2514,8 @@ import OrderIds
     ..setIconResearch("Units\\Vivpire\\Red Orb\\PASRed orb.blp")
     ..setName("Vivpire - W - Blood Hunter")
     ..setTooltipLearn("Learn Blood Hunter [|cffffcc00W|r]  - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Your claws hunger for blood. Increase damage done up to lvl x str physical damage. Hitting an enemy stacks it up by 0.1x str, 0.2x if enemy below 50%, and if enemy below 10% by 0.4x. Each stack lasts 5 seconds")
-    ..presetTooltipNormalExtended(lvl -> "Your claws hunger for blood. Increases damage done by up to " + (lvl).toString() + " str physical damage. Hitting an enemy stacks it up by 0.1x str, 0.2x if enemy below 50%, and if enemy below 10% by 0.4x. Each stack lasts 5 seconds")
+    ..setTooltipLearnExtended("Your claws hunger for blood. Increasing damage done by 0.1xstr every attack. Limit is lvl * 1.25 * str physical damage. Lasts for 5 seconds from last attack.")
+    ..presetTooltipNormalExtended(lvl -> "Your claws hunger for blood. Increasing damage done by 0.1xstr every attack. Limit is " + (lvl *1.25).toString() + " str physical damage. Lasts for 5 seconds from last attack.")
     ..presetTooltipNormal(lvl -> "Blood Hunter [|cffffcc00W|r]  - [|cffffcc00"+ lvl.toString() +"|r]")
     ..presetChancetoCriticalStrike(lvl -> 0)
 
@@ -2492,35 +2528,42 @@ import OrderIds
     ..setButtonPositionResearchY(0)
     ..setName("Vivpire - E - Vampiric Aura")
     ..setTooltipLearn("Learn Vampiric Aura [|cffffcc00E|r]  - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Gives nearby allied heroes 5% lifesteal to physical damage.")
+    ..setTooltipLearnExtended("Gives nearby allied heroes 7.5% lifesteal to physical damage.")
     ..presetTooltipNormal(lvl -> "Vampiric Aura [|cffffcc00E|r]  - [|cffffcc00"+ lvl.toString() +"|r]")
-    ..presetTooltipNormalExtended(lvl -> "Gives nearby allied heroes " + (5*lvl).toString() + "% lifesteal to physical damage.")
+    ..presetTooltipNormalExtended(lvl -> "Gives nearby allied heroes " + (7.5*lvl).toString() + "% lifesteal to physical damage.")
     ..presetAttackDamageStolen(lvl -> 0)
     ..presetAreaofEffect(lvl -> 1500)
     ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_4))
 
-    new AbilityDefinitionCurse(VIVPIRE_ABIL_4)
+    new AbilityDefinitionPurge(VIVPIRE_ABIL_4)
     ..setLevels(9)
     ..setHotkeyLearn("R")
     ..setHotkeyNormal("R")
     ..setName("Vivpire - R - Prey Marked")
     ..setTooltipLearn("Learn Prey Marked [|cffffcc00R|r]  - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Marks the target as Prey, making them able to be cursed by Vampiric Bite, they also drop Blood upon death. -Blood to see your current amount.")
+    ..setTooltipLearnExtended("Marks the target as Prey, making them able to be cursed by Vampiric Bite, they also drop Blood upon death. Anyone else nearby gets marked as prey, but, will not give blood. -Blood to see your current amount.")
     ..presetTooltipNormal(lvl -> "Prey Marked [|cffffcc00R|r]  - [|cffffcc00"+ lvl.toString() +"|r]")
-    ..presetTooltipNormalExtended(lvl -> "Marks the target as Prey, making them able to be cursed by Vampiric Bite, they also drop Blood upon death. -Blood to see your current amount.")
-    ..setIconNormal("Units\\Vivpire\\Vampire bite\\BTNvampirebite.blp")
-    ..setIconResearch("Units\\Vivpire\\Vampire bite\\BTNvampirebite.blp")
+    ..presetTooltipNormalExtended(lvl -> "Marks the target as Prey, making them able to be cursed by Vampiric Bite, they also drop Blood upon death. Anyone else nearby gets marked as prey, but, will not give blood. -Blood to see your current amount.")
     ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_2))
     ..setMissileArt("")
     ..setButtonPositionNormalX(3)
     ..setButtonPositionNormalY(2)
     ..setButtonPositionResearchX(3)
     ..setButtonPositionResearchY(0)
+    ..setIconNormal("Units\\Vivpire\\Vampire bite\\BTNvampirebite.blp")
+    ..setIconResearch("Units\\Vivpire\\Vampire bite\\BTNvampirebite.blp")
     ..presetDurationHero(lvl -> 10)
     ..presetDurationNormal(lvl -> 10)
-    ..presetChancetoMiss(lvl -> 0)
+    ..presetAttackUpdateFrequency(lvl -> 0)
+    ..presetHeroPauseDuration(lvl-> 0)
+    ..presetMovementUpdateFrequency(lvl -> 0)
+    ..presetSummonedUnitDamage(lvl -> 0)
     ..presetCastRange(lvl -> 180)
     ..presetCooldown(lvl -> 63.5 - lvl * 3.5)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..setArtTarget("Units\\Vivpire\\Affliction\\Affliction040.mdx")
+    ..setArtSpecial("")
+    ..presetUnitPauseDuration(lvl -> 0)
 
     new AbilityDefinitionBerserk(VIVPIRE_ABIL_5)
     ..setLevels(4)
@@ -2539,12 +2582,12 @@ import OrderIds
     ..presetCooldown(lvl -> 215. - 15 * lvl)
     ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_5))
     ..setTooltipLearn("Learn Vampire-Lord Unleashed [|cffffcc00T|r]  - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Unleashes your true form, lasting for %ahdu seconds. 50 armor per level, with another 50 at level 4. 1000 doubling health each level. Each blood gives an additional 30 all stats and 10 armor")
+    ..setTooltipLearnExtended("Unleashes your true form, lasting for %ahdu seconds. 50 armor per level, with another 50 at level 4. 1000 doubling health each level. Each blood gives an additional 20 all stats and 10 armor")
     ..presetTooltipNormal(lvl -> "Vampire-Lord Unleashed [|cffffcc00T|r]  - [|cffffcc00"+ lvl.toString() +"|r]")
-    ..setTooltipNormalExtended(1, "Unleashes your true form, lasting for 15 seconds, 50 armor, 1000 health. Each blood gives an additional 30 all stats and 10 armor")
-    ..setTooltipNormalExtended(2, "Unleashes your true form, lasting for 20 seconds, 100 armor, 2000 health. Each blood gives an additional 30 all stats and 10 armor")
-    ..setTooltipNormalExtended(3, "Unleashes your true form, lasting for 25 seconds, 150 armor, 4000 health. Each blood gives an additional 30 all stats and 10 armor")
-    ..setTooltipNormalExtended(4, "Unleashes your true form, lasting for 30 seconds, 250 armor, 8000 health. Each blood gives an additional 30 all stats and 10 armor")
+    ..setTooltipNormalExtended(1, "Unleashes your true form, lasting for 15 seconds, 50 armor, 1000 health. Each blood gives an additional 20 all stats and 10 armor")
+    ..setTooltipNormalExtended(2, "Unleashes your true form, lasting for 20 seconds, 100 armor, 2000 health. Each blood gives an additional 20 all stats and 10 armor")
+    ..setTooltipNormalExtended(3, "Unleashes your true form, lasting for 25 seconds, 150 armor, 4000 health. Each blood gives an additional 20 all stats and 10 armor")
+    ..setTooltipNormalExtended(4, "Unleashes your true form, lasting for 30 seconds, 250 armor, 8000 health. Each blood gives an additional 20 all stats and 10 armor")
 
 
 @compiletime function pitlordAbils()
@@ -2564,6 +2607,314 @@ import OrderIds
     ..presetTooltipNormal(lvl -> "Meteor [|cffffcc00Q|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
     ..presetTooltipNormalExtended(lvl -> "Causes a meteor to rain down from the sky, dealing damage and applying a burn to enemies for " + lvl.toString() + " seconds. Dealing " + (lvl * 3).toString() + " * str on impact and burning for 1 * str damage.")
 
+@compiletime function wolfmanAbils()
+    new AbilityDefinitionCripple(MAN_ABIL_1)
+    ..setLevels(9)
+    ..setHotkeyLearn("Q")
+    ..setHotkeyNormal("Q")
+    ..setName("Man - Q - Punch")
+    ..setButtonPositionNormalX(0)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(0)
+    ..setButtonPositionResearchY(0)
+    ..setTooltipLearn("Learn Punch [|cffffcc00Q|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Punch the enemy dealing 2 * str * lvl damage")
+    ..presetCooldown(lvl -> 5)
+    ..presetManaCost(lvl -> 0)
+    ..presetTooltipNormal(lvl -> "Punch [|cffffcc00Q|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Punch the enemy dealing " + (2 * lvl).toString() + " * str damage")
+    ..presetCastRange(lvl -> 180)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetDurationHero(lvl -> 0.01)
+    ..presetDurationNormal(lvl -> 0.01)
+    ..presetBuffs(lvl -> commaList(""))
+    ..setRequirements("")
+    ..setIconNormal(Icons.bTNSeaGiantPulverize)
+    ..setIconResearch(Icons.bTNSeaGiantPulverize)
+
+    new AbilityDefinitionTaurenChieftainWarStomp(MAN_ABIL_2)
+    ..setLevels(9)
+    ..setHotkeyLearn("W")
+    ..setHotkeyNormal("W")
+    ..setName("Man - W - Scream")
+    ..setButtonPositionNormalX(1)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(1)
+    ..setButtonPositionResearchY(0)
+    ..setTooltipLearn("Learn Scream [|cffffcc00W|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Screams so hard that the nearby enemies are stunned for 2 seconds")
+    ..presetTooltipNormal(lvl -> "Scream [|cffffcc00W|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Screams so hard that the nearby enemies are stunned for 2 seconds")
+    ..presetDurationHero(lvl -> 2)
+    ..presetDurationNormal(lvl -> 2)
+    ..presetBuffs(lvl -> commaList(MAN_BUFF))
+    ..presetCooldown(lvl -> 12.-lvl)
+    ..presetManaCost(lvl -> 0)
+    ..presetDamage(lvl -> 0)
+
+    new AbilityDefinitionFarseerSpiritWolf(MAN_ABIL_3)
+    ..setLevels(9)
+    ..setHotkeyLearn("E")
+    ..setHotkeyNormal("E")
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(2)
+    ..setButtonPositionResearchY(0)
+    ..setName("Man - E - Man's Best Friend")
+    ..setTooltipLearn("Learn Man's Best Friend [|cffffcc00E|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Summon \"Dog\"\n"+
+    "Ability: N/A\n" + 
+    "Health: 0.1 * maxHP + 125 * lvl" + 
+    "\nArmor: 0.2 * armor + 2 * lvl" + 
+    "\nDamage: 0.1 * str + 20 * lvl" + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s"+
+    "\n\n|cffff0000Upgrades give flat health/damage/armor|r")
+    ..presetSummonedUnit(lvl -> commaList(MAN_WOLF_INITIAL))
+    ..presetNumberofSummonedUnits(lvl -> 1)
+    ..setIconNormal(Icons.bTNDireWolf)
+    ..setIconResearch(Icons.bTNDireWolf)
+    ..presetTooltipNormalExtended(lvl -> "Summon \"Dog\"\n"+
+    "Ability: N/A\n" + 
+    "Health: 0.1 * maxHP + " + (125*lvl).toString() + 
+    "\nArmor: 0.2 * armor + " + (2*lvl).toString() + 
+    "\nDamage: 0.1 * str + " + (20*lvl).toString() + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s")
+
+    new AbilityDefinitionAuraDevotionCreep(WOLF_INITIATE_DUMMY_1)
+    ..setLevels(9)
+    ..presetArmorBonus(lvl -> -10. * lvl)
+    ..presetBuffs(lvl -> commaList(""))  
+
+    new AbilityDefinitionCripple(WOLF_INITIATE_ABIL_1)
+    ..setLevels(9)
+    ..setHotkeyLearn("Q")
+    ..setHotkeyNormal("Q")
+    ..setName("Dogman - Q - Bite")
+    ..setButtonPositionNormalX(0)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(0)
+    ..setButtonPositionResearchY(0)
+    ..setTooltipLearn("Learn Bite [|cffffcc00Q|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Bite the enemy dealing 3 * str * lvl damage")
+    ..presetCooldown(lvl -> 5)
+    ..presetManaCost(lvl -> 0)
+    ..presetTooltipNormal(lvl -> "Bite [|cffffcc00Q|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Bite the enemy dealing " + (3 * lvl).toString() + " * str damage")
+    ..presetCastRange(lvl -> 180)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetDurationHero(lvl -> 0.01)
+    ..presetDurationNormal(lvl -> 0.01)
+    ..presetBuffs(lvl -> commaList(""))
+    ..setRequirements("")
+    ..setIconNormal(Icons.bTNCannibalize)
+    ..setIconResearch(Icons.bTNCannibalize)
+
+    new AbilityDefinitionTaurenChieftainWarStomp(WOLF_INITIATE_ABIL_2)
+    ..setLevels(9)
+    ..setHotkeyLearn("W")
+    ..setHotkeyNormal("W")
+    ..setName("Dogman - W - Howl")
+    ..setButtonPositionNormalX(1)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(1)
+    ..setButtonPositionResearchY(0)
+    ..setTooltipLearn("Learn Howl [|cffffcc00W|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Howl to the sky, stunning enemies for 2 seconds and reducing armor by 10 * lvl for nearby enemies for 10 seconds")
+    ..presetTooltipNormal(lvl -> "Howl [|cffffcc00W|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Howl to the sky, stunning enemies for 2 seconds and reducing armor by " + (lvl * 10).toString() + " for nearby enemies for 10 seconds")
+    ..presetDurationHero(lvl -> 2)
+    ..presetDurationNormal(lvl -> 2)
+    ..presetDamage(lvl -> 0)
+    ..presetBuffs(lvl -> commaList(WOLF_BUFF_2))
+    ..presetCooldown(lvl -> 12.-lvl)
+    ..presetManaCost(lvl -> 0)
+
+    new AbilityDefinitionBerserk(WOLF_INITIATE_ABIL_3)
+    ..setLevels(9)
+    ..setHotkeyLearn("E")
+    ..setHotkeyNormal("E")
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(2)
+    ..setButtonPositionResearchY(0)
+    ..setName("Dogman - E - Bloodlust")
+    ..setTooltipLearn("Learn Bloodlust [|cffffcc00E|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Hunger for blood, attacking 20% * lvl faster and move 15% * lvl faster. Gain 25% lifesteal. Lasts 5 seconds.")
+    ..presetTooltipNormal(lvl -> "Bloodlust [|cffffcc00E|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Hunger for blood, attacking " + (20*lvl).toString() + "% * lvl faster and move " + (15*lvl).toString() + "% * lvl faster. Gain 25% lifesteal.  Lasts 5 seconds.")
+    ..presetDurationHero(lvl -> 5)
+    ..presetDurationNormal(lvl -> 5)
+    ..presetCooldown(lvl -> 18.-lvl)
+    ..presetManaCost(lvl -> 0)
+    ..presetAttackSpeedIncrease(lvl -> 0.2*lvl)
+    ..presetMovementSpeedIncrease(lvl -> 0.15*lvl)
+    ..presetDamageTakenIncrease(lvl -> 0)
+    ..setIconResearch(Icons.bTNBerserk)
+    ..setIconNormal(Icons.bTNBerserk)
+    ..presetBuffs(lvl -> commaList(WOLF_BUFF_1))
+
+    new AbilityDefinitionFarseerSpiritWolf(WOLF_INITIATE_ABIL_4)
+    ..setLevels(9)
+    ..setHotkeyLearn("R")
+    ..setHotkeyNormal("R")
+    ..setButtonPositionNormalX(3)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(3)
+    ..setButtonPositionResearchY(0)
+    ..setName("Dogman - R - Dog's Best Friend")
+    ..setTooltipLearn("Learn Dog's Best Friend [|cffffcc00R|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Summon \"Wolf\"\n"+
+    "Ability: N/A\n" + 
+    "Health: 0.15 * maxHP + 125 * lvl" + 
+    "\nArmor: 0.3 * armor + 2 * lvl" + 
+    "\nDamage: 0.2 * str + 40 * lvl" + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s"+
+    "\n\n|cffff0000Upgrades give flat health/damage/armor|r")
+    ..presetSummonedUnit(lvl -> commaList(MAN_WOLF_INITIAL))
+    ..presetNumberofSummonedUnits(lvl -> 1)
+    ..setIconNormal(Icons.bTNDireWolf)
+    ..setIconResearch(Icons.bTNDireWolf)
+    ..presetTooltipNormalExtended(lvl -> "Summon \"Alpha Wolf\"\n"+
+    "Ability: Raise Wolf\n" + 
+    "Health: 0.15 * maxHP + " + (125*lvl).toString() + 
+    "\nArmor: 0.3 * armor + " + (2*lvl).toString() + 
+    "\nDamage: 0.2 * str + " + (40*lvl).toString() + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s")
+
+    new AbilityDefinitionAuraDevotionCreep(WOLF_FINAL_DUMMY_1)
+    ..setLevels(1)
+    ..presetArmorBonus(lvl -> -150.)
+    ..presetBuffs(lvl -> commaList("")) 
+
+    new AbilityDefinitionCripple(WOLF_FINAL_ABIL_1)
+    ..setLevels(1)
+    ..setHotkeyLearn("Q")
+    ..setHotkeyNormal("Q")
+    ..setButtonPositionNormalX(0)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(0)
+    ..setButtonPositionResearchY(0)
+    ..setName("Wolfman - Q - Bite")
+    ..setTooltipLearn("Learn Bite [|cffffcc00Q|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Bite the enemy dealing 27 * str + 2250 damage")
+    ..presetCooldown(lvl -> 5)
+    ..presetManaCost(lvl -> 0)
+    ..presetTooltipNormal(lvl -> "Bite [|cffffcc00Q|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Bite the enemy dealing 27 * str + 2250 damage")
+    ..presetCastRange(lvl -> 180)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetDurationHero(lvl -> 0.01)
+    ..presetDurationNormal(lvl -> 0.01)
+    ..presetBuffs(lvl -> commaList(""))
+    ..setRequirements("")
+    ..setIconNormal(Icons.bTNCannibalize)
+    ..setIconResearch(Icons.bTNCannibalize)
+
+    new AbilityDefinitionTaurenChieftainWarStomp(WOLF_FINAL_ABIL_2)
+    ..setLevels(1)
+    ..setHotkeyLearn("W")
+    ..setHotkeyNormal("W")
+    ..setButtonPositionNormalX(1)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(1)
+    ..setButtonPositionResearchY(0)
+    ..setName("Wolfman - W - Howl")
+    ..setTooltipLearn("Learn Howl [|cffffcc00W|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Howl to the sky, stunning enemies for 2 seconds and reducing armor by 150 for nearby enemies for 10 seconds")
+    ..presetTooltipNormal(lvl -> "Howl [|cffffcc00W|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Howl to the sky, stunning enemies for 2 seconds and reducing armor by 150 for nearby enemies for 10 seconds")
+    ..presetDurationHero(lvl -> 2)
+    ..presetDurationNormal(lvl -> 2)
+    ..presetDamage(lvl -> 0)
+    ..presetBuffs(lvl -> commaList(WOLF_BUFF_2))
+    ..presetCooldown(lvl -> 12.-lvl)
+    ..presetManaCost(lvl -> 0)
+
+    new AbilityDefinitionBerserk(WOLF_FINAL_ABIL_3)
+    ..setLevels(1)
+    ..setHotkeyLearn("E")
+    ..setHotkeyNormal("E")
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(2)
+    ..setButtonPositionResearchY(0)
+    ..setName("Wolfman - E - Bloodlust")
+    ..setTooltipLearn("Learn Bloodlust [|cffffcc00E|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Hunger for blood, attacking 300% faster and move 200% lvl faster. Gain 50% lifesteal. Lasts 5 seconds.")
+    ..presetTooltipNormal(lvl -> "Bloodlust [|cffffcc00E|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Hunger for blood, attacking 300% faster and move 200% lvl faster. Gain 50% lifesteal. Lasts 5 seconds.")
+    ..presetDurationHero(lvl -> 5)
+    ..presetDurationNormal(lvl -> 5)
+    ..presetCooldown(lvl -> 16.-lvl)
+    ..presetManaCost(lvl -> 0)
+    ..presetDamageTakenIncrease(lvl -> 0)
+    ..presetAttackSpeedIncrease(lvl -> 3)
+    ..presetMovementSpeedIncrease(lvl -> 2)
+    ..setIconResearch(Icons.bTNBerserk)
+    ..setIconNormal(Icons.bTNBerserk)
+    ..presetBuffs(lvl -> commaList(WOLF_BUFF_1))
+
+    new AbilityDefinitionFarseerSpiritWolf(WOLF_FINAL_ABIL_4)
+    ..setLevels(1)
+    ..setHotkeyLearn("R")
+    ..setHotkeyNormal("R")
+    ..setButtonPositionNormalX(3)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(3)
+    ..setButtonPositionResearchY(0)
+    ..setName("Wolfman - R - Dog's Best Friend")
+    ..setTooltipLearn("Learn Dog's Best Friend [|cffffcc00R|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Summon \"Spirit Wolf\"\n"+
+    "Ability: Raise Wolf\n" + 
+    "Health: 0.25 * maxHP + 125 * lvl" + 
+    "\nArmor: 0.5 * armor + 2 * lvl" + 
+    "\nDamage: 0.4 * str + 40 * lvl" + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s"+
+    "\nArmor Penetration: 10% of summoner Armor Pen per level")
+    ..presetSummonedUnit(lvl -> commaList(MAN_WOLF_FINAL))
+    ..presetNumberofSummonedUnits(lvl -> 1)
+    ..setIconNormal(Icons.bTNDireWolf)
+    ..setIconResearch(Icons.bTNDireWolf)
+    ..presetTooltipNormalExtended(lvl -> "Summon \"Alpha Wolf\"\n"+
+    "Ability: Call Pack\n" + 
+    "Health: 0.25 * maxHP + " + (125*lvl).toString() + 
+    "\nArmor: 0.5 * armor + " + (2*lvl).toString() + 
+    "\nDamage: 0.4 * str + " + (40*lvl).toString() + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s"+
+    "\nArmor Penetration: " + (10*lvl).toString() + "% of summoner Armor Pen")
+
+    new AbilityDefinitionBladeMasterCriticalStrike(WOLF_FINAL_ABIL_5)
+    ..setLevels(1)
+    ..setHotkeyLearn("T")
+    ..setName("Wolfman - T - Frenzy")
+    ..setButtonPositionNormalX(3)
+    ..setButtonPositionNormalY(1)
+    ..setButtonPositionResearchX(3)
+    ..setButtonPositionResearchY(1)
+    ..setTooltipLearn("Learn Frenzy [|cffffcc00T|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Gives 25% chance to deal 150x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: Doesn't work on summons|r")
+    ..presetTooltipNormal(lvl -> "Frenzy [|cffffcc00T|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Gives 25% chance to deal 150x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: Doesn't work on summons|r")
+    ..setChancetoCriticalStrike(1, 25)
+    ..setDamageMultiplier(1, 150)
+
+    new AbilityDefinitionFarseerSpiritWolf(MAN_WOLF_FINAL_ABIL)
+    ..setLevels(1)
+    ..setSummonedUnit(1, commaList(MAN_WOLF_INITIATE))
+    ..setNumberofSummonedUnits(1, 4)
+    ..setManaCost(1, 0)
+    ..setName("Call Pack")
+    ..presetTooltipNormalExtended(lvl -> "Call \"Pack\"\n"+
+    "Ability: N/A\n" + 
+    "Health: 0.25 * maxHP + 2500" + 
+    "\nArmor: 0.5 * armor + 40" + 
+    "\nDamage: 0.4 * damage + 400")
 
 @compiletime function creepAbils()
     new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_1) //A08H
@@ -3430,13 +3781,13 @@ import OrderIds
 
     new AbilityDefinitionOrbofCorruption(REDUCE_ARMOR_20_ITEM)
     ..setLevels(1)
-    ..setArmorPenalty(1, 80)
+    ..setArmorPenalty(1, 20)
     ..setDamageBonusDice(1, 1)
     ..setItemAbility(false)
 
     new AbilityDefinitionOrbofCorruption(REDUCE_ARMOR_30_ITEM)
     ..setLevels(1)
-    ..setArmorPenalty(1, 80)
+    ..setArmorPenalty(1, 30)
     ..setDamageBonusDice(1, 1)
     ..setItemAbility(false)
 

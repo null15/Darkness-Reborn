@@ -127,8 +127,8 @@ public function bossCreepSetup()
 function overdryaCreep(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
         let u1 = GetDyingUnit()
+        let pos = u1.getPos()
         doAfter(5) -> 
-            let pos = u1.getPos()
             for i = 1 to 10
                 if u1 == overlord[i]
                     overlord[i] = createUnit(hostile, OVERDRYA_CREEP[2], pos, u1.getFacingAngle())

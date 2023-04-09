@@ -1,0 +1,22 @@
+package WolfSummon
+
+import MyUnitIds
+import ClosureEvents
+import MyAbilityIds
+
+init
+    wolfDog()
+
+function wolfDog()
+
+    EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
+        let summoner = GetSummoningUnit()
+        if(summoner.getTypeId() == PLAY_HERO_1_INITIATE)
+            let summon = GetSummonedUnit()
+            let str = summoner.getStr(true)
+            
+            if summon.getTypeId() == MAN_WOLF_INITIATE
+                let lvl = summoner.getAbilityLevel(MAN_ABIL_3)
+                summon.setMaxHP(((0.15*summoner.getMaxHP()) + lvl * 125).toInt(), true)
+                summon.setArmor(0.3 * summoner.getArmor() + lvl * 2)
+                summon.setBaseDamage((0.2 * str + lvl * 40).toInt(), 0)

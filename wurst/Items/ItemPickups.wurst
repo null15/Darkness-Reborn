@@ -48,12 +48,13 @@ function initializeMagicResItems()
 
 function itemPickup()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
-        let u = GetTriggerUnit()  
-        if u.hasItemById(ITEM_245) and BlzGetUnitWeaponIntegerField(u, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 4) != 4
+        let u = GetTriggerUnit()
+        let defenseType = BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE)
+        if u.hasItemById(ITEM_245) and BlzGetUnitWeaponIntegerField(u, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0) != 4
             BlzSetUnitWeaponIntegerField(u, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
-        else if u.hasItemById(ITEM_176) and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 5 and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 6
+        else if u.hasItemById(ITEM_176) and defenseType != 5 and defenseType != 6
             BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 5)
-        else if u.hasItemById(ITEM_253) and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) == 5 and BlzGetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE) != 6
+        else if u.hasItemById(ITEM_253) and defenseType == 5 and defenseType != 6
             BlzSetUnitIntegerField(u, UNIT_IF_DEFENSE_TYPE, 6)
         u..physPenAdd().magicResAdd()
         GetManipulatedItem().setUserData(1)

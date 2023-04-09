@@ -37,7 +37,7 @@ import Units
     ..setTintingColorBlue(0)
     ..setTintingColorGreen(0)
     ..setTintingColorRed(255)
-    .setUnitsSold(commaList(PLAY_HERO_0, PLAY_HERO_1, PLAY_HERO_2, PLAY_HERO_3, PLAY_HERO_4, PLAY_HERO_5, PLAY_HERO_6, PLAY_HERO_7, PLAY_HERO_8))
+    .setUnitsSold(commaList(PLAY_HERO_0, PLAY_HERO_1_INITIAL, PLAY_HERO_2, PLAY_HERO_3, PLAY_HERO_4, PLAY_HERO_5, PLAY_HERO_6, PLAY_HERO_7, PLAY_HERO_8))
 
     new BuildingDefinition(BUILDING_TAVERN_AGI, UnitIds.cantina)// Tavern Build Agility Heroes (n00A)
     ..setName("Agility Heroes")

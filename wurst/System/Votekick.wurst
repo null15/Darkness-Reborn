@@ -62,17 +62,20 @@ public class VoteKick
             let p = players[i]
             if(p.isIngame())
                 m_playerVotes[p.getId()] = Undecided
-            if(p != playerRequesting and p != playerToKick)
-                m_votingPlayers.add(p)
+                if(p != playerRequesting and p != playerToKick)
+                    m_votingPlayers.add(p)
 
-            if(m_votingPlayers.isEmpty())
-                printTimed("Not enough people to votekick", 10)
+        if(m_votingPlayers.isEmpty())
+            printTimed("Not enough people to votekick", 10)
+            return
 
-            m_playerRequesting = playerRequesting
-            m_playerToKick = playerToKick
+        for p in m_votingPlayers
+            showVoteKickDialog(p)
 
-            m_timer = getTimer()
-            m_timer.start(VOTE_KICK_DURATION, function onVoteKickExpired)
+        m_playerRequesting = playerRequesting
+        m_playerToKick = playerToKick
+        m_timer = getTimer()
+        m_timer.start(VOTE_KICK_DURATION, function onVoteKickExpired)
 
     static function onVoteKickExpired()
         if (not evaluateVotesCast())

@@ -72,16 +72,16 @@ public function int.putInMagicResItemHash(real input)
     magicResItemHash.put(this, input)
 
 public function unit.enumerateMagicResistance(real magicResistance)
-    magicResistMap.put(this.getTypeId(), magicResistance * 0.01)
+    magicResistMap.put(this.getTypeId(), magicResistance /100)
 
 public function integer.enumerateMagicResistanceId(real magicResistance)
-    magicResistMap.put(this, magicResistance * 0.01)
+    magicResistMap.put(this, magicResistance /100)
 
 public function unit.enumeratePhysicalPenetration(real physicalPenetration)
-    physicalPenetrationMap.put(this.getTypeId(), physicalPenetration * 0.01)
+    physicalPenetrationMap.put(this.getTypeId(), physicalPenetration /100)
 
 public function integer.enumeratePhysicalPenetrationId(real physicalPenetration)
-    physicalPenetrationMap.put(this, physicalPenetration * 0.01)
+    physicalPenetrationMap.put(this, physicalPenetration /100)
 
 //########## Magical DAMAGE ############//
 
@@ -111,21 +111,33 @@ public function unit.physicalDamageCodeElementId(real amount, unit target, Damag
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount, false, ranged, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+    if(ranged)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+    else
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.physicalDamageCodeId(real amount, unit target, integer id, bool ranged)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount, false, ranged, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+    if(ranged)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+    else
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.physicalDamageCodeElement(real amount, unit target, DamageElement element, bool ranged)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount, false, ranged, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+    if(ranged)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+    else
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.physicalDamageCode(real amount, unit target, bool ranged)
     DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount, false, ranged, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+    if(ranged)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+    else
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
 //########## PURE DAMAGE ############//
 

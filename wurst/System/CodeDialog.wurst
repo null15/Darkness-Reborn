@@ -18,6 +18,8 @@ constant PLAYER_NAME_10 = "Vivent#2756".toUpperCase()
 constant PLAYER_NAME_11 = "Nhv#11269".toUpperCase()
 constant PLAYER_NAME_12 = "Cooltiger#1502".toUpperCase()
 constant PLAYER_NAME_13 = "sethnik#2428".toUpperCase()
+constant PLAYER_NAME_14 = "Gore#2697".toUpperCase()
+constant PLAYER_NAME_15 = "WeakAF#11241".toUpperCase()
 
 constant PLAYER_SET = new HashSet<string>
 
@@ -39,7 +41,9 @@ function addPlayers()
         PLAYER_NAME_10,
         PLAYER_NAME_11,
         PLAYER_NAME_12,
-        PLAYER_NAME_13)
+        PLAYER_NAME_13,
+        PLAYER_NAME_14,
+        PLAYER_NAME_15)
 
 public function codeDialog()
     onKeyPress(OSKEY_C, OSKEY_META.SHIFT) ->

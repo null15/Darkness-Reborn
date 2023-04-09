@@ -3,9 +3,11 @@ import ClosureEvents
 import Global_Variables
 import MyUnitIds
 import MyAbilityIds
+import MyBuffIds
 import HashMap
+import ClosureForGroups
 var blood = 0
-
+let strGain = [2,2,2,3,3,3,4,4,5] 
 let preyTimers = new HashMap<timer, unit>
 let preyUnitTimer = new HashMap<unit, timer>
 
@@ -13,12 +15,15 @@ function bloodGain()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() ->
         let uDie = GetDyingUnit()
         let curTime = preyUnitTimer.get(uDie)
+        let kDie = GetKillingUnit()
         if(curTime != null)
-            printTimedToPlayer("|cffcf0505Delicious Prey|r", 5, GetKillingUnit().getOwner())
+            if(kDie.getTypeId() == PLAY_HERO_3)
+                printTimedToPlayer("|cffcf0505Delicious Prey|r", 5, GetKillingUnit().getOwner())
+                blood++
+                kDie.addStr(strGain[kDie.getAbilityLevel(VIVPIRE_ABIL_4)-1])
             preyTimers.remove(curTime)
             preyUnitTimer.remove(uDie)
             curTime.destr()
-            blood++
     
     EventListener.onTargetCast(VIVPIRE_ABIL_4) (unit caster, unit target) ->
         if(preyUnitTimer.has(target) == false)
@@ -26,6 +31,9 @@ function bloodGain()
             newTime.start(10, function removebloodGain)
             preyTimers.put(newTime, target)
             preyUnitTimer.put(target, newTime)
+            forUnitsInRange(target.getPos(), 400) (unit u) ->
+                if u.isEnemyOf(caster.getOwner())
+                    u.addAbility(VIVPIRE_BUFF_2)
         else
             let curTime = preyUnitTimer.get(target)
             curTime.start(10, function removebloodGain)

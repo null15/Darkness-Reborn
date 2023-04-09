@@ -2653,7 +2653,7 @@ init
     +"+240 Damage\n\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
-    +"Amulet of the Wild (|c001CE6B9" + recipeShop2 + "|r)\n"
+    +"Amulet of the Wild (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Simple Sword (|c007EBFF1" + basicShop1 + "|r)")
     ..setHotkey("")
 
@@ -4466,7 +4466,7 @@ init
     +"When attacked you have a 20% to gain back 1xint mana\n"
     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
     +"Light Armor (|c001CE6B9" + recipeShop1 + "|r)\n"
-    +"Soul of Kil'jeaden(|c007EBFF1" + basicShop1 + "|r)\n"
+    +"Soul of Kil'jeaden(|c007EBFF1" + recipeShop4 + "|r)\n"
     +"Crown of Soldier(" + monsterDrop + ")")
     ..setHotkey("")
 
@@ -4701,7 +4701,7 @@ init
     ..setDescription("Rubystone")
     ..setName("Perfect Citrine")
     ..setTooltipBasic("|c00FEBA0EPerfect Citrine|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \n +300 All Stats\n|c00FEBA0ESpecial effect\n:|r Can use Holy Light on someone")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n +300 All Stats\n|c00FEBA0ESpecial effect:|r\n Can use Holy Light on someone")
     ..setHotkey("")
 
 //I0B1
@@ -4888,7 +4888,7 @@ init
     ..setDescription("Rubystone")
     ..setName("Perfect Emerald")
     ..setTooltipBasic("|c00FEBA0EPerfect Emerald|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+300 All Stats\n|c00FEBA0ESpecial effect\n:|r Passive: Increases Attack Speed by 180%")
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n+300 All Stats\n|c00FEBA0ESpecial effect:|r\n Passive: Increases Attack Speed by 180%")
     ..setHotkey("")
 
 //I0B7
@@ -7643,7 +7643,7 @@ init
     ..setDescription("+250 Movement Speed\n+100 All Stats\n\nActive: Teleport to allied unit or building. Cooldown: 20 seconds.")
     ..setName("|c00FFFC01Boots of Crystal Gold|r")
     ..setTooltipBasic("Purchase Boots of Crystal Gold")
-    ..setTooltipExtended("KÕt tinh cña søc m¹nh ")
+    ..setTooltipExtended("+250 Movement Speed\n+100 All Stats\n\nActive: Teleport to allied unit or building. Cooldown: 20 seconds.")
     ..setHotkey("S")
 
 //I000
@@ -14059,10 +14059,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription(" |c00FF0303????????|r\n\n|cffffcc00Effect|r: \n|c00FF0303+400 Armor \n+10.000 HP\n+300 Intelligence|r\n|c00FEBA0ESpecial Effect:|r \n |c00FF0303When attacked")
+    ..setDescription(" |c00FF0303????????|r\n|cffffcc00Effect|r: \n|c00FF0303+400 Armor \n+10.000 HP\n+300 Intelligence|r\n|c00FEBA0ESpecial Effect:|r \n |c00FF0303When attacked gets 50% to heal for 1000 HP and 30% to gain back 1xint Mana")
     ..setName(" |c00FF0303Lancelot Set|r")
     ..setTooltipBasic(" |c00FF0303Lancelot Set|r")
-    ..setTooltipExtended(" |c00FF0303????????|r\n\n|cffffcc00Effect|r: \n|c00FF0303+400 Armor \n+10.000 HP\n+300 Intelligence|r\n|c00FEBA0ESpecial Effect:|r \n|c00FF0303When attacked")
+    ..setTooltipExtended(" |c00FF0303????????|r\n|cffffcc00Effect|r: \n|c00FF0303+400 Armor \n+10.000 HP\n+300 Intelligence|r\n|c00FEBA0ESpecial Effect:|r \n|c00FF0303When attacked gets 50% to heal for 1000 HP and 30% to gain back 1xint Mana")
     ..setHotkey("K")
 
 //I0JG

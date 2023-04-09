@@ -19,6 +19,8 @@ init
     ..setName("Prey")
     ..setTooltipNormal("This is the prey of the Vivpire.")
     ..setTooltipNormalExtended("This is the prey of the Vivpire, grants blood upon death.")
+    ..setArtTarget("Units\\Vivpire\\Affliction\\Affliction040.mdx")
+    ..setTargetAttachmentPoint0("chest")
 
     new BuffDefinition(VIVPIRE_BUFF_3, BuffIds.curse)
     ..setName("Vampiric Bite")
@@ -34,6 +36,22 @@ init
     ..setName("Form Unleashed")
     ..setTooltipNormal("Vivpire's True Form")
     ..setTooltipNormalExtended("The Vivpire has returned to their ancestral form, receiving power from their foes.")
+
+@compiletime function wolfmanBuffs()
+    new BuffDefinition(MAN_BUFF, BuffIds.stunned)
+    ..setName("Scream")
+    ..setTooltipNormal("This unit is covering their ears")
+    ..setTooltipNormalExtended("This unit is covering their ears")
+
+    new BuffDefinition(WOLF_BUFF_1, BuffIds.berserk)
+    ..setName("Bloodlust")
+    ..setTooltipNormal("This wolf is in a state of Bloodlust")
+    ..setTooltipNormalExtended("This wolf is in a state of Bloodlust")
+
+    new BuffDefinition(WOLF_BUFF_2, BuffIds.stunned)
+    ..setName("Howl")
+    ..setTooltipNormal("This unit is covering their ears")
+    ..setTooltipNormalExtended("This unit is covering their ears")
 
 @compiletime function buffs()
     new BuffDefinition(BUFF_0, BuffIds.faerieFire)
