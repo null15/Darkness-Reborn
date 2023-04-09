@@ -16,7 +16,7 @@ function wolfDog()
             let str = summoner.getStr(true)
             
             if summon.getTypeId() == MAN_WOLF_INITIATE
-                let lvl = summoner.getAbilityLevel(MAN_ABIL_3)
+                let lvl = summoner.getAbilityLevel(WOLF_INITIATE_ABIL_4)
                 summon.setMaxHP(((0.15*summoner.getMaxHP()) + lvl * 125).toInt(), true)
                 summon.setArmor(0.3 * summoner.getArmor() + lvl * 2)
                 summon.setBaseDamage((0.2 * str + lvl * 40).toInt(), 0)

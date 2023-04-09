@@ -17,7 +17,7 @@ function manwolfDog()
             let str = summoner.getStr(true)
             
             if summon.getTypeId() == MAN_WOLF_FINAL
-                let lvl = summoner.getAbilityLevel(MAN_ABIL_3)
+                let lvl = summoner.getAbilityLevel(WOLF_FINAL_ABIL_4)
                 summon.setMaxHP(((0.25*summoner.getMaxHP()) + 2500).toInt(), true)
                 summon.setArmor(0.5 * summoner.getArmor() + 40)
                 summon.setBaseDamage((0.4 * str + 400).toInt(), 0)
