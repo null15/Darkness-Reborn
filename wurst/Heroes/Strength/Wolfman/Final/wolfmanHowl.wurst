@@ -2,15 +2,15 @@ package wolfmanHowl
 
 import ClosureEvents
 import MyAbilityIds
-import MyUnitIds
-import ClosureTimers
+import OrderIds
+import DummyCaster
 
 function howl()
-    EventListener.onCast(WOLF_INITIATE_ABIL_2) (unit caster) ->
-        let u = createUnit(DUMMY_UNIT_0)
-        u.addAbility(WOLF_FINAL_DUMMY_1, 1)
-        doAfter(10) -> 
-            u.remove()
+    EventListener.onCast(WOLF_FINAL_ABIL_2) (unit caster) ->
+        new DummyCaster()
+        ..origin(caster.getPos())
+        ..owner(caster.getOwner())
+        ..castImmediate(WOLF_FINAL_DUMMY_1, caster.getAbilityLevel(WOLF_FINAL_ABIL_2), OrderIds.roar)
 
 init
     howl()

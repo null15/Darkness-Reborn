@@ -2684,9 +2684,15 @@ import OrderIds
     ..presetDurationHero(lvl -> 0)
     ..presetDurationNormal(lvl -> 0)
 
-    new AbilityDefinitionAuraDevotionCreep(WOLF_INITIATE_DUMMY_1)
+    new AbilityDefinitionRoar(WOLF_INITIATE_DUMMY_1)
     ..setLevels(9)
-    ..presetArmorBonus(lvl -> -10. * lvl)
+    ..presetDefenseIncrease(lvl -> -10 * lvl)
+    ..presetDamageIncrease(lvl -> 0)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetManaCost(lvl -> 0)
+    ..presetMaxUnits(lvl -> 999)
+    ..presetDurationHero(lvl -> 10)
+    ..presetDurationNormal(lvl -> 10)
     ..presetBuffs(lvl -> commaList(""))  
 
     new AbilityDefinitionCripple(WOLF_INITIATE_ABIL_1)
@@ -2789,10 +2795,16 @@ import OrderIds
     ..presetDurationHero(lvl -> 0)
     ..presetDurationNormal(lvl -> 0)
 
-    new AbilityDefinitionAuraDevotionCreep(WOLF_FINAL_DUMMY_1)
+    new AbilityDefinitionRoar(WOLF_FINAL_DUMMY_1)
     ..setLevels(1)
-    ..presetArmorBonus(lvl -> -150.)
-    ..presetBuffs(lvl -> commaList("")) 
+    ..presetDefenseIncrease(lvl -> -150)
+    ..presetDamageIncrease(lvl -> 0)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetManaCost(lvl -> 0)
+    ..presetMaxUnits(lvl -> 999)
+    ..presetDurationHero(lvl -> 10)
+    ..presetDurationNormal(lvl -> 10)
+    ..presetBuffs(lvl -> commaList(""))  
 
     new AbilityDefinitionCripple(WOLF_FINAL_ABIL_1)
     ..setLevels(1)
@@ -2905,11 +2917,11 @@ import OrderIds
     ..setButtonPositionResearchX(3)
     ..setButtonPositionResearchY(1)
     ..setTooltipLearn("Learn Frenzy [|cffffcc00T|r]  - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Gives 25% chance to deal 150x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: Doesn't work on summons|r")
+    ..setTooltipLearnExtended("Gives 9% chance to deal 50x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: Doesn't work on summons|r")
     ..presetTooltipNormal(lvl -> "Frenzy [|cffffcc00T|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
-    ..presetTooltipNormalExtended(lvl -> "Gives 25% chance to deal 150x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: Doesn't work on summons|r")
-    ..setChancetoCriticalStrike(1, 25)
-    ..setDamageMultiplier(1, 150)
+    ..presetTooltipNormalExtended(lvl -> "Gives 9% chance to deal 50x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: Doesn't work on summons|r")
+    ..setChancetoCriticalStrike(1, 9)
+    ..setDamageMultiplier(1, 50)
 
     new AbilityDefinitionFarseerSpiritWolf(MAN_WOLF_FINAL_ABIL)
     ..setLevels(1)
@@ -2921,9 +2933,9 @@ import OrderIds
     ..setName("Call Pack")
     ..presetTooltipNormalExtended(lvl -> "Call \"Pack\"\n"+
     "Ability: N/A\n" + 
-    "Health: 0.25 * maxHP + 2500" + 
-    "\nArmor: 0.5 * armor + 40" + 
-    "\nDamage: 0.4 * damage + 400")
+    "Health: 0.25 * maxHP" + 
+    "\nArmor: 0.5 * armor" + 
+    "\nDamage: 0.4 * damage")
 
 @compiletime function creepAbils()
     new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_1) //A08H
