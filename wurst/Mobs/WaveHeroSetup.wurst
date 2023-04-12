@@ -267,7 +267,7 @@ function boostUnit()
         ..addAbility('A0CH', 9)
         ..addAbility('A0AP', 9)
         ..addAbility('A0F1', 4)
-        ..issueImmediateOrder(OrderIds.flamingarrows.toString())
+        ..issueImmediateOrder(OrderIds.poisonarrows.toString())
 
     boostMap.put(WAVE_HERO_20) (u) -> // Demon Hunter
         u
@@ -391,7 +391,6 @@ function boostUnit()
         ..addItemToSlot(ITEM_380, 0)
         ..addItemToSlot(ITEM_361, 1)
         ..addItemToSlot(ITEM_349, 2)
-        ..enumerateMagicResistance(70)
         ..addItemToSlot(ITEM_351, 3)
         ..addItemToSlot(ITEM_371, 4)
         ..addItemToSlot(ITEM_379, 5)

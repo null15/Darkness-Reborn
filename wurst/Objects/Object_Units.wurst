@@ -458,6 +458,7 @@ init
     ..setStockReplenishInterval(3600)
     ..setStockStartDelay(1)
     ..setManaMaximum(0)
+    ..setProperNames(commaList("Aggronor the Mighty"))
     ..setName("Mountain King")
     ..setTooltipBasic("|c00F7EC46Mountain King|r")
     ..setTooltipExtended("|c00F7EC46Mountain King|r\n"
@@ -572,11 +573,11 @@ init
     ..setTooltipBasic("|c00F7EC46Wolfman|r")
     ..setTooltipExtended("|c00F7EC46Wolfman|r\n"
     + "Roles: " + defender + "/" + farmer + "/" + stacker + "/" + ascendant + "/" + summoner + "\n\n"
-    + "|c00EE0404Physical Damage|r: 3/5\n"
-    + "|c0076ECF9Magical Damage|r: 2/5\n"
-    + "|c00B0B0B0Defense|r: 4/5\n"
+    + "|c00EE0404Physical Damage|r: 4/5\n"
+    + "|c0076ECF9Magical Damage|r: 0/5\n"
+    + "|c00B0B0B0Defense|r: 3/5\n"
     + "|c00663300Utility|r: 2/5\n"
-    + "|c0066FF66Healing|r: 3/5\n"
+    + "|c0066FF66Healing|r: 2/5\n"
     + "Difficulty: 2/5\n")
     ..setManaRegeneration(0.01)
 
@@ -21138,6 +21139,7 @@ init
     ..setManaInitialAmount(100)
     ..setManaMaximum(0)
     ..setName("Mountain King")
+    ..setProperNames(commaList("Aggronor the Mighty"))
     ..setManaRegeneration(0.01)
     ..setLevel(5)
 

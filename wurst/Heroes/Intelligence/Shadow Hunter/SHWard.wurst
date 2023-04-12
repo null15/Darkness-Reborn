@@ -1,0 +1,22 @@
+package SHWard
+
+import MyUnitIds
+import ClosureEvents
+import MyAbilityIds
+
+init
+    shWardSummon()
+
+function shWardSummon()
+    EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
+        let summoner = GetSummoningUnit()
+        if(summoner.getTypeId() == PLAY_HERO_23)
+            let summon = GetSummonedUnit()
+            let ite = summoner.getInt(true)
+
+            if summon.getTypeId() == SERPENT_WARD_0
+                let lvl = summoner.getAbilityLevel(ABILITY_3)
+                summon.setBaseDamage((((0.2 * ite)*lvl) + lvl * 40).toInt(), 0)
+
+            if summoner.getAbilityLevel(ABILITY_3) == 9
+                BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)

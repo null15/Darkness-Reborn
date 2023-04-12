@@ -10,7 +10,9 @@ function howl()
         new DummyCaster()
         ..origin(caster.getPos())
         ..owner(caster.getOwner())
-        ..castImmediate(WOLF_FINAL_DUMMY_1, caster.getAbilityLevel(WOLF_INITIATE_ABIL_2), OrderIds.roar)
+        ..castImmediate(WOLF_INITIATE_DUMMY_1, 
+        caster.getAbilityLevel(WOLF_INITIATE_ABIL_2), 
+        OrderIds.stomp)
 
 init
     howl()

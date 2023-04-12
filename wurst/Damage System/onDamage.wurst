@@ -73,7 +73,7 @@ init
                     if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and src.getTypeId() == PLAY_HERO_22 and src.getAbilityLevel('A0DI') > 0 and GetRandomInt(1, 100) < 15
                         mindRipper(src, targ)
                     // Sylvanas (Phantom Arrow) W - Autocast
-                    if src.getTypeId() == PLAY_HERO_18 and targ.hasAbility('B001')
+                    if src.getPhantomArrowToggle()
                         phantomArrow(src, targ)
                     // Illidan (Juxtapose) E
                     if src.getTypeId() == PLAY_HERO_17 and GetRandomInt(1, 100) < src.getAbilityLevel('A0S8') and src.isIllusion() == false 
@@ -91,7 +91,7 @@ init
                     if src.getTypeId() == PLAY_HERO_31 and GetRandomInt(0, 100) < src.getAbilityLevel('A0XG') * 2
                         noCommand(src, targ)
                     // Dark Ranger (Black Arrow) W - Autocast
-                    if darkArrowOn and src.getTypeId() == PLAY_HERO_16
+                    if src.getDarkArrowToggle()
                         darkArrow(src, targ)
 
                     // Assassin (Last Killer) T - Active
@@ -115,7 +115,7 @@ init
                         pulverize(src, targ)
 
                     // Vashj (Frost Arrows ) X - Autocast
-                    if frostArrowOn and src.getTypeId() == PLAY_HERO_25
+                    if src.getFrostArrowToggled()
                         frostArrows(src, targ)
 
                     // Craggy Hex (Shadow Hunter) R - Passive

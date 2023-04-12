@@ -12,8 +12,359 @@ import MyUnitIds
 import Icons
 import OrderIds
 
+@compiletime function agiAbils()
+    //A0MQ
+    new AbilityDefinitionAgilityMod(AGIMOD_1)
+    ..setAgilityBonus(1, 125)
 
+    //A0GZ
+    new AbilityDefinitionAgilityMod(AGIMOD_2)
+    ..setAgilityBonus(1, 140)
+  
+    //A0ES
+    new AbilityDefinitionAgilityMod(AGIMOD_3)
+    ..setAgilityBonus(1, 1470)
+ 
+    //A0II
+    new AbilityDefinitionAgilityMod(AGIMOD_4)
+    ..setAgilityBonus(1, 150)
+ 
+    //A0IJ
+    new AbilityDefinitionAgilityMod(AGIMOD_5)
+    ..setAgilityBonus(1, 170)
+ 
+    //A0VI
+    new AbilityDefinitionAgilityMod(AGIMOD_6)
+    ..setAgilityBonus(1, 180)
+ 
+    //A03N
+    new AbilityDefinitionAgilityMod(AGIMOD_7)
+    ..setAgilityBonus(1, 20)
+ 
+    //A0MV
+    new AbilityDefinitionAgilityMod(AGIMOD_8)
+    ..setAgilityBonus(1, 2200)
+ 
+    //A0MR
+    new AbilityDefinitionAgilityMod(AGIMOD_9)
+    ..setAgilityBonus(1, 235)
+ 
+    //A0IK
+    new AbilityDefinitionAgilityMod(AGIMOD_10)
+    ..setAgilityBonus(1, 250)
+ 
+    //A0VJ
+    new AbilityDefinitionAgilityMod(AGIMOD_11)
+    ..setAgilityBonus(1, 280)
+ 
+    //A0XY
+    new AbilityDefinitionAgilityMod(AGIMOD_12)
+    ..setAgilityBonus(1, 2900)
+ 
+    //A05J
+    new AbilityDefinitionAgilityMod(AGIMOD_13)
+    ..setAgilityBonus(1, 30)
+ 
+    //A0IL
+    new AbilityDefinitionAgilityMod(AGIMOD_14)
+    ..setAgilityBonus(1, 350)
+ 
+    //A0E5
+    new AbilityDefinitionAgilityMod(AGIMOD_15)
+    ..setAgilityBonus(1, 385)
+ 
+    //A0MS
+    new AbilityDefinitionAgilityMod(AGIMOD_16)
+    ..setAgilityBonus(1, 455)
+ 
+    //A0VL
+    new AbilityDefinitionAgilityMod(AGIMOD_17)
+    ..setAgilityBonus(1, 460)
+ 
+    //A0E9
+    new AbilityDefinitionAgilityMod(AGIMOD_18)
+    ..setAgilityBonus(1, 490)
+ 
+    //A03Q
+    new AbilityDefinitionAgilityMod(AGIMOD_19)
+    ..setAgilityBonus(1, 50)
+ 
+    //A0MT
+    new AbilityDefinitionAgilityMod(AGIMOD_20)
+    ..setAgilityBonus(1, 555)
+ 
+    //A0VG
+    new AbilityDefinitionAgilityMod(AGIMOD_21)
+    ..setAgilityBonus(1, 60)
+ 
+    //A0X6
+    new AbilityDefinitionAgilityMod(AGIMOD_22)
+    ..setAgilityBonus(1, 600)
+ 
+    //A0EO
+    new AbilityDefinitionAgilityMod(AGIMOD_23)
+    ..setAgilityBonus(1, 630)
+ 
+    //A0MP
+    new AbilityDefinitionAgilityMod(AGIMOD_24)
+    ..setAgilityBonus(1, 65)
+ 
+    //A0MX
+    new AbilityDefinitionAgilityMod(AGIMOD_25)
+    ..setAgilityBonus(1, 690)
+ 
+    //A0GW
+    new AbilityDefinitionAgilityMod(AGIMOD_26)
+    ..setAgilityBonus(1, 70)
+ 
+    //A0GX
+    new AbilityDefinitionAgilityMod(AGIMOD_27)
+    ..setAgilityBonus(1, 90)
+ 
+    //A0ER
+    new AbilityDefinitionAgilityMod(AGIMOD_28)
+    ..setAgilityBonus(1, 910)
+ 
+    //A03K
+    new AbilityDefinitionAgilityMod(AGIMOD_29)
+    ..setAgilityBonus(1, 1)
+ 
+    //A03P
+    new AbilityDefinitionAgilityMod(AGIMOD_30)
+    ..setAgilityBonus(1, 10)
+ 
+    //A043
+    new AbilityDefinitionAgilityMod(AGIMOD_31)
+    ..setAgilityBonus(1, 100)
+ 
+    //A0QO
+    new AbilityDefinitionAgilityMod(AGIMOD_32)
+    ..setAgilityBonus(1, 122)
+ 
+    //A0O3
+    new AbilityDefinitionAgilityMod(AGIMOD_33)
+    ..setAgilityBonus(1, 14)
+ 
+    //A03M
+    new AbilityDefinitionAgilityMod(AGIMOD_34)
+    ..setAgilityBonus(1, 2)
+ 
+    //A04B
+    new AbilityDefinitionAgilityMod(AGIMOD_35)
+    ..setAgilityBonus(1, 200)
+ 
+    //A0BG
+    new AbilityDefinitionAgilityMod(AGIMOD_36)
+    ..setAgilityBonus(1, 220)
+ 
+    //A0RJ
+    new AbilityDefinitionAgilityMod(AGIMOD_37)
+    ..setAgilityBonus(1, 244)
+ 
+    //A0QC
+    new AbilityDefinitionAgilityMod(AGIMOD_38)
+    ..setAgilityBonus(1, 26)
+ 
+    //A0QJ
+    new AbilityDefinitionAgilityMod(AGIMOD_39)
+    ..setAgilityBonus(1, 32)
+ 
+    //A0VK
+    new AbilityDefinitionAgilityMod(AGIMOD_40)
+    ..setAgilityBonus(1, 380)
+ 
+    //A0RN
+    new AbilityDefinitionAgilityMod(AGIMOD_41)
+    ..setAgilityBonus(1, 422)
+ 
+    //A03O
+    new AbilityDefinitionAgilityMod(AGIMOD_42)
+    ..setAgilityBonus(1, 5)
+ 
+    //A0QN
+    new AbilityDefinitionAgilityMod(AGIMOD_43)
+    ..setAgilityBonus(1, 66)
+ 
+    //A0RM
+    new AbilityDefinitionAgilityMod(AGIMOD_44)
+    ..setAgilityBonus(1, 666)
+ 
+    //A0NU
+    new AbilityDefinitionAgilityMod(AGIMOD_45)
+    ..setAgilityBonus(1, 7)
+ 
+    //A0Y1
+    new AbilityDefinitionAgilityMod(AGIMOD_46)
+    ..setAgilityBonus(1, 999)
+@compiletime function strAbils()
+    //A03R
+    new AbilityDefinitionStrengthMod(STRMOD_1)
+    ..setStrengthBonus(1, 10)
 
+    //A0EV
+    new AbilityDefinitionStrengthMod(STRMOD_2)
+    ..setStrengthBonus(1, 100)
+   
+    //A0EG
+    new AbilityDefinitionStrengthMod(STRMOD_3)
+    ..setStrengthBonus(1, 12)
+   
+    //A0J4
+    new AbilityDefinitionStrengthMod(STRMOD_4)
+    ..setStrengthBonus(1, 120)
+   
+    //A0N8
+    new AbilityDefinitionStrengthMod(STRMOD_5)
+    ..setStrengthBonus(1, 1200)
+   
+    //A0T7
+    new AbilityDefinitionStrengthMod(STRMOD_6)
+    ..setStrengthBonus(1, 122)
+   
+    //A0T4
+    new AbilityDefinitionStrengthMod(STRMOD_7)
+    ..setStrengthBonus(1, 14)
+   
+    //A0G2
+    new AbilityDefinitionStrengthMod(STRMOD_8)
+    ..setStrengthBonus(1, 1470)
+   
+    //A0EQ
+    new AbilityDefinitionStrengthMod(STRMOD_9)
+    ..setStrengthBonus(1, 15)
+   
+    //A0LH
+    new AbilityDefinitionStrengthMod(STRMOD_10)
+    ..setStrengthBonus(1, 150)
+   
+    //A0EH
+    new AbilityDefinitionStrengthMod(STRMOD_11)
+    ..setStrengthBonus(1, 18)
+   
+    //A0VM
+    new AbilityDefinitionStrengthMod(STRMOD_12)
+    ..setStrengthBonus(1, 180)
+   
+    //A03S
+    new AbilityDefinitionStrengthMod(STRMOD_13)
+    ..setStrengthBonus(1, 20)
+   
+    //A042
+    new AbilityDefinitionStrengthMod(STRMOD_14)
+    ..setStrengthBonus(1, 200)
+   
+    //A0NB
+    new AbilityDefinitionStrengthMod(STRMOD_15)
+    ..setStrengthBonus(1, 2200)
+   
+    //A0N5
+    new AbilityDefinitionStrengthMod(STRMOD_16)
+    ..setStrengthBonus(1, 230)
+   
+    //A0T8
+    new AbilityDefinitionStrengthMod(STRMOD_17)
+    ..setStrengthBonus(1, 244)
+   
+    //A0BH
+    new AbilityDefinitionStrengthMod(STRMOD_18)
+    ..setStrengthBonus(1, 250)
+   
+    //A0EJ
+    new AbilityDefinitionStrengthMod(STRMOD_19)
+    ..setStrengthBonus(1, 26)
+   
+    //A0VN
+    new AbilityDefinitionStrengthMod(STRMOD_20)
+    ..setStrengthBonus(1, 280)
+   
+    //A03T
+    new AbilityDefinitionStrengthMod(STRMOD_21)
+    ..setStrengthBonus(1, 30)
+   
+    //A0XZ
+    new AbilityDefinitionStrengthMod(STRMOD_22)
+    ..setStrengthBonus(1, 3000)
+   
+    //A0EI
+    new AbilityDefinitionStrengthMod(STRMOD_23)
+    ..setStrengthBonus(1, 32)
+   
+    //A0J5
+    new AbilityDefinitionStrengthMod(STRMOD_24)
+    ..setStrengthBonus(1, 320)
+   
+    //A0FW
+    new AbilityDefinitionStrengthMod(STRMOD_25)
+    ..setStrengthBonus(1, 385)
+   
+    //A0T9
+    new AbilityDefinitionStrengthMod(STRMOD_26)
+    ..setStrengthBonus(1, 422)
+   
+    //A0N6
+    new AbilityDefinitionStrengthMod(STRMOD_27)
+    ..setStrengthBonus(1, 450)
+   
+    //A0VP
+    new AbilityDefinitionStrengthMod(STRMOD_28)
+    ..setStrengthBonus(1, 460)
+   
+    //A0FY
+    new AbilityDefinitionStrengthMod(STRMOD_29)
+    ..setStrengthBonus(1, 490)
+   
+    //A03U
+    new AbilityDefinitionStrengthMod(STRMOD_30)
+    ..setStrengthBonus(1, 50)
+   
+    //A03L
+    new AbilityDefinitionStrengthMod(STRMOD_31)
+    ..setStrengthBonus(1, 6)
+   
+    //A0J2
+    new AbilityDefinitionStrengthMod(STRMOD_32)
+    ..setStrengthBonus(1, 60)
+   
+    //A0X8
+    new AbilityDefinitionStrengthMod(STRMOD_33)
+    ..setStrengthBonus(1, 600)
+   
+    //A0G0
+    new AbilityDefinitionStrengthMod(STRMOD_34)
+    ..setStrengthBonus(1, 630)
+   
+    //A0T6
+    new AbilityDefinitionStrengthMod(STRMOD_35)
+    ..setStrengthBonus(1, 66)
+   
+    //A0TA
+    new AbilityDefinitionStrengthMod(STRMOD_36)
+    ..setStrengthBonus(1, 666)
+   
+    //A0MY
+    new AbilityDefinitionStrengthMod(STRMOD_37)
+    ..setStrengthBonus(1, 690)
+   
+    //A0T3
+    new AbilityDefinitionStrengthMod(STRMOD_38)
+    ..setStrengthBonus(1, 7)
+   
+    //A0N7
+    new AbilityDefinitionStrengthMod(STRMOD_39)
+    ..setStrengthBonus(1, 700)
+   
+    //A0J3
+    new AbilityDefinitionStrengthMod(STRMOD_40)
+    ..setStrengthBonus(1, 80)
+   
+    //A0G1
+    new AbilityDefinitionStrengthMod(STRMOD_41)
+    ..setStrengthBonus(1, 910)
+    
+    //A0Y0
+    new AbilityDefinitionStrengthMod(STRMOD_42)
+    ..setStrengthBonus(1, 999)
+       
 @compiletime function buildingGeneral()
     new AbilityDefinitionShopSharing(SHOP_SHARE)
     ..setLevels(1)
@@ -617,15 +968,7 @@ import OrderIds
     ..setSummonedUnitCount(7, 4)
     ..setSummonedUnitCount(8, 4)
     ..setSummonedUnitCount(9, 4)
-    ..setSummonedUnitType(1, SERPENT_WARD_0.toRawCode())
-    ..setSummonedUnitType(2, SERPENT_WARD_1.toRawCode())
-    ..setSummonedUnitType(3, SERPENT_WARD_2.toRawCode())
-    ..setSummonedUnitType(4, SERPENT_WARD_3.toRawCode())
-    ..setSummonedUnitType(5, SERPENT_WARD_4.toRawCode())
-    ..setSummonedUnitType(6, SERPENT_WARD_5.toRawCode())
-    ..setSummonedUnitType(7, SERPENT_WARD_6.toRawCode())
-    ..setSummonedUnitType(8, SERPENT_WARD_7.toRawCode())
-    ..setSummonedUnitType(9, SERPENT_WARD_8.toRawCode())
+    ..presetSummonedUnitType(lvl -> commaList(SERPENT_WARD_0))
     ..setCastRange(1, 600)
     ..setCastRange(2, 600)
     ..setCastRange(3, 600)
@@ -1681,6 +2024,7 @@ import OrderIds
     ..setTooltipNormalExtended(2, "The King of loas exudes the presence of Bwonsamdi on all enemies reducing their movement and attack speed by 20% and dealing 3 int damage every 2 seconds.")
     ..setTooltipNormalExtended(3, "The King of loas exudes the presence of Bwonsamdi on all enemies reducing their movement and attack speed by 30% and dealing 3.5 int damage every 2 seconds.")
     ..setTooltipNormalExtended(4, "The King of loas exudes the presence of Bwonsamdi on all enemies reducing their movement and attack speed by 40% and dealing 4 int damage every 2 seconds.")
+    ..presetAreaofEffect(lvl -> 600)
     ..setIconNormal(Icons.bTNDeathPact)
     ..setIconResearch(Icons.bTNDeathPact)
     ..setEffectSound("")
@@ -2259,7 +2603,6 @@ import OrderIds
     ..presetCooldown(lvl -> 21. - lvl)
     ..presetStunDuration(lvl -> 0.01)
     ..presetWardUnitType(lvl -> "")
-    ..presetAreaofEffect(lvl -> 0.)
     ..presetCastRange(lvl -> 800.)
     ..presetAreaofEffect(lvl -> 400.)
     ..presetManaCost(lvl -> 100 + 20 * lvl + 30 * (lvl-1))
@@ -2448,8 +2791,6 @@ import OrderIds
 @compiletime function thiefAbils()
 
 @compiletime function vivpireAbils()
-
-
     new AbilityDefinitionCripplecreep(VIVPIRE_DUMMYABIL_1)
     ..setLevels(1)
     ..setAttackSpeedReduction(1, 0.75)
@@ -2582,7 +2923,7 @@ import OrderIds
     ..presetCooldown(lvl -> 215. - 15 * lvl)
     ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_5))
     ..setTooltipLearn("Learn Vampire-Lord Unleashed [|cffffcc00T|r]  - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Unleashes your true form, lasting for %ahdu seconds. 50 armor per level, with another 50 at level 4. 1000 doubling health each level. Each blood gives an additional 20 all stats and 10 armor")
+    ..setTooltipLearnExtended("Unleashes your true form, lasting for 15 * lvl seconds. 50 armor per level, with another 50 at level 4. 1000 doubling health each level. Each blood gives an additional 20 all stats and 10 armor")
     ..presetTooltipNormal(lvl -> "Vampire-Lord Unleashed [|cffffcc00T|r]  - [|cffffcc00"+ lvl.toString() +"|r]")
     ..setTooltipNormalExtended(1, "Unleashes your true form, lasting for 15 seconds, 50 armor, 1000 health. Each blood gives an additional 20 all stats and 10 armor")
     ..setTooltipNormalExtended(2, "Unleashes your true form, lasting for 20 seconds, 100 armor, 2000 health. Each blood gives an additional 20 all stats and 10 armor")
@@ -2684,17 +3025,22 @@ import OrderIds
     ..presetDurationHero(lvl -> 0)
     ..presetDurationNormal(lvl -> 0)
 
-    new AbilityDefinitionRoar(WOLF_INITIATE_DUMMY_1)
+    new AbilityDefinitionWarStompcreep(WOLF_INITIATE_DUMMY_1)
     ..setLevels(9)
-    ..presetDefenseIncrease(lvl -> -10 * lvl)
-    ..presetDamageIncrease(lvl -> 0)
-    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetDamage(lvl -> 0)
+    ..presetCooldown(lvl -> 0)
+    ..presetCastRange(lvl -> 93083)
     ..presetManaCost(lvl -> 0)
-    ..presetMaxUnits(lvl -> 999)
-    ..presetDurationHero(lvl -> 10)
-    ..presetDurationNormal(lvl -> 10)
-    ..presetBuffs(lvl -> commaList(""))  
-
+    ..presetAreaofEffect(lvl -> 400)
+    ..presetDurationHero(lvl -> 2)
+    ..presetDurationNormal(lvl -> 2)
+    ..presetBuffs(lvl -> commaList(WOLF_BUFF_2))
+    ..presetEffects(lvl -> "")
+    ..presetTerrainDeformationDurationms(lvl -> 0)
+    ..presetTerrainDeformationAmplitude(lvl -> 0)
+    ..setArtSpecial("")
+    ..setArtEffect("")
+    
     new AbilityDefinitionCripple(WOLF_INITIATE_ABIL_1)
     ..setLevels(9)
     ..setHotkeyLearn("Q")
@@ -2719,7 +3065,7 @@ import OrderIds
     ..setIconNormal(Icons.bTNCannibalize)
     ..setIconResearch(Icons.bTNCannibalize)
 
-    new AbilityDefinitionTaurenChieftainWarStomp(WOLF_INITIATE_ABIL_2)
+    new AbilityDefinitionRoar(WOLF_INITIATE_ABIL_2)
     ..setLevels(9)
     ..setHotkeyLearn("W")
     ..setHotkeyNormal("W")
@@ -2734,7 +3080,11 @@ import OrderIds
     ..presetTooltipNormalExtended(lvl -> "Howl to the sky, stunning enemies for 2 seconds and reducing armor by " + (lvl * 10).toString() + " for nearby enemies for 10 seconds")
     ..presetDurationHero(lvl -> 2)
     ..presetDurationNormal(lvl -> 2)
-    ..presetDamage(lvl -> 0)
+    ..presetDamageIncrease(lvl -> 0)
+    ..presetDefenseIncrease(lvl -> -10 * lvl)
+    ..presetLifeRegenerationRate(lvl -> 0)
+    ..setIconNormal(Icons.bTNBattleRoar)
+    ..setIconResearch(Icons.bTNBattleRoar)
     ..presetBuffs(lvl -> commaList(WOLF_BUFF_2))
     ..presetCooldown(lvl -> 12.-lvl)
     ..presetManaCost(lvl -> 0)
@@ -2795,17 +3145,6 @@ import OrderIds
     ..presetDurationHero(lvl -> 0)
     ..presetDurationNormal(lvl -> 0)
 
-    new AbilityDefinitionRoar(WOLF_FINAL_DUMMY_1)
-    ..setLevels(1)
-    ..presetDefenseIncrease(lvl -> -150)
-    ..presetDamageIncrease(lvl -> 0)
-    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
-    ..presetManaCost(lvl -> 0)
-    ..presetMaxUnits(lvl -> 999)
-    ..presetDurationHero(lvl -> 10)
-    ..presetDurationNormal(lvl -> 10)
-    ..presetBuffs(lvl -> commaList(""))  
-
     new AbilityDefinitionCripple(WOLF_FINAL_ABIL_1)
     ..setLevels(1)
     ..setHotkeyLearn("Q")
@@ -2830,7 +3169,7 @@ import OrderIds
     ..setIconNormal(Icons.bTNCannibalize)
     ..setIconResearch(Icons.bTNCannibalize)
 
-    new AbilityDefinitionTaurenChieftainWarStomp(WOLF_FINAL_ABIL_2)
+    new AbilityDefinitionRoar(WOLF_FINAL_ABIL_2)
     ..setLevels(1)
     ..setHotkeyLearn("W")
     ..setHotkeyNormal("W")
@@ -2845,9 +3184,13 @@ import OrderIds
     ..presetTooltipNormalExtended(lvl -> "Howl to the sky, stunning enemies for 2 seconds and reducing armor by 150 for nearby enemies for 10 seconds")
     ..presetDurationHero(lvl -> 2)
     ..presetDurationNormal(lvl -> 2)
-    ..presetDamage(lvl -> 0)
+    ..presetDamageIncrease(lvl -> 0)
+    ..presetDefenseIncrease(lvl -> -150)
+    ..presetLifeRegenerationRate(lvl -> 0)
     ..presetBuffs(lvl -> commaList(WOLF_BUFF_2))
-    ..presetCooldown(lvl -> 12.-lvl)
+    ..setIconNormal(Icons.bTNBattleRoar)
+    ..setIconResearch(Icons.bTNBattleRoar)
+    ..presetCooldown(lvl -> 3.)
     ..presetManaCost(lvl -> 0)
 
     new AbilityDefinitionBerserk(WOLF_FINAL_ABIL_3)
@@ -2865,7 +3208,7 @@ import OrderIds
     ..presetTooltipNormalExtended(lvl -> "Hunger for blood, attacking 300% faster and move 200% lvl faster. Gain 50% lifesteal. Lasts 5 seconds.")
     ..presetDurationHero(lvl -> 5)
     ..presetDurationNormal(lvl -> 5)
-    ..presetCooldown(lvl -> 16.-lvl)
+    ..presetCooldown(lvl -> 7)
     ..presetManaCost(lvl -> 0)
     ..presetDamageTakenIncrease(lvl -> 0)
     ..presetAttackSpeedIncrease(lvl -> 3)
@@ -2936,6 +3279,9 @@ import OrderIds
     "Health: 0.25 * maxHP" + 
     "\nArmor: 0.5 * armor" + 
     "\nDamage: 0.4 * damage")
+
+@compiletime function shadowHunter()
+    
 
 @compiletime function creepAbils()
     new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_1) //A08H

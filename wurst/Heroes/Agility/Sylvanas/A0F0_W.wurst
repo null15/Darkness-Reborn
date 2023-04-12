@@ -1,10 +1,28 @@
 package A0F0_W
 
+import MyUnitIds
+import OrderIds
+import MyAbilityIds
+import ClosureEvents
 import codeDamageTypings
+import LinkedList
+let arrowToggle = new LinkedList<unit>
 
 init
+    phantomArrowToggle()
 
+public function unit.getPhantomArrowToggle() returns bool
+    return arrowToggle.has(this)
 
+function phantomArrowToggle()
+    EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
+        let u = GetTriggerUnit()
+        let uid = u.getTypeId()
+        if(uid == PLAY_HERO_18 or uid == WAVE_HERO_19)
+            if(GetIssuedOrderId() == OrderIds.poisonarrows)
+                arrowToggle.add(u)
+            else if GetIssuedOrderId() == OrderIds.poisonarrows + 1
+                arrowToggle.remove(u)
 
 public function phantomArrow(unit src, unit targ)
     
@@ -13,3 +31,4 @@ public function phantomArrow(unit src, unit targ)
     let dmg = (lvl*0.03)*hp
 
     src.magicalDamageCode(dmg, targ)
+

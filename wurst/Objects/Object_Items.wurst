@@ -53,10 +53,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Increases attack speed.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15% Attack speed")
     ..setName("Gloves of Haste")
     ..setTooltipBasic("Purchase Gloves of Haste |c00FFFC01[ U ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+15% Attack speed")
     ..setHotkey("U")
 
@@ -91,10 +92,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Increases attack speed.")
+    ..setDescription( "|c00FFFC01Effect:|r\n"
+    +"+25% Attack speed.")
     ..setName("Gloves of Hades")
     ..setTooltipBasic("Purchase Gloves of Hades |c00FFFC01[ i ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+25% Attack speed.")
     ..setHotkey("I")
 
@@ -129,10 +131,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Increases attack speed.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+40% Attack speed")
     ..setName("Gloves of Wind")
     ..setTooltipBasic("Purchase Gloves of Wind |c00FFFC01[ O ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+40% Attack speed")
     ..setHotkey("O")
 
@@ -167,7 +170,8 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("This mask causes the Hero's attacks to drain life.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+11% Life Steal")
     ..setName("Mask of Death")
     ..setTooltipBasic("Purchase Mask of Death |c00FFFC01[ P ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
@@ -205,10 +209,12 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+10 Armor\n"
+    +"+200 HP")
     ..setName("Leather Armor")
     ..setTooltipBasic("Purchase Leather Armor |c00FFFC01[ H ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+10 Armor\n"
     +"+200 HP")
     ..setHotkey("H")
@@ -244,10 +250,12 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+25 Armor\n"
+    +"+500 HP")
     ..setName("Iron Armor")
     ..setTooltipBasic("Purchase Iron Armor |c00FFFC01[ J ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+25 Armor\n"
     +"+500 HP")
     ..setHotkey("J")
@@ -283,10 +291,12 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+40 Armor\n"
+    +"+1000 HP")
     ..setName("Silver Armor")
     ..setTooltipBasic("Purchase Silver Armor |c00FFFC01[ K ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+40 Armor\n"
     +"+1000 HP")
     ..setHotkey("K")
@@ -322,10 +332,12 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Boosts attack damage by 3.")
+    ..setDescription("|c00FFFC01Effect:|r\n"
+    +"+20 Damage\n"
+    +"+5 Agility")
     ..setName("Simple Sword")
     ..setTooltipBasic("Purchase Simple Sword |c00FFFC01[ L ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
     +"+20 Damage\n"
     +"+5 Agility")
     ..setHotkey("L")
@@ -361,10 +373,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Boosts attack damage by 12.")
+    ..setDescription("|c00FFFC01Effect:|r\n"
+    +"+12 Damage")
     ..setName("Claws of Attack")
     ..setTooltipBasic("Purchase Claws of Attack  |c00FFFC01[ B ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
     +"+12 Damage")
     ..setHotkey("B")
 
@@ -399,10 +412,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Increases attack damage.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+30 Damage")
     ..setName("Sturdy War Axe")
     ..setTooltipBasic("Purchase Sturdy War Axe |c00FFFC01[ N ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+30 Damage")
     ..setHotkey("N")
 
@@ -437,10 +451,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+50 Damage")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+50 Damage")
     ..setName("Maul of Strength")
     ..setTooltipBasic("Purchase Maul of Strength |c00FFFC01[ M ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+50 Damage")
     ..setHotkey("M")
 
@@ -475,10 +490,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("")
+    ..setDescription("|c00FFFC01Effect:|r\n"
+    +"+100 Movement Speed.")
     ..setName("Boots of Speed")
     ..setTooltipBasic("Purchase Boots of Speed |c00FFFC01[ U ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
     +"+100 Movement Speed.")
     ..setHotkey("U")
 
@@ -513,10 +529,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Boosts Agility by 1.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15 Agility")
     ..setName("Jade Ring")
     ..setTooltipBasic("Purchase Jade Ring |c00FFFC01[ i ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+15 Agility")
     ..setHotkey("I")
 
@@ -551,10 +568,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Boosts Agility by 1.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15 Strength")
     ..setName("Soul Ring")
     ..setTooltipBasic("Purchase Soul Ring |c00FFFC01[ O ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+15 Strength")
     ..setHotkey("O")
 
@@ -589,7 +607,8 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("A powerful artifact with a wondrous gem.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15 Intelligence")
     ..setName("Ring of the Archmagi")
     ..setTooltipBasic("Purchase Ring of the Archmagi |c00FFFC01[ P ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
@@ -627,11 +646,12 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Provides regeneration.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+3 HP/s")
     ..setName("Ring of Regeneration")
     ..setTooltipBasic("Purchase Ring of Regeneration |c00FFFC01[ H ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
-    +"+3 HP/s.")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"+3 HP/s")
     ..setHotkey("H")
 
 //I00S
@@ -665,10 +685,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+4 Armor.")
+    ..setDescription("|c00FFFC01Effect:|r\n"
+    +"+4 Armor.")
     ..setName("Ring of Protection")
     ..setTooltipBasic("Purchase Ring of Protection |c00FFFC01[ J ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
     +"+4 Armor.")
     ..setHotkey("J")
 
@@ -703,10 +724,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Provides a bonus to Intelligence.")
+    ..setDescription("|c00FFFC01Effect:|r\n"
+    +"+ 6 Intelligence")
     ..setName("Robe of the Magi")
     ..setTooltipBasic("Purchase Robe of the Magi |c00FFFC01[ K ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+ 6 Intelligence")
     ..setHotkey("K")
 
@@ -741,10 +763,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Provides a bonus to Agility.")
+    ..setDescription("|c00FFFC01Effect:|r\n"
+    +"+6 Agility")
     ..setName("Boots of Quel'Thalas ")
     ..setTooltipBasic("Purchase Boots of Quel'Thalas |c00FFFC01[ L ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
     +"+6 Agility")
     ..setHotkey("L")
 
@@ -779,7 +802,8 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Provides a bonus to Strength.")
+    ..setDescription("|c00FFFC01Effect:|r\n"
+    +"+6 Strength.")
     ..setName("Belt of Giant Strength +6")
     ..setTooltipBasic("Purchase Belt of Giant Strength |c00FFFC01[ B ]|r")
     ..setTooltipExtended("|c00FFFC01Effect:|r\n"
@@ -817,7 +841,8 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Provides a +4 bonus to All Stats")
+    ..setDescription("|c00FFFC01Effect:|r\n"
+    +"+ 4 All Stats")
     ..setName("Circlet of Nobility")
     ..setTooltipBasic("Purchase Circlet of Nobility |c00FFFC01[ N ]|r")
     ..setTooltipExtended("|c00FFFC01Effect:|r\n"
@@ -855,10 +880,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Permits the viewing of distant areas.")
+    ..setDescription("|c00FFFC01Effect:|r\n"
+    +"+ 15 All Stats")
     ..setName("Crystal Ball")
     ..setTooltipBasic("Purchase Crystal Ball |c00FFFC01[ M ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
     +"+ 15 All Stats")
     ..setHotkey("M")
 
@@ -893,7 +919,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Attacks reduce armor.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15 Damage\n"
+    +"-5 Armor on-hit.\n"
+    +"|c00FF0303Note: Doesn't stack with similar items.")
     ..setName("Orb of Corruption")
     ..setTooltipBasic("Purchase Orb of Corruption |c00FFFC01[ U ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
@@ -933,7 +962,8 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Every 0.75 seconds random enemy in 650 range takes 30 damage")
+    ..setDescription("|c00FFFC01Effect:|r \n"
+    +"Every 0.75 seconds deal 30 damage to a random enemy in 650 range")
     ..setName("Orb of Darkness")
     ..setTooltipBasic("Purchase Orb of Darkness |c00FFFC01[ i ]|r")
     ..setTooltipExtended("|c00FFFC01Effect:|r \n"
@@ -971,13 +1001,14 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Attacks cause lightning damage.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15 Damage\n"
+    +"+20% Chance to shoot a Thunder Lightning dealing 100 Damage to up to 4 targets in 900 range.")
     ..setName("Orb of Lightning")
     ..setTooltipBasic("Purchase Orb of Lightning |c00FFFC01[ O ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+15 Damage\n\n"
-    +"+20% Chance to shoot a Thunder Lightning dealing 100 Damage to up to 4 targets in 900 range.\n\n"
-    +"Note: Only works for Ranged Attacks.")
+    +"+15 Damage\n"
+    +"+20% Chance to shoot a Thunder Lightning dealing 100 Damage to up to 4 targets in 900 range.")
     ..setHotkey("O")
 
 //I01U
@@ -1011,10 +1042,11 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Attacks also do fire damage.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+ 15 Damage")
     ..setName("Orb of Fire")
     ..setTooltipBasic("Purchase Orb of Fire |c00FFFC01[ P ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+ 15 Damage")
     ..setHotkey("P")
 
@@ -1049,10 +1081,12 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Attacks cause Frost Shock.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15 Damage\n"
+    +"+Frost Effect on-hit.")
     ..setName("Orb of Frost")
     ..setTooltipBasic("Purchase Orb of Frost |c00FFFC01[ H ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+15 Damage\n"
     +"+Frost Effect on-hit.")
     ..setHotkey("H")
@@ -1088,7 +1122,9 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Attacks restore 12 Mana per hit.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15 Damage\n"
+    +"+12 Mana per attack.")
     ..setName("Orb of Kil'jaeden")
     ..setTooltipBasic("Purchase Orb of Kil'jaeden |c00FFFC01[ J ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
@@ -1127,11 +1163,14 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Blocks enemy spells.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"Blocks one negative spell \n"
+    +"Cooldown: 40 seconds")
     ..setName("Amulet of Spell Shield")
     ..setTooltipBasic("Purchase Amulet of Spell Shield |c00FFFC01[ K ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"Blocks one negative spell 40 second cooldown.")
+    +"Blocks one negative spell \n"
+    +"Cooldown: 40 seconds")
     ..setHotkey("K")
 
 //I014
@@ -1165,11 +1204,12 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Makes the Hero harder to hit.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15% Evasion")
     ..setName("Talisman of Evasion")
     ..setTooltipBasic("Purchase Talisman of Evasion |c00FFFC01[ L ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
-    +"+15% Evasion.")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"+15% Evasion")
     ..setHotkey("L")
 
 //I01E
@@ -1203,12 +1243,14 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Increases armor and hit points.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"20% chance to block 50 Damage\n"
+    +"+10 HP/s")
     ..setName("Enchanted Shield")
     ..setTooltipBasic("Purchase Enchanted Shield |c00FFFC01[ B ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"20% chance to block 50 Damage\n"
-    +"+10 HP/s.")
+    +"+10 HP/s")
     ..setHotkey("B")
 
 //I019
@@ -1242,12 +1284,14 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Increases armor and reduces damage from ranged attacks.")
+    ..setDescription(" |c00FFFC01Effect:|r\n3"
+    +"0% Chance to block 250 Damage\n"
+    +"+15 HP/s")
     ..setName("Arcanite Shield")
     ..setTooltipBasic("Purchase Arcanite Shield |c00FFFC01[ N ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n3"
     +"0% Chance to block 250 Damage\n"
-    +"+15 HP/s.")
+    +"+15 HP/s")
     ..setHotkey("N")
 
 //I01C
@@ -1281,12 +1325,14 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|cff8b00ffUnique|r|nA Kul Tiras navy commander's shield.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+40% chance to block 500 Damage\n"
+    +"+25 HP/s")
     ..setName("Shield of Honor")
     ..setTooltipBasic("Purchase Shield of Honor |c00FFFC01[ M ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+40% chance to block 500 Damage\n"
-    +"+25 HP/s.")
+    +"+25 HP/s")
     ..setHotkey("M")
 
 //I015
@@ -1394,16 +1440,18 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Provides additional mana.")
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+200 MP\n"
+    +"+50% Mana Regeneration")
     ..setName("Pendant of Energy")
     ..setTooltipBasic("Purchase Pendant of Energy |c00FFFC01[ O ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+200 MP\n"
     +"+50% Mana Regeneration")
     ..setHotkey("O")
 
 //I013
-    new ItemDefinition(ITEM_36, ItemIds.pendantofMana)
+    new ItemDefinition(ITEM_36, ItemIds.pendantofMana) //Tooltip updating is here
     ..setAbilities(commaList('A06G', 'A06F'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPendantOfMana.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
@@ -1436,7 +1484,7 @@ init
     ..setDescription("Provides additional mana.")
     ..setName("Pendant of Mana")
     ..setTooltipBasic("Purchase Pendant of Mana |c00FFFC01[ P ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+ 500 MP\n"
     +"+75% Mana Regeneration")
     ..setHotkey("P")
@@ -1475,7 +1523,7 @@ init
     ..setDescription("Increases the hit points of the Hero.")
     ..setName("Periapt of Vitality")
     ..setTooltipBasic("Purchase Periapt of |cffffcc00V|ritality |c00FFFC01[ H ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
     +"+500 HP")
     ..setHotkey("H")
 
@@ -1513,7 +1561,7 @@ init
     ..setDescription("Increases the hit points of the Hero.")
     ..setName("Khadgar's Pendant of Health")
     ..setTooltipBasic("Purchase Khadgar's Pendant of |cffffcc00H|realth |c00FFFC01[ J ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
     +"+1000HP")
     ..setHotkey("J")
 
@@ -1551,7 +1599,7 @@ init
     ..setDescription("Allows the hero to turn invisible.")
     ..setName("Cloak of Shadows")
     ..setTooltipBasic("Purchase |cffffcc00C|rloak of Shadows |c00FFFC01[ K ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
     +"Invisibility at Night.")
     ..setHotkey("K")
 
@@ -1626,8 +1674,8 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 1)")
     ..setTooltipBasic("Buy Recipe (Recipe 1)")
-    ..setTooltipExtended("|c00FFFC01Frost Sword|r.\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Frost Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
     +"+80 Damage\n"
     +"+50% Attack speed.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
@@ -1670,8 +1718,8 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 2)")
     ..setTooltipBasic("Buy Recipe (Recipe 2)")
-    ..setTooltipExtended("|c00FFFC01Fire Sword|r.\n\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Fire Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
     +"+80 Damage\n"
     +"+50% Attack speed\n"
     +"15% Chance to Crit for 2\n"
@@ -1715,11 +1763,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 3)")
     ..setTooltipBasic("Buy Recipe (Recipe 3)")
-    ..setTooltipExtended("|c00FFFC01Boots of Teleportation|r.\n\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Boots of Teleportation|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
     +"+100 Movement Speed\n"
-    +"+24 All Stats\n\n"
-    +"Active: Teleport to allied unit or building. Cooldown: 20 seconds.\n\n"
+    +"+24 All Stats\n"
+    +"Active: Teleport to allied unit or building. Cooldown: 20 seconds.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Boots of Speed (|c007EBFF1" + basicShop2 + "|r)\n"
     +"Crystal Ball (|c007EBFF1" + basicShop2 + "|r)\n"
@@ -1760,11 +1808,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 4)")
     ..setTooltipBasic("Buy Recipe (Recipe 4)")
-    ..setTooltipExtended("|c00FFFC01Boots of Invisibility|r.\n\n"
+    ..setTooltipExtended("|c00FFFC01Boots of Invisibility|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+120 Movement Speed\n"
-    +"+24 All Stats\n\n"
-    +"Active: Invisibility for 30 seconds. Cooldown: 30 seconds.\n\n"
+    +"+24 All Stats\n"
+    +"Active: Invisibility for 30 seconds. Cooldown: 30 seconds.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Boots of Speed (|c007EBFF1" + basicShop2 + "|r)\n"
     +"Crystal Ball (|c007EBFF1" + basicShop2 + "|r)\n"
@@ -1805,7 +1853,7 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 5)")
     ..setTooltipBasic("Buy Recipe (Recipe 5)")
-    ..setTooltipExtended("|c00FFFC01Winged Boots|r\n\n "
+    ..setTooltipExtended("|c00FFFC01Winged Boots|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+140 Movement Speed\n"
     +"+60% Attack speed\n"
@@ -1850,9 +1898,9 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 6)")
     ..setTooltipBasic("Buy Recipe (Recipe 6)")
-    ..setTooltipExtended("|c00FFFC01Steel Axe|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Steel Axe|r\n"
     +" |c00FFFC01Effect of item:|r\n"
-    +"+400 Damage\n\n"
+    +"+400 Damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Maul of Strength (|c007EBFF1" + basicShop1 + "|r)\n"
     +"Study War Axe (|c007EBFF1" + basicShop1 + "|r)\n"
@@ -1893,10 +1941,10 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 7)")
     ..setTooltipBasic("Buy Recipe (Recipe 7)")
-    ..setTooltipExtended("|c00FFFC01Silver Hammer|r.\n\n"
-    +" |c00FFFC01Effect of item:|r"
-    +"\n\n+90 Damage"
-    +"\n10% Chance to Bash for 0.1s"
+    ..setTooltipExtended("|c00FFFC01Silver Hammer|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+90 Damage\n"
+    +"10% Chance to Bash for 0.1s\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Maul of Strength (|c007EBFF1" + basicShop1 + "|r)\n"
     +"Belt of Giant Strength (|c007EBFF1" + basicShop2 + "|r)\n")
@@ -1936,10 +1984,10 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 8)")
     ..setTooltipBasic("Buy Recipe (Recipe 8)")
-    ..setTooltipExtended("|c00FFFC01Gloves of Speed|r.\n\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Gloves of Speed|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
     +"+80 Damage\n"
-    +"+80% Attack speed\n\n"
+    +"+80% Attack speed\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Gloves of Haste (|c007EBFF1" + basicShop1 + "|r)\n"
     +"Gloves of Hades (|c007EBFF1" + basicShop1 + "|r)\n"
@@ -1980,16 +2028,16 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 9)")
     ..setTooltipBasic("Buy Recipe (Recipe 9)")
-    ..setTooltipExtended("|c00FFFC01Half of Arkenstone|r.\n\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Half of Arkenstone|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
     +"+5.000 HP\n"
     +"+50 HP/s\n"
     +"+5.000 MP\n"
     +"+300% Mana Regeneration\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Arkenstone Fragment |c00FF0303 (|c007EBFF1Combination|r)|r.\n"
-    +"Lancelot's Ring|c00FF0303 (|c007EBFF1Combination|r)|r.\n"
-    +"Guinevere's Ring|c00FF0303 (|c007EBFF1Combination|r)|r.")
+    +"Arkenstone Fragment |c00FF0303 (|c007EBFF1Combination|r)|r\n"
+    +"Lancelot's Ring|c00FF0303 (|c007EBFF1Combination|r)|r\n"
+    +"Guinevere's Ring|c00FF0303 (|c007EBFF1Combination|r)|r")
     ..setHotkey("")
 
 //I035
@@ -2026,7 +2074,7 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 10)")
     ..setTooltipBasic("Buy Recipe (Recipe 10)")
-    ..setTooltipExtended(" |c00FFFC01Light Armor|r.\n\n"
+    ..setTooltipExtended(" |c00FFFC01Light Armor|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+50 Armor\n"
     +"+20 All Stats\n"
@@ -2072,12 +2120,12 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 11)")
     ..setTooltipBasic("Buy Recipe (Recipe 11)")
-    ..setTooltipExtended("|c00FFFC01Scroll of Fusion|r.\n"
+    ..setTooltipExtended("|c00FFFC01Scroll of Fusion|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+12 All Stats\n"
     +"+300 HP\n"
     +"+10 Armor\n"
-    +"+5 HP/s\n\n"
+    +"+5 HP/s\n"
     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
     +"Circlet of Nobility (|c007EBFF1" + basicShop2 + "|r)\n"
     +"Ring of Regeneration (|c007EBFF1" + basicShop2 + "|r)\n"
@@ -2118,13 +2166,13 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 12)")
     ..setTooltipBasic("Buy Recipe (Recipe 12)")
-    ..setTooltipExtended("|c00FFFC01Amulet of Wild|r.\n"
+    ..setTooltipExtended("|c00FFFC01Amulet of Wild|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+40 Agility\n+12 Intelligence\n"
     +"+12 Strength\n"
     +"+500 HP\n"
     +"+15 Armor\n"
-    +"+7 HP/s\n\n"
+    +"+7 HP/s\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + " |r)\n"
     +"Jade Ring (|c007EBFF1" + basicShop2 + "|r)\n"
@@ -2165,14 +2213,14 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 13)")
     ..setTooltipBasic("Buy Recipe (Recipe 13)")
-    ..setTooltipExtended("|c00FFFC01Helm of Valor|r.\n\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Helm of Valor|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
     +"+40 Strength\n"
     +"+12 Intelligence\n"
     +"+12 Agility\n"
     +"+500 HP\n"
     +"+15 Armor\n"
-    +"+7 HP/s \n\n"
+    +"+7 HP/s \n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Belt of Giant Strength (|c007EBFF1" + basicShop2 + "|r)\n"
@@ -2213,14 +2261,14 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 14)")
     ..setTooltipBasic("Buy Recipe (Recipe 14)")
-    ..setTooltipExtended("|c00FFFC01 Medallion of Courage|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01 Medallion of Courage|r\n "
     +"|c00FFFC01Effect of item:|r\n"
     +"+40 Intelligence\n"
     +"+12 Strength\n"
     +"+12 Agility\n"
     +"+500 HP\n"
     +"+15 Armor\n"
-    +"+7 HP/s\n\n"
+    +"+7 HP/s\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Robe of Magi (|c007EBFF1" + basicShop2 + "|r)\n"
@@ -2261,9 +2309,9 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 15)")
     ..setTooltipBasic("Buy Recipe (Recipe 15)")
-    ..setTooltipExtended("|c00FFFC01 Alleria's Flute of Accuracy|r.\n\n "
-    +"|c00FFFC01Effect of item:|r\n\n"
-    +"Passive: Increases Damage dealt by Ranged Attacks by 50% for Allies in a 900 Radius.\n\n"
+    ..setTooltipExtended("|c00FFFC01 Alleria's Flute of Accuracy|r\n "
+    +"|c00FFFC01Effect of item:|r\n"
+    +"Passive: Increases Damage dealt by Ranged Attacks by 50% for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Simple Sword (|c007EBFF1" + basicShop1 + "|r)\n"
     +"Study War Axe (|c007EBFF1" + basicShop1 + "|r)")
@@ -2303,9 +2351,9 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 16)")
     ..setTooltipBasic("Buy Recipe (Recipe 16)")
-    ..setTooltipExtended("|c00FFFC01 Ancient Janggo of Endurance|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01 Ancient Janggo of Endurance|r\n "
     +"|c00FFFC01Effect of item:|r\n"
-    +"Passive: Increases 50% Attack speed and 10% Movement Speed for Allies in a 900 Radius.\n\n"
+    +"Passive: Increases 50% Attack speed and 10% Movement Speed for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Gloves of Wind (|c007EBFF1" + basicShop1 + "|r)\n"
     +"Boots of Speed (|c007EBFF1" + basicShop2 + "|r)")
@@ -2345,9 +2393,9 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 17)")
     ..setTooltipBasic("Buy Recipe (Recipe 17)")
-    ..setTooltipExtended("|c00FFFC01 The Lion Horn of Stormwind|r.\n\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
-    +"Passive: Increases Armor by 15 for Allies in a 900 Radius.\n\n"
+    ..setTooltipExtended("|c00FFFC01 The Lion Horn of Stormwind|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"Passive: Increases Armor by 15 for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Leather Armor (|c007EBFF1" + basicShop1 + "|r)\n"
     +"Ring of Protection (|c007EBFF1" + basicShop2 + "|r)")
@@ -2387,9 +2435,9 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 18)")
     ..setTooltipBasic("Buy Recipe (Recipe 18)")
-    ..setTooltipExtended("|c00FFFC01Warsong Battle Drums|r\n\n "
-    +"|c00FFFC01Effect of item:|r\n\n"
-    +"Passive: Increases Damage dealt by 35% for Allies in a 900 Radius.\n\n"
+    ..setTooltipExtended("|c00FFFC01Warsong Battle Drums|r\nn "
+    +"|c00FFFC01Effect of item:|r\n"
+    +"Passive: Increases Damage dealt by 35% for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Maul of Strength (|c007EBFF1" + basicShop1 + "|r)")
     ..setHotkey("")
@@ -2428,9 +2476,9 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 19)")
     ..setTooltipBasic("Buy Recipe (Recipe 19)")
-    ..setTooltipExtended("|c00FFFC01Drums of Future|r.\n\n "
-    +"|c00FFFC01Effect of item:|r\n\n"
-    +"Passive: Increases 150% Attack speed and 50% Movement Speed for Allies in a 900 Radius.\n\n"
+    ..setTooltipExtended("|c00FFFC01Drums of Future|r\n "
+    +"|c00FFFC01Effect of item:|r\n"
+    +"Passive: Increases 150% Attack speed and 50% Movement Speed for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Ancient Janggo of Endurance (|c001CE6B9" + recipeShop2 + "|r)")
@@ -2470,11 +2518,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 20)")
     ..setTooltipBasic("Buy Recipe (Recipe 20)")
-    ..setTooltipExtended("|c00FFFC01The Golden Horn|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01The Golden Horn|r\n "
     +"|c00FFFC01Effect of item:|r\n"
     +"+800 HP\n"
     +"+1000 MP\n"
-    +"Passive: Increases Armor by 60 for Allies in a 900 Radius.\n\n"
+    +"Passive: Increases Armor by 60 for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"The Lion Horn of Stormwind (|c001CE6B9" + recipeShop2 + "|r)")
@@ -2514,10 +2562,10 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 21)")
     ..setTooltipBasic("Buy Recipe (Recipe 21)")
-    ..setTooltipExtended("|c00FFFC01Tribal Drums|r.\n\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
-    +"+20 All Stats\n\n"
-    +"Passive: Increases Damage dealt by 95% for Allies in a 900 Radius.\n\n"
+    ..setTooltipExtended("|c00FFFC01Tribal Drums|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+20 All Stats\n"
+    +"Passive: Increases Damage dealt by 95% for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Warsong Battle Drums.(|c001CE6B9" + recipeShop2 + "|r)")
@@ -2557,11 +2605,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 22)")
     ..setTooltipBasic("Buy Recipe (Recipe 22)")
-    ..setTooltipExtended("|c00FFFC01Nature Flute|r.\n\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Nature Flute|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
     +"+25 All Stats\n"
-    +"+50% Attack speed\n\n"
-    +"Passive: Increases Damage dealt by Ranged Attacks by 110% for Allies in a 900 Radius.\n\n"
+    +"+50% Attack speed\n"
+    +"Passive: Increases Damage dealt by Ranged Attacks by 110% for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Alleria's Flute of Accuracy (|c001CE6B9" + recipeShop2 + "|r)")
@@ -2601,11 +2649,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 23)")
     ..setTooltipBasic("Buy Recipe (Recipe 23)")
-    ..setTooltipExtended("|c00FFFC01Void Axe|r.\n\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Void Axe|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
     +"+150 Strength\n"
     +"+2500 HP\n"
-    +"+240 Damage\n\n"
+    +"+240 Damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Helm of Valor (|c001CE6B9" + recipeShop2 + "|r)\n"
@@ -2646,11 +2694,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 24)")
     ..setTooltipBasic("Buy Recipe (Recipe 24)")
-    ..setTooltipExtended("|c00FFFC01Ainz' Sword|r.\n\n "
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Ainz' Sword|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+130 Agility\n"
     +"+40 Armor\n"
-    +"+240 Damage\n\n"
+    +"+240 Damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Amulet of the Wild (|c001CE6B9" + recipeShop1 + "|r)\n"
@@ -2691,11 +2739,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 25)")
     ..setTooltipBasic("Buy Recipe (Recipe 25)")
-    ..setTooltipExtended("|c00FFFC01Seer Staff|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Seer Staff|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+160 Intelligence\n"
     +"+120% Attack speed\n"
-    +"+3000 MP\n\n"
+    +"+3000 MP\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Medallion of Courage (|c001CE6B9" + recipeShop2 + "|r)\n"
@@ -2736,9 +2784,9 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 26)")
     ..setTooltipBasic("Buy Recipe (Recipe 26)")
-    ..setTooltipExtended("|c00FFFC01Scale Axe|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
-    +"+15 Damage\n+25% Cleave on 200 Range\n\n"
+    ..setTooltipExtended("|c00FFFC01Scale Axe|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+15 Damage\n+25% Cleave on 200 Range\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Study War Axe (|c007EBFF1" + basicShop1 + "|r)")
     ..setHotkey("")
@@ -2777,8 +2825,8 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 27)")
     ..setTooltipBasic("Buy Recipe (Recipe 27)")
-    ..setTooltipExtended("|c00FFFC01Dalan Axe|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Dalan Axe|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+23 Damage\n"
     +"+10 Strength\n"
     +"28% Cleave on 250 Range\n"
@@ -2822,11 +2870,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 28)")
     ..setTooltipBasic("Buy Recipe (Recipe 28)")
-    ..setTooltipExtended("|c00FFFC01Duration Axe|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Duration Axe|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+50 Damage\n"
     +"+18 Strength\n"
-    +"32% Cleave on 300 Range\n\n"
+    +"32% Cleave on 300 Range\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Dalan Axe (|c001CE6B9" + recipeShop3 + "|r)\n"
     +"Soul Ring (|c007EBFF1" + basicShop2 + "|r)\n"
@@ -2867,11 +2915,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 29)")
     ..setTooltipBasic("Buy Recipe (Recipe 29)")
-    ..setTooltipExtended("|c00FFFC01Dwarven Axe|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Dwarven Axe|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+90 Damage\n"
     +"+25 All Stats\n"
-    +"36% Cleave on 350 Range\n\n"
+    +"36% Cleave on 350 Range\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Duration Axe (|c001CE6B9" + recipeShop3 + "|r)\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
@@ -2912,8 +2960,8 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 30)")
     ..setTooltipBasic("Buy Recipe (Recipe 30)")
-    ..setTooltipExtended("|c00FFFC01Blade of Hell|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Blade of Hell|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+220 Damage\n"
     +"+100% Attack speed\n"
     +"+12 All Stats\n"
@@ -2958,11 +3006,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 31)")
     ..setTooltipBasic("Buy Recipe (Recipe 31)")
-    ..setTooltipExtended("|c00FFFC01Kraken Dagger|r.\n"
+    ..setTooltipExtended("|c00FFFC01Kraken Dagger|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+105 Damage\n"
     +"+50 Strength\n"
-    +"+50% Attack speed\n\n"
+    +"+50% Attack speed\n"
     +"|c00FEBA0EMaterial that's used to craft itemsp :|r\n"
     +"Soul Ring (|c007EBFF1" + basicShop2 + "|r)\n"
     +"Gloves of Hades (|c007EBFF1" + basicShop1 + "|r)\n"
@@ -3003,11 +3051,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 32)")
     ..setTooltipBasic("Buy Recipe (Recipe 32)")
-    ..setTooltipExtended("|c00FFFC01Midnight Blade|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Midnight Blade|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+65 Damage\n"
     +"+60% Attack speed\n"
-    +"-30 Armor on-hit.\n\n"
+    +"-30 Armor on-hit.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Orb of Corruption (|c007EBFF1" + basicShop3 + "|r)\n"
     +"Simple Sword (|c007EBFF1" + basicShop1 + "|r)\n"
@@ -3048,12 +3096,12 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 33)")
     ..setTooltipBasic("Buy Recipe (Recipe 33)")
-    ..setTooltipExtended("|c00FFFC01Blood Gorged Blade|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Blood Gorged Blade|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+75 Damage\n"
     +"+800 HP\n"
     +"+15 HP/s\n"
-    +"+16% Life Steal.\n\n"
+    +"+16% Life Steal.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Mask of Death (|c007EBFF1" + basicShop1 + "|r)\n"
     +"Simple Sword (|c007EBFF1" + basicShop1 + "|r)\n"
@@ -3094,12 +3142,12 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 34)")
     ..setTooltipBasic("Buy Recipe (Recipe 34)")
-    ..setTooltipExtended("|c00FFFC01Steel Shield|r.\n"
+    ..setTooltipExtended("|c00FFFC01Steel Shield|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+50 Armor\n"
     +"+30 All Stats\n"
     +"+2000 HP\n"
-    +"50% Chance to block 550 Damage.\n\n"
+    +"50% Chance to block 550 Damage.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Enchanted Shield (|c007EBFF1" + basicShop3 + "|r)\n"
@@ -3140,11 +3188,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 35)")
     ..setTooltipBasic("Buy Recipe (Recipe 35)")
-    ..setTooltipExtended("|c00FFFC01Sacred Shield|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Sacred Shield|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+70 Armor\n"
     +"+50 All Stats\n"
-    +"30% Chance to block 1600 Damage\n\n"
+    +"30% Chance to block 1600 Damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Steel Shield (|c001CE6B9" + recipeShop4 + "|r)\n"
     +"Enchanted Shield (|c007EBFF1" + basicShop3 + "|r)\n"
@@ -3185,14 +3233,14 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 36)")
     ..setTooltipBasic("Buy Recipe (Recipe 36)")
-    ..setTooltipExtended("|c00FFFC01Iron Shield|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Iron Shield|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+100 Armor\n"
     +"+50 Strength\n"
     +"+30 Agility\n"
     +"+30 Intelligence\n"
     +"+50 HP/s\n"
-    +"60% Chance to block 1400 Damage.\n\n"
+    +"60% Chance to block 1400 Damage.\n"
     +"|c00FEBA0EMaterial that's used to craft items:|r\n"
     +"Steel Shield (|c001CE6B9" + recipeShop4 + "|r)\n"
     +"Helm of Valor (|c001CE6B9" + recipeShop2 + "|r)")
@@ -3232,15 +3280,15 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 37)")
     ..setTooltipBasic("Buy Recipe (Recipe 37)")
-    ..setTooltipExtended("|c00FFFC01Split Armor|r.\n"
+    ..setTooltipExtended("|c00FFFC01Split Armor|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+100 Armor\n"
     +"+50HP/s\n"
-    +"Return 22% of the damage dealt to you back to the attacker.\n\n"
+    +"Return 22% of the damage dealt to you back to the attacker.\n"
     +"|c00FEBA0EMaterial that's used to craft items:|r\n"
     +"Light Armor (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Iron Armor (|c007EBFF1" + basicShop1 + "|r)\n"
-    +"Spiked Armor (" + monsterDrop + ")|r.")
+    +"Spiked Armor (" + monsterDrop + ")|r")
     ..setHotkey("")
 
 //I05N
@@ -3277,16 +3325,16 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 38)")
     ..setTooltipBasic("Buy Recipe (Recipe 38)")
-    ..setTooltipExtended("|c00FFFC01Avatar Armor|r.\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Avatar Armor|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+50 Armor\n"
     +"+25 HP/s\n"
-    +"+1000 HP\n\n"
+    +"+1000 HP\n"
     +"Active: Activate Avatar for 30 seconds\n"
     +"|c00FEBA0EMaterial that's used to craft items:|r\n"
     +"Light Armor (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Khadgar's Pendant of Health (|c007EBFF1" + basicShop4 + "|r)\n"
-    +"Ring of Regeneration (|c007EBFF1" + basicShop2 + "|r)|r.")
+    +"Ring of Regeneration (|c007EBFF1" + basicShop2 + "|r)|r")
     ..setHotkey("")
 
 //I05Q
@@ -3323,13 +3371,13 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 39)")
     ..setTooltipBasic("Buy Recipe (Recipe 39)")
-    ..setTooltipExtended("|c00FFFC01Chaos Blade|r.\n"
+    ..setTooltipExtended("|c00FFFC01Chaos Blade|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+400 Damage\n"
     +"+120% Attack Speed\n"
     +"+180 Agility\n"
     +"+69 Strength\n"
-    +"+69 Intelligence\n\n"
+    +"+69 Intelligence\n"
     +"|c00FEBA0EMaterial that's used to craft items:|r\n"
     +"Kraken Dagger (|c001CE6B9" + recipeShop3 + "|r)\n"
     +"Scroll of Fusion (|c001CE6B9" + recipeShop1 + "|r)\n"
@@ -3370,10 +3418,10 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 40)")
     ..setTooltipBasic("Buy Recipe (Recipe 40)")
-    ..setTooltipExtended("|c00FFFC01O'clock|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01O'clock|r\n"
     +"|c00FFFC01Effect of item:|r\n"
-    +"+20 All Stats \n\n"
-    +"Active: Reset all of your Skill Cooldowns. Cooldown: 220 seconds.\n\n"
+    +"+20 All Stats \n"
+    +"Active: Reset all of your Skill Cooldowns. Cooldown: 220 seconds.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Amulet of Spell Shield (|c007EBFF1" + basicShop3 + "|r)\n"
     +"Arcanite Shield (|c007EBFF1" + basicShop3 + "|r)\n"
@@ -3414,13 +3462,12 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 41)")
     ..setTooltipBasic("Buy Recipe (Recipe 41)")
-    ..setTooltipExtended("|c00FFFC01Thunder Bow|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01Thunder Bow|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+70 All Stats\n"
     +"+240 Damage\n"
     +"+120% Attack speed\n"
-    +"+10% Chance to shoot a Thunder Lightning dealing 1000 Damage to up to 4 targets in 900 range.\n\n"
-    +"Note: Only works for Ranged Attacks.\n\n"
+    +"+10% Chance to shoot a Thunder Lightning dealing 1000 Damage to up to 4 targets in 900 range.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Medallion of Courage (|c001CE6B9" + recipeShop2 + "|r)\n"
     +"Amulet of the Wild (|c001CE6B9" + recipeShop2 + "|r)\n"
@@ -3462,12 +3509,12 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 42)")
     ..setTooltipBasic("Buy Recipe (Recipe 42)")
-    ..setTooltipExtended("|c00FFFC01Soul of Kil'jeaden|r.\n\n"
+    ..setTooltipExtended("|c00FFFC01Soul of Kil'jeaden|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+200 Damage\n"
     +"+1000 MP\n"
-    +"+150% Mana Regeneration\n\n"
-    +"+47% chance to restore 95 MP on-hit.\n\n"
+    +"+150% Mana Regeneration\n"
+    +"+47% chance to restore 95 MP on-hit.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Medallion of Courage (|c001CE6B9" + recipeShop2 + "|r)\n"
     +"Pendant of Mana (|c007EBFF1" + basicShop4 + "|r)\n"
@@ -3508,9 +3555,9 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 43)")
     ..setTooltipBasic("Buy Recipe (Recipe 43)")
-    ..setTooltipExtended("|c00FFFC01Lizard Pendant|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01Lizard Pendant|r\n"
     +"|c00FFFC01Effect of item:|r\n"
-    +"+40 Armor. +150 Strength. +3000 HP. +1% HP/s.\n"
+    +"+40 Armor. +150 Strength. +3000 HP. +1% HP/s\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Helm of Valor (|c001CE6B9" + recipeShop2 + "|r)\n"
     +"Light Armor (|c001CE6B9" + recipeShop1 + "|r)")
@@ -3550,7 +3597,7 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 44)")
     ..setTooltipBasic("Buy Recipe (Recipe 44)")
-    ..setTooltipExtended("|c00FFFC01Helm Hermes|r.\n\n"
+    ..setTooltipExtended("|c00FFFC01Helm Hermes|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+100 Strength\n"
     +"+2500 Health\n"
@@ -3594,11 +3641,11 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 45)")
     ..setTooltipBasic("Buy Recipe (Recipe 45)")
-    ..setTooltipExtended("|c00FFFC01Dark Sphere|r.\n\n"
+    ..setTooltipExtended("|c00FFFC01Dark Sphere|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+50 Strength\n"
-    +"+10 HP/s\n\n"
-    +"Passively attack 1 target every 1 second with 700 Damage in 650 range.\n\n"
+    +"+10 HP/s\n"
+    +"Passively attack 1 target every 1 second with 700 Damage in 650 range.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Orb of Darkness (|c007EBFF1" + basicShop3 + "|r)\n"
     +"Helm of Valor (|c001CE6B9" + recipeShop2 + "|r)")
@@ -3638,7 +3685,7 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 46)")
     ..setTooltipBasic("Buy Recipe (Recipe 46)")
-    ..setTooltipExtended("|c00FFFC01Mystery Green Staff|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01Mystery Green Staff|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+180 Intelligence.\n"
     +"+180% Attack speed.\n"
@@ -3684,7 +3731,7 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 47)")
     ..setTooltipBasic("Buy Recipe (Recipe 47)")
-    ..setTooltipExtended("|c00FFFC01Ice Wand|r.\n"
+    ..setTooltipExtended("|c00FFFC01Ice Wand|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+180 Intelligence\n"
     +"+3200 HP\n"
@@ -3729,7 +3776,7 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 48)")
     ..setTooltipBasic("Buy Recipe (Recipe 48)")
-    ..setTooltipExtended("|c00FFFC01War Energy|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01War Energy|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"Increase 7000 MP \n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
@@ -3772,7 +3819,7 @@ init
     ..setName("|c00FFFC01Advanced Recipe (Recipe 1)|r")
     ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 1)|r")
     ..setTooltipExtended("|c00FFFC01Ice & Fire Sword|r\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
+    +" |c00FFFC01Effect of item:|r\n"
     +"+400 Damage\n"
     +"30% Chance to Freeze Target for 0.1s + deal 1000 Damage\n"
     +"28% Chance to Crit for 5x damage\n"
@@ -3816,10 +3863,10 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 2)|r")
     ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 2)|r")
-    ..setTooltipExtended("|c00FFFC01Boots of Crystal Gold|r\n\n"
+    ..setTooltipExtended("|c00FFFC01Boots of Crystal Gold|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+250 Movement Speed\n"
-    +"+100 All Stats\n\n"
+    +"+100 All Stats\n"
     +"Active: Teleport to allied unit or building. Cooldown: 20 seconds.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Boots of Teleportation (|c001CE6B9" + recipeShop1 + "|r)\n"
@@ -3860,7 +3907,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 3)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 3)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 3)|r")
     ..setTooltipExtended("|c00FFFC01Destroy Sword|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+700 Damage\n"
@@ -3904,9 +3951,9 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 4)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Page 4)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Page 4)|r")
     ..setTooltipExtended("|c00FFFC01Platinum Hammer|r\n"
-    +"|c00FFFC01Effect of item:|r\n\n"
+    +"|c00FFFC01Effect of item:|r\n"
     +"+500 Damage\n"
     +"+120 Strength\n"
     +"25% Chance to Bash for 0.5s dealing 1000 bonus Damage.\n"
@@ -3949,11 +3996,11 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 5)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 5)|r.")
-    ..setTooltipExtended(" |c00FFFC01Effect of item:|r\n\n"
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 5)|r")
+    ..setTooltipExtended(" |c00FFFC01Effect of item:|r\n"
     +"+200 Damage\n"
-    +"+180% Attack speed."
-    +"10% Armor Pen\n\n"
+    +"+180% Attack speed.\n"
+    +"10% Armor Pen\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Gloves of Speed (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Claws of Attack (|c007EBFF1" + basicShop1 + "|r)")
@@ -3990,12 +4037,21 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setDescription("|c00FFFC01Dark Steel Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+400 Damage\n"
+    +"+100% Attack speed\n"
+    +"-80 Armor on-hit.\n"
+    +"Effect cannot be used together with Orb of Corruption\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Midnight Blade (|c001CE6B9" + recipeShop3 + "|r)\n"
+    +"Gloves of Speed (|c001CE6B9" + recipeShop1 + "|r)\n"
+    +"Orb of Corruption (|c001CE6B9" + basicShop3 + "|r)")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 6)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 6)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 6)|r")
     ..setTooltipExtended("|c00FFFC01Dark Steel Sword|r\n"
     +" |c00FFFC01Effect of item:|r\n"
-    +"+4000 Damage\n"
+    +"+400 Damage\n"
     +"+100% Attack speed\n"
     +"-80 Armor on-hit.\n"
     +"Effect cannot be used together with Orb of Corruption\n"
@@ -4038,7 +4094,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 7)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 7)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 7)|r")
     ..setTooltipExtended("|c00FFFC01Perfect Arkenstone|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+10.000 HP\n"
@@ -4083,13 +4139,13 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 8)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 8)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 8)|r")
     ..setTooltipExtended("|c00FFFC01Shiny Armor|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+100 Armor\n"
     +"+30% Magic Resistance\n"
     +"+1000 HP\n"
-    +"+20HP/s.\n\n"
+    +"+20HP/s\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Amulet of Spell Shield (|c007EBFF1" + basicShop3 + "|r)\n"
     +"Silver Armor (|c007EBFF1" + basicShop1 + "|r)\n"
@@ -4129,12 +4185,12 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 9)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 9)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 9)|r")
     ..setTooltipExtended("|c00FFFC01Reactive Armor|r\n"
-    +" |c00FFFC01Effect of item:|r\n\n"
+    +" |c00FFFC01Effect of item:|r\n"
     +"+200 Armor\n"
     +"+100HP/s\n"
-    +"Return 50% of the damage dealt to you back to the attacker.\n\n"
+    +"Return 50% of the damage dealt to you back to the attacker.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Split Armor (|c001CE6B9" + recipeShop4 + "|r)\n"
     +"Light Armor. (|c001CE6B9" + recipeShop1 + "|r)\n"
@@ -4174,14 +4230,14 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 10)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 10)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 10)|r")
     ..setTooltipExtended("|c00FFFC01Holy Armor|r\n "
     +"|c00FFFC01Effect of item:|r\n"
     +"+200 Armor\n"
     +"60% Magic Resistance\n"
     +"+2000 HP\n"
     +"+40Hp/s\n"
-    +"Changes Armor Type to Hero.\n\n"
+    +"Changes Armor Type to Hero.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Shiny Armor (|c001CE6B9Advanced " + recipeShop1 + "|r)\n"
     +"Light Armor (|c001CE6B9" + recipeShop1 + "|r)\n"
@@ -4221,9 +4277,9 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 11)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 11)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 11)|r")
     ..setTooltipExtended("|c00FFFC01Gold Axe|r\n"
-    +"|c00FFFC01Effect:|r  \n\n"
+    +"|c00FFFC01Effect:|r  \n"
     +"+700 Damage\n"
     +"70% Chance to Crit for 2 times Damage.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
@@ -4265,7 +4321,15 @@ init
     ..setDescription("|cffffcc00Effect|r: \n+150 STR\n+100 HP/s")
     ..setName("Dark Matter")
     ..setTooltipBasic("Dark Matter")
-    ..setTooltipExtended("|c00FFFC01Dark Matter|r\n\n|cffffcc00Effect of item|r: \n+150 Strength.\n+100 HP/s.\n\nEvery 1 second deal 2000 Damage to a nearby enemy within 650 Range.\n\n|c00FEBA0EMaterials required to craft this item:|r\nOrb of Darkness (|c007EBFF1" + basicShop3 + "|r)\nVoid Axe (|c001CE6B9" + recipeShop3 + "|r)\nDark Sphere (|c001CE6B9" + recipeShop3 + "|r)")
+    ..setTooltipExtended("|c00FFFC01Dark Matter|r\n"
+    +"|cffffcc00Effect of item|r: \n"
+    +"+150 Strength\n"
+    +"+100 HP/s\n"
+    +"Every 1 second deal 2000 Damage to a nearby enemy within 650 Range.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Orb of Darkness (|c007EBFF1" + basicShop3 + "|r)\n"
+    +"Void Axe (|c001CE6B9" + recipeShop3 + "|r)\n"
+    +"Dark Sphere (|c001CE6B9" + recipeShop3 + "|r)")
     ..setHotkey("")
 
 //I0E1
@@ -4302,7 +4366,13 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 13)|r")
     ..setTooltipBasic("|c00FFFC01Advanced Recipe (Recipe 13)|r")
-    ..setTooltipExtended("|c00FFFC01Rain Sword|r\n |c00FFFC01Effect of item:|r\n\n+350 Agility\n+70 Armor\n+700 Damage\n\n|c00FEBA0EMaterials required to craft this item:|r\nAinz' Sword ("+ recipeShop2 +")")
+    ..setTooltipExtended("|c00FFFC01Rain Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+350 Agility\n"
+    +"+70 Armor\n"
+    +"+700 Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Ainz' Sword ("+ recipeShop2 +")")
     ..setHotkey("")
 
 //I0E2
@@ -4339,7 +4409,12 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 14)|r")
     ..setTooltipBasic("|c00FFFC01Advanced Recipe (Recipe 14)|r")
-    ..setTooltipExtended("|c00FFFC01Curosive Hammer|r\n |c00FFFC01Effect of item:|r\n\n+350 Strength\n+6000 HP\n+700 Damage\n\n|c00FEBA0EMaterials required to craft this item:|r\nVoid Axe (|c001CE6B9" + recipeShop3 + "|r)")
+    ..setTooltipExtended("|c00FFFC01Curosive Hammer|r\n |c00FFFC01Effect of item:|r\n"
+    +"+350 Strength\n"
+    +"+6000 HP\n"
+    +"+700 Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Void Axe (|c001CE6B9" + recipeShop3 + "|r)")
     ..setHotkey("")
 
 //I0E3
@@ -4376,7 +4451,12 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 15)|r")
     ..setTooltipBasic("|c00FFFC01Advanced Recipe (Recipe 15)|r")
-    ..setTooltipExtended("|c00FFFC01Vampirella|r\n |c00FFFC01Effect of item:|r\n\n+400 Intelligence\n+6000 MP\n+700 Damage\n\n|c00FEBA0EMaterials required to craft this item:|r\nSeer Staff (|c001CE6B9" + recipeShop3 + "|r)")
+    ..setTooltipExtended("|c00FFFC01Vampirella|r\n |c00FFFC01Effect of item:|r\n"
+    +"+400 Intelligence\n"
+    +"+6000 MP\n"
+    +"+700 Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Seer Staff (|c001CE6B9" + recipeShop3 + "|r)")
     ..setHotkey("")
 
 //I0ED
@@ -4412,12 +4492,12 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 16)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 16)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 16)|r")
     ..setTooltipExtended("|c00FFFC01Lancelot Shield|r\n "
     +"|c00FFFC01Effect of item:|r"
-    +"\n\n"
+    +"\n"
     +"+130 Armor.\n"
-    +"+HP 5000\n\n"
+    +"+HP 5000\n"
     +"When attacked you have a 30% to heal for 500 HP\n"
     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
     +"Scepter of Healing (|c007EBFF1" + monsterDrop + "|r)\n"
@@ -4457,7 +4537,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 17)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 17)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 17)|r")
     ..setTooltipExtended("|c00FFFC01Lancelot Armor|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+190 Armor.\n"
@@ -4503,8 +4583,15 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 18)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe ( Page18)|r.")
-    ..setTooltipExtended("|c00FFFC01Lancelot Helm|r\n |c00FFFC01Effect of item:|r\n\n+100 Armor.\n+1000 HP.\n+50 HP/s.\n\nActive: Deals 10.000 Damage to enemies in a 600 AoE around the Hero. Cooldown: 30 seconds.\n\n|c00FEBA0EMaterials required to craft this item:|r\nSeer Staff (|c001CE6B9" + recipeShop3 + "|r)\nShiny Armor (|c001CE6B9Advanced " + recipeShop1 + "|r)")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe ( Page18)|r")
+    ..setTooltipExtended("|c00FFFC01Lancelot Helm|r\n |c00FFFC01Effect of item:|r\n"
+    +"+100 Armor.\n"
+    +"+1000 HP.\n"
+    +"+50 HP/s\n"
+    +"Active: Deals 10.000 Damage to enemies in a 600 AoE around the Hero. Cooldown: 30 seconds.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Seer Staff (|c001CE6B9" + recipeShop3 + "|r)\n"
+    +"Shiny Armor (|c001CE6B9Advanced " + recipeShop1 + "|r)")
     ..setHotkey("")
 
 //I0IL
@@ -4540,8 +4627,16 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 19)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 19)|r.")
-    ..setTooltipExtended("|c00FFFC01Mystery Blue Staff|r\n |c00FFFC01Effect of item:|r\n+280 Intelligence.\n+235% Attack speed.\n+200%Mana Regeneration.\n|c00FFFC01Special Effects: Active: Deals 14800 Damage to the target enemy. Cooldown: 30 seconds\n\n|c00FEBA0EMaterials required to craft this item:|r\nMystery Green Staff (|c001CE6B9" + recipeShop4 + "|r)\nThunderlizard Diamond (" + monsterDrop + ")")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 19)|r")
+    ..setTooltipExtended("|c00FFFC01Mystery Blue Staff|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+280 Intelligence.\n"
+    +"+235% Attack speed.\n"
+    +"+200%Mana Regeneration.\n"
+    +"|c00FFFC01Special Effects: Active: Deals 14800 Damage to the target enemy. Cooldown: 30 seconds\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Mystery Green Staff (|c001CE6B9" + recipeShop4 + "|r)\n"
+    +"Thunderlizard Diamond (" + monsterDrop + ")")
     ..setHotkey("")
 
 //I0IW
@@ -4577,11 +4672,11 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 20)|r")
-    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 20)|r.")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 20)|r")
     ..setTooltipExtended("|c00FFFC01Freeze Wand|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+280 Intelligence\n"
-    +"+5600 HP\n\n"
+    +"+5600 HP\n"
     +"|c00FFFC01Special Effects : Active: Sends a Frost Nova on the target"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Ice Wand (|c001CE6B9" + recipeShop4 + "|r)\n"
@@ -7041,10 +7136,18 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+400 Damage\n+100% Attack speed\n-80 Armor on-hit\nEffect cannot be used together with Orb of Corruption")
+    ..setDescription("|c00FFFC01Effect:|r\n"
+    +"+400 Damage\n"
+    +"+100% Attack speed\n"
+    +"-80 Armor on-hit\n"
+    +"Effect cannot be used together with Orb of Corruption")
     ..setName("|c00FFFC01Dark Steel Sword|r")
     ..setTooltipBasic("Purchase Dark Steel Sword")
-    ..setTooltipExtended("|c00FFFC01Effect:|r     \n\n+400 Damage\n+100% Attack speed\n-80 Armor on-hit\nEffect cannot be used together with Orb of Corruption")
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
+    +"+400 Damage\n"
+    +"+100% Attack speed\n"
+    +"-80 Armor on-hit\n"
+    +"Effect cannot be used together with Orb of Corruption")
     ..setHotkey("E")
 
 //I00H
@@ -7226,10 +7329,16 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect:|r \n+150 Strength\n+100 HP/s\n\nPassively attack 1 target every 1 second with 2000 Damage in 650 range.")
+    ..setDescription("|c00FFFC01Effect:|r \n"
+    +"+150 Strength\n"
+    +"+100 HP/s\n"
+    +"Passively attack 1 target every 1 second with 2000 Damage in 650 range.")
     ..setName("|c00FFFC01Dark Matter|r")
     ..setTooltipBasic("Dark Matter")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+150 Strength\n+100 HP/s\n\nPassively attack 1 target every 1 second with 2000 Damage in 650 range.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+150 Strength\n"
+    +"+100 HP/s\n"
+    +"Passively attack 1 target every 1 second with 2000 Damage in 650 range.")
     ..setHotkey("B")
 
 //I0E4
@@ -7414,7 +7523,7 @@ init
     ..setDescription("")
     ..setName("|c00FFFC01Lancelot Armor|r")
     ..setTooltipBasic("|c00FFFC01Lancelot Armor|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n\n"
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n"
     +"+190 Armor.\n"
     +"+200 Intelligence.\n"
     +"+2000 HP.\n"
@@ -7457,7 +7566,11 @@ init
     ..setDescription("")
     ..setName("|c00FFFC01Lancelot Helm|r")
     ..setTooltipBasic("|c00FFFC01Lancelot Helm|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+ 100 Armor \n+ 1000HP\n+ 60HP/s\n\n|c00FEBA0ESpecial Effect:|r Active: Deals 10.000 Damage to enemies in a 600 AoE around the Hero. Cooldown: 30 seconds.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n"
+    +"+ 100 Armor \n"
+    +"+ 1000HP\n"
+    +"+ 60HP/s\n"
+    +"|c00FEBA0ESpecial Effect:|r Active: Deals 10.000 Damage to enemies in a 600 AoE around the Hero. Cooldown: 30 seconds.")
     ..setHotkey("S")
 
 //I02C
@@ -7640,10 +7753,14 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+250 Movement Speed\n+100 All Stats\n\nActive: Teleport to allied unit or building. Cooldown: 20 seconds.")
+    ..setDescription("+250 Movement Speed\n"
+    +"+100 All Stats\n"
+    +"Active: Teleport to allied unit or building. Cooldown: 20 seconds.")
     ..setName("|c00FFFC01Boots of Crystal Gold|r")
     ..setTooltipBasic("Purchase Boots of Crystal Gold")
-    ..setTooltipExtended("+250 Movement Speed\n+100 All Stats\n\nActive: Teleport to allied unit or building. Cooldown: 20 seconds.")
+    ..setTooltipExtended("+250 Movement Speed\n"
+    +"+100 All Stats\n"
+    +"Active: Teleport to allied unit or building. Cooldown: 20 seconds.")
     ..setHotkey("S")
 
 //I000
@@ -8050,7 +8167,7 @@ init
     ..setDescription("Scroll")
     ..setName("Scroll of Fusion")
     ..setTooltipBasic("Mua Scroll of Fusion")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+12 All Stats\n+300 HP\n+10 Armor\n+5 HP/s.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+12 All Stats\n+300 HP\n+10 Armor\n+5 HP/s")
     ..setHotkey("D")
 
 //I03W
@@ -8084,10 +8201,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+40 Strength\n+12 Intelligence\n+12 Agility\n+500 HP\n+15 Armor\n+7 HP/s.")
+    ..setDescription("+40 Strength\n+12 Intelligence\n+12 Agility\n+500 HP\n+15 Armor\n+7 HP/s")
     ..setName("Amulet of the Wild")
     ..setTooltipBasic("Purchase Amulet of the Wild")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+40 Agility\n+12 Intelligence\n+12 Strength\n+500 HP\n+15 Armor\n+7 HP/s.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+40 Agility\n+12 Intelligence\n+12 Strength\n+500 HP\n+15 Armor\n+7 HP/s")
     ..setHotkey("")
 
 //I03V
@@ -8124,7 +8241,7 @@ init
     ..setDescription("Provides bonuses to Strength and Agility.")
     ..setName("Helm of Valor")
     ..setTooltipBasic("Purchase Helm of Valor")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+40 Strength\n+12 Intelligence\n+12 Agility\n+500 HP\n+15 Armor\n+7 HP/s.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+40 Strength\n+12 Intelligence\n+12 Agility\n+500 HP\n+15 Armor\n+7 HP/s")
     ..setHotkey("")
 
 //I03X
@@ -8161,7 +8278,7 @@ init
     ..setDescription("Provides bonuses to Strength and Agility.")
     ..setName("Medallion of Courage")
     ..setTooltipBasic("Buy Medallion of Courage")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+40 Intelligence\n+12 Strength\n+12 Agility\n+500 HP\n+15 Armor\n+7 HP/s.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+40 Intelligence\n+12 Strength\n+12 Agility\n+500 HP\n+15 Armor\n+7 HP/s")
     ..setHotkey("")
 
 //I04E
@@ -8383,7 +8500,10 @@ init
     ..setDescription("Generates a protective aura around the Hero.")
     ..setName("The Golden Horn")
     ..setTooltipBasic("Purchase The Golden Horn")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+800 HP\n+1000 MP\n\nPassive: Increases Armor by 60 for Allies in a 900 Radius.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+800 HP\n"
+    +"+1000 MP\n"
+    +"Passive: Increases Armor by 60 for Allies in a 900 Radius.")
     ..setHotkey("")
 
 //I04H
@@ -8420,7 +8540,9 @@ init
     ..setDescription("Increases combat effectiveness of nearby units.")
     ..setName("Tribal Drums")
     ..setTooltipBasic("Purchase Tribal Drums")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+20 All Stats\n\nPassive: Increases Damage dealt by 95% for Allies in a 900 Radius.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+20 All Stats\n"
+    +"Passive: Increases Damage dealt by 95% for Allies in a 900 Radius.")
     ..setHotkey("W")
 
 //I04I
@@ -8457,7 +8579,10 @@ init
     ..setDescription("Nearby units' missile attacks do more damage.")
     ..setName("Nature Flute")
     ..setTooltipBasic("Purchase Nature Flute")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+25 All Stats\n+50% Attack speed\n\nPassive: Increases Damage dealt by Ranged Attacks by 110% for Allies in a 900 Radius.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+25 All Stats\n"
+    +"+50% Attack speed\n"
+    +"Passive: Increases Damage dealt by Ranged Attacks by 110% for Allies in a 900 Radius.")
     ..setHotkey("")
 
 //I04W
@@ -9050,7 +9175,11 @@ init
     ..setDescription("")
     ..setName("Avatar Armor")
     ..setTooltipBasic("Purchase Avatar Armor")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+50 Armor\n+25 HP/s\n+1000 HP\n\nActive: Activate Avatar for 30 seconds")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+50 Armor\n"
+    +"+25 HP/s\n"
+    +"+1000 HP\n"
+    +"Active: Activate Avatar for 30 seconds")
     ..setHotkey("W")
 
 //I05P
@@ -9125,7 +9254,9 @@ init
     ..setDescription("Increases combat effectiveness of nearby units.")
     ..setName("O'clock")
     ..setTooltipBasic("Purchase O'clock")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+20 All Stats\n\nActive: Reset all of your Skill Cooldowns. Cooldown: 220 seconds.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+20 All Stats\n"
+    +"Active: Reset all of your Skill Cooldowns. Cooldown: 220 seconds.")
     ..setHotkey("W")
 
 //I07L
@@ -9162,7 +9293,11 @@ init
     ..setDescription("")
     ..setName("Thunder Bow")
     ..setTooltipBasic("Purchase Thunder Bow")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+70 All Stats\n+240 Damage\n+120% Attack speed\n+10% Chance to shoot a Thunder Lightning dealing 1000 Damage to up to 4 targets in 900 range.\n\nNote: Only works for Ranged Attacks.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+70 All Stats\n"
+    +"+240 Damage\n"
+    +"+120% Attack speed\n"
+    +"+10% Chance to shoot a Thunder Lightning dealing 1000 Damage to up to 4 targets in 900 range.\n")
     ..setHotkey("")
 
 //I07P
@@ -9199,7 +9334,11 @@ init
     ..setDescription("Allows the theft of a Hero's soul.")
     ..setName("Soul of Kil'jeaden")
     ..setTooltipBasic("Purchase Soul of Kil'jeaden")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+200 Damage\n+1000 MP\n+150% Mana Regeneration\n\n+47% chance to restore 95 MP on-hit.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+200 Damage\n"
+    +"+1000 MP\n"
+    +"+150% Mana Regeneration\n"
+    +"+47% chance to restore 95 MP on-hit.")
     ..setHotkey("G")
 
 //I0BD
@@ -9307,10 +9446,15 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+50 Strength\n+100 HP/s\n\nPassively attack 1 target every 1 second with 700 Damage in 650 range.")
+    ..setDescription("+50 Strength\n"
+    +"+100 HP/s\n"
+    +"Passively attack 1 target every 1 second with 700 Damage in 650 range.")
     ..setName("Dark Sphere")
     ..setTooltipBasic("Dark Sphere")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+50 Strength\n+10 HP/s\n\nPassively attack 1 target every 1 second with 700 Damage in 650 range.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+50 Strength\n"
+    +"+10 HP/s\n"
+    +"Passively attack 1 target every 1 second with 700 Damage in 650 range.")
     ..setHotkey("B")
 
 //I0IG
@@ -9611,7 +9755,10 @@ init
     ..setDescription("Increases movement rate.")
     ..setName("Boots of Teleportation")
     ..setTooltipBasic("Purchase Boots of Teleportation")
-    ..setTooltipExtended("|c00FFFC01Effect:|r   \n+100 Movement Speed\n+24 All Stats\n\nActive: Teleport to allied unit or building. Cooldown: 20 seconds.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r   \n"
+    +"+100 Movement Speed\n"
+    +"+24 All Stats\n"
+    +"Active: Teleport to allied unit or building. Cooldown: 20 seconds.")
     ..setHotkey("S")
 
 //I00A
@@ -9645,10 +9792,16 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect:|r  \nIncrease +120 Movement Speed\n+24 All Stats\n\nActive: Invisibility for 30 seconds. Cooldown: 30 seconds.")
+    ..setDescription("|c00FFFC01Effect:|r  \n"
+    +"Increase +120 Movement Speed\n"
+    +"+24 All Stats\n"
+    +"Active: Invisibility for 30 seconds. Cooldown: 30 seconds.")
     ..setName("Boots of Invisibility")
     ..setTooltipBasic("Purchase Boots of Invisibility")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+120 Movement Speed\n+24 All Stats\n\nActive: Invisibility for 30 seconds. Cooldown: 30 seconds.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n"
+    +"+120 Movement Speed\n"
+    +"+24 All Stats\n"
+    +"Active: Invisibility for 30 seconds. Cooldown: 30 seconds.")
     ..setHotkey("S")
 
 //I009
@@ -9794,10 +9947,17 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+2000 Damage\n+220% Attack speed. \n-135 Armor on-hit\nEffect cannot be used together with Orb of Corruption")
+    ..setDescription("+2000 Damage\n"
+    +"+220% Attack speed\n"
+    +"-135 Armor on-hit\n"
+    +"Effect cannot be used together with Orb of Corruption")
     ..setName("|c00FFFC01Dark Steel Sword II|r")
     ..setTooltipBasic("Purchase Dark Steel Sword II")
-    ..setTooltipExtended("|c00FFFC01Effect:|r     \n\n+2000 Damage\n+220% Attack speed. \n-135 Armor on-hit\nEffect cannot be used together with Orb of Corruption")
+    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
+    +"+2000 Damage\n"
+    +"+220% Attack speed\n"
+    +"-135 Armor on-hit\n"
+    +"Effect cannot be used together with Orb of Corruption")
     ..setHotkey("E")
 
 //I0JX
@@ -9834,7 +9994,10 @@ init
     ..setDescription("+1700 Damage. 25% Chance to Crit for 11 times damage.")
     ..setName("|c00FFFC01Destroy Sword II|r")
     ..setTooltipBasic("Purchase Destroy Sword II")
-    ..setTooltipExtended("|c00FFFC01Effect:|r     \n\n+1700 Damage. 25% Chance to Crit for 11 times damage.\n 8% Armor Pen")
+    ..setTooltipExtended("|c00FFFC01Effect:|r     \n"
+    +"+1700 Damage.\n"
+    +"25% Chance to Crit for 11 times damage.\n"
+    +"8% Armor Pen")
     ..setHotkey("E")
 
 //I0K0
@@ -9868,10 +10031,16 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect:|r  \n\n+4500 Damage\n+600 Strength\n+25% Chance to Bash")
+    ..setDescription("|c00FFFC01Effect:|r  \n"
+    +"+4500 Damage\n"
+    +"+600 Strength\n"
+    +"+25% Chance to Bash")
     ..setName("|c00FFFC01Platinum Hammer II|r")
     ..setTooltipBasic("Purchase Platinum Hammer II")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n\n+4500 Damage\n+600 Strength\n+25% Chance to Bash")
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n"
+    +"+4500 Damage\n"
+    +"+600 Strength\n"
+    +"+25% Chance to Bash")
     ..setHotkey("C")
 
 //I0K2
@@ -10093,7 +10262,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +3")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +4 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +4 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02J
@@ -10130,7 +10301,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +4")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +7 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +7 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02K
@@ -10167,7 +10340,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +5")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +11 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +11 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02L
@@ -10204,7 +10379,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +6")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +16 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +16 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02M
@@ -10278,7 +10455,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +8")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC0Effect:|r    \nAdds +29 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC0Effect:|r    \n"
+    +"Adds +29 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02O
@@ -10315,7 +10494,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +9")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +37 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +37 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02P
@@ -10352,7 +10533,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +10")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +46 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +46 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02Q
@@ -10389,7 +10572,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +11")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +56 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +56 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02R
@@ -10426,7 +10611,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +12")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +67 All Stats\n\n|c00FEBA0ELNote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +67 All Stats\n"
+    +"|c00FEBA0ELNote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I030
@@ -10463,7 +10650,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +13")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +79 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +79 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I032
@@ -10500,7 +10689,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +14")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +92 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +92 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02Y
@@ -10537,7 +10728,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +15")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +106 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +106 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02X
@@ -10574,7 +10767,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +16")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +121 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +121 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02W
@@ -10611,7 +10806,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +17")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +137 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +137 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I033
@@ -10648,7 +10845,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +18")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +154 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +154 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02Z
@@ -10685,7 +10884,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments +19")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +172 All Stats\n\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +172 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I031
@@ -10722,7 +10923,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Ruby Fragments + 20")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +191 All Stats\n\n|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +191 All Stats\n"
+    +"|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02S
@@ -10759,7 +10962,10 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Half Rubystone")
     ..setTooltipBasic("")
-    ..setTooltipExtended("One half of a Rubystone. Not much more to go!\n\n|c00FFFC01Effect:|r    \nAdds +211 All Stats\n\n|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("One half of a Rubystone. Not much more to go!\n"
+    +"|c00FFFC01Effect:|r    \n"
+    +"Adds +211 All Stats\n"
+    +"|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02T
@@ -10796,7 +11002,9 @@ init
     ..setDescription("A handful of Ruby Fragments.")
     ..setName("Divine Rubystone")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +232 All Stats\n\n|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +232 All Stats\n"
+    +"|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Rubystone.")
     ..setHotkey("")
 
 //I02U
@@ -10833,7 +11041,9 @@ init
     ..setDescription("Rubystone")
     ..setName("Rubystone")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +254 All Stats\n\n|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Perfect Rubystone.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +254 All Stats\n"
+    +"|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Perfect Rubystone.")
     ..setHotkey("")
 
 //I02V
@@ -10870,7 +11080,9 @@ init
     ..setDescription("Perfect Rubystone")
     ..setName("Perfect Rubystone")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +277 All Stats\n\n|c00FEBA0ENote:|r Find a way to evolve it!")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +277 All Stats\n"
+    +"|c00FEBA0ENote:|r Find a way to evolve it!")
     ..setHotkey("")
 
 //I037
@@ -11496,10 +11708,15 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+12 Intelligence\n\nActive: Hurl a Fireball that deals 100 Damage and stuns for 2 seconds. Cooldown: 5 seconds.")
+    ..setDescription("+12 Intelligence\n"
+    +"Active: Hurl a Fireball that deals 100 Damage and stuns for 2 seconds.\n"
+    +"Cooldown: 5 seconds.")
     ..setName("Ancestral Staff")
     ..setTooltipBasic("Purchase |cffffcc00A|rncestral Staff")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+12 Intelligence Active:\n\nHurl a Fireball that deals 100 Damage and stuns for 2 seconds. Cooldown: 5 seconds.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"+12 Intelligence Active:\n"
+    +"Hurl a Fireball that deals 100 Damage and stuns for 2 seconds. \n"
+    +"Cooldown: 5 seconds.")
     ..setHotkey("A")
 
 //I06D
@@ -11795,7 +12012,7 @@ init
     ..setDescription("+800 HP\n+15 HP/s")
     ..setName("Blood Gem")
     ..setTooltipBasic("Purchase Amulet of |cffffcc00R|recall")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+800 HP. +15 HP/s.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+800 HP. +15 HP/s")
     ..setHotkey("R")
 
 //I06S
@@ -11903,7 +12120,7 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+50 Damage\n+50% Attack speed\n+10 HP/s.")
+    ..setDescription("+50 Damage\n+50% Attack speed\n+10 HP/s")
     ..setName("Flak Cannons")
     ..setTooltipBasic("Purchase Amulet of |cffffcc00R|recall")
     ..setTooltipExtended("|c00FFFC01Effect:|r    \n+50 Damage\n+50% Attack speed\n+10 HP/s")
@@ -11940,10 +12157,17 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+30 Intelligence\n+100% Mana Regeneration\n\nActive: Chain Lightning that deals 500 damage to up to 4 enemies. Cooldown: 15 seconds.")
+    ..setDescription("+30 Intelligence\n"
+    +"+100% Mana Regeneration\n"
+    +"Active: Chain Lightning that deals 500 damage to up to 4 enemies. \n"
+    +"Cooldown: 15 seconds.")
     ..setName("Thunderlizard Diamond")
     ..setTooltipBasic("Purchase |cffffcc00T|rhunderlizard Diamond")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+30 Intelligence\n+100% Mana Regeneration\n\nActive: Chain Lightning that deals 500 damage to up to 4 enemies. Cooldown: 15 seconds.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"+30 Intelligence\n"
+    +"+100% Mana Regeneration\n"
+    +"Active: Chain Lightning that deals 500 damage to up to 4 enemies. \n"
+    +"Cooldown: 15 seconds.")
     ..setHotkey("T")
 
 //I06C
@@ -12273,10 +12497,15 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+50 Intelligence\n\nActive: Heal target ally for 800 HP or deal 400 HP to an enemy. Cooldown 25 seconds.")
+    ..setDescription("+50 Intelligence\n"
+    +"Active: Heal target ally for 800 HP or deal 400 HP to an enemy. \n"
+    +"Cooldown 25 seconds.")
     ..setName("Scepter of Healing")
     ..setTooltipBasic("Purchase Scepter of |cffffcc00H|realing")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+50 Intelligence\n\nActive: Heal target ally for 800 HP or deal 400 HP to an enemy. Cooldown 25 seconds.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+50 Intelligence\n"
+    +"Active: Heal target ally for 800 HP or deal 400 HP to an enemy. \n"
+    +"Cooldown 25 seconds.")
     ..setHotkey("H")
 
 //I06K
@@ -12421,10 +12650,16 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+80 Intelligence\n+200% Mana Regeneration\n\nActive: Use Frost Nova on an enemy")
+    ..setDescription("+80 Intelligence\n"
+    +"+200% Mana Regeneration\n"
+    +"Active: Use Frost Nova on an enemy")
     ..setName("Scepter of Mastery")
     ..setTooltipBasic("Purchase S|cffffcc00c|repter of Mastery")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+80 Intelligence\n+200% Mana Regeneration\n\nActive: Use Frost Nova on an enemy")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+80 Intelligence\n"
+    +"+200% Mana Regeneration\n"
+    +"Active: Use Frost Nova on an enemy dealing 2000 damage to enemy and 1500 damage to creeps in a 500 aoe\n"
+    +"Cooldown: 30 seconds")
     ..setHotkey("C")
 
 //I06M
@@ -12569,10 +12804,17 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+70 Intelligence\n+150% Mana Regeneration \n\nActive: Send out a Carrion Swarm dealing 680 damage to enemies hit. Cooldown: 20 seconds.")
+    ..setDescription("+70 Intelligence\n"
+    +"+150% Mana Regeneration \n"
+    +"Active: Send out a Carrion Swarm dealing 680 damage to enemies hit. \n"
+    +"Cooldown: 20 seconds.")
     ..setName("Scepter of the Sea")
     ..setTooltipBasic("Purchase Scepte|cffffcc00r|r of the Sea")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+70 Intelligence\n+150% Mana Regeneration\n\nActive: Send out a Carrion Swarm dealing 680 damage to enemies hit. Cooldown: 20 seconds.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+70 Intelligence\n"
+    +"+150% Mana Regeneration\n"
+    +"Active: Send out a Carrion Swarm dealing 680 damage to enemies hit. \n"
+    +"Cooldown: 20 seconds.")
     ..setHotkey("R")
 
 //I03O
@@ -13015,10 +13257,20 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|cffffcc00Effect|r: +120 Armor\n+100 Intelligence\n+38 Strength\n+38 Agility\n\nActive: Restore MP to full. Cooldown: 240 seconds.")
+    ..setDescription("|cffffcc00Effect|r: +120 Armor\n"
+    +"+100 Intelligence\n"
+    +"+38 Strength\n"
+    +"+38 Agility\n"
+    +"Active: Restore MP to full. \n"
+    +"Cooldown: 240 seconds.")
     ..setName("|cffffcc00Crown of Wizard|r")
     ..setTooltipBasic("|cffffcc00Crown of Wizard|r")
-    ..setTooltipExtended("|cffffcc00Effect|r: +120 Armor\n+100 Intelligence\n+38 Strength\n+38 Agility\n\nActive: Restore MP to full. Cooldown: 240 seconds.")
+    ..setTooltipExtended("|cffffcc00Effect|r: +120 Armor\n"
+    +"+100 Intelligence\n"
+    +"+38 Strength\n"
+    +"+38 Agility\n"
+    +"Active: Restore MP to full. \n"
+    +"Cooldown: 240 seconds.")
     ..setHotkey("K")
 
 //I044
@@ -13053,10 +13305,20 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|cffffcc00Effect|r: +120 Armor\n+100 Strength\n+38 Intelligence\n+38 Agility\n\nActive: Restore HP to full. Cooldown: 240 seconds.")
+    ..setDescription("|cffffcc00Effect|r: +120 Armor\n"
+    +"+100 Strength\n"
+    +"+38 Intelligence\n"
+    +"+38 Agility\n"
+    +"Active: Restore HP to full. \n"
+    +"Cooldown: 240 seconds.")
     ..setName("|cffffcc00Crown of Soliders|r")
     ..setTooltipBasic("Purchase |cffffcc00Crown of Soliders|r")
-    ..setTooltipExtended("|cffffcc00Effect|r: +120 Armor\n+100 Strength\n+38 Intelligence\n+38 Agility\n\nActive: Restore HP to full. Cooldown: 240 seconds.")
+    ..setTooltipExtended("|cffffcc00Effect|r: +120 Armor\n"
+    +"+100 Strength\n"
+    +"+38 Intelligence\n"
+    +"+38 Agility\n"
+    +"Active: Restore HP to full. \n"
+    +"Cooldown: 240 seconds.")
     ..setHotkey("K")
 
 //I043
@@ -13609,10 +13871,20 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("+220 Armor\n+154 All Stats\n30% Evasion\n\nActive: Fully Restore HP/MP. Cooldown: 90s.")
+    ..setDescription("|cffffcc00Effect|r: \n"
+    +"+220 Armor\n"
+    +"+154 All Stats\n"
+    +"30% Evasion\n"
+    +"Active: Fully Restore HP/MP. \n"
+    +"Cooldown: 90s.")
     ..setName("|c00FEBA0ECrown of Evil|r")
     ..setTooltipBasic("|c00FEBA0ECrown of Evil|r")
-    ..setTooltipExtended("|cffffcc00Effect|r: +220 Armor\n+154 All Stats\n30% Evasion\n\nActive: Fully Restore HP/MP. Cooldown: 90s.")
+    ..setTooltipExtended("|cffffcc00Effect|r: \n"
+    +"+220 Armor\n"
+    +"+154 All Stats\n"
+    +"30% Evasion\n"
+    +"Active: Fully Restore HP/MP. \n"
+    +"Cooldown: 90s.")
     ..setHotkey("K")
 
 //I0BE
@@ -13723,7 +13995,12 @@ init
     ..setDescription("Nearby units gain some life from damage they deal to enemy units.")
     ..setName(" |c00FF0303Scourge Bone Chimes|r")
     ..setTooltipBasic("Purchase Scourge Bone Chimes")
-    ..setTooltipExtended("|cffffcc00Effect:|r\n+450 Strength\n+100% Attack speed\n+100 HP Regeneration\n\n|c00FEBA0ESpecial Effect:|r \n|c00FF0303+20% Lifesteal Aura in 900 Range")
+    ..setTooltipExtended("|cffffcc00Effect:|r\n"
+    +"+450 Strength\n"
+    +"+100% Attack speed\n"
+    +"+100 HP Regeneration\n"
+    +"|c00FEBA0ESpecial Effect:|r \n"
+    +"|c00FF0303+20% Lifesteal Aura in 900 Range")
     ..setHotkey("")
 
 //I0C1
@@ -14025,7 +14302,7 @@ init
     ..setDescription("")
     ..setName("|c00FF0303Angel Mace|r")
     ..setTooltipBasic("")
-    ..setTooltipExtended("|c00FF0303The Power of an Angel.\n+500 All Stats\n+ 2500 Damage.\n+ 100 HP/s.\n+ 200 Armor.\n+ 300% Attack speed.\n+ 10000 HP.|r")
+    ..setTooltipExtended("|c00FF0303The Power of an Angel.\n+500 All Stats\n+ 2500 Damage.\n+ 100 HP/s\n+ 200 Armor.\n+ 300% Attack speed.\n+ 10000 HP.|r")
     ..setHotkey("V")
 
 //I0EI
@@ -14096,10 +14373,16 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|cffffcc00Frost Shield \n\nEffect:  1680 Intelligence 24.000 HP ")
+    ..setDescription("|cffffcc00Frost Shield \n"
+    +"Effect:  \n"
+    +"1680 Intelligence\n"
+    +"24.000 HP ")
     ..setName("|cffffcc00Water Scroll|r")
     ..setTooltipBasic("|cffffcc00Water Scroll|r")
-    ..setTooltipExtended("|cffffcc00Frost Shield \n\nEffect:  1680 Intelligence 24.000 HP ")
+    ..setTooltipExtended("|cffffcc00Frost Shield \n"
+    +"Effect:  \n"
+    +"1680 Intelligence\n"
+    +"24.000 HP ")
     ..setHotkey("K")
 
 //I0JI
@@ -14133,10 +14416,14 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|cffffcc00Frost Shield \n\nEffect: + 500 Armor")
+    ..setDescription("|cffffcc00Frost Shield \n"
+    +"Effect:\n"
+    +"+ 500 Armor")
     ..setName("|cffffcc00Cronus's Hand|r")
     ..setTooltipBasic("|cffffcc00Cronus's Hand|r")
-    ..setTooltipExtended("|cffffcc00Frost Shield \n\nEffect: + 500 Armor")
+    ..setTooltipExtended("|cffffcc00Frost Shield \n"
+    +"Effect:\n"
+    +"+ 500 Armor")
     ..setHotkey("K")
 
 //I0C2
@@ -14432,10 +14719,20 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|cffffcc00Effect:|r\n+250 Armor\n+10000 HP\n\n|c00FEBA0ESpecial Effect:|r \n |c00FF0303When attacked you have a 50% Chance to restore 4000 HP.\nInfinite Revival with no Cooldown.|r")
+    ..setDescription("|cffffcc00Effect:|r\n"
+    +"+250 Armor\n"
+    +"+10000 HP\n"
+    +"|c00FEBA0ESpecial Effect:|r \n "
+    +"|c00FF0303When attacked you have a 50% Chance to restore 4000 HP.\n"
+    +"Infinite Revival with no Cooldown.|r")
     ..setName(" |c00FF0303Holy Gold Shield|r")
     ..setTooltipBasic(" |c00FF0303Holy Gold Shield|r")
-    ..setTooltipExtended("|cffffcc00Effect:|r\n+250 Armor\n+10000 HP\n\n|c00FEBA0ESpecial Effect:|r \n |c00FF0303When attacked you have a 50% Chance to restore 4000 HP.\nInfinite Revival with no Cooldown.|r")
+    ..setTooltipExtended("|cffffcc00Effect:|r\n"
+    +"+250 Armor\n"
+    +"+10000 HP\n"
+    +"|c00FEBA0ESpecial Effect:|r \n "
+    +"|c00FF0303When attacked you have a 50% Chance to restore 4000 HP.\n"
+    +"Infinite Revival with no Cooldown.|r")
     ..setHotkey("")
 
 //I0CP
@@ -14477,7 +14774,7 @@ init
 
 //I0CR
     new ItemDefinition(ITEM_374, ItemIds.bloodKey)
-    ..setAbilities(commaList('A0TE', 'A02D', 'A0MQ'))
+    ..setAbilities(commaList('A0TE', 'A02D', AGIMOD_1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (2).blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -15043,7 +15340,7 @@ init
 
 //I0EQ
     new ItemDefinition(ITEM_389, ItemIds.hoodofCunning)
-    ..setAbilities(commaList('A0ES', 'A0FV', 'A0EY'))
+    ..setAbilities(commaList(AGIMOD_3, 'A0FV', 'A0EY'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -16423,10 +16720,12 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|cffffcc00\n\nEffect: +160 Armor ")
+    ..setDescription("|cffffcc00Effect:\n"
+    +"+160 Armor ")
     ..setName("|cffffcc00Crown of Assasin +2|r")
     ..setTooltipBasic("|cffffcc00Crown of Assasin +2|r")
-    ..setTooltipExtended("|cffffcc00\n\nEffect: +160 Armor ")
+    ..setTooltipExtended("|cffffcc00Effect:\n"
+    +"+160 Armor ")
     ..setHotkey("K")
 
 //I0F5
@@ -16460,10 +16759,12 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|cffffcc00\n\nEffect: + 160 Armor ")
+    ..setDescription("|cffffcc00Effect: \n"
+    +"+ 160 Armor ")
     ..setName("|cffffcc00Crown of Assasin +3|r")
     ..setTooltipBasic("|cffffcc00Crown of Assasin +3|r")
-    ..setTooltipExtended("|cffffcc00\n\nEffect: + 160 Armor ")
+    ..setTooltipExtended("|cffffcc00Effect: \n"
+    +"+ 160 Armor ")
     ..setHotkey("K")
 
 //I0F6
@@ -18006,7 +18307,7 @@ init
     ..setDescription("Damage bonus and life-stealing attack.")
     ..setName("|c007EBFF1Forge Helm [Level 1]|r")
     ..setTooltipBasic("Purchase |cffffcc00V|rampiric Potion")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor +5.\n+100 HP/s.\n5% Magic Resistance.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor +5.\n+100 HP/s\n5% Magic Resistance.|r")
     ..setHotkey("V")
 
 //I08A
@@ -18943,10 +19244,16 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Fire & Ice Sword II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E+700 Damage.\n37% Chance to freeze the target for 0.25s")
+    ..setDescription("|c00FFFC01Fire & Ice Sword II|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"|c00FEBA0E+700 Damage.\n"
+    +"37% Chance to freeze the target for 0.25s")
     ..setName("Treasure of Tinker (Recipe 1)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 1)")
-    ..setTooltipExtended("|c00FFFC01Fire & Ice Sword II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E+700 Damage.\n37% Chance to freeze the target for 0.25s")
+    ..setTooltipExtended("|c00FFFC01Fire & Ice Sword II|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"|c00FEBA0E+700 Damage.\n"
+    +"37% Chance to freeze the target for 0.25s")
     ..setHotkey("")
 
 //I0JV
@@ -18980,7 +19287,7 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Dark Steel Sword II|r.\n\n"
+    ..setDescription("|c00FFFC01Dark Steel Sword II|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"|c00FEBA0E\n+2000 Damage\n"
     +"+220% Attack speed. \n"
@@ -18988,7 +19295,12 @@ init
     +"Effect cannot be used together with Orb of Corruption")
     ..setName("Treasure of Tinker (Recipe 2)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 2)")
-    ..setTooltipExtended("|c00FFFC01Dark Steel Sword II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n+2000 Damage\n+220% Attack speed. \n-135 Armor on-hit\nEffect cannot be used together with Orb of Corruption")
+    ..setTooltipExtended("|c00FFFC01Dark Steel Sword II|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"|c00FEBA0E\n+2000 Damage\n"
+    +"+220% Attack speed. \n"
+    +"-135 Armor on-hit\n"
+    +"Effect cannot be used together with Orb of Corruption")
     ..setHotkey("")
 
 //I0JY
@@ -19022,16 +19334,26 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Destroy Sword II|r.\n\n "
+    ..setDescription("|c00FFFC01Destroy Sword II|r\n"
     +"|c00FFFC01Effect of item:|r\n"
-    +"|c00FEBA0E+1700 Damage. \n"
-    +"25% Chance to Crit for 11 times damage.|r\n"
+    +"+1700 Damage\n"
+    +"25% Chance to Crit for 11 times damage\n"
+    +"8% Armor Pen\n"
     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Dark Steel Sword\n"
-    +"Crystal Sword")
+    +"Destroy Sword\n"
+    +"Dream Sword\n"
+    +"Blade of Hell")
     ..setName("Treasure of Tinker (Recipe 3)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 3)")
-    ..setTooltipExtended("|c00FFFC01Destroy Sword II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n+1700 Damage. 25% Chance to Crit for 11 times damage.\n8% Armor Pen|r\n\n|c00FEBA0EMaterials required to craft this item: :|r\nDestroy Sword\nDream Sword\nBlade of Hell")
+    ..setTooltipExtended("|c00FFFC01Destroy Sword II|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+1700 Damage\n"
+    +"25% Chance to Crit for 11 times damage\n"
+    +"8% Armor Pen\n"
+    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Destroy Sword\n"
+    +"Dream Sword\n"
+    +"Blade of Hell")
     ..setHotkey("")
 
 //I0JZ
@@ -19065,17 +19387,15 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Hammer Platium II|r.\n\n "
+    ..setDescription("|c00FFFC01Hammer Platium II|r\n"
     +"|c00FFFC01Effect of item:|r\n"
-    +"|c00FEBA0E\n"
     +"+4500 Damage\n"
     +"+600 Strength\n"
     +"+25% Chance to Bash")
     ..setName("Treasure of Tinker (Recipe 4)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 4)")
-    ..setTooltipExtended("|c00FFFC01Hammer Platium II|r.\n\n "
+    ..setTooltipExtended("|c00FFFC01Hammer Platium II|r\n"
     +"|c00FFFC01Effect of item:|r\n"
-    +"|c00FEBA0E\n\n"
     +"+4500 Damage\n"
     +"+600 Strength\n"
     +"+25% Chance to Bash")
@@ -19112,10 +19432,22 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Gold Axe II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n\n+7000 Damage. 70% Chance to Crit for 5 times Damage.|r\n|c00FEBA0EMaterials required to craft this item: :|r\nGold Axe\nCriticial Axe (Jack Smith)")
+    ..setDescription("|c00FFFC01Gold Axe II|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+7000 Damage\n"
+    +"70% Chance to Crit for 5 times Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Gold Axe\n"
+    +"Criticial Axe (Jack Smith)")
     ..setName("Treasure of Tinker (Recipe 5)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 5)")
-    ..setTooltipExtended("|c00FFFC01Gold Axe II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n\n+7000 Damage. 70% Chance to Crit for 5 times Damage.|r\n10% Armor Pen\n|c00FEBA0EMaterials required to craft this item: :|r\nGold Axe\nCriticial Axe (Jack Smith)")
+    ..setTooltipExtended("|c00FFFC01Gold Axe II|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+7000 Damage\n"
+    +"70% Chance to Crit for 5 times Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Gold Axe\n"
+    +"Criticial Axe (Jack Smith)")
     ..setHotkey("")
 
 //I0K3
@@ -19149,10 +19481,24 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Reactive Armor II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n+400 Armor\n+250 HP/s\nReturn 250% of the damage dealt to you back to the attacker. \n\n|c00FEBA0EMaterials required to craft this item: :|r\nReactive Armor\nSplit Armor")
+    ..setDescription("|c00FFFC01Reactive Armor II|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+400 Armor\n"
+    +"+250 HP/s\n"
+    +"Return 250% of the damage dealt to you back to the attacker.\n"
+    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Reactive Armor\n"
+    +"Split Armor")
     ..setName("Treasure of Tinker (Recipe 6)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 6)")
-    ..setTooltipExtended("|c00FFFC01Reactive Armor II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n+400 Armor\n+250 HP/s\nReturn 250% of the damage dealt to you back to the attacker. \n|c00FEBA0EMaterials required to craft this item: :|r\nReactive Armor\nSplit Armor")
+    ..setTooltipExtended("|c00FFFC01Reactive Armor II|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+400 Armor\n"
+    +"+250 HP/s\n"
+    +"Return 250% of the damage dealt to you back to the attacker.\n"
+    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Reactive Armor\n"
+    +"Split Armor")
     ..setHotkey("")
 
 //I0K5
@@ -19186,10 +19532,24 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Reactive Armor II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n+400 Armor\n+250 HP/s\nReturn 250% of the damage dealt to you back to the attacker. \n\n|c00FEBA0EMaterials required to craft this item: :|r\nReactive Armor\nSplit Armor")
+    ..setDescription("|c00FFFC01Boots of Crystal Gold II|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+250 Movement Speed\n"
+    +"+300 All Stats\n"
+    +"Active: Teleport to a unit or a building. \n"
+    +"Cooldown: 30 seconds."
+    +"\n|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Boots of Crystal Gold")
     ..setName("Treasure of Tinker (Recipe 7)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 7)")
-    ..setTooltipExtended("|c00FFFC01Boots of Crystal Gold II|r.\n\n |c00FFFC01Effect of item:|r\n|c00FEBA0E\n+250 Movement Speed\n+300 All Stats\nActive: Teleport to a unit or a building. Cooldown: 30 seconds.\n|c00FEBA0EMaterials required to craft this item: :|r\nBoots of Crystal Gold")
+    ..setTooltipExtended("|c00FFFC01Boots of Crystal Gold II|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+250 Movement Speed\n"
+    +"+300 All Stats\n"
+    +"Active: Teleport to a unit or a building. \n"
+    +"Cooldown: 30 seconds."
+    +"\n|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Boots of Crystal Gold")
     ..setHotkey("")
 
 //I09O
@@ -19343,7 +19703,7 @@ init
 
 //I0HR
     new ItemDefinition(ITEM_503, ItemIds.circletofNobility)
-    ..setAbilities(commaList('A0VI'))
+    ..setAbilities(commaList(AGIMOD_6))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif4.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -21481,10 +21841,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect:\n+3 Armor.\n+ 7Hp/s.\n|r    ")
+    ..setDescription("|c00FFFC01Effect:\n+3 Armor.\n+ 7HP/s\n|r    ")
     ..setName("|c00FFFC01Armor of Sacred|r")
     ..setTooltipBasic("Purchase |cffffcc00C|rirclet of Nobility")
-    ..setTooltipExtended("|c00FFFC01Effect:\n+3 Armor.\n+ 7Hp/s.\n|r    ")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+3 Armor.\n+ 7HP/s\n|r    ")
     ..setHotkey("C")
 
 //I0GN
@@ -21518,10 +21878,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect:\n+9 Armor.\n+15 HP/s.\n|r    ")
+    ..setDescription("|c00FFFC01Effect:\n+9 Armor.\n+15 HP/s\n|r    ")
     ..setName("|c00FFFC01Armor of Hell|r")
     ..setTooltipBasic("Purchase |cffffcc00C|rirclet of Nobility")
-    ..setTooltipExtended("|c00FFFC01Effect:\n+9 Armor.\n+ 15 HP/s.\n|r    ")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+9 Armor.\n+ 15 HP/s\n|r    ")
     ..setHotkey("C")
 
 //I0GO
@@ -21555,10 +21915,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect:\n+15 Armor.\n+ 25Hp/s.\n|r    ")
+    ..setDescription("|c00FFFC01Effect:\n+15 Armor.\n+ 25HP/s\n|r    ")
     ..setName("|c00FFFC01Silver Armor|r")
     ..setTooltipBasic("Purchase |cffffcc00C|rirclet of Nobility")
-    ..setTooltipExtended("|c00FFFC01Effect:\n+15 Armor.\n+ 25Hp/s.\n|r    ")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+15 Armor.\n+ 25HP/s\n|r    ")
     ..setHotkey("C")
 
 //I0GP
@@ -21592,10 +21952,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect:\n+50 Armor.\n+ 55 HP/s.\n|r    ")
+    ..setDescription("|c00FFFC01Effect:\n+50 Armor.\n+ 55 HP/s\n|r    ")
     ..setName("|c00FFFC01Silver Giant Armor|r")
     ..setTooltipBasic("Purchase |cffffcc00C|rirclet of Nobility")
-    ..setTooltipExtended("|c00FFFC01Effect:\n+50 Armor.\n+ 55 HP/s.\n|r    ")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+50 Armor.\n+ 55 HP/s\n|r    ")
     ..setHotkey("C")
 
 //I0GQ
@@ -21629,10 +21989,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect:\n+110 Armor.\n+ 150Hp/s.\n|r    ")
+    ..setDescription("|c00FFFC01Effect:\n+110 Armor.\n+ 150HP/s\n|r    ")
     ..setName("|c00FFFC01Silver Split Armor|r")
     ..setTooltipBasic("Purchase |cffffcc00C|rirclet of Nobility")
-    ..setTooltipExtended("|c00FFFC01Effect:\n+110 Armor.\n+150Hp/s.\n|r    ")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+110 Armor.\n+150HP/s\n|r    ")
     ..setHotkey("C")
 
 //I0GR
@@ -22591,10 +22951,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect:\n+350 Armor.\n+ 350Hp/s.\n|r    ")
+    ..setDescription("|c00FFFC01Effect:\n+350 Armor.\n+ 350HP/s\n|r    ")
     ..setName("|c00FFFC01Inherited Armor|r    ")
     ..setTooltipBasic("Purchase |cffffcc00C|rirclet of Nobility")
-    ..setTooltipExtended("|c00FFFC01Effect:\n+350 Armor.\n+350Hp/s.\n|r    ")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+350 Armor.\n+350HP/s\n|r    ")
     ..setHotkey("C")
 
 //I0IE
@@ -23079,10 +23439,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect:|r \n|c0020C000Armor +200.\nHP + 3800.\n+100 HP/s.|r")
+    ..setDescription("|c00FFFC01Effect:|r \n|c0020C000Armor +200.\nHP + 3800.\n+100 HP/s|r")
     ..setName("|c007EBFF1Compositel Armor 2|r")
     ..setTooltipBasic("|c007EBFF1Compositel Armor 2|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor +200.\nHP +3800.\n+100 HP/s.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor +200.\nHP +3800.\n+100 HP/s|r")
     ..setHotkey("V")
 
 //I083
@@ -25173,7 +25533,7 @@ init
     ..setDescription("Damage bonus and life-stealing attack.")
     ..setName("|c007EBFF1Nerubian Staff 1|r")
     ..setTooltipBasic("Purchase |cffffcc00V|rampiric Potion")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 280.\nIntelligence + 180\nMana Regeneration + 250%.|r\n|c00FFFC01 + 12% of likely cause Damage to fold 3 times Intelligence.|r.|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Damage + 280.\nIntelligence + 180\nMana Regeneration + 250%.|r\n|c00FFFC01 + 12% of likely cause Damage to fold 3 times Intelligence.|r|r")
     ..setHotkey("V")
 
 //I0A5
@@ -26502,7 +26862,7 @@ init
 //I0BH
     new ItemDefinition(ITEM_694, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
-    ..setAbilities(commaList('A0MQ'))
+    ..setAbilities(commaList(AGIMOD_1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (11).blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -26832,10 +27192,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Effect :|r \n+ 160 armor, at the same time the entire enemy around range 200 closer will be burned a number of damage by 10,000 HP/s.")
+    ..setDescription("|c00FFFC01Effect :|r \n+ 160 armor, at the same time the entire enemy around range 200 closer will be burned a number of damage by 10,000 HP/s")
     ..setName("|c00FEBA0ECloak of Flames|r")
     ..setTooltipBasic("|c00FEBA0ECloak of Flames|r")
-    ..setTooltipExtended("|c00FFFC01Effect :|r \n+ 160 armor, at the same time the entire enemy around range 200 closer will be burned a number of damage by 10,000 HP/s.")
+    ..setTooltipExtended("|c00FFFC01Effect :|r \n+ 160 armor, at the same time the entire enemy around range 200 closer will be burned a number of damage by 10,000 HP/s")
     ..setHotkey("V")
 
     new ItemDefinition(ITEM_703, ItemIds.vampiricPotion)

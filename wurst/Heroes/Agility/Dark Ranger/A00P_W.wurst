@@ -4,19 +4,24 @@ import OrderIds
 import MyAbilityIds
 import ClosureEvents
 import codeDamageTypings
-public boolean darkArrowOn = false
+import LinkedList
+let arrowToggle = new LinkedList<unit>
 
 init
     darkArrowToggle()
 
+public function unit.getDarkArrowToggle() returns bool
+    return arrowToggle.has(this)
+
 function darkArrowToggle()
     EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
         let u = GetTriggerUnit()
-        if(u.getTypeId() == PLAY_HERO_16)
+        let uid = u.getTypeId()
+        if(uid == PLAY_HERO_16 or uid == WAVE_HERO_16)
             if(GetIssuedOrderId() == OrderIds.flamingarrows)
-                darkArrowOn = true
+                arrowToggle.add(u)
             else if GetIssuedOrderId() == OrderIds.flamingarrows + 1
-                darkArrowOn = false
+                arrowToggle.remove(u)
 
 public function darkArrow(unit caster, unit target)
     let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_2)

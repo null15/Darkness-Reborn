@@ -1,0 +1,12 @@
+package ArmorLimiter
+
+import ClosureEvents
+
+function armorLimit()
+    EventListener.add(EVENT_PLAYER_HERO_LEVEL) -> 
+        let u = GetTriggerUnit()
+        if(u.getArmor() > 2250)
+            u.setArmor(2250)
+
+init 
+    armorLimit()

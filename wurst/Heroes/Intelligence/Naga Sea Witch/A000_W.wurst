@@ -4,19 +4,23 @@ import MyUnitIds
 import OrderIds
 import MyAbilityIds
 import codeDamageTypings
-public boolean frostArrowOn = false
+import LinkedList
+let arrowToggle = new LinkedList<unit>
 
 init
     frostArrowToggle()
+
+public function unit.getFrostArrowToggled() returns bool
+    return arrowToggle.has(this)
 
 function frostArrowToggle() //For some reason orderID is not getting updated to flamingarrows, putting it to coldarrows
     EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
         let u = GetTriggerUnit()
         if(u.getTypeId() == PLAY_HERO_25)
             if(GetIssuedOrderId() == OrderIds.coldarrows)
-                frostArrowOn = true
+                arrowToggle.add(u)
             else if GetIssuedOrderId() == OrderIds.coldarrows + 1
-                frostArrowOn = false          
+                arrowToggle.remove(u)        
 
 public function frostArrows(unit vashj, unit target)
     let lvl = GetUnitAbilityLevel(vashj, NAGAWITCH_ABIL_2)

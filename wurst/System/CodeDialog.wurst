@@ -20,6 +20,7 @@ constant PLAYER_NAME_12 = "Cooltiger#1502".toUpperCase()
 constant PLAYER_NAME_13 = "sethnik#2428".toUpperCase()
 constant PLAYER_NAME_14 = "Gore#2697".toUpperCase()
 constant PLAYER_NAME_15 = "WeakAF#11241".toUpperCase()
+constant PLAYER_NAME_16 = "randomkilla#6541".toUpperCase()
 
 constant PLAYER_SET = new HashSet<string>
 

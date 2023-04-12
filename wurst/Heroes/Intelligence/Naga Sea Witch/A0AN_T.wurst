@@ -15,7 +15,7 @@ function tornado()
         let sfx = addEffect(Abilities.tornado, caster.getPos())
         var pos = sfx.getPos()
         let angle = sfx.getPos().angleTo(target)
-        let dmg = caster.getMaxMana() * lvl*0.75
+        let dmg = caster.getMaxMana() * lvl * 0.75 / 100
         doPeriodicallyTimed(0.05, 6) (CallbackCounted cb) ->
             sfx.setPos(sfx.getPos().polarOffset(angle, 5))
             if cb.isLast()

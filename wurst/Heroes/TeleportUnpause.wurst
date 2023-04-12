@@ -1,0 +1,13 @@
+package TeleportUnpause
+
+import ClosureEvents
+import ClosureTimers
+import PauseAllocation
+
+function unpauseOnTeleportFinish()
+    EventListener.onCast('A007') (unit caster) ->
+        doAfter(2) -> 
+            caster.unPauseUnitIndef()
+
+init
+    unpauseOnTeleportFinish()
