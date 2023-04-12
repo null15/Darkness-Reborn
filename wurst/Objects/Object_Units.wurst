@@ -1018,6 +1018,7 @@ init
     ..setStockStartDelay(1)
     ..setManaMaximum(0)
     ..setName("Vivpire")
+    ..setProperNames("Vament")
     ..setTooltipBasic("|c00F7EC46Vivpire|r")
     ..setTooltipExtended("|c00F7EC46Vivpire|r\n"
     + "Roles: " + defender + "/" + farmer + "\n\n"

@@ -3,9 +3,10 @@ import ClosureEvents
 import Global_Variables
 import MyUnitIds
 import MyAbilityIds
-import MyBuffIds
 import HashMap
+import OrderIds
 import ClosureForGroups
+import DummyCaster
 var blood = 0
 let strGain = [2,2,2,3,3,3,4,4,5] 
 let preyTimers = new HashMap<timer, unit>
@@ -31,9 +32,14 @@ function bloodGain()
             newTime.start(10, function removebloodGain)
             preyTimers.put(newTime, target)
             preyUnitTimer.put(target, newTime)
-            forUnitsInRange(target.getPos(), 400) (unit u) ->
-                if u.isEnemyOf(caster.getOwner())
-                    u.addAbility(VIVPIRE_BUFF_2)
+            let p = caster.getOwner()
+            let pos = caster.getPos()
+            forUnitsInRange(pos, 400) (unit u) ->
+                if u.isEnemyOf(p)
+                    new DummyCaster()
+                    ..owner(p)
+                    ..origin(pos)
+                    ..castTarget(VIVPIRE_DUMMYABIL_3, 1, OrderIds.curse, u)
         else
             let curTime = preyUnitTimer.get(target)
             curTime.start(10, function removebloodGain)
@@ -47,7 +53,7 @@ function removebloodGain()
 
 function bloodCommand()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
-        if EventData.getChatMessage().substring(0, 6) == "-blood"
+        if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-blood"
             let p = GetTriggerPlayer()
             let pid = p.getId()
             if (playerHero[pid] != null)
