@@ -6,14 +6,18 @@ import DamageEvent
 import MyAbilityIds
 import OrderIds
 
+int limit = 0
+
 public function juxtapose(unit source)
     let i = source.getOwner().getId()
     if playerHero[i] == source
-        new DummyCaster()
-        ..owner(GetOwningPlayer(source))
-        ..origin(DamageEvent.getSource().getPos())
-        ..castTarget(ABILITY_1, 1, OrderIds.wandOfIllusion, source)
-    let bonusAttack = source.getBaseDamage(0) * 3
-    source.setBaseDamage(bonusAttack + source.getBaseDamage(0), 0)
-    doAfter(6) -> 
-        source.setBaseDamage(source.getBaseDamage(0) - bonusAttack, 0)
+        if(limit < source.getAbilityLevel('A0S8') * 0.25)
+            limit++
+            new DummyCaster()
+            ..owner(GetOwningPlayer(source))
+            ..origin(DamageEvent.getSource().getPos())
+            ..castTarget(ABILITY_1, 1, OrderIds.wandOfIllusion, source)
+            let bonusAttack = source.getBaseDamage(0) * 3
+            source.setBaseDamage(bonusAttack + source.getBaseDamage(0), 0)
+            doAfter(6) -> 
+                source.setBaseDamage(source.getBaseDamage(0) - bonusAttack, 0)

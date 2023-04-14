@@ -42,6 +42,7 @@ import codeDamageTypings
 import MyItemIds
 import MyBuffIds
 import VivpireW
+import WaveHeroSetup
 
 @configurable constant DETECT_NATIVE_ABILITIES = true
 
@@ -58,10 +59,11 @@ function returnReducedDamage() returns real
 
 init
     DamageEvent.addListener(0) ->
+        let src = DamageEvent.getSource()
+        let targ = DamageEvent.getTarget()
+        src.wasAttacked()
         switch DamageEvent.getType()
             case ATTACK
-                let src = DamageEvent.getSource()
-                let targ = DamageEvent.getTarget()
                 if(returnReducedDamage() > 0)
                     DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
 
@@ -228,9 +230,6 @@ init
                     src.addHP(DamageEvent.getAmount() * 0.25)
 
             case SPELL
-                let src = DamageEvent.getSource()
-                let targ = DamageEvent.getTarget()
-
                 DamageEvent.setAmount(DamageEvent.getAmount() * (1-targ.getMagicResist()))
 
                 //Firemage
@@ -245,10 +244,7 @@ init
                     src.addHP(DamageEvent.getAmount()*0.8)
                 
             case CODE
-                let src = DamageEvent.getSource()
-                let targ = DamageEvent.getTarget()
                 let damId = DamageEvent.getId()
-                
 
                 if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
                     if(returnReducedDamage() > 0)

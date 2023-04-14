@@ -8,6 +8,8 @@ public rect array bossLoc = []
 
 public unit array playerHero = []
 
+public unit elementalSoul
+
 public string difficulty = ""
 
 public constant DAMAGE_EVENT_PRIO_START     = 0 // Abort damage at this priority

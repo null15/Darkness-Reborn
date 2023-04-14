@@ -25,6 +25,6 @@ function frostArrowToggle() //For some reason orderID is not getting updated to 
 public function frostArrows(unit vashj, unit target)
     let lvl = GetUnitAbilityLevel(vashj, NAGAWITCH_ABIL_2)
     let dmg = vashj.getMaxMana()*(0.04*lvl)
-    if(vashj.getMana() < (7.08333 * lvl + 20.6944).round())
+    if(vashj.getMana() < BlzGetAbilityIntegerLevelField(vashj.getAbility(NAGAWITCH_ABIL_2), ABILITY_ILF_MANA_COST, lvl))
         vashj.issueImmediateOrderById(OrderIds.coldarrows + 1)
     vashj.magicalDamageCode(dmg, target)

@@ -2490,11 +2490,11 @@ import OrderIds
         ..setManaCost(i, 5 * i)
         ..setTargetsAllowed(i, commaList(TargetsAllowed.enemies, TargetsAllowed.vulnerable))
         ..setTooltipNormal(i, "Dark Arrow [ |c00FFFC01W|r ] -[|c00FFFC01Level " + i.toString() + "|r ]")
-        ..setTooltipNormalExtended(i, "Each attack is imbued with the power of darkness, dealing extra damage equal to " + (i * 0.5).toString() + " healing by " + (0.25*i).toString())
+        ..setTooltipNormalExtended(i, "Dark Ranger shoots an Arrow enhanced with Darkness. It deals bonus damage based on Agility, and heals for half the Agility dealt as damage. Damages by " + (i * 0.5).toString() + " * agi, healing by " + (0.25*i).toString() + " agi.")
         ..setTooltipTurnOff(i, "|cffc3dbffRight-click to activate auto-casting.|r")
         ..setTooltipTurnOffExtended(i, "|cffc3dbffRight-click to activate auto-casting.|r")
 
-    let dRAbil3 = new AbilityDefinitionManaBurndemon(DARKRANGER_ABIL_3)
+    let dRAbil3 = new AbilityDefinitionChainLightningcreep(DARKRANGER_ABIL_3)
     ..setName("Dark Drain")
     ..setButtonPositionNormalX(2)
     ..setButtonPositionNormalY(2)
@@ -2505,6 +2505,7 @@ import OrderIds
     ..setIconNormal(Icons.bTNManaBurn)
     ..setIconResearch(Icons.bTNManaBurn)
     ..setLevels(9)
+    ..setArtTarget(Abilities.manaFlareBoltImpact)
     ..setMissileSpeed(3000)
     ..setTooltipLearnExtended("The Dark Ranger attacks the enemy with dark energy, dealing damage and restoring her own MP. Dealing 2 * lvl agi damage and healing for lvl * agi")
     ..setTooltipLearn("Learn Dark Drain [E]  - [|c00FFFC01Level %d|r]")
@@ -2515,7 +2516,7 @@ import OrderIds
         dRAbil3..setDurationHero(i, 0)
         ..setDurationNormal(i, 0)
         ..setBuffs(i, "")
-        ..setMaxManaDrained(i, 0)
+        ..setNumberofTargetsHit(i, 1)
         ..setCastRange(i, 700)
         ..setCastingTime(i, 0.3)
         ..setCooldown(i, (19-i).toReal())
@@ -2855,8 +2856,8 @@ import OrderIds
     ..setIconResearch("Units\\Vivpire\\Red Orb\\PASRed orb.blp")
     ..setName("Vivpire - W - Blood Hunter")
     ..setTooltipLearn("Learn Blood Hunter [|cffffcc00W|r]  - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Your claws hunger for blood. Increasing damage done by 0.1xstr every attack. Limit is lvl * 1.25 * str physical damage. Lasts for 5 seconds from last attack.")
-    ..presetTooltipNormalExtended(lvl -> "Your claws hunger for blood. Increasing damage done by 0.1xstr every attack. Limit is " + (lvl *1.25).toString() + " str physical damage. Lasts for 5 seconds from last attack.")
+    ..setTooltipLearnExtended("Your claws hunger for blood. Increasing damage done by 0.1xstr every attack. Limit is lvl * 2 * str physical damage. Lasts for 5 seconds from last attack.")
+    ..presetTooltipNormalExtended(lvl -> "Your claws hunger for blood. Increasing damage done by 0.1xstr every attack. Limit is " + (lvl *2).toString() + " str physical damage. Lasts for 5 seconds from last attack.")
     ..presetTooltipNormal(lvl -> "Blood Hunter [|cffffcc00W|r]  - [|cffffcc00"+ lvl.toString() +"|r]")
     ..presetChancetoCriticalStrike(lvl -> 0)
 
@@ -3546,8 +3547,9 @@ import OrderIds
     new AbilityDefinitionCursecreep(CREEP_ABILITY_36) //Acrs
     ..setLevels(1)
     ..setChancetoMiss(1, 0.88)
-    ..setDurationHero(1, 15)
-    ..setDurationNormal(1, 15)
+    ..setDurationHero(1, 10)
+    ..setDurationNormal(1, 10)
+    ..setCooldown(1, 12)
     ..setCastRange(1, 800)
     ..setBuffs(1, commaList(BUFF_23))
 
@@ -3873,7 +3875,7 @@ import OrderIds
     ..setMovementUpdateFrequency(1, 10)
     ..setSummonedUnitDamage(1, 12000)
     ..setUnitPauseDuration(1, 10)
-    ..setManaCost(1, 0)
+    ..setManaCost(1, 15)
 
     new AbilityDefinitionRejuvinationcreep(CREEP_ABILITY_81) //A07Z
     ..setCooldown(1, 1)
@@ -3980,7 +3982,7 @@ import OrderIds
     ..setCastRange(1, 800)
     ..setManaCost(1, 0)
     ..setCooldown(1, 30)
-    ..setDurationHero(1, 40)
+    ..setDurationHero(1, 20)
 
     new AbilityDefinitionFingerofDeath(CREEP_ABILITY_98) //A08K
     ..setHeroAbility(false)

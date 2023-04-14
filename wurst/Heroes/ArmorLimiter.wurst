@@ -5,8 +5,15 @@ import ClosureEvents
 function armorLimit()
     EventListener.add(EVENT_PLAYER_HERO_LEVEL) -> 
         let u = GetTriggerUnit()
-        if(u.getArmor() > 2250)
-            u.setArmor(2250)
-
+        let agi = u.getAgi(false)
+        if(agi > 22500)
+            let diffArmor = u.getArmor() - agi * 0.1
+            u.setArmor(2250 + diffArmor)
+    EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) -> 
+        let u = GetTriggerUnit()
+        let agi = u.getAgi(false)
+        if(agi > 22500)
+            let diffArmor = u.getArmor() - agi * 0.1
+            u.setArmor(2250 + diffArmor)
 init 
     armorLimit()

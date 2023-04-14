@@ -10,7 +10,6 @@ import CodeDialog
 import Global_Variables
 import TeleportToMobs
 import GameEnd
-public unit elementalSoul
 real facing = 270
 real facingUp = 90
 

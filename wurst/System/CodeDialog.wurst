@@ -21,6 +21,12 @@ constant PLAYER_NAME_13 = "sethnik#2428".toUpperCase()
 constant PLAYER_NAME_14 = "Gore#2697".toUpperCase()
 constant PLAYER_NAME_15 = "WeakAF#11241".toUpperCase()
 constant PLAYER_NAME_16 = "randomkilla#6541".toUpperCase()
+constant PLAYER_NAME_17 = "".toUpperCase()
+constant PLAYER_NAME_18 = "NWJones#2206".toUpperCase()
+constant PLAYER_NAME_19 = "Sosiso4ka#21103".toUpperCase()
+constant PLAYER_NAME_20 = "".toUpperCase()
+constant PLAYER_NAME_21 = "".toUpperCase()
+constant PLAYER_NAME_22 = "Zbucket#1931".toUpperCase()
 
 constant PLAYER_SET = new HashSet<string>
 
@@ -44,7 +50,14 @@ function addPlayers()
         PLAYER_NAME_12,
         PLAYER_NAME_13,
         PLAYER_NAME_14,
-        PLAYER_NAME_15)
+        PLAYER_NAME_15,
+        PLAYER_NAME_16,
+        PLAYER_NAME_17,
+        PLAYER_NAME_18,
+        PLAYER_NAME_19,
+        PLAYER_NAME_20,
+        PLAYER_NAME_21,
+        PLAYER_NAME_22)
 
 public function codeDialog()
     onKeyPress(OSKEY_C, OSKEY_META.SHIFT) ->

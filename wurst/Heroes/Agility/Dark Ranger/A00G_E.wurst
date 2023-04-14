@@ -2,13 +2,22 @@ package A00G_E
 import MyAbilityIds
 import ClosureEvents
 import codeDamageTypings
+import ClosureTimers
+import StandardTextTags
+texttag manaDrained
 init
 
     darkDrain()
 
 function darkDrain()
     EventListener.onTargetCast(DARKRANGER_ABIL_3) (unit caster, unit target) ->
+        manaDrained = CreateTextTag()
         let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_3)
         let dmg = (caster.getAgi(true)*(lvl*2.))
+        let pos = caster.getPos3Real()
+        pos.add(0, 0, 0)
+        manaDrained = createManaBurnTextTag(caster, dmg.toInt())
         caster.magicalDamageCode(dmg, target)
         caster.setMana(caster.getMana() + caster.getAgi(true) * lvl)
+        doAfter(3) -> 
+            manaDrained.destr()

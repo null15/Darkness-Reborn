@@ -8,6 +8,8 @@ import MyItemIds
 import GameEnd
 import MyAbilityIds
 import codeDamageTypings
+import ClosureEvents
+import Global_Variables
 
 timer waveHeroTimer = CreateTimer()
 timerdialog waveHeroTimerDialog = CreateTimerDialog(waveHeroTimer)
@@ -18,12 +20,39 @@ unit waveHeroNext = null
 real facing = 270
 constant boostMap = new HashMap<int,WaveBoost>
 
+
 init
 
     boostUnit()
     preloadWaveHeroes()
 
+let bossTimer = new HashMap<unit,timer>
+let timerBoss = new HashMap<timer,unit>
 
+public function unit.wasAttacked()
+    if(bossTimer.has(this))
+        let t = bossTimer.get(this)
+        t.start(10, function notAttacked)
+
+function unit.moveWithoutCombat()
+    EventListener.add(this, EVENT_UNIT_DEATH) -> 
+        this.clear()
+        let t = CreateTimer()
+        bossTimer.put(this, t)
+        timerBoss.put(t, this)
+        t.start(20, function notAttacked)
+
+function notAttacked()
+    let t = GetExpiredTimer()
+    let u = timerBoss.get(t)
+    bossTimer.remove(u)
+    t.destr()
+    u.issueTargetOrderById(Orders.attack, elementalSoul)
+
+function unit.clear()
+    let t = bossTimer.getAndRemove(this)
+    timerBoss.remove(t)
+    t.destr()
 
 interface WaveBoost
     function boost(unit u)
@@ -414,6 +443,7 @@ function waveHeroSpawn()
     let unitID = GetUnitTypeId(waveHero)
     if boostMap.has(unitID)
         boostMap.get(unitID).boost(waveHero)
+    waveHero.moveWithoutCombat()
 
 function waveHeroDeath()
     CreateTrigger()..registerUnitEvent(waveHero, EVENT_UNIT_DEATH)..addAction() ->
@@ -452,13 +482,13 @@ function waveHeroDeath()
             CreateItemLoc(ITEM_362,GetUnitLoc(GetDyingUnit()))
         else if u == WAVE_HERO_29
             let final = createUnit(Player(11), FINAL_BOSS, gg_rct_MiddleSpawn.getCenter(), facing.asAngleDegrees())
-            final.setStr(30000)
-            final.setAgi(30000)
-            final.setInt(30000)
+            final.setStr(300000)
+            final.setAgi(300000)
+            final.setInt(300000)
             final.setLevel(199, false)
             final.addAbility('A00W', 1)
             final.addAbility('A0ZA', 4)
-            final..enumerateMagicResistance(90).enumeratePhysicalPenetration(15)
+            final..enumerateMagicResistance(90).enumeratePhysicalPenetration(25)
             final.issueImmediateOrder("thunderclap")
             final.issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove2.randomPoint())
             onVictorySetup(final)

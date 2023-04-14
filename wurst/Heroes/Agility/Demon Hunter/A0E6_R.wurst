@@ -8,8 +8,24 @@ int attackCount = 0
 int attackLeft = 0
 int oldagi
 int oldskin
+int oldagiarmor
+bool wastoohigh
 texttag count
 init
+
+function resetArmor(unit u)
+    if(wastoohigh)
+        let agi = u.getAgi(false)
+        let diffArmor = u.getArmor() + oldagiarmor * 0.1 - 2
+        u.setArmor(diffArmor)
+        
+function limitArmor(unit u)
+    let agi = u.getAgi(false)
+    if(agi > 22500)
+        let diffArmor = u.getArmor() - agi * 0.1 + 2
+        oldagiarmor = agi - 22500
+        u.setArmor(2250 + diffArmor)
+        wastoohigh = true
 
 public function demonPower(unit u)
     if attackCount < 25
@@ -28,16 +44,19 @@ public function demonPower(unit u)
             ..setColor(colorA(252, 25, 25, 225))
             ..setScaledText("Demon Unleashed", 1.5)
             u.setAgi(u.getAgi(true)*10)
+            limitArmor(u)
             BlzSetUnitSkin(u, SKIN_1)
             flashEffect(Abilities.roarCaster, u.getPos())
             doAfter(I2R(lvl+1)) -> 
-                u.setAgi(oldagi)
-                BlzSetUnitSkin(u, oldskin)
                 if(attackCount == 25)
+                    u.setAgi(oldagi)
+                    resetArmor(u)
+                    BlzSetUnitSkin(u, oldskin)
                     attackCount = 0
     else if attackLeft > 0
         attackLeft--
     else
         u.setAgi(oldagi)
         BlzSetUnitSkin(u, oldskin)
+        resetArmor(u)
         attackCount = 0

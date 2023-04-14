@@ -2,6 +2,7 @@ package GameEnd
 import ClosureTimers
 import Dialog
 
+
 init
 
 function finalBossDamaged(unit u)
@@ -16,8 +17,22 @@ function finalBossDamaged(unit u)
 public function onVictorySetup(unit u)
     finalBossDamaged(u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
-        print("[VICTORY]: Well done! Game will end in 15 seconds (the map is still under Alpha - undergoing massive changes)")
-        doAfter(15) -> 
+        string array names = []
+        for int i = 0 to 9
+            names[i] = players[i].getNameColored()
+        print("[VICTORY]: Well done! Game will end in 30 seconds (the map is still under Alpha - undergoing massive changes)")
+        print("\nVersion:1.9.8\n"
+        +"Player 1: "+names[0]
+        +"\nPlayer 2: "+names[1]
+        +"\nPlayer 3: "+names[2]
+        +"\nPlayer 4: "+names[3]
+        +"\nPlayer 5: "+names[4]
+        +"\nPlayer 6: "+names[5]
+        +"\nPlayer 7: "+names[6]
+        +"\nPlayer 8: "+names[7]
+        +"\nPlayer 9: "+names[8]
+        +"\nPlayer 10: "+names[9])
+        doAfter(30) -> 
             for i = 0 to 9
                 let dia = createDialog()
                 dia..addQuitButton(true, "Victory")

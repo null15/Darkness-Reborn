@@ -7,6 +7,7 @@ import codeDamageTypings
 import LinkedList
 let arrowToggle = new LinkedList<unit>
 
+
 init
     darkArrowToggle()
 
@@ -26,7 +27,7 @@ function darkArrowToggle()
 public function darkArrow(unit caster, unit target)
     let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_2)
     let dmg = (caster.getAgi(true)*lvl*0.5)
-    if(caster.getMana() < 5 * lvl)
+    if(caster.getMana() < BlzGetAbilityIntegerLevelField(caster.getAbility(DARKRANGER_ABIL_2), ABILITY_ILF_MANA_COST, lvl))
         caster.issueImmediateOrderById(OrderIds.flamingarrows + 1)
     caster.magicalDamageCode(dmg, target)
     caster.addHP(dmg * 0.5* (1-target.getMagicResist()))

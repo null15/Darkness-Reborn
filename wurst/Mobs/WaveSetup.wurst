@@ -195,7 +195,10 @@ init
 	WAVE_HERO_2.enumerateMagicResistanceId(60)
 	WAVE_HERO_3.enumerateMagicResistanceId(60)
 	WAVE_HERO_4.enumerateMagicResistanceId(60)
-
+	WAVE_HERO_5.enumerateMagicResistanceId(90)
+	WAVE_HERO_6..enumerateMagicResistanceId(70).enumeratePhysicalPenetrationId(15)
+	WAVE_HERO_27..enumerateMagicResistanceId(80).enumeratePhysicalPenetrationId(40)
+	WAVE_HERO_28.enumerateMagicResistanceId(99)
 	WAVE_HERO_29.enumerateMagicResistanceId(80)
 
 function continueUnitStats(integer uId) returns string
@@ -310,3 +313,18 @@ public function preWaveSetup()
 	gracePeriodDialog.setTitle("Preparation Phase")
 	gracePeriodDialog.setTimeColor(155, 155, 155, 0)
 	gracePeriodDialog.display(true)
+
+	CreateTrigger()..registerRectEnterEventSource(gg_rct_LeftSpawn)
+	..addCondition(Condition(function moveUnitsCond))
+	..addAction() ->
+		GetEnteringUnit().issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
+
+	CreateTrigger()..registerRectEnterEventSource(gg_rct_RightSpawn)
+	..addCondition(Condition(function moveUnitsCond))
+	..addAction() ->
+		GetEnteringUnit().issuePointOrderById(Orders.attack, gg_rct_RightSpawnMove1.randomPoint())
+
+	CreateTrigger()..registerRectEnterEventSource(gg_rct_MiddleSpawn)
+	..addCondition(Condition(function moveUnitsCond))
+	..addAction() ->
+		GetEnteringUnit().issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
