@@ -21,7 +21,7 @@ public function onVictorySetup(unit u)
         for int i = 0 to 9
             names[i] = players[i].getNameColored()
         print("[VICTORY]: Well done! Game will end in 30 seconds (the map is still under Alpha - undergoing massive changes)")
-        print("\nVersion:1.9.8\n"
+        print("\nVersion:1.9.10\n"
         +"Player 1: "+names[0]
         +"\nPlayer 2: "+names[1]
         +"\nPlayer 3: "+names[2]

@@ -1,19 +1,19 @@
 package ArmorLimiter
 
-import ClosureEvents
+import HashMap
 
-function armorLimit()
-    EventListener.add(EVENT_PLAYER_HERO_LEVEL) -> 
-        let u = GetTriggerUnit()
-        let agi = u.getAgi(false)
-        if(agi > 22500)
-            let diffArmor = u.getArmor() - agi * 0.1
-            u.setArmor(2250 + diffArmor)
-    EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) -> 
-        let u = GetTriggerUnit()
-        let agi = u.getAgi(false)
-        if(agi > 22500)
-            let diffArmor = u.getArmor() - agi * 0.1
-            u.setArmor(2250 + diffArmor)
-init 
-    armorLimit()
+let oldagiarmor = new HashMap<unit, int>
+
+public function unit.resetArmor()
+    if(oldagiarmor.has(this))
+        let lostarmor = oldagiarmor.get(this) * 0.1 - 2
+        let diffArmor = this.getArmor() + lostarmor
+        oldagiarmor.remove(this)
+        this.setArmor(diffArmor)
+        
+public function unit.limitArmorImmediate()
+    let agi = this.getAgi(false)
+    if(agi > 22500)
+        let diffArmor = this.getArmor() - agi * 0.1 + 2
+        oldagiarmor.put(this, agi - 22500)
+        this.setArmor(2250 + diffArmor)

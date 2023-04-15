@@ -10,6 +10,7 @@ import MyAbilityIds
 import codeDamageTypings
 import ClosureEvents
 import Global_Variables
+import ArmorLimiter
 
 timer waveHeroTimer = CreateTimer()
 timerdialog waveHeroTimerDialog = CreateTimerDialog(waveHeroTimer)
@@ -35,12 +36,12 @@ public function unit.wasAttacked()
         t.start(10, function notAttacked)
 
 function unit.moveWithoutCombat()
-    EventListener.add(this, EVENT_UNIT_DEATH) -> 
+    let t = CreateTimer()
+    bossTimer.put(this, t)
+    timerBoss.put(t, this)
+    t.start(20, function notAttacked)
+    EventListener.add(this, EVENT_PLAYER_UNIT_DEATH) -> 
         this.clear()
-        let t = CreateTimer()
-        bossTimer.put(this, t)
-        timerBoss.put(t, this)
-        t.start(20, function notAttacked)
 
 function notAttacked()
     let t = GetExpiredTimer()
@@ -444,6 +445,7 @@ function waveHeroSpawn()
     if boostMap.has(unitID)
         boostMap.get(unitID).boost(waveHero)
     waveHero.moveWithoutCombat()
+    waveHero.limitArmorImmediate()
 
 function waveHeroDeath()
     CreateTrigger()..registerUnitEvent(waveHero, EVENT_UNIT_DEATH)..addAction() ->

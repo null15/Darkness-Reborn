@@ -24,7 +24,7 @@ function fireballCast()
         currentTarget = target
         var pos2 = currentTarget.getPos()
         var angle = pos1.angleTo(pos2)
-        let sfx = addEffect(Abilities.fireBallMissile, caster.getPos())..setZ(20)..setScale(1.5)
+        let sfx = addEffect(Abilities.fireBallMissile, pos1)..setZ(20)..setScale(1.5)
         let level = caster.getAbilityLevel('A01S')
         counter = 0
         doPeriodically(0.05) (CallbackPeriodic cb) ->
