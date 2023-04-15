@@ -4,6 +4,7 @@ import MyAbilityIds
 import ClosureTimers
 import MyUnitIds
 import Summons
+import ArmorLimiter
 real array counter
 integer lastOne = 0
 boolean notTeleporting = true
@@ -19,6 +20,8 @@ function spirits()
         caster.addStr(tempBoost)
         caster.addAgi(tempBoost)
         caster.addInt(tempBoost)
+        if(caster.getAgi(false) > 22500)
+            caster.limitArmorImmediate()
         counter[lastOne] = 0
         let current = lastOne
         lastOne++
