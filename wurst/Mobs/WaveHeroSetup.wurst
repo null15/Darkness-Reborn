@@ -49,6 +49,7 @@ function notAttacked()
     u.issueTargetOrderById(Orders.attack, elementalSoul)
 
 function unit.clear()
+    bossKills++
     let t = bossTimer.getAndRemove(this)
     timerBoss.remove(t)
     t.destr()
