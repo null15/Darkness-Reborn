@@ -265,10 +265,10 @@ init
 
 function magicDamageChecks(int damId, unit src, unit targ)
     // Fire Lord (Blaze)
-    if damId == 'A01P' or damId == 'AO1T' or damId == 'A01U' or damId == 'A01S'
+    if damId == 'blaz'
         blaze(src, targ)
     // Firemage
-    if damId == 'A0MN' or damId == 'AOE7'
+    if damId == 'phoe'
         eternalFlame(src, targ)
 
 function physicalDamageChecks(int damId, unit src, unit targ, weapontype notRanged)

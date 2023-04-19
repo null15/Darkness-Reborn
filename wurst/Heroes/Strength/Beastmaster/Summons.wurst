@@ -12,7 +12,7 @@ init
 function summonDeath(unit beastmaster, unit summon)
     EventListener.add(summon, EVENT_PLAYER_UNIT_DEATH) -> 
         let lvl = beastmaster.getAbilityLevel(ABILITY_7)
-        beastmaster.addStr(lvl)
+        beastmaster.addStr((lvl/3).ceil())
         spirits = spirits + 1
         if spirits % 5 == 0
             spiritText = createLumberBountyTextTag(beastmaster, spirits)

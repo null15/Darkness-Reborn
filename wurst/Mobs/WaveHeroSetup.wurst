@@ -46,8 +46,6 @@ function unit.moveWithoutCombat()
 function notAttacked()
     let t = GetExpiredTimer()
     let u = timerBoss.get(t)
-    bossTimer.remove(u)
-    t.destr()
     u.issueTargetOrderById(Orders.attack, elementalSoul)
 
 function unit.clear()

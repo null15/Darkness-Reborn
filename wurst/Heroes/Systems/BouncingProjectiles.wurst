@@ -1,0 +1,11 @@
+package BouncingProjectiles
+import Projectile
+
+class BouncingProjectiles extends Projectile
+
+    int bounceCount
+    int bounceMax
+
+    construct(int bounceMax, unit target, effect sfx)
+        super(target, sfx)
+        this.bounceMax = bounceMax

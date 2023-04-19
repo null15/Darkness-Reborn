@@ -6,5 +6,6 @@ init
     crownOfRezan()
 function crownOfRezan()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
-        if GetKillingUnit().getAbilityLevel(ABILITY_44) >= 1 and GetKillingUnit().getTypeId() == PLAY_HERO_33_ASCENDED
-            GetKillingUnit().addInt(4)
+        let u = GetKillingUnit()
+        if u.getAbilityLevel(ABILITY_44) >= 1 and u.getTypeId() == PLAY_HERO_33_ASCENDED
+            u.addInt(2)

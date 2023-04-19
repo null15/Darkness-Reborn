@@ -1,0 +1,10 @@
+package Recipes
+
+import HashMap
+
+
+
+
+public function addRecipe()
+
+public function checkRecipe()

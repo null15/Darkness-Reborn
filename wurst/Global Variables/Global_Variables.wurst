@@ -18,6 +18,7 @@ public constant DAMAGE_EVENT_PRIO_ABSOLUTE  = 2 // Apply absolute changes (addit
 public constant DAMAGE_EVENT_PRIO_SHIELD    = 4 // Apply reduction from "shield" effects
 public constant DAMAGE_EVENT_PRIO_FINAL     = 5 // Final damage (won't be changed at this stage)
 public constant DAMAGE_ELEMENT_FIRE  = new DamageElement("Fire", colorA(255, 0, 0, 255)) // Primarily used for Firelord (may be used for others)
+public int bossKills = 0
 
 init
 

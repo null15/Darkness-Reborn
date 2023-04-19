@@ -15,7 +15,7 @@ init
 function spirits()
     EventListener.onCast(ABILITY_7) (unit caster) ->
         let lvl = GetUnitAbilityLevel(caster, ABILITY_7)
-        let tempBoost = ((lvl*5+10)*spirits)
+        let tempBoost = ((lvl*2+5)*spirits)
         let attackType = BlzGetUnitWeaponIntegerField(caster, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0)
         caster.addStr(tempBoost)
         caster.addAgi(tempBoost)
@@ -32,6 +32,7 @@ function spirits()
                 caster.setStr(caster.getStr(false)-tempBoost)
                 caster.setAgi(caster.getAgi(false)-tempBoost)
                 caster.setInt(caster.getInt(false)-tempBoost)
+                caster.resetArmor()
                 BlzSetUnitWeaponIntegerField(caster, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, attackType)
                 destroy cb
             else if notTeleporting

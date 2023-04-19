@@ -53,6 +53,11 @@ init
     ..setTooltipNormal("This unit is covering their ears")
     ..setTooltipNormalExtended("This unit is covering their ears")
 
+    new BuffDefinition(WOLF_BUFF_3, BuffIds.devour)
+    ..setName("Howl")
+    ..setTooltipNormal("The Howl has reduced their mobility")
+    ..setTooltipNormalExtended("The Howl has reduced their mobility")
+
 @compiletime function buffs()
     new BuffDefinition(BUFF_0, BuffIds.faerieFire)
     ..setTooltipNormal(1, "This unit is under Bite of Death")

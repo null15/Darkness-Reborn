@@ -41,9 +41,9 @@ function tinkerResourceProduction()
 
         if u.getIcon() == Icons.bTNGoldmine
             if u.getTypeId() == TINKERBUILDING_95
+                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 0, u.getOwner())
                 goldGain = 2
             else if u.getTypeId() == TINKERBUILDING_96
-                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_96, 0, u.getOwner())
                 goldGain = 4
             else if u.getTypeId() == TINKERBUILDING_97
                 goldGain = 8

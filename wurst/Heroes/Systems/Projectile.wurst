@@ -1,0 +1,31 @@
+package Projectile
+
+import ClosureTimers
+
+
+public class Projectile
+    unit target
+    effect sfx
+    bool returning
+
+    construct(unit target, effect sfx)
+        this.target = target
+        this.sfx = sfx
+
+    function resolveHit() returns bool
+        doPeriodically(0.05) (CallbackPeriodic cb) ->
+            let pos1 = sfx.getPos()
+            let pos2 = target.getPos()
+            let angle = pos1.angleTo(pos2)
+            let pos3 = pos1.polarOffset(angle, 25.)
+            let isAlive = target.isAlive()
+            sfx..setPos(pos3).setYaw(angle.radians())
+            let dist = pos1.distanceTo(pos2)
+            if(dist <= 25.)
+                if(isAlive)
+                    returning = true
+                    destroy cb
+                else
+                    returning = false
+                    destroy cb
+        return returning
