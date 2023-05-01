@@ -5,21 +5,25 @@ import MyUnitIds
 import ClosureTimers
 import ClosureForGroups
 import codeDamageTypings
-import MyAbilityIds
+
+bool neltharionBeam = false
+
 init
-    neltharionBeam()
     neltharionAttacked()
+
 function neltharionAttacked()
     EventListener.add(EVENT_UNIT_DAMAGED) -> 
         if GetTriggerUnit().getTypeId() == WAVE_HERO_3
             let neltharion = GetTriggerUnit()
-            neltharion.issuePointOrder("carrionswarm", GetEventDamageSource().getPos())
+            if(neltharionBeam == false)
+                neltharionBeam(neltharion)
+                neltharionBeam = true
+                doAfter(6) ->
+                    neltharionBeam = false          
             
-function neltharionBeam()
-    EventListener.onCast(CREEP_ABILITY_103) (unit caster) ->
-        if (caster.getTypeId() == WAVE_HERO_3)
-            doPeriodicallyTimed(0.5, 4) (CallbackCounted cb) ->
-                forUnitsInRange(caster.getPos(), 1000) (unit u) ->
-                    if(u.isEnemyOf(caster) and u.isType(UNIT_TYPE_STRUCTURE))
-                        flashEffect("Units\\Mobs\\Soul Beam Red.mdx", u.getPos())
-                        caster.magicalDamageCode(3500, u)
+function neltharionBeam(unit caster)
+    doPeriodicallyTimed(0.5, 4) (CallbackCounted cb) ->
+        forUnitsInRange(caster.getPos(), 2500) (unit u) ->
+            if(u.isEnemyOf(caster) and u.isType(UNIT_TYPE_STRUCTURE) == false)
+                flashEffect("Units\\Mobs\\Soul Beam Red.mdx", u.getPos())
+                caster.magicalDamageCode(3500, u)

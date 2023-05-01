@@ -1,9 +1,9 @@
 package RecipeItems
 
+import Recipes
 import MyItemIds
 
 init
-
     recipeItemReplace()
 
 function recipeItemReplace()

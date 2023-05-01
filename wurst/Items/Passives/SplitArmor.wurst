@@ -1,0 +1,5 @@
+package SplitArmor
+
+import codeDamageTypings
+public function splitArmor(unit holder, unit attacker, real dam)
+    holder.physicalDamageCode(dam * 0.22, attacker, true)

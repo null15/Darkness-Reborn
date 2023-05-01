@@ -489,6 +489,7 @@ import OrderIds
     ..setDurationHero(1, 5)
     ..setDurationNormal(1, 5)
     ..setManaCost(1, 0)
+    ..setDamage(1, 0)
     ..setCastRange(1, 9999)
     ..setCastingTime(1, 0)
     ..setCooldown(1, 0)
@@ -825,6 +826,19 @@ import OrderIds
     ..setMissileArt(".mdl")
     ..setBuffs(1, BUFF_24.toRawCode())
 
+    new AbilityDefinitionMountainKingThunderBolt(ABILITY_DUMMY_STUN)
+    ..setLevels(2)
+    ..setDurationHero(1, 0.5)
+    ..setDurationNormal(1, 0.5)
+    ..setDurationHero(2, 1)
+    ..setDurationNormal(2, 1)
+    ..setDummyAbility()
+    ..presetDamage(lvl -> 0)
+    ..setArtTarget(".mdl")
+    ..setArtSpecial(".mdl")
+    ..setArtEffect(".mdl")
+    ..setArtCaster(".mdl")
+
 
 @compiletime function abilities()
 // A01K
@@ -1027,15 +1041,7 @@ import OrderIds
     ..setNumberofSummonedUnits(7, 1)
     ..setNumberofSummonedUnits(8, 1)
     ..setNumberofSummonedUnits(9, 2)
-    ..setSummonedUnit(1, MISHABEAR_0.toRawCode())
-    ..setSummonedUnit(2, MISHABEAR_1.toRawCode())
-    ..setSummonedUnit(3, MISHABEAR_2.toRawCode())
-    ..setSummonedUnit(4, MISHABEAR_3.toRawCode())
-    ..setSummonedUnit(5, MISHABEAR_4.toRawCode())
-    ..setSummonedUnit(6, MISHABEAR_5.toRawCode())
-    ..setSummonedUnit(7, MISHABEAR_6.toRawCode())
-    ..setSummonedUnit(8, MISHABEAR_7.toRawCode())
-    ..setSummonedUnit(9, MISHABEAR_8.toRawCode())
+    ..presetSummonedUnit(lvl -> commaList(MISHABEAR))
     for int i = 1 to 9
         abi4..setTooltipNormalExtended(i, "Summon \"Misha\"\n"+
     "Ability: Bash (35%)\n" + 
@@ -1080,15 +1086,7 @@ import OrderIds
     ..setSummonedUnitCount(7, 2)
     ..setSummonedUnitCount(8, 2)
     ..setSummonedUnitCount(9, 3)
-    ..setSummonedUnitType(1, QUILBEAST_0.toRawCode())
-    ..setSummonedUnitType(2, QUILBEAST_1.toRawCode())
-    ..setSummonedUnitType(3, QUILBEAST_2.toRawCode())
-    ..setSummonedUnitType(4, QUILBEAST_3.toRawCode())
-    ..setSummonedUnitType(5, QUILBEAST_4.toRawCode())
-    ..setSummonedUnitType(6, QUILBEAST_5.toRawCode())
-    ..setSummonedUnitType(7, QUILBEAST_6.toRawCode())
-    ..setSummonedUnitType(8, QUILBEAST_7.toRawCode())
-    ..setSummonedUnitType(9, QUILBEAST_8.toRawCode())
+    ..presetSummonedUnitType(lvl -> commaList(QUILBEAST))
     for int i = 1 to 9
         abi5..setTooltipNormalExtended(i, "Summon \"Quilbeast\"\n"+
         "Ability: Bloodrage (25% attackspeed)\n" + 
@@ -1133,15 +1131,7 @@ import OrderIds
     ..setSummonedUnitCount(7, 2)
     ..setSummonedUnitCount(8, 2)
     ..setSummonedUnitCount(9, 3)
-    ..setSummonedUnitType(1, HAWK_0.toRawCode())
-    ..setSummonedUnitType(2, HAWK_1.toRawCode())
-    ..setSummonedUnitType(3, HAWK_2.toRawCode())
-    ..setSummonedUnitType(4, HAWK_3.toRawCode())
-    ..setSummonedUnitType(5, HAWK_4.toRawCode())
-    ..setSummonedUnitType(6, HAWK_5.toRawCode())
-    ..setSummonedUnitType(7, HAWK_6.toRawCode())
-    ..setSummonedUnitType(8, HAWK_7.toRawCode())
-    ..setSummonedUnitType(9, HAWK_8.toRawCode())
+    ..presetSummonedUnitType(lvl -> commaList(HAWK))
     for int i = 1 to 9
         abi6..setTooltipNormalExtended(i, "Summon \"Falcon\"\n"+
         "Ability: None\n" + 
@@ -4169,3 +4159,14 @@ import OrderIds
     ..setArmorPenalty(1, 80)
     ..setDamageBonusDice(1, 1)
     ..setItemAbility(false)
+
+@compiletime function armorModAbils()
+
+    new AbilityDefinitionDefenseBonusPlus1(ARMORMOD_1)
+    ..setDefenseBonus(1, 100)
+
+    new AbilityDefinitionDefenseBonusPlus1(ARMORMOD_2)
+    ..setDefenseBonus(1, 400)
+
+    new AbilityDefinitionDefenseBonusPlus1(ARMORMOD_3)
+    ..setDefenseBonus(1, 200)

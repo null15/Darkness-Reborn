@@ -2,66 +2,27 @@ package A01H_E
 
 import Abilities
 import ClosureEvents
-import ClosureTimers
 import DummyCaster
 import MyAbilityIds
-import ClosureForGroups
 import OrderIds
 import codeDamageTypings
-unit currentTarget
-integer counter
-unit previousTarget
+import BouncingProjectiles
 
 init
-    chainFrost()
-function chainFrost()
+    chainTest()
+            
+function chainTest()
     EventListener.onTargetCast('A01H') (unit caster, unit target) ->
-        var pos1 = caster.getPos()
-        currentTarget = target
-        var pos2 = currentTarget.getPos()
-        var angle = pos1.angleTo(pos2)
-        let sfx = addEffect(Abilities.frostBoltMissile, caster.getPos())..setZ(20)..setScale(1.5)
         let level = caster.getAbilityLevel('A01H')
-        counter = 0
-        doPeriodically(0.05) (CallbackPeriodic cb) ->
-            pos1 = sfx.getPos()
-            angle = pos1.angleTo(pos2)
-            let pos3 = pos1.polarOffset(angle, 25.)
-            let isAlive = currentTarget.isAlive()
-            sfx..setPos(pos3).setYaw(angle.radians())
-            if(isAlive)
-                pos2 = currentTarget.getPos()
-            let dist = pos1.distanceTo(pos2)
-            if(dist <= 25.)
-                if(isAlive)
-                    let damage = level * 1. * caster.getInt(true)
-                    new DummyCaster()
-                    ..owner(caster.getOwner())
-                    ..origin(sfx.getPos())
-                    ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, currentTarget)
-                    caster.magicalDamageCode(damage, currentTarget)
-                    new DummyCaster()
-                    ..owner(caster.getOwner())
-                    ..origin(sfx.getPos())
-                    ..castTarget(ABILITY_DUMMY_4, 1, OrderIds.thunderbolt, currentTarget)
-                flashEffect(Abilities.frostArmorDamage, currentTarget.getPos())
-                if(counter >= level+5)
-                    sfx.destr()
-                    flashEffect(Abilities.frostNovaTarget, currentTarget.getPos())
-                    destroy cb
-                else
-                    previousTarget = currentTarget
-                    forUnitsInRange(currentTarget.getPos(), 400) (unit u) ->
-                        if (u.isEnemyOf(caster) and u != currentTarget)
-                            if(u.isAlive())
-                                if(currentTarget != previousTarget)
-                                    let pos4 = u.getPos()
-                                    if(pos2.distanceTo(pos4) < pos2.distanceTo(currentTarget.getPos()))
-                                        currentTarget = u
-                                else
-                                    currentTarget = u
-                    if(currentTarget == previousTarget)
-                        sfx.destr()
-                        flashEffect(Abilities.frostWyrmMissile, currentTarget.getPos())
-                        destroy cb
-                counter++
+        fireBouncingProjectile(Abilities.frostBoltMissile, caster, target, level+3, 20, 1.5, true, 400) (effect detectionUnit, unit target) ->
+            let damage = level * 1. * caster.getInt(true)
+            new DummyCaster()
+            ..owner(caster.getOwner())
+            ..origin(detectionUnit.getPos())
+            ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, target)
+            caster.magicalDamageCode(damage, target)
+            new DummyCaster()
+            ..owner(caster.getOwner())
+            ..origin(detectionUnit.getPos())
+            ..castTarget(ABILITY_DUMMY_4, 1, OrderIds.thunderbolt, target)
+            flashEffect(Abilities.frostArmorDamage, target.getPos())

@@ -1,0 +1,20 @@
+package BigBoom
+
+import ClosureTimers
+import OrderIds
+import Global_Variables
+var scaler = 1.04
+public function explode(unit bigBoom)
+    doPeriodically(0.05) (CallbackPeriodic cb) ->
+        if(OrderIds.move != bigBoom.getCurrentOrder())
+            bigBoom.issueTargetOrderById(OrderIds.move, elementalSoul)
+        if(bigBoom.getPos().distanceTo(elementalSoul.getPos()) < 2000)
+            destroy cb
+            bigBoom.setInvulnerable(true)
+            bigBoom.abortOrder()
+            doPeriodicallyTimed(0.2, 5) (CallbackCounted cb) ->
+                bigBoom.setScale(scaler)
+                scaler = scaler + 0.04
+                if(cb.isLast())
+                    bigBoom.explode()
+                    elementalSoul.explode()

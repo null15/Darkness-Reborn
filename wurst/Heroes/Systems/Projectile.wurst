@@ -3,29 +3,37 @@ package Projectile
 import ClosureTimers
 
 
-public class Projectile
-    unit target
-    effect sfx
-    bool returning
+public interface OnProjectileHit
+    function hit(effect detectionUnit, unit target)
 
-    construct(unit target, effect sfx)
+public class Projectile
+    protected unit target
+    protected effect sfx
+    protected OnProjectileHit onHit
+
+    construct(unit target, effect sfx, OnProjectileHit onHit)
         this.target = target
         this.sfx = sfx
+        this.onHit = onHit
+        
+    function impact(effect detectionUnit)
+        onHit.hit(detectionUnit, target)
+        destroy this
 
-    function resolveHit() returns bool
-        doPeriodically(0.05) (CallbackPeriodic cb) ->
+    function moveForward()
+        doPeriodically(0.02) (CallbackPeriodic cb) ->
             let pos1 = sfx.getPos()
             let pos2 = target.getPos()
             let angle = pos1.angleTo(pos2)
-            let pos3 = pos1.polarOffset(angle, 25.)
+            let pos3 = pos1.polarOffset(angle, 7.)
             let isAlive = target.isAlive()
             sfx..setPos(pos3).setYaw(angle.radians())
             let dist = pos1.distanceTo(pos2)
-            if(dist <= 25.)
+            if(dist <= 7.)
                 if(isAlive)
-                    returning = true
+                    impact(sfx)
                     destroy cb
-                else
-                    returning = false
-                    destroy cb
-        return returning
+
+public function fireProjectile(unit target, effect sfx, OnProjectileHit onHit)
+    let detection = new Projectile(target, sfx, onHit)
+    detection.moveForward()

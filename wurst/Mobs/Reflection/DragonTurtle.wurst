@@ -1,0 +1,5 @@
+package DragonTurtle
+
+import codeDamageTypings
+public function dragonTurtle(unit holder, unit attacker, real dam)
+    holder.physicalDamageCode(dam * 0.5, attacker, true)

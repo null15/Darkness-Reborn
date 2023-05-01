@@ -12,7 +12,7 @@ function shadowInfernoAttacked()
     EventListener.add(EVENT_UNIT_DAMAGED) -> 
         if(canRun)
             canRun = false
-            doAfter(15) -> 
+            doAfter(10) -> 
                 canRun = true
             if GetTriggerUnit().getTypeId() == WAVE_HERO_29
                 let shadowinfernal = GetTriggerUnit()

@@ -1,0 +1,5 @@
+package SpikedArmor
+
+import codeDamageTypings
+public function spikedArmor(unit holder, unit attacker, real dam)
+    holder.physicalDamageCode(dam * 0.2, attacker, true)

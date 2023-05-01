@@ -7,63 +7,22 @@ import Global_Variables
 import DummyCaster
 import MyAbilityIds
 import OrderIds
-import ClosureTimers
-import ClosureForGroups
 import codeDamageTypings
+import BouncingProjectiles
 real array udg_FireBallDamage = [100,200,300,500,700,1000,1300,1600,2000]
 integer array udg_BounceAmount = [4,5,6,7,8,9,10,11,12]
-integer counter
-unit currentTarget
-unit previousTarget
 
 init
     fireballCast()
 function fireballCast()
     EventListener.onTargetCast('A01S') (unit caster, unit target) ->
-        var pos1 = caster.getPos()
-        currentTarget = target
-        var pos2 = currentTarget.getPos()
-        var angle = pos1.angleTo(pos2)
-        let sfx = addEffect(Abilities.fireBallMissile, pos1)..setZ(20)..setScale(1.5)
+        let sfx = addEffect(Abilities.fireBallMissile, caster.getPos())..setZ(20)..setScale(1.5)
         let level = caster.getAbilityLevel('A01S')
-        counter = 0
-        doPeriodically(0.05) (CallbackPeriodic cb) ->
-            pos1 = sfx.getPos()
-            angle = pos1.angleTo(pos2)
-            let pos3 = pos1.polarOffset(angle, 25.)
-            let isAlive = currentTarget.isAlive()
-            sfx..setPos(pos3).setYaw(angle.radians())
-            if(isAlive)
-                pos2 = currentTarget.getPos()
-            let dist = pos1.distanceTo(pos2)
-            if(dist <= 25.)
-                if(isAlive)
-                    let damage = udg_FireBallDamage[level-1] + level * 0.8 * caster.getInt(true)
-                    new DummyCaster()
-                    ..owner(caster.getOwner())
-                    ..origin(sfx.getPos())
-                    ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, currentTarget)
-                    caster.magicalDamageCodeElementId(damage, currentTarget, DAMAGE_ELEMENT_FIRE, 'blaz')
-                flashEffect(Abilities.fireBallMissile, currentTarget.getPos())
-                if(counter >= udg_BounceAmount[level-1])
-                    sfx.destr()
-                    flashEffect(Abilities.fireLordDeathExplode, currentTarget.getPos())
-                    destroy cb
-                else
-                    previousTarget = currentTarget
-                    forUnitsInRange(currentTarget.getPos(), 400) (unit u) ->
-                        if (u.isEnemyOf(caster) and u != currentTarget)
-                            if(u.isAlive())
-                                if(currentTarget != previousTarget)
-                                    let pos4 = u.getPos()
-                                    if(pos2.distanceTo(pos4) < pos2.distanceTo(currentTarget.getPos()))
-                                        currentTarget = u
-                                else
-                                    currentTarget = u
-                                if (u.hasAbility(BUFF_12))
-                                    currentTarget = u
-                    if(currentTarget == previousTarget)
-                        sfx.destr()
-                        flashEffect(Abilities.fireLordDeathExplode, currentTarget.getPos())
-                        destroy cb
-                counter++
+        fireBouncingBuffBiasProjectile(Abilities.fireBallMissile, caster, target, BUFF_12, udg_BounceAmount[level-1], 20, 1.5, true, 400) (effect detectionUnit, unit target) ->
+            let damage = udg_FireBallDamage[level-1] + level * 0.8 * caster.getInt(true)
+            new DummyCaster()
+            ..owner(caster.getOwner())
+            ..origin(sfx.getPos())
+            ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, target)
+            caster.magicalDamageCodeElementId(damage, target, DAMAGE_ELEMENT_FIRE, 'blaz')
+            flashEffect(Abilities.fireLordDeathExplode, target.getPos())

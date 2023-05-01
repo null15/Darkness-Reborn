@@ -7,26 +7,31 @@ import ClosureForGroups
 import codeDamageTypings
 import MyAbilityIds
 import PauseAllocation
+
+bool chronoSphereNozd = false
+
 init
     chronoSphere()
-    chronoSphereActive()
+
 function chronoSphere()
     EventListener.add(EVENT_UNIT_DAMAGED) -> 
         if GetTriggerUnit().getTypeId() == WAVE_HERO_2
             let nozdomu = GetTriggerUnit()
-            nozdomu.issuePointOrder("carrionswarm", GetEventDamageSource().getPos())
+            if(chronoSphereNozd == false)
+                chronoSphereActive(nozdomu)
+                chronoSphereNozd = true
+                doAfter(15) -> 
+                    chronoSphereNozd = false
 
-function chronoSphereActive()
-    EventListener.onPointCast(CREEP_ABILITY_103) (unit caster, vec2 target) ->
-        if (caster.getTypeId() == WAVE_HERO_2)
-            let dmg = caster.getAbilityLevel(CREEP_ABILITY_103)*223.00
-            let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", target)
-            sfx.setScale(2)
-            doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
-                forUnitsInRange(sfx.getPos(), 700) (unit u) ->
-                    if caster.isEnemyOf(u)
-                        caster.magicalDamageCode(dmg, u)
-                        u.pauseIndef()
-                    if cb.isLast()
-                        sfx.destr()
-                        u.unPauseUnitIndef()
+function chronoSphereActive(unit caster)
+    let dmg = caster.getAbilityLevel(CREEP_ABILITY_103)*223.00
+    let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", caster.getPos())
+    sfx.setScale(2)
+    doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
+        forUnitsInRange(sfx.getPos(), 700) (unit u) ->
+            if caster.isEnemyOf(u)
+                caster.magicalDamageCode(dmg, u)
+                u.pauseIndef()
+            if cb.isLast()
+                sfx.destr()
+                u.unPauseUnitIndef()

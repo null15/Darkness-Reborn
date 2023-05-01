@@ -3957,6 +3957,7 @@ init
     +"+500 Damage\n"
     +"+120 Strength\n"
     +"25% Chance to Bash for 0.5s dealing 1000 bonus Damage.\n"
+    +"Cooldown: 5 seconds\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Silver Hammer (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Kraken Dagger (|c001CE6B9" + recipeShop2 + "|r)\n"
@@ -4876,7 +4877,7 @@ init
 
 //I0B2
     new ItemDefinition(ITEM_114, ItemIds.bloodKey)
-    ..setAbilities(commaList('A0KV', 'A07B'))
+    ..setAbilities(commaList('A07B'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe.blp")
     ..setModelUsed("Red Item.mdl")
     ..setScalingValue(1)
@@ -7189,7 +7190,7 @@ init
 
 //I00K
     new ItemDefinition(ITEM_175, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('A05B', 'A02S'))
+    ..setAbilities(commaList(ARMORMOD_3, 'A02S'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpikedArmor.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -7649,7 +7650,7 @@ init
 
 //I00E
     new ItemDefinition(ITEM_187, ItemIds.clawsofAttack9)
-    ..setAbilities(commaList('A02M', 'A03V', 'A03S', 'A055'))
+    ..setAbilities(commaList('A02M', 'A03V', 'A03S'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHammerofThor.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -7681,7 +7682,8 @@ init
     ..setDescription("+500 Damage\n+120 Strength\n25% Chance to Bash for 0.5s dealing 1000 bonus Damage.")
     ..setName("|c00FFFC01Platinum Hammer|r")
     ..setTooltipBasic("Purchase Platinum Hammer")
-    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+500 Damage \n+120 Strength\n25% Chance to Bash for 0.5s dealing 1000 bonus Damage.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r  \n+500 Damage \n+120 Strength\n25% Chance to Bash for 0.5s dealing 1000 bonus Damage.\n"
+    +"Cooldown: 5 seconds")
     ..setHotkey("C")
 
 //I00G
@@ -9105,7 +9107,7 @@ init
 
 //I00I
     new ItemDefinition(ITEM_226, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('A05A', 'A02V'))
+    ..setAbilities(commaList(ARMORMOD_1, 'A02V'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBanditsLeather.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -10002,7 +10004,7 @@ init
 
 //I0K0
     new ItemDefinition(ITEM_249, ItemIds.clawsofAttack9)
-    ..setAbilities(commaList('A0IY', 'A0X8', 'A10Z'))
+    ..setAbilities(commaList('A0IY', 'A0X8'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHammerofThor.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -10040,7 +10042,8 @@ init
     ..setTooltipExtended("|c00FFFC01Effect:|r  \n"
     +"+4500 Damage\n"
     +"+600 Strength\n"
-    +"+25% Chance to Bash")
+    +"+25% Chance to Bash\n"
+    +"Cooldown: 5 seconds")
     ..setHotkey("C")
 
 //I0K2
@@ -10082,7 +10085,7 @@ init
 
 //I0K4
     new ItemDefinition(ITEM_251, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('A111', 'A0W5'))
+    ..setAbilities(commaList(ARMORMOD_2, 'A0W5'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpikedArmor.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -12054,7 +12057,7 @@ init
 
 //I03S
     new ItemDefinition(ITEM_303, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('A0AB', 'A029'))
+    ..setAbilities(commaList('A029'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNThornShield.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -19391,14 +19394,16 @@ init
     +"|c00FFFC01Effect of item:|r\n"
     +"+4500 Damage\n"
     +"+600 Strength\n"
-    +"+25% Chance to Bash")
+    +"+25% Chance to Bash\n"
+    +"Cooldown: 5 seconds")
     ..setName("Treasure of Tinker (Recipe 4)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 4)")
     ..setTooltipExtended("|c00FFFC01Hammer Platium II|r\n"
     +"|c00FFFC01Effect of item:|r\n"
     +"+4500 Damage\n"
     +"+600 Strength\n"
-    +"+25% Chance to Bash")
+    +"+25% Chance to Bash\n"
+    +"Cooldown: 5 seconds")
     ..setHotkey("")
 
 //I0K1

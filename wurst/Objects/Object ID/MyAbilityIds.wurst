@@ -31,6 +31,8 @@ public constant ABILITY_DUMMY_19 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_DUMMY_20 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_DUMMY_21 = compiletime(ABIL_ID_GEN.next())
 
+public constant ABILITY_DUMMY_STUN = compiletime(ABIL_ID_GEN.next())
+
 public constant ABILITY_0 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_1 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_2 = compiletime(ABIL_ID_GEN.next())
@@ -399,5 +401,9 @@ public constant STRMOD_39 = compiletime(ABIL_ID_GEN.next())
 public constant STRMOD_40 = compiletime(ABIL_ID_GEN.next())
 public constant STRMOD_41 = compiletime(ABIL_ID_GEN.next())
 public constant STRMOD_42 = compiletime(ABIL_ID_GEN.next())
+
+public constant ARMORMOD_1 = compiletime(ABIL_ID_GEN.next())
+public constant ARMORMOD_2 = compiletime(ABIL_ID_GEN.next())
+public constant ARMORMOD_3 = compiletime(ABIL_ID_GEN.next())
 
 init

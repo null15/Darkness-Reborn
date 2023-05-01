@@ -1,0 +1,24 @@
+package Platinum2Stun
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+import ClosureTimers
+import LinkedList
+import HashMap
+import codeDamageTypings
+
+let plat2StunGroup = new HashMap<int, LinkedList<int>>
+
+public function platinum2Stun(unit src,unit targ)
+    let number = GetPlayerId(GetOwningPlayer(src))
+    if plat2StunGroup.get(number).has(targ.getHandleId())
+        skip
+    else
+        plat2StunGroup.get(number).add(targ.getHandleId())
+        src.physicalDamageCode(4500, targ, false)
+        new DummyCaster()
+        ..owner(GetOwningPlayer(src))
+        ..origin(src.getPos())
+        ..castTarget(ABILITY_DUMMY_STUN, 2, OrderIds.thunderbolt, targ)
+        doAfter(5) ->
+            plat2StunGroup.get(number).remove(targ.getHandleId())

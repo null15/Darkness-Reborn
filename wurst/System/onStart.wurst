@@ -168,6 +168,7 @@ function mapSetup()
 
         dBox.addButton("Normal") ->
             difficulty = "normal"
+            gameMode = 2
             preWaveSetup()
             questSetup()
             createSetup()

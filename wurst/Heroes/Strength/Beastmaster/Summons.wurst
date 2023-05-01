@@ -27,24 +27,35 @@ function quilBeast()
             let summon = GetSummonedUnit()
             let str = summoner.getStr(true)
             
-            if summon.getName() == "Misha Bear"
+            if summon.getTypeId() == MISHABEAR
                 let lvl = summoner.getAbilityLevel(ABILITY_4)
                 summon.setMaxHP(((0.25*summoner.getMaxHP()) + lvl * 125).toInt(), true)
                 summon.setArmor(0.4 * summoner.getArmor() + lvl * 8)
                 summon.setBaseDamage((0.15 * str + lvl * 10).toInt(), 0)
                 summon.enumeratePhysicalPenetration(summoner.getPhysPenetration() * lvl)
+                if lvl == 8
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
+                if lvl == 9
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)
             
-            if summon.getName() == "Quilbeast"
+            if summon.getTypeId() == QUILBEAST
                 let lvl = summoner.getAbilityLevel(ABILITY_5)
                 summon.setMaxHP(((0.1*summoner.getMaxHP()) + lvl * 125).toInt(), true)
                 summon.setArmor(0.15 * summoner.getArmor() + lvl * 4)
                 summon.setBaseDamage((0.4 * str).toInt() + lvl * 15, 0)
                 summon.enumeratePhysicalPenetration(summoner.getPhysPenetration() * 2 * lvl)
-            
-            if summon.getName() == "Hawk"
+                if lvl > 5
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
+                if lvl == 9
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)            
+            if summon.getTypeId() == HAWK
                 let lvl = summoner.getAbilityLevel(ABILITY_6)
                 summon.setMaxHP(((0.05*summoner.getMaxHP()) + lvl * 125).toInt(), true)
                 summon.setArmor(0.1 * summoner.getArmor() + lvl * 2)
                 summon.setBaseDamage((0.75 * str).toInt() + lvl * 20, 0)
                 summon.enumeratePhysicalPenetration(summoner.getPhysPenetration() * 3 * lvl)
+                if lvl > 5
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
+                if lvl == 9
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)
             summonDeath(summoner, summon)

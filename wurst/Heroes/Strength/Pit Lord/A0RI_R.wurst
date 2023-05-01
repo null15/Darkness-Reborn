@@ -1,0 +1,6 @@
+package A0RI_R
+
+import codeDamageTypings
+public function pitLordThorn(unit holder, unit attacker)
+    let dam = 40. * holder.getAbilityLevel('A0RI')
+    holder.physicalDamageCode(dam, attacker, false)

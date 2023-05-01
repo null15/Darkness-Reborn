@@ -6,43 +6,50 @@ import ClosureForGroups
 import codeDamageTypings
 import MyAbilityIds
 import PauseAllocation
+
+bool chronoSphereAlex = false
+bool stompAlex = false
+
 init
-    freezeActive()
     freeze()
 function freeze()
     EventListener.add(EVENT_UNIT_DAMAGED) -> 
         if GetTriggerUnit().getTypeId() == WAVE_HERO_4
             let alex = GetTriggerUnit()
-            alex.issueImmediateOrder("roar")
-            alex.issueImmediateOrder("carrionswarm")
+            if(stompAlex == false)
+                freezeActive(alex)
+                stompAlex = true
+                doAfter(12) -> 
+                    stompAlex = false
+            else if(chronoSphereAlex == false)
+                chronoSphereActive(alex)
+                chronoSphereAlex = true
+                doAfter(15) -> 
+                    chronoSphereAlex = false
             
-function freezeActive()
-    EventListener.onCast(CREEP_ABILITY_104) (unit caster) ->
-        if (caster.getTypeId() == WAVE_HERO_4)
-            doAfter(0.5) -> 
-                caster.pause()
-            doAfter(4) ->
-                caster
-                ..unpause()
-                ..issueImmediateOrder("stomp")
-                doAfter(1) ->
-                    caster.removeAbility('Bfrz')    
-                    let dmg = caster.getAbilityLevel(CREEP_ABILITY_104)*24444.00
-                    forUnitsInRange(caster.getPos(), 700) (unit u) ->
-                        if caster.isEnemyOf(u)
-                            caster.magicalDamageCode(dmg, u)     
-                              
-    EventListener.onCast(CREEP_ABILITY_103) (unit caster) ->
-        EventListener.onPointCast(CREEP_ABILITY_103) (unit caster, vec2 target) ->
-            if (caster.getTypeId() == WAVE_HERO_4)
-                let dmg = caster.getAbilityLevel(CREEP_ABILITY_103)*223.00
-                let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", target)
-                sfx.setScale(2)
-                doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
-                    forUnitsInRange(sfx.getPos(), 700) (unit u) ->
-                        if caster.isEnemyOf(u)
-                            caster.magicalDamageCode(dmg, u)
-                            u.pauseIndef()
-                        if cb.isLast()
-                            sfx.destr()
-                            u.unPauseUnitIndef()
+function freezeActive(unit caster)
+    doAfter(0.5) -> 
+        caster.pause()
+    doAfter(4) ->
+        caster
+        ..unpause()
+        ..issueImmediateOrder("stomp")
+        doAfter(1) ->
+            caster.removeAbility('Bfrz')    
+            let dmg = caster.getAbilityLevel(CREEP_ABILITY_104)*24444.00
+            forUnitsInRange(caster.getPos(), 700) (unit u) ->
+                if caster.isEnemyOf(u)
+                    caster.magicalDamageCode(dmg, u)     
+
+function chronoSphereActive(unit caster)
+    let dmg = caster.getAbilityLevel(CREEP_ABILITY_103)*223.00
+    let sfx = addEffect("Units\\Mobs\\cronosphere.mdx", caster.getPos())
+    sfx.setScale(2)
+    doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
+        forUnitsInRange(sfx.getPos(), 700) (unit u) ->
+            if caster.isEnemyOf(u)
+                caster.magicalDamageCode(dmg, u)
+                u.pauseIndef()
+            if cb.isLast()
+                sfx.destr()
+                u.unPauseUnitIndef()

@@ -11,6 +11,7 @@ import codeDamageTypings
 import ClosureEvents
 import Global_Variables
 import ArmorLimiter
+import BigBoom
 
 timer waveHeroTimer = CreateTimer()
 timerdialog waveHeroTimerDialog = CreateTimerDialog(waveHeroTimer)
@@ -444,6 +445,8 @@ function waveHeroSpawn()
     if boostMap.has(unitID)
         boostMap.get(unitID).boost(waveHero)
     waveHero.moveWithoutCombat()
+    if WAVE_HERO_5 == unitID
+        explode(waveHero)
     waveHero.limitArmorImmediate()
 
 function waveHeroDeath()

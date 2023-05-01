@@ -6,6 +6,8 @@ public rect array creepLoc = []
 public rect array eliteLoc = []
 public rect array bossLoc = []
 
+public int gameMode
+
 public unit array playerHero = []
 
 public unit elementalSoul
