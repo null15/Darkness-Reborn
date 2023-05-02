@@ -11,7 +11,7 @@ let plat2StunGroup = new HashMap<int, LinkedList<int>>
 
 public function platinum2Stun(unit src,unit targ)
     let number = GetPlayerId(GetOwningPlayer(src))
-    if plat2StunGroup.get(number).has(targ.getHandleId())
+    if plat2StunGroup.get(number).has(targ.getHandleId()) or targ.isAlive() == false
         skip
     else
         plat2StunGroup.get(number).add(targ.getHandleId())

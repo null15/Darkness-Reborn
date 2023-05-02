@@ -34,9 +34,9 @@ function quilBeast()
                 summon.setBaseDamage((0.15 * str + lvl * 10).toInt(), 0)
                 summon.enumeratePhysicalPenetration(summoner.getPhysPenetration() * lvl)
                 if lvl == 8
-                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
-                if lvl == 9
                     BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)
+                if lvl == 9
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
             
             if summon.getTypeId() == QUILBEAST
                 let lvl = summoner.getAbilityLevel(ABILITY_5)
@@ -45,9 +45,9 @@ function quilBeast()
                 summon.setBaseDamage((0.4 * str).toInt() + lvl * 15, 0)
                 summon.enumeratePhysicalPenetration(summoner.getPhysPenetration() * 2 * lvl)
                 if lvl > 5
-                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)
                 if lvl == 9
-                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)            
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)            
             if summon.getTypeId() == HAWK
                 let lvl = summoner.getAbilityLevel(ABILITY_6)
                 summon.setMaxHP(((0.05*summoner.getMaxHP()) + lvl * 125).toInt(), true)
@@ -55,7 +55,7 @@ function quilBeast()
                 summon.setBaseDamage((0.75 * str).toInt() + lvl * 20, 0)
                 summon.enumeratePhysicalPenetration(summoner.getPhysPenetration() * 3 * lvl)
                 if lvl > 5
-                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
-                if lvl == 9
                     BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)
+                if lvl == 9
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
             summonDeath(summoner, summon)

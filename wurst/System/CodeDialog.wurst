@@ -5,50 +5,58 @@ import DialogBox
 import ClosureKeyPresses
 import Global_Variables
 import Base64
+import StringUtils
 import ChunkedString
 
 let PLAYER_SET = compiletime(player_list())
 
+function string.removeHash() returns string
+    let charlist = "#"
+    let replacementString = ""
+
+    return this.replaceChars(charlist, replacementString)
+
 function readInto(int initial) returns ChunkedString
     let t = new Base64Encoder()
     return t..writeInt(initial).intoData()
+
 function player_list() returns LinkedList<ChunkedString>
     let hash = new LinkedList<ChunkedString>
     if compiletime
-        hash.add(readInto("Yurieeh#2235".toUpperCase().getHash()))
-        hash.add(readInto("null#12140".toUpperCase().getHash()))
-        hash.add(readInto("Illidan557#1331".toUpperCase().getHash()))
-        hash.add(readInto("JoJo#16186".toUpperCase().getHash()))
-        hash.add(readInto("Prime#2336".toUpperCase().getHash()))
-        hash.add(readInto("BlazingDawn#11220".toUpperCase().getHash()))
-        hash.add(readInto("oennerth#2997".toUpperCase().getHash()))
-        hash.add(readInto("Palagrim#2871".toUpperCase().getHash()))
-        hash.add(readInto("Vivent#2756".toUpperCase().getHash()))
-        hash.add(readInto("Nhv#11269".toUpperCase().getHash()))
-        hash.add(readInto("Cooltiger#1502".toUpperCase().getHash()))
-        hash.add(readInto("sethnik#2428".toUpperCase().getHash()))
-        hash.add(readInto("Gore#2697".toUpperCase().getHash()))
-        hash.add(readInto("WeakAF#11241".toUpperCase().getHash()))
-        hash.add(readInto("randomkilla#6541".toUpperCase().getHash()))
-        hash.add(readInto("Magepowers#1896".toUpperCase().getHash()))
-        hash.add(readInto("NWJones#2206".toUpperCase().getHash()))
-        hash.add(readInto("Sosiso4ka#21103".toUpperCase().getHash()))
-        hash.add(readInto("Zbucket#1931".toUpperCase().getHash()))
-        hash.add(readInto("Zbucket#1931".toUpperCase().getHash()))
-        hash.add(readInto("Nefsty#1775".toUpperCase().getHash()))
-        hash.add(readInto("ShadowSong5#1337".toUpperCase().getHash()))
-        hash.add(readInto("RandomGuy#1303".toUpperCase().getHash()))
-        hash.add(readInto("Casuall#1798".toUpperCase().getHash()))
-        hash.add(readInto("MagicTurtle#1144588".toUpperCase().getHash()))
-        hash.add(readInto("Park#13542".toUpperCase().getHash()))
-        hash.add(readInto("GodKing#31216".toUpperCase().getHash()))
+        hash.add(readInto("Swordeater#2142".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Yurieeh#2235".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("null#12140".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Illidan557#1331".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("JoJo#16186".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Prime#2336".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("BlazingDawn#11220".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("oennerth#2997".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Palagrim#2871".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Vivent#2756".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Nhv#11269".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Cooltiger#1502".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("sethnik#2428".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Gore#2697".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("WeakAF#11241".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("randomkilla#6541".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Magepowers#1896".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("NWJones#2206".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Sosiso4ka#21103".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Zbucket#1931".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Nefsty#1775".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("ShadowSong5#1337".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("RandomGuy#1303".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Casuall#1798".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("MagicTurtle#1144588".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("Park#13542".removeHash().toUpperCase().getHash()))
+        hash.add(readInto("GodKing#31216".removeHash().toUpperCase().getHash()))
     return hash
 
 public function codeDialog()
     onKeyPress(OSKEY_C, OSKEY_META.SHIFT) ->
         let pt = GetTriggerPlayer()
         let pn = pt.getName()
-        let pnu = readInto(pn.toUpperCase().getHash())
+        let pnu = readInto(pn.removeHash().toUpperCase().getHash())
         if PLAYER_SET.has(pnu)
             printTimed("Player " + pn + " has beaten the game and is choosing reward", 3)
             let hero = playerHero[pt.getId()]
@@ -80,3 +88,4 @@ public function codeDialog()
             buffBox.display(pt, true)
         else
             printTimedToPlayer("You need to have beaten the game or you may have used your code!", 5, pt)
+        destroy pnu
