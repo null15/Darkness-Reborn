@@ -81,7 +81,7 @@ init
 
                 if (DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL or DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC) 
                     //Reflection for Melee only
-                    if(src.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1) < 128)
+                    if(src.isType(UNIT_TYPE_MELEE_ATTACKER))
                         reflectionChecks(src, targ)
                     // Far Seer (Mind Ripper) R - Passive
                     if DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL and srcuID == PLAY_HERO_22 and src.getAbilityLevel('A0DI') > 0 and GetRandomInt(1, 100) < 15
