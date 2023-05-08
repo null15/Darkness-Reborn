@@ -1,16 +1,15 @@
 package A0GC_R
 import MyUnitIds
+import ClosureEvents
 init
 
     katarMastery()
-    
-function katarMasteryCond() returns boolean
-    return GetUnitTypeId(GetKillingUnit()) == PLAY_HERO_10 and GetRandomInt(1, 100) < GetUnitAbilityLevel(GetKillingUnit(), 'A0GC')*3
 
 function katarMastery()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addCondition(Condition(function katarMasteryCond))..addAction() ->
-        let u = GetKillingUnit()
-        let lowDmg = u.getBaseDamage(0)
-        let highDmg = u.getBaseDamage(1)
-        u.setBaseDamage(lowDmg+3, 0)
-        u.setBaseDamage(highDmg+3, 1)
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
+        let killer = GetKillingUnit()
+        if(killer.getTypeId() == PLAY_HERO_10 and GetRandomInt(1, 100) < GetUnitAbilityLevel(GetKillingUnit(), 'A0GC')*3)
+            let lowDmg = killer.getBaseDamage(0)
+            let highDmg = killer.getBaseDamage(1)
+            killer.setBaseDamage(lowDmg+3, 0)
+            killer.setBaseDamage(highDmg+3, 1)

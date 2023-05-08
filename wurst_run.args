@@ -6,9 +6,9 @@ Following are the default enabled arguments:
 
 -runcompiletimefunctions
 -injectobjects
--stacktraces
+stacktraces
 -lua
--measure
+measure
 -localOptimizations
 -inline
 

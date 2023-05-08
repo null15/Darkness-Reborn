@@ -2578,7 +2578,6 @@ import OrderIds
 @compiletime function nagaWitchAbils()
     new AbilityDefinitionStasisTrap(NAGAWITCH_ABIL_1)
     ..setName("Bubble Trap")
-    ..setOrderStringUseTurnOn(Orders.waterelemental.toString())
     ..setButtonPositionNormalX(0)
     ..setButtonPositionNormalY(2)
     ..setButtonPositionResearchX(0)
@@ -2596,6 +2595,8 @@ import OrderIds
     ..presetWardUnitType(lvl -> "")
     ..presetCastRange(lvl -> 800.)
     ..presetAreaofEffect(lvl -> 400.)
+    ..presetDetonationRadius(lvl -> 400.)
+    ..presetDetonationRadius(lvl -> 400.)
     ..presetManaCost(lvl -> 100 + 20 * lvl + 30 * (lvl-1))
     ..presetTooltipNormal(lvl -> "Bubble Trap [ |c00FFFC01Q|r ] -[|c00FFFC01Level " + lvl.toString() + "|r ]")
     ..presetTooltipNormalExtended(lvl -> "Naga Sea Witch creates a bubble that traps enemies for 2 seconds. Dealing " + (lvl*10).toString() + "% Max Mana Damage + " + (200*lvl).toString())
@@ -2700,6 +2701,10 @@ import OrderIds
     ..presetTooltipNormal(lvl -> "Tornado [ |c00FFFC01T|r ] -[|c00FFFC01Level " + lvl.toString() + "|r ]")
     ..presetTooltipNormalExtended(lvl -> "Naga Sea Witch shoots out a giant tornado dealing " + (75*lvl).toString() + "% max mana damage to all enemies in 400 range")
 
+@compiletime function illidanAbils()
+    
+
+    
 @compiletime function tinkerAbils()
     new AbilityDefinitionTinkererClusterRocketsLevel1(TINKER_ABIL_1)
     ..setLevels(9)

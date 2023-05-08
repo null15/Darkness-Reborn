@@ -59,7 +59,10 @@ function onBuyHero(unit u)
         let soldUnit = GetSoldUnit()
         for i = 0 to 9
             if GetOwningPlayer(soldUnit) == players[i]
-                playerHero[i] = soldUnit
+                if(playerHero[i] == null)
+                    playerHero[i] = soldUnit
+                else
+                    players[i]..disableUserControl().adjustCameraBounds(0, 0, 0, 0, 0)
                 SetPlayerTechMaxAllowedSwap(TINKERBUILDING_114, 1, soldUnit.getOwner())
                 SetPlayerTechMaxAllowedSwap(TINKERBUILDING_111, 1, soldUnit.getOwner())
                 SetPlayerTechMaxAllowedSwap(TINKERBUILDING_112, 1, soldUnit.getOwner())
@@ -152,6 +155,22 @@ function createSetup()
 
     teleportToMobs(easyGrounds, intermediateGrounds, eliteGrounds, endGamebosses)
 
+function dialogBoxClick()
+    preWaveSetup()
+    questSetup()
+    createSetup()
+    leftSideCreepsSetup()
+    eliteSideCreepsSetup()
+    bossCreepSetup()
+    overdryaSetup()
+    codeDialog()
+
+function automaticPick()
+    if(gameMode == 0)
+        gameMode = 1
+        dialogBoxClick()
+        print("Automatically chosen easy mode")
+
 function mapSetup()
     elementalSoul = createUnit(Player(10), ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees()) // Elemental Soul
     onDefeat(elementalSoul)
@@ -167,16 +186,12 @@ function mapSetup()
         let dBox = new DialogBox("Choose difficulty")
 
         dBox.addButton("Normal") ->
-            difficulty = "normal"
             gameMode = 2
-            preWaveSetup()
-            questSetup()
-            createSetup()
-            leftSideCreepsSetup()
-            eliteSideCreepsSetup()
-            bossCreepSetup()
-            overdryaSetup()
-            codeDialog()
+            dialogBoxClick()
             destroy dBox
         
         dBox.display(players[0], true)
+
+        doAfter(30) -> 
+            automaticPick()
+            destroy dBox

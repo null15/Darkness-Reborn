@@ -7,10 +7,6 @@ import Abilities
 import codeDamageTypings
 import Projectile
 
-unit abilUnit
-int dmg
-unit caster = null
-
 init
     imageArrow()
 

@@ -17,59 +17,63 @@ function string.removeHash() returns string
     return this.replaceChars(charlist, replacementString)
 
 function readInto(int initial) returns ChunkedString
-    let t = new Base64Encoder(256)
-    return t..writeInt(initial).intoData()
+    let encoder = new Base64Encoder(16)
+    encoder.writeInt(initial)
+    let data = encoder.intoData()
+    return data
 
 function player_list() returns LinkedList<ChunkedString>
-    let hash = new LinkedList<ChunkedString>
     if compiletime
-        hash.add(readInto("Swordeater#2142".removeHash().toUpperCase().getHash())) //0
-        hash.add(readInto("Yurieeh#2235".removeHash().toUpperCase().getHash())) //1
-        hash.add(readInto("null#12140".removeHash().toUpperCase().getHash())) //2
-        hash.add(readInto("Illidan557#1331".removeHash().toUpperCase().getHash())) //3
-        hash.add(readInto("JoJo#16186".removeHash().toUpperCase().getHash())) //4
-        hash.add(readInto("Prime#2336".removeHash().toUpperCase().getHash())) //5
-        hash.add(readInto("BlazingDawn#11220".removeHash().toUpperCase().getHash())) //6
-        hash.add(readInto("oennerth#2997".removeHash().toUpperCase().getHash())) //7
-        hash.add(readInto("Palagrim#2871".removeHash().toUpperCase().getHash())) //8
-        hash.add(readInto("Vivent#2756".removeHash().toUpperCase().getHash())) //9
-        hash.add(readInto("Nhv#11269".removeHash().toUpperCase().getHash())) //10
-        hash.add(readInto("Cooltiger#1502".removeHash().toUpperCase().getHash())) //1
-        hash.add(readInto("sethnik#2428".removeHash().toUpperCase().getHash())) //12
-        hash.add(readInto("Gore#2697".removeHash().toUpperCase().getHash())) //13
-        hash.add(readInto("WeakAF#11241".removeHash().toUpperCase().getHash())) //14
-        hash.add(readInto("randomkilla#6541".removeHash().toUpperCase().getHash())) //15
-        hash.add(readInto("Magepowers#1896".removeHash().toUpperCase().getHash())) //16
-        hash.add(readInto("NWJones#2206".removeHash().toUpperCase().getHash())) //17
-        hash.add(readInto("Sosiso4ka#21103".removeHash().toUpperCase().getHash())) //18
-        hash.add(readInto("Zbucket#1931".removeHash().toUpperCase().getHash())) //19
-        hash.add(readInto("Nefsty#1775".removeHash().toUpperCase().getHash())) //20
-        hash.add(readInto("ShadowSong5#1337".removeHash().toUpperCase().getHash())) //21
-        hash.add(readInto("RandomGuy#1303".removeHash().toUpperCase().getHash())) //22
-        hash.add(readInto("Casuall#1798".removeHash().toUpperCase().getHash())) //23
-        hash.add(readInto("MagicTurtle#1144588".removeHash().toUpperCase().getHash())) //24
-        hash.add(readInto("Park#13542".removeHash().toUpperCase().getHash())) //25
-        hash.add(readInto("GodKing#31216".removeHash().toUpperCase().getHash())) //2
-    return hash
+        let hash = new LinkedList<ChunkedString>
+        hash.add(readInto("Swordeater#2142".getHash())) //0
+        hash.add(readInto("Yurieeh#2235".getHash())) //1
+        hash.add(readInto("null#12140".getHash())) //2
+        hash.add(readInto("Illidan557#1331".getHash())) //3
+        hash.add(readInto("JoJo#16186".getHash())) //4
+        hash.add(readInto("Prime#2336".getHash())) //5
+        hash.add(readInto("BlazingDawn#11220".getHash())) //6
+        hash.add(readInto("oennerth#2997".getHash())) //7
+        hash.add(readInto("Palagrim#2871".getHash())) //8
+        hash.add(readInto("Vivent#2756".getHash())) //9
+        hash.add(readInto("Nhv#11269".getHash())) //10
+        hash.add(readInto("Cooltiger#1502".getHash())) //1
+        hash.add(readInto("sethnik#2428".getHash())) //12
+        hash.add(readInto("Gore#2697".getHash())) //13
+        hash.add(readInto("WeakAF#11241".getHash())) //14
+        hash.add(readInto("randomkilla#6541".getHash())) //15
+        hash.add(readInto("Magepowers#1896".getHash())) //16
+        hash.add(readInto("NWJones#2206".getHash())) //17
+        hash.add(readInto("Sosiso4ka#21103".getHash())) //18
+        hash.add(readInto("Zbucket#1931".getHash())) //19
+        hash.add(readInto("Nefsty#1775".getHash())) //20
+        hash.add(readInto("ShadowSong5#1337".getHash())) //21
+        hash.add(readInto("RandomGuy#1303".getHash())) //22
+        hash.add(readInto("Casuall#1798".getHash())) //23
+        hash.add(readInto("MagicTurtle#1144588".getHash())) //24
+        hash.add(readInto("Park#13542".getHash())) //25
+        hash.add(readInto("GodKing#31216".getHash())) //26
+        return hash
+    return null
 
-function hashCheck(string compareWith) returns bool
+function hashCheck(string compareWith) returns int
     for int i = 0 to PLAYER_SET.size() - 1
         let compareTo = PLAYER_SET.get(i).getUnsafeString()
         let check = compareWith == compareTo
         if(check)
-            return check
-    return false
+            return i
+    return -1
 
 public function codeDialog()
     onKeyPress(OSKEY_C, OSKEY_META.SHIFT) ->
         let pt = GetTriggerPlayer()
         let pn = pt.getName()
-        let pnu = readInto(pn.removeHash().toUpperCase().getHash())
-        if hashCheck(pnu.getUnsafeString())
+        let pnu = readInto(pn.getHash())
+        let check = hashCheck(pnu.getUnsafeString())
+        if check > -1
             printTimed("Player " + pn + " has beaten the game and is choosing reward", 3)
             let hero = playerHero[pt.getId()]
             let buffBox = new DialogBox("Choose your benefit")
-            PLAYER_SET.remove(pnu)
+            PLAYER_SET.removeAt(check)
 
             buffBox.addButton("Set level to 10") ->
                 if hero != null
@@ -78,11 +82,10 @@ public function codeDialog()
                     PLAYER_SET.add(pnu)
                     printTimedToPlayer("Select a hero first", 3, pt)
                 destroy buffBox
-            if difficulty == "normal"
+            if gameMode == 2
                 buffBox.addButton("Gold (+1800)") ->
-                    if difficulty == "normal"
+                    if gameMode == 2
                         pt.addGold(1800)
-                        printTimedToPlayer("Normal mode is true", 5, pt)
                     destroy buffBox
 
             buffBox.addButton("Stats (+30)") ->

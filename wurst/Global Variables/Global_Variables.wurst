@@ -12,8 +12,6 @@ public unit array playerHero = []
 
 public unit elementalSoul
 
-public string difficulty = ""
-
 public constant DAMAGE_EVENT_PRIO_START     = 0 // Abort damage at this priority
 public constant DAMAGE_EVENT_PRIO_RELATIVE  = 1 // Apply relative changes (multiplication and division)
 public constant DAMAGE_EVENT_PRIO_ABSOLUTE  = 2 // Apply absolute changes (addition and subtraction)

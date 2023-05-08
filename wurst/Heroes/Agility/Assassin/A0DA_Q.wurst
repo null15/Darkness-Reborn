@@ -1,17 +1,14 @@
 package A0DA_Q
 import ClosureTimers
 import ClosureForGroups
+import ClosureEvents
 import codeDamageTypings
 init
 
     shadowWalk()
 
-function shadowWalkCond() returns boolean
-    return GetSpellAbilityId() == 'A0DA'
-
 function shadowWalk()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function shadowWalkCond))..addAction() ->
-        let caster = GetTriggerUnit()
+    EventListener.onCast('A0DA') (unit caster) ->
         let angle = caster.getFacingAngle()
         let lvl = GetUnitAbilityLevel(caster, 'A0DA')
         let dmg = ((lvl*0.22) * caster.getAgi(true))

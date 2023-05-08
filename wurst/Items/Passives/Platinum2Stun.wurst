@@ -3,22 +3,22 @@ import DummyCaster
 import OrderIds
 import MyAbilityIds
 import ClosureTimers
-import LinkedList
 import HashMap
 import codeDamageTypings
 
-let plat2StunGroup = new HashMap<int, LinkedList<int>>
+let plat2StunGroup = new HashMap<int, int>
 
 public function platinum2Stun(unit src,unit targ)
     let number = GetPlayerId(GetOwningPlayer(src))
-    if plat2StunGroup.get(number).has(targ.getHandleId()) or targ.isAlive() == false
+    if plat2StunGroup.has(number) or targ.isAlive() == false
         skip
     else
-        plat2StunGroup.get(number).add(targ.getHandleId())
+        let pid = src.getOwner().getId()
+        plat2StunGroup.put(pid, targ.getHandleId())
         src.physicalDamageCode(4500, targ, false)
         new DummyCaster()
-        ..owner(GetOwningPlayer(src))
+        ..owner(src.getOwner())
         ..origin(src.getPos())
         ..castTarget(ABILITY_DUMMY_STUN, 2, OrderIds.thunderbolt, targ)
         doAfter(5) ->
-            plat2StunGroup.get(number).remove(targ.getHandleId())
+            plat2StunGroup.remove(pid)
