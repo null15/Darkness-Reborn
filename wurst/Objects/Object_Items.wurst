@@ -3470,7 +3470,7 @@ init
     +"+10% Chance to shoot a Thunder Lightning dealing 1000 Damage to up to 4 targets in 900 range.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Medallion of Courage (|c001CE6B9" + recipeShop2 + "|r)\n"
-    +"Amulet of the Wild (|c001CE6B9" + recipeShop2 + "|r)\n"
+    +"Amulet of the Wild (|c001CE6B9" + recipeShop1 + "|r)\n"
     +"Orb of Lightning (|c007EBFF1" + basicShop3 + "|r)\n"
     +"|c00FF0303Note: Only works for ranged heroes")
     ..setHotkey("")
@@ -4284,8 +4284,8 @@ init
     +"+700 Damage\n"
     +"70% Chance to Crit for 2 times Damage.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Blade of Hell.\n"
-    +"Steel Axe.")
+    +"Blade of Hell (|c001CE6B9" + recipeShop3 + "|r)\n"
+    +"Steel Axe (|c001CE6B9" + recipeShop1 + "|r)")
     ..setHotkey("")
 
 //I0CO
@@ -5022,7 +5022,7 @@ init
     ..setDescription("Rubystone")
     ..setName("Perfect Pearl")
     ..setTooltipBasic("|c00FEBA0EPerfect Pearl|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+300 All Stats\n|c00FEBA0ESpecial Effect:|r Create 3 copies with all the stats and Armor.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+300 All Stats\n|c00FEBA0ESpecial Effect:|r Create 2 copies with all the stats and Armor.")
     ..setHotkey("")
 
 //I0B0

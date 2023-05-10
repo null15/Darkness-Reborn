@@ -10,10 +10,10 @@ init
     eclipse()
 function eclipse()
     EventListener.onPointCast('A0CZ') (unit caster, vec2 target) ->
-        let lvl = GetUnitAbilityLevel(caster, ABILITY_10)
+        let lvl = caster.getAbilityLevel('A0CZ')
         let dmg = (caster.getInt(true) * 1.25) * lvl
         flashEffect("Effects\\Archmage\\ShadowSlam(Normal Size).mdl", target)
-        forUnitsInRange(target, 500, true) (unit u) ->
+        forUnitsInRange(target, 500) (unit u) ->
             if caster.isEnemyOf(u)
                 let buffs = UnitCountBuffsEx(u, false, false, true, false, false, false, false) - 1.
                 if buffs > 0

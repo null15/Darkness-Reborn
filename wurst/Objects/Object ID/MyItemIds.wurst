@@ -712,267 +712,269 @@ public int array ITEM = []
 public int array ITEM_DROP = []
 public int array ITEM_UPGRADE = []
 
-@compiletime function compileItems()
-    if compiletime
-        integer itemDropIndex = 1
-        ITEM_UPGRADE[1] = ITEM_121
-        ITEM_UPGRADE[2] = ITEM_179
-        ITEM_UPGRADE[3] = ITEM_411
-        ITEM_UPGRADE[4] = ITEM_412
-        ITEM_UPGRADE[5] = ITEM_413
-        ITEM_UPGRADE[6] = ITEM_414
-        ITEM_UPGRADE[7] = ITEM_389
-        ITEM_UPGRADE[8] = ITEM_180
-        ITEM_UPGRADE[9] = ITEM_415
-        ITEM_UPGRADE[10] = ITEM_416
-        ITEM_UPGRADE[11] = ITEM_417
-        ITEM_UPGRADE[12] = ITEM_418
-        ITEM_UPGRADE[13] = ITEM_419
-        ITEM_UPGRADE[14] = ITEM_181
-        ITEM_UPGRADE[15] = ITEM_420
-        ITEM_UPGRADE[16] = ITEM_421
-        ITEM_UPGRADE[17] = ITEM_422
-        ITEM_UPGRADE[18] = ITEM_423
-        ITEM_UPGRADE[19] = ITEM_390
-        ITEM_UPGRADE[20] = ITEM_336
-        ITEM_UPGRADE[21] = ITEM_424
-        ITEM_UPGRADE[22] = ITEM_425
-        ITEM_UPGRADE[23] = ITEM_426
-        ITEM_UPGRADE[24] = ITEM_427
-        ITEM_UPGRADE[25] = ITEM_428
-        ITEM_UPGRADE[26] = ITEM_335
-        ITEM_UPGRADE[27] = ITEM_429
-        ITEM_UPGRADE[28] = ITEM_430
-        ITEM_UPGRADE[29] = ITEM_431
-        ITEM_UPGRADE[30] = ITEM_432
-        ITEM_UPGRADE[31] = ITEM_433
-        ITEM_UPGRADE[32] = ITEM_334
-        ITEM_UPGRADE[33] = ITEM_434
-        ITEM_UPGRADE[34] = ITEM_435
-        ITEM_UPGRADE[35] = ITEM_436
-        ITEM_UPGRADE[36] = ITEM_437
-        ITEM_UPGRADE[37] = ITEM_438
-        ITEM_UPGRADE[38] = ITEM_439
-        ITEM_UPGRADE[39] = ITEM_440
-        ITEM_UPGRADE[40] = ITEM_441
-        ITEM_UPGRADE[41] = ITEM_442
-        ITEM_UPGRADE[42] = ITEM_443
-        ITEM_UPGRADE[43] = ITEM_444
-        ITEM_UPGRADE[44] = ITEM_445
-        ITEM_UPGRADE[45] = ITEM_446
-        ITEM_UPGRADE[46] = ITEM_447
-        ITEM_UPGRADE[47] = ITEM_448
-        ITEM_UPGRADE[48] = ITEM_213
-        ITEM_UPGRADE[49] = ITEM_449
-        ITEM_UPGRADE[50] = ITEM_450
-        ITEM_UPGRADE[51] = ITEM_451
-        ITEM_UPGRADE[52] = ITEM_452
-        ITEM_UPGRADE[53] = ITEM_453
-        ITEM_UPGRADE[54] = ITEM_454
-        ITEM_UPGRADE[55] = ITEM_455
-        ITEM_UPGRADE[56] = ITEM_456
-        ITEM_UPGRADE[57] = ITEM_457
-        ITEM_UPGRADE[58] = ITEM_458
-        ITEM_UPGRADE[59] = ITEM_459
-        ITEM_UPGRADE[60] = ITEM_460
-        ITEM_UPGRADE[61] = ITEM_461
-        ITEM_UPGRADE[62] = ITEM_462
-        ITEM_UPGRADE[63] = ITEM_463
-        ITEM_UPGRADE[64] = ITEM_464
-        ITEM_UPGRADE[65] = ITEM_465
-        ITEM_UPGRADE[66] = ITEM_466
-        ITEM_UPGRADE[67] = ITEM_467
-        ITEM_UPGRADE[68] = ITEM_468
-        ITEM_UPGRADE[69] = ITEM_469
-        ITEM_UPGRADE[70] = ITEM_470
-        ITEM_UPGRADE[71] = ITEM_471
-        ITEM_UPGRADE[72] = ITEM_472
-        ITEM_UPGRADE[73] = ITEM_473
-        ITEM_UPGRADE[74] = ITEM_474
-        ITEM_UPGRADE[75] = ITEM_475
-        ITEM_UPGRADE[76] = ITEM_476
-        ITEM_UPGRADE[77] = ITEM_477
-        ITEM_UPGRADE[78] = ITEM_478
-        ITEM_UPGRADE[79] = ITEM_479
-        ITEM_UPGRADE[80] = ITEM_480
-        ITEM_UPGRADE[81] = ITEM_481
-        ITEM_UPGRADE[82] = ITEM_482
-        let itemList = new LinkedList<int>
-        itemList.add(
-        ITEM_277,
-        ITEM_278,
-        ITEM_279,
-        ITEM_280,
-        ITEM_281,
-        ITEM_282,
-        ITEM_283,
-        ITEM_284,
-        ITEM_285,
-        ITEM_286,
-        ITEM_287,
-        ITEM_288,
-        ITEM_289,
-        ITEM_290,
-        ITEM_291,
-        ITEM_292,
-        ITEM_293,
-        ITEM_294,
-        ITEM_295,
-        ITEM_296
-        )
-        itemList.add(
-        ITEM_297,
-        ITEM_298,
-        ITEM_299,
-        ITEM_300,
-        ITEM_301,
-        ITEM_302,
-        ITEM_303,
-        ITEM_304,
-        ITEM_305,
-        ITEM_306,
-        ITEM_307,
-        ITEM_308,
-        ITEM_309,
-        ITEM_310,
-        ITEM_311,
-        ITEM_312,
-        ITEM_313,
-        ITEM_314,
-        ITEM_315,
-        ITEM_316
-        )
-        itemList.add(
-        ITEM_317,
-        ITEM_318,
-        ITEM_319,
-        ITEM_320,
-        ITEM_321,
-        ITEM_322,
-        ITEM_323,
-        ITEM_324,
-        ITEM_325,
-        ITEM_326,
-        ITEM_195,
-        ITEM_327,
-        ITEM_328,
-        ITEM_329,
-        ITEM_327,
-        ITEM_330,
-        ITEM_331,
-        ITEM_332,
-        ITEM_333,
-        ITEM_334
-        )
-        itemList.add(
-        ITEM_335,
-        ITEM_336,
-        ITEM_337,
-        ITEM_338,
-        ITEM_339,
-        ITEM_340,
-        ITEM_341,
-        ITEM_342, // potentially not used, filling with dummy not to change array size ITEM_DROP_69
-        ITEM_343, // potentially not used, filling with dummy not to change array size ITEM_DROP_70
-        ITEM_344, // potentially not used, filling with dummy not to change array size ITEM_DROP_71
-        ITEM_345,
-        ITEM_346, // potentially not used, filling with dummy not to change array size ITEM_DROP_73
-        ITEM_347, // potentially not used, filling with dummy not to change array size ITEM_DROP_74
-        ITEM_348, // potentially not used, filling with dummy not to change array size ITEM_DROP_75
-        ITEM_348, // potentially not used, filling with dummy not to change array size ITEM_DROP_76
-        ITEM_343,
-        ITEM_344,
-        ITEM_345
-        )
-        itemList.add(
-        ITEM_346,
-        ITEM_347,
-        ITEM_348,
-        ITEM_349,
-        ITEM_350,
-        ITEM_351,
-        ITEM_352,
-        ITEM_353,
-        ITEM_354,
-        ITEM_355,
-        ITEM_356,
-        ITEM_357,
-        ITEM_358,
-        ITEM_359,
-        ITEM_331,
-        ITEM_332,
-        ITEM_333
-        )
-        itemList.add(
-        ITEM_334,
-        ITEM_335,
-        ITEM_336,
-        ITEM_337,
-        ITEM_338,
-        ITEM_339,
-        ITEM_340,
-        ITEM_173,
-        ITEM_186,
-        ITEM_177,
-        ITEM_172,
-        ITEM_187,
-        ITEM_182,
-        ITEM_183,
-        ITEM_184,
-        ITEM_189,
-        ITEM_178,
-        ITEM_176
-        )
-        itemList.add(
-        ITEM_175,
-        ITEM_179,
-        ITEM_181,
-        ITEM_180,
-        ITEM_235,
-        ITEM_229,
-        ITEM_232,
-        ITEM_185,
-        ITEM_238,
-        ITEM_360,
-        ITEM_349,
-        ITEM_350,
-        ITEM_351,
-        ITEM_352,
-        ITEM_353,
-        ITEM_354,
-        ITEM_355,
-        ITEM_361,
-        ITEM_362,
-        ITEM_121
-        )
-        itemList.add(
-        ITEM_363,
-        ITEM_364,
-        ITEM_365,
-        ITEM_366,
-        ITEM_367,
-        ITEM_365,
-        ITEM_366,
-        ITEM_367,
-        ITEM_368,
-        ITEM_369,
-        ITEM_370,
-        ITEM_354,
-        ITEM_371,
-        ITEM_372,
-        ITEM_350,
-        ITEM_373,
-        ITEM_374,
-        ITEM_375,
-        ITEM_376,
-        ITEM_377,
-        ITEM_378,
-        ITEM_253
-        )
-        for addItem in itemList
-            if itemDropIndex == 64
-                itemDropIndex = 66
-            else if itemDropIndex == 95
-                itemDropIndex = 100
-            ITEM_DROP[itemDropIndex] = addItem
-            itemDropIndex = itemDropIndex + 1
+init 
+    compileItems()
+
+function compileItems()
+    integer itemDropIndex = 1
+    ITEM_UPGRADE[1] = ITEM_121
+    ITEM_UPGRADE[2] = ITEM_179
+    ITEM_UPGRADE[3] = ITEM_411
+    ITEM_UPGRADE[4] = ITEM_412
+    ITEM_UPGRADE[5] = ITEM_413
+    ITEM_UPGRADE[6] = ITEM_414
+    ITEM_UPGRADE[7] = ITEM_389
+    ITEM_UPGRADE[8] = ITEM_180
+    ITEM_UPGRADE[9] = ITEM_415
+    ITEM_UPGRADE[10] = ITEM_416
+    ITEM_UPGRADE[11] = ITEM_417
+    ITEM_UPGRADE[12] = ITEM_418
+    ITEM_UPGRADE[13] = ITEM_419
+    ITEM_UPGRADE[14] = ITEM_181
+    ITEM_UPGRADE[15] = ITEM_420
+    ITEM_UPGRADE[16] = ITEM_421
+    ITEM_UPGRADE[17] = ITEM_422
+    ITEM_UPGRADE[18] = ITEM_423
+    ITEM_UPGRADE[19] = ITEM_390
+    ITEM_UPGRADE[20] = ITEM_336
+    ITEM_UPGRADE[21] = ITEM_424
+    ITEM_UPGRADE[22] = ITEM_425
+    ITEM_UPGRADE[23] = ITEM_426
+    ITEM_UPGRADE[24] = ITEM_427
+    ITEM_UPGRADE[25] = ITEM_428
+    ITEM_UPGRADE[26] = ITEM_335
+    ITEM_UPGRADE[27] = ITEM_429
+    ITEM_UPGRADE[28] = ITEM_430
+    ITEM_UPGRADE[29] = ITEM_431
+    ITEM_UPGRADE[30] = ITEM_432
+    ITEM_UPGRADE[31] = ITEM_433
+    ITEM_UPGRADE[32] = ITEM_334
+    ITEM_UPGRADE[33] = ITEM_434
+    ITEM_UPGRADE[34] = ITEM_435
+    ITEM_UPGRADE[35] = ITEM_436
+    ITEM_UPGRADE[36] = ITEM_437
+    ITEM_UPGRADE[37] = ITEM_438
+    ITEM_UPGRADE[38] = ITEM_439
+    ITEM_UPGRADE[39] = ITEM_440
+    ITEM_UPGRADE[40] = ITEM_441
+    ITEM_UPGRADE[41] = ITEM_442
+    ITEM_UPGRADE[42] = ITEM_443
+    ITEM_UPGRADE[43] = ITEM_444
+    ITEM_UPGRADE[44] = ITEM_445
+    ITEM_UPGRADE[45] = ITEM_446
+    ITEM_UPGRADE[46] = ITEM_447
+    ITEM_UPGRADE[47] = ITEM_448
+    ITEM_UPGRADE[48] = ITEM_213
+    ITEM_UPGRADE[49] = ITEM_449
+    ITEM_UPGRADE[50] = ITEM_450
+    ITEM_UPGRADE[51] = ITEM_451
+    ITEM_UPGRADE[52] = ITEM_452
+    ITEM_UPGRADE[53] = ITEM_453
+    ITEM_UPGRADE[54] = ITEM_454
+    ITEM_UPGRADE[55] = ITEM_455
+    ITEM_UPGRADE[56] = ITEM_456
+    ITEM_UPGRADE[57] = ITEM_457
+    ITEM_UPGRADE[58] = ITEM_458
+    ITEM_UPGRADE[59] = ITEM_459
+    ITEM_UPGRADE[60] = ITEM_460
+    ITEM_UPGRADE[61] = ITEM_461
+    ITEM_UPGRADE[62] = ITEM_462
+    ITEM_UPGRADE[63] = ITEM_463
+    ITEM_UPGRADE[64] = ITEM_464
+    ITEM_UPGRADE[65] = ITEM_465
+    ITEM_UPGRADE[66] = ITEM_466
+    ITEM_UPGRADE[67] = ITEM_467
+    ITEM_UPGRADE[68] = ITEM_468
+    ITEM_UPGRADE[69] = ITEM_469
+    ITEM_UPGRADE[70] = ITEM_470
+    ITEM_UPGRADE[71] = ITEM_471
+    ITEM_UPGRADE[72] = ITEM_472
+    ITEM_UPGRADE[73] = ITEM_473
+    ITEM_UPGRADE[74] = ITEM_474
+    ITEM_UPGRADE[75] = ITEM_475
+    ITEM_UPGRADE[76] = ITEM_476
+    ITEM_UPGRADE[77] = ITEM_477
+    ITEM_UPGRADE[78] = ITEM_478
+    ITEM_UPGRADE[79] = ITEM_479
+    ITEM_UPGRADE[80] = ITEM_480
+    ITEM_UPGRADE[81] = ITEM_481
+    ITEM_UPGRADE[82] = ITEM_482
+    let itemList = new LinkedList<int>
+    itemList.add(
+    ITEM_277,
+    ITEM_278,
+    ITEM_279,
+    ITEM_280,
+    ITEM_281,
+    ITEM_282,
+    ITEM_283,
+    ITEM_284,
+    ITEM_285,
+    ITEM_286,
+    ITEM_287,
+    ITEM_288,
+    ITEM_289,
+    ITEM_290,
+    ITEM_291,
+    ITEM_292,
+    ITEM_293,
+    ITEM_294,
+    ITEM_295,
+    ITEM_296
+    )
+    itemList.add(
+    ITEM_297,
+    ITEM_298,
+    ITEM_299,
+    ITEM_300,
+    ITEM_301,
+    ITEM_302,
+    ITEM_303,
+    ITEM_304,
+    ITEM_305,
+    ITEM_306,
+    ITEM_307,
+    ITEM_308,
+    ITEM_309,
+    ITEM_310,
+    ITEM_311,
+    ITEM_312,
+    ITEM_313,
+    ITEM_314,
+    ITEM_315,
+    ITEM_316
+    )
+    itemList.add(
+    ITEM_317,
+    ITEM_318,
+    ITEM_319,
+    ITEM_320,
+    ITEM_321,
+    ITEM_322,
+    ITEM_323,
+    ITEM_324,
+    ITEM_325,
+    ITEM_326,
+    ITEM_195,
+    ITEM_327,
+    ITEM_328,
+    ITEM_329,
+    ITEM_327,
+    ITEM_330,
+    ITEM_331,
+    ITEM_332,
+    ITEM_333,
+    ITEM_334
+    )
+    itemList.add(
+    ITEM_335,
+    ITEM_336,
+    ITEM_337,
+    ITEM_338,
+    ITEM_339,
+    ITEM_340,
+    ITEM_341,
+    ITEM_342, // potentially not used, filling with dummy not to change array size ITEM_DROP_69
+    ITEM_343, // potentially not used, filling with dummy not to change array size ITEM_DROP_70
+    ITEM_344, // potentially not used, filling with dummy not to change array size ITEM_DROP_71
+    ITEM_345,
+    ITEM_346, // potentially not used, filling with dummy not to change array size ITEM_DROP_73
+    ITEM_347, // potentially not used, filling with dummy not to change array size ITEM_DROP_74
+    ITEM_348, // potentially not used, filling with dummy not to change array size ITEM_DROP_75
+    ITEM_348, // potentially not used, filling with dummy not to change array size ITEM_DROP_76
+    ITEM_343,
+    ITEM_344,
+    ITEM_345
+    )
+    itemList.add(
+    ITEM_346,
+    ITEM_347,
+    ITEM_348,
+    ITEM_349,
+    ITEM_350,
+    ITEM_351,
+    ITEM_352,
+    ITEM_353,
+    ITEM_354,
+    ITEM_355,
+    ITEM_356,
+    ITEM_357,
+    ITEM_358,
+    ITEM_359,
+    ITEM_331,
+    ITEM_332,
+    ITEM_333
+    )
+    itemList.add(
+    ITEM_334,
+    ITEM_335,
+    ITEM_336,
+    ITEM_337,
+    ITEM_338,
+    ITEM_339,
+    ITEM_340,
+    ITEM_173,
+    ITEM_186,
+    ITEM_177,
+    ITEM_172,
+    ITEM_187,
+    ITEM_182,
+    ITEM_183,
+    ITEM_184,
+    ITEM_189,
+    ITEM_178,
+    ITEM_176
+    )
+    itemList.add(
+    ITEM_175,
+    ITEM_179,
+    ITEM_181,
+    ITEM_180,
+    ITEM_235,
+    ITEM_229,
+    ITEM_232,
+    ITEM_185,
+    ITEM_238,
+    ITEM_360,
+    ITEM_349,
+    ITEM_350,
+    ITEM_351,
+    ITEM_352,
+    ITEM_353,
+    ITEM_354,
+    ITEM_355,
+    ITEM_361,
+    ITEM_362,
+    ITEM_121
+    )
+    itemList.add(
+    ITEM_363,
+    ITEM_364,
+    ITEM_365,
+    ITEM_366,
+    ITEM_367,
+    ITEM_365,
+    ITEM_366,
+    ITEM_367,
+    ITEM_368,
+    ITEM_369,
+    ITEM_370,
+    ITEM_354,
+    ITEM_371,
+    ITEM_372,
+    ITEM_350,
+    ITEM_373,
+    ITEM_374,
+    ITEM_375,
+    ITEM_376,
+    ITEM_377,
+    ITEM_378,
+    ITEM_253
+    )
+    for addItem in itemList
+        if itemDropIndex == 64
+            itemDropIndex = 66
+        else if itemDropIndex == 95
+            itemDropIndex = 100
+        ITEM_DROP[itemDropIndex] = addItem
+        itemDropIndex = itemDropIndex + 1

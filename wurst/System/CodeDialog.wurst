@@ -5,16 +5,9 @@ import DialogBox
 import ClosureKeyPresses
 import Global_Variables
 import Base64
-import StringUtils
 import ChunkedString
 
 let PLAYER_SET = compiletime(player_list())
-
-function string.removeHash() returns string
-    let charlist = "#"
-    let replacementString = ""
-
-    return this.replaceChars(charlist, replacementString)
 
 function readInto(int initial) returns ChunkedString
     let encoder = new Base64Encoder(16)

@@ -2010,6 +2010,7 @@ import OrderIds
     ..setTooltipNormal(2, "Aura of Bwonsamdi")
     ..setTooltipNormal(3, "Aura of Bwonsamdi")
     ..setTooltipNormal(4, "Aura of Bwonsamdi")
+    ..presetTooltipNormal(lvl -> "Aura of Bwonsamdi")
     ..setTooltipNormalExtended(1, "The King of loas exudes the presence of Bwonsamdi on all enemies reducing their movement and attack speed by 10% and dealing 2.5 int damage every 2 seconds.")
     ..setTooltipNormalExtended(2, "The King of loas exudes the presence of Bwonsamdi on all enemies reducing their movement and attack speed by 20% and dealing 3 int damage every 2 seconds.")
     ..setTooltipNormalExtended(3, "The King of loas exudes the presence of Bwonsamdi on all enemies reducing their movement and attack speed by 30% and dealing 3.5 int damage every 2 seconds.")
@@ -2021,35 +2022,10 @@ import OrderIds
     ..setArtCaster(Abilities.commandAura)
     ..setArtTarget(Abilities.commandAuraTarget)
 
-    ..setTargetsAllowed(1, commaList("Air", "Grond", "Alive", "Enemy", "Invulernable", "Not self", "Vulnerable"))
-    ..setTargetsAllowed(2, commaList("Air", "Grond", "Alive", "Enemy", "Invulernable", "Not self", "Vulnerable"))
-    ..setTargetsAllowed(3, commaList("Air", "Grond", "Alive", "Enemy", "Invulernable", "Not self", "Vulnerable"))
-    ..setTargetsAllowed(4, commaList("Air", "Grond", "Alive", "Enemy", "Invulernable", "Not self", "Vulnerable"))
-
-    ..setAttackSpeedIncrease(1, -0.1)
-    ..setAttackSpeedIncrease(2, -0.2)
-    ..setAttackSpeedIncrease(3, -0.3)
-    ..setAttackSpeedIncrease(4, -0.4)
-
-    ..setMovementSpeedIncrease(1, -0.1)
-    ..setMovementSpeedIncrease(2, -0.2)
-    ..setMovementSpeedIncrease(3, -0.3)
-    ..setMovementSpeedIncrease(4, -0.4)
-
-    ..setAreaofEffect(1, 200)
-    ..setAreaofEffect(2, 350)
-    ..setAreaofEffect(3, 450)
-    ..setAreaofEffect(4, 600)
-
-    ..setBuffs(1, BUFF_16.toRawCode())
-    ..setBuffs(2, BUFF_16.toRawCode())
-    ..setBuffs(3, BUFF_16.toRawCode())
-    ..setBuffs(4, BUFF_16.toRawCode())
-    ..setBuffs(5, BUFF_16.toRawCode())
-    ..setBuffs(6, BUFF_16.toRawCode())
-    ..setBuffs(7, BUFF_16.toRawCode())
-    ..setBuffs(8, BUFF_16.toRawCode())
-    ..setBuffs(9, BUFF_16.toRawCode())
+    ..presetAttackSpeedIncrease(lvl -> -0.1 * lvl)
+    ..presetMovementSpeedIncrease(lvl -> -0.1 * lvl)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetBuffs(lvl -> BUFF_16.toRawCode())
 
     ..setLevelSkipRequirement(8)
     ..setRequiredLevel(8)
@@ -2059,8 +2035,6 @@ import OrderIds
     ..setButtonPositionResearchX(3)
     ..setButtonPositionResearchY(1)
     ..setHotkeyLearn("T")
-    ..setHotkeyNormal("T")
-
 
     new AbilityDefinitionSlow(ABILITY_43) // on dummy
     ..setName("slow")
