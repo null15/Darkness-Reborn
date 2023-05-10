@@ -10,7 +10,7 @@ init
 function darkArrow()
     EventListener.onPointCast('A0CH') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0CH')
-        let amount = caster.getAgi(true) * lvl * 2.
+        let amount = caster.getStr(true) * lvl * 2.
         doAfter(0.5) -> 
             forUnitsInRange(target, 400, true) (unit u) ->
                 if caster.isEnemyOf(u)

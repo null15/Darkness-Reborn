@@ -358,6 +358,7 @@ public constant AGIMOD_43 = compiletime(ABIL_ID_GEN.next())
 public constant AGIMOD_44 = compiletime(ABIL_ID_GEN.next())
 public constant AGIMOD_45 = compiletime(ABIL_ID_GEN.next())
 public constant AGIMOD_46 = compiletime(ABIL_ID_GEN.next())
+public constant AGIMOD_47 = compiletime(ABIL_ID_GEN.next())
 
 public constant STRMOD_1 = compiletime(ABIL_ID_GEN.next())
 public constant STRMOD_2 = compiletime(ABIL_ID_GEN.next())

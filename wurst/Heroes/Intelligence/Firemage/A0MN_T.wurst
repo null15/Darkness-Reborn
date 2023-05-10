@@ -5,6 +5,7 @@ import MyUnitIds
 import ClosureForGroups
 import ClosureTimers
 import codeDamageTypings
+import Abilities
 
 real array dist = []
 unit array phoenix = []
@@ -40,8 +41,9 @@ function meltingPhoenix()
                     phoenix[i].setPos(phoenix[i].getPos().polarOffset(angle-(38.50).asAngleDegrees(), 100))
                     phoenix[i].setPosFly(phoenix[i].getPos().withZ(decrease))
             forUnitsInRange(target, 900, true) (unit u) ->
-                if caster.isEnemyOf(u)
+                if caster.isEnemyOf(u) and u.isAlive()
                     if u.getHPRatio() < 0.05
                         caster.pureDamageCode(u.getMaxHP(), u)
+                        flashEffect(Abilities.fireLordDeathExplode, u.getPos())
             if cb.isLast()
                 explosion(caster, target)

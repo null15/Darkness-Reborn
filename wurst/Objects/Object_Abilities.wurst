@@ -196,6 +196,9 @@ import OrderIds
     //A0Y1
     new AbilityDefinitionAgilityMod(AGIMOD_46)
     ..setAgilityBonus(1, 999)
+
+    new AbilityDefinitionAgilityMod(AGIMOD_47)
+    ..setAgilityBonus(1, 1111)
 @compiletime function strAbils()
     //A03R
     new AbilityDefinitionStrengthMod(STRMOD_1)

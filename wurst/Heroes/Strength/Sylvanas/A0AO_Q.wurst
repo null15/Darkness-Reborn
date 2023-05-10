@@ -24,7 +24,7 @@ function goldenArrow()
         var pos = sfx.getPos()
         sfx.setScale(3)
         sfx.setYaw(angle.radians())
-        let amount = caster.getAgi(true) * lvl * 0.15
+        let amount = caster.getStr(true) * lvl * 0.15
         doPeriodicallyTimed(0.03, 1.2) cb -> 
             if cb.isLast()
                 sfx.destr()

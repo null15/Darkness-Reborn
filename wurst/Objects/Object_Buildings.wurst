@@ -43,7 +43,7 @@ import Units
     ..setTintingColorBlue(0)
     ..setTintingColorGreen(0)
     ..setTintingColorRed(255)
-    .setUnitsSold(commaList(PLAY_HERO_0, PLAY_HERO_1_INITIAL, PLAY_HERO_2, PLAY_HERO_3, PLAY_HERO_4, PLAY_HERO_5, PLAY_HERO_6, PLAY_HERO_7, PLAY_HERO_8))
+    .setUnitsSold(commaList(PLAY_HERO_0, PLAY_HERO_1_INITIAL, PLAY_HERO_2, PLAY_HERO_3, PLAY_HERO_4, PLAY_HERO_5, PLAY_HERO_6, PLAY_HERO_7, PLAY_HERO_8, PLAY_HERO_18))
 
     new BuildingDefinition(BUILDING_TAVERN_AGI, UnitIds.cantina)// Tavern Build Agility Heroes (n00A)
     ..setName("Agility Heroes")
@@ -56,7 +56,7 @@ import Units
     ..setArmorType(ArmorType.Unarmored)
     ..setPathingMap("")
     ..setPlacementRequires("")
-    .setUnitsSold(commaList(PLAY_HERO_9, PLAY_HERO_10, PLAY_HERO_31, PLAY_HERO_11, PLAY_HERO_12, PLAY_HERO_13, PLAY_HERO_14, PLAY_HERO_15, PLAY_HERO_16, PLAY_HERO_17, PLAY_HERO_18))
+    .setUnitsSold(commaList(PLAY_HERO_9, PLAY_HERO_10, PLAY_HERO_31, PLAY_HERO_11, PLAY_HERO_12, PLAY_HERO_13, PLAY_HERO_14, PLAY_HERO_15, PLAY_HERO_16, PLAY_HERO_17))
 
     new BuildingDefinition(BUILDING_TAVERN_INT, UnitIds.cantina)// Tavern Build Intelligent Heroes (n00B)
     ..setName("Intelligent Heroes")

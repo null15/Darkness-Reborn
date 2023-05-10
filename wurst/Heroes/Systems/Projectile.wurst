@@ -33,6 +33,10 @@ public class Projectile
                 if(isAlive)
                     impact(sfx)
                     destroy cb
+                else
+                    sfx.destr()
+                    destroy cb
+                    destroy this
 
 public function fireProjectile(unit target, effect sfx, OnProjectileHit onHit)
     let detection = new Projectile(target, sfx, onHit)
