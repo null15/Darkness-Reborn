@@ -1,34 +1,62 @@
 package BouncingProjectiles
 import Projectile
 import ClosureForGroups
+import ClosureTimers
 
-public class BouncingProjectiles extends Projectile
+public interface OnProjectileHit
+    function hit(effect detectionUnit, unit target)
+
+public class BouncingProjectiles
     protected bool closestEnemy
+    protected int buffBias
     protected real bounceRange
     protected int maxBounceCount
     protected unit newTarg
     protected unit caster
     protected int counter
+    protected effect sfx
+    protected unit target
+    protected OnProjectileHit onHit
 
-    construct(effect sfx, unit caster, unit target, real bounceRange, bool closestEnemy, int maxBounceCount, OnProjectileHit onHit)
-        super(target, sfx, onHit)
+    construct(effect sfx, unit caster, unit target, real bounceRange, bool closestEnemy, int maxBounceCount, int buffBias, OnProjectileHit onHit)
+        this.target = target
+        this.sfx = sfx
+        this.onHit = onHit
         this.caster = caster
         this.closestEnemy = closestEnemy
         this.bounceRange = bounceRange
         this.maxBounceCount = maxBounceCount
         this.counter = 0
+        this.buffBias = buffBias
 
     ondestroy
         destroy onHit
         sfx.destr()
 
+    function impact(effect detectionUnit)
+        if(target.isAlive())
+            onHit.hit(detectionUnit, target)
+        counter++
+        if(counter >= maxBounceCount)
+            sfx.destr()
+            destroy this
+        else
+            swapTarget()
+
     private function swapTargetClosest(vec2 sfxPos, unit u)
         if(u.isEnemyOf(caster.getOwner()))
             if(u != target)
-                let udis = u.getPos().distanceTo(sfxPos)
-                let ndis = newTarg.getPos().distanceTo(sfxPos)
-                if(udis < ndis and u.isAlive())
-                    newTarg = u
+                if(buffBias > 0)
+                    if(newTarg.hasAbility(buffBias) == false or u.hasAbility(buffBias))
+                        let udis = u.getPos().distanceTo(sfxPos)
+                        let ndis = newTarg.getPos().distanceTo(sfxPos)
+                        if(udis < ndis and u.isAlive())
+                            newTarg = u
+                else
+                    let udis = u.getPos().distanceTo(sfxPos)
+                    let ndis = newTarg.getPos().distanceTo(sfxPos)
+                    if(udis < ndis and u.isAlive())
+                        newTarg = u
 
     private function swapTargetFurthest(vec2 sfxPos, unit u)
         if(u.isEnemyOf(caster.getOwner()))
@@ -48,51 +76,28 @@ public class BouncingProjectiles extends Projectile
             forUnitsInRange(sfxPos, bounceRange) (unit u) ->
                 swapTargetFurthest(sfxPos, u)
         target = newTarg
-
-    private function swapTargetBuffBias(int bias)
-        newTarg = null
-        let sfxPos = sfx.getPos()
-        if(closestEnemy)
-            forUnitsInRange(sfxPos, bounceRange) (unit u) ->
-                if(u.hasAbility(bias) == false)
-                    swapTargetClosest(sfxPos, u)
-                else if (target.hasAbility(bias) == false)
-                    swapTargetClosest(sfxPos, u)
-        else
-            forUnitsInRange(sfxPos, bounceRange) (unit u) ->
-                if(u.hasAbility(bias) == false)
-                    swapTargetFurthest(sfxPos, u)
-                else if (target.hasAbility(bias) == false)
-                    swapTargetFurthest(sfxPos, u)
-        target = newTarg
-
-    function projectileReturnBuffBias(int bias)
-        if(counter < maxBounceCount and target != null)
-            fireProjectile(target, sfx) (effect detectionUnit, unit target) ->
-                sfx.destr()
-                onHit.hit(detectionUnit, target)
-                swapTargetBuffBias(bias)
-                projectileReturnBuffBias(bias)
-                counter++
-        else
+        if(target == null)
+            sfx.destr()
             destroy this
-    function projectileReturn()
-        if(counter < maxBounceCount and target != null)
-            fireProjectile(target, sfx) (effect detectionUnit, unit target) ->
-                sfx.destr()
-                onHit.hit(detectionUnit, target)
-                swapTarget()
-                projectileReturn()
-                counter++
         else
-            destroy this
+            moveForward()
 
-public function fireBouncingProjectile(string sfxPath, unit caster, unit target, int maxBounceCount, real sfxZ, real sfxScale, bool closestEnemy, real bounceRange, OnProjectileHit onHit)
-    let sfx = addEffect(sfxPath, caster.getPos())..setZ(sfxZ)..setScale(sfxScale)
-    let bounce = new BouncingProjectiles(sfx, caster, target, bounceRange, closestEnemy, maxBounceCount, onHit)
-    bounce.projectileReturn()
+    function moveForward()
+        doPeriodically(0.02) (CallbackPeriodic cb) ->
+            let pos1 = sfx.getPos()
+            let pos2 = target.getPos()
+            let angle = pos1.angleTo(pos2)
+            let pos3 = pos1.polarOffset(angle, 7.)
+            sfx..setPos(pos3).setYaw(angle.radians())
+            let dist = pos1.distanceTo(pos2)
+            if(dist <= 11.)
+                impact(sfx)
+                destroy cb
 
-public function fireBouncingBuffBiasProjectile(string sfxPath, unit caster, unit target, int bias, int maxBounceCount, real sfxZ, real sfxScale, bool closestEnemy, real bounceRange, OnProjectileHit onHit)
-    let sfx = addEffect(sfxPath, caster.getPos())..setZ(sfxZ)..setScale(sfxScale)
-    let bounce = new BouncingProjectiles(sfx, caster, target, bounceRange, closestEnemy, maxBounceCount, onHit)
-    bounce.projectileReturnBuffBias(bias)
+public function fireBouncingBuffBiasProjectile(effect sfx, unit caster, unit target, int bias, int maxBounceCount, bool closestEnemy, real bounceRange, OnProjectileHit onHit)
+    let bounce = new BouncingProjectiles(sfx, caster, target, bounceRange, closestEnemy, maxBounceCount, bias, onHit)
+    bounce.moveForward()
+
+public function fireBouncingProjectile(effect sfx, unit caster, unit target, int maxBounceCount, bool closestEnemy, real bounceRange, OnProjectileHit onHit)
+    let bounce = new BouncingProjectiles(sfx, caster, target, bounceRange, closestEnemy, maxBounceCount, 0, onHit)
+    bounce.moveForward()

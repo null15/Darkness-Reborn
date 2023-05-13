@@ -16,9 +16,9 @@ init
     fireballCast()
 function fireballCast()
     EventListener.onTargetCast('A01S') (unit caster, unit target) ->
-        let sfx = addEffect(Abilities.fireBallMissile, caster.getPos())..setZ(20)..setScale(1.5)
+        let sfx = addEffect(Abilities.fireBallMissile, caster.getPos())..setZ(caster.getLocalZ() + 20)..setScale(1.5)
         let level = caster.getAbilityLevel('A01S')
-        fireBouncingBuffBiasProjectile(Abilities.fireBallMissile, caster, target, BUFF_12, udg_BounceAmount[level-1], 20, 1.5, true, 400) (effect detectionUnit, unit target) ->
+        fireBouncingBuffBiasProjectile(sfx, caster, target, BUFF_12, udg_BounceAmount[level-1], true, 400) (effect detectionUnit, unit target) ->
             let damage = udg_FireBallDamage[level-1] + level * 0.8 * caster.getInt(true)
             new DummyCaster()
             ..owner(caster.getOwner())

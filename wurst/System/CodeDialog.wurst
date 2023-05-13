@@ -58,7 +58,6 @@ function hashCheck(string compareWith) returns int
 
 public function codeDialog()
     onKeyPress(OSKEY_C, OSKEY_META.SHIFT) ->
-        test()
         let pt = GetTriggerPlayer()
         let pn = pt.getName()
         let pnu = readInto(pn.getHash())

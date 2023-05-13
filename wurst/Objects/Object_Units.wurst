@@ -3081,7 +3081,7 @@ init
 
     new HeroDefinition(PLAY_HERO_23, UnitIds.shadowhunter)// Shadow Hunter (O00U)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList(ABILITY_3, 'A019', 'A0M9', 'A0M3', 'A0MI'))
+    ..setHeroAbilities(commaList(SHADOWHUNTER_ABIL_1, 'A019', 'A0M9', 'A0M3', 'A0MI'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     
     ..setPrimaryAttribute("Intelligence")

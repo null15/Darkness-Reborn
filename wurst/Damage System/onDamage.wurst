@@ -53,6 +53,7 @@ import SplitArmor
 import DragonTurtle
 import Turtle
 import A0RI_R
+import A0RL_E
 
 @configurable constant DETECT_NATIVE_ABILITIES = true
 
@@ -323,3 +324,5 @@ function reflectionChecks(unit src, unit targ)
         dragonTurtle(targ, src, dam)
     if(targ.getAbilityLevel('A0RI') > 0)
         pitLordThorn(targ, src)
+    if(targ.getAbilityLevel('a0RL') > 0)
+        pitLordDemonSkin(targ, src, dam)

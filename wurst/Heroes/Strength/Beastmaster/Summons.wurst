@@ -40,7 +40,7 @@ function quilBeast()
             
             if summon.getTypeId() == QUILBEAST
                 let lvl = summoner.getAbilityLevel(ABILITY_5)
-                summon.setMaxHP(((0.1*summoner.getMaxHP()) + lvl * 125).toInt(), true)
+                summon.setMaxHP(((0.01*summoner.getMaxHP()) + lvl * 125).toInt(), true)
                 summon.setArmor(0.15 * summoner.getArmor() + lvl * 4)
                 summon.setBaseDamage((0.4 * str).toInt() + lvl * 15, 0)
                 summon.enumeratePhysicalPenetration(summoner.getPhysPenetration() * 2 * lvl)

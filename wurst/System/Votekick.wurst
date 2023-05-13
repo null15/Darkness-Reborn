@@ -162,7 +162,7 @@ public class VoteKick
     static function showVoteKickDialog(player toPlayer)
         if (isVoteKickDialogVisible(toPlayer) or getVoteCast(toPlayer) != Undecided)
             return
-        let dialogBox = new DialogBox("{0} wants to kick {1}".format(m_playerRequesting.getNameColored(false), m_playerToKick.getNameColored(false)))
+        let dialogBox = new DialogBox(m_playerRequesting.getNameColored(true) + " wants to kick " + m_playerToKick.getNameColored(true))
 
         dialogBox.addButton("Vote Yes", 'Y') () ->
             destroy dialogBox

@@ -9,10 +9,10 @@ function blueSea()
         if GetKillingUnit().getTypeId() == PLAY_HERO_25 and GetKillingUnit().getAbilityLevel(NAGAWITCH_ABIL_4) > 0
             let vashj = GetKillingUnit()
             let lvl = vashj.getAbilityLevel(NAGAWITCH_ABIL_4)
-            if GetRandomInt(1, 100) < lvl*5
+            if GetRandomInt(1, 100) < lvl*4
                 if lvl <= 3
-                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 50)
+                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 20)
                 else if lvl <=6
-                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 100)
+                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 40)
                 else if lvl <=9
-                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 150)
+                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 60)

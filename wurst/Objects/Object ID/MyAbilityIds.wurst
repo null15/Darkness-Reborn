@@ -36,7 +36,7 @@ public constant ABILITY_DUMMY_STUN = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_0 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_1 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_2 = compiletime(ABIL_ID_GEN.next())
-public constant ABILITY_3 = compiletime(ABIL_ID_GEN.next()) // NOT USED
+
 public constant ABILITY_4 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_5 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_6 = compiletime(ABIL_ID_GEN.next())
@@ -89,6 +89,12 @@ public constant ABILITY_52 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_53 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_54 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_55 = compiletime(ABIL_ID_GEN.next())
+
+public constant SHADOWHUNTER_ABIL_1 = compiletime(ABIL_ID_GEN.next())
+public constant SHADOWHUNTER_ABIL_2 = compiletime(ABIL_ID_GEN.next())
+public constant SHADOWHUNTER_ABIL_3 = compiletime(ABIL_ID_GEN.next())
+public constant SHADOWHUNTER_ABIL_4 = compiletime(ABIL_ID_GEN.next())
+public constant SHADOWHUNTER_ABIL_5 = compiletime(ABIL_ID_GEN.next())
 
 public constant DARKRANGER_DUMMYABIL_1 = compiletime(ABIL_ID_GEN.next())
 public constant DARKRANGER_ABIL_1 = compiletime(ABIL_ID_GEN.next())

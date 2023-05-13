@@ -2,11 +2,11 @@ package CallofDoom
 
 import MyItemIds
 import ClosureEvents
-import Global_Variables
+
 init
     callofDoom()
 function callofDoom()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
-        let p = GetKillingUnit().getOwner().getId()
-        if playerHero[p].hasItemById(ITEM_690) and GetRandomInt(0, 100) <= 100
-            playerHero[p].addAgi(1)
+        let p = GetKillingUnit()
+        if p.hasItemById(ITEM_690) and GetRandomInt(0, 100) <= 100
+            p.addAgi(1)

@@ -14,358 +14,358 @@ import OrderIds
 
 @compiletime function agiAbils()
     //A0MQ
-    new AbilityDefinitionAgilityMod(AGIMOD_1)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_1)
     ..setAgilityBonus(1, 125)
 
     //A0GZ
-    new AbilityDefinitionAgilityMod(AGIMOD_2)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_2)
     ..setAgilityBonus(1, 140)
   
     //A0ES
-    new AbilityDefinitionAgilityMod(AGIMOD_3)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_3)
     ..setAgilityBonus(1, 1470)
  
     //A0II
-    new AbilityDefinitionAgilityMod(AGIMOD_4)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_4)
     ..setAgilityBonus(1, 150)
  
     //A0IJ
-    new AbilityDefinitionAgilityMod(AGIMOD_5)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_5)
     ..setAgilityBonus(1, 170)
  
     //A0VI
-    new AbilityDefinitionAgilityMod(AGIMOD_6)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_6)
     ..setAgilityBonus(1, 180)
  
     //A03N
-    new AbilityDefinitionAgilityMod(AGIMOD_7)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_7)
     ..setAgilityBonus(1, 20)
  
     //A0MV
-    new AbilityDefinitionAgilityMod(AGIMOD_8)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_8)
     ..setAgilityBonus(1, 2200)
  
     //A0MR
-    new AbilityDefinitionAgilityMod(AGIMOD_9)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_9)
     ..setAgilityBonus(1, 235)
  
     //A0IK
-    new AbilityDefinitionAgilityMod(AGIMOD_10)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_10)
     ..setAgilityBonus(1, 250)
  
     //A0VJ
-    new AbilityDefinitionAgilityMod(AGIMOD_11)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_11)
     ..setAgilityBonus(1, 280)
  
     //A0XY
-    new AbilityDefinitionAgilityMod(AGIMOD_12)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_12)
     ..setAgilityBonus(1, 2900)
  
     //A05J
-    new AbilityDefinitionAgilityMod(AGIMOD_13)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_13)
     ..setAgilityBonus(1, 30)
  
     //A0IL
-    new AbilityDefinitionAgilityMod(AGIMOD_14)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_14)
     ..setAgilityBonus(1, 350)
  
     //A0E5
-    new AbilityDefinitionAgilityMod(AGIMOD_15)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_15)
     ..setAgilityBonus(1, 385)
  
     //A0MS
-    new AbilityDefinitionAgilityMod(AGIMOD_16)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_16)
     ..setAgilityBonus(1, 455)
  
     //A0VL
-    new AbilityDefinitionAgilityMod(AGIMOD_17)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_17)
     ..setAgilityBonus(1, 460)
  
     //A0E9
-    new AbilityDefinitionAgilityMod(AGIMOD_18)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_18)
     ..setAgilityBonus(1, 490)
  
     //A03Q
-    new AbilityDefinitionAgilityMod(AGIMOD_19)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_19)
     ..setAgilityBonus(1, 50)
  
     //A0MT
-    new AbilityDefinitionAgilityMod(AGIMOD_20)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_20)
     ..setAgilityBonus(1, 555)
  
     //A0VG
-    new AbilityDefinitionAgilityMod(AGIMOD_21)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_21)
     ..setAgilityBonus(1, 60)
  
     //A0X6
-    new AbilityDefinitionAgilityMod(AGIMOD_22)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_22)
     ..setAgilityBonus(1, 600)
  
     //A0EO
-    new AbilityDefinitionAgilityMod(AGIMOD_23)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_23)
     ..setAgilityBonus(1, 630)
  
     //A0MP
-    new AbilityDefinitionAgilityMod(AGIMOD_24)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_24)
     ..setAgilityBonus(1, 65)
  
     //A0MX
-    new AbilityDefinitionAgilityMod(AGIMOD_25)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_25)
     ..setAgilityBonus(1, 690)
  
     //A0GW
-    new AbilityDefinitionAgilityMod(AGIMOD_26)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_26)
     ..setAgilityBonus(1, 70)
  
     //A0GX
-    new AbilityDefinitionAgilityMod(AGIMOD_27)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_27)
     ..setAgilityBonus(1, 90)
  
     //A0ER
-    new AbilityDefinitionAgilityMod(AGIMOD_28)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_28)
     ..setAgilityBonus(1, 910)
  
     //A03K
-    new AbilityDefinitionAgilityMod(AGIMOD_29)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_29)
     ..setAgilityBonus(1, 1)
  
     //A03P
-    new AbilityDefinitionAgilityMod(AGIMOD_30)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_30)
     ..setAgilityBonus(1, 10)
  
     //A043
-    new AbilityDefinitionAgilityMod(AGIMOD_31)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_31)
     ..setAgilityBonus(1, 100)
  
     //A0QO
-    new AbilityDefinitionAgilityMod(AGIMOD_32)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_32)
     ..setAgilityBonus(1, 122)
  
     //A0O3
-    new AbilityDefinitionAgilityMod(AGIMOD_33)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_33)
     ..setAgilityBonus(1, 14)
  
     //A03M
-    new AbilityDefinitionAgilityMod(AGIMOD_34)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_34)
     ..setAgilityBonus(1, 2)
  
     //A04B
-    new AbilityDefinitionAgilityMod(AGIMOD_35)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_35)
     ..setAgilityBonus(1, 200)
  
     //A0BG
-    new AbilityDefinitionAgilityMod(AGIMOD_36)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_36)
     ..setAgilityBonus(1, 220)
  
     //A0RJ
-    new AbilityDefinitionAgilityMod(AGIMOD_37)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_37)
     ..setAgilityBonus(1, 244)
  
     //A0QC
-    new AbilityDefinitionAgilityMod(AGIMOD_38)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_38)
     ..setAgilityBonus(1, 26)
  
     //A0QJ
-    new AbilityDefinitionAgilityMod(AGIMOD_39)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_39)
     ..setAgilityBonus(1, 32)
  
     //A0VK
-    new AbilityDefinitionAgilityMod(AGIMOD_40)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_40)
     ..setAgilityBonus(1, 380)
  
     //A0RN
-    new AbilityDefinitionAgilityMod(AGIMOD_41)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_41)
     ..setAgilityBonus(1, 422)
  
     //A03O
-    new AbilityDefinitionAgilityMod(AGIMOD_42)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_42)
     ..setAgilityBonus(1, 5)
  
     //A0QN
-    new AbilityDefinitionAgilityMod(AGIMOD_43)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_43)
     ..setAgilityBonus(1, 66)
  
     //A0RM
-    new AbilityDefinitionAgilityMod(AGIMOD_44)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_44)
     ..setAgilityBonus(1, 666)
  
     //A0NU
-    new AbilityDefinitionAgilityMod(AGIMOD_45)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_45)
     ..setAgilityBonus(1, 7)
  
     //A0Y1
-    new AbilityDefinitionAgilityMod(AGIMOD_46)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_46)
     ..setAgilityBonus(1, 999)
 
-    new AbilityDefinitionAgilityMod(AGIMOD_47)
+    new AbilityDefinitionAgilityBonusPlus1(AGIMOD_47)
     ..setAgilityBonus(1, 1111)
 @compiletime function strAbils()
     //A03R
-    new AbilityDefinitionStrengthMod(STRMOD_1)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_1)
     ..setStrengthBonus(1, 10)
 
     //A0EV
-    new AbilityDefinitionStrengthMod(STRMOD_2)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_2)
     ..setStrengthBonus(1, 100)
    
     //A0EG
-    new AbilityDefinitionStrengthMod(STRMOD_3)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_3)
     ..setStrengthBonus(1, 12)
    
     //A0J4
-    new AbilityDefinitionStrengthMod(STRMOD_4)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_4)
     ..setStrengthBonus(1, 120)
    
     //A0N8
-    new AbilityDefinitionStrengthMod(STRMOD_5)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_5)
     ..setStrengthBonus(1, 1200)
    
     //A0T7
-    new AbilityDefinitionStrengthMod(STRMOD_6)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_6)
     ..setStrengthBonus(1, 122)
    
     //A0T4
-    new AbilityDefinitionStrengthMod(STRMOD_7)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_7)
     ..setStrengthBonus(1, 14)
    
     //A0G2
-    new AbilityDefinitionStrengthMod(STRMOD_8)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_8)
     ..setStrengthBonus(1, 1470)
    
     //A0EQ
-    new AbilityDefinitionStrengthMod(STRMOD_9)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_9)
     ..setStrengthBonus(1, 15)
    
     //A0LH
-    new AbilityDefinitionStrengthMod(STRMOD_10)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_10)
     ..setStrengthBonus(1, 150)
    
     //A0EH
-    new AbilityDefinitionStrengthMod(STRMOD_11)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_11)
     ..setStrengthBonus(1, 18)
    
     //A0VM
-    new AbilityDefinitionStrengthMod(STRMOD_12)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_12)
     ..setStrengthBonus(1, 180)
    
     //A03S
-    new AbilityDefinitionStrengthMod(STRMOD_13)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_13)
     ..setStrengthBonus(1, 20)
    
     //A042
-    new AbilityDefinitionStrengthMod(STRMOD_14)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_14)
     ..setStrengthBonus(1, 200)
    
     //A0NB
-    new AbilityDefinitionStrengthMod(STRMOD_15)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_15)
     ..setStrengthBonus(1, 2200)
    
     //A0N5
-    new AbilityDefinitionStrengthMod(STRMOD_16)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_16)
     ..setStrengthBonus(1, 230)
    
     //A0T8
-    new AbilityDefinitionStrengthMod(STRMOD_17)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_17)
     ..setStrengthBonus(1, 244)
    
     //A0BH
-    new AbilityDefinitionStrengthMod(STRMOD_18)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_18)
     ..setStrengthBonus(1, 250)
    
     //A0EJ
-    new AbilityDefinitionStrengthMod(STRMOD_19)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_19)
     ..setStrengthBonus(1, 26)
    
     //A0VN
-    new AbilityDefinitionStrengthMod(STRMOD_20)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_20)
     ..setStrengthBonus(1, 280)
    
     //A03T
-    new AbilityDefinitionStrengthMod(STRMOD_21)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_21)
     ..setStrengthBonus(1, 30)
    
     //A0XZ
-    new AbilityDefinitionStrengthMod(STRMOD_22)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_22)
     ..setStrengthBonus(1, 3000)
    
     //A0EI
-    new AbilityDefinitionStrengthMod(STRMOD_23)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_23)
     ..setStrengthBonus(1, 32)
    
     //A0J5
-    new AbilityDefinitionStrengthMod(STRMOD_24)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_24)
     ..setStrengthBonus(1, 320)
    
     //A0FW
-    new AbilityDefinitionStrengthMod(STRMOD_25)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_25)
     ..setStrengthBonus(1, 385)
    
     //A0T9
-    new AbilityDefinitionStrengthMod(STRMOD_26)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_26)
     ..setStrengthBonus(1, 422)
    
     //A0N6
-    new AbilityDefinitionStrengthMod(STRMOD_27)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_27)
     ..setStrengthBonus(1, 450)
    
     //A0VP
-    new AbilityDefinitionStrengthMod(STRMOD_28)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_28)
     ..setStrengthBonus(1, 460)
    
     //A0FY
-    new AbilityDefinitionStrengthMod(STRMOD_29)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_29)
     ..setStrengthBonus(1, 490)
    
     //A03U
-    new AbilityDefinitionStrengthMod(STRMOD_30)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_30)
     ..setStrengthBonus(1, 50)
    
     //A03L
-    new AbilityDefinitionStrengthMod(STRMOD_31)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_31)
     ..setStrengthBonus(1, 6)
    
     //A0J2
-    new AbilityDefinitionStrengthMod(STRMOD_32)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_32)
     ..setStrengthBonus(1, 60)
    
     //A0X8
-    new AbilityDefinitionStrengthMod(STRMOD_33)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_33)
     ..setStrengthBonus(1, 600)
    
     //A0G0
-    new AbilityDefinitionStrengthMod(STRMOD_34)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_34)
     ..setStrengthBonus(1, 630)
    
     //A0T6
-    new AbilityDefinitionStrengthMod(STRMOD_35)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_35)
     ..setStrengthBonus(1, 66)
    
     //A0TA
-    new AbilityDefinitionStrengthMod(STRMOD_36)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_36)
     ..setStrengthBonus(1, 666)
    
     //A0MY
-    new AbilityDefinitionStrengthMod(STRMOD_37)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_37)
     ..setStrengthBonus(1, 690)
    
     //A0T3
-    new AbilityDefinitionStrengthMod(STRMOD_38)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_38)
     ..setStrengthBonus(1, 7)
    
     //A0N7
-    new AbilityDefinitionStrengthMod(STRMOD_39)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_39)
     ..setStrengthBonus(1, 700)
    
     //A0J3
-    new AbilityDefinitionStrengthMod(STRMOD_40)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_40)
     ..setStrengthBonus(1, 80)
    
     //A0G1
-    new AbilityDefinitionStrengthMod(STRMOD_41)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_41)
     ..setStrengthBonus(1, 910)
     
     //A0Y0
-    new AbilityDefinitionStrengthMod(STRMOD_42)
+    new AbilityDefinitionStrengthBonusPlus1(STRMOD_42)
     ..setStrengthBonus(1, 999)
        
 @compiletime function buildingGeneral()
@@ -967,54 +967,7 @@ import OrderIds
     ..setTooltipNormalExtended(8, "Shoot a magic golden arrow that flies in a line, dealing damage equal to (Agility * 8 * 0.15)")
     ..setTooltipNormalExtended(9, "Shoot a magic golden arrow that flies in a line, dealing damage equal to (Agility * 9 * 0.15)")
 
-    new AbilityDefinitionShadowHunterSerpentWard(ABILITY_3)
-    ..setLevels(9)
-    ..setButtonPositionNormalX(1)
-    ..setButtonPositionNormalY(2)
-    ..setButtonPositionResearchX(1)
-    ..setButtonPositionResearchY(0)
-    ..setName("Serpent Ward")
-    ..setTooltipLearn("Learn Serpent Ward [ |c00FFFC01W|r ] - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Summon Serpent Ward at the specified place, Serpent Ward automatically attack enemies, for 40 seconds. Scales off Intelligence. Cooldown: 10 seconds.")
-    ..setSummonedUnitCount(1, 2)
-    ..setSummonedUnitCount(2, 2)
-    ..setSummonedUnitCount(3, 2)
-    ..setSummonedUnitCount(4, 3)
-    ..setSummonedUnitCount(5, 3)
-    ..setSummonedUnitCount(6, 3)
-    ..setSummonedUnitCount(7, 4)
-    ..setSummonedUnitCount(8, 4)
-    ..setSummonedUnitCount(9, 4)
-    ..presetSummonedUnitType(lvl -> commaList(SERPENT_WARD_0))
-    ..setCastRange(1, 600)
-    ..setCastRange(2, 600)
-    ..setCastRange(3, 600)
-    ..setCastRange(4, 600)
-    ..setCastRange(5, 600)
-    ..setCastRange(6, 600)
-    ..setCastRange(7, 600)
-    ..setCastRange(8, 600)
-    ..setCastRange(9, 600)
-    ..setCooldown(1, 15)
-    ..setCooldown(2, 14)
-    ..setCooldown(3, 13)
-    ..setCooldown(4, 12)
-    ..setCooldown(5, 11)
-    ..setCooldown(6, 10)
-    ..setCooldown(7, 9)
-    ..setCooldown(8, 8)
-    ..setCooldown(9, 7)
-    ..setDurationHero(9, 60)
-    ..setDurationNormal(9, 60)
-    ..setManaCost(1, 80)
-    ..setManaCost(2, 90)
-    ..setManaCost(3, 100)
-    ..setManaCost(4, 110)
-    ..setManaCost(5, 120)
-    ..setManaCost(6, 130)
-    ..setManaCost(7, 140)
-    ..setManaCost(8, 150)
-    ..setManaCost(9, 160)
+    
 
     let abi4 = new AbilityDefinitionFarseerSpiritWolf(ABILITY_4)
     ..setLevels(9)
@@ -2624,12 +2577,12 @@ import OrderIds
     ..setHotkeyNormal("E")
     ..setHotkeyTurnOff("E")
     ..setTooltipLearn("Learn Water Shield [ |c00FFFC01E|r ] - [|c00FFFC01Level %d|r] ")
-    ..setTooltipLearnExtended("Absorbs lvl * 2 damage per mana point")
+    ..setTooltipLearnExtended("Absorbs lvl * 0.4 damage per mana point")
     ..presetCooldown(lvl -> 21. - lvl)
-    ..presetManaperHitPoint(lvl -> 2 * lvl.toReal())
+    ..presetManaperHitPoint(lvl -> 0.4 * lvl)
     ..presetTooltipTurnOff(lvl -> "Deactivate Water Shield [ |c00FFFC01E|r ] -[|c00FFFC01Level " + lvl.toString() + "|r ]")
     ..presetTooltipNormal(lvl -> "Activate Water Shield [ |c00FFFC01E|r ] -[|c00FFFC01Level " + lvl.toString() + "|r ]")
-    ..presetTooltipNormalExtended(lvl -> "Absorbs " + (lvl*2).toString() + " damage per mana point")
+    ..presetTooltipNormalExtended(lvl -> "Absorbs " + (lvl*0.4).toString() + " damage per mana point")
 
     new AbilityDefinitionAttributeModifierSkill(NAGAWITCH_ABIL_4)
     ..setName("Blue Sea")
@@ -2642,7 +2595,7 @@ import OrderIds
     ..setHotkeyLearn("R")
     ..setHotkeyNormal("R")
     ..setTooltipLearn("Learn Blue Sea  [ |c00FFFC01R|r ] - [|c00FFFC01Level %d|r] ")
-    ..setTooltipLearnExtended("On kill of enemy 5% * lvl chance to get permanent mana. Level 1-3 gives 50, level 4-6 gives 100 and 7 or up is 150.")
+    ..setTooltipLearnExtended("On kill of enemy 5% * lvl chance to get permanent mana. Level 1-3 gives 20, level 4-6 gives 40 and 7 or up is 60.")
     ..presetCooldown(lvl -> 21. - lvl)
     ..setIconNormal("ReplaceableTextures\\CommandButtons\\PASL (1).blp")
     ..setIconResearch("ReplaceableTextures\\CommandButtons\\PASL (1).blp")
@@ -2650,7 +2603,7 @@ import OrderIds
     ..presetStrengthBonus(lvl -> 0)
     ..presetIntelligenceBonus(lvl -> 0)
     ..presetTooltipNormal(lvl -> "Blue Sea [ |c00FFFC01R|r ] -[|c00FFFC01Level " + lvl.toString() + "|r ]")
-    ..presetTooltipNormalExtended(lvl -> "On kill of enemy " + (5*lvl).toString() + "% lvl chance to get permanent mana. Level 1-3 gives 50, level 4-6 gives 100 and 7 or up is 150.")
+    ..presetTooltipNormalExtended(lvl -> "On kill of enemy " + (4*lvl).toString() + "% lvl chance to get permanent mana. Level 1-3 gives 20, level 4-6 gives 40 and 7 or up is 60.")
 
     new AbilityDefinitionSentryWard(NAGAWITCH_ABIL_5)
     ..setName("Tornado")
@@ -3258,7 +3211,43 @@ import OrderIds
     "\nDamage: 0.4 * damage")
 
 @compiletime function shadowHunter()
-    
+    new AbilityDefinitionShadowHunterSerpentWard(SHADOWHUNTER_ABIL_1)
+    ..setLevels(9)
+    ..setButtonPositionNormalX(1)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(1)
+    ..setButtonPositionResearchY(0)
+    ..setHotkeyNormal("W")
+    ..setHotkeyLearn("W")
+    ..setName("Serpent Ward")
+    ..setTooltipLearn("Learn Serpent Ward [ |c00FFFC01W|r ] - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Summon Serpent Ward at the specified place, Serpent Ward automatically attack enemies, for 30 seconds. Scales off Intelligence. Cooldown: 30 seconds decreases by 2 every level.")
+    ..presetSummonedUnitCount(lvl -> (2 + 0.3*lvl).toInt())
+    ..presetSummonedUnitType(lvl -> commaList(SERPENT_WARD_0))
+    ..presetCastRange(lvl -> 600)
+    ..presetCooldown(lvl -> 30. - lvl*2)
+    ..setDurationHero(9, 30)
+    ..setDurationNormal(9, 30)
+    ..presetManaCost(lvl -> 70+10*lvl)
+
+    new AbilityDefinitionCarrionSwarmcreep(SHADOWHUNTER_ABIL_2)
+    ..setLevels(9)
+    ..setButtonPositionNormalX(0)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(0)
+    ..setButtonPositionResearchY(0)
+    ..setHotkeyNormal("Q")
+    ..setHotkeyLearn("Q")
+    ..setName("Spinning Blade")
+    ..setTooltipLearn("Learn Spinning Blade [ |c00FFFC01Q|r ] - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Throws a spinning blade dealing int * 3 * lvl damage to all enemies hit.")
+    ..presetCastRange(lvl -> 600)
+    ..presetCooldown(lvl -> 20. - lvl*1)
+    ..presetAreaofEffect(lvl -> 0)
+    ..presetDamage(lvl -> 0)
+    ..setArtEffect("")
+    ..setArtSpecial("")
+    ..presetManaCost(lvl -> 40+30*lvl)
 
 @compiletime function creepAbils()
     new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_1) //A08H

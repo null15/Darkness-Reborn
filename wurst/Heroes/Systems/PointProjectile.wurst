@@ -1,41 +1,38 @@
-package Projectile
-
+package PointProjectile
 import ClosureTimers
 
-
 public interface OnProjectileHit
-    function hit(effect detectionUnit, unit target)
+    function hit(effect detectionUnit, vec2 target)
 
-public class Projectile
-    protected unit target
+public class PointProjectile
+    protected vec2 target
     protected effect sfx
     protected OnProjectileHit onHit
     protected real velocity
 
-    construct(unit target, effect sfx, real velocity, OnProjectileHit onHit)
+    construct(vec2 target, effect sfx, real velocity, OnProjectileHit onHit)
         this.target = target
         this.sfx = sfx
         this.onHit = onHit
         this.velocity = velocity
         
     function impact(effect detectionUnit)
-        if(target.isAlive())
-            onHit.hit(detectionUnit, target)
+        onHit.hit(detectionUnit, target)
         sfx.destr()
         destroy this
 
     function moveForward()
+        var pos1 = sfx.getPos()
+        let angle = pos1.angleTo(target)
         doPeriodically(0.02) (CallbackPeriodic cb) ->
-            let pos1 = sfx.getPos()
-            let pos2 = target.getPos()
-            let angle = pos1.angleTo(pos2)
+            pos1 = sfx.getPos()
             let pos3 = pos1.polarOffset(angle, 7. * velocity)
             sfx..setPos(pos3).setYaw(angle.radians())
-            let dist = pos1.distanceTo(pos2)
+            let dist = pos1.distanceTo(target)
             if(dist <= 11.)
                 impact(sfx)
                 destroy cb
 
-public function fireProjectile(unit target, effect sfx, real velocity, OnProjectileHit onHit)
-    let detection = new Projectile(target, sfx, velocity, onHit)
+public function firePointProjectile(vec2 target, effect sfx, real velocity, OnProjectileHit onHit)
+    let detection = new PointProjectile(target, sfx, velocity, onHit)
     detection.moveForward()
