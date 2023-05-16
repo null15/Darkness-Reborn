@@ -37,7 +37,7 @@ init
 	LEFT_CREEP_13.enumerateMagicResistanceId(80)
 
 	ELITE_CREEP_8.enumerateMagicResistanceId(40)
-	ELITE_CREEP[10]..enumerateMagicResistanceId(60)
+	ELITE_CREEP_9..enumerateMagicResistanceId(60)
 
 	WAVE_MOB[1]..enumeratePhysicalPenetrationId(0).enumeratePhysicalPenetrationId(0)
 	WAVE_MOB[2]..enumeratePhysicalPenetrationId(10).enumeratePhysicalPenetrationId(50)
@@ -214,7 +214,7 @@ function unitStats(unit u, int whichSide)
 		case 3
 			printTimed("Right Side Boss " + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
 		case 4
-			printTimed("Big Boss " + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
+			printTimed("|c00c90c0c!!!WARNING!!!|r\nBig Boss " + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
 		default
 			printTimed("Wave: " + wave_count.toString() + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
 
