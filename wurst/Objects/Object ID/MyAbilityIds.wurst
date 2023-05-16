@@ -103,6 +103,12 @@ public constant DARKRANGER_ABIL_3 = compiletime(ABIL_ID_GEN.next())
 public constant DARKRANGER_ABIL_4 = compiletime(ABIL_ID_GEN.next())
 public constant DARKRANGER_ABIL_5 = compiletime(ABIL_ID_GEN.next())
 
+public constant UTHER_ABIL_1 = compiletime(ABIL_ID_GEN.next())
+public constant UTHER_ABIL_2 = compiletime(ABIL_ID_GEN.next())
+public constant UTHER_ABIL_3 = compiletime(ABIL_ID_GEN.next())
+public constant UTHER_ABIL_4 = compiletime(ABIL_ID_GEN.next())
+public constant UTHER_ABIL_5 = compiletime(ABIL_ID_GEN.next())
+
 public constant NAGAWITCH_ABIL_1 = compiletime(ABIL_ID_GEN.next())
 public constant NAGAWITCH_ABIL_2 = compiletime(ABIL_ID_GEN.next())
 public constant NAGAWITCH_ABIL_3 = compiletime(ABIL_ID_GEN.next())

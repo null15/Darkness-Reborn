@@ -5060,7 +5060,7 @@ init
     ..setDescription("Rubystone")
     ..setName("Perfect Hippopus")
     ..setTooltipBasic("|c00FEBA0EPerfect Hippopus|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+300 All Stats\n|c00FEBA0ESpecial Effect:|r Activates a Mana Shield")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n+300 All Stats\n|c00FEBA0ESpecial Effect:|r Activates a Mana Shield that drains 1 Mana per 1.5 damage taken.")
     ..setHotkey("")
 
 //I0B9
@@ -13543,7 +13543,7 @@ init
     ..setDescription("Increases combat effectiveness of nearby units.")
     ..setName("Lazarus Belt")
     ..setTooltipBasic("Purchase Lazarus Belt")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+100 Armor. +80 Intelligence. +2000 MP. Mana Shield that drains 1 Mana per 3 damage taken.")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n+100 Armor. +80 Intelligence. +2000 MP. Mana Shield that drains 1 Mana per 0.8 damage taken.")
     ..setHotkey("W")
 
 //I0C8

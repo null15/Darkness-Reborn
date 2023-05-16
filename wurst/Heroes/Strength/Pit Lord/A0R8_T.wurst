@@ -4,19 +4,20 @@ import ClosureEvents
 init
     noblesseAura()
 
-int killCount = 0
+int strGain = 0
 
 function noblesseAura()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
         let killer = GetKillingUnit()
         let lvl = killer.getAbilityLevel('A0R8')
         if(killer.getTypeId() == PLAY_HERO_6 and lvl > 0)
-            if(killCount == 5)
-                killCount = 0
+            if(strGain < 1000)
                 if(lvl == 4)
                     killer.addStr(2)
+                    strGain = strGain + 2
+                    if(strGain > 1000)
+                        killer.setStr(killer.getStr(false) - 1)
                 else
                     killer.addStr(1)
-            else
-                killCount++
-            killer.setMaxHP(R2I(killer.getMaxHP()+lvl*5), true)
+                    strGain++
+            killer.setMaxHP(R2I(killer.getMaxHP()+lvl*7), true)

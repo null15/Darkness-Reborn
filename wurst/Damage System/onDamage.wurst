@@ -79,7 +79,6 @@ init
             case ATTACK
                 if(returnReducedDamage() > 0)
                     DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
-
                 if (DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL or DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC) 
                     //Reflection for Melee only
                     if(src.isType(UNIT_TYPE_MELEE_ATTACKER))

@@ -12,11 +12,11 @@ unit goldMine = null
 init
     tinkerResourceProduction()
 
-function addLumber(unit u)
-    u.getOwner().addLumber(lumberGain)
+function unit.addLumber()
+    this.getOwner().addLumber(lumberGain)
 
-function addGold(unit u)
-    u.getOwner().addGold(goldGain)
+function unit.addGold()
+    this.getOwner().addGold(goldGain)
 
 function unit.buildingCheck()
     if this.getIcon() == Icons.bTNHumanLumberMill
@@ -36,7 +36,7 @@ function unit.buildingCheck()
         if onceLumber
             onceLumber = false
             doPeriodically(32) (CallbackPeriodic cb) ->
-                addLumber(this)
+                this.addLumber()
 
     if this.getIcon() == Icons.bTNGoldmine
         if this.getTypeId() == TINKERBUILDING_95
@@ -58,7 +58,7 @@ function unit.buildingCheck()
         if onceGold
             onceGold = false
             doPeriodically(.4) (CallbackPeriodic cb) ->
-                addGold(this)
+                this.addGold()
 
 function unit.stopFutureBuild()
     if this.getTypeId() == TINKERBUILDING_103

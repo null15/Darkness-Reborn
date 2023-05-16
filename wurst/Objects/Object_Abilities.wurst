@@ -2874,6 +2874,9 @@ import OrderIds
     ..presetTooltipNormal(lvl -> "Meteor [|cffffcc00Q|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
     ..presetTooltipNormalExtended(lvl -> "Causes a meteor to rain down from the sky, dealing damage and applying a burn to enemies for " + lvl.toString() + " seconds. Dealing " + (lvl * 3).toString() + " * str on impact and burning for 1 * str damage.")
 
+@compiletime function utherAbils()
+    new AbilityDefinitionBerserk(UTHER_ABIL_1)
+
 @compiletime function wolfmanAbils()
     new AbilityDefinitionCripple(MAN_ABIL_1)
     ..setLevels(9)

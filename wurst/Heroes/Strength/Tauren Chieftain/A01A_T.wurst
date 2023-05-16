@@ -15,7 +15,7 @@ function warStomp()
         flashEffect(Abilities.warStompCaster, caster.getPos(), 2)
         caster.addStr(9)
         doAfter(0.25) -> 
-            forUnitsInRange(caster.getPos(), 99999) (unit u) ->
+            forUnitsAll() (unit u) ->
                 if caster.isEnemyOf(u)
                     caster.physicalDamageCode(dmg, u, true)
                     u.pause()

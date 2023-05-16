@@ -1,12 +1,11 @@
 package A0CI_W
 import ClosureEvents
 import ClosureForGroups
-import ClosureTimers
-import MyBuffIds
 import DummyCaster
 import OrderIds
 import MyAbilityIds
 import codeDamageTypings
+import PointTransitProjectile
 init
     blessedHammer()
 function blessedHammer()
@@ -14,22 +13,17 @@ function blessedHammer()
         let lvl = caster.getAbilityLevel('A0CI')
         let str = caster.getStr(true)
         let sfx = addEffect("BladeBeamFinal.mdl", caster.getPos())
-        let sfx2 = addEffect("DustWindFaster3.mdl", caster.getPos())
         let angle = sfx.getPos().angleTo(target)
+        flashEffect("DustWindFaster3.mdl", caster.getPos(), 1, angle)
         let dmg = str*lvl.toReal()
-        let i = GetOwningPlayer(caster).getId()
         sfx.setYaw(angle.radians())
-        sfx2.setYaw(angle.radians())
         sfx.setScale(1.5)
-        sfx.setColor(PLAYER_COLORS[i])
-        doPeriodicallyTimed(0.03, 1) (CallbackCounted cb) ->
-            sfx.setPos(sfx.getPos().polarOffset(angle, 45))
-            forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
-                if caster.isEnemyOf(u) and not u.hasAbility(BUFF_6)
-                    caster.physicalDamageCode(dmg, u, false)
-                    new DummyCaster()
-                    ..owner(GetOwningPlayer(caster))
-                    ..castTarget(ABILITY_DUMMY_6, 1, OrderIds.cripple, u)
-                    ..origin(caster.getPos())
-            if cb.isLast()
-                sfx.destr()
+        firePointTransitTimedProjectile(target, sfx, 0.03, 1, 900) (effect detectionUnit, vec2 target, boolean inTransit) ->
+            if inTransit
+                forUnitsInRange(detectionUnit.getPos(), 150) (unit u) ->
+                    if caster.isEnemyOf(u)
+                        new DummyCaster()
+                        ..owner(GetOwningPlayer(caster))
+                        ..castTarget(ABILITY_DUMMY_6, 1, OrderIds.cripple, u)
+                        ..origin(caster.getPos())
+                        caster.physicalDamageCode(dmg, u, true)

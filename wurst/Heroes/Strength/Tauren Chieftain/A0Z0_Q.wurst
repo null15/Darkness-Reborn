@@ -5,25 +5,30 @@ import ClosureForGroups
 import Objects
 import Abilities
 import codeDamageTypings
+import PointTransitProjectile
+import TerrainUtils
 init
     shockExplosion()
 function shockExplosion()
     EventListener.onPointCast('A0Z0') (unit caster, vec2 target) ->
-        doAfter(0.25) -> 
+        doAfter(0.25) ->
             let sfx = addEffect(Objects.impaleTargetDust, caster.getPos())
-            let angle = sfx.getPos().angleTo(target)
-            let sfx2 = addEffect("WindWeak2.mdl", caster.getPos())
-            let dmg = (caster.getAbilityLevel('A0Z0')*2.)*caster.getStr(true)
-            sfx2.setScale(4)
-            doPeriodicallyTimed(0.03, 5) (CallbackCounted cb) ->
-                sfx.setPos(sfx.getPos().polarOffset(angle, 50))
-                let distance = sfx.getPos().distanceTo(target)
-                if distance < 100
+            let lvl = caster.getAbilityLevel('A0Z0')
+            let dmg = (2.*caster.getStr(true) + 150) * lvl
+            flashEffect("WindWeak2.mdl", caster.getPos(), 4)
+            let pathable = addEffect(".mdl", caster.getPos())
+            firePointTransitProjectile(target, sfx, 1.4, 0.06) (effect detectionUnit, vec2 target, bool inTransit) ->
+                if(inTransit)
+                    let pos = detectionUnit.getPos()
+                    pathable.setPos(pos)
+                    if pathable.getPos().isTerrainWalkable()
+                        forUnitsInRange(pos, 300) (unit u) ->
+                            if caster.isEnemyOf(u)
+                                u.setPos(pos)                      
+                else
                     flashEffect(Abilities.volcanoDeath, target)
                     doAfter(0.1) -> 
                         flashEffect("NewMassiveEX.mdl", target, 3)
                         forUnitsInRange(target, 500, true) (unit u) ->
                             if caster.isEnemyOf(u)
                                 caster.physicalDamageCode(dmg, u, true)
-                    sfx.destr()
-                    destroy cb

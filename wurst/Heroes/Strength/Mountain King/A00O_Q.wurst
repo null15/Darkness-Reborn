@@ -1,40 +1,28 @@
 package A00O_Q
 import ClosureEvents
 import DummyCaster
-import ClosureTimers
 import ClosureForGroups
 import Abilities
 import OrderIds
 import MyAbilityIds
-import MyBuffIds
 import codeDamageTypings
+import Projectile
 init
     stormbolt()
 function stormbolt()
     EventListener.onTargetCast(ABILITY_9) (unit caster, unit target) ->
         let lvl = caster.getAbilityLevel(ABILITY_9)
         let sfx = addEffect(Abilities.stormBoltMissile, caster.getPos())
-        let angle = sfx.getPos().angleTo(target.getPos())
         let semi = ((caster.getStr(true)*(0.75*lvl))+(lvl*200))*0.5
         let final = ((caster.getStr(true)*(0.75*lvl))+(lvl*200))
         sfx.setScale(2)
-        sfx.setYaw(angle.radians())
-
-        doPeriodicallyTimed(0.03, 5) (CallbackCounted cb) ->
-            sfx.setPos(sfx.getPos().polarOffset(angle, 45))
-            let distance = sfx.getPos().distanceTo(target.getPos())
-            forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
-                if caster.isEnemyOf(u) and not u.hasAbility(BUFF_5)
-                    caster.magicalDamageCode(semi, u)
-            if distance < 125
-                new DummyCaster()
-                ..owner(GetOwningPlayer(caster))
-                ..origin(sfx.getPos())
-                ..castImmediate(ABILITY_DUMMY_5, 1, OrderIds.stomp)
-                caster.physicalDamageCode(final, target, true)
-                flashEffect(Abilities.fireLordDeathExplode, target.getPos())
-                sfx.destr()
-                destroy cb
-            if cb.isLast()
-                sfx.destr()
-                printTimedToPlayer("Duration of ability exceded 5 seconds, destroying . . .", 5, GetOwningPlayer(caster))
+        fireProjectile(target, sfx, 1.4) (effect detectionUnit, unit target) ->
+            forUnitsInRange(target.getPos(), 300) (unit u) ->
+                if u != target
+                    caster.physicalDamageCode(semi, u, true)
+            caster.physicalDamageCode(final, target, false)
+            new DummyCaster()
+            ..owner(caster.getOwner())
+            ..origin(target.getPos())
+            ..castImmediate(ABILITY_DUMMY_5, 1, OrderIds.stomp)
+            flashEffect(Abilities.fireLordDeathExplode, target.getPos())

@@ -7,13 +7,14 @@ init
 public function pulverize(unit caster, unit target)
     let lvl = caster.getAbilityLevel('A01B')
     let dmg = ((0.5*caster.getStr(true)) * lvl)
-    if GetRandomInt(1, 100) < 20+1*lvl
+    if GetRandomInt(1, 100) < 10+2*lvl
         var distance = 0.0
         let targetPos = target.getPos()
         let casterPos = caster.getPos()
         let angle = casterPos.angleTo(targetPos)
         let sfx = addEffect(Objects.impaleTargetDust, targetPos)
         let pathable = addEffect(".mdl", targetPos)
+        caster.physicalDamageCode(dmg, target, false)
         doPeriodicallyTimed(0.03, 0.5) (CallbackCounted cb) ->
             if pathable.getPos().isTerrainWalkable()
                 distance = distance + 15
@@ -21,9 +22,3 @@ public function pulverize(unit caster, unit target)
                 if pathable.getPos().isTerrainWalkable()
                     target.setPos(targetPos.polarOffset(angle, distance))
                     sfx.setPos(targetPos.polarOffset(angle, distance))
-    if lvl < 9
-        if GetRandomInt(1, 100) < lvl*3+17
-            caster.physicalDamageCode(dmg, target, false)
-    else
-        if GetRandomInt(1, 100) < 50
-            caster.physicalDamageCode(dmg, target, false)
