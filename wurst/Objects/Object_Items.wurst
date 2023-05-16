@@ -5398,7 +5398,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Spider")
-    ..setTooltipBasic("Spider")
+    ..setTooltipBasic("Spider- Level 4")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nRusty Mining Pick\nGauntlets of Ogre Strength +3\nWirt's Leg")
     ..setHotkey("")
 
@@ -5436,7 +5436,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Mud Golem")
-    ..setTooltipBasic("Mud Golem")
+    ..setTooltipBasic("Mud Golem - Level 6")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nDiamond of Summoning\nSlippers of Agility +3\nMantle of Intelligence +3")
     ..setHotkey("")
 
@@ -5474,7 +5474,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Murloc Tiderunner")
-    ..setTooltipBasic("Murloc Tiderunner")
+    ..setTooltipBasic("Murloc Tiderunner - Level 6")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nDiamond of Summoning\nWirt's Leg\nRusty Mining Pick\nMantle of Intelligence +3\nSkull Shield\nDruid Pouch")
     ..setHotkey("")
 
@@ -5512,7 +5512,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Timber Wolf")
-    ..setTooltipBasic("Timber Wolf")
+    ..setTooltipBasic("Timber Wolf - Level 6")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nRuned Gauntlets\nSkull Shield\nDruid Pouch")
     ..setHotkey("")
 
@@ -5550,7 +5550,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Crab Shorecrawler")
-    ..setTooltipBasic("Crab Shorecrawler")
+    ..setTooltipBasic("Crab Shorecrawler - Level 10")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nVoodoo Doll\nAncient Figurine\nSpider Silk Broach")
     ..setHotkey("")
 
@@ -5588,7 +5588,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Faceless One Trickster")
-    ..setTooltipBasic("Faceless One Trickster")
+    ..setTooltipBasic("Faceless One Trickster - Level 10")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nBattle Standard\nBladebane Armor\nFirehand Gauntlets")
     ..setHotkey("")
 
@@ -5626,7 +5626,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Spitting Spider")
-    ..setTooltipBasic("Spitting Spider")
+    ..setTooltipBasic("Spitting Spider - Level 10")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nFlare Gun,Ancestral Staff\nPoison Spears")
     ..setHotkey("")
 
@@ -5664,7 +5664,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Rock Golem")
-    ..setTooltipBasic("Rock Golem")
+    ..setTooltipBasic("Rock Golem - Level 11")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nKillmaim\nDruid of the Claw\nBook of the Dead")
     ..setHotkey("")
 
@@ -5702,7 +5702,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Mur'gul Shadowcaster")
-    ..setTooltipBasic("Mur'gul Shadowcaster")
+    ..setTooltipBasic("Mur'gul Shadowcaster - Level 11")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nHorn of the Clouds\nHalf Moon Armor")
     ..setHotkey("")
 
@@ -5740,7 +5740,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Polar Furbolg")
-    ..setTooltipBasic("Polar Furbolg")
+    ..setTooltipBasic("Polar Furbolg - Level 11")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nHuman Flag\nBlood Gem")
     ..setHotkey("")
 
@@ -5778,7 +5778,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Ghost")
-    ..setTooltipBasic("Ghost")
+    ..setTooltipBasic("Ghost - Level 14")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nStaff of Preservation\nSpiked Armor")
     ..setHotkey("")
 
@@ -5816,7 +5816,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Faceless One Deathbringer")
-    ..setTooltipBasic("Faceless One Deathbringer")
+    ..setTooltipBasic("Faceless One Deathbringer - Level 16")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nFlak Cannons\nThunderlizard Diamond")
     ..setHotkey("")
 
@@ -5854,7 +5854,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Brood Mother")
-    ..setTooltipBasic("Brood Mother")
+    ..setTooltipBasic("Brood Mother - Level 18")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nGem of Poison\nMoon Armor")
     ..setHotkey("")
 
@@ -5892,7 +5892,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Granite Golem")
-    ..setTooltipBasic("Granite Golem")
+    ..setTooltipBasic("Granite Golem - Level 18")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nAmulet of Recall\nGhoul Frenzy")
     ..setHotkey("")
 
@@ -5930,7 +5930,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Turtle")
-    ..setTooltipBasic("Turtle")
+    ..setTooltipBasic("Turtle - Level 18")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nMagic Potion\nLion's Ring")
     ..setHotkey("")
 
@@ -5968,7 +5968,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Giant Polar Bear")
-    ..setTooltipBasic("Giant Polar Bear")
+    ..setTooltipBasic("Giant Polar Bear - Level 20")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nMindstaff\nDruid of the Claw Amateur")
     ..setHotkey("")
 
@@ -6006,7 +6006,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Storm Wyrm")
-    ..setTooltipBasic("Storm Wyrm")
+    ..setTooltipBasic("Storm Wyrm - Level 20")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nScepter of Healing\nArcane Scroll")
     ..setHotkey("")
 
@@ -6044,7 +6044,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Skeleton Warrior")
-    ..setTooltipBasic("Skeleton Warrior")
+    ..setTooltipBasic("Skeleton Warrior - Level 20")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nKey of Three Moons\nGloves of Spell Mastery")
     ..setHotkey("")
 
@@ -6082,7 +6082,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Forest Troll Warlock")
-    ..setTooltipBasic("Forest Troll Warlock")
+    ..setTooltipBasic("Forest Troll Warlock - Level 20")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nScepter of Mastery\nScroll of Magic")
     ..setHotkey("")
 
@@ -6120,7 +6120,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Dire Mammoth")
-    ..setTooltipBasic("Dire Mammoth")
+    ..setTooltipBasic("Dire Mammoth - Level 20")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nShamanic Totem\nThe Heart of Searinox")
     ..setHotkey("")
 
@@ -6158,7 +6158,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Fel Ravager")
-    ..setTooltipBasic("Fel Ravager")
+    ..setTooltipBasic("Fel Ravager - Level 20")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nScepter of the Sea\nSacred Relic")
     ..setHotkey("")
 
@@ -6196,7 +6196,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Dalaran Reject")
-    ..setTooltipBasic("Dalaran Reject")
+    ..setTooltipBasic("Dalaran Reject - Level 22")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nScroll of the Unholy Legion\nDruid of the Claw Master")
     ..setHotkey("")
 
@@ -6234,8 +6234,8 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Vile Tormentor")
-    ..setTooltipBasic("Vile Tormentor")
-    ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nCrystal Skull\nSphere of Fire")
+    ..setTooltipBasic("Vile Tormentor - Level 22")
+    ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nCrystal Skull\nJewelry of Life")
     ..setHotkey("")
 
 //I0DK
@@ -6272,7 +6272,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Elder Voidwalker")
-    ..setTooltipBasic("Elder Voidwalker")
+    ..setTooltipBasic("Elder Voidwalker - Level 24")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nRuby Fragment +1\nSphere of Fire")
     ..setHotkey("")
 
@@ -6310,7 +6310,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Nerubian Queen")
-    ..setTooltipBasic("Nerubian Queen")
+    ..setTooltipBasic("Nerubian Queen - Level 25")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nSphere of Fire\nSphere of Water\nEssence of Aszune")
     ..setHotkey("")
 
@@ -6348,7 +6348,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Hydralisk")
-    ..setTooltipBasic("Hydralisk")
+    ..setTooltipBasic("Hydralisk - Level 25")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nEssence of Aszune\nSphere of Water\nDream Sword\nCrystal Sword\nSphere of Fire\nLazarus Belt.")
     ..setHotkey("")
 
@@ -6386,7 +6386,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Flesh Golem")
-    ..setTooltipBasic("Flesh Golem")
+    ..setTooltipBasic("Flesh Golem - Level 42")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nBloody Dagger\nCrystal Sword\nSphere of Fire\nSphere of Water\nEssence of Aszune\nDream Sword\nRuby Fragment +1\nCrown of Wizard\nCrown of Soldier\nCrown of Assassin\nClovershield.")
     ..setHotkey("")
 
@@ -6424,7 +6424,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Furbolg Ursa Warriror (Giant)")
-    ..setTooltipBasic("Furbolg Ursa Warriror (Giant)")
+    ..setTooltipBasic("Furbolg Ursa Warriror (Giant) - Level 42")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nDream Sword\nCrystal Sword\nCrown of Wizard\nCrown of Soldier\nBloody Dagger\nClovershield\nRuby Fragment +1\nSphere of Fire.")
     ..setHotkey("")
 
@@ -6462,7 +6462,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Doom Guard")
-    ..setTooltipBasic("Doom Guard")
+    ..setTooltipBasic("Doom Guard - Level 45")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nCrown of Wizard\nCrown of Soldier\nCrown of Assassin\nClovershield\nRuby Fragment +1\nBook of Wind\nBook of Rain\nBook of Earthquake.")
     ..setHotkey("")
 
@@ -6500,7 +6500,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Scary Scream")
-    ..setTooltipBasic("Scary Scream")
+    ..setTooltipBasic("Scary Scream - Level 70")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nTitanium\nRuby Fragment +1 x3")
     ..setHotkey("")
 
@@ -6538,7 +6538,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Frosty the Snowman")
-    ..setTooltipBasic("Frosty the Snowman")
+    ..setTooltipBasic("Frosty the Snowman - Level 99")
     ..setTooltipExtended("Teleport you to the monster.\n\nRespawns 2 times\n|cffffff00Drops:|r\nRuby Fragment +1 x3\nScary's potion\nPerfect Rubystone.")
     ..setHotkey("")
 
@@ -6576,7 +6576,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Ice Revenant")
-    ..setTooltipBasic("Ice Revenant")
+    ..setTooltipBasic("Ice Revenant - Level 50")
     ..setTooltipExtended("Teleport you to the monster.\n\n|cffffff00Chance to drop:|r\nSoul Blame\nCrown of Evil\nMenelaus.")
     ..setHotkey("")
 
@@ -6614,7 +6614,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("OverLord")
-    ..setTooltipBasic("OverLord")
+    ..setTooltipBasic("OverLord - Level 6")
     ..setTooltipExtended("Teleports your hero to farm.")
     ..setHotkey("")
 
@@ -6652,7 +6652,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Dryad")
-    ..setTooltipBasic("Dryad")
+    ..setTooltipBasic("Dryad - Level 2")
     ..setTooltipExtended("Teleports your hero to farm.")
     ..setHotkey("")
 
