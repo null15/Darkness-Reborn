@@ -1,0 +1,5 @@
+package ThornsAuraWave
+
+import codeDamageTypings
+public function thornsAuraWave(unit holder, unit attacker, real dam)
+    holder.physicalDamageCode(dam * 0.1, attacker, true)

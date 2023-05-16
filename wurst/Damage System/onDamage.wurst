@@ -54,6 +54,7 @@ import DragonTurtle
 import Turtle
 import A0RI_R
 import A0RL_E
+import ThornsAuraWave
 
 @configurable constant DETECT_NATIVE_ABILITIES = true
 
@@ -325,3 +326,5 @@ function reflectionChecks(unit src, unit targ)
         pitLordThorn(targ, src)
     if(targ.getAbilityLevel('a0RL') > 0)
         pitLordDemonSkin(targ, src, dam)
+    if(targ.hasAbility('BEah'))
+        thornsAuraWave(targ, src, dam)
