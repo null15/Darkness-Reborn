@@ -818,7 +818,7 @@ init
 
     new HeroDefinition(PLAY_HERO_2, UnitIds.taurenchieftain)// Tauren Chieftain (O00T)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A0Z0', 'A0CI', 'A01B', 'A01E', 'A01A'))
+    ..setHeroAbilities(commaList('A0Z0', 'A0CI', TAUREN_E, 'A01E', 'A01A'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     
     ..setPrimaryAttribute("Strength")
