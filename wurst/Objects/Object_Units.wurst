@@ -818,7 +818,7 @@ init
 
     new HeroDefinition(PLAY_HERO_2, UnitIds.taurenchieftain)// Tauren Chieftain (O00T)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A0Z0', 'A0CI', 'A01B', 'A01E', 'A01A'))
+    ..setHeroAbilities(commaList('A0Z0', 'A0CI', TAUREN_E, 'A01E', 'A01A'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     
     ..setPrimaryAttribute("Strength")
@@ -2650,6 +2650,7 @@ init
 + "|c0066FF66Healing|r: 0/5\n"
 + "Difficulty: 3/5\n")
     ..setManaRegeneration(0.01)
+    ..setUpgradesUsed("R001")
 
     new HeroDefinition(PLAY_HERO_19, UnitIds.firelord)// Firelord (N005)
     ..hideHeroDeathMsg(true)

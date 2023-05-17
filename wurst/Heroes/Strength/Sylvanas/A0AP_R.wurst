@@ -9,4 +9,8 @@ function longRangeCond() returns boolean
 function longRange()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_HERO_SKILL)..addCondition(Condition(function longRangeCond))..addAction() ->
         let u = GetTriggerUnit()
-        u.setFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1, u.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1) + 75)   
+        let lvl = u.getAbilityLevel('A0AP')
+        let p = u.getOwner().getId()
+        u.setFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1, u.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1) + 75)
+        SetPlayerTechResearched(Player(p), 'R001', lvl)
+        

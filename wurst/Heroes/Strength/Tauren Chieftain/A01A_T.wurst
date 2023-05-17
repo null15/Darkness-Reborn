@@ -10,14 +10,14 @@ function warStomp()
     EventListener.onCast('A01A') (unit caster) ->
         let str = caster.getStr(true)
         let lvl = caster.getAbilityLevel('A01A')
-        let dmg = (1000. + str) * lvl
+        let dmg = ((5.*lvl*str)+(1500.*lvl))
         addEffect("WindWeak(Thicker).mdl", caster.getPos())
         flashEffect(Abilities.warStompCaster, caster.getPos(), 2)
         caster.addStr(9)
         doAfter(0.25) -> 
             forUnitsAll() (unit u) ->
                 if caster.isEnemyOf(u)
-                    caster.physicalDamageCode(dmg, u, true)
+                    caster.pureDamageCode(dmg, u)
                     u.pause()
                     doAfter(10) -> 
                         u.unpause()

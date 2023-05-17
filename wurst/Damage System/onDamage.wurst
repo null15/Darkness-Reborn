@@ -126,7 +126,7 @@ init
                         overPower(src, targ)
 
                     // Tauren Chieftain (Pulverize) E - Passive
-                    if srcuID == PLAY_HERO_2 and src.getAbilityLevel('A01B') >= 1
+                    if srcuID == PLAY_HERO_2 and src.getAbilityLevel(TAUREN_E) >= 1
                         pulverize(src, targ)
 
                     // Vashj (Frost Arrows ) X - Autocast
