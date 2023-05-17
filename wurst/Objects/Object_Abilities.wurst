@@ -1335,6 +1335,8 @@ import OrderIds
     ..setRequirements("")
     ..setButtonPositionNormalX(2)
     ..setButtonPositionNormalY(2)
+    ..setIconNormal("ReplaceableTextures\\CommandButtons\\PASAxeslam2.blp")
+    ..setIconResearch("ReplaceableTextures\\CommandButtons\\PASAxeslam2.blp")
     ..setHotkeyLearn("E")
     ..setHotkeyNormal("E")
     ..setChancetoStomp(1,26)
