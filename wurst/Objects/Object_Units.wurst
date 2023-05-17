@@ -2650,6 +2650,7 @@ init
 + "|c0066FF66Healing|r: 0/5\n"
 + "Difficulty: 3/5\n")
     ..setManaRegeneration(0.01)
+    ..setUpgradesUsed("R001")
 
     new HeroDefinition(PLAY_HERO_19, UnitIds.firelord)// Firelord (N005)
     ..hideHeroDeathMsg(true)

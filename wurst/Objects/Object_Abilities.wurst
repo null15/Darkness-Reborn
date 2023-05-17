@@ -1352,6 +1352,8 @@ import OrderIds
     ..presetFullDamageRadius(lvl -> 350)
     ..presetHalfDamageRadius(lvl -> 500)
     ..presetTargetsAllowed(lvl -> commaList("ground","enemy","natural"))
+    ..setTooltipLearn("Pulverize Strengt [ |c00FFFC01E|r ] - [|c00FFFC01Level %d|r]")
+    ..setTooltipLearnExtended("The Chieftain's hits are so strong that he pulverize the enemy and the ground underneath dealing (100+(50*lvl of ability)) in 500 AOE, and Half damage in 300 AOE.\n\n|c00FEBA0ESpecial effect :|r\n|c00FFFC01There are 10 + [2 x Level Skill]% chance to push enemies away and deal (0.5*STR*lvl of ability) damage to the target |r")
     ..presetTooltipNormal(lvl -> "Pulverize Strengt - [|cffffcc00Level "+ lvl.toString()+"|r]")
     ..presetTooltipNormalExtended(lvl -> "The Chieftain's hits are so strong that he pulverize the enemy and the ground underneath,"+(26+(3*lvl)).toString()+"% chance to deal "+(100+(50*lvl)).toString()+" additional damage to the target and surrounding enemies.\n300 AOE Full damage, 500 AOE Half damage.\n\n|cffffcc00Special Effect:|r"+(10+(2*lvl)).toString()+"% to push the enemy away and deal (0.5*STR)*"+lvl.toString()+"additonal damage.")
 
