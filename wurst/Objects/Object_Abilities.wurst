@@ -1331,6 +1331,10 @@ import OrderIds
 
     new AbilityDefinitionPulverize(TAUREN_E)
     ..setLevels(9)
+    ..setName("Tauren - 3 - Pulverize Strengt")
+    ..setRequirements("")
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(2)
     ..setHotkeyLearn("E")
     ..setHotkeyNormal("E")
     ..setChancetoStomp(1,26)
@@ -1346,7 +1350,7 @@ import OrderIds
     ..presetFullDamageRadius(lvl -> 350)
     ..presetHalfDamageRadius(lvl -> 500)
     ..presetTargetsAllowed(lvl -> commaList("ground","enemy","natural"))
-    ..presetTooltipNormal(lvl -> "Pulverize - [|cffffcc00Level "+ lvl.toString()+"|r]")
+    ..presetTooltipNormal(lvl -> "Pulverize Strengt - [|cffffcc00Level "+ lvl.toString()+"|r]")
     ..presetTooltipNormalExtended(lvl -> "The Chieftain's hits are so strong that he pulverize the enemy and the ground underneath,"+(26+(3*lvl)).toString()+"% chance to deal "+(100+(50*lvl)).toString()+" additional damage to the target and surrounding enemies.\n300 AOE Full damage, 500 AOE Half damage.\n\n|cffffcc00Special Effect:|r"+(10+(2*lvl)).toString()+"% to push the enemy away and deal (0.5*STR)*"+lvl.toString()+"additonal damage.")
 
     new AbilityDefinitionTinkererClusterRocketsLevel3(ABILITY_10)
