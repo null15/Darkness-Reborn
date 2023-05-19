@@ -11,7 +11,7 @@ function forgeSmart()
         let color = GetPlayerColor(GetOwningPlayer(GetTriggerUnit())).toColor().toColorString()
         let gold = COLOR_GOLD.toColorString()
         let text = color+"Jacksmith successfully combined his items, and obtained "+gold
-        let textFail = gold+"You failed to combine your items, items was refunded, or you got: "
+        let textFail = gold+"You failed to combine your items, Bulion was destroyed in the process. "
 
         if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[2])
             if GetRandomInt(1, 100) <= 90
@@ -29,9 +29,8 @@ function forgeSmart()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[4]).getName(), 10)
                 
             else
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[2]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[3]).remove()
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[4])
             if GetRandomInt(1, 100) <= 70
@@ -41,8 +40,7 @@ function forgeSmart()
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[4]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[3]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[5])
             if GetRandomInt(1, 100) <= 60
@@ -52,8 +50,7 @@ function forgeSmart()
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[5]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[4]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[6])
             if GetRandomInt(1, 100) <= 50
@@ -63,64 +60,59 @@ function forgeSmart()
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[6]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[5]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[8])
-            if GetRandomInt(1, 100) <= 95
+            if GetRandomInt(1, 100) <= 90
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[8]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[9]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(text+js.addItemById(ITEM_UPGRADE[9]).getName(), 10, GetOwningPlayer(js))
                 
             else
                 printTimedToPlayer(textFail, 5, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[9])
-            if GetRandomInt(1, 100) <= 90
+            if GetRandomInt(1, 100) <= 80
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[9]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[10]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[9]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[8]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[10])
-            if GetRandomInt(1, 100) <= 80
+            if GetRandomInt(1, 100) <= 70
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[10]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[11]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[10]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[9]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[11])
-            if GetRandomInt(1, 100) <= 70
+            if GetRandomInt(1, 100) <= 60
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[11]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[12]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[11]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[10]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[12])
-            if GetRandomInt(1, 100) <= 60
+            if GetRandomInt(1, 100) <= 50
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[12]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[13]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[12]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[11]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[14])
-            if GetRandomInt(1, 100) <= 95
+            if GetRandomInt(1, 100) <= 90
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[14]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[15]).getName(), 10)
@@ -129,101 +121,93 @@ function forgeSmart()
                 printTimedToPlayer(textFail, 5, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[15])
-            if GetRandomInt(1, 100) <= 90
+            if GetRandomInt(1, 100) <= 80
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[15]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[16]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[15]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[14]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[16])
-            if GetRandomInt(1, 100) <= 80
+            if GetRandomInt(1, 100) <= 70
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[16]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[17]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[16]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[15]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[17])
-            if GetRandomInt(1, 100) <= 70
+            if GetRandomInt(1, 100) <= 60
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[17]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[18]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[17]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[16]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[18])
-            if GetRandomInt(1, 100) <= 60
+            if GetRandomInt(1, 100) <= 50
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[18]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[19]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[18]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[15]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[20])
             if GetRandomInt(1, 100) <= 90
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[20]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[21]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(text+js.addItemById(ITEM_UPGRADE[21]).getName(), 10, GetOwningPlayer(js))
                 
             else
                 printTimedToPlayer(textFail, 5, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[21])
-            if GetRandomInt(1, 100) <= 90
+            if GetRandomInt(1, 100) <= 80
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[21]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[22]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[21]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[20]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[22])
-            if GetRandomInt(1, 100) <= 85
+            if GetRandomInt(1, 100) <= 70
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[22]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[23]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[22]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[21]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[23])
-            if GetRandomInt(1, 100) <= 80
+            if GetRandomInt(1, 100) <= 60
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[23]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[24]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[23]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[22]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[24])
-            if GetRandomInt(1, 100) <= 70
+            if GetRandomInt(1, 100) <= 50
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[24]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[25]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[24]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[23]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[26])
             if GetRandomInt(1, 100) <= 90
@@ -235,101 +219,93 @@ function forgeSmart()
                 printTimedToPlayer(textFail, 5, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[27])
-            if GetRandomInt(1, 100) <= 90
+            if GetRandomInt(1, 100) <= 80
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[27]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[28]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[27]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[26]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[28])
-            if GetRandomInt(1, 100) <= 85
+            if GetRandomInt(1, 100) <= 70
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[28]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[29]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[28]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[27]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[29])
-            if GetRandomInt(1, 100) <= 80
+            if GetRandomInt(1, 100) <= 60
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[29]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[30]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[29]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[28]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[30])
-            if GetRandomInt(1, 100) <= 70
+            if GetRandomInt(1, 100) <= 50
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[30]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[31]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[30]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[29]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[32])
             if GetRandomInt(1, 100) <= 90
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[32]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[33]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(text+js.addItemById(ITEM_UPGRADE[33]).getName(), 10, GetOwningPlayer(js))
                 
             else
                 printTimedToPlayer(textFail, 5, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[33])
-            if GetRandomInt(1, 100) <= 90
+            if GetRandomInt(1, 100) <= 80
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[33]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[34]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[33]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[32]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[34])
-            if GetRandomInt(1, 100) <= 85
+            if GetRandomInt(1, 100) <= 70
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[34]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[35]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[34]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[33]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[35])
-            if GetRandomInt(1, 100) <= 80
+            if GetRandomInt(1, 100) <= 60
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[35]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[36]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[35]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[34]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[36])
-            if GetRandomInt(1, 100) <= 70
+            if GetRandomInt(1, 100) <= 50
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[36]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[37]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[36]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[35]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[39])
             if GetRandomInt(1, 100) <= 90
@@ -339,52 +315,47 @@ function forgeSmart()
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[39]).remove()
                 printTimedToPlayer(textFail, 5, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[40])
-            if GetRandomInt(1, 100) <= 85
+            if GetRandomInt(1, 100) <= 80
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[40]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[41]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[40]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[39]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[41])
-            if GetRandomInt(1, 100) <= 80
+            if GetRandomInt(1, 100) <= 70
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[41]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[42]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[41]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[40]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[42])
-            if GetRandomInt(1, 100) <= 70
+            if GetRandomInt(1, 100) <= 60
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[42]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[43]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[42]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[41]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[43])
-            if GetRandomInt(1, 100) <= 60
+            if GetRandomInt(1, 100) <= 50
                 js.getItemById(ITEM_UPGRADE[1]).remove()
                 js.getItemById(ITEM_UPGRADE[43]).remove()
                 printTimed(text+js.addItemById(ITEM_UPGRADE[44]).getName(), 10)
                 
             else
                 js.getItemById(ITEM_UPGRADE[1]).remove()
-                js.getItemById(ITEM_UPGRADE[43]).remove()
-                printTimedToPlayer(textFail+js.addItemById(ITEM_UPGRADE[42]).getName(), 10, GetOwningPlayer(js))
+                printTimedToPlayer(textFail, 10, GetOwningPlayer(js))
 
         else if js.hasItemById(ITEM_UPGRADE[1]) and js.hasItemById(ITEM_UPGRADE[45]) and js.hasItemById(ITEM_UPGRADE[46])
             js.getItemById(ITEM_UPGRADE[1]).remove()
