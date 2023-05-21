@@ -1,0 +1,37 @@
+package FallingProjectile
+
+import ClosureTimers
+
+public interface OnProjectileHit
+    function hit(effect detectionUnit, vec2 target)
+
+public class FallingProjectile
+    protected vec2 target
+    protected effect sfx
+    protected OnProjectileHit onHit
+    protected real velocity
+
+    construct(vec2 target, effect sfx, real velocity, OnProjectileHit onHit)
+        this.target = target
+        this.sfx = sfx
+        this.onHit = onHit
+        this.velocity = velocity
+        
+    function impact(effect detectionUnit)
+        onHit.hit(detectionUnit, target)
+        sfx.destr()
+        destroy this
+
+    function moveForward()
+        var pos1 = sfx.getLocalZ()
+        let downward = velocity  * 0.02
+        doPeriodically(0.02) (CallbackPeriodic cb) ->
+            pos1 = sfx.getLocalZ()
+            sfx..setZ(pos1-downward).setRoll(180)
+            if(pos1 <= target.getTerrainZ())
+                impact(sfx)
+                destroy cb
+
+public function fireFallingProjectile(vec2 target, effect sfx, real velocity, OnProjectileHit onHit)
+    let detection = new FallingProjectile(target, sfx, velocity, onHit)
+    detection.moveForward()

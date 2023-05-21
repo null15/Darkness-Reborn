@@ -229,6 +229,7 @@ public constant PLAY_HERO_31 = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_32= compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_33 = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_33_ASCENDED = compiletime(HERO_ID_GEN.next())
+public constant PLAY_HERO_34 = compiletime(HERO_ID_GEN.next())
 
 public constant ABILITYUNIT_0 = compiletime(UNIT_ID_GEN.next())
 
@@ -500,6 +501,7 @@ init
     PLAY_HERO[32] = PLAY_HERO_31
     PLAY_HERO[33] = PLAY_HERO_32
     PLAY_HERO[34] = PLAY_HERO_33
+    PLAY_HERO[35] = PLAY_HERO_34
 
     LEFT_CREEP[1] = LEFT_CREEP_0
     LEFT_CREEP[2] = LEFT_CREEP_1

@@ -54,5 +54,10 @@ function constructFinish()
                     u.remove()
     CreateTrigger()..registerEnterRect(gg_rct_BlockTinkerBuildings)..addAction() ->
         if GetEnteringUnit().isType(UNIT_TYPE_STRUCTURE) and GetEnteringUnit().getOwner() != Player(10)
-            GetEnteringUnit().kill()
+            let u = GetEnteringUnit()
+            u.kill()
+            if u.getTypeId() == TINKERBUILDING_103
+                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, 1, u.getOwner())
+            else if u.getTypeId() == TINKERBUILDING_95
+                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 1, u.getOwner())
             simError(GetEnteringUnit().getOwner(), "You may not build here")

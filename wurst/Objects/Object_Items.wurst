@@ -1,11 +1,13 @@
 package Object_Items
 
 import ItemObjEditing
+import AbilityObjEditing
 import ItemIds
 import MyItemIds
 import ObjectIds
 import MyAbilityIds
 import Icons
+import Abilities
 
 init
 
@@ -23,8 +25,11 @@ init
     let monsterDrop = "Monster Drop"
     let bossDrop = "Boss Drop"
 //I01S
+    new AbilityDefinitionAttackSpeedIncrease(ITEM_0_ABI1)
+    ..setAttackSpeedIncrease(1, 0.15)
+
     new ItemDefinition(ITEM_0, ItemIds.glovesofHaste)
-    ..setAbilities(commaList('A05W'))
+    ..setAbilities(commaList(ITEM_0_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGlove.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -62,8 +67,10 @@ init
     ..setHotkey("U")
 
 //I00Z
+    new AbilityDefinitionAttackSpeedIncrease(ITEM_1_ABI1)
+    ..setAttackSpeedIncrease(1, 0.25)
     new ItemDefinition(ITEM_1, ItemIds.glovesofHaste)
-    ..setAbilities(commaList('A05W', 'A02F'))
+    ..setAbilities(commaList(ITEM_1_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRogues Gauntlets.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -101,8 +108,10 @@ init
     ..setHotkey("I")
 
 //I01T
+    new AbilityDefinitionAttackSpeedIncrease(ITEM_2_ABI1)
+    ..setAttackSpeedIncrease(1, 0.4)
     new ItemDefinition(ITEM_2, ItemIds.glovesofHaste)
-    ..setAbilities(commaList('A02G', 'A02G'))
+    ..setAbilities(commaList(ITEM_2_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDuelists Gauntlets.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -140,8 +149,10 @@ init
     ..setHotkey("O")
 
 //I018
+    new AbilityDefinitionVampiricattack(ITEM_3_ABI1)
+    ..setLifeStolenPerAttack(1, 0.11)
     new ItemDefinition(ITEM_3, ItemIds.maskofDeath)
-    ..setAbilities(commaList('A067'))
+    ..setAbilities(commaList(ITEM_3_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNMaskOfDeath.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -179,8 +190,12 @@ init
     ..setHotkey("P")
 
 //I01Q
+    new AbilityDefinitionDefenseBonusPlus1(ITEM_4_ABI1)
+    ..setDefenseBonus(1, 5)
+    new AbilityDefinitionMaxLifeBonusGreater(ITEM_4_ABI2)
+    ..setMaxLifeGained(1, 200)
     new ItemDefinition(ITEM_4, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('A029', 'A069'))
+    ..setAbilities(commaList(ITEM_4_ABI1, ITEM_4_ABI2))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLeatherShirt.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -210,18 +225,22 @@ init
     ..setRequirements("")
     ..setRequirementsLevels("")
     ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+10 Armor\n"
+    +"+5 Armor\n"
     +"+200 HP")
     ..setName("Leather Armor")
     ..setTooltipBasic("Purchase Leather Armor |c00FFFC01[ H ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+10 Armor\n"
+    +"+5 Armor\n"
     +"+200 HP")
     ..setHotkey("H")
 
 //I00P
+    new AbilityDefinitionDefenseBonusPlus1(ITEM_5_ABI1)
+    ..setDefenseBonus(1, 10)
+    new AbilityDefinitionMaxLifeBonusGreater(ITEM_5_ABI2)
+    ..setMaxLifeGained(1, 300)
     new ItemDefinition(ITEM_5, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('A06D', 'A068'))
+    ..setAbilities(commaList(ITEM_5_ABI1, ITEM_5_ABI2))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPlateArmor.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -251,18 +270,22 @@ init
     ..setRequirements("")
     ..setRequirementsLevels("")
     ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+25 Armor\n"
-    +"+500 HP")
+    +"+10 Armor\n"
+    +"+300 HP")
     ..setName("Iron Armor")
     ..setTooltipBasic("Purchase Iron Armor |c00FFFC01[ J ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+25 Armor\n"
-    +"+500 HP")
+    +"+10 Armor\n"
+    +"+300 HP")
     ..setHotkey("J")
 
 //I01R
+    new AbilityDefinitionDefenseBonusPlus1(ITEM_6_ABI1)
+    ..setDefenseBonus(1, 10)
+    new AbilityDefinitionMaxLifeBonusGreater(ITEM_6_ABI2)
+    ..setMaxLifeGained(1, 700)
     new ItemDefinition(ITEM_6, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('A06C', 'A044'))
+    ..setAbilities(commaList('A01V', 'A044'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSerpents' Plate Mail.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -292,18 +315,22 @@ init
     ..setRequirements("")
     ..setRequirementsLevels("")
     ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+40 Armor\n"
-    +"+1000 HP")
+    +"+20 Armor\n"
+    +"+700 HP")
     ..setName("Silver Armor")
     ..setTooltipBasic("Purchase Silver Armor |c00FFFC01[ K ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+40 Armor\n"
-    +"+1000 HP")
+    +"+20 Armor\n"
+    +"+700 HP")
     ..setHotkey("K")
 
 //I006
+    new AbilityDefinitionAttackBonus(ITEM_7_ABI1)
+    ..setAttackBonus(1, 20)
+    new AbilityDefinitionAgilityBonusPlus1(ITEM_7_ABI2)
+    ..setAgilityBonus(1, 5)
     new ItemDefinition(ITEM_7, ItemIds.clawsofAttack3)
-    ..setAbilities(commaList(AGIMOD_42, 'A02I'))
+    ..setAbilities(commaList(ITEM_7_ABI1, ITEM_7_ABI2))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_CW_Rune_Sword.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -343,8 +370,10 @@ init
     ..setHotkey("L")
 
 //I00Q
+    new AbilityDefinitionAttackBonus(ITEM_8_ABI1)
+    ..setAttackBonus(1, 12)
     new ItemDefinition(ITEM_8, ItemIds.clawsofAttack12)
-    ..setAbilities(commaList('AItc'))
+    ..setAbilities(commaList(ITEM_8_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -382,8 +411,10 @@ init
     ..setHotkey("B")
 
 //I01B
+    new AbilityDefinitionAttackBonus(ITEM_9_ABI1)
+    ..setAttackBonus(1, 30)
     new ItemDefinition(ITEM_9, ItemIds.sturdyWarAxe)
-    ..setAbilities(commaList('A05V', 'A05V'))
+    ..setAbilities(commaList(ITEM_9_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrcMeleeUpOne.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -421,8 +452,10 @@ init
     ..setHotkey("N")
 
 //I01I
+    new AbilityDefinitionAttackBonus(ITEM_10_ABI1)
+    ..setAttackBonus(1, 50)
     new ItemDefinition(ITEM_10, ItemIds.maulofStrength)
-    ..setAbilities(commaList('A02J'))
+    ..setAbilities(commaList(ITEM_10_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHammer.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -460,6 +493,8 @@ init
     ..setHotkey("M")
 
 //I00U
+    new AbilityDefinitionMoveSpeedBonus(ITEM_11_ABI1)
+    ..setMovementSpeedBonus(1, 100)
     new ItemDefinition(ITEM_11, ItemIds.bootsofSpeed)
     ..setAbilities(commaList('AIms'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBootsOfSpeed.blp")
@@ -499,8 +534,10 @@ init
     ..setHotkey("U")
 
 //I01J
+    new AbilityDefinitionAgilityBonusPlus1(ITEM_12_ABI1)
+    ..setAgilityBonus(1, 15)
     new ItemDefinition(ITEM_12, ItemIds.jadeRing)
-    ..setAbilities(commaList(AGIMOD_30, AGIMOD_42))
+    ..setAbilities(commaList(ITEM_12_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingJadeFalcon.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -538,8 +575,10 @@ init
     ..setHotkey("I")
 
 //I01K
+    new AbilityDefinitionStrengthBonusPlus1(ITEM_13_ABI1)
+    ..setStrengthBonus(1, 15)
     new ItemDefinition(ITEM_13, ItemIds.jadeRing)
-    ..setAbilities(commaList(STRMOD_9))
+    ..setAbilities(commaList(ITEM_13_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGoldRing.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -577,8 +616,10 @@ init
     ..setHotkey("O")
 
 //I01H
+    new AbilityDefinitionIntelligenceBonusPlus1(ITEM_14_ABI1)
+    ..setIntelligenceBonus(1, 15)
     new ItemDefinition(ITEM_14, ItemIds.ringoftheArchmagi4)
-    ..setAbilities(commaList('A05Q', 'A03W'))
+    ..setAbilities(commaList(ITEM_14_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingPurple.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -616,8 +657,10 @@ init
     ..setHotkey("P")
 
 //I00T
+    new AbilityDefinitionRegenLife(ITEM_15_ABI1)
+    ..setHitPointsRegeneratedPerSecond(1, 3)
     new ItemDefinition(ITEM_15, ItemIds.ringofRegeneration)
-    ..setAbilities(commaList('A0AK'))
+    ..setAbilities(commaList(ITEM_15_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingSkull.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -655,8 +698,10 @@ init
     ..setHotkey("H")
 
 //I00S
+    new AbilityDefinitionDefenseBonusPlus1(ITEM_16_ABI1)
+    ..setDefenseBonus(1, 4)
     new ItemDefinition(ITEM_16, ItemIds.ringofProtection4)
-    ..setAbilities(commaList('AId4'))
+    ..setAbilities(commaList(ITEM_16_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingGreen.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -694,8 +739,10 @@ init
     ..setHotkey("J")
 
 //I01L
+    new AbilityDefinitionIntelligenceBonusPlus1(ITEM_17_ABI1)
+    ..setIntelligenceBonus(1, 6)
     new ItemDefinition(ITEM_17, ItemIds.robeoftheMagi6)
-    ..setAbilities(commaList('AIi6'))
+    ..setAbilities(commaList(ITEM_17_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRobeOfTheMagi.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -733,8 +780,10 @@ init
     ..setHotkey("K")
 
 //I00X
+    new AbilityDefinitionAgilityBonusPlus1(ITEM_18_ABI1)
+    ..setAgilityBonus(1, 6)
     new ItemDefinition(ITEM_18, ItemIds.bootsofQuelThalas6)
-    ..setAbilities(commaList('AIa6'))
+    ..setAbilities(commaList(ITEM_18_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBoots.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -772,8 +821,10 @@ init
     ..setHotkey("L")
 
 //I00W
+    new AbilityDefinitionStrengthBonusPlus1(ITEM_19_ABI1)
+    ..setStrengthBonus(1, 6)
     new ItemDefinition(ITEM_19, ItemIds.beltofGiantStrength6)
-    ..setAbilities(commaList('AIs6'))
+    ..setAbilities(commaList(ITEM_19_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -811,8 +862,12 @@ init
     ..setHotkey("B")
 
 //I00Y
+    new AbilityDefinitionAllPlus1(ITEM_20_ABI1)
+    ..setAgilityBonus(1, 4)
+    ..setStrengthBonus(1, 4)
+    ..setIntelligenceBonus(1, 4)
     new ItemDefinition(ITEM_20, ItemIds.circletofNobility)
-    ..setAbilities(commaList('AIx2', 'AIx2'))
+    ..setAbilities(commaList(ITEM_20_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCirclet.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -850,8 +905,12 @@ init
     ..setHotkey("N")
 
 //I010
+    new AbilityDefinitionAllPlus1(ITEM_21_ABI1)
+    ..setAgilityBonus(1, 15)
+    ..setStrengthBonus(1, 15)
+    ..setIntelligenceBonus(1, 15)
     new ItemDefinition(ITEM_21, ItemIds.crystalBall)
-    ..setAbilities(commaList('A02R', 'A02P'))
+    ..setAbilities(commaList(ITEM_21_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCrystalBall.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -889,8 +948,12 @@ init
     ..setHotkey("M")
 
 //I01D
+    new AbilityDefinitionOrbofCorruption(ITEM_22_ABI1)
+    ..setArmorPenalty(1, 5)
+    new AbilityDefinitionAttackBonus(ITEM_22_ABI2)
+    ..setAttackBonus(1, 8)
     new ItemDefinition(ITEM_22, ItemIds.orbofCorruption)
-    ..setAbilities(commaList('A05V', 'A05S'))
+    ..setAbilities(commaList(ITEM_22_ABI1, ITEM_22_ABI2))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfCorruption.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -920,20 +983,29 @@ init
     ..setRequirements("")
     ..setRequirementsLevels("")
     ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+15 Damage\n"
+    +"+8 Damage\n"
     +"-5 Armor on-hit.\n"
     +"|c00FF0303Note: Doesn't stack with similar items.")
     ..setName("Orb of Corruption")
     ..setTooltipBasic("Purchase Orb of Corruption |c00FFFC01[ U ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+15 Damage\n"
+    +"+8 Damage\n"
     +"-5 Armor on-hit.\n"
     +"|c00FF0303Note: Doesn't stack with similar items.")
     ..setHotkey("U")
 
 //I0CM
+    new AbilityDefinitionPhoenixFire(ITEM_23_ABI1)
+    ..setDamagePerSecond(1, 0)
+    ..setInitialDamage(1, 30)
+    ..setDurationHero(1, 0.1)
+    ..setDurationNormal(1, 0.1)
+    ..setCooldown(1, 0.75)
+    ..setCastRange(1, 650)
+    ..setMissileArt(Abilities.avengerMissile)
+
     new ItemDefinition(ITEM_23, ItemIds.orbofDarkness)
-    ..setAbilities(commaList('A0SV'))
+    ..setAbilities(commaList(ITEM_23_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfDarkness.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -971,8 +1043,10 @@ init
     ..setHotkey("I")
 
 //I07N
+    new AbilityDefinitionAttackBonus(ITEM_24_ABI1)
+    ..setAttackBonus(1, 15)
     new ItemDefinition(ITEM_24, ItemIds.orbofLightning)
-    ..setAbilities(commaList('A05V'))
+    ..setAbilities(commaList(ITEM_24_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfLightning.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -1012,8 +1086,13 @@ init
     ..setHotkey("O")
 
 //I01U
+    new AbilityDefinitionAttackBonus(ITEM_25_ABI1)
+    ..setAttackBonus(1, 15)
+    new AbilityDefinitionPitLordCleavingAttack(ITEM_25_ABI2)
+    ..setDistributedDamageFactor(1, 0.1)
+    ..setCastRange(1, 200)
     new ItemDefinition(ITEM_25, ItemIds.orbofFire)
-    ..setAbilities(commaList('A05V', 'AIfb'))
+    ..setAbilities(commaList(ITEM_25_ABI1, ITEM_25_ABI2))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfFire.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -1047,12 +1126,17 @@ init
     ..setName("Orb of Fire")
     ..setTooltipBasic("Purchase Orb of Fire |c00FFFC01[ P ]|r")
     ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+ 15 Damage")
+    +"+ 15 Damage\n"
+    +"Adds a 10% cleave in 200 range")
     ..setHotkey("P")
 
-//I017
+//I017¨
+    new AbilityDefinitionFrostDamageBonus(ITEM_26_ABI1)
+    ..setDamageBonus(1, 15)
+    ..setDurationHero(1, 4)
+    ..setDurationNormal(1, 4)
     new ItemDefinition(ITEM_26, ItemIds.orbofFrost)
-    ..setAbilities(commaList('A05R'))
+    ..setAbilities(commaList(ITEM_26_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfFrost.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -3737,7 +3821,7 @@ init
     +"+3200 HP\n"
     +"|c00FFFC01Special Effect: Active: Sends a Frost Nova on the target\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Seer Staff (|c001CE6B9" + recipeShop2 + "|r)\n"
+    +"Seer Staff (|c001CE6B9" + recipeShop3 + "|r)\n"
     +"Orb of Frost (|c001CE6B9" + basicShop3 + "|r)\n"
     +"Scepter of Mastery  (" + monsterDrop + ")")
     ..setHotkey("")
@@ -3781,7 +3865,7 @@ init
     +"Increase 7000 MP \n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Soul of Kil'jaeden (|c001CE6B9" + recipeShop3 + "|r)\n"
-    +"Arkenstone Fragment (|c001CE6B9" + basicShop1 + "|r)")
+    +"Arkenstone Fragment (|c007EBFF1Combination|r)")
     ..setHotkey("")
 
 //I005
@@ -5331,7 +5415,7 @@ init
     new ItemDefinition(ITEM_126, ItemIds.ancientJanggoofEndurance)
     ..setAbilities("")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDragonWing.blp")
-    ..setModelUsed("WingsoftheNightmare.mdl")
+    ..setModelUsed("assets-wings effect\\DwingsStand.mdx")
     ..setScalingValue(0.80)
     ..setTintingColor1Red(255)
     ..setTintingColor2Green(255)
@@ -11454,7 +11538,7 @@ init
     ..setRequirementsLevels("")
     ..setDescription("+6 HP/s")
     ..setName("Voodoo Doll")
-    ..setTooltipBasic("Purchase Amulet of |cffffcc00R|recall")
+    ..setTooltipBasic("Voodoo Doll")
     ..setTooltipExtended("|c00FFFC01Effect:|r    \n+6 HP/s")
     ..setHotkey("R")
 

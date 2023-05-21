@@ -37,6 +37,12 @@ init
     ..setTooltipNormal("Vivpire's True Form")
     ..setTooltipNormalExtended("The Vivpire has returned to their ancestral form, receiving power from their foes.")
 
+@compiletime function utherBuffs()
+    new BuffDefinition(UTHER_BUFF_1, BuffIds.innerFire)
+    ..setName("Blessed")
+    ..setTooltipNormal("Uther's Blessing")
+    ..setTooltipNormalExtended("This unit has been blessed by Uther the Lightbringer, casting spells grant him holy power.")
+
 @compiletime function wolfmanBuffs()
     new BuffDefinition(MAN_BUFF, BuffIds.stunned)
     ..setName("Scream")

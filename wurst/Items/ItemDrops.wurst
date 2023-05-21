@@ -1,82 +1,243 @@
 package ItemDrops
 import MyUnitIds
 import MyItemIds
+import LinkedList
+import HashMap
+
+HashMap<int,DropList> dropListHash
+
 init
+    dropListHash = dropListEnumerate()
+
+function dropListEnumerate() returns HashMap<int,DropList>
+    let hash = new HashMap<int,DropList>
+    let dropList = new LinkedList<LinkedList<int>>
+    let itemDrops = new LinkedList<int>
+    let dropChance = new LinkedList<int>
+
+    // Spider
+    dropChance.add(20)
+    itemDrops.add(ITEM_277, ITEM_278, ITEM_279)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[1], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Mud Golem
+    dropChance.add(20)
+    itemDrops.add(ITEM_281, ITEM_280, ITEM_282)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[2], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Tiderunner
+    dropChance.add(20)
+    itemDrops.add(ITEM_278, ITEM_279, ITEM_281, ITEM_282, ITEM_283, ITEM_285)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[3], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Wolf
+    dropChance.add(20)
+    itemDrops.add(ITEM_283, ITEM_284, ITEM_285)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[4], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Crab
+    dropChance.add(20)
+    itemDrops.add(ITEM_288, ITEM_287, ITEM_286)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[5], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Trickster
+    dropChance.add(20)
+    itemDrops.add(ITEM_289, ITEM_290, ITEM_291)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[6], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Spitting
+    dropChance.add(20)
+    itemDrops.add(ITEM_292, ITEM_293, ITEM_294)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[7], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Rock golem
+    dropChance.add(20)
+    itemDrops.add(ITEM_295, ITEM_296, ITEM_297)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[8], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Murgul
+    dropChance.add(20)
+    itemDrops.add(ITEM_298, ITEM_299)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[9], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Furbolg
+    dropChance.add(20)
+    itemDrops.add(ITEM_300, ITEM_301)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[10], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Ghost
+    dropChance.add(20)
+    itemDrops.add(ITEM_302, ITEM_303)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[11], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Deathbringer
+    dropChance.add(20)
+    itemDrops.add(ITEM_304, ITEM_305)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[12], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Broodmother
+    dropChance.add(20)
+    itemDrops.add(ITEM_306, ITEM_307)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[13], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Granite Golem
+    dropChance.add(20)
+    itemDrops.add(ITEM_306, ITEM_307)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[14], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Turtle
+    dropChance.add(20)
+    itemDrops.add(ITEM_310, ITEM_311)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[15], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Polar Bear
+    dropChance.add(20)
+    itemDrops.add(ITEM_312, ITEM_313)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[16], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Storm Wyrm
+    dropChance.add(20)
+    itemDrops.add(ITEM_314, ITEM_315)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[17], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Skeleton
+    dropChance.add(20)
+    itemDrops.add(ITEM_316, ITEM_317)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[18], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Troll
+    dropChance.add(20)
+    itemDrops.add(ITEM_318, ITEM_319)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[19], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Mammoth
+    dropChance.add(20)
+    itemDrops.add(ITEM_320, ITEM_321)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[20], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Ravager
+    dropChance.add(20)
+    itemDrops.add(ITEM_322, ITEM_323)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[21], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Slime
+    dropChance.add(20)
+    itemDrops.add(ITEM_324, ITEM_325)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[22], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Tormentor
+    dropChance.add(20)
+    itemDrops.add(ITEM_326, ITEM_195)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[23], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Voidwalker
+    dropChance.add(20)
+    itemDrops.add(ITEM_327, ITEM_328)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(LEFT_CREEP[24], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // Nerubian Queen
+    dropChance.add(25)
+    itemDrops.add(ITEM_329, ITEM_330, ITEM_327)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(ELITE_CREEP[1], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+
+    return hash
+
+class DropList
+    LinkedList<LinkedList<int>> dropList // DropList.size() = amount of drop pools, dropList.get(0).size = // amount in 1st drop pool
+    LinkedList<int> dropChance // drop chance for each drop pool
+
+    construct(LinkedList<LinkedList<int>> dropList, LinkedList<int> dropChance)
+        this.dropList = dropList
+        this.dropChance = dropChance
 
 public function dropMyItemsCreeps(unit u)
-    if GetRandomInt(1, 100) < 20
-        let pos = u.getPos()
-        if GetUnitTypeId(u) == LEFT_CREEP[1]
-            createItem(ITEM_DROP[GetRandomInt(1,3)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[2]
-            createItem(ITEM_DROP[GetRandomInt(4,6)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[3]
-            createItem(ITEM_DROP[GetRandomInt(1,9)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[4]
-            createItem(ITEM_DROP[GetRandomInt(7,9)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[5]
-            createItem(ITEM_DROP[GetRandomInt(10,12)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[6]
-            createItem(ITEM_DROP[GetRandomInt(13,15)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[7]
-            createItem(ITEM_DROP[GetRandomInt(16,18)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[8]
-            createItem(ITEM_DROP[GetRandomInt(19,21)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[9]
-            createItem(ITEM_DROP[GetRandomInt(22,23)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[10]
-            createItem(ITEM_DROP[GetRandomInt(24,25)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[11]
-            createItem(ITEM_DROP[GetRandomInt(26,27)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[12]
-            createItem(ITEM_DROP[GetRandomInt(28,29)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[13]
-            createItem(ITEM_DROP[GetRandomInt(30,31)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[14]
-            createItem(ITEM_DROP[GetRandomInt(32,33)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[15]
-            createItem(ITEM_DROP[GetRandomInt(34,35)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[16]
-            createItem(ITEM_DROP[GetRandomInt(36,37)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[17]
-            createItem(ITEM_DROP[GetRandomInt(38,39)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[18]
-            createItem(ITEM_DROP[GetRandomInt(40,41)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[19]
-            createItem(ITEM_DROP[GetRandomInt(42,43)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[20]
-            createItem(ITEM_DROP[GetRandomInt(44,45)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[21]
-            createItem(ITEM_DROP[GetRandomInt(46,47)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[22]
-            createItem(ITEM_DROP[GetRandomInt(48,49)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[23]
-            createItem(ITEM_DROP[GetRandomInt(50,51)], pos)
-
-        else if GetUnitTypeId(u) == LEFT_CREEP[24]
-            createItem(ITEM_DROP[GetRandomInt(52,53)], pos)
+    let uid = u.getTypeId()
+    if dropListHash.has(uid)
+        let dropList = dropListHash.get(uid)
+        for int i = 0 to dropList.dropChance.size() - 1
+            let chance = dropList.dropChance.get(i)
+            if GetRandomInt(0, 100) < chance
+                let pos = u.getPos()
+                let random = GetRandomInt(0, dropList.dropList.get(i).size() - 1)
+                createItem(dropList.dropList.get(i).get(random), pos)
+            
+        
     
 public function dropMyItemsEliteCreeps(unit u)
     let pos = u.getPos()

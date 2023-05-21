@@ -18,9 +18,9 @@ public class Projectile
         this.onHit = onHit
         this.velocity = velocity
         
-    function impact(effect detectionUnit)
+    function impact()
         if(target.isAlive())
-            onHit.hit(detectionUnit, target)
+            onHit.hit(sfx, target)
         sfx.destr()
         destroy this
 
@@ -33,7 +33,7 @@ public class Projectile
             sfx..setPos(pos3).setYaw(angle.radians())
             let dist = pos1.distanceTo(pos2)
             if(dist <= 11.)
-                impact(sfx)
+                impact()
                 destroy cb
 
 public function fireProjectile(unit target, effect sfx, real velocity, OnProjectileHit onHit)

@@ -168,7 +168,7 @@ function dialogBoxClick()
 function automaticPick()
     gameMode = 1
     dialogBoxClick()
-    print("Automatically chosen Normal mode")
+    print("Automatically chosen Easy mode")
 
 function mapSetup()
     elementalSoul = createUnit(Player(10), ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees()) // Elemental Soul

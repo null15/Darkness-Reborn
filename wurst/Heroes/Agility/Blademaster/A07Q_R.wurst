@@ -55,4 +55,6 @@ function rampage()
                         rampage2(caster, target)
                         destroy cb
                     else
+                        caster.unPauseUnitIndef()
+                        caster.setInvulnerable(false)
                         destroy cb

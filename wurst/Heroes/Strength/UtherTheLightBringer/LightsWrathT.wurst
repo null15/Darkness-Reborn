@@ -1,0 +1,20 @@
+package LightsWrathT
+
+import RedemptionR
+import ClosureEvents
+import ClosureForGroups
+import codeDamageTypings
+import MyAbilityIds
+
+init
+    lightsWrath()
+
+function lightsWrath()
+    EventListener.onTargetCast(UTHER_ABIL_5) (unit caster, unit target) ->
+        let amount = caster.getStr(true) * holyPower
+        setHolyPower(0)
+        flashEffect("Units\\Uther\\Sacred Storm\\Sacred Storm.mdx", target.getPos())
+        caster.magicalDamageCode(amount.toReal(), target)
+        forUnitsInRange(caster.getPos(), 600) (unit u) ->
+            if u.isAllyOf(caster)
+                u.addHP(amount / 2)

@@ -8,20 +8,18 @@ public class PointProjectile
     protected vec2 target
     protected effect sfx
     protected OnProjectileHit onHit
-    protected real velocity
 
-    construct(vec2 target, effect sfx, real velocity, OnProjectileHit onHit)
+    construct(vec2 target, effect sfx, OnProjectileHit onHit)
         this.target = target
         this.sfx = sfx
         this.onHit = onHit
-        this.velocity = velocity
         
-    function impact(effect detectionUnit)
-        onHit.hit(detectionUnit, target)
+    function impact()
+        onHit.hit(sfx, target)
         sfx.destr()
         destroy this
 
-    function moveForward()
+    function moveForward(real velocity)
         var pos1 = sfx.getPos()
         let angle = pos1.angleTo(target)
         doPeriodically(0.02) (CallbackPeriodic cb) ->
@@ -30,9 +28,25 @@ public class PointProjectile
             sfx..setPos(pos3).setYaw(angle.radians())
             let dist = pos1.distanceTo(target)
             if(dist <= 11.)
-                impact(sfx)
+                impact()
+                destroy cb
+
+    function timedMoveForward(int range, real time)
+        var pos1 = sfx.getPos()
+        let angle = pos1.angleTo(target)
+        let dist = (range * 0.02)/time
+        doPeriodicallyTimed(0.02, time) (CallbackCounted cb) ->
+            pos1 = sfx.getPos()
+            let distanceTravel = pos1.polarOffset(angle, dist)
+            sfx..setPos(distanceTravel).setYaw(angle.radians())
+            if(cb.isLast())
+                impact()
                 destroy cb
 
 public function firePointProjectile(vec2 target, effect sfx, real velocity, OnProjectileHit onHit)
-    let detection = new PointProjectile(target, sfx, velocity, onHit)
-    detection.moveForward()
+    let detection = new PointProjectile(target, sfx, onHit)
+    detection.moveForward(velocity)
+
+public function fireTimesPointProjectile(vec2 target, effect sfx, real time, int range, OnProjectileHit onHit)
+    let detection = new PointProjectile(target, sfx, onHit)
+    detection.timedMoveForward(range, time)
