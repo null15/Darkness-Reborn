@@ -14,7 +14,7 @@ function holyStorm()
     EventListener.onCast(UTHER_ABIL_2) (unit caster) ->
         let lvl = caster.getAbilityLevel(UTHER_ABIL_2)
         let sfx = caster.addEffect("Units\\Uther\\BladeStorm\\HolyTornado.mdx", "origin")
-        var dam = caster.getStr(true) * 2 * 0.03
+        var dam = caster.getStr(true) * lvl * 2 * 0.03
         if(holyPower >= 10)
             removeHolyPower(10)
             sfx.playAnimation(ANIM_TYPE_STAND, 3. * lvl)

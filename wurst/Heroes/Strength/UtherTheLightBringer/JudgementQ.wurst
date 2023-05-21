@@ -17,7 +17,7 @@ function judgement()
         flashEffect("Units\\Uther\\Judgement NoHive\\Judgement NoHive.mdx", target)
         let lvl = caster.getAbilityLevel(UTHER_ABIL_1)
         doAfter(0.82) ->
-            var amount = caster.getStr(true) * lvl + 150 * lvl
+            var amount = (caster.getStr(true) + 150) * lvl
             if(holyPower >= 6)
                 removeHolyPower(6)
                 amount = amount * 2

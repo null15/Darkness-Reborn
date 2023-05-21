@@ -2533,6 +2533,58 @@ import OrderIds
         ..setTooltipNormal(i, "Silver Bow [ |c00FFFC01Q|r ] -[|c00FFFC01Level " + i.toString() + "|r ]")
         ..setTooltipNormalExtended(i, "Increases Agility by " + (100 + (i-1)*200).toString() + " and Intelligence by " + (i*50).toString())
 
+@compiletime function arthasAbils()
+    new AbilityDefinitionIllidanMetamorphosis(ARTHAS_ABIL_5)
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(1)
+    ..setButtonPositionResearchX(3)
+    ..setButtonPositionResearchY(1)
+    ..setLevels(4)
+    ..setLevelSkipRequirement(8)
+    ..presetAlternateFormHitPointBonus(lvl -> 0)
+    ..presetAlternateFormUnit(lvl -> commaList(PLAY_HERO_34_FORM))
+    ..presetDurationHero(lvl -> 60.)
+    ..presetCooldown(lvl -> 130. - 10)
+    ..setRequiredLevel(8)
+    ..presetNormalFormUnit(lvl -> commaList(PLAY_HERO_34))
+    ..presetIcon("ReplaceableTextures\\CommandButtons\\BTNKingArthas.blp")
+    ..presetBuffs(lvl -> commaList('B013'))
+    ..presetManaCost(lvl -> 50 + 100 * lvl)
+    ..presetTooltipNormal(lvl -> "DeathKing [ |c00FFFC01T|r ] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Arthas gets possessed by the true Death King, temporarily exceeding all his limits. Massively increases his Attackspeed for 60 seconds. Cooldown " + (130. - 10 * lvl).toString() + " seconds.")
+    ..setTooltipLearn("Learn Death King [ |c00FFFC01T|r ] - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Arthas gets possessed by the true Death King, temporarily exceeding all his limits. Massively increases his Attackspeed, Damage and Armor for 60 seconds.\n"
+    +"|c00FFFC01Level 1 :|r  Increases Attackspeed for 60 seconds. Also changes his Damage Type to Blood.\n"
+    +"|c00FFFC01Level 2 :|r  Increases Attackspeed for 60 seconds. Also changes his Damage Type to Blood.\n"
+    +"|c00FFFC01Level 3 :|r  Increases Attackspeed for 60 seconds. Also changes his Damage Type to Blood.\n"
+    +"|c00FFFC01Level 4 :|r  Increases Attackspeed for 60 seconds. Also changes his Damage Type to Blood.")
+
+
+@compiletime function priestessOfTheMoonAbils()
+    new AbilityDefinitionIllidanMetamorphosis(PRIESTESS_ABIL_5)
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(1)
+    ..setButtonPositionResearchX(3)
+    ..setButtonPositionResearchY(1)
+    ..setLevels(4)
+    ..setLevelSkipRequirement(8)
+    ..presetAlternateFormHitPointBonus(lvl -> 0)
+    ..presetAlternateFormUnit(lvl -> commaList(PLAY_HERO_9_FORM))
+    ..presetDurationHero(lvl -> 10. + 5 * lvl)
+    ..presetCooldown(lvl -> 60.)
+    ..presetNormalFormUnit(lvl -> commaList(PLAY_HERO_9))
+    ..setRequiredLevel(8)
+    ..presetIcon(Icons.bTNHeroMoonPriestess)
+    ..presetManaCost(lvl -> 150 * lvl)
+    ..presetTooltipNormal(lvl -> "Dark Mirana [ |c00FFFC01T|r ] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Mirana taps into the powers of Darkness, severely increasing her Attackspeed for " + (10+5*lvl).toString() + " seconds.")
+    ..setTooltipLearn("Learn Dark Mirana [|cffffcc00T|r] - [|cffffcc00Level %d |r]")
+    ..setTooltipLearnExtended("Mirana taps into the powers of Darkness, severely increasing her Attackspeed for a short time.\n"
+    +"|c00FFFC01Level 1 :|r Increases Attackspeed dramatically for 15 seconds.\n"
+    +"|c00FFFC01Level 2 :|r Increases Attackspeed dramatically for 20 seconds.\n"
+    +"|c00FFFC01Level 3 :|r Increases Attackspeed dramatically for 25 seconds.\n"
+    +"|c00FFFC01Level 4 :|r Increases Attackspeed dramatically for 30 seconds.")
+
 @compiletime function nagaWitchAbils()
     new AbilityDefinitionStasisTrap(NAGAWITCH_ABIL_1)
     ..setName("Bubble Trap")

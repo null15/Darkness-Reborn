@@ -42,6 +42,7 @@ function unit.buildingCheck()
         if this.getTypeId() == TINKERBUILDING_95
             goldGain = 2
         else if this.getTypeId() == TINKERBUILDING_96
+            print(goldGain)
             goldGain = 4
         else if this.getTypeId() == TINKERBUILDING_97
             goldGain = 8
@@ -73,8 +74,6 @@ function unit.allowBuilding()
         SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 1, this.getOwner())
 
 function tinkerResourceProduction()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH)..registerAnyUnitEvent(EVENT_PLAYER_UNIT_UPGRADE_FINISH)..addAction() ->
-        
     EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH) -> 
         let u = GetConstructedStructure()
         u.buildingCheck()

@@ -145,6 +145,18 @@ public constant WOLF_FINAL_DUMMY_2 = compiletime(ABIL_ID_GEN.next())
 
 public constant MAN_WOLF_FINAL_ABIL = compiletime(ABIL_ID_GEN.next())
 
+public constant PRIESTESS_ABIL_1 = compiletime(ABIL_ID_GEN.next())
+public constant PRIESTESS_ABIL_2 = compiletime(ABIL_ID_GEN.next())
+public constant PRIESTESS_ABIL_3 = compiletime(ABIL_ID_GEN.next())
+public constant PRIESTESS_ABIL_4 = compiletime(ABIL_ID_GEN.next())
+public constant PRIESTESS_ABIL_5 = compiletime(ABIL_ID_GEN.next())
+
+public constant ARTHAS_ABIL_1 = compiletime(ABIL_ID_GEN.next())
+public constant ARTHAS_ABIL_2 = compiletime(ABIL_ID_GEN.next())
+public constant ARTHAS_ABIL_3 = compiletime(ABIL_ID_GEN.next())
+public constant ARTHAS_ABIL_4 = compiletime(ABIL_ID_GEN.next())
+public constant ARTHAS_ABIL_5 = compiletime(ABIL_ID_GEN.next())
+
 public constant WOLF_FINAL_ABIL_1 = compiletime(ABIL_ID_GEN.next())
 public constant WOLF_FINAL_ABIL_2 = compiletime(ABIL_ID_GEN.next())
 public constant WOLF_FINAL_ABIL_3 = compiletime(ABIL_ID_GEN.next())

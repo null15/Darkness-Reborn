@@ -51,5 +51,7 @@ function redemptionAlly()
 
     EventListener.add(EVENT_PLAYER_UNIT_SPELL_CAST) -> 
         let uid = GetTriggerUnit().getTypeId()
+        if GetTriggerUnit().hasAbility(UTHER_BUFF_1) == false and holyAllies.has(uid)
+            holyAllies.remove(uid)
         if holyAllies.has(uid)
             addHolyPower(1)
