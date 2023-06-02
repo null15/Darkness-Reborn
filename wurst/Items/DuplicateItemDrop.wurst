@@ -8,9 +8,10 @@ init
 function duplicateItemDrop()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) -> 
         let u = GetTriggerUnit()
-        let manip = GetManipulatedItem()
-        u.forEachItemInInventory() (item t) ->
-            if t.getTypeId() == manip.getTypeId() and t != manip
-                u.removeItem(manip)
-                simError(u.getOwner(), "You can not hold two items of the same type")
-                u..physpenSub(manip).magicResSub(manip)
+        if u.isType(UNIT_TYPE_HERO)
+            let manip = GetManipulatedItem()
+            u.forEachItemInInventory() (item t) ->
+                if t.getTypeId() == manip.getTypeId() and t != manip
+                    u.removeItem(manip)
+                    simError(u.getOwner(), "You can not hold two items of the same type")
+                    u..physpenSub(manip).magicResSub(manip)

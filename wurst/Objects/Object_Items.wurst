@@ -1758,7 +1758,7 @@ init
     ..setDescription("Nearby units move and attack more swiftly.")
     ..setName("Recipe (Recipe 1)")
     ..setTooltipBasic("Buy Recipe (Recipe 1)")
-    ..setTooltipExtended("|c00FFFC01Frost Sword|r\n"
+    ..setTooltipExtended("|c00FFFC01Ice Sword|r\n"
     +" |c00FFFC01Effect of item:|r\n"
     +"+80 Damage\n"
     +"+50% Attack speed.\n"
@@ -3998,7 +3998,7 @@ init
     +"25% Chance to Crit for 8\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Fire Sword (|c001CE6B9" + recipeShop1 + "|r)\n"
-    +"Kraken Dagger (|c001CE6B9" + recipeShop2 + "|r)\n"
+    +"Kraken Dagger (|c001CE6B9" + recipeShop3 + "|r)\n"
     +"Steel Axe (|c001CE6B9" + recipeShop1 + "|r)")
     ..setHotkey("")
 
@@ -4961,7 +4961,7 @@ init
 
 //I0B2
     new ItemDefinition(ITEM_114, ItemIds.bloodKey)
-    ..setAbilities(commaList('A07B'))
+    ..setAbilities(commaList('A07B', ARMORMOD_1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe.blp")
     ..setModelUsed("Red Item.mdl")
     ..setScalingValue(1)
@@ -19320,7 +19320,7 @@ init
     ..setIgnoreCooldown(false)
     ..setIncludeAsRandomChoice(true)
     ..setLevel(5)
-    ..setLumberCost(100)
+    ..setLumberCost(0)
     ..setNumberofCharges(0)
     ..setPerishable(false)
     ..setPriority(118)
@@ -27154,7 +27154,7 @@ init
     ..setActivelyUsed(false)
     ..setCanBeSoldByMerchants(true)
     ..setCanBeSoldToMerchants(false)
-    ..setCanBeDropped(false)
+    ..setCanBeDropped(true)
     ..setClassification("Campaign")
     ..setDroppedWhenCarrierDies(false)
     ..setGoldCost(0)
@@ -27190,7 +27190,7 @@ init
     ..setActivelyUsed(false)
     ..setCanBeSoldByMerchants(true)
     ..setCanBeSoldToMerchants(false)
-    ..setCanBeDropped(false)
+    ..setCanBeDropped(true)
     ..setClassification("Artifact")
     ..setDroppedWhenCarrierDies(false)
     ..setGoldCost(0)
@@ -27226,7 +27226,7 @@ init
     ..setActivelyUsed(false)
     ..setCanBeSoldByMerchants(true)
     ..setCanBeSoldToMerchants(false)
-    ..setCanBeDropped(false)
+    ..setCanBeDropped(true)
     ..setClassification("Artifact")
     ..setDroppedWhenCarrierDies(false)
     ..setGoldCost(0)
@@ -27262,7 +27262,7 @@ init
     ..setActivelyUsed(false)
     ..setCanBeSoldByMerchants(true)
     ..setCanBeSoldToMerchants(false)
-    ..setCanBeDropped(false)
+    ..setCanBeDropped(true)
     ..setClassification("Artifact")
     ..setDroppedWhenCarrierDies(false)
     ..setGoldCost(0)
@@ -27298,7 +27298,7 @@ init
     ..setActivelyUsed(false)
     ..setCanBeSoldByMerchants(true)
     ..setCanBeSoldToMerchants(false)
-    ..setCanBeDropped(false)
+    ..setCanBeDropped(true)
     ..setClassification("Artifact")
     ..setDroppedWhenCarrierDies(false)
     ..setGoldCost(0)
@@ -27323,3 +27323,114 @@ init
     ..setTooltipBasic("|c00FFFC01Scorpion Potion|r")
     ..setTooltipExtended("|c00FFFC01Effect :|r \n+200 Stats \n|c00FFFC01Special effects: Can activate the toxins up ourselves. immediately increase 10,000 damage in 15 seconds, and has the ability to convert 10% of damage into HP itself,cooldown 30 seconds.")
     ..setHotkey("V")
+
+    new AbilityDefinitionBerserk(ITEM_704_ABI1)
+    ..setLevels(1)
+    ..setHotkeyLearn("")
+    ..setHotkeyNormal("")
+    ..presetDurationHero(lvl -> 0.01)
+    ..presetDurationNormal(lvl -> 0.01)
+    ..presetCooldown(lvl -> 180)
+    ..presetManaCost(lvl -> 2500)
+    ..presetAttackSpeedIncrease(lvl -> 0)
+    ..presetMovementSpeedIncrease(lvl -> 0)
+    ..presetDamageTakenIncrease(lvl -> 0)
+    ..presetBuffs(lvl -> commaList(""))
+
+    new AbilityDefinitionAttributeModifierSkill(ITEM_704_ABI2)
+    ..setLevels(1)
+    ..setAgilityBonus(1, 150)
+    ..setStrengthBonus(1, 150)
+    ..setIntelligenceBonus(1, 150)
+
+    new ItemDefinition(ITEM_704, ItemIds.vampiricPotion)
+    ..setAbilities(commaList(ITEM_704_ABI1, ITEM_704_ABI2))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")
+    ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
+    ..setScalingValue(1)
+    ..setCooldownGroup("A0CL")
+    ..setTintingColor1Red(255)
+    ..setTintingColor2Green(255)
+    ..setTintingColor3Blue(255)
+    ..setActivelyUsed(true)
+    ..setCanBeSoldByMerchants(true)
+    ..setCanBeSoldToMerchants(true)
+    ..setCanBeDropped(true)
+    ..setClassification("Miscellaneous")
+    ..setDroppedWhenCarrierDies(false)
+    ..setGoldCost(0)
+    ..setHitPoints(75)
+    ..setIgnoreCooldown(false)
+    ..setIncludeAsRandomChoice(false)
+    ..setLevel(0)
+    ..setLumberCost(0)
+    ..setNumberofCharges(0)
+    ..setPerishable(false)
+    ..setPriority(38)
+    ..setStockMaximum(1)
+    ..setStockReplenishInterval(120)
+    ..setStockStartDelay(0)
+    ..setUseAutomaticallyWhenAcquired(false)
+    ..setValidTargetForTransformation(false)
+    ..setRequirements("")
+    ..setRequirementsLevels("")
+    ..setDescription("|c00FFFC01OOO'Clock|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+150 stats\n"
+    +"Active: Reset all of your Skill Cooldowns. Cooldown: 180 seconds.")
+    ..setName("OOO'Clock")
+    ..setTooltipBasic("Purchase OOO'Clock")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"+150 All Stats\n"
+    +"Active: Reset all of your Skill Cooldowns. Cooldown: 180 seconds.")
+    ..setHotkey("W")
+
+    new ItemDefinition(ITEM_705, ItemIds.vampiricPotion)
+    ..setAbilities(commaList(""))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")
+    ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
+    ..setScalingValue(1)
+    ..setCooldownGroup("A0CL")
+    ..setTintingColor1Red(255)
+    ..setTintingColor2Green(255)
+    ..setTintingColor3Blue(255)
+    ..setActivelyUsed(true)
+    ..setCanBeSoldByMerchants(true)
+    ..setCanBeSoldToMerchants(true)
+    ..setCanBeDropped(true)
+    ..setClassification("Miscellaneous")
+    ..setDroppedWhenCarrierDies(false)
+    ..setGoldCost(0)
+    ..setHitPoints(75)
+    ..setIgnoreCooldown(false)
+    ..setIncludeAsRandomChoice(false)
+    ..setLevel(0)
+    ..setLumberCost(0)
+    ..setNumberofCharges(0)
+    ..setPerishable(false)
+    ..setPriority(38)
+    ..setStockMaximum(1)
+    ..setStockReplenishInterval(120)
+    ..setStockStartDelay(0)
+    ..setUseAutomaticallyWhenAcquired(false)
+    ..setValidTargetForTransformation(false)
+    ..setRequirements("")
+    ..setRequirementsLevels("")
+    ..setDescription("|c00FFFC01OOO'Clock|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+150 stats\n"
+    +"Active: Reset all of your Skill Cooldowns. Cooldown: 180 seconds."
+    +"|c00FEBA0EMaterials required to craft this item: (Horse)|r\n"
+    +"O'Clock\n"
+    +"O'Clock\n"
+    +"O'Clock")
+    ..setName("Treasure of Tinker (Recipe 8)")
+    ..setTooltipBasic("Buy Treasure of Tinker (Recipe 8)")
+    ..setTooltipExtended("|c00FFFC01OOO'Clock|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+150 stats\n"
+    +"Active: Reset all of your Skill Cooldowns. Cooldown: 180 seconds."
+    +"|c00FEBA0EMaterials required to craft this item: (Horse)|r\n"
+    +"O'Clock\n"
+    +"O'Clock\n"
+    +"O'Clock")

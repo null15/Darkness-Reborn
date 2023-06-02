@@ -14,13 +14,18 @@ init
 
 public function redemptionHoly(unit src, unit targ)
     let lvl = src.getAbilityLevel(UTHER_ABIL_4)
-    let amount = src.getStr(true) * 0.5 + 75 * lvl
+    let str = src.getStr(true)
+    let amount = str * 0.5 + 75 * lvl
+    let heal = str * lvl * 0.2
     flashEffect(Abilities.holyBoltSpecialArt, targ.getPos())
     src.physicalDamageCode(amount, targ, false)
-    addHolyPower(1)
+    src.addHP(heal)
+    addHolyPower(lvl)
 
 public function addHolyPower(int addHoly)
     holyPower = holyPower + addHoly
+    if holyPower > 150
+        holyPower = 150
     updateHolyPower()
 
 public function removeHolyPower(int removeHoly)
@@ -33,7 +38,7 @@ public function setHolyPower(int setHoly)
 
 function updateHolyPower()
     for int i = 0 to 8
-        let tooltip = "Uther has a 20% on hit to deal 0.5 * str + " + (75 * (i+1)).toString() + " damage and gets lvl holy power. Use buff on up to 3 allies to make their skill casts give you 1 holy power. Can store holy power to a maximum of " + (15 * (i+1)).toString() + ". Current amount: " + holyPower.toString()
+        let tooltip = "Uther has a " + (5+5*(i+1)).toString() + " % on hit to deal 0.5 * str + " + (75 * (i+1)).toString() + " damage and heal for " + ((i+1) * 0.2).toString() + " * str. Gets " + (i+1).toString() + " holy power. Use buff on up to 3 allies to make their skill casts give you 1 holy power. Stores to a max of 150. Current amount: " + holyPower.toString()
         setAbilityExtendedTooltip(UTHER_ABIL_4, tooltip, i)
 
 function redemptionAlly()

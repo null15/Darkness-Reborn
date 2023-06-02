@@ -14,12 +14,14 @@ function dropListEnumerate() returns HashMap<int,DropList>
     let dropList = new LinkedList<LinkedList<int>>
     let itemDrops = new LinkedList<int>
     let dropChance = new LinkedList<int>
+    let cutOff = new LinkedList<int>
+    let cutOffLinked = new LinkedList<LinkedList<int>>
 
     // Spider
     dropChance.add(20)
     itemDrops.add(ITEM_277, ITEM_278, ITEM_279)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[1], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[1], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -27,7 +29,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_281, ITEM_280, ITEM_282)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[2], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[2], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -35,7 +37,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_278, ITEM_279, ITEM_281, ITEM_282, ITEM_283, ITEM_285)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[3], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[3], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -43,7 +45,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_283, ITEM_284, ITEM_285)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[4], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[4], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -51,7 +53,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_288, ITEM_287, ITEM_286)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[5], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[5], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -59,7 +61,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_289, ITEM_290, ITEM_291)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[6], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[6], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -67,7 +69,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_292, ITEM_293, ITEM_294)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[7], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[7], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -75,7 +77,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_295, ITEM_296, ITEM_297)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[8], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[8], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -83,7 +85,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_298, ITEM_299)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[9], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[9], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -91,7 +93,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_300, ITEM_301)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[10], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[10], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -99,7 +101,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_302, ITEM_303)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[11], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[11], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -107,7 +109,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_304, ITEM_305)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[12], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[12], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -115,7 +117,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_306, ITEM_307)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[13], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[13], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -123,7 +125,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_306, ITEM_307)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[14], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[14], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -131,7 +133,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_310, ITEM_311)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[15], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[15], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -139,7 +141,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_312, ITEM_313)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[16], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[16], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -147,7 +149,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_314, ITEM_315)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[17], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[17], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -155,7 +157,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_316, ITEM_317)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[18], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[18], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -163,7 +165,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_318, ITEM_319)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[19], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[19], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -171,7 +173,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_320, ITEM_321)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[20], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[20], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -179,7 +181,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_322, ITEM_323)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[21], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[21], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -187,7 +189,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_324, ITEM_325)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[22], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[22], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -195,7 +197,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_326, ITEM_195)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[23], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[23], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -203,7 +205,7 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(20)
     itemDrops.add(ITEM_327, ITEM_328)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(LEFT_CREEP[24], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(LEFT_CREEP[24], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
@@ -211,94 +213,149 @@ function dropListEnumerate() returns HashMap<int,DropList>
     dropChance.add(25)
     itemDrops.add(ITEM_329, ITEM_330, ITEM_327)
     dropList.add(new LinkedList<int>(itemDrops))
-    hash.put(ELITE_CREEP[1], new DropList(new LinkedList<LinkedList<int>>(dropList), new LinkedList<int>(dropChance)))
+    hash.put(ELITE_CREEP[1], new DropList(dropList, dropChance))
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
+    // Hydralisk
+    dropChance.add(25)
+    itemDrops.add(ITEM_332, ITEM_330, ITEM_327, ITEM_331)
+    dropList.add(new LinkedList<int>(itemDrops))
+    itemDrops.clear()
+    dropChance.add(10)
+    itemDrops.add(ITEM_341)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(ELITE_CREEP[2], new DropList(dropList, dropChance))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    // furbolg ursa warrior
+    dropChance.add(25)
+    cutOff.add(4)
+    cutOff.add(3)
+    cutOff.add(1)
+    cutOffLinked.add(new LinkedList<int>(cutOff))
+    itemDrops.add(ITEM_334, ITEM_336, ITEM_335, ITEM_337, ITEM_331, ITEM_332, ITEM_333, ITEM_328)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(ELITE_CREEP[3], new DropList(dropList, cutOffLinked, dropChance))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    cutOff.clear()
+    cutOffLinked.clear()
+    // Flesh golem
+    dropChance.add(25)
+    cutOff.add(4)
+    cutOff.add(6)
+    cutOff.add(1)
+    cutOffLinked.add(new LinkedList<int>(cutOff))
+    itemDrops.add(ITEM_334, ITEM_336, ITEM_335, ITEM_337, ITEM_331, ITEM_332, ITEM_333, ITEM_330, ITEM_329, ITEM_327, ITEM_328)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(ELITE_CREEP[4], new DropList(dropList, cutOffLinked, dropChance))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    cutOff.clear()
+    cutOffLinked.clear()
+    // Doom guard
+    dropChance.add(25)
+    cutOff.add(4)
+    cutOff.add(3)
+    cutOff.add(1)
+    cutOffLinked.add(new LinkedList<int>(cutOff))
+    itemDrops.add(ITEM_334, ITEM_336, ITEM_335, ITEM_337, ITEM_338, ITEM_340, ITEM_339, ITEM_328)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(ELITE_CREEP[5], new DropList(dropList, cutOffLinked, dropChance))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    cutOff.clear()
+    cutOffLinked.clear()
+    // Frosty
+    dropChance.add(100)
+    cutOff.add(1)
+    cutOff.add(1)
+    cutOff.add(1)
+    cutOff.add(1)
+    cutOffLinked.add(new LinkedList<int>(cutOff))
+    itemDrops.add(ITEM_328, ITEM_328, ITEM_328, ITEM_352)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(ELITE_CREEP[8], new DropList(dropList, cutOffLinked, dropChance))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    cutOff.clear()
+    cutOffLinked.clear()
+    // Snappy
+    dropChance.add(100)
+    cutOff.add(1)
+    cutOff.add(1)
+    cutOff.add(1)
+    cutOff.add(1)
+    cutOffLinked.add(new LinkedList<int>(cutOff))
+    itemDrops.add(ITEM_328, ITEM_328, ITEM_276, ITEM_355)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(ELITE_CREEP[9], new DropList(dropList, cutOffLinked, dropChance))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    cutOff.clear()
+    cutOffLinked.clear()
+    // IceRev
+    dropChance.add(100)
+    cutOff.add(3)
+    cutOff.add(3)
+    cutOffLinked.add(new LinkedList<int>(cutOff))
+    itemDrops.add(ITEM_349, ITEM_350, ITEM_351, ITEM_343, ITEM_344, ITEM_345)
+    dropList.add(new LinkedList<int>(itemDrops))
+    hash.put(ELITE_CREEP[10], new DropList(dropList, cutOffLinked, dropChance))
+    itemDrops.clear()
+    dropList.clear()
+    dropChance.clear()
+    cutOff.clear()
+    cutOffLinked.clear()
 
+    destroy itemDrops
+    destroy dropList
+    destroy cutOff
+    destroy cutOffLinked
+    destroy dropChance
     return hash
 
 class DropList
-    LinkedList<LinkedList<int>> dropList // DropList.size() = amount of drop pools, dropList.get(0).size = // amount in 1st drop pool
+    // dropPool.size() = amount of drop pools, dropPool.get(i).size = amount in i drop pool
+    LinkedList<LinkedList<int>> dropPool
+    // dropPoolCutoff.get(i).size = Amount of dropCutoffs in dropPool. dropPoolCutoff.get(i) = Amount of drops in cutoff
+    LinkedList<LinkedList<int>> dropPoolCutoff
     LinkedList<int> dropChance // drop chance for each drop pool
 
-    construct(LinkedList<LinkedList<int>> dropList, LinkedList<int> dropChance)
-        this.dropList = dropList
-        this.dropChance = dropChance
+    construct(LinkedList<LinkedList<int>> dropPool, LinkedList<int> dropChance)
+        this.dropPool = new LinkedList<LinkedList<int>>(dropPool)
+        let cutOff = new LinkedList<int>
+        cutOff.add(dropPool.get(0).size())
+        let cutOffLinked = new LinkedList<LinkedList<int>>
+        cutOffLinked.add(cutOff)
+        this.dropPoolCutoff = new LinkedList<LinkedList<int>>(cutOffLinked)
+        this.dropChance = new LinkedList<int>(dropChance)
+    construct(LinkedList<LinkedList<int>> dropPool, LinkedList<LinkedList<int>> dropPoolCutoff, LinkedList<int> dropChance)
+        this.dropPool = new LinkedList<LinkedList<int>>(dropPool)
+        this.dropPoolCutoff = new LinkedList<LinkedList<int>>(dropPoolCutoff)
+        this.dropChance = new LinkedList<int>(dropChance)
 
 public function dropMyItemsCreeps(unit u)
     let uid = u.getTypeId()
     if dropListHash.has(uid)
         let dropList = dropListHash.get(uid)
-        for int i = 0 to dropList.dropChance.size() - 1
+        for int i = 0 to dropList.dropPool.size() - 1
             let chance = dropList.dropChance.get(i)
             if GetRandomInt(0, 100) < chance
                 let pos = u.getPos()
-                let random = GetRandomInt(0, dropList.dropList.get(i).size() - 1)
-                createItem(dropList.dropList.get(i).get(random), pos)
-            
-        
-    
-public function dropMyItemsEliteCreeps(unit u)
-    let pos = u.getPos()
-    if GetUnitTypeId(u) == ELITE_CREEP[1]// nerub queen
-        if GetRandomInt(1, 100) < 25
-            createItem(ITEM_DROP[GetRandomInt(54,56)], pos)
-            
-
-    else if GetUnitTypeId(u) == ELITE_CREEP[2] // hydralisk
-        if GetRandomInt(1, 100) < 25
-            createItem(ITEM_DROP[GetRandomInt(54,59)], pos)
-            
-        if GetRandomInt(1, 100) < 10
-            createItem(ITEM_DROP[69], pos)
-            
-
-    else if GetUnitTypeId(u) == ELITE_CREEP[3] // furbolg ursa warrior
-        if GetRandomInt(1, 100) < 25
-            createItem(ITEM_DROP[GetRandomInt(60,63)], pos)
-            createItem(ITEM_DROP[GetRandomInt(57,59)], pos)
-            createItem(ITEM_DROP[53], pos)
-            
-
-    else if GetUnitTypeId(u) == ELITE_CREEP[4] // flesh golem
-        if GetRandomInt(1, 100) < 25
-            createItem(ITEM_DROP[GetRandomInt(60,63)], pos)
-            createItem(ITEM_DROP[GetRandomInt(54,59)], pos)
-            createItem(ITEM_DROP[53], pos)
-            
-
-    else if GetUnitTypeId(u) == ELITE_CREEP[5] // doom guard
-        if GetRandomInt(1, 100) < 25
-            createItem(ITEM_DROP[GetRandomInt(66,68)], pos)
-            createItem(ITEM_DROP[GetRandomInt(60,63)], pos)
-            createItem(ITEM_DROP[53], pos)
-            
-
-    else if GetUnitTypeId(u) == ELITE_CREEP[6] // footman
-        DoNothing()
-
-    else if GetUnitTypeId(u) == ELITE_CREEP[7] // captain
-        DoNothing()
-
-    else if GetUnitTypeId(u) == ELITE_CREEP[8] // scary scream
-        createItem(ITEM_DROP[53], pos)
-        createItem(ITEM_DROP[53], pos)
-        createItem(ITEM_DROP[53], pos)
-        createItem(ITEM_352, pos)
-        
-
-    else if GetUnitTypeId(u) == ELITE_CREEP[9] // snapdragon
-        createItem(ITEM_DROP[53], pos)
-        createItem(ITEM_DROP[53], pos)
-        createItem(ITEM_276, pos)
-        createItem(ITEM_355, pos)
-        
-
-    else if GetUnitTypeId(u) == ELITE_CREEP[10] // ice revenant
-        createItem(ITEM_DROP[GetRandomInt(84,86)], pos)
-        createItem(ITEM_DROP[GetRandomInt(74,76)], pos)
-        
+                var lastCount = 0
+                for int j = 0 to dropList.dropPoolCutoff.get(i).size() - 1
+                    let cutOff = lastCount + dropList.dropPoolCutoff.get(i).get(j)
+                    let random = GetRandomInt(lastCount, cutOff - 1)
+                    lastCount = cutOff
+                    createItem(dropList.dropPool.get(i).get(random), pos)
 
 public function dropMyItemsBosses(unit u)
     let pos = u.getPos()

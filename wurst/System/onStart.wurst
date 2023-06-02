@@ -194,4 +194,5 @@ function mapSetup()
         doAfter(30) -> 
             if(gameMode == 0)
                 automaticPick()
+                dBox.display(players[0], false)
                 destroy dBox
