@@ -9,6 +9,7 @@ import Icons
 import MyAbilityIds
 import AbilityIds
 import Abilities
+import AbilityObjEditing
 import Soundsets
 
 init
@@ -10011,9 +10012,16 @@ init
     ..setManaRegeneration(0.00)
     ..setLevel(3)
 
-    new UnitDefinition(WAVE_MOB_9, UnitIds.war2warlock)// Orc Warlock (nw2w)
-    ..setNormalAbilities(commaList('ACfb', 'ACuf', 'ACcr'))
+    new AbilityDefinitionFireBoltcreep(WAVE_MOB_9_ABI1)
+    ..setCooldown(1, 20)
+    ..setDurationHero(1, 1.5)
+    ..setDurationNormal(1, 1.5)
+    ..setCastRange(1, 1000)
+    ..setRequirements("")
+    ..setManaCost(1, 25)
 
+    new UnitDefinition(WAVE_MOB_9, UnitIds.war2warlock)// Orc Warlock (nw2w)
+    ..setNormalAbilities(commaList(WAVE_MOB_9_ABI1))
     ..setScalingValue(1.00)
     ..setSelectionScale(1.15)
     ..setAttack1CooldownTime(1.10)
@@ -10249,7 +10257,7 @@ init
     ..setLevel(5)
 
     new UnitDefinition(WAVE_MOB_12, UnitIds.shaman)// Shaman (oshm)
-    ..setNormalAbilities(commaList('Ablo', 'Alsh', 'Apg2', 'Aion'))
+    ..setNormalAbilities(commaList(""))
 
     ..setScalingValue(1.00)
     ..setSelectionScale(1.15)
@@ -10328,7 +10336,7 @@ init
     ..setLevel(2)
 
     new UnitDefinition(WAVE_MOB_13, UnitIds.nazgrel)// Nazgrel (onzg)
-    ..setNormalAbilities(commaList('Aens', 'Asal', 'Aion'))
+    ..setNormalAbilities(commaList('Asal', 'Aion'))
 
     ..setScalingValue(1.00)
     ..setSelectionScale(1.60)
@@ -15230,10 +15238,10 @@ init
     new UnitDefinition(WAVE_BOSS_55, UnitIds.corruptedent)// Corrupted Treant (Big Boss 10) (n03J)
     ..setNormalAbilities(commaList(CREEP_ABILITY_18, CREEP_ABILITY_25, REDUCE_ARMOR_80_BOSS, CREEP_ABILITY_1, REDUCE_ARMOR_75))
 
-    ..setScalingValue(0.90)
-    ..setSelectionScale(0.25)
-    ..setAttack1CooldownTime(0.30)
-    ..setAttack1DamageBase(800)
+    ..setScalingValue(5)
+    ..setSelectionScale(5)
+    ..setAttack1CooldownTime(0.50)
+    ..setAttack1DamageBase(600)
     ..setAttack1DamageNumberofDice(9)
     ..setAttack1DamageSidesperDie(9)
     ..setAttack1Range(100)
@@ -16248,7 +16256,7 @@ init
     ..setGoldBountyAwardedSidesperDie(6)
     ..setHitPointsMaximumBase(188258)
     ..setHitPointsRegenerationRate(1128.00)
-    ..setManaInitialAmount(75)
+    ..setManaInitialAmount(200)
     ..setManaMaximum(200)
     ..setName("Shaman")
     ..setManaRegeneration(2)
@@ -16576,7 +16584,7 @@ init
     ..setScalingValue(2.00)
     ..setSelectionScale(1.60)
     ..setAttack1CooldownTime(0.70)
-    ..setAttack1DamageBase(3720)
+    ..setAttack1DamageBase(1720)
     ..setAttack1DamageNumberofDice(9)
     ..setAttack1DamageSidesperDie(9)
     ..setAttack1Range(100)

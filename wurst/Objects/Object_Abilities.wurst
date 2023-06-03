@@ -3451,7 +3451,7 @@ import OrderIds
     new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_1) //A08H
     ..setLevels(1)
     ..setChancetoCriticalStrike(1, 10)
-    ..setDamageMultiplier(1, 9)
+    ..setDamageMultiplier(1, 5)
     ..setHeroAbility(false)
     ..setItemAbility(false)
     ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
@@ -3920,8 +3920,8 @@ import OrderIds
     ..setDamage(1, 2200)
     ..setManaCost(1, 0)
     ..setCooldown(1, 5)
-    ..setDurationHero(1, 4.5)
-    ..setDurationNormal(1, 4.5)
+    ..setDurationHero(1, 3.5)
+    ..setDurationNormal(1, 3.5)
 
     new AbilityDefinitionEnsnareCreep(CREEP_ABILITY_66) //A101
     ..setLevels(1)
@@ -4026,16 +4026,16 @@ import OrderIds
 
     new AbilityDefinitionPurgeCreep(CREEP_ABILITY_80) //A105
     ..setRequirements("")
-    ..setCooldown(1, 5)
+    ..setCooldown(1, 13)
     ..setDurationHero(1, 10)
     ..setDurationNormal(1, 10)
     ..setAttackUpdateFrequency(1, 10)
     ..setHeroPauseDuration(1, 10)
-    ..setManaLoss(1, 8500)
+    ..setManaLoss(1, 5500)
     ..setMovementUpdateFrequency(1, 10)
     ..setSummonedUnitDamage(1, 12000)
     ..setUnitPauseDuration(1, 10)
-    ..setManaCost(1, 15)
+    ..setManaCost(1, 60)
 
     new AbilityDefinitionRejuvinationcreep(CREEP_ABILITY_81) //A07Z
     ..setCooldown(1, 1)
