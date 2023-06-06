@@ -4,6 +4,8 @@ import DamageEvent
 
 let magicResistMap = new HashMap<integer, real>
 let physicalPenetrationMap = new HashMap<integer, real>
+let basePhysPenMap = new HashMap<integer, real>
+let baseMagicResMap = new HashMap<integer, real>
 let physPenItemHash = new HashMap<int, real>
 let magicResItemHash = new HashMap<int, real>
 real physPen
@@ -25,7 +27,7 @@ public function integer.getMagicResist() returns real
     return magicResistMap.get(this)
 
 public function unit.physPenAdd()
-    physPen = 0
+    physPen = basePhysPenMap.has(this.getTypeId()) ? basePhysPenMap.get(this.getTypeId()) : 0
     for int i = 0 to 5
         let ite = this.getItemBySlot(i)
         let hashValue = ite.getTypeId()
@@ -34,7 +36,7 @@ public function unit.physPenAdd()
     this.enumeratePhysicalPenetration(physPen)
 
 public function unit.physpenSub(item dropped)
-    physPen = 0
+    physPen = basePhysPenMap.has(this.getTypeId()) ? basePhysPenMap.get(this.getTypeId()) : 0
     for int i = 0 to 5
         let ite = this.getItemBySlot(i)
         if(ite != dropped)
@@ -44,7 +46,7 @@ public function unit.physpenSub(item dropped)
     this.enumeratePhysicalPenetration(physPen)
 
 public function unit.magicResAdd()
-    magicRes = 0
+    magicRes = baseMagicResMap.has(this.getTypeId()) ? baseMagicResMap.get(this.getTypeId()) : 0
     for int i = 0 to 5
         let hashValue = this.getItemBySlot(i).getTypeId()
         if(magicResItemHash.has(hashValue))
@@ -54,7 +56,7 @@ public function unit.magicResAdd()
     this.enumerateMagicResistance(magicRes * 100)
 
 public function unit.magicResSub(item dropped)
-    magicRes = 0
+    magicRes = baseMagicResMap.has(this.getTypeId()) ? baseMagicResMap.get(this.getTypeId()) : 0
     for int i = 0 to 5
         let ite = this.getItemBySlot(i)
         if(ite != dropped)
@@ -70,6 +72,38 @@ public function int.putInItemHash(real input)
 
 public function int.putInMagicResItemHash(real input)
     magicResItemHash.put(this, input)
+
+public function int.basePhysPenAdd(real penValue)
+    physPen = basePhysPenMap.has(this) ? basePhysPenMap.get(this) : 0
+    basePhysPenMap.put(this, physPen + penValue)
+
+public function int.basePhysPenSub(real penValue)
+    physPen = basePhysPenMap.has(this) ? basePhysPenMap.get(this) : 0
+    basePhysPenMap.put(this, physPen - penValue)
+
+public function unit.basePhysPenAdd(real penValue)
+    physPen = basePhysPenMap.has(this.getTypeId()) ? basePhysPenMap.get(this.getTypeId()) : 0
+    basePhysPenMap.put(this.getTypeId(), physPen + penValue)
+
+public function unit.basePhysPenSub(real penValue)
+    physPen = basePhysPenMap.has(this.getTypeId()) ? basePhysPenMap.get(this.getTypeId()) : 0
+    basePhysPenMap.put(this.getTypeId(), physPen - penValue)
+
+public function int.baseMagicResAdd(real resValue)
+    magicRes = baseMagicResMap.has(this) ? baseMagicResMap.get(this) : 0
+    baseMagicResMap.put(this, physPen + resValue)
+
+public function int.baseMagicResSub(real resValue)
+    magicRes = baseMagicResMap.has(this) ? baseMagicResMap.get(this) : 0
+    baseMagicResMap.put(this, physPen - resValue)
+
+public function unit.baseMagicResAdd(real resValue)
+    magicRes = baseMagicResMap.has(this.getTypeId()) ? baseMagicResMap.get(this.getTypeId()) : 0
+    baseMagicResMap.put(this.getTypeId(), physPen + resValue)
+
+public function unit.baseMagicResSub(real resValue)
+    magicRes = baseMagicResMap.has(this.getTypeId()) ? baseMagicResMap.get(this.getTypeId()) : 0
+    baseMagicResMap.put(this.getTypeId(), physPen - resValue)
 
 public function unit.enumerateMagicResistance(real magicResistance)
     magicResistMap.put(this.getTypeId(), magicResistance /100)

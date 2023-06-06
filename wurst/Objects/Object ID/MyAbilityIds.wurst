@@ -1151,5 +1151,4 @@ public constant ITEM_704_ABI2 = compiletime(ABIL_ID_GEN.next())
 
 public constant WAVE_MOB_9_ABI1 = compiletime(ABIL_ID_GEN.next())
 
-
 init
