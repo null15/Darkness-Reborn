@@ -10,6 +10,9 @@ import CodeDialog
 import Global_Variables
 import TeleportToMobs
 import GameEnd
+import DamageEvent
+import A0E6_R
+
 real facing = 270
 real facingUp = 90
 
@@ -73,6 +76,17 @@ function onBuyHero(unit u)
                 playerHero[i].setPos(gg_rct_Base.getCenter())
                 players[i].setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 0)
                 GetBuyingUnit().remove()
+                soldUnit.initTriggers()
+
+function unit.initTriggers()//init triggers and event listner only when the hero is selected
+    if this.getTypeId() == PLAY_HERO_11//illidan(demon hunter) - R skill
+        DamageEvent.addListener() -> 
+            let src = DamageEvent.getSource()
+            let targ = DamageEvent.getTarget()
+            if (DamageEvent.getType() == ATTACK and src.isIllusion() == false)
+                if (DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL or DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)
+                    if GetUnitAbilityLevel(src, 'A0E6') >= 1
+                        demonPower(src)
 
 function createSetup()
     let p = Player(10)

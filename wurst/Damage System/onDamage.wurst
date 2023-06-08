@@ -218,8 +218,8 @@ init
                     lastKiller(src, targ)
 
                 // Demon Hunter (Demon Power) R - Passive
-                if GetUnitAbilityLevel(src, 'A0E6') >= 1
-                    demonPower(src)
+                //if GetUnitAbilityLevel(src, 'A0E6') >= 1 - swap to onStart function
+                    //demonPower(src)
 
                 // Mountain King (Over Power) R - Passive
                 if targ.hasAbility(BUFF_5) or targ.hasAbility('BPSE') and src.getAbilityLevel('A0DX') >= 1 and GetRandomInt(1, 100) < 35

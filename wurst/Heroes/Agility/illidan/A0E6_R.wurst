@@ -38,6 +38,7 @@ public function demonPower(unit u)
                     u.resetArmor()
                     BlzSetUnitSkin(u, oldskin)
                     attackCount = 0
+                    attackLeft = 0
     else if attackLeft > 0
         attackLeft--
     else
@@ -45,3 +46,4 @@ public function demonPower(unit u)
         BlzSetUnitSkin(u, oldskin)
         u.resetArmor()
         attackCount = 0
+        attackLeft = 0
