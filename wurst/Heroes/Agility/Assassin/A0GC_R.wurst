@@ -1,9 +1,9 @@
 package A0GC_R
 import MyUnitIds
 import ClosureEvents
-init
+//init  (disable for now), rework skill on new ult
 
-    katarMastery()
+   // katarMastery()
 
 function katarMastery()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 

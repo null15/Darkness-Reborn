@@ -1,0 +1,116 @@
+package ASSA_T_PASSIVE
+import MyAbilityIds
+import MyUnitIds
+import ClosureEvents
+import codeDamageTypings
+integer array assaQuest = []
+boolean trigger_active = false
+
+init
+
+    learnULT()
+
+function learnULT()
+    EventListener.add(EVENT_PLAYER_HERO_SKILL) ->
+        let u = GetTriggerUnit()
+        if (GetLearnedSkill() == ASSASSIN_ABIL_5 and u.isIllusion() == false)
+            u.assa_quest()
+            if (trigger_active == false)
+                trigger_active = true
+                printTimedToPlayer("You can now type -track to check Quest Track", 20, u.getOwner())
+                CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() ->
+                    let killer = GetKillingUnit()
+                    if(killer.getTypeId() == PLAY_HERO_10 and GetRandomInt(1, 100) <= 50 and killer.isIllusion() == false)
+                        let targetLevel = GetDyingUnit().getLevel()
+                        let lowDmg = killer.getBaseDamage(0)
+                        let highDmg = killer.getBaseDamage(1)
+                        if (targetLevel <= 10)
+                            killer.setBaseDamage(lowDmg+3, 0)
+                            killer.setBaseDamage(highDmg+3, 1)
+                        else if (targetLevel <= 20)
+                            killer.setBaseDamage(lowDmg+4, 0)
+                            killer.setBaseDamage(highDmg+4, 1)
+                        else if (targetLevel <= 24)
+                            killer.setBaseDamage(lowDmg+5, 0)
+                            killer.setBaseDamage(highDmg+5, 1)
+                        else if (targetLevel <= 25)
+                            killer.setBaseDamage(lowDmg+10, 0)
+                            killer.setBaseDamage(highDmg+10, 1)
+                        else if (targetLevel <= 45)
+                            killer.setBaseDamage(lowDmg+20, 0)
+                            killer.setBaseDamage(highDmg+20, 1)
+                        else if (targetLevel <= 70)
+                            killer.setBaseDamage(lowDmg+20, 0)
+                            killer.setBaseDamage(highDmg+20, 1)
+                CreateTrigger()..registerPlayerChatEvent(u.getOwner(), "-track", true)..addAction() ->
+                    printTimedToPlayer("Quest Track:\nFirst Quest:"+assaQuest[1].toString()+"\nSecond Quest:"+assaQuest[2].toString()+"\nThird Quest: "+assaQuest[3].toString()+"\nForth Quest:"+assaQuest[4].toString()+"", 10, GetTriggerPlayer())
+
+function unit.assa_quest() 
+    if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 1
+        assaQuest[1] = 0
+        CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() ->
+            let killer = GetKillingUnit()
+            let i = assaQuest[1]
+            if(killer.getTypeId() == PLAY_HERO_10 and i < 200 and killer.isIllusion() == false)
+                assaQuest[1] = i+1
+            else if (i == 200)
+                let lowDmg = killer.getBaseDamage(0)
+                let highDmg = killer.getBaseDamage(1)
+                killer.setBaseDamage(lowDmg+500, 0)
+                killer.setBaseDamage(highDmg+500, 1)
+                printTimedToPlayer("First quest complete! you gain 500 base damage", 10, killer.getOwner())
+                DisableTrigger(GetTriggeringTrigger())
+            else if (i > 200)
+                DisableTrigger(GetTriggeringTrigger())
+
+    if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 2
+        assaQuest[2] = 0
+        CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() ->
+            let killer = GetKillingUnit()
+            let target = GetDyingUnit()
+            let i = assaQuest[2]
+            if(killer.getTypeId() == PLAY_HERO_10 and i < 100 and target.getLevel() > 20 and killer.isIllusion() == false)
+                assaQuest[2] = i+1
+            else if (i == 100)
+                killer.basePhysPenAdd(5)
+                printTimedToPlayer("Second quest complete! you gain 5% armor penetration", 10, GetTriggerPlayer())
+                DisableTrigger(GetTriggeringTrigger())
+            else if (i > 100)
+                DisableTrigger(GetTriggeringTrigger())
+
+    if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 3
+        assaQuest[3] = 0
+        CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() ->
+            let killer = GetKillingUnit()
+            let target = GetDyingUnit()
+            let i = assaQuest[3]
+            if(killer.getTypeId() == PLAY_HERO_10 and i < 20 and target.getLevel() > 42 and killer.isIllusion() == false)
+                assaQuest[3] = i+1
+            else if (i == 20)
+                killer.removeAbility('A0GM')
+                killer.addAbility(ASSASIN_ABIL_6_QUEST)
+                printTimedToPlayer("Third quest complete! Your skill Enchanted Weapon as been evolve!", 10, GetTriggerPlayer())
+                DisableTrigger(GetTriggeringTrigger())
+            else if (i > 20)
+                DisableTrigger(GetTriggeringTrigger())
+    if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 4
+        assaQuest[4] = 0
+        CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() ->
+            let killer = GetKillingUnit()
+            let target = GetDyingUnit()
+            let i = assaQuest[4]
+            if(killer.getTypeId() == PLAY_HERO_10 and i < 1 and target.getLevel() >= 90 and killer.isIllusion() == false)
+                assaQuest[4] = i+1
+            else if (i == 1)
+                killer.basePhysPenAdd(10)
+                printTimedToPlayer("Forth quest complete! you gain 10% armor penetration", 10, GetTriggerPlayer())
+                DisableTrigger(GetTriggeringTrigger())
+            else if (i > 1)
+                DisableTrigger(GetTriggeringTrigger())
+
+
+        
+
+        
+
+        

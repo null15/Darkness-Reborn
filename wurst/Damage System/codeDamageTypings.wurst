@@ -1,6 +1,8 @@
 package codeDamageTypings
 import HashMap
 import DamageEvent
+import Global_Variables
+import ClosureEvents
 
 let magicResistMap = new HashMap<integer, real>
 let physicalPenetrationMap = new HashMap<integer, real>
@@ -10,6 +12,9 @@ let physPenItemHash = new HashMap<int, real>
 let magicResItemHash = new HashMap<int, real>
 real physPen
 real magicRes
+
+init
+    statscheck()
 
 function unit.getItemBySlot(int slot) returns item
     return UnitItemInSlot(this, slot)
@@ -194,3 +199,10 @@ public function unit.pureDamageCodeElement(real amount, unit target, DamageEleme
 public function unit.pureDamageCode(real amount, unit target)
     DamageEvent.setNextDamageFromCode()
     this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+
+function statscheck()
+    EventListener.add(EVENT_PLAYER_CHAT_FILTER) ->
+        if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-stats"
+            let pn = GetTriggerPlayer().getId()
+            let u = playerHero[pn]
+            printTimedToPlayer("Physical Penetration:"+ physicalPenetrationMap.loadReal(u.getTypeId()).toString() +"\nMagic Ressistence:"+ magicResistMap.loadReal(u.getTypeId()).toString() +" ", 10, Player(pn))

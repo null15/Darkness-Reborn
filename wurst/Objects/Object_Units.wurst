@@ -1737,7 +1737,7 @@ init
 
     new HeroDefinition(PLAY_HERO_10, UnitIds.blademaster)// Assasin (O00P)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A0DA', 'A0DC', 'A0GM', 'A0GC', 'A0GJ'))
+    ..setHeroAbilities(commaList('A0DA', 'A0DC', 'A0GM', 'A0GC', ASSASSIN_ABIL_5))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     ..setPrimaryAttribute("Agility")
     ..setStartingStrength(18)
@@ -2279,7 +2279,9 @@ init
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList('A0RF', 'A0RV', 'A0RG', 'A0RE', 'A01K'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
-    
+    ..setAgilityPerLevel(1.75)
+    ..setStrengthPerLevel(2)
+    ..setIntelligencePerLevel(2.25)
     ..setPrimaryAttribute("Agility")
     ..setStartingStrength(18)
     ..setStartingAgility(22)
@@ -2493,7 +2495,7 @@ init
 + "Difficulty: 1/5\n")
     ..setManaRegeneration(0.01)
 
-    new HeroDefinition(PLAY_HERO_17, UnitIds.illidan)// Demon Hunter (E005)
+    new HeroDefinition(PLAY_HERO_17, UnitIds.illidan)// Illusionist (E005)
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList('A0TQ', 'A0TN', 'A0S8', 'A0TO', 'A0TP'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
@@ -4010,7 +4012,6 @@ init
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList('A0X5', 'A0XE', 'A0XF', 'A0XD', 'A0XG'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
-    
     ..setPrimaryAttribute("Agility")
     ..setStartingStrength(10)
     ..setStartingAgility(12)
@@ -21231,7 +21232,7 @@ init
     ..setManaRegeneration(0.01)
     ..setLevel(5)
 
-    new HeroDefinition(WAVE_HERO_20, UnitIds.demonhunter)// Demon Hunter (E011)
+    new HeroDefinition(WAVE_HERO_20, UnitIds.demonhunter)// Demon Hunter(boss wave) (E011)
     ..setNormalAbilities(commaList('A007', 'AInv'))
 
     ..setPrimaryAttribute("Agility")

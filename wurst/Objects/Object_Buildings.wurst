@@ -83,7 +83,7 @@ import Units
     ..setPathingMap("")
     ..setItemsSold("")
     ..setModelFile("Red Item.mdl")
-    ..setItemsMade(commaList(ITEM_704,ITEM_705))
+    ..setItemsMade(commaList(ITEM_706,ITEM_707))
     ..setUpgradesTo("")
     ..setUpgradesUsed("RM0e,RM0d")
     ..setArmorType(ArmorType.Fortified)
