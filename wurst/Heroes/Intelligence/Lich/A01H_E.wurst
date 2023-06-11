@@ -8,10 +8,9 @@ import OrderIds
 import codeDamageTypings
 import BouncingProjectiles
 
-init
-    chainTest()
+
             
-function chainTest()
+public function chainTest()
     EventListener.onTargetCast('A01H') (unit caster, unit target) ->
         let level = caster.getAbilityLevel('A01H')
         let sfx = addEffect(Abilities.frostBoltMissile, caster.getPos())..setZ(caster.getLocalZ() + 10)..setScale(1.5)

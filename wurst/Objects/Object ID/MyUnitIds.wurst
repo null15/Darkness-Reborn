@@ -29,8 +29,6 @@ public constant SUMMONED_UNIT_8 = compiletime(UNIT_ID_GEN.next())
 
 public constant DUMMY_BLACKSMITH_WISP = compiletime(UNIT_ID_GEN.next())
 
-public constant VIVPIRE_THRALL = compiletime(UNIT_ID_GEN.next())
-
 public constant HERO_PICKER = compiletime(UNIT_ID_GEN.next())
 
 public constant FACTORYROBO = compiletime(UNIT_ID_GEN.next())

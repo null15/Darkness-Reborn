@@ -9,12 +9,9 @@ import OrderIds
 import ClosureEvents
 import MyAbilityIds
 import codeDamageTypings
-constant METEOR_SOUND = new SoundDefinition(Sounds.catapultMissile4, false, true)
 
-init
-    rainofFire()
-
-function rainofFire()
+public function rainofFire()
+    let METEOR_SOUND = new SoundDefinition(Sounds.catapultMissile4, false, true)
     EventListener.onPointCast(PITLORD_ABIL_1) (unit caster, vec2 target) ->
         doAfter(1) -> 
             let lvl = caster.getAbilityLevel(PITLORD_ABIL_1)

@@ -3,11 +3,9 @@ import ClosureTimers
 import ClosureForGroups
 import ClosureEvents
 import codeDamageTypings
-init
 
-    shadowWalk()
 
-function shadowWalk()
+public function shadowWalk()
     EventListener.onCast('A0DA') (unit caster) ->
         let angle = caster.getFacingAngle()
         let lvl = GetUnitAbilityLevel(caster, 'A0DA')

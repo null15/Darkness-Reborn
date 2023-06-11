@@ -1,9 +1,9 @@
 package A0M9_E
 import ClosureEvents
 import codeDamageTypings
-init
-    shadowHex()
-function shadowHex()
+
+
+public function shadowHex()
     EventListener.onTargetCast('A0M9') (unit caster, unit target) ->
         let lvl = caster.getAbilityLevel('A0M9')
         let intellect = caster.getInt(true)

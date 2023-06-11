@@ -7,6 +7,7 @@ import MyUnitIds
 import Global_Variables
 import onStart
 import PauseAllocation
+import heroLoader
 // when all base skills maxed, ascends
 init
     ascension()
@@ -42,6 +43,7 @@ function ascension()
                     ..setInt(loas_int)
                     ..setHP(loas_hp)
                     ..setMana(loas_mp)
+                    u1.heroCheck()
                     playerHero[u1.getOwner().getId()] = u1
                     heroRespawn(u1)
                     for i = 0 to 5

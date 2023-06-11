@@ -4,47 +4,57 @@ import ClosureForGroups
 import ClosureTimers
 import MyUnitIds
 import MoonUtils
-init
-    constructFinish()
-function constructFinish()
+
+function unit.swapPlayTech(int setTo)
+    let conID = this.getTypeId()
+    if(conID == TINKERBUILDING_73)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_73, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_61)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_61, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_64)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_64, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_67)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_67, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_70)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_70, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_109)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_109, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_110)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_110, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_111)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_111, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_112)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_112, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_113)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_113, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_114)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_114, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_115)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_115, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_103)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, setTo, this.getOwner())
+
+    else if (conID == TINKERBUILDING_95)
+        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, setTo, this.getOwner())
+
+public function construction()
     EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_START) -> 
-        let construction = GetConstructingStructure()
-        let conID = construction.getTypeId()
-        if(conID == TINKERBUILDING_73)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_73, 0, construction.getOwner())
+        GetConstructingStructure().swapPlayTech(0)
 
-        else if (conID == TINKERBUILDING_61)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_61, 0, construction.getOwner())
-
-        else if (conID == TINKERBUILDING_64)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_64, 0, construction.getOwner())
-
-        else if (conID == TINKERBUILDING_67)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_67, 0, construction.getOwner())
-
-        else if (conID == TINKERBUILDING_70)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_70, 0, construction.getOwner())
-
-        else if (conID == TINKERBUILDING_109)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_109, 0, construction.getOwner())
-
-        else if (conID == TINKERBUILDING_110)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_110, 0, construction.getOwner())
-
-        else if (conID == TINKERBUILDING_111)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_111, 0, construction.getOwner())
-
-        else if (conID == TINKERBUILDING_112)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_112, 0, construction.getOwner())
-
-        else if (conID == TINKERBUILDING_113)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_113, 0, construction.getOwner())
-
-        else if (conID == TINKERBUILDING_114)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_114, 0, construction.getOwner())
-
-        else if (conID == TINKERBUILDING_115)
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_115, 0, construction.getOwner())
+    EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL) -> 
+        GetConstructingStructure().swapPlayTech(1)
              
     EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH) -> 
         let construction = GetConstructedStructure()
@@ -52,10 +62,11 @@ function constructFinish()
             forUnitsInRange(construction.getPos(), 500) (unit u) ->
                 if u.getTypeId() == CLOCKWERK_0
                     u.remove()
-    CreateTrigger()..registerEnterRect(gg_rct_BlockTinkerBuildings)..addAction() ->
-        if GetEnteringUnit().isType(UNIT_TYPE_STRUCTURE) and GetEnteringUnit().getOwner() != Player(10)
-            let u = GetEnteringUnit()
+    CreateTrigger()..registerRectEnterEventSource(gg_rct_BlockTinkerBuildings)..addAction() ->
+        let u = GetEnteringUnit()
+        if u.isType(UNIT_TYPE_STRUCTURE)
             u.kill()
+            u.swapPlayTech(1)
             if u.getTypeId() == TINKERBUILDING_103
                 SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, 1, u.getOwner())
             else if u.getTypeId() == TINKERBUILDING_95

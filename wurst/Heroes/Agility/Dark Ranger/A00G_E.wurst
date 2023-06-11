@@ -5,11 +5,8 @@ import codeDamageTypings
 import ClosureTimers
 import StandardTextTags
 texttag manaDrained
-init
 
-    darkDrain()
-
-function darkDrain()
+public function darkDrain()
     EventListener.onTargetCast(DARKRANGER_ABIL_3) (unit caster, unit target) ->
         manaDrained = CreateTextTag()
         let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_3)

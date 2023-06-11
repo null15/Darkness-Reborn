@@ -1,24 +1,17 @@
 package Object_Units
 
-import UnitObjEditing
 import UnitIds
 import ObjectIds
 import Units
 import MyUnitIds
 import Icons
 import MyAbilityIds
-import AbilityIds
 import Abilities
 import AbilityObjEditing
 import Soundsets
 
 init
-
-@compiletime function vivpireUnits()
-    new UnitDefinition(VIVPIRE_THRALL, UnitIds.grunt)
-    ..setName("Thrall")
     
-
 @compiletime function horseUnits()
     new UnitDefinition(HORSE_UNIT_1, UnitIds.packhorse)
     ..setName("Weak Horse")

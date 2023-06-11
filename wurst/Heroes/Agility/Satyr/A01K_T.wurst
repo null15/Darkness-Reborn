@@ -2,12 +2,10 @@ package A01K_T
 import DummyCaster
 import OrderIds
 import MyAbilityIds
-init
-    biteofDeath()
-function biteofDeathCond() returns boolean
-    return GetSpellAbilityId() == 'A01K'
-function biteofDeath()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function biteofDeathCond))..addAction() ->
+import ClosureEvents
+
+public function biteofDeath()
+    EventListener.onCast('A01K') (unit caster) ->
         let lvl = GetTriggerUnit().getAbilityLevel('A01K')
         new DummyCaster()
         ..owner(GetOwningPlayer(GetTriggerUnit()))

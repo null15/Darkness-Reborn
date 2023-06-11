@@ -5,7 +5,7 @@ import MyAbilityIds
 import DummyCaster
 import OrderIds
 
-function howl()
+public function doghowl()
     EventListener.onCast(WOLF_INITIATE_ABIL_2) (unit caster) ->
         new DummyCaster()
         ..origin(caster.getPos())
@@ -13,6 +13,3 @@ function howl()
         ..castImmediate(WOLF_INITIATE_DUMMY_1, 
         caster.getAbilityLevel(WOLF_INITIATE_ABIL_2), 
         OrderIds.stomp)
-
-init
-    howl()

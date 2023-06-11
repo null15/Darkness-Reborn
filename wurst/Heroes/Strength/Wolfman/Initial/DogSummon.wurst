@@ -3,11 +3,7 @@ import MyUnitIds
 import ClosureEvents
 import MyAbilityIds
 
-init
-    wolfDog()
-
-function wolfDog()
-
+public function manDog()
     EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
         let summoner = GetSummoningUnit()
         if(summoner.getTypeId() == PLAY_HERO_1_INITIAL)

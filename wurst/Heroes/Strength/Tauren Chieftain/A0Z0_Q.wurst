@@ -7,9 +7,9 @@ import Abilities
 import codeDamageTypings
 import PointTransitProjectile
 import TerrainUtils
-init
-    shockExplosion()
-function shockExplosion()
+
+
+public function shockExplosion()
     EventListener.onPointCast('A0Z0') (unit caster, vec2 target) ->
         doAfter(0.25) ->
             let sfx = addEffect(Objects.impaleTargetDust, caster.getPos())

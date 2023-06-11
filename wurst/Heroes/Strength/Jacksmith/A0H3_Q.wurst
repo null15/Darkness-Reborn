@@ -2,9 +2,8 @@ package A0H3_Q
 import MyItemIds
 import ClosureEvents
 
-init
-    forge()
-function forge()
+
+public function forge()
     EventListener.onCast('A0H3') (unit caster) ->
         let js = caster
 

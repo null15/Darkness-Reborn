@@ -4,10 +4,8 @@ import ClosureTimers
 import Abilities
 import ClosureEvents
 import codeDamageTypings
-init
-    darkArrow()
 
-function darkArrow()
+public function poisonArrow()
     EventListener.onPointCast('A0CH') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0CH')
         let amount = caster.getStr(true) * lvl * 2.

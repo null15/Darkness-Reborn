@@ -4,16 +4,13 @@ import ClosureForGroups
 import ClosureEvents
 import codeDamageTypings
 import PauseAllocation
-init
-
-    shadowRaze()
 
 function shadowRazeEnd(unit u)
     u.unPauseUnitIndef()
     u.setInvulnerable(false)
     u.setVertexColor(color(255, 255, 255))
 
-function shadowRaze()
+public function shadowRaze()
     EventListener.onPointCast('A0D8') (unit caster, vec2 target) ->
         let angle = caster.getPos().angleTo(target)
         let lvl = GetUnitAbilityLevel(caster, 'A0D8')

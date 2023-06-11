@@ -7,14 +7,8 @@ import codeDamageTypings
 import ClosureForGroups
 import TerrainUtils
 bool run = true
-init
 
-    goldenArrow()
-
-function goldenArrowCond() returns boolean
-    return GetSpellAbilityId() == ABILITY_2
-
-function goldenArrow()
+public function goldenArrow()
     EventListener.onPointCast(ABILITY_2) (unit caster, vec2 target) ->
         let casterPos = caster.getPos()
         let angle = caster.getPos().angleTo(target)

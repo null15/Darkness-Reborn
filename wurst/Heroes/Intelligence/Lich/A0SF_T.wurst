@@ -4,9 +4,9 @@ import ClosureForGroups
 import ClosureTimers
 import Abilities
 import codeDamageTypings
-init
-    deathandnDecay()
-function deathandnDecay()
+
+
+public function deathandnDecay()
     EventListener.onPointCast('A0SF') (unit caster, vec2 target) ->
         let dmg = [0.08, 0.10, 0.12, 0.14]
         let lvl = caster.getAbilityLevel('A0SF')

@@ -4,9 +4,8 @@ import ClosureEvents
 import DialogBox
 import MyItemIds
 
-init
-    forgeMaster()
-function forgeMaster()
+
+public function forgeMaster()
     EventListener.onCast('A0JR') (unit caster) ->
         let js = caster
         let lvl = GetUnitAbilityLevel(js, 'A0JR')

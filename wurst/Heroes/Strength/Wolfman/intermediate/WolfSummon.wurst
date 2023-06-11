@@ -4,10 +4,7 @@ import MyUnitIds
 import ClosureEvents
 import MyAbilityIds
 
-init
-    wolfDog()
-
-function wolfDog()
+public function dogDog()
 
     EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
         let summoner = GetSummoningUnit()

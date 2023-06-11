@@ -1,5 +1,4 @@
 package BouncingProjectiles
-import Projectile
 import ClosureForGroups
 import ClosureTimers
 

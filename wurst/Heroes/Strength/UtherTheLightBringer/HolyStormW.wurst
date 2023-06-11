@@ -7,10 +7,7 @@ import MyAbilityIds
 import codeDamageTypings
 import RedemptionR
 
-init
-    holyStorm()
-
-function holyStorm()
+public function holyStorm()
     EventListener.onCast(UTHER_ABIL_2) (unit caster) ->
         let lvl = caster.getAbilityLevel(UTHER_ABIL_2)
         let sfx = caster.addEffect("Units\\Uther\\BladeStorm\\HolyTornado.mdx", "origin")

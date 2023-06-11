@@ -4,9 +4,8 @@ import ClosureEvents
 import MyUnitIds
 import ClosureTimers
 
-init
-    phoenix()
-function phoenix()
+
+public function phoenix()
     EventListener.onPointCast('A004') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A004')
         let phoenix = createUnit(GetOwningPlayer(caster), DUMMY_UNIT_3, target)

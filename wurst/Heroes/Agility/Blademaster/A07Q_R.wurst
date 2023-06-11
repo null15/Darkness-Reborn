@@ -5,9 +5,6 @@ import ClosureForGroups
 import codeDamageTypings
 import PauseAllocation
 import ClosureEvents
-init
-
-    rampage()
 
 function rampageCond() returns boolean
     return GetSpellAbilityId() == 'A07Q'
@@ -32,10 +29,7 @@ function rampage2(unit caster, unit target)
             target.unPauseUnitIndef()
             caster.setPathing(true)
 
-function moveForward()
-        
-
-function rampage()
+public function rampage()
     EventListener.onTargetCast('A07Q') (unit caster, unit target) ->
         doAfter(0.5) -> 
             caster.pauseIndef()

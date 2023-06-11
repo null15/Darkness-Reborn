@@ -11,9 +11,9 @@ import OrderIds
 import DummyCaster
 import codeDamageTypings
 import PointProjectile
-init
-    sear()
-function sear()
+import A01O_P
+
+public function sear()
     EventListener.onPointCast('A01P') (unit caster, vec2 target) ->
         let sfx = addEffect(Abilities.ballsOfFireMissile, caster.getPos())..setZ(caster.getLocalZ() + 20)..setScale(1.5)
         let lvl = caster.getAbilityLevel('A01P')
@@ -22,6 +22,7 @@ function sear()
             forUnitsInRange(sfx.getPos(), 200, true) (unit u) ->
                 if caster.isEnemyOf(u) and u.isAlive()
                     caster.magicalDamageCodeElementId(dmg, u, DAMAGE_ELEMENT_FIRE, 'blaz')
+                    blaze(caster, u)
                     if u.hasAbility(BUFF_12)
                         new DummyCaster()
                         ..owner(caster.getOwner())

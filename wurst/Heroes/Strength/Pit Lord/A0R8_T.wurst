@@ -1,16 +1,13 @@
 package A0R8_T
-import MyUnitIds
 import ClosureEvents
-init
-    noblesseAura()
 
 int strGain = 0
 
-function noblesseAura()
+public function noblesseAura()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
         let killer = GetKillingUnit()
         let lvl = killer.getAbilityLevel('A0R8')
-        if(killer.getTypeId() == PLAY_HERO_6 and lvl > 0)
+        if(lvl > 0)
             if(strGain < lvl * 250)
                 if(lvl == 4)
                     killer.addStr(2)

@@ -4,46 +4,54 @@ import Abilities
 import StandardTextTags
 import MyUnitIds
 import ArmorLimiter
+import DamageEvent
 // import ObjectIds
 int attackCount = 0
 int attackLeft = 0
 int oldagi
 int oldskin
 texttag count
-init
 
-public function demonPower(unit u)
-    if attackCount < 25
-        attackCount = attackCount + 1
-        if attackCount % 5 == 0 and attackCount != 25
-            count = createCriticalStrikeTextTag(u, attackCount)
-            ..setText("(|cffb81b22"+I2S(attackCount)+"|r)")
-            ..setColor(colorA(92, 39, 39, 255))
-            ..setFadepoint(0.75)
-        if attackCount == 25
-            let lvl = GetUnitAbilityLevel(u, 'A0E6')
-            oldagi = u.getAgi(false)
-            oldskin = BlzGetUnitSkin(u)
-            attackLeft = 1 + lvl
-            count
-            ..setColor(colorA(252, 25, 25, 225))
-            ..setScaledText("Demon Unleashed", 1.5)
-            u.setAgi(u.getAgi(true)*10)
-            u.limitArmorImmediate()
-            BlzSetUnitSkin(u, SKIN_1)
-            flashEffect(Abilities.roarCaster, u.getPos())
-            doAfter(I2R(lvl+1)) -> 
-                if(attackCount == 25)
-                    u.setAgi(oldagi)
-                    u.resetArmor()
-                    BlzSetUnitSkin(u, oldskin)
-                    attackCount = 0
-                    attackLeft = 0
-    else if attackLeft > 0
-        attackLeft--
-    else
-        u.setAgi(oldagi)
-        BlzSetUnitSkin(u, oldskin)
-        u.resetArmor()
-        attackCount = 0
-        attackLeft = 0
+public function demonPower()
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            if (DamageEvent.getType() == ATTACK)
+                let damtyp = DamageEvent.getDamageType()
+                if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                    let lvl = GetUnitAbilityLevel(src, 'A0E6')
+                    if lvl >= 1
+                        if attackCount < 25
+                            attackCount = attackCount + 1
+                            if attackCount % 5 == 0 and attackCount != 25
+                                count = createCriticalStrikeTextTag(src, attackCount)
+                                ..setText("(|cffb81b22"+I2S(attackCount)+"|r)")
+                                ..setColor(colorA(92, 39, 39, 255))
+                                ..setFadepoint(0.75)
+                            if attackCount == 25
+                                
+                                oldagi = src.getAgi(false)
+                                oldskin = BlzGetUnitSkin(src)
+                                attackLeft = 1 + lvl
+                                count
+                                ..setColor(colorA(252, 25, 25, 225))
+                                ..setScaledText("Demon Unleashed", 1.5)
+                                src.setAgi(src.getAgi(true)*10)
+                                src.limitArmorImmediate()
+                                BlzSetUnitSkin(src, SKIN_1)
+                                flashEffect(Abilities.roarCaster, src.getPos())
+                                doAfter(I2R(lvl+1)) -> 
+                                    if(attackCount == 25)
+                                        src.setAgi(oldagi)
+                                        src.resetArmor()
+                                        BlzSetUnitSkin(src, oldskin)
+                                        attackCount = 0
+                        else if attackLeft > 0
+                            attackLeft--
+                        else
+                            src.setAgi(oldagi)
+                            BlzSetUnitSkin(src, oldskin)
+                            src.resetArmor()
+                            attackCount = 0

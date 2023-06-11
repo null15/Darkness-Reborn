@@ -8,16 +8,27 @@ import OrderIds
 
 int limit = 0
 
-public function juxtapose(unit source)
-    let i = source.getOwner().getId()
-    if playerHero[i] == source
-        if(limit < source.getAbilityLevel('A0S8') * 0.25)
-            limit++
-            new DummyCaster()
-            ..owner(GetOwningPlayer(source))
-            ..origin(DamageEvent.getSource().getPos())
-            ..castTarget(ABILITY_1, 1, OrderIds.wandOfIllusion, source)
-            let bonusAttack = source.getBaseDamage(0) * 3
-            source.setBaseDamage(bonusAttack + source.getBaseDamage(0), 0)
-            doAfter(6) -> 
-                source.setBaseDamage(source.getBaseDamage(0) - bonusAttack, 0)
+public function juxtapose()
+    DamageEvent.addListener(1) ->
+        let src = DamageEvent.getSource()
+        if (DamageEvent.getType() == ATTACK)
+            let damtyp = DamageEvent.getDamageType()
+            if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                let lvl = src.getAbilityLevel('A0S8')
+                if GetRandomInt(1, 100) < lvl
+                    let p = src.getOwner().getId()
+                    if playerHero[p] == src
+                        if(limit < lvl * 0.25)
+                            limit++
+                            new DummyCaster()
+                            ..owner(GetOwningPlayer(src))
+                            ..origin(src.getPos())
+                            ..castTarget(ABILITY_1, 1, OrderIds.wandOfIllusion, src)
+                            let bonusAttack = src.getBaseDamage(0) * 3
+                            src.setBaseDamage(bonusAttack + src.getBaseDamage(0), 0)
+                            doAfter(6) -> 
+                                src.setBaseDamage(src.getBaseDamage(0) - bonusAttack, 0)
+
+
+// Illidan (Juxtapose) E
+                

@@ -1,19 +1,22 @@
 package KingOfLoasE
-import ClosureEvents
 import MyAbilityIds
-import MyUnitIds
 import Abilities
 import OrderIds
 import codeDamageTypings
-init
-    thunderOfAkunda()
-function thunderOfAkunda()
-    EventListener.add(EVENT_PLAYER_UNIT_ATTACKED) -> 
-        let src = GetAttacker()
-        let target = GetTriggerUnit()
-        if src.getTypeId() == PLAY_HERO_33 and GetRandomInt(1, 100) <= src.getAbilityLevel(ABILITY_40)*3
-            let dmg = (src.getAbilityLevel(ABILITY_40)*1.50)*src.getInt(true)
-            flashEffect(Abilities.chimaeraLightningMissile, target.getPos())
-            src.magicalDamageCode(dmg, target)
-            if(target.isAlive() == false)
-                src.issueImmediateOrderById(OrderIds.stop)
+import DamageEvent
+
+public function thunderOfAkunda()
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            let lvl = src.getAbilityLevel(ABILITY_40)
+            if lvl > 0
+                if GetRandomInt(1, 100) <= lvl*3
+                    let target = DamageEvent.getTarget()
+                    let dmg = (lvl*1.50)*src.getInt(true)
+                    flashEffect(Abilities.chimaeraLightningMissile, target.getPos())
+                    src.magicalDamageCode(dmg, target)
+                    if(target.isAlive() == false)
+                        src.issueImmediateOrderById(OrderIds.stop)

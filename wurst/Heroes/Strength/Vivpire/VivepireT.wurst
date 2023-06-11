@@ -5,15 +5,15 @@ import ClosureEvents
 import ClosureTimers
 import MyUnitIds
 
-int array damage = [100,300,600,1000]
-int array armor = [50,100,150,250]
-int oldBlood = 0
-int oldskin
+let damage = [100,300,600,1000]
+let armor = [50,100,150,250]
 
-function vivpireUnleashed()
+
+public function vivpireUnleashed()
+    let oldSkin = PLAY_HERO_3
     EventListener.onCast(VIVPIRE_ABIL_5) (unit caster) ->
         let lvl = caster.getAbilityLevel(VIVPIRE_ABIL_5)
-        oldBlood = getBlood()
+        let oldBlood = getBlood()
         let hpgain = 1000 * Pow(2, lvl-1.).toInt()
         caster.setArmor(caster.getArmor() + armor[lvl-1] + 5* oldBlood)
         caster.setMaxHP(caster.getMaxHP().toInt() + hpgain)
@@ -22,10 +22,9 @@ function vivpireUnleashed()
         caster.addStr(oldBlood * 20)
         caster.addAgi(oldBlood * 20)
         caster.setFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 1, caster.getFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 1) + oldBlood * 30 + damage[lvl-1])
-        oldskin = BlzGetUnitSkin(caster)
         BlzSetUnitSkin(caster, SKIN_2)
         doAfter(10. + lvl * 5) -> 
-            BlzSetUnitSkin(caster, oldskin)
+            BlzSetUnitSkin(caster, oldSkin)
             caster.setArmor(caster.getArmor() - armor[lvl-1] - 5* oldBlood)
             caster.setMaxHP(caster.getMaxHP().toInt() - hpgain)
             caster.addAgi(oldBlood * -20)
@@ -34,6 +33,3 @@ function vivpireUnleashed()
             caster.setFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 
             1, 
             caster.getFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 1) - oldBlood * 30 - damage[lvl-1])
-
-init
-    vivpireUnleashed()

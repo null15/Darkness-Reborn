@@ -1,9 +1,9 @@
 package A0DH_W
 import ClosureEvents
 import MyItemIds
-init
-    radiantRing()
-function radiantRing()
+
+
+public function radiantRing()
     EventListener.onCast('A0DH') (unit caster) ->
         let js = caster
         let color = GetPlayerColor(GetOwningPlayer(GetTriggerUnit())).toColor().toColorString()

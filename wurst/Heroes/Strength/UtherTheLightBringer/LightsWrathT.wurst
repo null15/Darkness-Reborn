@@ -6,10 +6,8 @@ import ClosureForGroups
 import codeDamageTypings
 import MyAbilityIds
 
-init
-    lightsWrath()
 
-function lightsWrath()
+public function lightsWrath()
     EventListener.onTargetCast(UTHER_ABIL_5) (unit caster, unit target) ->
         let lvl = caster.getAbilityLevel(UTHER_ABIL_5)
         let amount = caster.getStr(true) * holyPower * lvl * 0.25

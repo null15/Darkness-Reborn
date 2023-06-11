@@ -5,9 +5,8 @@ import DummyCaster
 import OrderIds
 import MyAbilityIds
 import Blacksmith
-init
-    metalStrength()
-function metalStrength()
+
+public function metalStrength()
     EventListener.onTargetCast('A0DG') (unit caster, unit target) ->
         new DummyCaster()
         ..owner(GetOwningPlayer(caster))

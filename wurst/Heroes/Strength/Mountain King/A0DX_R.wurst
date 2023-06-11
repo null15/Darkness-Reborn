@@ -1,14 +1,22 @@
 package A0DX_R
 import MyBuffIds
 import codeDamageTypings
+import DamageEvent
 init
-public function overPower(unit source, unit target)
-    let lvl = source.getAbilityLevel('A0DX')
-    let str = source.getStr(true)
-    let dmg = (str*(2.*lvl))
-    source.addStr(lvl*1)
-    if target.hasAbility(BUFF_5)
-        target.removeAbility(BUFF_5)
-    else if target.hasAbility('BPSE')
-        target.removeAbility('BPSE')
-    source.physicalDamageCode(dmg, target, false)
+public function overPower()
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        let targ = DamageEvent.getTarget()
+        if (DamageEvent.getType() == ATTACK and src.isIllusion() == false)
+            let damtyp = DamageEvent.getDamageType()
+            if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                let lvl = src.getAbilityLevel('A0DX')
+                if targ.hasAbility(BUFF_5) or targ.hasAbility('BPSE') and lvl >= 1 and GetRandomInt(1, 100) < 35
+                    let str = src.getStr(true)
+                    let dmg = (str*(2.*lvl))
+                    src.addStr(lvl*1)
+                    if targ.hasAbility(BUFF_5)
+                        targ.removeAbility(BUFF_5)
+                    else if targ.hasAbility('BPSE')
+                        targ.removeAbility('BPSE')
+                    src.physicalDamageCode(dmg, targ, false)

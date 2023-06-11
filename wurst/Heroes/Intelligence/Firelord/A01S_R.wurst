@@ -9,17 +9,18 @@ import MyAbilityIds
 import OrderIds
 import codeDamageTypings
 import BouncingProjectiles
+import A01O_P
 real array udg_FireBallDamage = [100,200,300,500,700,1000,1300,1600,2000]
 integer array udg_BounceAmount = [4,5,6,7,8,9,10,11,12]
 
-init
-    fireballCast()
-function fireballCast()
+
+public function fireballCast()
     EventListener.onTargetCast('A01S') (unit caster, unit target) ->
         let sfx = addEffect(Abilities.fireBallMissile, caster.getPos())..setZ(caster.getLocalZ() + 20)..setScale(1.5)
         let level = caster.getAbilityLevel('A01S')
         fireBouncingBuffBiasProjectile(sfx, caster, target, BUFF_12, udg_BounceAmount[level-1], true, 400) (effect detectionUnit, unit target) ->
             let damage = udg_FireBallDamage[level-1] + level * 0.8 * caster.getInt(true)
+            blaze(caster, target)
             new DummyCaster()
             ..owner(caster.getOwner())
             ..origin(sfx.getPos())

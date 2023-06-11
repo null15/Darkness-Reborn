@@ -4,7 +4,7 @@ import ClosureEvents
 import MyUnitIds
 import MyAbilityIds
 
-function frenzy()
+public function frenzy()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
         let wolfman = GetKillingUnit()
         if wolfman.getTypeId() == PLAY_HERO_1_FINAL
@@ -19,6 +19,3 @@ function frenzy()
                 else if killedUnitLvl >= 45
                     let y = GetRandomInt(6, 20)
                     wolfman.addStr(y)
-
-init
-    frenzy()

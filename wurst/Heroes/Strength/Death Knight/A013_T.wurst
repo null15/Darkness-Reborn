@@ -4,9 +4,8 @@ import ClosureTimers
 import A00L_Q
 import MyAbilityIds
 import MyBuffIds
-init
-    soulsKing()
-function soulsKing()
+
+public function soulsKing()
     EventListener.onCast(ABILITY_8) (unit caster) ->
         let boost = souls * 10
         caster.addStr(boost)

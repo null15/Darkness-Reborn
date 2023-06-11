@@ -1,18 +1,26 @@
 package A0TZ_R
 import codeDamageTypings
 import MyAbilityIds
+import DamageEvent
 import OrderIds
 import DummyCaster
 init
-public function thornRoot(unit keeper, unit attacker)
-    let lvl = GetUnitAbilityLevel(keeper, 'A0TZ')
-    let output = keeper.getInt(true) * lvl.toReal()
-    if(attacker.isEnemyOf(keeper) and lvl > 0)
-        let chance = lvl * 2
-        if(GetRandomInt(0, 100) < chance)
-            new DummyCaster()
-            ..owner(keeper.getOwner())
-            ..origin(keeper.getPos())
-            ..castTarget(ABILITY_DUMMY_17, 1, OrderIds.entanglingroots, attacker)
-            ..delay(0)
-            keeper.magicalDamageCode(output, attacker)
+public function thornRoot()
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        let targ = DamageEvent.getTarget()
+        if (DamageEvent.getType() == ATTACK)
+            let damtyp = DamageEvent.getDamageType()
+            if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                if(src.isEnemyOf(targ))
+                    let lvl = GetUnitAbilityLevel(targ, 'A0TZ')
+                    if lvl > 0
+                        let chance = lvl * 2
+                        if(GetRandomInt(0, 100) < chance)
+                            let output = targ.getInt(true) * lvl.toReal()
+                            new DummyCaster()
+                            ..owner(targ.getOwner())
+                            ..origin(targ.getPos())
+                            ..castTarget(ABILITY_DUMMY_17, 1, OrderIds.entanglingroots, src)
+                            ..delay(0)
+                            targ.magicalDamageCode(output, src)

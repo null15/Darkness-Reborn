@@ -3,26 +3,9 @@ import MyUnitIds
 // import DamageDetection
 import DamageEvent
 import MyAbilityIds
-import A0F0_W
-import A0C3_Q
-import A0CG_R
-import A0CE_T
-import A00P_W
-import A0GJ_T
-import A0E6_R
-import A088_E
-import A0DX_R
-import A01B_E
 import A000_W
-import A0S8_E
-import A0M3_R
-import A01O_P
-import A0DI_R
-import A0TZ_R
-import A0E7_E
 import Platinum1Stun
 import Platinum2Stun
-import EternalFlame
 import ThiefTAbility
 import LancelotSet
 import HelmofHermes
@@ -43,7 +26,6 @@ import OrbofLightning
 import codeDamageTypings
 import MyItemIds
 import MyBuffIds
-import VivpireW
 import WaveHeroSetup
 import PerfectAquamrina
 import ReactiveArmor1
@@ -55,17 +37,12 @@ import Turtle
 import A0RI_R
 import A0RL_E
 import ThornsAuraWave
-import RedemptionR
 
 @configurable constant DETECT_NATIVE_ABILITIES = true
 
 real array healLoaMultiplier = [0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.70]
 real array healVivpireMultiplier = [0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525, 0.6, 0.675]
 texttag justaposeCrit
-unit illidan
-int illidanLvl
-
-public int count_A006 = 0
 
 function unit.calculateMagicRes() returns real
     let magicResCalc = this.getMagicResist()
@@ -107,13 +84,6 @@ init
                     DamageEvent.setAmount(DamageEvent.getAmount() * (1-0.02*targ.getAbilityLevel(UTHER_ABIL_3)))
                 DamageEvent.setAmount(DamageEvent.getAmount() * targ.calculateMagicRes())
 
-                //Firemage
-                if src.getAbilityLevel('A11C') > 0 or src.getAbilityLevel('A0N0') > 0
-                    eternalFlame(src, targ)
-
-                if src.getAbilityLevel('A0DI') > 0 and GetRandomInt(1, 100) < 15 
-                    mindRipper(src, targ)
-
                 // Improved Hakkar Buff
                 if src.hasAbility(BUFF_21)
                     src.addHP(DamageEvent.getAmount()*0.8)
@@ -146,18 +116,6 @@ init
                 //Reflection for Melee only
                 if(src.isType(UNIT_TYPE_MELEE_ATTACKER))
                     reflectionChecks(src, targ)
-                // Far Seer (Mind Ripper) R - Passive
-                if src.getAbilityLevel('A0DI') > 0 and GetRandomInt(1, 100) < 15
-                    mindRipper(src, targ)
-                // Illidan (Juxtapose) E
-                if GetRandomInt(1, 100) < src.getAbilityLevel('A0S8')
-                    juxtapose(src)
-                // Death Knight (Curse of Darkness ) E - Passive
-                if targ.hasAbility('B004')
-                    curseOfDarkness(targ)
-                // Tauren Chieftain (Pulverize) E - Passive
-                if src.getAbilityLevel(TAUREN_E) > 0
-                    pulverize(src, targ)
                 //HermesHelm
                 if targ.hasItemById(ITEM_233)
                     hermesHelm(targ, src)
@@ -182,64 +140,19 @@ init
                 //Crystal Armor
                 if targ.hasItemById(ITEM_122) and GetRandomInt(0, 100) < 50
                     crystalArmor(targ, src)
-                //VivpireBloodhunter
-                if src.getAbilityLevel(VIVPIRE_ABIL_2) > 0
-                    bloodHunter(src, targ)
 
     DamageEvent.addListener(2) ->
         let src = DamageEvent.getSource()
         let targ = DamageEvent.getTarget()
         if (DamageEvent.getType() == ATTACK)
             if (DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL or DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)  and src.isIllusion() == false
-                // Uther Redemption R - Passive
-                if (src.getAbilityLevel(UTHER_ABIL_4) > 0 and GetRandomInt(0, 100) < 20)
-                    redemptionHoly(src, targ)
-                // Sylvanas (Phantom Arrow) W - Autocast
-                if src.getPhantomArrowToggle()
-                    phantomArrow(src, targ)
-                // Shadow Vengeance (Fury Peak) Q - Active
-                if src.hasAbility('B00L')
-                    furyPeak(src, targ)
-                // Shadow Vengeance (Gravitone) R - Passive
-                if not src.hasAbility('B00L') and not src.hasAbility('B00J') and GetRandomInt(1, 100) < src.getAbilityLevel('A0CG')*2
-                    gravitone(src, targ)
-                // Shadow Vengeance (Black Hole) T - Active
-                if src.hasAbility('B00J')
-                    blackHole(src, targ)
                 //Thief noCommand
                 if GetRandomInt(0, 100) < src.getAbilityLevel('A0XG') * 2
                     noCommand(src, targ)
-                // Dark Ranger (Black Arrow) W - Autocast
-                if src.getDarkArrowToggle()
-                    darkArrow(src, targ)
-
-                // Assassin (Last Killer) T - Active
-                if src.hasAbility('B00W')
-                    lastKiller(src, targ)
-
-                // Demon Hunter (Demon Power) R - Passive
-                //if GetUnitAbilityLevel(src, 'A0E6') >= 1 - swap to onStart function
-                    //demonPower(src)
-
-                // Mountain King (Over Power) R - Passive
-                if targ.hasAbility(BUFF_5) or targ.hasAbility('BPSE') and src.getAbilityLevel('A0DX') >= 1 and GetRandomInt(1, 100) < 35
-                    overPower(src, targ)
-
+                    
                 // Vashj (Frost Arrows ) X - Autocast
                 if src.getFrostArrowToggled()
                     frostArrows(src, targ)
-
-                // Craggy Hex (Shadow Hunter) R - Passive
-                if targ.hasAbility('B00N')
-                    craggyHex(src, targ)
-
-                // Keeper of the Grove (Thorns) R - Passive
-                if targ.getAbilityLevel('A0TZ') > 0
-                    thornRoot(targ, src)
-
-                // Fire Mage (Fire Shield) E - Active
-                if targ.getAbilityLevel('B900') > 0
-                    fireShield(src, targ)
 
                 //deadEyes
                 if src.hasItemById(ITEM_659) and GetRandomInt(0, 100) < 14
@@ -300,12 +213,7 @@ init
                     platinum2Stun(src, targ)
     
 function magicDamageChecks(int damId, unit src, unit targ)
-    // Fire Lord (Blaze)
-    if damId == 'blaz'
-        blaze(src, targ)
-    // Firemage
-    if damId == 'phoe'
-        eternalFlame(src, targ)
+    
 
 function physicalDamageChecks(int damId, unit src, unit targ, weapontype notRanged)
     //Vivpire Vampiric Aura

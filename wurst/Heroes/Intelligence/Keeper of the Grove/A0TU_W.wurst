@@ -4,9 +4,8 @@ import ClosureEvents
 import Abilities
 import ClosureTimers
 import codeDamageTypings
-init
-    naturalOrb()
-function naturalOrb()
+
+public function naturalOrb()
     EventListener.onPointCast('A0TU') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0TU')
         let output = (caster.getInt(true) * 0.1 + 10) * lvl

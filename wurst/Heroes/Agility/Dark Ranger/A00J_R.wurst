@@ -1,11 +1,9 @@
 package A00J_R
 import MyAbilityIds
 import ClosureEvents
-init
 
-    burstMana()
 
-function burstMana()
+public function burstMana()
     EventListener.onCast(DARKRANGER_ABIL_4) (unit caster) ->
         let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABIL_4)
         let hp = caster.getHP()

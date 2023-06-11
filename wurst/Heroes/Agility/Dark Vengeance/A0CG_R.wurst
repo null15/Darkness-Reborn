@@ -1,7 +1,19 @@
 package A0CG_R
 import codeDamageTypings
+import DamageEvent
 init
 
-public function gravitone(unit caster, unit target)
-    let missingHp = caster.getMissingHP()
-    caster.magicalDamageCode(missingHp + 175 * caster.getAbilityLevel('A0CG'), target)
+public function gravitone()
+    DamageEvent.addListener(2) ->
+        let targ = DamageEvent.getTarget()
+        if targ.isIllusion()
+            skip
+        else
+            if (DamageEvent.getType() == ATTACK)
+                let damtyp = DamageEvent.getDamageType()
+                if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                    let lvl = targ.getAbilityLevel('A0CG')
+                    if GetRandomInt(1, 100) < lvl*2
+                        let src = DamageEvent.getSource()       
+                        let missingHp = targ.getMissingHP()
+                        targ.magicalDamageCode(missingHp + 175 * lvl, src)

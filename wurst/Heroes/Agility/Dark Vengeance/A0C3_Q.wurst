@@ -3,22 +3,26 @@ import DummyCaster
 import OrderIds
 import MyAbilityIds
 import codeDamageTypings
-init
+import ClosureEvents
+import DamageEvent
 
-    furyPeakCast()
-
-function furypeakCond() returns boolean
-    return GetSpellAbilityId() == 'A0C3'
-
-function furyPeakCast()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function furypeakCond))..addAction() ->
-        if GetTriggerUnit().hasAbility('B00J')
-            GetTriggerUnit().removeAbility('B00J')
-
-public function furyPeak(unit caster, unit target)
-    let missingHp = caster.getMissingHP()
-    new DummyCaster()
-    ..owner(GetOwningPlayer(caster))
-    ..origin(caster.getPos())
-    ..castTarget(ABILITY_DUMMY_1, 1, OrderIds.thunderbolt, target)
-    caster.magicalDamageCode(missingHp, target)
+public function furyPeak()
+    EventListener.onCast('A0C3') (unit caster) ->
+        if caster.hasAbility('B00J')
+            caster.removeAbility('B00J')
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            if (DamageEvent.getType() == ATTACK)
+                let damtyp = DamageEvent.getDamageType()
+                if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                    if src.hasAbility('B00L')
+                        let targ = DamageEvent.getTarget()
+                        let missingHp = src.getMissingHP()
+                        new DummyCaster()
+                        ..owner(GetOwningPlayer(src))
+                        ..origin(src.getPos())
+                        ..castTarget(ABILITY_DUMMY_1, 1, OrderIds.thunderbolt, targ)
+                        src.magicalDamageCode(missingHp, targ)

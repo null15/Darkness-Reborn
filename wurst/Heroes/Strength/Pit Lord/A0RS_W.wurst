@@ -7,9 +7,8 @@ import Abilities
 import MyAbilityIds
 import OrderIds
 import codeDamageTypings
-init
-    strikeSlam()
-function strikeSlam()
+
+public function strikeSlam()
     EventListener.onTargetCast('A0RS') (unit caster, unit target) ->
         let lvl = caster.getAbilityLevel('A0RS')
         let dmg = caster.getStr(true)*lvl*3.

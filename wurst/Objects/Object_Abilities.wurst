@@ -3105,9 +3105,9 @@ import OrderIds
     ..presetCooldown(lvl -> 3)
     ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.hero, TargetsAllowed.allies))
     ..setTooltipLearn("Learn Redemption [|cffffcc00R|r]  - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Uther has a 5+5% per level on hit to deal 0.5 * str + 75 * lvl damage and heals for 0.2 * str. Gets lvl holy power. Use buff on up to 3 allies to make their skill casts give you 1 holy power. Stores to a max of 150")
+    ..setTooltipLearnExtended("Uther has a 5+5% per level on hit to deal 0.5 * str + 75 * lvl damage and heals for 0.2 * str. Gets 0.25*lvl holy power rounding up. Use buff on up to 3 allies to make their skill casts give you 1 holy power. Stores to a max of 150")
     ..presetTooltipNormal(lvl -> "Redemption [|cffffcc00R|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
-    ..presetTooltipNormalExtended(lvl -> "Uther has a " + (5+5*lvl).toString() + " % on hit to deal 0.5 * str + " + (75 * lvl).toString() + " damage and heal for " + (lvl * 0.2).toString() + " * str. Gets " + lvl.toString() + " holy power. Use buff on up to 3 allies to make their skill casts give you 1 holy power. Stores to a max of 150. Current amount: 0")
+    ..presetTooltipNormalExtended(lvl -> "Uther has a " + (5+5*lvl).toString() + " % on hit to deal 0.5 * str + " + (75 * lvl).toString() + " damage and heal for " + (lvl * 0.2).toString() + " * str. Gets " + ((lvl*0.25).ceil()).toString() + " holy power. Use buff on up to 3 allies to make their skill casts give you 1 holy power. Stores to a max of 150. Current amount: 0")
     ..presetIcon(Icons.bTNCheese)
 
     new AbilityDefinitionCripple(UTHER_ABIL_5)

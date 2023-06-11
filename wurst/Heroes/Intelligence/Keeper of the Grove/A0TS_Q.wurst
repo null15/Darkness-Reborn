@@ -11,9 +11,8 @@ import MyAbilityIds
 
 real array entanglingDamage = [20, 40, 60, 90, 120, 160, 210, 260, 320]
 
-init
-    entanglingRoots()
-function entanglingRoots()
+
+public function entanglingRoots()
     EventListener.onPointCast('A0TS') (unit caster, vec2 target) ->
         let lvl = caster.getAbilityLevel('A0TS')
         let output = 2.00 * lvl * caster.getInt(true) + entanglingDamage[lvl-1]

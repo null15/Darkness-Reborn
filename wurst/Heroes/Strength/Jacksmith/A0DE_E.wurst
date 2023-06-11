@@ -3,9 +3,7 @@ package A0DE_E
 import ClosureEvents
 import MyItemIds
 
-init
-    forgeSmart()
-function forgeSmart()
+public function forgeSmart()
     EventListener.onCast('A0DE') (unit caster) ->
         let js = caster
         let color = GetPlayerColor(GetOwningPlayer(GetTriggerUnit())).toColor().toColorString()

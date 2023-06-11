@@ -6,9 +6,8 @@ import ClosureForGroups
 import Abilities
 import codeDamageTypings
 
-init
-    tasteOfDeath()
-function tasteOfDeath()
+
+public function tasteOfDeath()
     EventListener.onCast('A00N') (unit caster) ->
         let lvl = GetUnitAbilityLevel(caster, 'A00N')
         let dmg = (10.*lvl)*souls

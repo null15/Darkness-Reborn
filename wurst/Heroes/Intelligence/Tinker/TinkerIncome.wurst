@@ -61,18 +61,6 @@ function unit.buildingCheck()
             doPeriodically(.4) (CallbackPeriodic cb) ->
                 this.addGold()
 
-function unit.stopFutureBuild()
-    if this.getTypeId() == TINKERBUILDING_103
-        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, 0, this.getOwner())
-    else if this.getTypeId() == TINKERBUILDING_95
-        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 0, this.getOwner())
-
-function unit.allowBuilding()
-    if this.getTypeId() == TINKERBUILDING_103
-        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, 1, this.getOwner())
-    else if this.getTypeId() == TINKERBUILDING_95
-        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 1, this.getOwner())
-
 function tinkerResourceProduction()
     EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH) -> 
         let u = GetConstructedStructure()
@@ -81,14 +69,6 @@ function tinkerResourceProduction()
     EventListener.add(EVENT_PLAYER_UNIT_UPGRADE_FINISH) -> 
         let u = GetTriggerUnit()
         u.buildingCheck()
-
-    EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL) -> 
-        let u = GetCancelledStructure()
-        u.allowBuilding()
-
-    EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_START) -> 
-        let u = GetConstructingStructure()
-        u.stopFutureBuild()
 
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
         let u = GetDyingUnit()

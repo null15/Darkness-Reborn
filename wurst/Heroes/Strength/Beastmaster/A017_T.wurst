@@ -9,10 +9,13 @@ real array counter
 integer lastOne = 0
 boolean notTeleporting = true
 
-init
-    spirits()
-    spiritTeleporting()
-function spirits()
+public function spirits()
+    EventListener.add(EVENT_PLAYER_UNIT_SPELL_CHANNEL) -> 
+        if(GetSpellAbilityId() == 'A007')
+            if(GetTriggerUnit().getTypeId() == PLAY_HERO_5)
+                notTeleporting = false
+                doAfter(2.2) -> 
+                    notTeleporting = true
     EventListener.onCast(ABILITY_7) (unit caster) ->
         let lvl = GetUnitAbilityLevel(caster, ABILITY_7)
         let tempBoost = ((lvl*2+5)*spirits)
@@ -37,11 +40,3 @@ function spirits()
                 destroy cb
             else if notTeleporting
                 counter[current] = counter[current] + 0.05
-
-function spiritTeleporting()
-    EventListener.add(EVENT_PLAYER_UNIT_SPELL_CHANNEL) -> 
-        if(GetSpellAbilityId() == 'A007')
-            if(GetTriggerUnit().getTypeId() == PLAY_HERO_5)
-                notTeleporting = false
-                doAfter(2.2) -> 
-                    notTeleporting = true

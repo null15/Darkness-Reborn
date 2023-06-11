@@ -2,16 +2,25 @@ package A0GJ_T
 import Abilities
 import ClosureTimers
 import codeDamageTypings
+import DamageEvent
 bool once = true
-init
 
-public function lastKiller(unit caster, unit target)
-    if once == true
-        once = false
-        let lvl = ((GetUnitAbilityLevel(caster, 'A0GJ'))*5)+37
-        let dmg = caster.getAgi(true)*lvl.toReal()
-        flashEffect(Abilities.meatwagonMissile, target.getPos()) 
-        caster.physicalDamageCode(dmg, target, false)
-        caster.removeAbility('B00W')
-        doAfter(3) -> 
-            once = true
+public function lastKiller()
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            if DamageEvent.getType() == ATTACK
+                let damtyp = DamageEvent.getDamageType()
+                if damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC
+                    if once
+                        let target = DamageEvent.getTarget()
+                        once = false
+                        let lvl = ((GetUnitAbilityLevel(src, 'A0GJ'))*5)+37
+                        let dmg = src.getAgi(true)*lvl.toReal()
+                        flashEffect(Abilities.meatwagonMissile, target.getPos()) 
+                        src.physicalDamageCode(dmg, target, false)
+                        src.removeAbility('B00W')
+                        doAfter(3) -> 
+                            once = true

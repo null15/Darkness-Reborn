@@ -6,9 +6,9 @@ import OrderIds
 import MyAbilityIds
 import codeDamageTypings
 import PointTransitProjectile
-init
-    blessedHammer()
-function blessedHammer()
+
+
+public function blessedHammer()
     EventListener.onPointCast('A0CI') (unit caster, vec2 target) ->
         let lvl = caster.getAbilityLevel('A0CI')
         let str = caster.getStr(true)

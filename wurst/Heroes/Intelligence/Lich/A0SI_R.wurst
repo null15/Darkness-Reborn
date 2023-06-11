@@ -3,9 +3,8 @@ package A0SI_R
 import ClosureEvents
 import MyUnitIds
 
-init
-    frostRise()
-function frostRise()
+
+public function frostRise()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
         if GetKillingUnit().getTypeId() == PLAY_HERO_24 and GetKillingUnit().getAbilityLevel('A0SI') > 0
             let lich = GetKillingUnit()

@@ -1,7 +1,6 @@
 package MyItemIds
 import ObjectIdGenerator
 import LinkedList
-import ClosureTimers
 // -------------------------
 public constant ITEM_0 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_1 = compiletime(ITEM_ID_GEN.next())

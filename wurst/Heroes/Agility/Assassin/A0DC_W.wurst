@@ -4,11 +4,8 @@ import Abilities
 import ClosureEvents
 import PauseAllocation
 import codeDamageTypings
-init
 
-    quickSlash()
-
-function quickSlash()
+public function quickSlash()
     EventListener.onTargetCast('A0DC') (unit caster, unit target) ->
         let lvl = caster.getAbilityLevel('A0DC')
         let dmg = caster.getAgi(true)*lvl.toReal()

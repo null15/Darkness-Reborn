@@ -7,9 +7,8 @@ import OrderIds
 import MyAbilityIds
 import codeDamageTypings
 import Projectile
-init
-    stormbolt()
-function stormbolt()
+
+public function stormbolt()
     EventListener.onTargetCast(ABILITY_9) (unit caster, unit target) ->
         let lvl = caster.getAbilityLevel(ABILITY_9)
         let sfx = addEffect(Abilities.stormBoltMissile, caster.getPos())

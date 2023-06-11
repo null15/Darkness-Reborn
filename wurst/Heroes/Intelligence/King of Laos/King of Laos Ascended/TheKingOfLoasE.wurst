@@ -2,26 +2,29 @@ package TheKingOfLoasE
 import DummyCaster
 import OrderIds
 import ClosureForGroups
-import ClosureEvents
 import ClosureTimers
 import MyAbilityIds
-import MyUnitIds
 import codeDamageTypings
+import DamageEvent
 // Storm of Akunda
 init
     superKingOfloasE()
 function superKingOfloasE()
-    EventListener.add(EVENT_PLAYER_UNIT_ATTACKED) ->
-        if GetAttacker().getTypeId() == PLAY_HERO_33_ASCENDED and GetAttacker().getAbilityLevel(ABILITY_50) >= 1 and GetRandomInt(1, 100) <= 30
-            let attacker = GetAttacker()
-            let attacked = GetTriggerUnit()
-            let dmg = attacker.getInt(true) * 27.
-            forUnitsInRange(attacked.getPos(), 450) (unit u) ->
-                if attacker.isEnemyOf(u)
-                    if u.isAlive()
-                        new DummyCaster()
-                        ..owner(GetOwningPlayer(attacker))
-                        ..origin(attacker.getPos())
-                        ..castTarget(ABILITY_49, 1, OrderIds.forkedlightning, u)
-                        doAfter(0.05) -> 
-                            attacker.magicalDamageCode(dmg, u)
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            let lvl = src.getAbilityLevel(ABILITY_50)
+            if lvl > 0 and GetRandomInt(1, 100) <= 30
+                let target = DamageEvent.getTarget()
+                let dmg = src.getInt(true) * 27.
+                forUnitsInRange(target.getPos(), 450) (unit u) ->
+                    if src.isEnemyOf(u)
+                        if u.isAlive()
+                            new DummyCaster()
+                            ..owner(GetOwningPlayer(src))
+                            ..origin(src.getPos())
+                            ..castTarget(ABILITY_49, 1, OrderIds.forkedlightning, u)
+                            doAfter(0.05) -> 
+                                src.magicalDamageCode(dmg, u)

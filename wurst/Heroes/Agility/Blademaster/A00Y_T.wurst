@@ -7,9 +7,7 @@ import StandardTextTags
 import codeDamageTypings
 import PauseAllocation
 texttag slashText
-init
-    hasteSlash()
-function hasteSlash()
+public function hasteSlash()
     EventListener.onPointCast('A00Y') (unit caster, vec2 target) ->
         let lvl = caster.getAbilityLevel('A00Y')
         let dmg = caster.getAgi(true)*lvl*0.75

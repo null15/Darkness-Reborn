@@ -5,10 +5,7 @@ import ClosureEvents
 import MyAbilityIds
 import codeDamageTypings
 
-init
-    manwolfDog()
-
-function manwolfDog()
+public function manwolfDog()
 
     EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
         let summoner = GetSummoningUnit()

@@ -10,9 +10,8 @@ import CodeDialog
 import Global_Variables
 import TeleportToMobs
 import GameEnd
-import DamageEvent
-import A0E6_R
-
+import heroLoader
+import ClosureEvents
 real facing = 270
 real facingUp = 90
 
@@ -25,10 +24,10 @@ init
             CreateFogModifierRectBJ( true, players[i], FOG_OF_WAR_VISIBLE, GetPlayableMapRect() )
 
 public function heroRespawn(unit u)
-    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
-        heroRespawnTimer(GetDyingUnit())
-        let i = GetOwningPlayer(GetTriggerUnit()).getId()
-        if GetOwningPlayer(GetDyingUnit()) == Player(i)
+    EventListener.add(u, EVENT_UNIT_DEATH) -> 
+        heroRespawnTimer(u)
+        let i = GetOwningPlayer(u).getId()
+        if GetOwningPlayer(u) == Player(i)
             doAfter(10) -> 
                 playerHero[i].revive(gg_rct_Base.getCenter(), true)
 
@@ -60,6 +59,7 @@ public function questSetup()
 function onBuyHero(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_SELL)..addAction() ->
         let soldUnit = GetSoldUnit()
+        soldUnit.heroCheck()
         for i = 0 to 9
             if GetOwningPlayer(soldUnit) == players[i]
                 if(playerHero[i] == null)
@@ -76,17 +76,6 @@ function onBuyHero(unit u)
                 playerHero[i].setPos(gg_rct_Base.getCenter())
                 players[i].setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 0)
                 GetBuyingUnit().remove()
-                soldUnit.initTriggers()
-
-function unit.initTriggers()//init triggers and event listner only when the hero is selected
-    if this.getTypeId() == PLAY_HERO_11//illidan(demon hunter) - R skill
-        DamageEvent.addListener() -> 
-            let src = DamageEvent.getSource()
-            let targ = DamageEvent.getTarget()
-            if (DamageEvent.getType() == ATTACK and src.isIllusion() == false)
-                if (DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL or DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)
-                    if GetUnitAbilityLevel(src, 'A0E6') >= 1
-                        demonPower(src)
 
 function createSetup()
     let p = Player(10)

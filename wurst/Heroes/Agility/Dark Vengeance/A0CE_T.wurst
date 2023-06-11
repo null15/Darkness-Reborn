@@ -1,18 +1,22 @@
 package A0CE_T
 import codeDamageTypings
-init
+import ClosureEvents
+import DamageEvent
 
-    blackHoleCast()
-
-function blackHoleCond() returns boolean
-    return GetSpellAbilityId() == 'A0CE'
-
-function blackHoleCast()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_SPELL_CAST)..addCondition(Condition(function blackHoleCond))..addAction() ->
-        if GetTriggerUnit().hasAbility('B00L')
-            GetTriggerUnit().removeAbility('B00L')
-
-public function blackHole(unit caster, unit target)
-    let missingHp = target.getMissingHP()
-    caster.removeAbility('B00J')
-    caster.magicalDamageCode(missingHp, target)
+public function blackHole()
+    EventListener.onCast('A0CE') (unit caster) ->
+        if caster.hasAbility('B00L')
+            caster.removeAbility('B00L')
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            if (DamageEvent.getType() == ATTACK)
+                let damtyp = DamageEvent.getDamageType()
+                if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)            
+                    src.hasAbility('B00J')
+                    let targ = DamageEvent.getTarget()
+                    let missingHp = targ.getMissingHP()
+                    src.removeAbility('B00J')
+                    src.magicalDamageCode(missingHp, targ)

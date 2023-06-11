@@ -9,8 +9,7 @@ import Abilities
 
 real array dist = []
 unit array phoenix = []
-init
-    meltingPhoenix()
+
 function explosion(unit caster, vec2 target)
     let lvl = caster.getAbilityLevel('A0MN')
     let dmg = caster.getInt(true)*(lvl*5.00) 
@@ -18,7 +17,7 @@ function explosion(unit caster, vec2 target)
     forUnitsInRange(target, 800, true) (unit u) ->
         if caster.isEnemyOf(u)
             caster.magicalDamageCodeId(dmg, u, 'phoe')
-function meltingPhoenix()
+public function meltingPhoenix()
     EventListener.onPointCast('A0MN') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0MN')
 

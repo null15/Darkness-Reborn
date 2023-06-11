@@ -3,9 +3,8 @@ package A01Q_Q
 import ClosureEvents
 import ClosureForGroups
 import codeDamageTypings
-init
-    frostNova()
-function frostNova()
+
+public function frostNova()
     EventListener.onTargetCast('A01Q') (unit caster, unit target) ->
         let dmg = caster.getInt(true) * (caster.getAbilityLevel('A01Q') * 2.00)
         forUnitsInRange(target.getPos(), 500, true) (unit u) ->

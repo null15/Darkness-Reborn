@@ -12,8 +12,16 @@ let strGain = [2,2,2,3,3,3,4,4,5]
 let preyTimers = new HashMap<timer, unit>
 let preyUnitTimer = new HashMap<unit, timer>
 
-function bloodGain()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_DEATH)..addAction() ->
+public function bloodGain()
+    EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
+        if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-blood"
+            let p = GetTriggerPlayer()
+            let pid = p.getId()
+            if (playerHero[pid] != null)
+                if (playerHero[pid].getTypeId() == PLAY_HERO_3)
+                    printTimedToPlayer("You currently have |cffcf0505" + (blood.toString()) + " blood|r", 5, p)
+
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
         let uDie = GetDyingUnit()
         let curTime = preyUnitTimer.get(uDie)
         let kDie = GetKillingUnit()
@@ -51,19 +59,8 @@ function removebloodGain()
     preyUnitTimer.remove(u)
     expire.destr()
 
-function bloodCommand()
-    EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
-        if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-blood"
-            let p = GetTriggerPlayer()
-            let pid = p.getId()
-            if (playerHero[pid] != null)
-                if (playerHero[pid].getTypeId() == PLAY_HERO_3)
-                    printTimedToPlayer("You currently have |cffcf0505" + (blood.toString()) + " blood|r", 5, p)
-
-
 public function getBlood() returns int
     return blood
 
 init
     bloodGain()
-    bloodCommand()
