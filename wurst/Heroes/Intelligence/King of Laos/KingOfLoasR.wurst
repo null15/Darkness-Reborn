@@ -5,9 +5,8 @@ import ClosureEvents
 import ClosureTimers
 import MyAbilityIds
 // Blood of Hakkar
-init
-    kingOfloasRact()
-function kingOfloasRact()
+
+public function kingOfloasRact()
     EventListener.onCast(ABILITY_41) (unit caster) ->
         new DummyCaster()
         ..owner(caster.getOwner())

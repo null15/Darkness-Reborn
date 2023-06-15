@@ -6,9 +6,8 @@ import DummyCaster
 import OrderIds
 import MyAbilityIds
 import codeDamageTypings
-init
-    fallingLight()
-function fallingLight()
+
+public function fallingLight()
     EventListener.onPointCast('A0CX') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0CX')
         let dmg = (caster.getInt(true) * 0.45)*lvl

@@ -17,9 +17,9 @@ public function shockExplosion()
             let dmg = (2.*caster.getStr(true) + 150) * lvl
             flashEffect("WindWeak2.mdl", caster.getPos(), 4)
             let pathable = addEffect(".mdl", caster.getPos())
-            firePointTransitProjectile(target, sfx, 1.4, 0.06) (effect detectionUnit, vec2 target, bool inTransit) ->
+            firePointTransitProjectile(target, sfx, 1.4, 0.06) (vec2 target, bool inTransit) ->
                 if(inTransit)
-                    let pos = detectionUnit.getPos()
+                    let pos = sfx.getPos()
                     pathable.setPos(pos)
                     if pathable.getPos().isTerrainWalkable()
                         forUnitsInRange(pos, 300) (unit u) ->

@@ -1,11 +1,9 @@
 package TheKingOfLoasPassive
 import ClosureEvents
 import MyAbilityIds
-import MyUnitIds
-init
-    crownOfRezan()
-function crownOfRezan()
+
+public function crownOfRezan()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
         let u = GetKillingUnit()
-        if u.getAbilityLevel(ABILITY_44) >= 1 and u.getTypeId() == PLAY_HERO_33_ASCENDED
+        if u.getAbilityLevel(ABILITY_44) >= 1
             u.addInt(2)

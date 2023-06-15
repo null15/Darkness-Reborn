@@ -6,9 +6,8 @@ import DummyCaster
 import OrderIds
 import MyAbilityIds
 import codeDamageTypings
-init
-    eclipse()
-function eclipse()
+
+public function eclipse()
     EventListener.onPointCast('A0CZ') (unit caster, vec2 target) ->
         let lvl = caster.getAbilityLevel('A0CZ')
         let dmg = (caster.getInt(true) * 1.25) * lvl

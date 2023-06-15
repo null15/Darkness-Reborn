@@ -5,13 +5,12 @@ import DialogBox
 import MyBuildingsIds
 import RespawnCreeps
 import MyUnitIds
-import HeroRespawnTimer
 import CodeDialog
 import Global_Variables
 import TeleportToMobs
 import GameEnd
 import heroLoader
-import ClosureEvents
+
 real facing = 270
 real facingUp = 90
 
@@ -22,14 +21,6 @@ init
         for i = 0 to 9
             gg_cam_CameraHeroPick.apply(true, players[i], 0.3)
             CreateFogModifierRectBJ( true, players[i], FOG_OF_WAR_VISIBLE, GetPlayableMapRect() )
-
-public function heroRespawn(unit u)
-    EventListener.add(u, EVENT_UNIT_DEATH) -> 
-        heroRespawnTimer(u)
-        let i = GetOwningPlayer(u).getId()
-        if GetOwningPlayer(u) == Player(i)
-            doAfter(10) -> 
-                playerHero[i].revive(gg_rct_Base.getCenter(), true)
 
 public function questSetup()
     let commands = CreateQuest()
@@ -59,23 +50,17 @@ public function questSetup()
 function onBuyHero(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_SELL)..addAction() ->
         let soldUnit = GetSoldUnit()
-        soldUnit.heroCheck()
-        for i = 0 to 9
-            if GetOwningPlayer(soldUnit) == players[i]
-                if(playerHero[i] == null)
-                    playerHero[i] = soldUnit
-                else
-                    players[i]..disableUserControl().adjustCameraBounds(0, 0, 0, 0, 0)
-                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_114, 1, soldUnit.getOwner())
-                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_111, 1, soldUnit.getOwner())
-                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_112, 1, soldUnit.getOwner())
-                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 1, soldUnit.getOwner())
-                SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, 1, soldUnit.getOwner())
-                gg_cam_CameraHeroPicked.apply(true, players[i], 0.5)
-                heroRespawn(playerHero[i])
-                playerHero[i].setPos(gg_rct_Base.getCenter())
-                players[i].setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 0)
-                GetBuyingUnit().remove()
+        let p = soldUnit.getOwner()
+        let pid = p.getId()
+        if playerHero.get(pid) == null
+            playerHero.addAt(soldUnit, pid)
+            soldUnit.heroCheck()
+            gg_cam_CameraHeroPicked.apply(true, p, 0.5)
+            soldUnit.setPos(gg_rct_Base.getCenter())
+            p.setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 0)
+        else
+            p..disableUserControl().adjustCameraBounds(0, 0, 0, 0, 0)
+        GetBuyingUnit().remove()
 
 function createSetup()
     let p = Player(10)

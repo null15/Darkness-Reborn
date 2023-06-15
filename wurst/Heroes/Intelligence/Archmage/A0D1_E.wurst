@@ -6,9 +6,8 @@ import DummyCaster
 import OrderIds
 import MyAbilityIds
 import codeDamageTypings
-init
-    ultima()
-function ultima()
+
+public function ultima()
     EventListener.onPointCast('A0D1') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0D1')
         let dmg = (caster.getInt(true) * 0.15) * lvl

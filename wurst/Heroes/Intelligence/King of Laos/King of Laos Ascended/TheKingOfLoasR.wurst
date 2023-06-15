@@ -7,9 +7,8 @@ import MyAbilityIds
 import MyUnitIds
 import ClosureTimers
 // Cursed Blood of Hakkar
-init
-    bloodOfHakkar()
-function bloodOfHakkar()
+
+public function bloodOfHakkar()
     EventListener.onCast(ABILITY_54) (unit caster) ->
         if caster.getTypeId() == PLAY_HERO_33_ASCENDED
             doAfter(0.2) ->      

@@ -1,6 +1,9 @@
 package ThiefRAbility
+import ClosureEvents
 
-public function goldBonus(unit src)
-    if(src.getAbilityLevel('A0XD') * 3 > GetRandomInt(0, 100))
-        let p = src.getOwner()
-        p.addGold(src.getAgi(true))
+public function goldBonus() 
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
+        let u = GetKillingUnit()
+        if(u.getAbilityLevel('A0XD') * 3 > GetRandomInt(0, 100))
+            let p = u.getOwner()
+            p.addGold(u.getAgi(true))

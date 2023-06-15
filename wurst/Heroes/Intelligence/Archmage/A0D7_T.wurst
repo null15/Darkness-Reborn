@@ -1,10 +1,8 @@
 package A0D7_T
 import ClosureEvents
-// import ClosureTimers
 import codeDamageTypings
-init
-    lightRemoval()
-function lightRemoval()
+
+public function lightRemoval()
     EventListener.onTargetCast('A0D7') (unit caster, unit target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0D7')
         let dmg = (caster.getInt(true) * 3. * lvl)

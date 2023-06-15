@@ -1,36 +1,29 @@
 package A0AN_T
 import ClosureEvents
-import ClosureTimers
 import Abilities
 import ClosureForGroups
 import codeDamageTypings
+import PointTransitProjectile
 import TerrainUtils
 import MyAbilityIds
-bool run = false
-init
-    tornado()
-function tornado()
+
+public function tornado()
     EventListener.onPointCast(NAGAWITCH_ABIL_5) (unit caster, vec2 target) ->
-        let lvl = caster.getAbilityLevel(NAGAWITCH_ABIL_5)
         let sfx = addEffect(Abilities.tornado, caster.getPos())
-        var pos = sfx.getPos()
-        let angle = sfx.getPos().angleTo(target)
-        let dmg = caster.getMaxMana() * lvl * 0.75 / 100
-        doPeriodicallyTimed(0.05, 6) (CallbackCounted cb) ->
-            sfx.setPos(sfx.getPos().polarOffset(angle, 5))
-            if cb.isLast()
-                sfx.destr()
-                flashEffect("Effects\\Vashj\\WaterBlast.mdl", sfx.getPos(), 8)
-                forUnitsInRange(pos, 300, true) (unit u) ->
+        let dist = caster.getPos().distanceTo(target)
+        firePointTransitTimedProjectile(target, sfx, 0.05, 6, dist) (vec2 target, boolean inTransit) ->
+            let lvl = caster.getAbilityLevel(NAGAWITCH_ABIL_5)
+            let dmg = caster.getMaxMana() * lvl * 0.75 / 100
+            if inTransit
+                forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
                     if u.isEnemyOf(caster)
                         caster.magicalDamageCode(dmg, u)
                         if sfx.getPos().isTerrainWalkable()
                             u.setPos(sfx.getPos())
-                destroy cb
             else
-                sfx.setPos(sfx.getPos().polarOffset(angle,5))
-                pos = sfx.getPos()
-                forUnitsInRange(pos, 300, true) (unit u) ->
+                sfx.destr()
+                flashEffect("Effects\\Vashj\\WaterBlast.mdl", sfx.getPos(), 8)
+                forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
                     if u.isEnemyOf(caster)
                         caster.magicalDamageCode(dmg, u)
                         if sfx.getPos().isTerrainWalkable()

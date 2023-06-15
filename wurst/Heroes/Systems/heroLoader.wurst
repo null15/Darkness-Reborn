@@ -85,6 +85,47 @@ import A0SG_W
 import A0SI_R
 import A01H_E
 import A01Q_Q
+import chainlightningQ
+import ASSA_T_PASSIVE
+import A000_W
+import A0AN_T
+import A0AQ_R
+import NagaSeaWitch_Q
+import A0QK_R
+import ABILITY_12_E
+import Blacksmith
+import TinkerAbility_Q
+import TinkerIncome
+import ConstructFinish
+import A0CY_T
+import A00K_R
+import A0CX_W
+import A0CZ_Q
+import A0D1_E
+import A0D3_R
+import A0D7_T
+import A0K5_E
+import A0K6_Q
+import A0N4_T
+import A0NC_W
+import A0ND_R
+import ThiefEAbility
+import ThiefQAbility
+import ThiefRAbility
+import ThiefWAbility
+import ThiefTAbility
+import KingOfLoasE
+import KingOfLoasQ
+import KingOfLoasR
+import KingOfLoasT
+import KingOfLoasW
+import TheKingOfLoasE
+import TheKingOfLoasPassive
+import TheKingOfLoasQ
+import TheKingOfLoasR
+import TheKingOfLoasT
+import TheKingOfLoasW
+import A00S_Q
 
 public function unit.heroCheck()
     switch this.getTypeId()
@@ -145,6 +186,7 @@ public function unit.heroCheck()
             shadowWalk()
             quickSlash()
             katarMastery()
+            learnULT()
         case PLAY_HERO_11
             chainFlash()
             demonPower()
@@ -192,6 +234,7 @@ public function unit.heroCheck()
         case PLAY_HERO_22
             thunderRage()
             mindRipper()
+            farseerChainlightning()
         case PLAY_HERO_23
             craggyHex()
             shadowHex()
@@ -202,3 +245,56 @@ public function unit.heroCheck()
             frostRise()
             chainTest()
             frostNova()
+        case PLAY_HERO_25
+            frostArrowToggle()
+            tornado()
+            blueSea()
+            bubbleBomb()
+        case PLAY_HERO_26
+            construction()
+            tinkerResourceProduction()
+            blacksmithDoAfter()
+            repair()
+            factorySpawn()
+            clusterRockets()
+        case PLAY_HERO_27
+            holyWrath()
+            godsBlessing()
+        case PLAY_HERO_28
+            eclipse()
+            fallingLight()
+            ultima()
+            lightningShock()
+            lightRemoval()
+        case PLAY_HERO_29
+            timeTravel()
+            timeStop()
+            radarTime()
+            punishTimeInit()
+            punishTimeAct(this)
+            hourglass()
+        case PLAY_HERO_30 // Tracker not implemented
+            skip
+        case PLAY_HERO_31
+            sell()
+            steal()
+            goldBonus()
+            noCommand()
+            windwalk()
+        case PLAY_HERO_32 // Panda not implemented
+            skip
+        case PLAY_HERO_33
+            thunderOfAkunda()
+            loasQact()
+            kingOfloasRact()
+            kingOfloasTinit()
+            finsofGral()
+        case PLAY_HERO_33_ASCENDED
+            superKingOfloasE()
+            crownOfRezan()
+            superShadraPoison()
+            bloodOfHakkar()
+            avatarOfBwonsamdi()
+            embodimentOfGral()
+        case PLAY_HERO_34
+            dragonClaw()

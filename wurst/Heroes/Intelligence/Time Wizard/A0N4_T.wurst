@@ -4,9 +4,8 @@ import ClosureForGroups
 import ClosureTimers
 import codeDamageTypings
 import PauseAllocation
-init
-    radarTime()
-function radarTime()
+
+public function radarTime()
     EventListener.onPointCast('A0N4') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0N4')
         let dmg = caster.getInt(true) * lvl

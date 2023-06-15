@@ -7,9 +7,8 @@ import OrderIds
 import Abilities
 import MyAbilityIds
 import codeDamageTypings
-init
-    dragonClaw()
-function dragonClaw()
+
+public function dragonClaw()
     EventListener.onTargetCast('A00S') (unit caster, unit target) ->
         let lvl = caster.getAbilityLevel('A00S')
         let dmg = (caster.getStr(true)*(lvl*2.))

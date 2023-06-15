@@ -7,6 +7,7 @@ import HashMap
 import OrderIds
 import ClosureForGroups
 import DummyCaster
+
 var blood = 0
 let strGain = [2,2,2,3,3,3,4,4,5] 
 let preyTimers = new HashMap<timer, unit>
@@ -17,9 +18,8 @@ public function bloodGain()
         if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-blood"
             let p = GetTriggerPlayer()
             let pid = p.getId()
-            if (playerHero[pid] != null)
-                if (playerHero[pid].getTypeId() == PLAY_HERO_3)
-                    printTimedToPlayer("You currently have |cffcf0505" + (blood.toString()) + " blood|r", 5, p)
+            if (playerHero.get(pid).getTypeId() == PLAY_HERO_3)
+                printTimedToPlayer("You currently have |cffcf0505" + (blood.toString()) + " blood|r", 5, p)
 
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
         let uDie = GetDyingUnit()

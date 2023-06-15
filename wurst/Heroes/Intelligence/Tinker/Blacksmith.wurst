@@ -4,8 +4,6 @@ import MyItemIds
 import ClosureTimers
 import ClosureEvents
 import MyUnitIds
-init
-    blacksmithDoAfter()
 
 public function blacksmithJackedUp(unit bs)
     var newite = bs.getItemById(ITEM_501)
@@ -112,7 +110,7 @@ public function blacksmithJackedUp(unit bs)
 
     newite.setPos(bs.getPos())
 
-function blacksmithDoAfter()
+public function blacksmithDoAfter()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
         let bs = GetTriggerUnit()
         if bs.getTypeId() == TINKERBUILDING_114

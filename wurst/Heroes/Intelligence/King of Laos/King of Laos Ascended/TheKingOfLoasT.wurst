@@ -7,12 +7,12 @@ import ClosureEvents
 import MyAbilityIds
 import codeDamageTypings
 // Avatar of Bwonsamdi
-init
-    avatarOfBwonsamdi()
-function avatarOfBwonsamdi()
+
+public function avatarOfBwonsamdi()
     EventListener.add(EVENT_PLAYER_HERO_SKILL) -> 
-        if GetLearnedSkill() == ABILITY_51
-            let caster = GetTriggerUnit()
+        let caster = GetTriggerUnit()
+        if GetLearnedSkill() == ABILITY_51 and caster.getUserData() != 1
+            caster.setUserData(1)
             doPeriodically(2) (CallbackPeriodic cb) ->
                 forUnitsInRange(caster.getPos(), 800) (unit u) ->
                     if caster.isEnemyOf(u)

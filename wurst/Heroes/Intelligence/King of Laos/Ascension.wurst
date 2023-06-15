@@ -5,7 +5,6 @@ import ClosureEvents
 import MyAbilityIds
 import MyUnitIds
 import Global_Variables
-import onStart
 import PauseAllocation
 import heroLoader
 // when all base skills maxed, ascends
@@ -43,8 +42,7 @@ function ascension()
                     ..setInt(loas_int)
                     ..setHP(loas_hp)
                     ..setMana(loas_mp)
-                    u1.heroCheck()
-                    playerHero[u1.getOwner().getId()] = u1
-                    heroRespawn(u1)
+                    ..heroCheck()
+                    playerHero.addAt(u1, u1.getOwner().getId())
                     for i = 0 to 5
                         u1.addItemToSlot(GetItemTypeId(loasItems[i]), i)

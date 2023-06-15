@@ -2,9 +2,8 @@ package A0CY_T
 import ClosureEvents
 import ClosureForGroups
 import Abilities
-init
-    godsBlessing()
-function godsBlessing()
+
+public function godsBlessing()
     EventListener.onCast('A0CY') (unit caster) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0CY')
         let heal = ((lvl*2)*caster.getInt(true)+1000*lvl).toReal()

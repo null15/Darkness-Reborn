@@ -3,9 +3,8 @@ import ClosureEvents
 import ClosureForGroups
 import Abilities
 import codeDamageTypings
-init
-    holyWrath()
-function holyWrath()
+
+public function holyWrath()
     EventListener.onPointCast('A00K') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A00K')
         let output = (lvl*caster.getInt(true)).toReal()
