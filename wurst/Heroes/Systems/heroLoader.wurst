@@ -85,7 +85,6 @@ import A0SG_W
 import A0SI_R
 import A01H_E
 import A01Q_Q
-import chainlightningQ
 import ASSA_T_PASSIVE
 import A000_W
 import A0AN_T
@@ -234,7 +233,6 @@ public function unit.heroCheck()
         case PLAY_HERO_22
             thunderRage()
             mindRipper()
-            farseerChainlightning()
         case PLAY_HERO_23
             craggyHex()
             shadowHex()

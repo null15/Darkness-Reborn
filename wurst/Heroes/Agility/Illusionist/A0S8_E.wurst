@@ -16,7 +16,6 @@ public function juxtapose()
             if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
                 let lvl = src.getAbilityLevel('A0S8')
                 if GetRandomInt(1, 100) < lvl
-                    let p = src.getOwner().getId()
                     if playerHero.has(src)
                         if(limit < lvl * 0.25)
                             limit++

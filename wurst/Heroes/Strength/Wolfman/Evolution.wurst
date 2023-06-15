@@ -5,7 +5,6 @@ import MyUnitIds
 import ClosureTimers
 import MoonUtils
 import Global_Variables
-import onStart
 import PauseAllocation
 import heroLoader
 // Ascends at level 12 and 28
