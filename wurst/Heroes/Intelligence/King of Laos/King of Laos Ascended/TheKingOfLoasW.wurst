@@ -1,5 +1,4 @@
 package TheKingOfLoasW
-import ClosureEvents
 import DummyCaster
 import OrderIds
 import ClosureTimers
@@ -7,30 +6,35 @@ import MyAbilityIds
 import MyUnitIds
 import MyBuffIds
 import KingOfLoasW
+import DamageEvent
 import codeDamageTypings
 // Embodiment of Gral
-init
-    embodimentOfGral()
-function embodimentOfGral()
-    EventListener.add(EVENT_PLAYER_UNIT_ATTACKED) -> 
-        if GetAttacker().getTypeId() == PLAY_HERO_33_ASCENDED and GetAttacker().getAbilityLevel(ABILITY_47) >= 1 and GetRandomInt(1, 100) <= 15
-            let attacker = GetAttacker()
-            let attacked = GetTriggerUnit()
-            new DummyCaster()
-            ..owner(attacker.getOwner())
-            ..origin(attacker.getPos())
-            ..castTarget(ABILITY_48, 1, OrderIds.bloodlust, attacker)
-            if not attacked.hasAbility(BUFF_22)
-                let shark = createUnit(attacker.getOwner(), DUMMY_UNIT_5, attacker.getPos(), attacker.getPos().angleTo(attacked.getPos()))
-                new DummyCaster()
-                ..owner(attacked.getOwner())
-                ..castTarget(ABILITY_55, 1, OrderIds.innerfire, attacked)
-                doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
-                    attacker.physicalDamageCode(attacker.getInt(true) * 1., attacked, true)
-                doAfter(0.01) -> 
-                    SetUnitAnimationByIndex(shark, 0)
-                    gralBite.playOnPoint(attacked.getPos3Real())
-                    doAfter(0.5) -> 
-                        SetUnitAnimationByIndex(shark, 1)
-                        doAfter(0.8) -> 
-                            RemoveUnit(shark)
+
+public function embodimentOfGral()
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            if DamageEvent.getType() == ATTACK
+                let lvl = src.getAbilityLevel(ABILITY_47)
+                if GetRandomInt(1, 100) <= 15 and not src.hasAbility(BUFF_15) and lvl > 0
+                    let targ = DamageEvent.getTarget()
+                    new DummyCaster()
+                    ..owner(src.getOwner())
+                    ..origin(src.getPos())
+                    ..castTarget(ABILITY_48, 1, OrderIds.bloodlust, src)
+                    if not targ.hasAbility(BUFF_22)
+                        let shark = createUnit(src.getOwner(), DUMMY_UNIT_5, src.getPos(), src.getPos().angleTo(targ.getPos()))
+                        new DummyCaster()
+                        ..owner(targ.getOwner())
+                        ..castTarget(ABILITY_55, 1, OrderIds.innerfire, targ)
+                        doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
+                            targ.physicalDamageCode(targ.getInt(true) * 1., targ, true)
+                        doAfter(0.01) ->
+                            shark.setAnimation(0)
+                            gralBite.playOnPoint(targ.getPos3Real())
+                            doAfter(0.5) ->
+                                shark.setAnimation(1)
+                                doAfter(0.8) -> 
+                                    shark.remove()

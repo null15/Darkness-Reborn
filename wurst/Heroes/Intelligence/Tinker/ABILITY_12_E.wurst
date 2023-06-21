@@ -4,9 +4,8 @@ import MyAbilityIds
 import MyUnitIds
 import ClosureTimers
 import ClosureForGroups
-init
-    factorySpawn()
-function factorySpawn()
+
+public function factorySpawn()
     EventListener.onPointCast(TINKER_ABIL_3) (unit caster, vec2 target) ->
         doAfter(1) -> 
             forUnitsInRange(target, 500) (unit u) ->

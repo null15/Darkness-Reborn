@@ -5,7 +5,6 @@ import MyUnitIds
 import ClosureTimers
 import MoonUtils
 import Global_Variables
-import onStart
 import PauseAllocation
 import heroLoader
 // Ascends at level 12 and 28
@@ -39,8 +38,7 @@ function newHero(unit replaced,int unitType)
             ..setInt(rep_int)
             ..setHP(rep_hp)
             ..setMana(rep_mp)
-            playerHero[u1.getOwner().getId()] = u1
-            heroRespawn(u1)
+            playerHero.addAt(u1, u1.getOwner().getId())
             u1.heroCheck()
             for i = 0 to 5
                 u1.addItemToSlot(GetItemTypeId(items[i]), i)

@@ -1,6 +1,7 @@
 package Global_Variables
 
 import DamageEvent
+import LinkedList
 
 public rect array creepLoc = []
 public rect array eliteLoc = []
@@ -8,7 +9,7 @@ public rect array bossLoc = []
 
 public int gameMode
 
-public unit array playerHero = []
+public let playerHero = new LinkedList<unit>
 
 public unit elementalSoul
 

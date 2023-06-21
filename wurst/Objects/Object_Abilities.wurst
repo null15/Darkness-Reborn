@@ -3233,6 +3233,8 @@ import OrderIds
     ..setRequirements("")
     ..setName("Uther - T - Light's Wrath")
     ..setRequirements("")
+    ..setRequiredLevel(8)
+    ..setLevelSkipRequirement(8)
     ..setButtonPositionNormalX(3)
     ..setButtonPositionNormalY(1)
     ..setButtonPositionResearchX(3)

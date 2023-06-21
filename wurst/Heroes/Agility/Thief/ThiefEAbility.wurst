@@ -2,12 +2,10 @@ package ThiefEAbility
 
 import ClosureEvents
 
+
 texttag goldText
 
-init
-    sell()
-
-function sell()
+public function sell()
     EventListener.onCast('A0XF') (unit caster) ->
         let p = caster.getOwner()
         let ite = caster.itemInSlot(0)

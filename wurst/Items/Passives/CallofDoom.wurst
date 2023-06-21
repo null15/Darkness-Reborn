@@ -7,6 +7,6 @@ init
     callofDoom()
 function callofDoom()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
-        let p = playerHero[GetKillingUnit().getOwner().getId()]
+        let p = playerHero.get(GetKillingUnit().getOwner().getId())
         if p.hasItemById(ITEM_690) and GetRandomInt(0, 100) <= 100
             p.addAgi(1)

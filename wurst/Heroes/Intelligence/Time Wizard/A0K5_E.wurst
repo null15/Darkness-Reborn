@@ -2,9 +2,8 @@ package A0K5_E
 import ClosureEvents
 import ClosureForGroups
 import PauseAllocation
-init
-    timeStop()
-function timeStop()
+
+public function timeStop()
     EventListener.onCast('A0K5') (unit caster) ->
         forUnitsAll() (unit u) ->
             if(u.isEnemyOf(caster))

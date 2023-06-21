@@ -91,7 +91,7 @@ public class VoteKick
         if(value)
             CustomDefeatBJ(getPlayerToKick(), "You were voted to be kicked from the game")
             getPlayerToKick().setName(getPlayerToKick().getName() + " <Kicked>")
-            let leavingHero = playerHero[getPlayerToKick().getId()]
+            let leavingHero = playerHero.get(getPlayerToKick().getId())
             for int x = 0 to 5
                 let i = leavingHero.itemInSlot(x)
                 i.setPos(leavingHero.getPos())

@@ -1,18 +1,16 @@
 package A0AQ_R
 import ClosureEvents
-import MyUnitIds
 import MyAbilityIds
-init
-    blueSea()
-function blueSea()
+
+public function blueSea()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
-        if GetKillingUnit().getTypeId() == PLAY_HERO_25 and GetKillingUnit().getAbilityLevel(NAGAWITCH_ABIL_4) > 0
-            let vashj = GetKillingUnit()
-            let lvl = vashj.getAbilityLevel(NAGAWITCH_ABIL_4)
+        let u = GetKillingUnit()
+        let lvl = u.getAbilityLevel(NAGAWITCH_ABIL_4)
+        if lvl > 0
             if GetRandomInt(1, 100) < lvl*4
                 if lvl <= 3
-                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 20)
+                    u.setMaxMana(u.getMaxMana().toInt() + 20)
                 else if lvl <=6
-                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 40)
+                    u.setMaxMana(u.getMaxMana().toInt() + 40)
                 else if lvl <=9
-                    vashj.setMaxMana(vashj.getMaxMana().toInt() + 60)
+                    u.setMaxMana(u.getMaxMana().toInt() + 60)

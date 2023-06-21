@@ -3,9 +3,8 @@ import ClosureEvents
 import ClosureForGroups
 import ClosureTimers
 import codeDamageTypings
-init
-    lightningShock()
-function lightningShock()
+
+public function lightningShock()
     EventListener.onPointCast('A0D3') (unit caster, vec2 target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A0D3')
         let dmg = (caster.getInt(true) * 0.01) * lvl

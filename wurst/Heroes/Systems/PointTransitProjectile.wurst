@@ -3,7 +3,7 @@ package PointTransitProjectile
 import ClosureTimers
 
 public interface OnProjectileHit
-    function hit(effect detectionUnit, vec2 target, bool inTransit)
+    function hit(vec2 target, bool inTransit)
 
 public class PointProjectile
     protected vec2 target
@@ -19,12 +19,12 @@ public class PointProjectile
         this.tickRate = tickRate     
 
     function impact()
-        onHit.hit(sfx, target, false)
+        onHit.hit(target, false)
         sfx.destr()
         destroy this
 
     function inTransit()
-        onHit.hit(sfx, target, true)
+        onHit.hit(target, true)
 
     function moveForward(real velocity)
         var pos1 = sfx.getPos()
@@ -43,7 +43,7 @@ public class PointProjectile
             else
                 tickCounter = tickCounter + 0.02
 
-    function timedMoveForward(int range, real time)
+    function timedMoveForward(real range, real time)
         var pos1 = sfx.getPos()
         let angle = pos1.angleTo(target)
         let dist = (range * tickRate)/time
@@ -61,6 +61,6 @@ public function firePointTransitProjectile(vec2 target, effect sfx, real velocit
     let detection = new PointProjectile(target, sfx, tickRate, onHit)
     detection.moveForward(velocity)
 
-public function firePointTransitTimedProjectile(vec2 target, effect sfx, real tickRate, real time, int range, OnProjectileHit onHit)
+public function firePointTransitTimedProjectile(vec2 target, effect sfx, real tickRate, real time, real range, OnProjectileHit onHit)
     let detection = new PointProjectile(target, sfx, tickRate, onHit)
     detection.timedMoveForward(range, time)

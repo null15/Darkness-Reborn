@@ -18,9 +18,6 @@ integer array lowerItems = [ITEM_500, ITEM_560, ITEM_581, ITEM_505, ITEM_574, IT
 integer array higherItems = [ITEM_583, ITEM_544, ITEM_562, ITEM_521, ITEM_576, ITEM_513, ITEM_568, ITEM_553, ITEM_529, ITEM_507, ITEM_504, ITEM_538, ITEM_502]
 integer array eliteItems = [ITEM_516, ITEM_531, ITEM_523, ITEM_555, ITEM_570, ITEM_585, ITEM_366, ITEM_517, ITEM_515, ITEM_563,ITEM_530, ITEM_578, ITEM_572, ITEM_548, ITEM_557, ITEM_533, ITEM_509, ITEM_525]
 
-init
-    steal()
-
 function genericLoot(unit caster)
     let itemId = lowerItems[GetRandomInt(0, 11)]
     if(caster.isAlive())
@@ -93,7 +90,7 @@ function callLoot(int unitId, unit caster)
     else
         createItem(itemId, caster.getPos())
 
-function steal()
+public function steal()
     dropListHash.put(LEFT_CREEP_0, dropList.LOWER)
     dropListHash.put(LEFT_CREEP_1, dropList.LOWER)
     dropListHash.put(LEFT_CREEP_2, dropList.LOWER)

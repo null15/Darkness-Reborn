@@ -7,9 +7,8 @@ import MyAbilityIds
 import codeDamageTypings
 import DamageEvent
 // Storm of Akunda
-init
-    superKingOfloasE()
-function superKingOfloasE()
+
+public function superKingOfloasE()
     DamageEvent.addListener(2) ->
         let src = DamageEvent.getSource()
         if src.isIllusion()

@@ -2,12 +2,10 @@ package A0K6_Q
 import ClosureEvents
 import ClosureTimers
 import ClosureForGroups
+import LinkedList
 
-integer array teleportedUnitIDs
-
-init
-    timeTravel()
-function timeTravel()
+public function timeTravel()
+    let teleportedUnits = new LinkedList<unit>
     EventListener.onPointCast('A0K6') (unit caster, vec2 target) ->
         let casterPos = caster.getPos()
         let sfx = addEffect("Effects\\Void Teleport Silver To.mdl", casterPos)
@@ -17,20 +15,20 @@ function timeTravel()
         doPeriodicallyTimed(0.05, 15) (CallbackCounted cb) ->
             forUnitsInRange(sfx.getPos(), 75, true) (unit u) ->
                 if caster.isAllyOf(u) and IsUnitType(u, UNIT_TYPE_STRUCTURE) == false
-                    if teleportedUnitIDs[u.getOwner().getId()] != u.getHandleId()
+                    if not teleportedUnits.has(u)
                         u.setPos(target)
                         flashEffect("Teleport.mdl", u.getPos())
-                        teleportedUnitIDs[u.getOwner().getId()] = u.getHandleId()
+                        teleportedUnits.add(u)
                         doAfter(2) -> 
-                            teleportedUnitIDs[u.getOwner().getId()] = 0
+                            teleportedUnits.remove(u)
             forUnitsInRange(sfx2.getPos(), 75, true) (unit u) ->
                 if caster.isAllyOf(u) and IsUnitType(u, UNIT_TYPE_STRUCTURE) == false
-                    if teleportedUnitIDs[u.getOwner().getId()] != u.getHandleId()
+                    if not teleportedUnits.has(u)
                         u.setPos(casterPos.polarOffset(angle1, 200))
                         flashEffect("Teleport.mdl", u.getPos())
-                        teleportedUnitIDs[u.getOwner().getId()] = u.getHandleId()
+                        teleportedUnits.add(u)
                         doAfter(2) -> 
-                            teleportedUnitIDs[u.getOwner().getId()] = 0
+                            teleportedUnits.remove(u)
             if cb.isLast()
                 sfx.destr()
                 sfx2.destr()

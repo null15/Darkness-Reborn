@@ -7,12 +7,11 @@ import codeDamageTypings
 
 public boolean isWindwalk
 
-init
-    windwalk()
-
-function windwalk()
+public function windwalk()
     EventListener.onCast('A0XE') (unit caster) ->
-        createUnit(DUMMY_UNIT_6, caster.getPos())..setTimedLife(10)
+        createUnit(DUMMY_UNIT_6, caster.getPos())..setTimedLife(10).setOwner(caster.getOwner(), true)
+        let lvl = caster.getAbilityLevel('A0XE')
+        let agi = caster.getAgi(true)
         forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
             if(u.isEnemyOf(caster))
-                caster.physicalDamageCode((caster.getAgi(true) * caster.getAbilityLevel('A0XE')).toReal(), u, false)
+                caster.physicalDamageCode((agi * lvl).toReal(), u, false)

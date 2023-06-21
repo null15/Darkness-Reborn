@@ -4,298 +4,108 @@ import MyItemIds
 import ClosureTimers
 import ClosureEvents
 import MyUnitIds
-init
-    blacksmithDoAfter()
+import LinkedList
 
-public function blacksmithJackedUp(unit bs)
-    var newite = bs.getItemById(ITEM_501)
-    if bs.hasItemById(ITEM_501) and bs.hasItemById(ITEM_503) and bs.hasItemById(ITEM_369)
-        bs.getItemById(ITEM_501).remove()
-        bs.getItemById(ITEM_503).remove()
-        bs.getItemById(ITEM_369).remove()
-        newite = bs.addItemById(ITEM_448)
+public let itemlist = blacksmithJackedUp()
 
-    if bs.hasItemById(ITEM_506) and bs.hasItemById(ITEM_508) and bs.hasItemById(ITEM_510)
-        bs.getItemById(ITEM_506).remove()
-        bs.getItemById(ITEM_508).remove()
-        bs.getItemById(ITEM_510).remove()
-        newite = bs.addItemById(ITEM_447)
+public function blacksmithJackedUp() returns LinkedList<LinkedList<int>>
+    let blacksmithItems = new LinkedList<LinkedList<int>>
+    let perrecipe = new LinkedList<int>
 
-    if bs.hasItemById(ITEM_512) and bs.hasItemById(ITEM_514) and bs.hasItemById(ITEM_516) and bs.hasItemById(ITEM_518)
-        bs.getItemById(ITEM_512).remove()
-        bs.getItemById(ITEM_514).remove()
-        bs.getItemById(ITEM_516).remove()
-        bs.getItemById(ITEM_518).remove()
-        newite = bs.addItemById(ITEM_409)
+    perrecipe.add(ITEM_501,ITEM_503,ITEM_369,ITEM_448)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_520) and bs.hasItemById(ITEM_522) and bs.hasItemById(ITEM_524) and bs.hasItemById(ITEM_368)
-        bs.getItemById(ITEM_520).remove()
-        bs.getItemById(ITEM_522).remove()
-        bs.getItemById(ITEM_524).remove()
-        bs.getItemById(ITEM_368).remove()
-        newite = bs.addItemById(ITEM_526)
+    perrecipe.add(ITEM_506,ITEM_508,ITEM_310,ITEM_447)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_528) and bs.hasItemById(ITEM_530) and bs.hasItemById(ITEM_532) and bs.hasItemById(ITEM_534)
-        bs.getItemById(ITEM_528).remove()
-        bs.getItemById(ITEM_530).remove()
-        bs.getItemById(ITEM_532).remove()
-        bs.getItemById(ITEM_534).remove()
-        newite = bs.addItemById(ITEM_535)
+    perrecipe.add(ITEM_512,ITEM_514,ITEM_516,ITEM_518, ITEM_409)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_537) and bs.hasItemById(ITEM_539) and bs.hasItemById(ITEM_541)
-        bs.getItemById(ITEM_537).remove()
-        bs.getItemById(ITEM_539).remove()
-        bs.getItemById(ITEM_541).remove()
-        newite = bs.addItemById(ITEM_589)
+    perrecipe.add(ITEM_520,ITEM_522,ITEM_524,ITEM_368, ITEM_526)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_543) and bs.hasItemById(ITEM_545) and bs.hasItemById(ITEM_547) and bs.hasItemById(ITEM_549)
-        bs.getItemById(ITEM_543).remove()
-        bs.getItemById(ITEM_545).remove()
-        bs.getItemById(ITEM_547).remove()
-        bs.getItemById(ITEM_549).remove()
-        newite = bs.addItemById(ITEM_550)
+    perrecipe.add(ITEM_528,ITEM_530,ITEM_532,ITEM_534,ITEM_535)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_552) and bs.hasItemById(ITEM_554) and bs.hasItemById(ITEM_556) and bs.hasItemById(ITEM_558)
-        bs.getItemById(ITEM_552).remove()
-        bs.getItemById(ITEM_554).remove()
-        bs.getItemById(ITEM_556).remove()
-        bs.getItemById(ITEM_558).remove()
-        newite = bs.addItemById(ITEM_559)
+    perrecipe.add(ITEM_537,ITEM_539,ITEM_541,ITEM_589)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_561) and bs.hasItemById(ITEM_563) and bs.hasItemById(ITEM_565)
-        bs.getItemById(ITEM_561).remove()
-        bs.getItemById(ITEM_563).remove()
-        bs.getItemById(ITEM_565).remove()
-        newite = bs.addItemById(ITEM_590)
+    perrecipe.add(ITEM_543,ITEM_545,ITEM_547,ITEM_549,ITEM_550)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_567) and bs.hasItemById(ITEM_569) and bs.hasItemById(ITEM_571) and bs.hasItemById(ITEM_573)
-        bs.getItemById(ITEM_567).remove()
-        bs.getItemById(ITEM_569).remove()
-        bs.getItemById(ITEM_571).remove()
-        bs.getItemById(ITEM_573).remove()
-        newite = bs.addItemById(ITEM_591)
+    perrecipe.add(ITEM_552,ITEM_554,ITEM_556,ITEM_558,ITEM_559)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_575) and bs.hasItemById(ITEM_577) and bs.hasItemById(ITEM_579)
-        bs.getItemById(ITEM_575).remove()
-        bs.getItemById(ITEM_577).remove()
-        bs.getItemById(ITEM_579).remove()
-        newite = bs.addItemById(ITEM_580)
+    perrecipe.add(ITEM_561,ITEM_563,ITEM_565,ITEM_590)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_582) and bs.hasItemById(ITEM_584) and bs.hasItemById(ITEM_586) and bs.hasItemById(ITEM_587)
-        bs.getItemById(ITEM_582).remove()
-        bs.getItemById(ITEM_584).remove()
-        bs.getItemById(ITEM_586).remove()
-        bs.getItemById(ITEM_587).remove()
-        newite = bs.addItemById(ITEM_592)
+    perrecipe.add(ITEM_567,ITEM_569,ITEM_571,ITEM_573,ITEM_591)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_181) and bs.hasItemById(ITEM_588) and bs.hasItemById(ITEM_119)
-        bs.getItemById(ITEM_181).remove()
-        bs.getItemById(ITEM_588).remove()
-        bs.getItemById(ITEM_119).remove()
-        newite = bs.addItemById(ITEM_593)
+    perrecipe.add(ITEM_575,ITEM_577,ITEM_579,ITEM_580)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_462) and bs.hasItemById(ITEM_238) and bs.hasItemById(ITEM_534)
-        bs.getItemById(ITEM_462).remove()
-        bs.getItemById(ITEM_238).remove()
-        bs.getItemById(ITEM_534).remove()
-        newite = bs.addItemById(ITEM_594)
+    perrecipe.add(ITEM_582,ITEM_584,ITEM_586,ITEM_587,ITEM_592)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_595) and bs.hasItemById(ITEM_185)
-        bs.getItemById(ITEM_595).remove()
-        bs.getItemById(ITEM_185).remove()
-        newite = bs.addItemById(ITEM_596)
+    perrecipe.add(ITEM_181,ITEM_588,ITEM_119,ITEM_593)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    if bs.hasItemById(ITEM_597) and bs.hasItemById(ITEM_185)
-        bs.getItemById(ITEM_597).remove()
-        bs.getItemById(ITEM_185).remove()
-        newite = bs.addItemById(ITEM_598)
+    perrecipe.add(ITEM_462,ITEM_238,ITEM_534,ITEM_594)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-    newite.setPos(bs.getPos())
+    perrecipe.add(ITEM_595,ITEM_185,ITEM_596)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
 
-function blacksmithDoAfter()
+    perrecipe.add(ITEM_597,ITEM_185,ITEM_598)
+    blacksmithItems.add(new LinkedList<int>(perrecipe))
+    perrecipe.clear()
+
+    destroy perrecipe
+    return blacksmithItems
+
+public function blacksmithDoAfter()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
         let bs = GetTriggerUnit()
         if bs.getTypeId() == TINKERBUILDING_114
-            let ite = GetManipulatedItem()
-            var newite = bs.getItemById(ITEM_500)
-            bs.setAnimation("Work")
-            doAfter(20) -> 
-                if ite.getTypeId() == (ITEM_500)
-                    bs.getItemById(ITEM_500).remove()
-                    newite = bs.addItemById(ITEM_501)
-
-                else if ite.getTypeId() == (ITEM_502) 
-                    bs.getItemById(ITEM_502).remove()
-                    newite = bs.addItemById(ITEM_503)
-
-                else if ite.getTypeId() == (ITEM_504) 
-                    bs.getItemById(ITEM_504).remove()
-                    newite = bs.addItemById(ITEM_369)
-
-                else if ite.getTypeId() == (ITEM_505)
-                    bs.getItemById(ITEM_505).remove()
-                    newite = bs.addItemById(ITEM_506)
-
-                else if ite.getTypeId() == (ITEM_507)
-                    bs.getItemById(ITEM_507).remove()
-                    newite = bs.addItemById(ITEM_508)
-
-                else if ite.getTypeId() == (ITEM_509)
-                    bs.getItemById(ITEM_509).remove()
-                    newite = bs.addItemById(ITEM_510)
-
-                else if ite.getTypeId() == (ITEM_511)
-                    bs.getItemById(ITEM_511).remove()
-                    newite = bs.addItemById(ITEM_512)
-
-                else if ite.getTypeId() == (ITEM_513)
-                    bs.getItemById(ITEM_513).remove()
-                    newite = bs.addItemById(ITEM_514)
-
-                else if ite.getTypeId() == (ITEM_515)
-                    bs.getItemById(ITEM_515).remove()
-                    newite = bs.addItemById(ITEM_516)
-
-                else if ite.getTypeId() == (ITEM_517)
-                    bs.getItemById(ITEM_517).remove()
-                    newite = bs.addItemById(ITEM_518)
-
-                else if ite.getTypeId() == (ITEM_519)
-                    bs.getItemById(ITEM_519).remove()
-                    newite = bs.addItemById(ITEM_520)
-
-                else if ite.getTypeId() == (ITEM_521)
-                    bs.getItemById(ITEM_521).remove()
-                    newite = bs.addItemById(ITEM_522)
-
-                else if ite.getTypeId() == (ITEM_523)
-                    bs.getItemById(ITEM_523).remove()
-                    newite = bs.addItemById(ITEM_524)
-
-                else if ite.getTypeId() == (ITEM_525)
-                    bs.getItemById(ITEM_525).remove()
-                    newite = bs.addItemById(ITEM_526)
-
-                else if ite.getTypeId() == (ITEM_527)
-                    bs.getItemById(ITEM_527).remove()
-                    newite = bs.addItemById(ITEM_528)
-
-                else if ite.getTypeId() == (ITEM_529)
-                    bs.getItemById(ITEM_529).remove()
-                    newite = bs.addItemById(ITEM_530)
-
-                else if ite.getTypeId() == (ITEM_531)
-                    bs.getItemById(ITEM_531).remove()
-                    newite = bs.addItemById(ITEM_532)
-
-                else if ite.getTypeId() == (ITEM_533)
-                    bs.getItemById(ITEM_533).remove()
-                    newite = bs.addItemById(ITEM_534)
-
-                else if ite.getTypeId() == (ITEM_536)
-                    bs.getItemById(ITEM_536).remove()
-                    newite = bs.addItemById(ITEM_537)
-
-                else if ite.getTypeId() == (ITEM_538)
-                    bs.getItemById(ITEM_538).remove()
-                    newite = bs.addItemById(ITEM_539)
-
-                else if ite.getTypeId() == (ITEM_540)
-                    bs.getItemById(ITEM_540).remove()
-                    newite = bs.addItemById(ITEM_541)
-
-                else if ite.getTypeId() == (ITEM_542)
-                    bs.getItemById(ITEM_542).remove()
-                    newite = bs.addItemById(ITEM_543)
-
-                else if ite.getTypeId() == (ITEM_544)
-                    bs.getItemById(ITEM_544).remove()
-                    newite = bs.addItemById(ITEM_545)
-
-                else if ite.getTypeId() == (ITEM_546)
-                    bs.getItemById(ITEM_546).remove()
-                    newite = bs.addItemById(ITEM_547)
-
-                else if ite.getTypeId() == (ITEM_548)
-                    bs.getItemById(ITEM_548).remove()
-                    newite = bs.addItemById(ITEM_549)
-
-                else if ite.getTypeId() == (ITEM_551)
-                    bs.getItemById(ITEM_551).remove()
-                    newite = bs.addItemById(ITEM_552)
-
-                else if ite.getTypeId() == (ITEM_553)
-                    bs.getItemById(ITEM_553).remove()
-                    newite = bs.addItemById(ITEM_554)
-
-                else if ite.getTypeId() == (ITEM_555)
-                    bs.getItemById(ITEM_555).remove()
-                    newite = bs.addItemById(ITEM_556)
-
-                else if ite.getTypeId() == (ITEM_557)
-                    bs.getItemById(ITEM_557).remove()
-                    newite = bs.addItemById(ITEM_558)
-
-                else if ite.getTypeId() == (ITEM_560)
-                    bs.getItemById(ITEM_560).remove()
-                    newite = bs.addItemById(ITEM_561)
-
-                else if ite.getTypeId() == (ITEM_562)
-                    bs.getItemById(ITEM_562).remove()
-                    newite = bs.addItemById(ITEM_563)
-
-                else if ite.getTypeId() == (ITEM_564)
-                    bs.getItemById(ITEM_564).remove()
-                    newite = bs.addItemById(ITEM_565)
-
-                else if ite.getTypeId() == (ITEM_566)
-                    bs.getItemById(ITEM_566).remove()
-                    newite = bs.addItemById(ITEM_567)
-
-                else if ite.getTypeId() == (ITEM_568)
-                    bs.getItemById(ITEM_568).remove()
-                    newite = bs.addItemById(ITEM_569)
-
-                else if ite.getTypeId() == (ITEM_570)
-                    bs.getItemById(ITEM_570).remove()
-                    newite = bs.addItemById(ITEM_571)
-
-                else if ite.getTypeId() == (ITEM_572)
-                    bs.getItemById(ITEM_572).remove()
-                    newite = bs.addItemById(ITEM_573)
-
-                else if ite.getTypeId() == (ITEM_574)
-                    bs.getItemById(ITEM_574).remove()
-                    newite = bs.addItemById(ITEM_575)
-
-                else if ite.getTypeId() == (ITEM_576)
-                    bs.getItemById(ITEM_576).remove()
-                    newite = bs.addItemById(ITEM_577)
-
-                else if ite.getTypeId() == (ITEM_578)
-                    bs.getItemById(ITEM_578).remove()
-                    newite = bs.addItemById(ITEM_579)
-
-                else if ite.getTypeId() == (ITEM_581)
-                    bs.getItemById(ITEM_581).remove()
-                    newite = bs.addItemById(ITEM_582)
-
-                else if ite.getTypeId() == (ITEM_583)
-                    bs.getItemById(ITEM_583).remove()
-                    newite = bs.addItemById(ITEM_584)
-
-                else if ite.getTypeId() == (ITEM_585)
-                    bs.getItemById(ITEM_585).remove()
-                    newite = bs.addItemById(ITEM_586)
-
-                else if ite.getTypeId() == (ITEM_366)
-                    bs.getItemById(ITEM_366).remove()
-                    newite = bs.addItemById(ITEM_587)
-
-                else if ite.getTypeId() == (ITEM_236) and ite.getTypeId() == (ITEM_530)
-                    bs.getItemById(ITEM_236).remove()
-                    bs.getItemById(ITEM_530).remove()
-                    newite = bs.addItemById(ITEM_588)
-                newite.setPos(bs.getPos())
-                bs.setAnimation("Stand")
-                printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed|r" + newite.getName(), 7)
+            let slots = new LinkedList<int>
+            var foundItem = false
+            var atSpot = 0
+            for int i = 0 to bs.inventorySize() -1
+                slots.add(bs.itemInSlot(i).getTypeId())
+            for int i = 0 to itemlist.size() - 2
+                let itemCheck = itemlist.get(i)
+                for int j = 0 to slots.size() - 1
+                    if itemCheck.has(slots.get(j))
+                        foundItem = true
+                        atSpot = i
+                        break
+                if foundItem
+                    break
+            destroy slots
+            if foundItem
+                bs.setAnimation("Work")
+                doAfter(20) -> 
+                    let rightList = itemlist.get(atSpot)
+                    for int i = 0 to rightList.size() - 2
+                        bs.removeItemById(rightList.get(i))
+                    let newite = bs.addItemById(rightList.getLast())
+                    newite.setPos(bs.getPos())
+                    bs.setAnimation("Stand")
+                    printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed|r" + newite.getName(), 7)
+                    destroy rightList

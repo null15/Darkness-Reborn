@@ -11,12 +11,13 @@ public function thunderOfAkunda()
         if src.isIllusion()
             skip
         else
-            let lvl = src.getAbilityLevel(ABILITY_40)
-            if lvl > 0
-                if GetRandomInt(1, 100) <= lvl*3
-                    let target = DamageEvent.getTarget()
-                    let dmg = (lvl*1.50)*src.getInt(true)
-                    flashEffect(Abilities.chimaeraLightningMissile, target.getPos())
-                    src.magicalDamageCode(dmg, target)
-                    if(target.isAlive() == false)
-                        src.issueImmediateOrderById(OrderIds.stop)
+            if DamageEvent.getType() == ATTACK
+                let lvl = src.getAbilityLevel(ABILITY_40)
+                if lvl > 0
+                    if GetRandomInt(1, 100) <= lvl*3
+                        let target = DamageEvent.getTarget()
+                        let dmg = (lvl*1.50)*src.getInt(true)
+                        flashEffect(Abilities.chimaeraLightningMissile, target.getPos())
+                        src.magicalDamageCode(dmg, target)
+                        if(target.isAlive() == false)
+                            src.issueImmediateOrderById(OrderIds.stop)

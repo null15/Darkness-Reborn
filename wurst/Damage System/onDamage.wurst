@@ -3,10 +3,8 @@ import MyUnitIds
 // import DamageDetection
 import DamageEvent
 import MyAbilityIds
-import A000_W
 import Platinum1Stun
 import Platinum2Stun
-import ThiefTAbility
 import LancelotSet
 import HelmofHermes
 import LancelotShield
@@ -60,44 +58,29 @@ init
             case ATTACK
                 if(returnReducedDamage() > 0)
                     DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
-                // Ordinary Hakkar Buff or improved Hakkar Buff
-                if src.hasAbility(BUFF_20)
-                    let lvl = src.getAbilityLevel(ABILITY_41)
-                    src.addHP(DamageEvent.getAmount()*healLoaMultiplier[lvl-1])
-                else if src.hasAbility(BUFF_21)
-                    src.addHP(DamageEvent.getAmount()*0.8)
+                if src.isType(UNIT_TYPE_RANGED_ATTACKER)
+                    physicalDamageChecks(0, src, targ, WEAPON_TYPE_AXE_MEDIUM_CHOP)
+                else
+                    physicalDamageChecks(0, src, targ, WEAPON_TYPE_WHOKNOWS)
 
                 if src.hasAbility('B003')
                     src.removeAbility('B003')
 
-                //VampiricAura Vivpire
-                if src.hasAbility(VIVPIRE_BUFF_4)
-                    let lvl = src.getAbilityLevel(VIVPIRE_BUFF_4)
-                    src.addHP(DamageEvent.getAmount() * healVivpireMultiplier[lvl-1])
-
-                //Wolfman attack
-                if src.hasAbility(WOLF_BUFF_1)
-                    src.addHP(DamageEvent.getAmount() * 0.25)
-
             case SPELL
-                if(targ.getAbilityLevel(UTHER_ABIL_3) > 0)
-                    DamageEvent.setAmount(DamageEvent.getAmount() * (1-0.02*targ.getAbilityLevel(UTHER_ABIL_3)))
-                DamageEvent.setAmount(DamageEvent.getAmount() * targ.calculateMagicRes())
-
+                magicDamageChecks(0, src, targ)
+                
                 // Improved Hakkar Buff
                 if src.hasAbility(BUFF_21)
                     src.addHP(DamageEvent.getAmount()*0.8)
                 
             case CODE
                 let damId = DamageEvent.getId()
-                if(targ.getAbilityLevel(UTHER_ABIL_3) > 0)
-                    DamageEvent.setAmount(DamageEvent.getAmount() * (1-0.02*targ.getAbilityLevel(UTHER_ABIL_3)))
+
                 if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
                     if(returnReducedDamage() > 0)
                         DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
                     physicalDamageChecks(damId, src, targ, DamageEvent.getWeaponType())
                 else if (DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)
-                    DamageEvent.setAmount(DamageEvent.getAmount() * targ.calculateMagicRes())
                     magicDamageChecks(damId, src, targ)
                 
                 // Ordinary Hakkar Buff or Improved Hakkar Buff
@@ -146,14 +129,6 @@ init
         let targ = DamageEvent.getTarget()
         if (DamageEvent.getType() == ATTACK)
             if (DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL or DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)  and src.isIllusion() == false
-                //Thief noCommand
-                if GetRandomInt(0, 100) < src.getAbilityLevel('A0XG') * 2
-                    noCommand(src, targ)
-                    
-                // Vashj (Frost Arrows ) X - Autocast
-                if src.getFrostArrowToggled()
-                    frostArrows(src, targ)
-
                 //deadEyes
                 if src.hasItemById(ITEM_659) and GetRandomInt(0, 100) < 14
                     deadEyes(src, targ)
@@ -213,17 +188,22 @@ init
                     platinum2Stun(src, targ)
     
 function magicDamageChecks(int damId, unit src, unit targ)
-    
+    if(targ.getAbilityLevel(UTHER_ABIL_3) > 0)
+        DamageEvent.setAmount(DamageEvent.getAmount() * (1-0.02*targ.getAbilityLevel(UTHER_ABIL_3)))
+    DamageEvent.setAmount(DamageEvent.getAmount() * targ.calculateMagicRes())
 
 function physicalDamageChecks(int damId, unit src, unit targ, weapontype notRanged)
-    //Vivpire Vampiric Aura
+    // Uther Damage reduction
+    if(targ.getAbilityLevel(UTHER_ABIL_3) > 0)
+        DamageEvent.setAmount(DamageEvent.getAmount() * (1-0.02*targ.getAbilityLevel(UTHER_ABIL_3)))
+    // Vivpire Vampiric Aura
     if src.hasAbility(VIVPIRE_BUFF_4)
         let lvl = src.getAbilityLevel(VIVPIRE_BUFF_4)
         src.addHP(DamageEvent.getAmount() * healVivpireMultiplier[lvl-1])
-    //Wolfman attack
+    // Wolfman attack
     if src.hasAbility(WOLF_BUFF_1)
         src.addHP(DamageEvent.getAmount() * 0.25)
-    //Reflection non-ranged
+    // Reflection non-ranged
     if(notRanged == WEAPON_TYPE_WHOKNOWS)
         reflectionChecks(src,targ)
 

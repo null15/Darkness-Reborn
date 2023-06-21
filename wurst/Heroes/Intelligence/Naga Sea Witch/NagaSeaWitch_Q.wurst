@@ -7,11 +7,10 @@ import OrderIds
 import ClosureEvents
 import MyAbilityIds
 import codeDamageTypings
-constant WATER_BUBBLE_ARTILLERY = compiletime(ArtilleryDetection.createArtilleryDummy(0, 120, 160, 1, "Units\\NagaWitch\\Water_egg.mdx", 500, 0.3))
-constant WATER_BUBBLE_SOUND = new SoundDefinition(Sounds.waterWaterFallLoop1, false, true)
-init
-    blueSea()
-function blueSea()
+
+public function bubbleBomb()
+    let WATER_BUBBLE_ARTILLERY = compiletime(ArtilleryDetection.createArtilleryDummy(0, 120, 160, 1, "Units\\NagaWitch\\Water_egg.mdx", 500, 0.3))
+    let WATER_BUBBLE_SOUND = new SoundDefinition(Sounds.waterWaterFallLoop1, false, true)
     EventListener.onPointCast(NAGAWITCH_ABIL_1) (unit caster, vec2 target) ->
         ArtilleryDetection.fireArtillery(caster, WATER_BUBBLE_ARTILLERY, caster.getPos(), target) (unit detectionUnit, unit caster, int data) ->
             let targetPos = detectionUnit.getPos3Zero()

@@ -4390,7 +4390,7 @@ init
     ..setIconGameInterface(Icons.bTNIceTrollShaman)
     ..setIconScoreScreen(Icons.bTNIceTrollShaman)
 
-    new HeroDefinition(PLAY_HERO_34, UnitIds.arthaswithfrostmourne)// Uther (H00B)
+    new HeroDefinition(PLAY_HERO_34, UnitIds.arthaswithfrostmourne)// Arthas (H00B)
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList('A00A', 'A00B', 'A00H', ARTHAS_ABIL_5, 'A00S'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
@@ -4471,7 +4471,7 @@ init
     + "Difficulty: 3/5\n")
     ..setManaRegeneration(0.01)
 
-    new HeroDefinition(PLAY_HERO_34_FORM, UnitIds.arthaswithfrostmourne)// Uther (H00B)
+    new HeroDefinition(PLAY_HERO_34_FORM, UnitIds.arthaswithfrostmourne)// Arthas (H00B)
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList('A00A', 'A00B', 'A00H', ARTHAS_ABIL_5, 'A00S'))
     ..setNormalAbilities(commaList('A007', 'AInv'))

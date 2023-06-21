@@ -13,3 +13,4 @@ public function thunderClap()
                 if caster.isEnemyOf(u) and u.hasAbility('BHtc')
                     caster.physicalDamageCode(dmg, u, true)
                     destroy cb
+                    

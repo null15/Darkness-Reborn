@@ -9,8 +9,6 @@ int lumberGain = 0
 int goldGain = 0
 unit lumberMill = null
 unit goldMine = null
-init
-    tinkerResourceProduction()
 
 function unit.addLumber()
     this.getOwner().addLumber(lumberGain)
@@ -21,7 +19,6 @@ function unit.addGold()
 function unit.buildingCheck()
     if this.getIcon() == Icons.bTNHumanLumberMill
         if this.getTypeId() == TINKERBUILDING_103
-            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, 0, this.getOwner())
             lumberGain = 1
         else if this.getTypeId() == TINKERBUILDING_104
             lumberGain = 2
@@ -61,7 +58,7 @@ function unit.buildingCheck()
             doPeriodically(.4) (CallbackPeriodic cb) ->
                 this.addGold()
 
-function tinkerResourceProduction()
+public function tinkerResourceProduction()
     EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_FINISH) -> 
         let u = GetConstructedStructure()
         u.buildingCheck()
