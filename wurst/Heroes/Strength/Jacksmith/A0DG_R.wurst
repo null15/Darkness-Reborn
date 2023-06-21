@@ -5,6 +5,8 @@ import DummyCaster
 import OrderIds
 import MyAbilityIds
 import Blacksmith
+import MyUnitIds
+import LinkedList
 
 public function metalStrength()
     EventListener.onTargetCast('A0DG') (unit caster, unit target) ->
@@ -12,4 +14,27 @@ public function metalStrength()
         ..owner(GetOwningPlayer(caster))
         ..origin(caster.getPos())
         ..castTarget(ABILITY_DUMMY_8, 1, OrderIds.innerfire, target)
-        blacksmithJackedUp(target)
+        let bs = target
+        if bs.getTypeId() == TINKERBUILDING_114
+            let slots = new LinkedList<int>
+            var foundItem = false
+            var atSpot = 0
+            for int i = 0 to bs.inventorySize() -1
+                slots.add(bs.itemInSlot(i).getTypeId())
+            for int i = 0 to itemlist.size() - 2
+                let itemCheck = itemlist.get(i)
+                for int j = 0 to slots.size() - 1
+                    if itemCheck.has(slots.get(j))
+                        foundItem = true
+                        atSpot = i
+                        break
+                if foundItem
+                    break
+            destroy slots
+            if foundItem
+                let rightList = itemlist.get(atSpot)
+                for int i = 0 to rightList.size() - 2
+                    bs.removeItemById(rightList.get(i))
+                let newite = bs.addItemById(rightList.getLast())
+                newite.setPos(bs.getPos())
+                destroy rightList

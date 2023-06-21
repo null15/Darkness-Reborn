@@ -1,9 +1,9 @@
 package Recipes
 
-import HashSet
+import LinkedList
 
 class Recipe
-    let items = new HashSet<int>
+    let items = new LinkedList<int>
     int completedItem
 
     construct(int item1, int item2, int completedItem)
@@ -41,8 +41,8 @@ class Recipe
         items.add(item6)
         this.completedItem = completedItem
 
-let recipes = new HashSet<Recipe>
-let crafterRecipes = new HashSet<Recipe>
+let recipes = new LinkedList<Recipe>
+let crafterRecipes = new LinkedList<Recipe>
 
 public function addRecipe(int item1, int item2, int completedItem)
     recipes.add(new Recipe(item1, item2, completedItem))
