@@ -43,6 +43,14 @@ init
     ..setTooltipNormal("Uther's Blessing")
     ..setTooltipNormalExtended("This unit has been blessed by Uther the Lightbringer, casting spells grant him holy power.")
 
+@compiletime function lcBuffs()
+    new BuffDefinition(LC_BUFF_1, BuffIds.berserk)
+    ..setName("Lightning Empowerment")
+    ..setTooltipNormal("")
+    ..setTooltipNormalExtended("This is the prey of the Vivpire, grants blood upon death.")
+    ..setArtTarget("")
+    ..setTargetAttachmentPoint0("chest")
+
 @compiletime function wolfmanBuffs()
     new BuffDefinition(MAN_BUFF, BuffIds.stunned)
     ..setName("Scream")

@@ -8,8 +8,8 @@ import InstantDummyCaster
 import codeDamageTypings
 
 public function thunderRage()
-    EventListener.onTargetCast('A01D') (unit caster, unit target) ->
-        let lvl = caster.getAbilityLevel('A01D')
+    EventListener.onTargetCast(HERALD_ABILI_T) (unit caster, unit target) ->
+        let lvl = caster.getAbilityLevel(HERALD_ABILI_T)
         let dmg = caster.getInt(true) * (lvl * 5.00) + caster.getMaxMana() + caster.getMaxHP()
         forUnitsInRange(target.getPos(), 500) (unit u) ->
             if caster.isEnemyOf(u)
