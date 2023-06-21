@@ -19331,16 +19331,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Fire & Ice Sword II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"|c00FEBA0E+700 Damage.\n"
-    +"37% Chance to freeze the target for 0.25s")
+    ..setDescription("|c00FFFC01Fire & Ice Sword II|r\n|c00FFFC01Effect of item:|r\n|c00FEBA0E+700 Damage.\n37% Chance to freeze the target for 0.25s\n\n|c00FEBA0EMaterials required to craft this item: :|rThis Recipe\nSword of Ice and Fire(Shop)\nIce Sword(Shop)\nFire Sword(Shop)")
     ..setName("Treasure of Tinker (Recipe 1)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 1)")
-    ..setTooltipExtended("|c00FFFC01Fire & Ice Sword II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"|c00FEBA0E+700 Damage.\n"
-    +"37% Chance to freeze the target for 0.25s")
+    ..setTooltipExtended("|c00FFFC01Fire & Ice Sword II|r\n|c00FFFC01Effect of item:|r\n|c00FEBA0E+700 Damage.\n37% Chance to freeze the target for 0.25s\n\n|c00FEBA0EMaterials required to craft this item: :|rThis Recipe\nSword of Ice and Fire(Shop)\nIce Sword(Shop)\nFire Sword(Shop)")
     ..setHotkey("")
 
 //I0JV
@@ -19374,20 +19368,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Dark Steel Sword II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"|c00FEBA0E\n+2000 Damage\n"
-    +"+220% Attack speed. \n"
-    +"-135 Armor on-hit\n"
-    +"Effect cannot be used together with Orb of Corruption")
+    ..setDescription("|c00FFFC01Dark Steel Sword II|r\n|c00FFFC01Effect of item:|r\n|c00FEBA0E\n+2000 Damage\n+220% Attack speed. \n-135 Armor on-hit\nEffect cannot be used together with Orb of Corruption\n\n|c00FEBA0EMaterials required to craft this item: :|r\nThis Recipe\nDark Steal Sword(Shop)\nCrystal Sword(Drop)")
     ..setName("Treasure of Tinker (Recipe 2)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 2)")
-    ..setTooltipExtended("|c00FFFC01Dark Steel Sword II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"|c00FEBA0E\n+2000 Damage\n"
-    +"+220% Attack speed. \n"
-    +"-135 Armor on-hit\n"
-    +"Effect cannot be used together with Orb of Corruption")
+    ..setTooltipExtended("|c00FFFC01Dark Steel Sword II|r\n|c00FFFC01Effect of item:|r\n|c00FEBA0E\n+2000 Damage\n+220% Attack speed. \n-135 Armor on-hit\nEffect cannot be used together with Orb of Corruption\n\n|c00FEBA0EMaterials required to craft this item: :|r\nThis Recipe\nDark Steal Sword(Shop)\nCrystal Sword(Drop)")
     ..setHotkey("")
 
 //I0JY
@@ -19421,26 +19405,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Destroy Sword II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+1700 Damage\n"
-    +"25% Chance to Crit for 11 times damage\n"
-    +"8% Armor Pen\n"
-    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Destroy Sword\n"
-    +"Dream Sword\n"
-    +"Blade of Hell")
+    ..setDescription("|c00FFFC01Destroy Sword II|r\n|c00FFFC01Effect of item:|r\n+1700 Damage\n25% Chance to Crit for 11 times damage\n8% Armor Pen\n|c00FEBA0EMaterials required to craft this item: :|r\nDestroy Sword\nDream Sword\nBlade of Hell")
     ..setName("Treasure of Tinker (Recipe 3)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 3)")
-    ..setTooltipExtended("|c00FFFC01Destroy Sword II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+1700 Damage\n"
-    +"25% Chance to Crit for 11 times damage\n"
-    +"8% Armor Pen\n"
-    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Destroy Sword\n"
-    +"Dream Sword\n"
-    +"Blade of Hell")
+    ..setTooltipExtended("|c00FFFC01Destroy Sword II|r\n|c00FFFC01Effect of item:|r\n+1700 Damage\n25% Chance to Crit for 11 times damage\n8% Armor Pen\n|c00FEBA0EMaterials required to craft this item: :|r\nDestroy Sword\nDream Sword\nBlade of Hell")
     ..setHotkey("")
 
 //I0JZ
@@ -19474,20 +19442,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Hammer Platium II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+4500 Damage\n"
-    +"+600 Strength\n"
-    +"+25% Chance to Bash\n"
-    +"Cooldown: 5 seconds")
+    ..setDescription("|c00FFFC01Hammer Platium II|r\n|c00FFFC01Effect of item:|r\n+4500 Damage\n+600 Strength\n+25% Chance to Bash\nCooldown: 5 seconds\n|c00FEBA0EMaterials required to craft this item: :|r\nThis Recipe\nPlatinum Hammer(Shop)\nSilver Hammer(Shop)\nCurosive Hammer(Shop)")
     ..setName("Treasure of Tinker (Recipe 4)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 4)")
-    ..setTooltipExtended("|c00FFFC01Hammer Platium II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+4500 Damage\n"
-    +"+600 Strength\n"
-    +"+25% Chance to Bash\n"
-    +"Cooldown: 5 seconds")
+    ..setTooltipExtended("|c00FFFC01Hammer Platium II|r\n|c00FFFC01Effect of item:|r\n+4500 Damage\n+600 Strength\n+25% Chance to Bash\nCooldown: 5 seconds\n|c00FEBA0EMaterials required to craft this item: :|r\nThis Recipe\nPlatinum Hammer(Shop)\nSilver Hammer(Shop)\nCurosive Hammer(Shop)")
     ..setHotkey("")
 
 //I0K1
@@ -19521,22 +19479,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Gold Axe II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+7000 Damage\n"
-    +"70% Chance to Crit for 5 times Damage\n"
-    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Gold Axe\n"
-    +"Criticial Axe (Jack Smith)")
+    ..setDescription("|c00FFFC01Gold Axe II|r\n|c00FFFC01Effect of item:|r\n+7000 Damage\n70% Chance to Crit for 5 times Damage\n|c00FEBA0EMaterials required to craft this item: :|r\nGold Axe(Shop)\nCriticial Axe (Jack Smith)")
     ..setName("Treasure of Tinker (Recipe 5)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 5)")
-    ..setTooltipExtended("|c00FFFC01Gold Axe II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+7000 Damage\n"
-    +"70% Chance to Crit for 5 times Damage\n"
-    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Gold Axe\n"
-    +"Criticial Axe (Jack Smith)")
+    ..setTooltipExtended("|c00FFFC01Gold Axe II|r\n|c00FFFC01Effect of item:|r\n+7000 Damage\n70% Chance to Crit for 5 times Damage\n|c00FEBA0EMaterials required to craft this item: :|r\nGold Axe(Shop)\nCriticial Axe (Jack Smith)")
     ..setHotkey("")
 
 //I0K3
@@ -19570,24 +19516,10 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|c00FFFC01Reactive Armor II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+400 Armor\n"
-    +"+250 HP/s\n"
-    +"Return 250% of the damage dealt to you back to the attacker.\n"
-    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Reactive Armor\n"
-    +"Split Armor")
+    ..setDescription("|c00FFFC01Reactive Armor II|r\n|c00FFFC01Effect of item:|r\n+400 Armor\n+250 HP/s\nReturn 250% of the damage dealt to you back to the attacker.\n|c00FEBA0EMaterials required to craft this item: :|r\nReactive Armor\nSplit Armor")
     ..setName("Treasure of Tinker (Recipe 6)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 6)")
-    ..setTooltipExtended("|c00FFFC01Reactive Armor II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+400 Armor\n"
-    +"+250 HP/s\n"
-    +"Return 250% of the damage dealt to you back to the attacker.\n"
-    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Reactive Armor\n"
-    +"Split Armor")
+    ..setTooltipExtended("|c00FFFC01Reactive Armor II|r\n|c00FFFC01Effect of item:|r\n+400 Armor\n+250 HP/s\nReturn 250% of the damage dealt to you back to the attacker.\n|c00FEBA0EMaterials required to craft this item: :|r\nReactive Armor\nSplit Armor")
     ..setHotkey("")
 
 //I0K5
@@ -19631,14 +19563,7 @@ init
     +"Boots of Crystal Gold")
     ..setName("Treasure of Tinker (Recipe 7)")
     ..setTooltipBasic("Buy Treasure of Tinker (Recipe 7)")
-    ..setTooltipExtended("|c00FFFC01Boots of Crystal Gold II|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+250 Movement Speed\n"
-    +"+300 All Stats\n"
-    +"Active: Teleport to a unit or a building. \n"
-    +"Cooldown: 30 seconds."
-    +"\n|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Boots of Crystal Gold")
+    ..setTooltipExtended("|c00FFFC01Boots of Crystal Gold II|r\n|c00FFFC01Effect of item:|r\n+250 Movement Speed\n+300 All Stats\nActive: Teleport to a unit or a building. \nCooldown: 30 seconds.\n|c00FEBA0EMaterials required to craft this item: :|r\nBoots of Crystal Gold(Shop)")
     ..setHotkey("")
 
 //I09O

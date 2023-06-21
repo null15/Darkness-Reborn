@@ -128,18 +128,18 @@ import A00S_Q
 
 public function unit.heroCheck()
     switch this.getTypeId()
-        case PLAY_HERO_0
+        case PLAY_HERO_0//Mk
             thunderClap()
             stormbolt()
             overPower()
-        case PLAY_HERO_1_INITIAL
+        case PLAY_HERO_1_INITIAL//Wolfman 1st
             manDog()
             punch()
-        case PLAY_HERO_1_INITIATE
+        case PLAY_HERO_1_INITIATE//wolfman 2nd
             dogDog()
             dogbite()
             doghowl()
-        case PLAY_HERO_1_FINAL
+        case PLAY_HERO_1_FINAL//Wolfman 3rd
             manwolfDog()
             wolfhowl()
             frenzy()
@@ -149,30 +149,30 @@ public function unit.heroCheck()
             warStomp()
             shockExplosion()
             blessedHammer()
-        case PLAY_HERO_3
+        case PLAY_HERO_3//Vivpire
             bloodGain()
             vampiricBite()
             vivpireUnleashed()
             bloodHunter()
-        case PLAY_HERO_4
+        case PLAY_HERO_4//Death Knight
             this.soulCollector()
             curseOfDarkness()
             soulsKing()
             tasteOfDeath()
-        case PLAY_HERO_5
+        case PLAY_HERO_5//Beast Master
             spirits()
             quilBeast()
-        case PLAY_HERO_6
+        case PLAY_HERO_6//Pit Lord
             rainofFire()
             strikeSlam()
             noblesseAura()
-        case PLAY_HERO_7
+        case PLAY_HERO_7//Jacksmith
             forgeSmart()
             metalStrength()
             radiantRing()
             forge()
             forgeMaster()
-        case PLAY_HERO_8
+        case PLAY_HERO_8//Uthar
             holyStorm()
             judgement()
             lightsWrath()
@@ -180,16 +180,16 @@ public function unit.heroCheck()
             redemptionHoly()
         case PLAY_HERO_9
             skip
-        case PLAY_HERO_10
+        case PLAY_HERO_10//Assasin
             lastKiller()
             shadowWalk()
             quickSlash()
             katarMastery()
             learnULT()
-        case PLAY_HERO_11
+        case PLAY_HERO_11//Demon Hunter(illidan)
             chainFlash()
             demonPower()
-        case PLAY_HERO_12
+        case PLAY_HERO_12//Time Wizard
             furyPeak()
             blackHole()
             gravitone()
@@ -201,43 +201,43 @@ public function unit.heroCheck()
             hasteSlash()
         case PLAY_HERO_15
             biteofDeath()
-        case PLAY_HERO_16
+        case PLAY_HERO_16//Dark Ranger
             imageArrow()
             darkArrow()
             burstMana()
             darkDrain()
-        case PLAY_HERO_17
+        case PLAY_HERO_17//Illusnist
             shadowDancer()
             juxtapose()
-        case PLAY_HERO_18
+        case PLAY_HERO_18//Archer
             phantomArrow()
             poisonArrow()
             longRange()
             goldenArrow()
-        case PLAY_HERO_19
+        case PLAY_HERO_19//Fire lord
             conflagration()
             pillarOfFlame()
             fireballCast()
             sear()
-        case PLAY_HERO_20
+        case PLAY_HERO_20//Keep of the grove
             entanglingRoots()
             naturalOrb()
             hawkeyeSplit()
             spiritGuardian()
             thornRoot()
-        case PLAY_HERO_21
+        case PLAY_HERO_21//Fire Mage
             phoenix()
             eternalFlame()
             meltingPhoenix()
             fireShield()
-        case PLAY_HERO_22
+        case PLAY_HERO_22//Far seer
             thunderRage()
             mindRipper()
-        case PLAY_HERO_23
+        case PLAY_HERO_23//Shadow Hunter
             craggyHex()
             shadowHex()
             shWardSummon()
-        case PLAY_HERO_24
+        case PLAY_HERO_24//Lich
             deathandnDecay()
             frostArmor()
             frostRise()

@@ -2,6 +2,7 @@ package A0DI_R
 import StandardTextTags
 import codeDamageTypings
 import DamageEvent
+import MyAbilityIds
 texttag mindRipper
 init
 public function mindRipper()
@@ -9,7 +10,7 @@ public function mindRipper()
         let id = DamageEvent.getId()
         if id != 'MRIP'
             let src = DamageEvent.getSource()
-            let lvl = src.getAbilityLevel('A0DI')
+            let lvl = src.getAbilityLevel(HERALD_ABILI_R)
             if lvl > 0 and GetRandomInt(1, 100) < 15
                 let targ = DamageEvent.getTarget()
                 let intellect = src.getInt(true)
