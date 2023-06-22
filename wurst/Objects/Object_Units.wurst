@@ -3028,15 +3028,23 @@ init
 + "Difficulty: 3/5\n")
     ..setManaRegeneration(0.01)
 
+    new UnitDefinition(PLAY_HERO_22_DUMMY, UnitIds.locust)
+    ..setModelFile("")
+
+    new UnitDefinition(PLAY_HERO_22_DUMMY_2, UnitIds.locust)
+    ..setModelFile("Units\\Far seer(Zues)\\OrbLightningX.mdx")
+    ..setScalingValue(0.4)
+
     new HeroDefinition(PLAY_HERO_22, UnitIds.farseer)// Far Seer (O00S)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A00Z', HERALD_ABILI_W, HERALD_ABILI_E , HERALD_ABILI_R, HERALD_ABILI_T))
+    ..setHeroAbilities(commaList(HERALD_ABILI_Q, HERALD_ABILI_W, HERALD_ABILI_E, HERALD_ABILI_R, HERALD_ABILI_T))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     ..setModelFile("Units\\Far seer(Zues)\\Zeus.mdx")
     ..setPrimaryAttribute("Intelligence")
     ..setStartingStrength(15)
     ..setStartingAgility(18)
     ..setStartingIntelligence(19)
+    ..setIconGameInterface(Icons.bTNAvatar)
     ..setScalingValue(1.00)
     ..setSelectionScale(2.00)
     ..setAttack1CooldownTime(2.28)
@@ -3123,6 +3131,7 @@ init
     ..setStockReplenishInterval(3600)
     ..setStockStartDelay(1)
     ..setManaMaximum(0)
+    ..setProperNames("Crackle")
     ..setName("Herald of Lightning")
     ..setTooltipBasic("|c00F7EC46Herald of Lightning|r")
     ..setTooltipExtended("|c00F7EC46Herald of Lightning|r\n"

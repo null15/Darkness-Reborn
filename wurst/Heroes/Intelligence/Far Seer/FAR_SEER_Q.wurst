@@ -5,25 +5,44 @@ import ClosureTimers
 import ClosureForGroups
 import MyAbilityIds
 import codeDamageTypings
-
+import MyUnitIds
+import OrderIds
 
 public function orbofLightning()
-    EventListener.onCast(HERALD_ABILI_Q) (unit caster) ->      
-        let lvl = caster.getAbilityLevel(HERALD_ABILI_Q)
-        let dmg = 0.3*caster.getInt(true) * lvl
+    EventListener.onCast(HERALD_ABILI_Q) (unit caster) ->
         let temp = new LinkedList<unit>
-        doPeriodicallyTimed(0.2, 10) (CallbackCounted cb) ->
+        let sfxtemp = new LinkedList<unit>
+        for int i = 0 to 2
+            let posCaster = caster.getPos()
+            let angle = (60. + 120 * i).asAngleDegrees()
+            let pos = posCaster.polarOffset(angle, 75).withZ(150)
+            let sfx = createUnit(players[10], PLAY_HERO_22_DUMMY_2)..setPosFly(pos)
+            sfxtemp.add(sfx)
+        doPeriodicallyTimed(0.03, 10) (CallbackCounted cb) ->
+            for int i = 0 to 2
+                let sfx = sfxtemp.get(i)
+                let pos = caster.getPos()
+                let angle = (60. + 120 * i).asAngleDegrees() + (2.2*cb.getCount()).asAngleDegrees()
+                let newpos = pos.polarOffset(angle, 75).withZ(150)
+                sfx..setPosFly(newpos)
+        doPeriodicallyTimed(0.5, 10) (CallbackCounted cb) ->
+            let lvl = caster.getAbilityLevel(HERALD_ABILI_Q)
+            let dmg = 0.8 * caster.getInt(true) * lvl
             forUnitsInRange(caster.getPos(), 500) (unit u) ->
                 if u.isEnemyOf(caster) and u.isAlive()
                     temp.add(u)
-            caster.magicalDamageCode(dmg, temp.getRandomElement())
+            let damagedunit = temp.getRandomElement()
+            let damageorb = sfxtemp.getRandomElement()
+            let tempu = createUnit(players[10], PLAY_HERO_22_DUMMY, damageorb.getPos3Fly(), damageorb.getPos().angleTo(damagedunit.getPos()))
+            tempu.addAbility(HERALD_ABILI_DUMMY)
+            tempu.issueTargetOrderById(Orders.chainlightning, damagedunit)
+            doAfter(0.1) ->
+                tempu.remove()
+            caster.magicalDamageCode(dmg, damagedunit)
             temp.clear()
             if cb.isLast()
+                sfxtemp.forEach() (unit t) ->
+                    t.remove()
+                sfxtemp.clear()
+                destroy sfxtemp
                 destroy temp
-
-
-
-
-            
-        
-        

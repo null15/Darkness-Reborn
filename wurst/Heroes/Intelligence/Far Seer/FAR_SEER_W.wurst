@@ -4,22 +4,19 @@ import ClosureTimers
 import ClosureForGroups
 import codeDamageTypings
 import MyAbilityIds
-import GroupUtils
+import LinkedList
 
 public function lightningNova()
     EventListener.onCast(HERALD_ABILI_W) (unit caster) ->
         let lvl = caster.getAbilityLevel(HERALD_ABILI_W)
         let dmg = (1.*caster.getInt(true)) * lvl
-        let temp = getGroup()
+        let temp = new LinkedList<unit>
         doPeriodicallyTimed(0.2, 1) (CallbackCounted cb) ->
             let pos = caster.getPos()
-            forUnitsInRange(pos, 500 - (100.* cb.getCount()), true) (unit u) ->
+            forUnitsInRange(pos, 600 - (100.* cb.getCount()), true) (unit u) ->
                 if (caster.isEnemyOf(u) and temp.has(u) == false)
                     caster.magicalDamageCode(dmg, u)
                     temp.add(u)
             if cb.isLast()
-                temp.release()
-
-            
-        
-        
+                temp.clear()
+                destroy temp

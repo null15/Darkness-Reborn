@@ -198,6 +198,7 @@ public constant TINKER_ABIL_3 = compiletime(ABIL_ID_GEN.next())
 public constant TINKER_ABIL_4 = compiletime(ABIL_ID_GEN.next())
 public constant TINKER_ABIL_5 = compiletime(ABIL_ID_GEN.next())
 
+public constant HERALD_ABILI_DUMMY = compiletime(ABIL_ID_GEN.next())
 public constant HERALD_ABILI_Q = compiletime(ABIL_ID_GEN.next())
 public constant HERALD_ABILI_E = compiletime(ABIL_ID_GEN.next())
 public constant HERALD_ABILI_W = compiletime(ABIL_ID_GEN.next())

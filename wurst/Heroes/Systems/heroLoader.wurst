@@ -125,6 +125,8 @@ import TheKingOfLoasR
 import TheKingOfLoasT
 import TheKingOfLoasW
 import A00S_Q
+import FAR_SEER_Q
+import FAR_SEER_W
 
 public function unit.heroCheck()
     switch this.getTypeId()
@@ -233,6 +235,8 @@ public function unit.heroCheck()
         case PLAY_HERO_22//Far seer
             thunderRage()
             mindRipper()
+            orbofLightning()
+            lightningNova()
         case PLAY_HERO_23//Shadow Hunter
             craggyHex()
             shadowHex()

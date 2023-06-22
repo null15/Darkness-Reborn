@@ -44,3 +44,4 @@ public constant WOLF_BUFF_3 = compiletime(BUFF_ID_GEN.next())
 public constant UTHER_BUFF_1 = compiletime(BUFF_ID_GEN.next())
 
 public constant LC_BUFF_1 = compiletime(BUFF_ID_GEN.next())
+public constant LC_BUFF_2 = compiletime(BUFF_ID_GEN.next())

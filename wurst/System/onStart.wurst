@@ -63,11 +63,11 @@ function onBuyHero(unit u)
         GetBuyingUnit().remove()
 
 function createSetup()
-    let p = Player(10)
+    let p = players[10]
 
-    SetPlayerState(Player(11), PLAYER_STATE_GIVES_BOUNTY, 1)
-    SetPlayerState(Player(12), PLAYER_STATE_GIVES_BOUNTY, 1)
-    SetPlayerState(Player(13), PLAYER_STATE_GIVES_BOUNTY, 1)
+    SetPlayerState(players[11], PLAYER_STATE_GIVES_BOUNTY, 1)
+    SetPlayerState(players[12], PLAYER_STATE_GIVES_BOUNTY, 1)
+    SetPlayerState(players[13], PLAYER_STATE_GIVES_BOUNTY, 1)
 
     for i = 0 to 9
         createUnit(players[i], HERO_PICKER, gg_rct_HeroPicker.getCenter())
@@ -76,13 +76,13 @@ function createSetup()
     var posX = GetRectCenterX(gg_rct_HeroPicker) - 384.
     var posY = GetRectCenterY(gg_rct_HeroPicker)
 
-    let tavern1 = CreateUnit(Player(10), BUILDING_TAVERN_STR, posX, posY, bj_UNIT_FACING)
+    let tavern1 = CreateUnit(p, BUILDING_TAVERN_STR, posX, posY, bj_UNIT_FACING)
     onBuyHero(tavern1)
     posX = GetRectCenterX(gg_rct_HeroPicker)
-    let tavern2 = CreateUnit(Player(10), BUILDING_TAVERN_AGI, posX, posY, bj_UNIT_FACING)
+    let tavern2 = CreateUnit(p, BUILDING_TAVERN_AGI, posX, posY, bj_UNIT_FACING)
     onBuyHero(tavern2)
     posX = GetRectCenterX(gg_rct_HeroPicker) + 384.
-    let tavern3 = CreateUnit(Player(10), BUILDING_TAVERN_INT, posX, posY, bj_UNIT_FACING)
+    let tavern3 = CreateUnit(p, BUILDING_TAVERN_INT, posX, posY, bj_UNIT_FACING)
     onBuyHero(tavern3)
 
     posX = GetRectCenterX(gg_rct_ShopLeft) + 150
@@ -159,13 +159,13 @@ function automaticPick()
     print("Automatically chosen Easy mode")
 
 function mapSetup()
-    elementalSoul = createUnit(Player(10), ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees()) // Elemental Soul
+    elementalSoul = createUnit(players[10], ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees()) // Elemental Soul
     onDefeat(elementalSoul)
 
     let posX = GetRectCenterX(gg_rct_Base)
     let posY = GetRectCenterY(gg_rct_Base) + 200
 
-    CreateUnit(Player(10), BUILDING_0, posX, posY, 270.000) // Fountain of Healing (at base)
+    CreateUnit(players[10], BUILDING_0, posX, posY, 270.000) // Fountain of Healing (at base)
 
 
     doAfter(0.5) -> 

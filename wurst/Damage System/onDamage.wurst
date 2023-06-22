@@ -68,14 +68,13 @@ init
 
             case SPELL
                 magicDamageChecks(0, src, targ)
-                
                 // Improved Hakkar Buff
                 if src.hasAbility(BUFF_21)
                     src.addHP(DamageEvent.getAmount()*0.8)
                 
             case CODE
                 let damId = DamageEvent.getId()
-
+                DamageEvent.setAmount(DamageEvent.getAmount() * 1.111111111)
                 if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
                     if(returnReducedDamage() > 0)
                         DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
@@ -95,7 +94,8 @@ init
         let src = DamageEvent.getSource()
         let targ = DamageEvent.getTarget()
         if (DamageEvent.getType() == ATTACK)
-            if (DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL or DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)
+            let damtyp = DamageEvent.getDamageType()
+            if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
                 //Reflection for Melee only
                 if(src.isType(UNIT_TYPE_MELEE_ATTACKER))
                     reflectionChecks(src, targ)
@@ -128,64 +128,68 @@ init
         let src = DamageEvent.getSource()
         let targ = DamageEvent.getTarget()
         if (DamageEvent.getType() == ATTACK)
-            if (DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL or DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)  and src.isIllusion() == false
-                //deadEyes
-                if src.hasItemById(ITEM_659) and GetRandomInt(0, 100) < 14
-                    deadEyes(src, targ)
+            if src.isIllusion()
+                skip
+            else
+                let damtyp = DamageEvent.getDamageType()
+                if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                    //deadEyes
+                    if src.hasItemById(ITEM_659) and GetRandomInt(0, 100) < 14
+                        deadEyes(src, targ)
 
-                //Noble Sword levels, integer is additive with 2xagi
-                if src.hasItemById(ITEM_403) and GetRandomInt(0, 100) < 11
-                    nobleSword(src, targ, 0)
+                    //Noble Sword levels, integer is additive with 2xagi
+                    if src.hasItemById(ITEM_403) and GetRandomInt(0, 100) < 11
+                        nobleSword(src, targ, 0)
 
-                if src.hasItemById(ITEM_404) and GetRandomInt(0, 100) < 12
-                    nobleSword(src, targ, 1)
+                    if src.hasItemById(ITEM_404) and GetRandomInt(0, 100) < 12
+                        nobleSword(src, targ, 1)
 
-                if src.hasItemById(ITEM_405) and GetRandomInt(0, 100) < 13
-                    nobleSword(src, targ, 2)
+                    if src.hasItemById(ITEM_405) and GetRandomInt(0, 100) < 13
+                        nobleSword(src, targ, 2)
 
-                if src.hasItemById(ITEM_406) and GetRandomInt(0, 100) < 14
-                    nobleSword(src, targ, 3)
+                    if src.hasItemById(ITEM_406) and GetRandomInt(0, 100) < 14
+                        nobleSword(src, targ, 3)
 
-                if src.hasItemById(ITEM_408) and GetRandomInt(0, 100) < 18
-                    nobleSword(src, targ, 4)
+                    if src.hasItemById(ITEM_408) and GetRandomInt(0, 100) < 18
+                        nobleSword(src, targ, 4)
 
-                //Raven Blade levels, integer is multiplier by 2xstr
-                if src.hasItemById(ITEM_638) and GetRandomInt(0, 100) < 12
-                    ravenBlade(src, targ, 1)
+                    //Raven Blade levels, integer is multiplier by 2xstr
+                    if src.hasItemById(ITEM_638) and GetRandomInt(0, 100) < 12
+                        ravenBlade(src, targ, 1)
 
-                if src.hasItemById(ITEM_639) and GetRandomInt(0, 100) < 13
-                    ravenBlade(src, targ, 2)
+                    if src.hasItemById(ITEM_639) and GetRandomInt(0, 100) < 13
+                        ravenBlade(src, targ, 2)
 
-                if src.hasItemById(ITEM_640) and GetRandomInt(0, 100) < 14
-                    ravenBlade(src, targ, 3)
-                //Crystal Spear
-                if src.hasItemById(ITEM_125) and GetRandomInt(0, 100) < 15
-                    crystalSpear(src, targ)
-                //Int Staff
-                if src.hasItemById(ITEM_388) and GetRandomInt(0, 100) < 24
-                    berserkerStaff(src, targ)
+                    if src.hasItemById(ITEM_640) and GetRandomInt(0, 100) < 14
+                        ravenBlade(src, targ, 3)
+                    //Crystal Spear
+                    if src.hasItemById(ITEM_125) and GetRandomInt(0, 100) < 15
+                        crystalSpear(src, targ)
+                    //Int Staff
+                    if src.hasItemById(ITEM_388) and GetRandomInt(0, 100) < 24
+                        berserkerStaff(src, targ)
 
-                if src.hasItemById(ITEM_658) and GetRandomInt(0, 100) < 24
-                    nerubianStaff(src, targ)
-                //Frostmourne
-                if src.hasItemById(ITEM_699) and GetRandomInt(0, 100) < 15
-                    frostmourne(targ)
-                //Orb of Lightning
-                if src.hasItemById(ITEM_24) and GetRandomInt(0, 100) < 20
-                    orbofLightning(src)
-                //ThunderBows
-                if src.hasItemById(ITEM_230) and GetRandomInt(0, 100) < 10
-                    thunderBow(src)
+                    if src.hasItemById(ITEM_658) and GetRandomInt(0, 100) < 24
+                        nerubianStaff(src, targ)
+                    //Frostmourne
+                    if src.hasItemById(ITEM_699) and GetRandomInt(0, 100) < 15
+                        frostmourne(targ)
+                    //Orb of Lightning
+                    if src.hasItemById(ITEM_24) and GetRandomInt(0, 100) < 20
+                        orbofLightning(src)
+                    //ThunderBows
+                    if src.hasItemById(ITEM_230) and GetRandomInt(0, 100) < 10
+                        thunderBow(src)
 
-                if src.hasItemById(ITEM_680) and GetRandomInt(0, 100) < 15
-                    thunderBow2(src)
+                    if src.hasItemById(ITEM_680) and GetRandomInt(0, 100) < 15
+                        thunderBow2(src)
 
-                //Platinum 1
-                if src.hasItemById(ITEM_187) and GetRandomInt(0, 100) < 25
-                    platinum1Stun(src, targ)
-                //Platinum 2
-                if src.hasItemById(ITEM_249) and GetRandomInt(0, 100) < 25
-                    platinum2Stun(src, targ)
+                    //Platinum 1
+                    if src.hasItemById(ITEM_187) and GetRandomInt(0, 100) < 25
+                        platinum1Stun(src, targ)
+                    //Platinum 2
+                    if src.hasItemById(ITEM_249) and GetRandomInt(0, 100) < 25
+                        platinum2Stun(src, targ)
     
 function magicDamageChecks(int damId, unit src, unit targ)
     if(targ.getAbilityLevel(UTHER_ABIL_3) > 0)

@@ -128,21 +128,21 @@ public function unit.magicalDamageCodeElementId(real amount, unit target, Damage
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.magicalDamageCodeElement(real amount, unit target, DamageElement element)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.magicalDamageCodeId(real amount, unit target, integer id)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.magicalDamageCode(real amount, unit target)
     DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
 //########## PHYSICAL DAMAGE ############//
 
@@ -151,32 +151,32 @@ public function unit.physicalDamageCodeElementId(real amount, unit target, Damag
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
     if(ranged)
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
     else
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.physicalDamageCodeId(real amount, unit target, integer id, bool ranged)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
     if(ranged)
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
     else
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.physicalDamageCodeElement(real amount, unit target, DamageElement element, bool ranged)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
     if(ranged)
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
     else
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.physicalDamageCode(real amount, unit target, bool ranged)
     DamageEvent.setNextDamageFromCode()
     if(ranged)
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
     else
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
 
 //########## PURE DAMAGE ############//
 
@@ -184,26 +184,26 @@ public function unit.pureDamageCodeElementId(real amount, unit target, DamageEle
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.pureDamageCodeId(real amount, unit target, integer id)
     DamageEvent.setNextDamageFromCode()
     DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.pureDamageCodeElement(real amount, unit target, DamageElement element)
     DamageEvent.setNextDamageElement(element)
     DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
 
 public function unit.pureDamageCode(real amount, unit target)
     DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_CHAOS, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
 
 function statscheck()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) ->
         if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-stats"
             let pn = GetTriggerPlayer().getId()
             let u = playerHero.get(pn)
-            printTimedToPlayer("Physical Penetration:"+ physicalPenetrationMap.get(u.getTypeId()).toString() +
-            "\nMagic Ressistence:"+ magicResistMap.get(u.getTypeId()).toString() +" ", 10, players[pn])
+            printTimedToPlayer("Physical Penetration: "+ (u.getPhysPenetration() * 100).toString() + "%" +
+            "\nMagic Ressistence: "+ (u.getMagicResist() * 100).toString() +"%", 10, players[pn])

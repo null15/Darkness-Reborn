@@ -23,7 +23,7 @@ integer mini_higher = 0
 integer big_lower = 0
 integer big_higher = 0
 
-integer timercount1 = 1
+integer timercount1 = 0
 integer timercount2 = wave_count
 
 real facing = 270
@@ -218,7 +218,7 @@ function unitStats(unit u, int whichSide)
 		default
 			printTimed("Wave: " + wave_count.toString() + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
 
-public function spawnWavesNow()
+function spawnWavesNow()
 	if(count == 0)
 		let temp = createUnit(WAVE_MOB[wave_count])
 		unitStats(temp, 0)
@@ -290,10 +290,13 @@ function moveUnit2()
 function waveSetupTimerElapsed()
 	CreateTrigger()..registerTimerExpireEvent(waveTimer)..addAction() -> 
 		timercount1 = timercount1 + 1
-		waveTimerDialog.setTitle("Wave "+I2S(timercount2)+" — ("+I2S(timercount1)+"/3)")
-		if timercount1 == 3
+		waveTimerDialog.setTitle("Wave "+I2S(timercount2)+" — ("+I2S(timercount1+1)+"/3)")
+		if timercount1 == 2
 			timercount2 = timercount2 + 1
 			timercount1 = 0
+			waveTimer.start(50, function spawnWavesNow)
+		else
+			waveTimer.start(20, function spawnWavesNow)
 
 public function waveSetup()
 
@@ -303,7 +306,7 @@ public function waveSetup()
 
 	gracePeriod.destr()
 	gracePeriodDialog.destr()
-	waveTimer.startPeriodic(30, function spawnWavesNow)
+	waveTimer.start(20, function spawnWavesNow)
 	waveTimerDialog.setTitle("Wave "+I2S(wave_count)+" — (1/3)")
 	waveTimerDialog.setTimeColor(155, 155, 155, 0)
 	waveTimerDialog.display(true)

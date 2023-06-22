@@ -4,14 +4,17 @@ import ClosureEvents
 import ClosureForGroups
 import MyAbilityIds
 import OrderIds
-import InstantDummyCaster
+import DummyCaster
 import codeDamageTypings
 
 public function thunderRage()
     EventListener.onTargetCast(HERALD_ABILI_T) (unit caster, unit target) ->
         let lvl = caster.getAbilityLevel(HERALD_ABILI_T)
-        let dmg = caster.getInt(true) * (lvl * 5.00) + caster.getMaxMana() + caster.getMaxHP()
+        let dmg = caster.getInt(true) * (lvl * 5.00) + caster.getMaxMana()
         forUnitsInRange(target.getPos(), 500) (unit u) ->
             if caster.isEnemyOf(u)
-                InstantDummyCaster.castTarget(caster.getOwner(), ABILITY_13, 1, OrderIds.chainlightning, u, caster.getPos().withZ(800))
-                caster.magicalDamageCode(dmg, target)
+                new DummyCaster()
+                    ..owner(caster.getOwner())
+                    ..origin(caster.getPos())
+                    ..castTarget(ABILITY_13, 1, OrderIds.chainlightning, u)
+                caster.magicalDamageCodeId(dmg, target, 'HTIM')

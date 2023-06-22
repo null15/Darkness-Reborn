@@ -47,9 +47,14 @@ init
     new BuffDefinition(LC_BUFF_1, BuffIds.berserk)
     ..setName("Lightning Empowerment")
     ..setTooltipNormal("")
-    ..setTooltipNormalExtended("This is the prey of the Vivpire, grants blood upon death.")
+    ..setTooltipNormalExtended("Herald is empowered by the gods, granting his lightning more ferocity.")
     ..setArtTarget("")
-    ..setTargetAttachmentPoint0("chest")
+
+    new BuffDefinition(LC_BUFF_2, BuffIds.stunned)
+    ..setName("Lightning Nova")
+    ..setTooltipNormal("")
+    ..setTooltipNormalExtended("Hit by the Nova from the Herald of Lightning, momentarily stunned.")
+    ..setArtTarget("")
 
 @compiletime function wolfmanBuffs()
     new BuffDefinition(MAN_BUFF, BuffIds.stunned)

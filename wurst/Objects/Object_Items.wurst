@@ -4795,7 +4795,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -4833,7 +4833,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -4872,7 +4872,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -4909,7 +4909,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -4947,7 +4947,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -4984,7 +4984,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -5022,7 +5022,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -5059,7 +5059,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -5097,7 +5097,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -5135,7 +5135,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -5173,7 +5173,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -5210,7 +5210,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(1)
-    ..setStockReplenishInterval(3600)
+    ..setStockReplenishInterval(600)
     ..setStockStartDelay(100)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)
@@ -6851,7 +6851,7 @@ init
     ..setDescription("Boosts friendly unit combat damage.")
     ..setName("Dragon's Lair")
     ..setTooltipBasic("Dragon's Lair")
-    ..setTooltipExtended("Teleport you to the monster.\nRespawn 7 times.\n\n|cffffff00Chance to drop any of the following|r\nBone\nSkin\nClawnSpirit\nMenelaus\nSoul Blame\nCrown of Evil")
+    ..setTooltipExtended("Teleport you to the monster.\nRespawn 7 times.\n\n|cffffff00Chance to drop any of the following|r\nBone\nSkin\nClaw\nSpirit\nMenelaus (Dragon 7)\nCrown of Evil (Dragon 7)\nSoul Blame (Dragon 8)")
     ..setHotkey("")
 
 //I0DW
@@ -14460,13 +14460,13 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|cffffcc00Frost Shield \n"
+    ..setDescription("|cffffcc00Water Scroll \n"
     +"Effect:  \n"
     +"1680 Intelligence\n"
     +"24.000 HP ")
     ..setName("|cffffcc00Water Scroll|r")
     ..setTooltipBasic("|cffffcc00Water Scroll|r")
-    ..setTooltipExtended("|cffffcc00Frost Shield \n"
+    ..setTooltipExtended("|cffffcc00Water Scroll \n"
     +"Effect:  \n"
     +"1680 Intelligence\n"
     +"24.000 HP ")
@@ -14503,12 +14503,12 @@ init
     ..setValidTargetForTransformation(false)
     ..setRequirements("")
     ..setRequirementsLevels("")
-    ..setDescription("|cffffcc00Frost Shield \n"
+    ..setDescription("|cffffcc00Cronus's Hand \n"
     +"Effect:\n"
     +"+ 500 Armor")
     ..setName("|cffffcc00Cronus's Hand|r")
     ..setTooltipBasic("|cffffcc00Cronus's Hand|r")
-    ..setTooltipExtended("|cffffcc00Frost Shield \n"
+    ..setTooltipExtended("|cffffcc00Cronus's Hand \n"
     +"Effect:\n"
     +"+ 500 Armor")
     ..setHotkey("K")
@@ -27395,3 +27395,17 @@ init
     ..setName("Upgrade Health")
     ..setTooltipBasic("Upgrade Health")
     ..setTooltipExtended("Upgrade Health by 500 each time")
+
+    new ItemDefinition(ITEM_708, ItemIds.shieldofHonor)
+    ..setAbilities(commaList('A0KL','A0LM'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFrostShield.blp")
+    ..setClassification("Artifact")
+    ..setCanBeSoldToMerchants(false)
+    ..setLevel(4)
+    ..setStockReplenishInterval(1)
+    ..setStockMaximum(1)
+    ..setStockStartDelay(1)
+    ..setMaxStack(1)
+    ..setName("Frost Shield")
+    ..setTooltipBasic("Frost Shield")
+    ..setTooltipExtended("|cffffcc00Frost Shield\n\nEffect: + 500 armor, 420 Intelligent, 160 Strenght, 160 Agility.|r")

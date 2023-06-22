@@ -1,19 +1,46 @@
 package A0DI_R
-import StandardTextTags
 import codeDamageTypings
 import DamageEvent
 import MyAbilityIds
-texttag mindRipper
+import MyBuffIds
+import ClosureTimers
 init
+
+function staticChargeDamage()
+    let src = DamageEvent.getSource()
+    let lvl = src.getAbilityLevel(HERALD_ABILI_R)
+    let targ = DamageEvent.getTarget()
+    let intellect = src.getInt(true)
+    let dmg = intellect * (lvl * 2.00)
+    src.magicalDamageCodeId(dmg, targ, 'MRIP')
+    let temp = addEffect("Abilities\\Spells\\Orc\\Purge\\PurgeBuffTarget.mdl", targ.getPos())
+    doAfter(0.4) -> 
+        temp.destr()
+
 public function mindRipper()
     DamageEvent.addListener(0) ->
-        let id = DamageEvent.getId()
-        if id != 'MRIP'
-            let src = DamageEvent.getSource()
-            let lvl = src.getAbilityLevel(HERALD_ABILI_R)
-            if lvl > 0 and GetRandomInt(1, 100) < 15
-                let targ = DamageEvent.getTarget()
-                let intellect = src.getInt(true)
-                let dmg = intellect * (lvl * 2.00)
-                mindRipper = createCriticalStrikeTextTag(targ, dmg.toInt())
-                src.magicalDamageCodeId(dmg, targ, 'MRIP')
+        switch DamageEvent.getType()
+            case ATTACK
+                let src = DamageEvent.getSource()
+                let lvl = src.getAbilityLevel(HERALD_ABILI_R)
+                if GetRandomInt(1, 100) < 15 and lvl > 0
+                    staticChargeDamage()
+            case CODE
+                let id = DamageEvent.getId()
+                if id != 'MRIP'
+                    let src = DamageEvent.getSource()
+                    let lvl = src.getAbilityLevel(HERALD_ABILI_R)
+                    if lvl > 0
+                        if src.hasAbility(LC_BUFF_1)
+                            if id == 'HTIM'
+                                DamageEvent.setAmount(DamageEvent.getAmount() * 1.2 * lvl)
+                                src.addInt((0.01+0.25*(lvl-1)).ceil())
+                            else
+                                if GetRandomInt(1, 100) < 5*lvl + src.getAbilityLevel(HERALD_ABILI_E)
+                                    DamageEvent.setAmount(DamageEvent.getAmount() * 1.2 * lvl)
+                                    src.addInt((0.01+0.25*(lvl-1)).ceil())
+                        else
+                            if GetRandomInt(1, 100) < 5*lvl
+                                DamageEvent.setAmount(DamageEvent.getAmount() * 1.2 * lvl)
+                                src.addInt((0.01+0.25*(lvl-1)).ceil())
+            default
