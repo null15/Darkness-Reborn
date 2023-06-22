@@ -43,6 +43,6 @@ function ascension()
                     ..setHP(loas_hp)
                     ..setMana(loas_mp)
                     ..heroCheck()
-                    playerHero.addAt(u1, u1.getOwner().getId())
+                    playerHero..put(u.getOwner(),u1)
                     for i = 0 to 5
                         u1.addItemToSlot(GetItemTypeId(loasItems[i]), i)

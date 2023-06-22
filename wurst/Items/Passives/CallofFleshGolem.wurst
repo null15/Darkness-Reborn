@@ -7,6 +7,6 @@ init
     callofFleshGolem()
 function callofFleshGolem()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
-        let p = playerHero.get(GetKillingUnit().getOwner().getId())
+        let p = playerHero.get(GetKillingUnit().getOwner())
         if p.hasItemById(ITEM_691) and GetRandomInt(0, 100) <= 100
             p.addStr(1)

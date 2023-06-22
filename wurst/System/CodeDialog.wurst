@@ -64,7 +64,7 @@ public function codeDialog()
         let check = hashCheck(pnu.getUnsafeString())
         if check > -1
             printTimed("Player " + pn + " has beaten the game and is choosing reward", 3)
-            let hero = playerHero.get(pt.getId())
+            let hero = playerHero.get(pt)
             let buffBox = new DialogBox("Choose your benefit")
             PLAYER_SET.removeAt(check)
 

@@ -31,7 +31,7 @@ public function onVictorySetup(unit u)
                 ..display(players[i], true)
 
 function onCodeRejection()
-    print("\nVersion:1.9.25"
+    print(getMapName()
     +"\nNot all objectives fulfilled.")
 
 function onCodeAcceptance()

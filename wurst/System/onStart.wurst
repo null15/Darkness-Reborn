@@ -51,9 +51,8 @@ function onBuyHero(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_SELL)..addAction() ->
         let soldUnit = GetSoldUnit()
         let p = soldUnit.getOwner()
-        let pid = p.getId()
-        if playerHero.get(pid) == null
-            playerHero.addAt(soldUnit, pid)
+        if playerHero.get(p) == null
+            playerHero.put(p, soldUnit)
             soldUnit.heroCheck()
             gg_cam_CameraHeroPicked.apply(true, p, 0.5)
             soldUnit.setPos(gg_rct_Base.getCenter())

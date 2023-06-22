@@ -12,7 +12,7 @@ init
 function tinkerAreaEnterLeave()
     CreateTrigger()..registerRectEnterEventSource(gg_rct_EnterTinkerArea)..addAction() -> 
         let enteringUnit = GetEnteringUnit()
-        let unitId = playerHero.get(enteringUnit.getOwner().getId()).getTypeId()
+        let unitId = playerHero.get(enteringUnit.getOwner()).getTypeId()
         if unitId == PLAY_HERO_26
             enteringUnit.setPos(gg_rct_LeaveTinkerArea.getCenterX(), gg_rct_LeaveTinkerArea.getCenterY()-200)
         else
@@ -20,7 +20,7 @@ function tinkerAreaEnterLeave()
             enteringUnit.setPos(gg_rct_EnterTinkerArea.getCenterX(), gg_rct_EnterTinkerArea.getCenterY()+200)
     CreateTrigger()..registerRectEnterEventSource(gg_rct_LeaveTinkerArea)..addAction() ->
         let enteringUnit = GetEnteringUnit()
-        let unitId = playerHero.get(enteringUnit.getOwner().getId()).getTypeId()
+        let unitId = playerHero.get(enteringUnit.getOwner()).getTypeId()
         if unitId == PLAY_HERO_26
             enteringUnit.setPos(gg_rct_EnterTinkerArea.getCenterX(), gg_rct_EnterTinkerArea.getCenterY()+200)
         else
@@ -30,7 +30,7 @@ function tinkerAreaEnterLeave()
 function banTinkerArea()
     CreateTrigger()..registerRectEnterEventSource(gg_rct_TinkerArea)..addAction() ->
         let enteringUnit = GetEnteringUnit()
-        if playerHero.get(enteringUnit.getOwner().getId()).getTypeId() != PLAY_HERO_26 and enteringUnit.getTypeId() != TINKERTIDECALLER
+        if playerHero.get(enteringUnit.getOwner()).getTypeId() != PLAY_HERO_26 and enteringUnit.getTypeId() != TINKERTIDECALLER
             printTimedToPlayer("Only Builders can enter here", 5, enteringUnit.getOwner())
             enteringUnit.setPos(gg_rct_Base.getCenter())
 

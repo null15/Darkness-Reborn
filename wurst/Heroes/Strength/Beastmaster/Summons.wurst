@@ -13,7 +13,7 @@ public function quilBeast()
         let u = GetDyingUnit()
         let uid = u.getTypeId()
         if uid == MISHABEAR or uid == QUILBEAST or uid == HAWK
-            let beastmaster = playerHero.get(u.getOwner().getId())
+            let beastmaster = playerHero.get(u.getOwner())
             let lvl = beastmaster.getAbilityLevel(ABILITY_7)
             beastmaster.addStr((lvl/3).ceil())
             spirits = spirits + 1

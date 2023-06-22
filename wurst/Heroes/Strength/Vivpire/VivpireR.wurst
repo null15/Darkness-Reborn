@@ -17,8 +17,7 @@ public function bloodGain()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
         if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-blood"
             let p = GetTriggerPlayer()
-            let pid = p.getId()
-            if (playerHero.get(pid).getTypeId() == PLAY_HERO_3)
+            if (playerHero.get(p).getTypeId() == PLAY_HERO_3)
                 printTimedToPlayer("You currently have |cffcf0505" + (blood.toString()) + " blood|r", 5, p)
 
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
