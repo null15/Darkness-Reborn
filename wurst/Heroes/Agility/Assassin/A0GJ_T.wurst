@@ -14,13 +14,14 @@ public function lastKiller()
             if DamageEvent.getType() == ATTACK
                 let damtyp = DamageEvent.getDamageType()
                 if damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC
-                    if once
-                        let target = DamageEvent.getTarget()
-                        once = false
-                        let lvl = ((GetUnitAbilityLevel(src, 'A0GJ'))*5)+37
-                        let dmg = src.getAgi(true)*lvl.toReal()
-                        flashEffect(Abilities.meatwagonMissile, target.getPos()) 
-                        src.physicalDamageCode(dmg, target, false)
-                        src.removeAbility('B00W')
-                        doAfter(3) -> 
-                            once = true
+                    if src.hasAbility('B00W')
+                        if once
+                            let target = DamageEvent.getTarget()
+                            once = false
+                            let lvl = ((GetUnitAbilityLevel(src, 'A0GJ'))*5)+37
+                            let dmg = src.getAgi(true)*lvl.toReal()
+                            flashEffect(Abilities.meatwagonMissile, target.getPos()) 
+                            src.physicalDamageCode(dmg, target, false)
+                            src.removeAbility('B00W')
+                            doAfter(3) -> 
+                                once = true

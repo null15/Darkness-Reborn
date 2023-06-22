@@ -127,7 +127,7 @@ function rightCreepEnumerate() returns HashMap<int,DropList>
     destroy dropChance
     return hash
 
-function leftCreepEnumerate() returns HashMap<int,DropList>
+function leftCreepEnumerate1() returns HashMap<int,DropList>
     let hash = new HashMap<int,DropList>
     let dropList = new LinkedList<LinkedList<int>>
     let itemDrops = new LinkedList<int>
@@ -196,6 +196,17 @@ function leftCreepEnumerate() returns HashMap<int,DropList>
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
+
+    destroy itemDrops
+    destroy dropList
+    destroy dropChance
+    return hash
+
+function leftCreepEnumerate2() returns HashMap<int,DropList>
+    let hash = new HashMap<int,DropList>
+    let dropList = new LinkedList<LinkedList<int>>
+    let itemDrops = new LinkedList<int>
+    let dropChance = new LinkedList<int>
     // Murgul
     dropChance.add(20)
     itemDrops.add(ITEM_298, ITEM_299)
@@ -252,6 +263,17 @@ function leftCreepEnumerate() returns HashMap<int,DropList>
     itemDrops.clear()
     dropList.clear()
     dropChance.clear()
+    destroy itemDrops
+    destroy dropList
+    destroy dropChance
+    return hash
+
+function leftCreepEnumerate3() returns HashMap<int,DropList>
+    let hash = new HashMap<int,DropList>
+    let dropList = new LinkedList<LinkedList<int>>
+    let itemDrops = new LinkedList<int>
+    let dropChance = new LinkedList<int>
+
     // Polar Bear
     dropChance.add(20)
     itemDrops.add(ITEM_312, ITEM_313)
@@ -718,10 +740,18 @@ function restBossCreepEnumerate() returns HashMap<int,DropList>
 function dropListEnumerate() returns HashMap<int,DropList>
     let hash = new HashMap<int,DropList>
 
-    let hash2 = leftCreepEnumerate()
+    let hash2 = leftCreepEnumerate1()
     for int i = 0 to hash2.size() - 1
         hash.put(LEFT_CREEP[i+1], hash2.get(LEFT_CREEP[i+1]))
+    let hash6 = leftCreepEnumerate2()
+    for int i = 0 to hash6.size() - 1
+        hash.put(LEFT_CREEP[i+8], hash6.get(LEFT_CREEP[i+8]))
+    let hash7 = leftCreepEnumerate3()
+    for int i = 0 to hash7.size() - 1
+        hash.put(LEFT_CREEP[i+15], hash7.get(LEFT_CREEP[i+15]))
     destroy hash2
+    destroy hash6
+    destroy hash7
 
     let hash3 = rightCreepEnumerate()
     for int i = 0 to hash3.size() - 1

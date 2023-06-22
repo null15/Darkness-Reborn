@@ -33,14 +33,14 @@ public function mindRipper()
                     if lvl > 0
                         if src.hasAbility(LC_BUFF_1)
                             if id == 'HTIM'
-                                DamageEvent.setAmount(DamageEvent.getAmount() * 1.2 * lvl)
+                                DamageEvent.setAmount(DamageEvent.getAmount() * (1+0.2*lvl))
                                 src.addInt((0.01+0.25*(lvl-1)).ceil())
                             else
                                 if GetRandomInt(1, 100) < 5*lvl + src.getAbilityLevel(HERALD_ABILI_E)
-                                    DamageEvent.setAmount(DamageEvent.getAmount() * 1.2 * lvl)
+                                    DamageEvent.setAmount(DamageEvent.getAmount() * (1+0.2*lvl))
                                     src.addInt((0.01+0.25*(lvl-1)).ceil())
                         else
                             if GetRandomInt(1, 100) < 5*lvl
-                                DamageEvent.setAmount(DamageEvent.getAmount() * 1.2 * lvl)
+                                DamageEvent.setAmount(DamageEvent.getAmount() * (1+0.2*lvl))
                                 src.addInt((0.01+0.25*(lvl-1)).ceil())
             default
