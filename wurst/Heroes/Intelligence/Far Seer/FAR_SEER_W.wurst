@@ -9,7 +9,7 @@ import LinkedList
 public function lightningNova()
     EventListener.onCast(HERALD_ABILI_W) (unit caster) ->
         let lvl = caster.getAbilityLevel(HERALD_ABILI_W)
-        let dmg = (1.*caster.getInt(true)) * lvl
+        let dmg = (caster.getInt(true) * lvl) * 3.
         let temp = new LinkedList<unit>
         doPeriodicallyTimed(0.2, 1) (CallbackCounted cb) ->
             let pos = caster.getPos()

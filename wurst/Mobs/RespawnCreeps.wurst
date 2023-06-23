@@ -19,7 +19,7 @@ init
 function leftSideCreeps(unit u1)
     CreateTrigger()..registerUnitEvent(u1, EVENT_UNIT_DEATH)..addAction() ->
         let u = GetDyingUnit()
-        dropMyItemsCreeps(u)
+        u.dropItems()
         doAfter(1) -> 
             for i = 1 to 24
                 if u == leftCreep[i]
@@ -35,7 +35,7 @@ public function leftSideCreepsSetup()
 function eliteSideCreeps(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
         let u1 = GetDyingUnit()
-        dropMyItemsCreeps(u1)
+        u1.dropItems()
         for i = 1 to 10
             if u1 == eliteCreep[i]
                 let uId = u1.getTypeId()
@@ -74,7 +74,7 @@ public function eliteSideCreepsSetup()
 function dragonCreep(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
         let u1 = GetDyingUnit()
-        dropMyItemsCreeps(u1)
+        u1.dropItems()
         doAfter(30) ->
             for i = 1 to 7
                 if u1 == bossCreep[i]
@@ -84,7 +84,7 @@ function dragonCreep(unit u)
 function seaCreep(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
         let u1 = GetDyingUnit()
-        dropMyItemsCreeps(u1)
+        u1.dropItems()
         doAfter(30) ->
             for i = 9 to 11
                 if u1 == bossCreep[i]
@@ -94,7 +94,7 @@ function seaCreep(unit u)
 function dreadlordCreep(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
         let u1 = GetDyingUnit()
-        dropMyItemsCreeps(u1)
+        u1.dropItems()
         doAfter(30) ->
             if u1 == bossCreep[13]
                 bossCreep[14] = createUnit(hostile, (BOSS_CREEP[14]), bossLoc[4].getCenter(), facing.asAngleDegrees())
@@ -105,7 +105,7 @@ function dreadlordCreep(unit u)
 function towerCreep(unit u)
     CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
         let u1 = GetDyingUnit()
-        dropMyItemsCreeps(u1)
+        u1.dropItems()
         doAfter(30) ->
             for i = 15 to 21
                 if u1 == bossCreep[i]
