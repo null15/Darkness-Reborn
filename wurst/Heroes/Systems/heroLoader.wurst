@@ -127,6 +127,8 @@ import TheKingOfLoasW
 import A00S_Q
 import FAR_SEER_Q
 import FAR_SEER_W
+import BloodOfHakkar
+import VivpireVampirism
 
 public function unit.heroCheck()
     switch this.getTypeId()
@@ -156,6 +158,7 @@ public function unit.heroCheck()
             vampiricBite()
             vivpireUnleashed()
             bloodHunter()
+            vivpireAura()
         case PLAY_HERO_4//Death Knight
             this.soulCollector()
             curseOfDarkness()
@@ -290,6 +293,7 @@ public function unit.heroCheck()
             loasQact()
             kingOfloasRact()
             kingOfloasTinit()
+            hakkarBlood()
             finsofGral()
         case PLAY_HERO_33_ASCENDED
             superKingOfloasE()

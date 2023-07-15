@@ -10,6 +10,8 @@ public constant ELEMENTAL_SOUL = compiletime(UNIT_ID_GEN.next())
 
 public constant TEST_TURRET = compiletime(UNIT_ID_GEN.next())
 
+public constant DROPSITE = compiletime(UNIT_ID_GEN.next())
+
 public constant BUILDING_0 = compiletime(UNIT_ID_GEN.next())
 public constant BUILDING_1 = compiletime(UNIT_ID_GEN.next())
 public constant BUILDING_2 = compiletime(UNIT_ID_GEN.next())

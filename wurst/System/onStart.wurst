@@ -10,6 +10,7 @@ import Global_Variables
 import TeleportToMobs
 import GameEnd
 import heroLoader
+import UpdateDropSite
 
 real facing = 270
 real facingUp = 90
@@ -36,7 +37,7 @@ public function questSetup()
     QuestSetIconPath(discord, "ReplaceableTextures\\Icons\\discordIcon.blp")
     QuestSetTitle(discord, "Discord")
     QuestSetDescription(discord, "Discord invite: https://discord.gg/pnrhrHS")
-
+    
     QuestSetDiscovered(recipe, true)
     QuestSetRequired(recipe, false)
     QuestSetIconPath(recipe, "ReplaceableTextures\\CommandButtons\\BTNAdvStruct.blp")
@@ -146,11 +147,11 @@ function dialogBoxClick()
     preWaveSetup()
     questSetup()
     createSetup()
-    leftSideCreepsSetup()
     eliteSideCreepsSetup()
     bossCreepSetup()
     overdryaSetup()
     codeDialog()
+    setRegions()
 
 function automaticPick()
     gameMode = 1
@@ -166,6 +167,7 @@ function mapSetup()
 
     CreateUnit(players[10], BUILDING_0, posX, posY, 270.000) // Fountain of Healing (at base)
 
+    dropSite = CreateUnit(players[10], DROPSITE, posX, posY - 800, 270.)..updateDropSite() //Dropsite
 
     doAfter(0.5) -> 
 

@@ -92,6 +92,16 @@ import Units
     ..setDefenseUpgradeBonus(5)
     ..setHideMinimapDisplay(true)
 
+    new BuildingDefinition(DROPSITE, UnitIds.magicvault)
+    ..setName("Drop Site")
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Apit', 'Asid'))
+    ..setResearchesAvailable("")
+    ..setCollisionSize(0)
+    ..setPathingMap("")
+    ..setItemsSold(commaList(""))
+    ..setItemsMade("")
+
     new BuildingDefinition(BUILDING_0, UnitIds.fountainofhealth)
     ..setName("Provides healing")
     ..setGroundTexture("")

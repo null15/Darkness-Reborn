@@ -1,0 +1,22 @@
+package VivpireVampirism
+import DamageEvent
+import MyBuffIds
+let healVivpireMultiplier = [0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525, 0.6, 0.675]
+
+public function vivpireAura()
+    DamageEvent.addListener(0) -> 
+        let src = DamageEvent.getSource()
+        switch DamageEvent.getType()
+            case ATTACK
+                if src.hasAbility(VIVPIRE_BUFF_4)
+                    let lvl = src.getAbilityLevel(VIVPIRE_BUFF_4)
+                    src.addHP(DamageEvent.getAmount() * healVivpireMultiplier[lvl-1])
+                
+            case CODE
+                if DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC
+                    skip
+                else
+                    if src.hasAbility(VIVPIRE_BUFF_4)
+                        let lvl = src.getAbilityLevel(VIVPIRE_BUFF_4)
+                        src.addHP(DamageEvent.getAmount() * healVivpireMultiplier[lvl-1])
+            default

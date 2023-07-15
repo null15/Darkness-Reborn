@@ -23,7 +23,6 @@ function timeDone()
     respawner.tdial.destr()
     time.release()
     playerHero.get(respawner.owner).revive(gg_rct_Base.getCenter(), true)
-    destroy respawner
 
 function heroRespawnTimer(unit u)
     let time = getTimer()
@@ -41,5 +40,5 @@ public function heroRespawn()
         let u = GetDyingUnit()
         if playerHero.get(u.getOwner()) == u
             heroRespawnTimer(u)
-        else if u.isType(UNIT_TYPE_HERO) and not u.isIllusion() and u.getOwner().isIngame()
+        else if u.isType(UNIT_TYPE_HERO) and not u.isIllusion() and u.getOwner().getId() < 11
             print("Possible error encountered. " + u.getOwner().getNameColored() + "'s hero has died. But, countdown has yet to initiate. Hero was " + u.getName() + ". The hero was supposed to be " + playerHero.get(u.getOwner()).getName())

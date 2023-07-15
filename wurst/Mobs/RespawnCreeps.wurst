@@ -3,7 +3,12 @@ import MyUnitIds
 import ClosureTimers
 import Global_Variables
 import ItemDrops
-player hostile = Player(PLAYER_NEUTRAL_AGGRESSIVE)
+import ClosureEvents
+import HashMap
+let creepSettings = new HashMap<player,int>
+let currentCreep = new HashMap<player,unit>
+let creepRespawns = new HashMap<int,real>
+player hostile = players[PLAYER_NEUTRAL_AGGRESSIVE]
 unit array leftCreep = []
 unit array eliteCreep = []
 unit array bossCreep = []
@@ -13,104 +18,94 @@ real facing = 270
 real facingUp = 90
 integer frostyCounter = 0
 init
+    creepRespawner()
 
+public function player.setCreepSettings(int unitId, vec2 pos)
+    creepSettings.put(this, unitId)
+    if currentCreep.has(this)
+        currentCreep.get(this).remove()
+        currentCreep.put(this, createUnit(hostile, unitId, pos))
+    else
+        currentCreep.put(this, createUnit(hostile, unitId, pos))
 
-
-function leftSideCreeps(unit u1)
-    CreateTrigger()..registerUnitEvent(u1, EVENT_UNIT_DEATH)..addAction() ->
+function creepRespawner()
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
         let u = GetDyingUnit()
-        u.dropItems()
-        doAfter(1) -> 
-            for i = 1 to 24
-                if u == leftCreep[i]
+        let p = GetKillingUnit().getOwner()
+        if currentCreep.get(p) == u
+            u.dropItems()
+            let pos = u.getPos()
+            doAfter(creepRespawns.get(u.getTypeId())) -> 
+                currentCreep.put(p, createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle()))
+        else
+            if u.isIllusion()
+                skip
+            else
+                let uid = u.getTypeId()
+                if creepRespawns.has(uid)
                     let pos = u.getPos()
-                    leftCreep[i] = createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle())
-                    leftSideCreeps(leftCreep[i])
-            
-public function leftSideCreepsSetup()
-    for i = 1 to 24
-        leftCreep[i] = createUnit(hostile, LEFT_CREEP[i], creepLoc[i].getCenter(), facing.asAngleDegrees())
-        leftSideCreeps(leftCreep[i])
-
-function eliteSideCreeps(unit u)
-    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
-        let u1 = GetDyingUnit()
-        u1.dropItems()
-        for i = 1 to 10
-            if u1 == eliteCreep[i]
-                let uId = u1.getTypeId()
-                let pos = u1.getPos()
-                if i == 6 or i == 7
-                    doAfter(1) -> 
-                        eliteCreep[i] = createUnit(hostile, uId, pos, u1.getFacingAngle())
-                        eliteSideCreeps(eliteCreep[i])
-                if i <= 5 
-                    doAfter(5) -> 
-                        eliteCreep[i] = createUnit(hostile, uId, pos, u1.getFacingAngle())
-                        eliteSideCreeps(eliteCreep[i])
-                if i == 8
-                    doAfter(10) ->
-                        eliteCreep[8] = createUnit(hostile, uId, pos, u1.getFacingAngle())
-                        eliteSideCreeps(eliteCreep[i])
-                if i == 9
-                    if(frostyCounter < 2)
+                    if uid == ELITE_CREEP[9]
                         frostyCounter++
-                        doAfter(30) -> 
-                            eliteCreep[9] = createUnit(hostile, uId, pos, u1.getFacingAngle())
-                            eliteSideCreeps(eliteCreep[i])
-                if i == 10
-                    doAfter(10) -> 
-                        eliteCreep[10] = createUnit(hostile, uId, pos, u1.getFacingAngle())
-                        eliteSideCreeps(eliteCreep[i])
-
+                    doAfter(creepRespawns.get(uid)) ->
+                        createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle())
+                u.dropItems()
+        
 public function eliteSideCreepsSetup()
+    
     for i = 1 to 5
-        eliteCreep[i] = createUnit(hostile, ELITE_CREEP[i], eliteLoc[i].getCenter(), facingUp.asAngleDegrees())
-        eliteSideCreeps(eliteCreep[i])
+        creepRespawns.put(ELITE_CREEP[i], 5)
+        createUnit(hostile, ELITE_CREEP[i], eliteLoc[i].getCenter(), facingUp.asAngleDegrees())
+        
     for i = 6 to 10
-        eliteCreep[i] = createUnit(hostile, ELITE_CREEP[i], eliteLoc[i].getCenter(), facing.asAngleDegrees())
-        eliteSideCreeps(eliteCreep[i])
+        if i == 6 or i == 7
+            creepRespawns.put(ELITE_CREEP[i], 1)
+        if i == 8 or i == 10
+            creepRespawns.put(ELITE_CREEP[i], 10)
+        if i == 9
+            creepRespawns.put(ELITE_CREEP[i], 30)
+                
+        createUnit(hostile, ELITE_CREEP[i], eliteLoc[i].getCenter(), facing.asAngleDegrees())
 
 function dragonCreep(unit u)
-    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+    EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) -> 
         let u1 = GetDyingUnit()
-        u1.dropItems()
         doAfter(30) ->
             for i = 1 to 7
                 if u1 == bossCreep[i]
                     bossCreep[i+1] = createUnit(hostile, (BOSS_CREEP[i+1]), bossLoc[1].getCenter(), facing.asAngleDegrees())
                     dragonCreep(bossCreep[i+1])
+        u1.dropItems()
                     
 function seaCreep(unit u)
-    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+    EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) -> 
         let u1 = GetDyingUnit()
-        u1.dropItems()
         doAfter(30) ->
             for i = 9 to 11
                 if u1 == bossCreep[i]
                     bossCreep[i+1] = createUnit(hostile, (BOSS_CREEP[i+1]), bossLoc[2].getCenter(), facing.asAngleDegrees())
                     seaCreep(bossCreep[i+1])
+        u1.dropItems()
 
 function dreadlordCreep(unit u)
-    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+    EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) -> 
         let u1 = GetDyingUnit()
-        u1.dropItems()
         doAfter(30) ->
             if u1 == bossCreep[13]
                 bossCreep[14] = createUnit(hostile, (BOSS_CREEP[14]), bossLoc[4].getCenter(), facing.asAngleDegrees())
                 bossCreep[14].setLevel(80, false)
                 bossCreep[14].suspendXp(true)
                 dreadlordCreep(bossCreep[14])
+        u1.dropItems()
 
 function towerCreep(unit u)
-    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+    EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) -> 
         let u1 = GetDyingUnit()
-        u1.dropItems()
         doAfter(30) ->
             for i = 15 to 21
                 if u1 == bossCreep[i]
                     bossCreep[i+1] = createUnit(hostile, (BOSS_CREEP[i+1]), bossLoc[3].getCenter(), facing.asAngleDegrees())
                     towerCreep(bossCreep[i+1])
+        u1.dropItems()
 
 public function bossCreepSetup()
     bossCreep[1] = createUnit(hostile, BOSS_CREEP[1], bossLoc[1].getCenter(), facing.asAngleDegrees()) // Dragon
@@ -125,7 +120,7 @@ public function bossCreepSetup()
     towerCreep(bossCreep[15])
     
 function overdryaCreep(unit u)
-    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
+    EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) ->
         let u1 = GetDyingUnit()
         let pos = u1.getPos()
         doAfter(5) -> 

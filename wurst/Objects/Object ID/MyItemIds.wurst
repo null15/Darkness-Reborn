@@ -2,6 +2,10 @@ package MyItemIds
 import ObjectIdGenerator
 import LinkedList
 // -------------------------
+
+public constant NEXTPAGE = compiletime(ITEM_ID_GEN.next())
+public constant PREVPAGE = compiletime(ITEM_ID_GEN.next())
+
 public constant ITEM_0 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_2 = compiletime(ITEM_ID_GEN.next())
