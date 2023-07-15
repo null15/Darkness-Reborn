@@ -2,6 +2,9 @@ package ItemPickups
 import ClosureEvents
 import MyItemIds
 import codeDamageTypings
+import HashSet
+
+public let itemPickedup = new HashSet<item>
 
 init
     itemPickup()
@@ -48,8 +51,8 @@ function initializeMagicResItems()
 
 function itemPickup()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
-        let u = GetTriggerUnit()
-        GetManipulatedItem().setPlayer(u.getOwner(), false)
+        let u = EventData.getTriggerUnit()
+        itemPickedup.add(EventData.getManipulatedItem())
         let defenseType = u.getField(UNIT_IF_DEFENSE_TYPE)
         if u.hasItemById(ITEM_245) and u.getFieldWeapon(UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0) != 4
             u.setFieldWeapon(UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
@@ -59,5 +62,5 @@ function itemPickup()
             u.setField(UNIT_IF_DEFENSE_TYPE, 6)
         u..physPenAdd().magicResAdd()
     EventListener.add(EVENT_PLAYER_UNIT_DROP_ITEM) -> 
-        let ite = GetManipulatedItem()
-        GetTriggerUnit()..physpenSub(ite).magicResSub(ite)
+        let ite = EventData.getManipulatedItem()
+        EventData.getTriggerUnit()..physpenSub(ite).magicResSub(ite)

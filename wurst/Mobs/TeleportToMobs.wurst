@@ -49,10 +49,10 @@ public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
         let owner = buyer.getOwner()
         let soldItem = EventData.getSoldItem()
         let soldItemId = soldItem.getTypeId()
-        let pos2 = vec2(0, -300)
+        let pos2 = vec2(0, -150)
         let pos = vec2(player2RegionX.get(owner),player2RegionY.get(owner)) + pos2
         playerHero.get(owner).setPos(pos)
-        owner.setCreepSettings(item2Unit.get(soldItemId), pos.add(0, 650))
+        owner.setCreepSettings(item2Unit.get(soldItemId), pos.add(0, 350))
         soldItem.remove()
 
     EventListener.add(u2, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
@@ -60,10 +60,10 @@ public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
         let owner = buyer.getOwner()
         let soldItem = EventData.getSoldItem()
         let soldItemId = soldItem.getTypeId()
-        let pos2 = vec2(0, -300)
+        let pos2 = vec2(0, -150)
         let pos = vec2(player2RegionX.get(owner),player2RegionY.get(owner)) + pos2
         playerHero.get(owner).setPos(pos)
-        owner.setCreepSettings(item2Unit.get(soldItemId), pos.add(0, 650))
+        owner.setCreepSettings(item2Unit.get(soldItemId), pos.add(0, 350))
         soldItem.remove()
 
     EventListener.add(u3, EVENT_PLAYER_UNIT_SELL_ITEM) -> 

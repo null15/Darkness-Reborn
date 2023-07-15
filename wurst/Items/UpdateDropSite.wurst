@@ -15,21 +15,28 @@ public function updateItemPool()
         RemoveItemFromStock(dropSite, t)
     if(page > 0)
         AddItemToStock(dropSite, PREVPAGE, 1, 1)
-    if(itemDropsEnumerator.size() > 9)
+    if(itemDropsEnumerator.size() > 8 + page * 8)
         AddItemToStock(dropSite, NEXTPAGE, 1, 1)
-    for int i = 0 to 9
-        let temp = itemDropsEnumerator.get(page * 9 + i)
+    for int i = 0 to 8
+        let temp = itemDropsEnumerator.get(page * 8 + i)
         let stock = itemDropsInTavern.get(temp)
-        AddItemToStock(dropSite, temp, stock, stock)
+        BlzSetItemIntegerField(CreateItem(temp,0,0)..remove(), ConvertItemIntegerField('ista'), stock)
+        if(stock > 0)
+            AddItemToStock(dropSite, temp, stock, stock)
 
-public function unit.updateDropSite()
-    EventListener.add(this, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
-        let ite = EventData.getSoldItem()
-        let iteId = ite.getTypeId()
-        if(iteId == NEXTPAGE)
-            page++
-            ite.remove()
-        else if (iteId == PREVPAGE and page > 0)
-            page--
-            ite.remove()
-    updateItemPool()
+public function updateDropSite()
+    EventListener.add(EVENT_PLAYER_UNIT_SELL_ITEM) ->
+        if EventData.getSellingUnit() == dropSite
+            let ite = EventData.getSoldItem()
+            let iteId = ite.getTypeId()
+            if(iteId == NEXTPAGE)
+                page++
+                RemoveItemFromStock(dropSite, NEXTPAGE)
+                ite.remove()
+            else if (iteId == PREVPAGE)
+                page--
+                RemoveItemFromStock(dropSite, PREVPAGE)
+                ite.remove()
+            else if itemDropsEnumerator.has(iteId)
+                itemDropsInTavern.put(iteId, itemDropsInTavern.get(iteId) - 1)
+            updateItemPool()

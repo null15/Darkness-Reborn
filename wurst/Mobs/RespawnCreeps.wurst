@@ -51,7 +51,9 @@ function creepRespawner()
                 u.dropItems()
         
 public function eliteSideCreepsSetup()
-    
+    for int i = 1 to 24
+        creepRespawns.put(LEFT_CREEP[i], 1)
+
     for i = 1 to 5
         creepRespawns.put(ELITE_CREEP[i], 5)
         createUnit(hostile, ELITE_CREEP[i], eliteLoc[i].getCenter(), facingUp.asAngleDegrees())

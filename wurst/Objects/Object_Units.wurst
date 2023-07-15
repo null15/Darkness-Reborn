@@ -3034,6 +3034,8 @@ init
     new UnitDefinition(PLAY_HERO_22_DUMMY_2, UnitIds.locust)
     ..setModelFile("Units\\Far seer(Zues)\\OrbLightningX.mdx")
     ..setScalingValue(0.4)
+    ..setUnitClassification("")
+    ..setLevel(200)
 
     new HeroDefinition(PLAY_HERO_22, UnitIds.farseer)// Far Seer (O00S)
     ..hideHeroDeathMsg(true)

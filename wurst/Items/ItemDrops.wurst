@@ -5,6 +5,7 @@ import HashList
 import HashMap
 import ClosureTimers
 import UpdateDropSite
+import ItemPickups
 
 let dropListHash = new HashMap<int,DropList>
 
@@ -779,8 +780,10 @@ public function unit.dropItems()
                     let iteId = dropList.dropPool.get(i).get(random)
                     let ite = createItem(iteId, pos)
                     doAfter(5) -> 
-                        if ite.getPlayer() != GetKillingUnit().getOwner()
-                            itemDropsInTavern.put(iteId, itemDropsInTavern.get(iteId))
+                        if itemPickedup.has(ite)
+                            itemPickedup.remove(ite)
+                        else
+                            itemDropsInTavern.put(iteId, itemDropsInTavern.get(iteId) + 1)
                             itemDropsEnumerator.add(iteId)
                             updateItemPool()
                             ite.remove()

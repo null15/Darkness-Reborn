@@ -11481,7 +11481,7 @@ init
     ..setPerishable(false)
     ..setPriority(0)
     ..setStockMaximum(99)
-    ..setStockReplenishInterval(180)
+    ..setStockReplenishInterval(0)
     ..setStockStartDelay(0)
     ..setUseAutomaticallyWhenAcquired(false)
     ..setValidTargetForTransformation(false)

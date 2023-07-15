@@ -167,7 +167,8 @@ function mapSetup()
 
     CreateUnit(players[10], BUILDING_0, posX, posY, 270.000) // Fountain of Healing (at base)
 
-    dropSite = CreateUnit(players[10], DROPSITE, posX, posY - 800, 270.)..updateDropSite() //Dropsite
+    dropSite = CreateUnit(players[10], DROPSITE, posX, posY - 800, 270.) //Dropsite
+    updateDropSite()
 
     doAfter(0.5) -> 
 
