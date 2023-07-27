@@ -23,8 +23,9 @@ init
 public function player.setCreepSettings(int unitId, vec2 pos)
     creepSettings.put(this, unitId)
     if currentCreep.has(this)
-        currentCreep.get(this).remove()
-        currentCreep.put(this, createUnit(hostile, unitId, pos))
+        if currentCreep.get(this).isAlive()
+            currentCreep.get(this).remove()
+            currentCreep.put(this, createUnit(hostile, unitId, pos))
     else
         currentCreep.put(this, createUnit(hostile, unitId, pos))
 
