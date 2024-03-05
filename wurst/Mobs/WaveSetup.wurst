@@ -227,7 +227,6 @@ function spawnWavesNow()
 	count = count + 1
 
 	doPeriodicallyCounted(0.2, 12) (CallbackCounted cb) ->
-
 		createUnit(Player(11), WAVE_MOB[wave_count], gg_rct_LeftSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
 		
 		createUnit(Player(12), WAVE_MOB[wave_count], gg_rct_MiddleSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
@@ -241,7 +240,7 @@ function spawnWavesNow()
 			count = 0
 			wave_count = wave_count + 1
 			if wave_count == 21
-				waveTimer.destr()
+				waveTimer.release()
 				waveTimerDialog.destr()
 			miniboss[1] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_LeftSpawn.getCenter(), facing.asAngleDegrees())
 			miniboss[1].issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
@@ -305,7 +304,7 @@ public function waveSetup()
 	moveUnit2()
 	waveSetupTimerElapsed()
 
-	gracePeriod.destr()
+	gracePeriod.release()
 	gracePeriodDialog.destr()
 	waveTimer.start(20, function spawnWavesNow)
 	waveTimerDialog.setTitle("Wave "+I2S(wave_count)+" — (1/3)")

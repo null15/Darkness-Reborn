@@ -75,3 +75,11 @@ public function tinkerResourceProduction()
         else if u == goldMine
             SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 1, u.getOwner())
             goldGain = 0
+    EventListener.add(EVENT_PLAYER_UNIT_CONSTRUCT_CANCEL) -> 
+        let u = GetCancelledStructure()
+        if u == lumberMill
+            lumberGain = 0
+            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_103, 1, u.getOwner())
+        else if u == goldMine
+            SetPlayerTechMaxAllowedSwap(TINKERBUILDING_95, 1, u.getOwner())
+            goldGain = 0

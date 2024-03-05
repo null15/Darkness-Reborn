@@ -6,8 +6,10 @@ import HashMap
 import ClosureTimers
 import UpdateDropSite
 import ItemPickups
+import LinkedList
 
 let dropListHash = new HashMap<int,DropList>
+let dropItemsToStore = new LinkedList<item>
 
 
 init
@@ -764,6 +766,20 @@ class DropList
         this.dropPoolCutoff = new HashList<HashList<int>>(dropPoolCutoff)
         this.dropChance = new HashList<int>(dropChance)
 
+
+init
+    doPeriodically(30) (CallbackPeriodic cb) ->
+        dropItemsToStore.forEach() (item t) ->
+            if(itemPickedup.has(t))
+                dropItemsToStore.remove(t)
+            else
+                let iteId = t.getTypeId()
+                itemDropsInTavern.put(iteId, itemDropsInTavern.get(iteId) + 1)
+                itemDropsEnumerator.add(iteId)
+                updateItemPool()
+                dropItemsToStore.remove(t)
+                t.remove()
+
 public function unit.dropItems()
     let uid = this.getTypeId()
     if dropListHash.has(uid)
@@ -778,15 +794,7 @@ public function unit.dropItems()
                     let random = GetRandomInt(lastCount, cutOff - 1)
                     lastCount = cutOff
                     let iteId = dropList.dropPool.get(i).get(random)
-                    let ite = createItem(iteId, pos)
-                    doAfter(5) -> 
-                        if itemPickedup.has(ite)
-                            itemPickedup.remove(ite)
-                        else
-                            itemDropsInTavern.put(iteId, itemDropsInTavern.get(iteId) + 1)
-                            itemDropsEnumerator.add(iteId)
-                            updateItemPool()
-                            ite.remove()
+                    dropItemsToStore.add(createItem(iteId, pos))
 
 public function dropMyItemsMinibosses(unit u)
     let pos = u.getPos()

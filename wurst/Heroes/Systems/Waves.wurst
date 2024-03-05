@@ -14,7 +14,7 @@ public class Waves
     protected HashMap<effect, real> expiryTimers
     protected HashMap<effect, real> waveAngles
     protected CallbackPeriodic timerVar
-    protected CallbackPeriodic betweenWaves
+    protected CallbackPeriodic betweenWavesClosure
 
     construct(OnWaveInside onHit)
         this.onHit = onHit
@@ -27,7 +27,7 @@ public class Waves
             onHit.hit(u)
 
     ondestroy
-        destroy betweenWaves
+        destroy betweenWavesClosure
         destroy timerVar
         destroy waves
         destroy onHit
@@ -42,7 +42,7 @@ public class Waves
     function waveCreation(int waveAmount, real velocity, unit center, string sfxPath, real survivalTime, real timeBetweenWaves, real colliSize)
         let pos1 = center.getPos()
         let owner = center.getOwner()
-        betweenWaves = doPeriodically(timeBetweenWaves) (CallbackPeriodic cb) ->
+        betweenWavesClosure = doPeriodically(timeBetweenWaves) (CallbackPeriodic cb) ->
             for int i = 0 to waveAmount
                 let angle = GetRandomReal(0, 359)
                 let eff = addEffect(sfxPath, pos1)..setYaw(angle.asAngleDegrees())

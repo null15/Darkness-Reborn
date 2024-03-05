@@ -20,6 +20,7 @@ public function updateItemPool()
     for int i = 0 to 8
         let temp = itemDropsEnumerator.get(page * 8 + i)
         let stock = itemDropsInTavern.get(temp)
+        print(stock)
         BlzSetItemIntegerField(CreateItem(temp,0,0)..remove(), ConvertItemIntegerField('ista'), stock)
         if(stock > 0)
             AddItemToStock(dropSite, temp, stock, stock)

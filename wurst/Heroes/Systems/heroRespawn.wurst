@@ -14,15 +14,18 @@ class Respawner
         this.tdial = tdial
         this.owner = owner
 
+    ondestroy
+        tdial.destr()
+
 init
     heroRespawn()
 
 function timeDone()
     let time = GetExpiredTimer()
     let respawner = timeDialogHasher.getAndRemove(time)
-    respawner.tdial.destr()
     time.release()
     playerHero.get(respawner.owner).revive(gg_rct_Base.getCenter(), true)
+    destroy respawner
 
 function heroRespawnTimer(unit u)
     let time = getTimer()
