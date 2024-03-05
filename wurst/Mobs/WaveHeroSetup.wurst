@@ -10,10 +10,12 @@ import MyAbilityIds
 import codeDamageTypings
 import ClosureEvents
 import Global_Variables
+import ShadowInferno
 import ArmorLimiter
+import TimerUtils
 import BigBoom
 
-timer waveHeroTimer = CreateTimer()
+timer waveHeroTimer = getTimer()
 timerdialog waveHeroTimerDialog = CreateTimerDialog(waveHeroTimer)
 
 int waveHeroIndex = 0 // originally 0
@@ -37,11 +39,11 @@ public function unit.wasAttacked()
         t.start(10, function notAttacked)
 
 function unit.moveWithoutCombat()
-    let t = CreateTimer()
+    let t = getTimer()
     bossTimer.put(this, t)
     timerBoss.put(t, this)
     t.start(20, function notAttacked)
-    EventListener.add(this, EVENT_PLAYER_UNIT_DEATH) -> 
+    EventListener.add(this, EVENT_PLAYER_UNIT_DEATH) ->
         this.clear()
 
 function notAttacked()
@@ -53,7 +55,7 @@ function unit.clear()
     bossKills++
     let t = bossTimer.getAndRemove(this)
     timerBoss.remove(t)
-    t.destr()
+    t.release()
 
 interface WaveBoost
     function boost(unit u)
@@ -67,6 +69,7 @@ function boostUnit()
         ..addItemToSlot(ITEM_384, 1)
         ..enumerateMagicResistance(60)
         ..enumeratePhysicalPenetration(20)
+        
     boostMap.put(WAVE_HERO_8) (u) -> // Jacksmith
         u
         ..setStr(35000)
@@ -447,6 +450,8 @@ function waveHeroSpawn()
     waveHero.moveWithoutCombat()
     if WAVE_HERO_5 == unitID
         explode(waveHero)
+    if WAVE_HERO_29 == unitID
+        shadowInfernoAttacked(waveHero)
     waveHero.limitArmorImmediate()
 
 function waveHeroDeath()

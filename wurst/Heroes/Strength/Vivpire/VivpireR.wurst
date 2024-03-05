@@ -7,6 +7,7 @@ import HashMap
 import OrderIds
 import ClosureForGroups
 import DummyCaster
+import TimerUtils
 
 var blood = 0
 let strGain = [2,2,2,3,3,3,4,4,5] 
@@ -31,11 +32,11 @@ public function bloodGain()
                 kDie.addStr(strGain[kDie.getAbilityLevel(VIVPIRE_ABIL_4)-1])
             preyTimers.remove(curTime)
             preyUnitTimer.remove(uDie)
-            curTime.destr()
+            curTime.release()
     
     EventListener.onTargetCast(VIVPIRE_ABIL_4) (unit caster, unit target) ->
         if(preyUnitTimer.has(target) == false)
-            let newTime = CreateTimer()
+            let newTime = getTimer()
             newTime.start(10, function removebloodGain)
             preyTimers.put(newTime, target)
             preyUnitTimer.put(target, newTime)
@@ -56,7 +57,7 @@ function removebloodGain()
     let u = preyTimers.get(expire)
     preyTimers.remove(expire)
     preyUnitTimer.remove(u)
-    expire.destr()
+    expire.release()
 
 public function getBlood() returns int
     return blood

@@ -2820,7 +2820,7 @@ import OrderIds
     ..setName("Summon - W - Mini-Goblin")
     ..presetTooltipNormal(lvl -> "Summon Goblin Mini [ |c00FFFC01W|r ] - [|cffffcc00Level "+ lvl.toString() +"|r]")
     ..presetTooltipNormalExtended(lvl -> "Summon 1 Goblin Mini building towers and supportive buildings, the duration is 90 seconds. Cooldown " + (190 * lvl - 10).toString() +" seconds.")
-    ..setTooltipLearn("Learn Summon Goblin Mini [ |c00FFFC01W|r ] - [cffffcc00Level %d|r]")
+    ..setTooltipLearn("Learn Summon Goblin Mini [ |c00FFFC01W|r ] - [|cffffcc00Level %d|r]")
     ..setTooltipLearnExtended("Summon 1 Goblin Mini building towers and supportive buildings, the duration is 90 seconds. Cooldown start at 180 and decreases 10 each level")
 
     new AbilityDefinitionTinkererSummonFactoryLevel3(TINKER_ABIL_3)
@@ -2949,7 +2949,7 @@ import OrderIds
     ..presetDamageMultiplier(lvl -> 0.)
     ..presetChancetoEvade(lvl -> 0.)
     ..presetChancetoCriticalStrike(lvl -> 0.)
-    ..presetTooltipNormal(lvl -> "Static Charge [ |c00FFFC01R|r ] - [cffffcc00Level "+ lvl.toString() +"|r]")
+    ..presetTooltipNormal(lvl -> "Static Charge [ |c00FFFC01R|r ] - [|cffffcc00Level "+ lvl.toString() +"|r]")
     ..presetTooltipNormalExtended(lvl -> "Herald's autoattacks have a 15% chance to deal " + (2*lvl).toString() + " * INT magic damage.\n" + 
     "Herald's abilities have " + (5*lvl).toString() + "% chance to deal " + (20*lvl).toString() + "% increased damage."+
     "Whenever Herald's abilities crit, he gains " + (0.01+0.24*(lvl-1)).ceil().toString() +" INT.")
@@ -2982,7 +2982,7 @@ import OrderIds
     ..presetDurationNormal(lvl -> 0.010)
     ..presetManaCost(lvl -> 200*lvl)
     ..presetTargetsAllowed(lvl -> commaList("Air","Ground","Enemy","Neutral","Organic"))
-    ..presetTooltipNormal(lvl -> "Disintegrating Lightning Strike [ |c00FFFC01T|r ] - [cffffcc00Level "+ lvl.toString() +"|r]")
+    ..presetTooltipNormal(lvl -> "Disintegrating Lightning Strike [ |c00FFFC01T|r ] - [|cffffcc00Level "+ lvl.toString() +"|r]")
     ..presetTooltipNormalExtended(lvl -> "Herald calls down massive bolts of lightning onto all enemies in a 500 range from target unit, striking them for " + (5*lvl).toString() + " * INT + 100% max Mana damage. Always critically strikes if Lightning Empowerment is active.")
     ..setTooltipLearn("Learn Disintegrating Lightning Strike [ |c00FFFC01T|r ]  - [|cffffcc00Level %d|r]")
     ..setTooltipLearnExtended("Herald calls down a massive bolts of lightning onto all enemies in a 500 range from target unit, striking them for 5 * LVL INT + 100% max Mana damage. Always critically strikes if Lightning Empowerment is active.")

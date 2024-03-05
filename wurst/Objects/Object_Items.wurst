@@ -4611,7 +4611,7 @@ init
     +"When attacked you have a 30% to heal for 500 HP\n"
     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
     +"Scepter of Healing (|c007EBFF1" + monsterDrop + "|r)\n"
-    +"Steel Shield (|c007EBFF1" + basicShop1 + "|r)")
+    +"Steel Shield (|c007EBFF1" + recipeShop3 + "|r)")
     ..setHotkey("")
 
 //I0EE

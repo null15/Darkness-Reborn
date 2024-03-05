@@ -1,0 +1,74 @@
+package Waves
+
+import ClosureTimers
+import LinkedList
+import HashMap
+import ClosureForGroups
+
+public interface OnWaveInside
+    function hit(unit hit)
+
+public class Waves
+    protected OnWaveInside onHit
+    protected LinkedList<effect> waves
+    protected HashMap<effect, real> expiryTimers
+    protected HashMap<effect, real> waveAngles
+    protected CallbackPeriodic timerVar
+    protected CallbackPeriodic betweenWaves
+
+    construct(OnWaveInside onHit)
+        this.onHit = onHit
+        this.expiryTimers = new HashMap<effect, real>
+        this.waves = new LinkedList<effect>
+        this.waveAngles = new HashMap<effect, real>
+        
+    function impact(unit u)
+        if(u.isAlive())
+            onHit.hit(u)
+
+    ondestroy
+        destroy betweenWaves
+        destroy timerVar
+        destroy waves
+        destroy onHit
+        destroy waveAngles
+        destroy expiryTimers
+
+    function onExpiredTimer(effect sfx)
+        waves.remove(sfx)
+        expiryTimers.remove(sfx)
+        sfx.destr()
+
+    function waveCreation(int waveAmount, real velocity, unit center, string sfxPath, real survivalTime, real timeBetweenWaves, real colliSize)
+        let pos1 = center.getPos()
+        let owner = center.getOwner()
+        betweenWaves = doPeriodically(timeBetweenWaves) (CallbackPeriodic cb) ->
+            for int i = 0 to waveAmount
+                let angle = GetRandomReal(0, 359)
+                let eff = addEffect(sfxPath, pos1)..setYaw(angle.asAngleDegrees())
+                expiryTimers.put(eff, survivalTime)
+                waveAngles.put(eff, angle)
+                waves.add(eff)
+
+        timerVar = doPeriodically(0.02) (CallbackPeriodic cb) ->
+            waves.forEach() (effect t) ->
+                waveMove(velocity, t, colliSize, owner)
+            if(center.isAlive() != true)
+                destroy this
+
+    function waveMove(real velocity, effect eff, real colliSize, player owner)
+        let pos = eff.getPos().polarOffset(waveAngles.get(eff).asAngleDegrees(), 7.*velocity)
+        eff.setPos(pos)
+        forUnitsInRange(pos, colliSize) (unit u) ->
+            if u.isEnemyOf(owner)
+                impact(u)
+
+        let t = expiryTimers.get(eff)
+        if(t <= 0)
+            onExpiredTimer(eff)
+        else
+            expiryTimers.put(eff, t-0.02)
+
+public function startWave(unit center, string sfxPath, real velocity, int waveAmount, real survivalTime, real timeBetweenWaves, real colliSize, OnWaveInside onHit)
+    let detection = new Waves(onHit)
+    detection.waveCreation(waveAmount, velocity, center, sfxPath, survivalTime, timeBetweenWaves, colliSize)

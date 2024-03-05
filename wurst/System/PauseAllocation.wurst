@@ -1,5 +1,6 @@
 package PauseAllocation
 import HashMap
+import TimerUtils
 
 
 let timerHashMap = new HashMap<timer, unit>
@@ -18,7 +19,7 @@ public function unit.pauseIndef()
 
 public function unit.pauseTimed(real duration)
     if(unitHashMap.get(this) == null)
-        let newTimer = CreateTimer()
+        let newTimer = getTimer()
         this.pause()
         timerHashMap.put(newTimer, this)
         unitHashMap.put(this, newTimer)
@@ -32,6 +33,7 @@ public function unPauseUnitTimed()
     if(indefHashMap.get(u) == false)
         if(u.isPaused())
             u.unpause()
+            timed.release()
             timerHashMap.remove(timed)
             unitHashMap.remove(u)
 

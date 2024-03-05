@@ -5,13 +5,14 @@ import WaveHeroSetup
 import ClosureTimers
 import MyUnitIds
 import Orders
+import TimerUtils
 import ItemDrops
 import codeDamageTypings
 
-timer waveTimer = CreateTimer()
+timer waveTimer = getTimer()
 timerdialog waveTimerDialog = CreateTimerDialog(waveTimer)
 
-timer gracePeriod = CreateTimer()
+timer gracePeriod = getTimer()
 timerdialog gracePeriodDialog = CreateTimerDialog(gracePeriod)
 
 integer count = 0
