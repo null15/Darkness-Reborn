@@ -22,13 +22,14 @@ init
     creepRespawner()
 
 public function player.setCreepSettings(int unitId, vec2 pos)
-    creepSettings.put(this, unitId)
-    if currentCreep.has(this)
-        if currentCreep.get(this).isAlive()
-            currentCreep.get(this).remove()
+    if creepSettings.get(this) != unitId
+        creepSettings.put(this, unitId)
+        if currentCreep.has(this)
+            if currentCreep.get(this).isAlive()
+                currentCreep.get(this).remove()
+                currentCreep.put(this, createUnit(hostile, unitId, pos))
+        else
             currentCreep.put(this, createUnit(hostile, unitId, pos))
-    else
-        currentCreep.put(this, createUnit(hostile, unitId, pos))
 
 function creepRespawner()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
