@@ -48,10 +48,11 @@ function creepRespawner()
                 let uid = u.getTypeId()
                 if creepRespawns.has(uid)
                     let pos = u.getPos()
+                    let rot = u.getFacingAngle()
                     if uid == ELITE_CREEP[9]
                         frostyCounter++
                     doAfter(creepRespawns.get(uid)) ->
-                        createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle())
+                        createUnit(hostile, uid, pos, rot)
                 u.dropItems()
         
 public function eliteSideCreepsSetup()

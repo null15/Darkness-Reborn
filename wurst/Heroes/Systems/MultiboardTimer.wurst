@@ -1,0 +1,44 @@
+package MultiboardTimer
+import Global_Variables
+import ClosureTimers
+import HashMap
+
+multiboard multi
+
+public let heroRespawnTimerHash = new HashMap<player,CallbackSingle>
+
+public CallbackSingle graceWaveSpawnCb = null
+public var titleString = "Grace Period "
+
+public function createMulti()
+    multi = CreateMultiboard()
+    
+    var pAmount = 0
+    for int i = 0 to 9
+        if players[i].isIngame()
+            pAmount++
+    multi.setRowCount(pAmount+1)
+    multi.setColumnCount(3)
+    for int i = 1 to multi.getRowCount()
+        for int j = 1 to multi.getColumnCount()
+            MultiboardSetItemStyleBJ(multi, j, i, true, false)
+    multi.setItemValue(0, 0, "Player Name")
+    multi.setItemValue(0, 1, "Gold")
+    multi.setItemValue(0, 2, "Lumber")
+    multi.setColumnWidth(0, 0.08)
+    multi.setColumnWidth(1, 0.08)
+    multi.setColumnWidth(2, 0.08)
+    multi.display(true)
+    updateMulti()
+
+function updateMulti()
+    doPeriodically(1) (CallbackPeriodic cb) ->
+        for int i = 0 to playerHero.size()
+            let j = i + 1
+            if heroRespawnTimerHash.has(players[i])
+                multi.setItemValue(j, 0, (heroRespawnTimerHash.get(players[i]).getRemaining().toInt().toString() + " Seconds").color(GetPlayerColor(players[i]).toColor()))
+            else
+                multi.setItemValue(j, 0, players[i].getNameColored())
+            multi.setItemValue(j, 1, "|cffcc9621" + players[i].getGold().toString() + "|r")
+            multi.setItemValue(j, 2, "|cff0a8a10" + players[i].getLumber().toString() + "|r")
+        multi.setTitle(titleString + graceWaveSpawnCb.getRemaining().toInt().toString() + " Seconds left")

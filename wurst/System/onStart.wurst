@@ -11,6 +11,7 @@ import TeleportToMobs
 import GameEnd
 import heroLoader
 import UpdateDropSite
+import MultiboardTimer
 
 real facing = 270
 real facingUp = 90
@@ -64,6 +65,7 @@ function onBuyHero(unit u)
 
 function createSetup()
     let p = players[10]
+    createMulti()
 
     SetPlayerState(players[11], PLAYER_STATE_GIVES_BOUNTY, 1)
     SetPlayerState(players[12], PLAYER_STATE_GIVES_BOUNTY, 1)
@@ -140,6 +142,17 @@ function createSetup()
     CreateUnit(p, BUILDING_11, posX, posY, 270.000) // Late Game Items
     posY = posY + dividend
     CreateUnit(p, BUILDING_10, posX, posY, 270.000) // Late Game Items
+ 
+    posX = GetRectCenterX(gg_rct_Base)
+    posY = GetRectCenterY(gg_rct_Base) + 200
+
+    CreateUnit(players[10], BUILDING_0, posX, posY, 270.000) // Fountain of Healing (at base)
+
+    dropSite = CreateUnit(players[10], DROPSITE, posX, posY - 800, 270.)//Dropsite
+    updateDropSite() 
+    elementalSoul = createUnit(players[10], ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees()) // Elemental Soul    
+        
+    elementalSoul.onDefeat()
 
     teleportToMobs(easyGrounds, intermediateGrounds, eliteGrounds, endGamebosses)
 
@@ -159,20 +172,7 @@ function automaticPick()
     print("Automatically chosen Easy mode")
 
 function mapSetup()
-    elementalSoul = createUnit(players[10], ELEMENTAL_SOUL, gg_rct_AllSpawnMove2.getCenter(), facing.asAngleDegrees()) // Elemental Soul    
-        
-    onDefeat(elementalSoul)
-
-    let posX = GetRectCenterX(gg_rct_Base)
-    let posY = GetRectCenterY(gg_rct_Base) + 200
-
-    CreateUnit(players[10], BUILDING_0, posX, posY, 270.000) // Fountain of Healing (at base)
-
-    dropSite = CreateUnit(players[10], DROPSITE, posX, posY - 800, 270.) //Dropsite
-    updateDropSite()
-
     doAfter(0.5) -> 
-
         let dBox = new DialogBox("Choose difficulty")
 
         dBox.addButton("Normal") ->

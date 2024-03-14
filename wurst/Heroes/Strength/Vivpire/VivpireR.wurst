@@ -7,12 +7,11 @@ import HashMap
 import OrderIds
 import ClosureForGroups
 import DummyCaster
-import TimerUtils
+import ClosureTimers
 
 var blood = 0
 let strGain = [2,2,2,3,3,3,4,4,5] 
-let preyTimers = new HashMap<timer, unit>
-let preyUnitTimer = new HashMap<unit, timer>
+let preyUnitTimer = new HashMap<unit, CallbackSingle>
 
 public function bloodGain()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
@@ -21,43 +20,47 @@ public function bloodGain()
             if (playerHero.get(p).getTypeId() == PLAY_HERO_3)
                 printTimedToPlayer("You currently have |cffcf0505" + (blood.toString()) + " blood|r", 5, p)
 
-    EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
-        let uDie = GetDyingUnit()
-        let curTime = preyUnitTimer.get(uDie)
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
         let kDie = GetKillingUnit()
-        if(curTime != null)
-            if(kDie.getTypeId() == PLAY_HERO_3)
+        if(kDie.getTypeId() == PLAY_HERO_3)
+            let uDie = GetDyingUnit()
+            let curTime = preyUnitTimer.get(uDie)
+            if(curTime != null)
                 printTimedToPlayer("|cffcf0505Delicious Prey|r", 5, GetKillingUnit().getOwner())
                 blood++
                 kDie.addStr(strGain[kDie.getAbilityLevel(VIVPIRE_ABIL_4)-1])
-            preyTimers.remove(curTime)
-            preyUnitTimer.remove(uDie)
-            curTime.release()
+                preyUnitTimer.remove(uDie)
+                destroy curTime
     
     EventListener.onTargetCast(VIVPIRE_ABIL_4) (unit caster, unit target) ->
         if(preyUnitTimer.has(target) == false)
-            let newTime = getTimer()
-            newTime.start(10, function removebloodGain)
-            preyTimers.put(newTime, target)
+            let newTime = doAfter(10) -> 
+                removebloodGain(target)
+            activateBloodGain(caster)
             preyUnitTimer.put(target, newTime)
-            let p = caster.getOwner()
-            let pos = caster.getPos()
-            forUnitsInRange(pos, 400) (unit u) ->
-                if u.isEnemyOf(p)
-                    new DummyCaster()
-                    ..owner(p)
-                    ..origin(pos)
-                    ..castTarget(VIVPIRE_DUMMYABIL_3, 1, OrderIds.curse, u)
+                
         else
             let curTime = preyUnitTimer.get(target)
-            curTime.start(10, function removebloodGain)
+            destroy curTime
+            let newTime = doAfter(10) ->
+                removebloodGain(target)
+            activateBloodGain(caster)
+            preyUnitTimer.put(target, newTime) 
+                
 
-function removebloodGain()
-    let expire = GetExpiredTimer()
-    let u = preyTimers.get(expire)
-    preyTimers.remove(expire)
-    preyUnitTimer.remove(u)
-    expire.release()
+function activateBloodGain(unit caster)
+    let p = caster.getOwner()
+    let pos = caster.getPos()
+    forUnitsInRange(pos, 400) (unit u) ->
+        if u.isEnemyOf(p)
+            new DummyCaster()
+            ..owner(p)
+            ..origin(pos)
+            ..castTarget(VIVPIRE_DUMMYABIL_3, 1, OrderIds.curse, u)
+
+
+function removebloodGain(unit u)
+    destroy preyUnitTimer.getAndRemove(u)
 
 public function getBlood() returns int
     return blood

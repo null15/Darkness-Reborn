@@ -12,11 +12,9 @@ import ClosureEvents
 import Global_Variables
 import ShadowInferno
 import ArmorLimiter
-import TimerUtils
 import BigBoom
-
-timer waveHeroTimer = getTimer()
-timerdialog waveHeroTimerDialog = CreateTimerDialog(waveHeroTimer)
+import MultiboardTimer
+import HashSet
 
 int waveHeroIndex = 0 // originally 0
 unit waveHero = null
@@ -24,38 +22,38 @@ unit waveHeroNext = null
 real facing = 270
 constant boostMap = new HashMap<int,WaveBoost>
 
+let wasAttackedHero = new HashMap<unit,boolean>
+let hasBeenAttackedSince = new HashMap<unit,boolean>
+let waveHeroes = new HashSet<unit>
 
 init
 
     boostUnit()
     preloadWaveHeroes()
 
-let bossTimer = new HashMap<unit,timer>
-let timerBoss = new HashMap<timer,unit>
-
 public function unit.wasAttacked()
-    if(bossTimer.has(this))
-        let t = bossTimer.get(this)
-        t.start(10, function notAttacked)
+    if(waveHeroes.has(this))
+        wasAttackedHero.put(this, true)
+        hasBeenAttackedSince.put(this, true)
 
 function unit.moveWithoutCombat()
-    let t = getTimer()
-    bossTimer.put(this, t)
-    timerBoss.put(t, this)
-    t.start(20, function notAttacked)
-    EventListener.add(this, EVENT_PLAYER_UNIT_DEATH) ->
-        this.clear()
+    doAfter(20) ->
+        if(this.isAlive() == false)
+            bossKills++
+        else
+            if(hasBeenAttackedSince.has(this))
+                if(wasAttackedHero.has(this))
+                    this.moveWithoutCombat()
+                    wasAttackedHero.put(this, false)
+                else
+                    notAttacked(this)
+            else
+                this.moveWithoutCombat()
 
-function notAttacked()
-    let t = GetExpiredTimer()
-    let u = timerBoss.get(t)
+function notAttacked(unit u)
+    hasBeenAttackedSince.put(u, false)
     u.issueTargetOrderById(Orders.attack, elementalSoul)
-
-function unit.clear()
-    bossKills++
-    let t = bossTimer.getAndRemove(this)
-    timerBoss.remove(t)
-    t.release()
+    u.moveWithoutCombat()
 
 interface WaveBoost
     function boost(unit u)
@@ -447,7 +445,8 @@ function waveHeroSpawn()
     let unitID = GetUnitTypeId(waveHero)
     if boostMap.has(unitID)
         boostMap.get(unitID).boost(waveHero)
-    waveHero.moveWithoutCombat()
+    if WAVE_HERO_5 != unitID
+        waveHero.moveWithoutCombat()
     if WAVE_HERO_5 == unitID
         explode(waveHero)
     if WAVE_HERO_29 == unitID
@@ -503,15 +502,16 @@ function waveHeroDeath()
             onVictorySetup(final)
 
 function waveHeroTimerElapsed()
-    CreateTrigger()..registerTimerExpireEvent(waveHeroTimer)..addAction() ->
-        doAfter(0.05) -> 
-            if waveHeroIndex < 30
-                waveHeroTimerDialog..setTitle(GetObjectName(WAVE_HERO[waveHeroIndex+1]))..setTimeColor(155, 155, 155, 0)..display(true)
-            else
-                waveHeroTimer.destr()
-                waveHeroTimerDialog.destr()
+    if waveHeroIndex < 30
+        titleString = GetObjectName(WAVE_HERO[waveHeroIndex+1])
+        doAfter(60) ->
+            waveHeroSpawn()
+            waveHeroTimerElapsed()
+    else
+        DoNothing()
 
 public function waveHeroSetup()
-    waveHeroTimerElapsed()
-    waveHeroTimer.startPeriodic(60, function waveHeroSpawn)
-    waveHeroTimerDialog..setTitle("Dragon - Ysera")..setTimeColor(155, 155, 155, 0)..display(true)
+    graceWaveSpawnCb = doAfter(60) -> 
+        waveHeroTimerElapsed()
+        waveHeroSpawn()
+    titleString = "Dragon - Ysera "

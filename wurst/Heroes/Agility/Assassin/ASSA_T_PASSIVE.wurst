@@ -49,37 +49,32 @@ function unit.assa_quest()
                     let lowDmg = killer.getBaseDamage(0)
                     killer.setBaseDamage(lowDmg+500, 0)
                     printTimedToPlayer("First quest complete! you gain 500 base damage", 10, killer.getOwner())
-                    DestroyTrigger(GetTriggeringTrigger())
 
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 2
         EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
             let killer = GetKillingUnit()
             let target = GetDyingUnit()
-            if this == killer and target.getLevel() > 20
+            if this == killer and target.getLevel() > 20 and assaQuest[1] == 0
                 assaQuest[1]++
                 if(assaQuest[1] == 100)
                     killer.basePhysPenAdd(5)
                     printTimedToPlayer("Second quest complete! you gain 5% armor penetration", 10, killer.getOwner())
-                    DestroyTrigger(GetTriggeringTrigger())
                     
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 3
         EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
             let killer = GetKillingUnit()
             let target = GetDyingUnit()
-            if killer == this and target.getLevel() > 42
+            if killer == this and target.getLevel() > 42 and assaQuest[2] == 0
                 assaQuest[2]++
                 if(assaQuest[2] == 20)
                     killer.removeAbility('A0GM')
                     killer.addAbility(ASSASIN_ABIL_6_QUEST)
-                    printTimedToPlayer("Third quest complete! Your skill Enchanted Weapon as been evolve!", 10, killer.getOwner())
-                    DestroyTrigger(GetTriggeringTrigger())
                     
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 4
         EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
             let killer = GetKillingUnit()
             let target = GetDyingUnit()
-            if killer == this and target.getLevel() >= 90
+            if killer == this and target.getLevel() >= 90 and assaQuest[3] == 0
                 killer.basePhysPenAdd(10)
                 assaQuest[3]++
                 printTimedToPlayer("Forth quest complete! you gain 10% armor penetration", 10, killer.getOwner())
-                DestroyTrigger(GetTriggeringTrigger())

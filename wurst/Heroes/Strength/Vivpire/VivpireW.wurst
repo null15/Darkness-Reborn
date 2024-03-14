@@ -1,14 +1,13 @@
 package VivpireW
 import MyAbilityIds
 import codeDamageTypings
-import TimerUtils
 import DamageEvent
 let limit = [2, 4, 6, 8, 10, 12, 14, 16, 18]
 var currentDmg = 0.
 
 public function bloodHunter()
     
-    let attacked = getTimer()
+    let attacked = CreateTimer()
     DamageEvent.addListener(1) ->
         if (DamageEvent.getType() == ATTACK)
             let damtyp = DamageEvent.getDamageType()

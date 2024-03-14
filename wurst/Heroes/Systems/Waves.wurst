@@ -27,6 +27,8 @@ public class Waves
             onHit.hit(u)
 
     ondestroy
+        waves.forEach() (effect t) ->
+            t.destr()
         destroy betweenWavesClosure
         destroy timerVar
         destroy waves

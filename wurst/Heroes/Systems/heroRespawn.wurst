@@ -3,6 +3,8 @@ import ClosureEvents
 import TimerUtils
 import Global_Variables
 import HashMap
+import ClosureTimers
+import MultiboardTimer
 
 let timeDialogHasher = new HashMap<timer,Respawner>
 
@@ -38,10 +40,19 @@ function heroRespawnTimer(unit u)
     timeDialog.setTitleColor(PLAYER_COLORS[p.getId()].withAlpha(255))
     timeDialog.display(true)
 
+function unit.heroRespawner()
+    this.revive(gg_rct_Base.getCenter(), true)
+
 public function heroRespawn()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
         let u = GetDyingUnit()
-        if playerHero.get(u.getOwner()) == u
-            heroRespawnTimer(u)
-        else if u.isType(UNIT_TYPE_HERO) and not u.isIllusion() and u.getOwner().getId() < 11
-            print("Possible error encountered. " + u.getOwner().getNameColored() + "'s hero has died. But, countdown has yet to initiate. Hero was " + u.getName() + ". The hero was supposed to be " + playerHero.get(u.getOwner()).getName())
+        let p = u.getOwner()
+        if playerHero.get(p) == u
+            printTimedToPlayer("You will respawn in 10 seconds", 5, p)
+            let tim = doAfter(10) -> 
+                u.heroRespawner()
+                heroRespawnTimerHash.remove(p)
+            heroRespawnTimerHash.put(p, tim)
+            //heroRespawnTimer(u)
+        else if u.isType(UNIT_TYPE_HERO) and not u.isIllusion() and p.getId() < 11
+            print("Possible error encountered. " + p.getNameColored() + "'s hero has died. But, countdown has yet to initiate. Hero was " + u.getName() + ". The hero was supposed to be " + playerHero.get(p).getName())

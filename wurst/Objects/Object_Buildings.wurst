@@ -92,9 +92,10 @@ import Units
     ..setDefenseUpgradeBonus(5)
     ..setHideMinimapDisplay(true)
 
-    new BuildingDefinition(DROPSITE, UnitIds.magicvault)
+    new BuildingDefinition(DROPSITE, UnitIds.marketplace)
     ..setName("Drop Site")
     ..setGroundTexture("")
+    ..setModelFile(Buildings.magicVault)
     ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Aneu', 'Apit', 'Asid'))
     ..setResearchesAvailable("")
     ..setCollisionSize(0)

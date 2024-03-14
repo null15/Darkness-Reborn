@@ -17,21 +17,24 @@ public function updateItemPool()
         AddItemToStock(dropSite, PREVPAGE, 1, 1)
     if(itemDropsEnumerator.size() > 8 + page * 8)
         AddItemToStock(dropSite, NEXTPAGE, 1, 1)
-    var itemcount = 0
-    var iterator = 0
-    while itemcount < 8
-        let temp = itemDropsEnumerator.get(page * 8 + iterator)
-        if(temp == 0)
-            break
-        let stock = itemDropsInTavern.get(temp)
-        if(stock > 0)
-            AddItemToStock(dropSite, temp, stock, stock)
-            BlzSetItemIntegerField(CreateItem(temp,0,0)..remove(), ConvertItemIntegerField('ista'), stock)
-            itemcount++
-        else
-            itemDropsEnumerator.remove(page * 8 + iterator)
-            itemDropsInTavern.remove(temp)
-            iterator++
+    
+    let itemToAdd = new HashSet<int>
+
+    for int i = 0 to 8
+        for int j = 0 to itemDropsEnumerator.size()
+            let temp = itemDropsEnumerator.get(page * 8 + i + j)
+            if itemToAdd.has(temp) == false
+                let stock = itemDropsInTavern.get(temp)
+                if stock > 0
+                    itemToAdd.add(temp)
+                    break
+                else
+                    DoNothing()
+
+    itemToAdd.forEach() (integer t) ->
+        let stock = itemDropsInTavern.get(t)
+        BlzSetItemIntegerField(CreateItem(t,0,0)..remove(), ConvertItemIntegerField('ista'), stock)
+        AddItemToStock(dropSite, t, stock, stock)
 
     /*for int i = 0 to 8
         let temp = itemDropsEnumerator.get(page * 8 + i)
