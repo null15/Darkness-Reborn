@@ -28,7 +28,7 @@ public function player.setCreepSettings(int unitId, vec2 pos)
         let u = createUnit(hostile, unitId, pos)
         if currentU.isAlive()
             currentU.remove()
-            currentCreep.replace(currentU, u)
+            currentCreep.addAt(u, pid)
         else
             currentCreep.addAt(u, pid)
 
@@ -40,7 +40,8 @@ function creepRespawner()
             let pos = u.getPos()
             doAfter(creepRespawns.get(u.getTypeId())) ->
                 if(currentCreep.has(u))
-                    currentCreep.replace(u, createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle()))
+                    let u2 = createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle())
+                    currentCreep.addAt(u2, GetKillingUnit().getOwner().getId())
         else
             if u.isIllusion()
                 skip

@@ -59,9 +59,11 @@ function onBuyHero(unit u)
             gg_cam_CameraHeroPicked.apply(true, p, 0.5)
             soldUnit.setPos(gg_rct_Base.getCenter())
             p.setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 0)
+            GetBuyingUnit().remove()
         else
-            p..disableUserControl().adjustCameraBounds(0, 0, 0, 0, 0)
-        GetBuyingUnit().remove()
+            soldUnit.remove()
+            printTimedToPlayer("Your hero was killed by the newly recruited one as it left.", 10, p)
+            playerHero.get(p).kill()
 
 function createSetup()
     let p = players[10]

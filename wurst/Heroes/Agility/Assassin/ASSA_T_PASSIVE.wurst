@@ -69,7 +69,7 @@ function unit.assa_quest()
         EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
             let killer = GetKillingUnit()
             if this == killer
-                if(assaQuest[0] == 200)
+                if(assaQuest[0] < 200)
                     assaQuest[0]++
                     let lowDmg = killer.getBaseDamage(0)
                     killer.setBaseDamage(lowDmg+500, 0)
