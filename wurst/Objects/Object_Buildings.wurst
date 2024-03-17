@@ -76,7 +76,7 @@ import Units
     new BuildingDefinition(ELEMENTAL_SOUL, UnitIds.castle)
     ..setName("Elemental Soul")
     ..setGroundTexture("")
-    ..setNormalAbilities(commaList(SHOP_SHARE, 'Abds', 'Apit', 'AM3~'))
+    ..setNormalAbilities(commaList(SHOP_CRYSTAL, 'Abds', 'Apit', 'AM3~'))
     ..setHitPointsMaximumBase(2500)
     ..setResearchesAvailable("")
     ..setCollisionSize(0)

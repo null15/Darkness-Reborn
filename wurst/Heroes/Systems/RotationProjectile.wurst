@@ -1,0 +1,81 @@
+package RotationProjectile
+
+import ClosureTimers
+import LinkedList
+import HashMap
+import ClosureForGroups
+
+public interface OnRotationHit
+    function hit(unit hitUnit)
+
+public class RotationProjectile
+    protected OnRotationHit onHit
+    protected LinkedList<LinkedList<effect>> arms
+    protected HashMap<effect,real> sfxRot
+    protected CallbackPeriodic timerVar
+
+    construct(OnRotationHit onHit)
+        this.onHit = onHit
+        this.sfxRot = new HashMap<effect, real>
+        this.arms = new LinkedList<LinkedList<effect>>
+    
+    ondestroy
+        arms.forEach() (LinkedList<effect> t) ->
+            t.forEach() (effect t) ->
+                t.destr()
+            destroy t
+        destroy arms
+        destroy timerVar
+        destroy onHit
+        sfxRot.flush()
+        destroy sfxRot
+        
+    function impact(unit hitUnit)
+        onHit.hit(hitUnit)
+        destroy this
+
+    function rotationCreation(unit center, int armAmount, int amountPerArm, string sfxPath, real range, real rotationVelocity, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real sfxSize)
+        let randomRotStart = GetRandomInt(0, 359)
+        let pos = center.getPos()
+        let angle = 360/armAmount
+        let range2 = range/amountPerArm
+        for int i = 1 to armAmount
+            let armInnerList = new LinkedList<effect>
+            let angle2 = angle * i + randomRotStart
+            for int j = 1 to amountPerArm
+                let pos1 = pos.polarOffset(angle2.asAngleDegrees(), range2*j)
+                let tempSfx = addEffect(sfxPath, pos1)
+                tempSfx.setScale(sfxSize)
+                let rot = GetRandomReal(0, 359)
+                armInnerList.add(tempSfx)
+                tempSfx.setYaw(rot)
+                sfxRot.put(tempSfx, rot)
+            arms.add(armInnerList)
+        moveRotation(center, rotationVelocity, sfxMinRotationVelocity, sfxMaxRotationVelocity, range2)
+        
+    function moveRotation(unit center, real rotationVelocity, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real colliSize)
+        timerVar = doPeriodically(0.02) (CallbackPeriodic cb) ->
+            if center.isAlive() == false
+                destroy this
+            else
+                arms.forEach() (LinkedList<effect> t) ->
+                    moveRotationPerArm(t, center, rotationVelocity, sfxMinRotationVelocity, sfxMaxRotationVelocity, colliSize)
+
+    function moveRotationPerArm(LinkedList<effect> arm, unit center, real rotationVelocity, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real colliSize)
+        let centerPos = center.getPos()
+        arm.forEach() (effect t) ->
+            let randRot = GetRandomReal(sfxMinRotationVelocity, sfxMaxRotationVelocity)
+            let pos = t.getPos()
+            let dist = centerPos.distanceTo(pos)
+            let angle = centerPos.angleTo(pos) + rotationVelocity.asAngleDegrees()
+            let pos2 = centerPos.polarOffset(angle, dist)
+            sfxRot.put(t, sfxRot.get(t) + randRot)
+            t.setPos(pos2)
+            t.setYaw(sfxRot.get(t))
+            forUnitsInRange(pos2, colliSize) (unit u) ->
+                if u.isEnemyOf(center)
+                    onHit.hit(u)
+
+public function startRotation(unit center, string sfxPath, real rotationVelocity, int armAmount, int amountPerArm, real range, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real sfxSize, OnRotationHit onHit)
+    let detection = new RotationProjectile(onHit)
+    detection.rotationCreation(center, armAmount, amountPerArm, sfxPath, range, rotationVelocity, sfxMinRotationVelocity, sfxMaxRotationVelocity, sfxSize)

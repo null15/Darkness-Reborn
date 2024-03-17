@@ -1,4 +1,6 @@
 package LancelotShield
+import Abilities
 
 public function lancelotShield(unit holder)
     holder.setHP(holder.getHP() + 500)
+    flashEffect(Abilities.crystalBallCaster, holder.getPos())

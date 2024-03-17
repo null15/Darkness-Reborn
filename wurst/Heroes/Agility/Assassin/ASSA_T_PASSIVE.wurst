@@ -32,41 +32,67 @@ public function learnULT()
                 EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
                     if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-track"
                         let p = GetTriggerPlayer()
+
                         if(u.getOwner() == p)
                             printTimedToPlayer("Quest Track:\n"+
-                            "First Quest:"+assaQuest[0].toString()+"\n"+
-                            "Second Quest:"+assaQuest[1].toString()+"\n"+
-                            "Third Quest: "+assaQuest[2].toString()+"\n"+
-                            "Fourth Quest:"+assaQuest[3].toString(), 6, p)
+                            "First Quest: "+checkCompletionQuest1()+"\n"+
+                            "Second Quest: "+checkCompletionQuest2()+"\n"+
+                            "Third Quest: "+checkCompletionQuest3()+"\n"+
+                            "Fourth Quest: "+checkCompletionQuest4(), 6, p)
+
+function checkCompletionQuest1() returns string
+    if assaQuest[0] < 200
+        return assaQuest[0].toString()
+    else
+        return "Done!"
+
+function checkCompletionQuest2() returns string
+    if assaQuest[1] < 100
+        return assaQuest[1].toString()
+    else
+        return "Done!"
+
+function checkCompletionQuest3() returns string
+    if assaQuest[2] < 20
+        return assaQuest[2].toString()
+    else
+        return "Done!"
+
+function checkCompletionQuest4() returns string
+    if assaQuest[3] < 1
+        return assaQuest[3].toString()
+    else
+        return "Done!"
 
 function unit.assa_quest()
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 1
         EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
             let killer = GetKillingUnit()
             if this == killer
-                assaQuest[0]++
                 if(assaQuest[0] == 200)
+                    assaQuest[0]++
                     let lowDmg = killer.getBaseDamage(0)
                     killer.setBaseDamage(lowDmg+500, 0)
-                    printTimedToPlayer("First quest complete! you gain 500 base damage", 10, killer.getOwner())
+                    printTimedToPlayer("First quest complete! You gain 500 base damage", 10, killer.getOwner())
 
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 2
         EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
             let killer = GetKillingUnit()
             let target = GetDyingUnit()
-            if this == killer and target.getLevel() > 20 and assaQuest[1] == 0
-                assaQuest[1]++
-                if(assaQuest[1] == 100)
+            if this == killer and assaQuest[1] == 99
+                if(target.getLevel() > 20)
+                    assaQuest[1]++
                     killer.basePhysPenAdd(5)
-                    printTimedToPlayer("Second quest complete! you gain 5% armor penetration", 10, killer.getOwner())
+                    printTimedToPlayer("Second quest complete! You gain 5% armor penetration", 10, killer.getOwner())
                     
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 3
         EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
             let killer = GetKillingUnit()
             let target = GetDyingUnit()
-            if killer == this and target.getLevel() > 42 and assaQuest[2] == 0
-                assaQuest[2]++
-                if(assaQuest[2] == 20)
+            if killer == this and assaQuest[2] == 19
+                if(target.getLevel() > 42)
+                    assaQuest[2]++
+                    printTimedToPlayer("Third quest complete! Your enchantments grow stronger.", 10, killer.getOwner())
                     killer.removeAbility('A0GM')
                     killer.addAbility(ASSASIN_ABIL_6_QUEST)
                     
@@ -74,7 +100,8 @@ function unit.assa_quest()
         EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
             let killer = GetKillingUnit()
             let target = GetDyingUnit()
-            if killer == this and target.getLevel() >= 90 and assaQuest[3] == 0
-                killer.basePhysPenAdd(10)
-                assaQuest[3]++
-                printTimedToPlayer("Forth quest complete! you gain 10% armor penetration", 10, killer.getOwner())
+            if killer == this and assaQuest[3] == 0
+                if target.getLevel() >= 90
+                    killer.basePhysPenAdd(10)
+                    assaQuest[3]++
+                    printTimedToPlayer("Fourth quest complete! You gain 10% armor penetration", 10, killer.getOwner())

@@ -374,6 +374,11 @@ import OrderIds
     ..presetActivationRadius(lvl -> 1200)
     ..setShowSelectUnitButton(1, false)
 
+    new AbilityDefinitionShopSharing(SHOP_CRYSTAL)
+    ..setLevels(1)
+    ..presetActivationRadius(lvl -> 32000)
+    ..setShowSelectUnitButton(1, false)
+
 @compiletime function fountainAbils()
     new AbilityDefinitionNeutralRegenhealthonly(FOUNTAIN_HEALING)
     ..setAreaofEffect(1, 400)
@@ -3103,9 +3108,9 @@ import OrderIds
     ..setHotkeyNormal("R")
     ..setName("Vivpire - R - Prey Marked")
     ..setTooltipLearn("Learn Prey Marked [|cffffcc00R|r]  - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Marks the target as Prey, making them able to be cursed by Vampiric Bite, they also drop Blood upon death. Anyone else nearby gets marked as prey, but, will not give blood. -Blood to see your current amount.")
+    ..setTooltipLearnExtended("Marks the target as Prey, making them able to be cursed by Vampiric Bite, they also drop Blood upon death. 5 * LVL other units will get marked as prey. -Blood to see your current amount.")
     ..presetTooltipNormal(lvl -> "Prey Marked [|cffffcc00R|r]  - [|cffffcc00"+ lvl.toString() +"|r]")
-    ..presetTooltipNormalExtended(lvl -> "Marks the target as Prey, making them able to be cursed by Vampiric Bite, they also drop Blood upon death. Anyone else nearby gets marked as prey, but, will not give blood. -Blood to see your current amount.")
+    ..presetTooltipNormalExtended(lvl -> "Marks the target as Prey, making them able to be cursed by Vampiric Bite, they also drop Blood upon death. " + (5 * lvl).toString() + " other units will get marked as prey. -Blood to see your current amount.")
     ..presetBuffs(lvl -> commaList(VIVPIRE_BUFF_2))
     ..setMissileArt("")
     ..setButtonPositionNormalX(3)

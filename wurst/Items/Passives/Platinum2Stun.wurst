@@ -9,7 +9,7 @@ import codeDamageTypings
 let plat2StunGroup = new HashMap<int, int>
 
 public function platinum2Stun(unit src,unit targ)
-    let number = GetPlayerId(GetOwningPlayer(src))
+    let number = src.getOwner().getId()
     if plat2StunGroup.has(number) or targ.isAlive() == false
         skip
     else

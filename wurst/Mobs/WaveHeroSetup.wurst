@@ -504,7 +504,7 @@ function waveHeroDeath()
 function waveHeroTimerElapsed()
     if waveHeroIndex < 30
         titleString = GetObjectName(WAVE_HERO[waveHeroIndex+1])
-        doAfter(60) ->
+        graceWaveSpawnCb = doAfter(60) ->
             waveHeroSpawn()
             waveHeroTimerElapsed()
     else

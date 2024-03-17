@@ -44,9 +44,9 @@ public function setRegions()
     item2Unit.put(ITEM_150, LEFT_CREEP_23)
 
 public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
-    EventListener.add(u1, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
-        let buyer = EventData.getBuyingUnit()
-        let owner = buyer.getOwner()
+    EventListener.add(u1, EVENT_PLAYER_UNIT_SELL_ITEM) ->
+        let buyUnit = EventData.getBuyingUnit() 
+        let owner = buyUnit.getOwner()
         let soldItem = EventData.getSoldItem()
         let soldItemId = soldItem.getTypeId()
         let pos2 = vec2(0, -150)
@@ -56,8 +56,8 @@ public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
         soldItem.remove()
 
     EventListener.add(u2, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
-        let buyer = EventData.getBuyingUnit()
-        let owner = buyer.getOwner()
+        let buyUnit = EventData.getBuyingUnit() 
+        let owner = buyUnit.getOwner()
         let soldItem = EventData.getSoldItem()
         let soldItemId = soldItem.getTypeId()
         let pos2 = vec2(0, -150)

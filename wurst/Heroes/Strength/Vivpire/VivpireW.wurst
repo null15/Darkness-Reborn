@@ -6,7 +6,6 @@ let limit = [2, 4, 6, 8, 10, 12, 14, 16, 18]
 var currentDmg = 0.
 
 public function bloodHunter()
-    
     let attacked = CreateTimer()
     DamageEvent.addListener(1) ->
         if (DamageEvent.getType() == ATTACK)

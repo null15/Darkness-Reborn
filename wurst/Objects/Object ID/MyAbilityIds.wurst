@@ -191,6 +191,7 @@ public constant TINKER_UNIT_SIEGE_ENGINE_ABILITY1 = compiletime(ABIL_ID_GEN.next
 public constant TINKER_UNIT_SIEGE_ENGINE_ABILITY2 = compiletime(ABIL_ID_GEN.next())
 
 public constant SHOP_SHARE = compiletime(ABIL_ID_GEN.next())
+public constant SHOP_CRYSTAL = compiletime(ABIL_ID_GEN.next())
 
 public constant TINKER_ABIL_1 = compiletime(ABIL_ID_GEN.next())
 public constant TINKER_ABIL_2 = compiletime(ABIL_ID_GEN.next())

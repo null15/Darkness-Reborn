@@ -3030,14 +3030,15 @@ init
 
     new UnitDefinition(PLAY_HERO_22_DUMMY, UnitIds.locust)
     ..setModelFile("")
+    ..setUnitClassification("Unit")
 
     new UnitDefinition(PLAY_HERO_22_DUMMY_2, UnitIds.locust)
     ..setModelFile("Units\\Far seer(Zues)\\OrbLightningX.mdx")
     ..setScalingValue(0.4)
-    ..setUnitClassification("")
+    ..setUnitClassification("Unit")
     ..setLevel(200)
 
-    new HeroDefinition(PLAY_HERO_22, UnitIds.farseer)// Far Seer (O00S)
+    new HeroDefinition(PLAY_HERO_22, UnitIds.farseer)// herald of Lightning (O00S)
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList(HERALD_ABILI_Q, HERALD_ABILI_W, HERALD_ABILI_E, HERALD_ABILI_R, HERALD_ABILI_T))
     ..setNormalAbilities(commaList('A007', 'AInv'))

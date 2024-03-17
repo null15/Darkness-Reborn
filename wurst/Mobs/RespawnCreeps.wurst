@@ -5,9 +5,9 @@ import Global_Variables
 import ItemDrops
 import ClosureEvents
 import HashMap
+import LinkedList
 import TowerAbilities
-let creepSettings = new HashMap<player,int>
-let currentCreep = new HashMap<player,unit>
+let currentCreep = new LinkedList<unit>
 let creepRespawns = new HashMap<int,real>
 player hostile = players[PLAYER_NEUTRAL_AGGRESSIVE]
 unit array leftCreep = []
@@ -22,25 +22,25 @@ init
     creepRespawner()
 
 public function player.setCreepSettings(int unitId, vec2 pos)
-    if creepSettings.get(this) != unitId
-        creepSettings.put(this, unitId)
-        if currentCreep.has(this)
-            if currentCreep.get(this).isAlive()
-                currentCreep.get(this).remove()
-                currentCreep.put(this, createUnit(hostile, unitId, pos))
+    let pid = this.getId()
+    let currentU = currentCreep.get(pid)
+    if currentU.getTypeId() != unitId
+        let u = createUnit(hostile, unitId, pos)
+        if currentU.isAlive()
+            currentU.remove()
+            currentCreep.replace(currentU, u)
         else
-            currentCreep.put(this, createUnit(hostile, unitId, pos))
+            currentCreep.addAt(u, pid)
 
 function creepRespawner()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
         let u = GetDyingUnit()
-        let p = GetKillingUnit().getOwner()
-        if currentCreep.get(p) == u
+        if currentCreep.has(u)
             u.dropItems()
             let pos = u.getPos()
             doAfter(creepRespawns.get(u.getTypeId())) ->
-                if(currentCreep.get(p) == u) 
-                    currentCreep.put(p, createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle()))
+                if(currentCreep.has(u))
+                    currentCreep.replace(u, createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle()))
         else
             if u.isIllusion()
                 skip
@@ -53,7 +53,7 @@ function creepRespawner()
                         frostyCounter++
                     doAfter(creepRespawns.get(uid)) ->
                         createUnit(hostile, uid, pos, rot)
-                u.dropItems()
+                    u.dropItems()
         
 public function eliteSideCreepsSetup()
     for int i = 1 to 24
@@ -104,6 +104,12 @@ function dreadlordCreep(unit u)
 function towerCreep(unit u)
     if(u == bossCreep[15])
         u.startTidal()
+    else if(u == bossCreep[16])
+        u.startTreant1()
+    else if(u == bossCreep[17])
+        u.startTreant2()
+    else if(u == bossCreep[18])
+        u.startTreant3()
             
     EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) -> 
         doAfter(30) ->
@@ -111,7 +117,6 @@ function towerCreep(unit u)
                 if u == bossCreep[i]
                     bossCreep[i+1] = createUnit(hostile, (BOSS_CREEP[i+1]), bossLoc[3].getCenter(), facing.asAngleDegrees())
                     towerCreep(bossCreep[i+1])
-        
         u.dropItems()
 
 public function bossCreepSetup()

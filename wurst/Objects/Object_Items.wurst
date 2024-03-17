@@ -27405,6 +27405,7 @@ init
     ..setStockMaximum(1)
     ..setStockStartDelay(1)
     ..setMaxStack(1)
+    ..setHotkey("O")
     ..setName("Upgrade Armor")
     ..setTooltipBasic("Upgrade Armor")
     ..setTooltipExtended("Upgrade armor by 5 each time")

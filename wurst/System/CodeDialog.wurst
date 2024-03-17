@@ -36,7 +36,7 @@ function player_list() returns LinkedList<ChunkedString>
         hash.add(readInto("randomkilla#6541".getHash())) //15
         hash.add(readInto("Magepowers#1896".getHash())) //16
         hash.add(readInto("NWJones#2206".getHash())) //17
-        hash.add(readInto("Sosiso4ka#21103".getHash())) //18
+        hash.add(readInto("Soshroom#2408".getHash())) //18
         hash.add(readInto("Zbucket#1931".getHash())) //19
         hash.add(readInto("Nefsty#1775".getHash())) //20
         hash.add(readInto("ShadowSong5#1337".getHash())) //21
@@ -45,6 +45,7 @@ function player_list() returns LinkedList<ChunkedString>
         hash.add(readInto("MagicTurtle#1144588".getHash())) //24
         hash.add(readInto("Park#13542".getHash())) //25
         hash.add(readInto("GodKing#31216".getHash())) //26
+        hash.add(readInto("Luntek#2491".getHash())) //27
         return hash
     return null
 

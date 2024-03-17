@@ -297,9 +297,8 @@ function waveSetupTimerElapsed()
 
 public function waveSetup()
 
-	moveUnit()	
+	moveUnit()
 	moveUnit2()
-	waveSetupTimerElapsed()
 	titleString = "Wave "+I2S(wave_count)+" — (1/3) "
 	graceWaveSpawnCb = doAfter(20) ->
 		spawnWavesNow()

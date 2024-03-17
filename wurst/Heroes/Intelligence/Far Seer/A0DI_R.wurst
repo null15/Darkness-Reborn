@@ -17,6 +17,23 @@ function staticChargeDamage()
     doAfter(0.4) -> 
         temp.destr()
 
+function mindRipperHTIM(unit src)
+    let lvl = src.getAbilityLevel(HERALD_ABILI_R)
+    DamageEvent.setAmount(DamageEvent.getAmount() * (1+0.2*lvl))
+    src.addInt((0.01+0.25*(lvl-1)).ceil())
+
+function mindRipperHEAB(unit src)
+    let lvl = src.getAbilityLevel(HERALD_ABILI_R)
+    if lvl > 0
+        if src.hasAbility(LC_BUFF_1)
+            if GetRandomInt(1, 100) < 5*lvl + src.getAbilityLevel(HERALD_ABILI_E)
+                DamageEvent.setAmount(DamageEvent.getAmount() * (1+0.2*lvl))
+                src.addInt((0.01+0.25*(lvl-1)).ceil())
+        else
+            if GetRandomInt(1, 100) < 5*lvl
+                DamageEvent.setAmount(DamageEvent.getAmount() * (1+0.2*lvl))
+                src.addInt((0.01+0.25*(lvl-1)).ceil())
+
 public function mindRipper()
     DamageEvent.addListener(0) ->
         switch DamageEvent.getType()
@@ -27,20 +44,12 @@ public function mindRipper()
                     staticChargeDamage()
             case CODE
                 let id = DamageEvent.getId()
-                if id != 'MRIP'
-                    let src = DamageEvent.getSource()
-                    let lvl = src.getAbilityLevel(HERALD_ABILI_R)
-                    if lvl > 0
-                        if src.hasAbility(LC_BUFF_1)
-                            if id == 'HTIM'
-                                DamageEvent.setAmount(DamageEvent.getAmount() * (1+0.2*lvl))
-                                src.addInt((0.01+0.25*(lvl-1)).ceil())
-                            else
-                                if GetRandomInt(1, 100) < 5*lvl + src.getAbilityLevel(HERALD_ABILI_E)
-                                    DamageEvent.setAmount(DamageEvent.getAmount() * (1+0.2*lvl))
-                                    src.addInt((0.01+0.25*(lvl-1)).ceil())
-                        else
-                            if GetRandomInt(1, 100) < 5*lvl
-                                DamageEvent.setAmount(DamageEvent.getAmount() * (1+0.2*lvl))
-                                src.addInt((0.01+0.25*(lvl-1)).ceil())
+                switch id
+                    case 'HTIM'
+                        let src = DamageEvent.getSource()
+                        mindRipperHTIM(src)
+                    case 'HEAB'
+                        let src = DamageEvent.getSource()
+                        mindRipperHEAB(src)
+                    default
             default

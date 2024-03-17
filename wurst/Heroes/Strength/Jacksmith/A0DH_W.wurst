@@ -5,31 +5,32 @@ import MyItemIds
 
 public function radiantRing()
     EventListener.onCast('A0DH') (unit caster) ->
-        let js = caster
-        let color = GetPlayerColor(GetOwningPlayer(GetTriggerUnit())).toColor().toColorString()
-        let gold = COLOR_GOLD.toColorString()
-        let white = COLOR_WHITE.toColorString()
-        let lvl = GetUnitAbilityLevel(js, 'A0DH')
-        let text = color+"Jacksmith created the basic item "+white
-        let text2 = color+"Jacksmith has been blessed, and created the legendary item "+gold
+        let lvl = caster.getAbilityLevel('A0DH')
+        let color = caster.getOwner().getColor().toColor().toColorString()
         
         if lvl <= 3
             if GetRandomInt(1, 100) <= 95
-                printTimed(text+js.addItemById(ITEM_DROP[GetRandomInt(1,15)]).getName(), 1)
+                let text = color+"Jacksmith created the basic item "+COLOR_WHITE_STR
+                printTimed(text+caster.addItemById(ITEM_DROP[GetRandomInt(1,15)]).getName(), 1)
             else 
-                printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 5)
+                let text2 = color+"Jacksmith has been blessed, and created the legendary item "+COLOR_GOLD_STR
+                printTimed(text2+caster.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 5)
 
         else if lvl <= 6
             if GetRandomInt(1, 100) <= 93
-                printTimed(text+js.addItemById(ITEM_DROP[GetRandomInt(10,30)]).getName(), 1)
+                let text = color+"Jacksmith created the basic item "+COLOR_WHITE_STR
+                printTimed(text+caster.addItemById(ITEM_DROP[GetRandomInt(10,30)]).getName(), 1)
             else 
-                printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 5)
+                let text2 = color+"Jacksmith has been blessed, and created the legendary item "+COLOR_GOLD_STR
+                printTimed(text2+caster.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 5)
 
         else if lvl <= 9
             if GetRandomInt(1, 100) <= 90
-                printTimed(text+js.addItemById(ITEM_DROP[GetRandomInt(20,50)]).getName(), 1)
+                let text = color+"Jacksmith created the basic item "+COLOR_WHITE_STR
+                printTimed(text+caster.addItemById(ITEM_DROP[GetRandomInt(20,50)]).getName(), 1)
             else 
+                let text2 = color+"Jacksmith has been blessed, and created the legendary item "+COLOR_GOLD_STR
                 if GetRandomInt(1, 100) <= 90
-                    printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 5)
+                    printTimed(text2+caster.addItemById(ITEM_DROP[GetRandomInt(100,129)]).getName(), 5)
                 else
-                    printTimed(text2+js.addItemById(ITEM_DROP[GetRandomInt(130,140)]).getName(), 5)
+                    printTimed(text2+caster.addItemById(ITEM_DROP[GetRandomInt(130,140)]).getName(), 5)

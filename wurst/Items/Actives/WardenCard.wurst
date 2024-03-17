@@ -3,16 +3,16 @@ package WardenCard
 import ClosureEvents
 import ClosureForGroups
 import codeDamageTypings
-integer u_i = 0
+integer counter = 0
 
 init
     wardenCard()
 
 function wardenCard()
     EventListener.onCast('A0TE') caster ->
-        u_i = 0
+        counter = 0
         forUnitsInRange(caster.getPos(), 400) (unit u) ->
             if(u.isEnemyOf(caster))
-                if(u_i < 8)
+                if(counter < 8)
                     caster.physicalDamageCode(25000, u, true)
-                    u_i++
+                    counter++

@@ -2,7 +2,20 @@ package TowerAbilities
 import codeDamageTypings
 import Abilities
 import Waves
+import RotationProjectile
 
 public function unit.startTidal()
     startWave(this, Abilities.crushingWaveMissile, 1.5, 3, 2, 0.5, 125) (unit hit) ->
         this.magicalDamageCode(500, hit)
+
+public function unit.startTreant1()
+    startRotation(this, Abilities.rockBoltMissile, 0.2, 1, 8, 1000, 0.44, 0.78, 2.3) (unit hit) ->
+        this.magicalDamageCode(600, hit)
+
+public function unit.startTreant2()
+    startRotation(this, Abilities.rockBoltMissile, 0.2, 2, 8, 1000, 0.44, 0.78, 2.3) (unit hit) ->
+        this.magicalDamageCode(1200, hit)
+
+public function unit.startTreant3()
+    startRotation(this, Abilities.rockBoltMissile, 0.2, 4, 8, 1000, 0.44, 0.78, 2.3) (unit hit) ->
+        this.magicalDamageCode(1750, hit)
