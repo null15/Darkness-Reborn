@@ -6,6 +6,12 @@ import LinkedList
 
 init
     recipeItemReplace()
+    recipeListed()
+
+function recipeListed()
+    //OOO'Clock
+    let tempRecipe = new Recipe(ITEM_229, ITEM_229, ITEM_229, ITEM_705, ITEM_704)
+    recipes.add(tempRecipe)
 
 function recipeItemReplace()
     CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)..addAction() ->
@@ -827,20 +833,7 @@ function recipeItemReplace()
             RemoveItem(u.getItemById(ITEM_22))
             u.addItemById(ITEM_120)
 
-        //OOO'Clock
-        else if (u.hasItemById(ITEM_705))
-            let temp = new LinkedList<int>
-            for int i = 0 to 5
-                if u.itemInSlot(i) != null
-                    temp.add(u.itemInSlot(i).getTypeId())
-            if temp.remove(ITEM_229)
-                if temp.remove(ITEM_229)
-                    if temp.remove(ITEM_229)
-                        u.removeItemById(ITEM_229)
-                        u.removeItemById(ITEM_229)
-                        u.removeItemById(ITEM_229)
-                        u.removeItemById(ITEM_705)
-                        u.addItemById(ITEM_704)
+        u.checkRecipe()    
             
 
         // // 

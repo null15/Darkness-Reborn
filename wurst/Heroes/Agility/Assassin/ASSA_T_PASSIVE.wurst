@@ -2,7 +2,9 @@ package ASSA_T_PASSIVE
 import MyAbilityIds
 import ClosureEvents
 import codeDamageTypings
+import HashMap
 let assaQuest = [0,0,0,0]
+let eventMap = new HashMap<int,EventListener>
 
 public function learnULT()
     EventListener.add(EVENT_PLAYER_HERO_SKILL) -> 
@@ -66,17 +68,20 @@ function checkCompletionQuest4() returns string
 
 function unit.assa_quest()
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 1
-        EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+        let eventListener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
             let killer = GetKillingUnit()
-            if this == killer
-                if(assaQuest[0] < 200)
+            if this == killer 
+                if(assaQuest[0] != 199)
                     assaQuest[0]++
+                else
                     let lowDmg = killer.getBaseDamage(0)
                     killer.setBaseDamage(lowDmg+500, 0)
                     printTimedToPlayer("First quest complete! You gain 500 base damage", 10, killer.getOwner())
+                    eventMap..remove(0)
+        eventMap.put(0, eventListener)
 
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 2
-        EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
+        let eventListener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
             let killer = GetKillingUnit()
             let target = GetDyingUnit()
             if this == killer and assaQuest[1] == 99
@@ -84,9 +89,11 @@ function unit.assa_quest()
                     assaQuest[1]++
                     killer.basePhysPenAdd(5)
                     printTimedToPlayer("Second quest complete! You gain 5% armor penetration", 10, killer.getOwner())
+                    eventMap..remove(1)
+        eventMap.put(1, eventListener)
                     
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 3
-        EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
+        let eventListener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
             let killer = GetKillingUnit()
             let target = GetDyingUnit()
             if killer == this and assaQuest[2] == 19
@@ -95,9 +102,11 @@ function unit.assa_quest()
                     printTimedToPlayer("Third quest complete! Your enchantments grow stronger.", 10, killer.getOwner())
                     killer.removeAbility('A0GM')
                     killer.addAbility(ASSASIN_ABIL_6_QUEST)
+                    eventMap..remove(2)
+        eventMap.put(2, eventListener)
                     
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 4
-        EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+        let eventListener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
             let killer = GetKillingUnit()
             let target = GetDyingUnit()
             if killer == this and assaQuest[3] == 0
@@ -105,3 +114,5 @@ function unit.assa_quest()
                     killer.basePhysPenAdd(10)
                     assaQuest[3]++
                     printTimedToPlayer("Fourth quest complete! You gain 10% armor penetration", 10, killer.getOwner())
+                    eventMap..remove(3)
+        eventMap.put(3, eventListener)

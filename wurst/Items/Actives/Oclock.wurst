@@ -1,10 +1,16 @@
 package Oclock
 
 import ClosureEvents
+import MyAbilityIds
 
 init
     oClock()
+    oooClock()
 
 function oClock()
     EventListener.onCast('A0CL') caster ->
+        caster.resetCooldown()
+
+function oooClock()
+    EventListener.onCast(ITEM_704_ABI1) (unit caster) ->
         caster.resetCooldown()

@@ -5,10 +5,13 @@ import HashMap
 import MyUnitIds
 import Global_Variables
 import RespawnCreeps
+import ClosureTimers
+import HashSet
 
 let item2Unit = new HashMap<int,int>
 let player2RegionX = new HashMap<player,real>
 let player2RegionY = new HashMap<player,real>
+let teleportTimerDelay = new HashSet<player>
 
 public function setRegions()
     //PLAYER SET REGION
@@ -48,22 +51,35 @@ public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
         let buyUnit = EventData.getBuyingUnit() 
         let owner = buyUnit.getOwner()
         let soldItem = EventData.getSoldItem()
-        let soldItemId = soldItem.getTypeId()
-        let pos2 = vec2(0, -150)
-        let pos = vec2(player2RegionX.get(owner),player2RegionY.get(owner)) + pos2
-        playerHero.get(owner).setPos(pos)
-        owner.setCreepSettings(item2Unit.get(soldItemId), pos.add(0, 350))
+        if(teleportTimerDelay.has(owner))
+            skip
+        else
+            teleportTimerDelay.add(owner)
+            let soldItemId = soldItem.getTypeId()
+            let pos2 = vec2(0, -150)
+            let pos = vec2(player2RegionX.get(owner),player2RegionY.get(owner)) + pos2
+            playerHero.get(owner).setPos(pos)
+            owner.setCreepSettings(item2Unit.get(soldItemId), pos.add(0, 350))
+            doAfter(0.5) -> 
+                teleportTimerDelay.remove(owner)
         soldItem.remove()
+            
 
     EventListener.add(u2, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
         let buyUnit = EventData.getBuyingUnit() 
         let owner = buyUnit.getOwner()
         let soldItem = EventData.getSoldItem()
-        let soldItemId = soldItem.getTypeId()
-        let pos2 = vec2(0, -150)
-        let pos = vec2(player2RegionX.get(owner),player2RegionY.get(owner)) + pos2
-        playerHero.get(owner).setPos(pos)
-        owner.setCreepSettings(item2Unit.get(soldItemId), pos.add(0, 350))
+        if(teleportTimerDelay.has(owner))
+            skip
+        else
+            teleportTimerDelay.add(owner)
+            let soldItemId = soldItem.getTypeId()
+            let pos2 = vec2(0, -150)
+            let pos = vec2(player2RegionX.get(owner),player2RegionY.get(owner)) + pos2
+            playerHero.get(owner).setPos(pos)
+            owner.setCreepSettings(item2Unit.get(soldItemId), pos.add(0, 350))
+            doAfter(0.5) -> 
+                teleportTimerDelay.remove(owner)
         soldItem.remove()
 
     EventListener.add(u3, EVENT_PLAYER_UNIT_SELL_ITEM) -> 

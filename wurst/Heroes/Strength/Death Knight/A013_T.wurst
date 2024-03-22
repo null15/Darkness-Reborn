@@ -3,13 +3,10 @@ import ClosureEvents
 import ClosureTimers
 import A00L_Q
 import MyAbilityIds
-import MyBuffIds
 
 public function soulsKing()
     EventListener.onCast(ABILITY_8) (unit caster) ->
         let boost = souls * 10
         caster.addStr(boost)
-        doPeriodically(1) (CallbackPeriodic cb) ->
-            if not caster.hasAbility(BUFF_4)
-                caster.setStr(caster.getStr(false)-boost)
-                destroy cb
+        doAfter(caster.getAbility(ABILITY_8).getField(ABILITY_RLF_DURATION_HERO, caster.getAbilityLevel(ABILITY_8))) -> 
+            caster.setStr(caster.getStr(false)-boost)

@@ -2,7 +2,7 @@ package Recipes
 
 import LinkedList
 
-class Recipe
+public class Recipe
     let items = new LinkedList<int>
     int completedItem
 
@@ -41,8 +41,8 @@ class Recipe
         items.add(item6)
         this.completedItem = completedItem
 
-let recipes = new LinkedList<Recipe>
-let crafterRecipes = new LinkedList<Recipe>
+public let recipes = new LinkedList<Recipe>
+public let crafterRecipes = new LinkedList<Recipe>
 
 public function addRecipe(int item1, int item2, int completedItem)
     recipes.add(new Recipe(item1, item2, completedItem))
@@ -60,27 +60,27 @@ public function addRecipe(int item1, int item2, int item3, int item4, int item5,
     recipes.add(new Recipe(item1, item2, item3, item4, item5, item6, completedItem))
 
 public function unit.checkRecipe()
-    int itemFound = -1
-    item array items
-    items[0] = this.itemInSlot(0)
-    items[1] = this.itemInSlot(1)
-    items[2] = this.itemInSlot(2)
-    items[3] = this.itemInSlot(3)
-    items[4] = this.itemInSlot(4)
-    items[5] = this.itemInSlot(5)
+    var itemFound = -1
+    let origInventory = new LinkedList<item>
+    let deleteInventory = new LinkedList<item>
+    for int i = 0 to 5
+        if(this.itemInSlot(i) != null)
+            origInventory.add(this.itemInSlot(i))
     for int i = 0 to recipes.size() - 1
-        int removeSize = 0
+        deleteInventory.clear()
         let recip = recipes.get(i)
-        for int j = 0 to 5
+        for int j = 0 to origInventory.size()
             for int k = 0 to recip.items.size() - 1
-                if(k > removeSize - 1)
-                    if(recip.items.get(k) == items[j].getTypeId())
-                        removeSize++
-        if(removeSize == recip.items.size() - 1)
+                let testItem = recip.items.get(k)
+                if(testItem == origInventory.get(j).getTypeId())
+                    deleteInventory.add(origInventory.get(j))
+                    break
+        if(deleteInventory.size() == recip.items.size())
             itemFound = i
             break
     if(itemFound > -1)
-        let recip = recipes.get(itemFound)
-        for int i = 0 to recip.items.size() -1
-            this.getItemById(recip.items.get(i)).remove()
-        this.addItemById(recip.completedItem)
+        deleteInventory.forEach() (item t) ->
+            t.remove()
+        this.addItemById(recipes.get(itemFound).completedItem)
+    destroy origInventory
+    destroy deleteInventory

@@ -5,10 +5,9 @@ import Global_Variables
 import ItemDrops
 import ClosureEvents
 import HashMap
-import LinkedList
 import TowerAbilities
-let currentCreep = new LinkedList<unit>
 let creepRespawns = new HashMap<int,real>
+let currentCreep = new HashMap<int,unit>
 player hostile = players[PLAYER_NEUTRAL_AGGRESSIVE]
 unit array leftCreep = []
 unit array eliteCreep = []
@@ -28,20 +27,21 @@ public function player.setCreepSettings(int unitId, vec2 pos)
         let u = createUnit(hostile, unitId, pos)
         if currentU.isAlive()
             currentU.remove()
-            currentCreep.addAt(u, pid)
+            currentCreep.put(pid, u)
         else
-            currentCreep.addAt(u, pid)
+            currentCreep.put(pid, u)
 
 function creepRespawner()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
         let u = GetDyingUnit()
-        if currentCreep.has(u)
+        let killOwnerId = GetKillingUnit().getOwner().getId()
+        if currentCreep.get(killOwnerId) == u
             u.dropItems()
             let pos = u.getPos()
             doAfter(creepRespawns.get(u.getTypeId())) ->
-                if(currentCreep.has(u))
+                if(currentCreep.get(killOwnerId) == u)
                     let u2 = createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle())
-                    currentCreep.addAt(u2, GetKillingUnit().getOwner().getId())
+                    currentCreep.put(GetKillingUnit().getOwner().getId(), u2)
         else
             if u.isIllusion()
                 skip

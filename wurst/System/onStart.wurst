@@ -12,6 +12,9 @@ import GameEnd
 import heroLoader
 import UpdateDropSite
 import MultiboardTimer
+import ClosureEvents
+
+import MyItemIds
 
 real facing = 270
 real facingUp = 90
@@ -50,7 +53,7 @@ public function questSetup()
     +"Lancelot's Ring + Guinevere's Ring + Pendant of Energy = Arkenstone Fragment")
 
 function onBuyHero(unit u)
-    CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_SELL)..addAction() ->
+    EventListener.add(u, EVENT_PLAYER_UNIT_SELL) -> 
         let soldUnit = GetSoldUnit()
         let p = soldUnit.getOwner()
         if playerHero.get(p) == null

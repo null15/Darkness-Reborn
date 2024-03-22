@@ -17,7 +17,7 @@ public function unit.soulCollector()
             if souls % 5 == 0
                 soulsText = createLumberBountyTextTag(this, souls)
                 soulsText.setColor(colorA(93, 247, 55, 255))
-                soulsText.setText("Souls: "+I2S(souls))  
+                soulsText.setText("Souls: "+I2S(souls))
 
     EventListener.onTargetCast('A00L') (unit caster, unit target) ->
         let lvl = GetUnitAbilityLevel(caster, 'A00L')
