@@ -6,8 +6,10 @@ import ItemDrops
 import ClosureEvents
 import HashMap
 import TowerAbilities
+import ClosureForGroups
 let creepRespawns = new HashMap<int,real>
-let currentCreep = new HashMap<int,unit>
+let currentCreep = new HashMap<int,int>
+let currentRespawn = new HashMap<int,CallbackSingle>
 player hostile = players[PLAYER_NEUTRAL_AGGRESSIVE]
 unit array leftCreep = []
 unit array eliteCreep = []
@@ -23,38 +25,39 @@ init
 public function player.setCreepSettings(int unitId, vec2 pos)
     let pid = this.getId()
     let currentU = currentCreep.get(pid)
-    if currentU.getTypeId() != unitId
-        let u = createUnit(hostile, unitId, pos)
-        if currentU.isAlive()
-            currentU.remove()
-            currentCreep.put(pid, u)
-        else
-            currentCreep.put(pid, u)
+    if currentU != unitId
+        forUnitsInRange(pos, 600) (unit u) ->
+            if u.isEnemyOf(this)
+                u.remove()
+        if currentRespawn.get(pid) != null
+            destroy currentRespawn.getAndRemove(pid)
+        createUnit(hostile, unitId, pos)
+        currentCreep.put(pid, unitId)
 
 function creepRespawner()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
         let u = GetDyingUnit()
         let killOwnerId = GetKillingUnit().getOwner().getId()
-        if currentCreep.get(killOwnerId) == u
-            u.dropItems()
-            let pos = u.getPos()
-            doAfter(creepRespawns.get(u.getTypeId())) ->
-                if(currentCreep.get(killOwnerId) == u)
-                    let u2 = createUnit(hostile, u.getTypeId(), pos, u.getFacingAngle())
-                    currentCreep.put(GetKillingUnit().getOwner().getId(), u2)
+        let pos = u.getPos()
+        let rot = u.getFacingAngle()
+        let uid = u.getTypeId()
+        
+        u.dropItems()         
+        if currentCreep.get(killOwnerId) == uid
+            let doAf = doAfter(creepRespawns.get(uid)) ->
+                if(currentCreep.get(killOwnerId) == uid)
+                    createUnit(hostile, uid, pos, rot)
+                    currentCreep.put(killOwnerId, uid)
+            currentRespawn.put(killOwnerId, doAf)
         else
             if u.isIllusion()
                 skip
             else
-                let uid = u.getTypeId()
                 if creepRespawns.has(uid)
-                    let pos = u.getPos()
-                    let rot = u.getFacingAngle()
                     if uid == ELITE_CREEP[9]
                         frostyCounter++
                     doAfter(creepRespawns.get(uid)) ->
                         createUnit(hostile, uid, pos, rot)
-                    u.dropItems()
         
 public function eliteSideCreepsSetup()
     for int i = 1 to 24
