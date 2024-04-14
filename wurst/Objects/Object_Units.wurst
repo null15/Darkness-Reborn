@@ -1731,7 +1731,7 @@ init
 
     new HeroDefinition(PLAY_HERO_10, UnitIds.blademaster)// Assasin (O00P)
     ..hideHeroDeathMsg(true)
-    ..setHeroAbilities(commaList('A0DA', 'A0DC', 'A0GM', 'A0GC', ASSASSIN_ABIL_5))
+    ..setHeroAbilities(commaList('A0DA', 'A0DC', ASSASSIN_ABIL_3, 'A0GC', ASSASSIN_ABIL_5, ASSASSIN_ABIL_3_QUEST))
     ..setNormalAbilities(commaList('A007', 'AInv'))
     ..setPrimaryAttribute("Agility")
     ..setStartingStrength(18)

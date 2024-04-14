@@ -129,6 +129,7 @@ import FAR_SEER_Q
 import FAR_SEER_W
 import BloodOfHakkar
 import VivpireVampirism
+import MyAbilityIds
 
 public function unit.heroCheck()
     switch this.getTypeId()
@@ -185,12 +186,13 @@ public function unit.heroCheck()
             redemptionHoly()
         case PLAY_HERO_9
             skip
-        case PLAY_HERO_10//Assasin
+        case PLAY_HERO_10//Assassin
             lastKiller()
             shadowWalk()
             quickSlash()
             katarMastery()
             learnULT()
+            this.disableAbility(ASSASSIN_ABIL_3_QUEST, false, false)
         case PLAY_HERO_11//Demon Hunter(illidan)
             chainFlash()
             demonPower()

@@ -123,8 +123,9 @@ public constant NAGAWITCH_ABIL_3 = compiletime(ABIL_ID_GEN.next())
 public constant NAGAWITCH_ABIL_4 = compiletime(ABIL_ID_GEN.next())
 public constant NAGAWITCH_ABIL_5 = compiletime(ABIL_ID_GEN.next())
 
+public constant ASSASSIN_ABIL_3 = compiletime(ABIL_ID_GEN.next())
 public constant ASSASSIN_ABIL_5 = compiletime(ABIL_ID_GEN.next())
-public constant ASSASIN_ABIL_6_QUEST = compiletime(ABIL_ID_GEN.next())
+public constant ASSASSIN_ABIL_3_QUEST = compiletime(ABIL_ID_GEN.next())
 
 public constant VIVPIRE_ABIL_1 = compiletime(ABIL_ID_GEN.next())
 public constant VIVPIRE_ABIL_2 = compiletime(ABIL_ID_GEN.next())
