@@ -134,14 +134,15 @@ function dreadlordCreep(unit u)
         u.dropItems()
 
 function towerCreep(unit u)
-    if(u == bossCreep[15])
-        u.startTidal()
-    else if(u == bossCreep[16])
-        u.startTreant1()
-    else if(u == bossCreep[17])
-        u.startTreant2()
-    else if(u == bossCreep[18])
-        u.startTreant3()
+    if(gameMode > 1)
+        if(u == bossCreep[15])
+            u.startTidal()
+        else if(u == bossCreep[16])
+            u.startTreant1()
+        else if(u == bossCreep[17])
+            u.startTreant2()
+        else if(u == bossCreep[18])
+            u.startTreant3()
             
     EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) -> 
         doAfter(30) ->

@@ -94,7 +94,7 @@ function unit.assa_quest()
             let killer = GetKillingUnit()
             let target = GetDyingUnit()
             if killer == this and target.getLevel() > 42
-                if(assaQuest[2] == 19)
+                if(assaQuest[2] != 19)
                     assaQuest[2]++
                 else
                     assaQuest[2]++

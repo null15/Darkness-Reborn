@@ -13,6 +13,7 @@ import ClosureEvents
 
 var internalWaveCount = 0
 var externalWaveCount = 1
+var internalBigBossCount = 0
 
 let wavesList = new LinkedList<Waves>
 let bossWaveList = new LinkedList<BossWaves>
@@ -230,7 +231,6 @@ function unit.unitStats(int whichSide)
 			printTimed("Wave: " + externalWaveCount.toString() + "\n|c00ffff00Unit: " + this.getName() + continueUnitStats(uId), 5)
 
 function spawnWavesNow()
-	print(internalWaveCount)
 	if(internalWaveCount == 1)
 		let temp = createUnit(wavesList.get(externalWaveCount).unitID)
 		temp.unitStats(0)
@@ -262,10 +262,11 @@ function spawnWavesNow()
 			..unitStats(3)
 			..minibossDeath()
 
-			if (externalWaveCount-1) % 5 == 0 and externalWaveCount-1 != 0
+			if (externalWaveCount-1) % 5 == 0
 				doAfter(2.5) -> 
-					let big_lower = bigBossWaveList.get(((externalWaveCount-1)*0.25).toInt()).bossMin
-					let big_higher = bigBossWaveList.get(((externalWaveCount-1)*0.25).toInt()).bossMax
+					internalBigBossCount = internalBigBossCount + 1
+					let big_lower = bigBossWaveList.get(((internalBigBossCount)*0.25).toInt()).bossMin
+					let big_higher = bigBossWaveList.get(((internalBigBossCount)*0.25).toInt()).bossMax
 					if externalWaveCount == 21
 						waveHeroSetup()
 					createUnit(Player(11), WAVE_BOSS[GetRandomInt(big_lower, big_higher)], gg_rct_MiddleSpawn.getCenter(), bj_UNIT_FACING.asAngleDegrees())

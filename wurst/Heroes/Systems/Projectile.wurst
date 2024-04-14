@@ -26,14 +26,17 @@ public class Projectile
         destroy this
 
     function moveForward()
+        let origPos = sfx.getPos()
         doPeriodically(0.02) (CallbackPeriodic cb) ->
+            if target.isAlive() != true
+                impact()
             let pos1 = sfx.getPos()
             let pos2 = target.getPos()
             let angle = pos1.angleTo(pos2)
             let pos3 = pos1.polarOffset(angle, 7. * velocity)
             sfx..setPos(pos3).setYaw(angle.radians())
             let dist = pos1.distanceTo(pos2)
-            if(dist <= 11.)
+            if(dist <= 11. or origPos.distanceTo(pos2) < origPos.distanceTo(pos1))
                 impact()
                 destroy cb
 

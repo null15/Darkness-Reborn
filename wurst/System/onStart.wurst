@@ -211,7 +211,8 @@ function mapSetup()
         dBox.display(players[0], true)
 
         doAfter(30) -> 
-            if(gameMode == 0)
+            if(gameMode == -1)
                 automaticPick()
                 dBox.display(players[0], false)
+                print("All enemies will have 0.75x the health and 0.75x the damage/armor. \nAbilities of Tower bosses have been disabled.")
                 destroy dBox
