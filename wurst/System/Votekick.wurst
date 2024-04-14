@@ -1,10 +1,10 @@
 package Votekick
 
-import TimerUtils
 import DialogBox
 import LinkedList
 import RegisterEvents
 import Global_Variables
+import ClosureTimers
 
 constant real VOTE_KICK_DURATION = 30.0
 constant real VOTE_KICK_COOLDOWN = 30.0
@@ -15,8 +15,8 @@ public enum PlayerStateVote
     Undecided
 
 public class VoteKick
-    private static timer m_timer
-    private static timer m_cooldown
+    private static int m_timer
+    private static int m_cooldown
     private static player m_playerRequesting
     private static player m_playerToKick
     private static PlayerStateVote array m_playerVotes
@@ -26,8 +26,8 @@ public class VoteKick
     static function isActive() returns bool
         return getTimeRemaining() > 0
 
-    static function getTimeRemaining() returns real
-        return m_timer != null ? m_timer.getRemaining() : 0
+    static function getTimeRemaining() returns int
+        return m_cooldown != 1 ? 1 : 0
 
     static function getRequestingPlayer() returns player
         return m_playerRequesting
@@ -44,8 +44,8 @@ public class VoteKick
     static function isCoolingDown() returns bool
         return getCooldownTimeRemaining() > 0
 
-    static function getCooldownTimeRemaining() returns real
-        return m_cooldown != null ? m_cooldown.getRemaining() : 0
+    static function getCooldownTimeRemaining() returns int
+        return m_cooldown != 1 ? 1 : 0
 
     static function start(player playerRequesting, player playerToKick)
 
@@ -75,8 +75,11 @@ public class VoteKick
 
         m_playerRequesting = playerRequesting
         m_playerToKick = playerToKick
-        m_timer = getTimer()
-        m_timer.start(VOTE_KICK_DURATION, function onVoteKickExpired)
+        
+        m_timer = 1
+
+        doAfter(VOTE_KICK_DURATION) -> 
+            onVoteKickExpired()
 
     static function onVoteKickExpired()
         if (not evaluateVotesCast())
@@ -113,7 +116,7 @@ public class VoteKick
 
         let halfPlayerCount = playerCount / 2
 
-        Log.info("halfPlayerCount: " + halfPlayerCount.toString() + " yes: " + voteYesCount.toString())
+        Log.info("Votes needed to kick: " + halfPlayerCount.ceil().toString() + " yes: " + voteYesCount.toString() + " no: " + votenoCount.toString())
 
         if(voteYesCount > halfPlayerCount)
             onVoteDecided(true)
@@ -125,22 +128,20 @@ public class VoteKick
         return false
 
     private static function cleanup()
-        m_timer.release()
-        m_timer = null
-
         m_playerRequesting = null
         m_playerToKick = null
         m_votingPlayers.clear()
+        m_timer = 0
 
         for p in m_votingPlayers
             closeVoteKickDialog(p)
-        
-        m_cooldown = getTimer()
-        m_cooldown.start(VOTE_KICK_COOLDOWN, function onCooldownTimerExpired)
+
+        m_cooldown = 1
+        doAfter(VOTE_KICK_COOLDOWN) -> 
+            onCooldownTimerExpired()
 
     private static function onCooldownTimerExpired()
-        m_cooldown.release()
-        m_cooldown = null
+        m_cooldown = 0
 
     static function castVote(player votingPlayer, bool value)
         if (not isActive())

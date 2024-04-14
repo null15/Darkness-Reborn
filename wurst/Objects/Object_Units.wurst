@@ -152,7 +152,7 @@ init
 
     new UnitDefinition(DUMMY_UNIT_2, UnitIds.footman)
     ..setName("Effect Dummy Unit")
-    ..setModelFile(Abilities.ancientProtectorMissile)
+    ..setModelFile(Units.owlSCOUT)
     ..setAttack1ProjectileArt(Abilities.arrowMissile1)
     ..setScalingValue(1)
     ..setUpgradesUsed("")
@@ -194,6 +194,7 @@ init
     ..setAttack1WeaponType(WeaponType.Instant)
     ..setAcquisitionRange(0)
     ..setNormalAbilities(commaList(AbilityIds.invulnerable, AbilityIds.locust))
+    ..setMovementHeight(50)
 
     new UnitDefinition(DUMMY_UNIT_3, UnitIds.phoenix)
     ..setName("Phoenix Dummy Unit")

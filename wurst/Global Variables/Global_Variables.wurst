@@ -13,6 +13,9 @@ public let playerHero = new HashMap<player,unit>
 
 public unit elementalSoul
 
+public let healthDifficultyModifier = [0.5,0.75,1,2,4]
+public let armorDifficultyModifier = [0.5,0.75,1,1.5,2]
+
 public constant DAMAGE_EVENT_PRIO_START     = 0 // Abort damage at this priority
 public constant DAMAGE_EVENT_PRIO_RELATIVE  = 1 // Apply relative changes (multiplication and division)
 public constant DAMAGE_EVENT_PRIO_ABSOLUTE  = 2 // Apply absolute changes (addition and subtraction)

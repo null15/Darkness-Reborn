@@ -8,11 +8,11 @@ public function noblesseAura()
         let killer = GetKillingUnit()
         let lvl = killer.getAbilityLevel('A0R8')
         if(lvl > 0)
-            if(strGain < lvl * 250)
+            if(strGain < lvl * 750)
                 if(lvl == 4)
                     killer.addStr(2)
                     strGain = strGain + 2
-                    if(strGain > 1000)
+                    if(strGain > 3000)
                         killer.setStr(killer.getStr(false) - 1)
                 else
                     killer.addStr(1)

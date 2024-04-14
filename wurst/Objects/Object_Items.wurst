@@ -4444,8 +4444,8 @@ init
     +"Every 1 second deal 2000 Damage to a nearby enemy within 650 Range.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
     +"Orb of Darkness (|c007EBFF1" + basicShop3 + "|r)\n"
-    +"Void Axe (|c001CE6B9" + recipeShop3 + "|r)\n"
-    +"Dark Sphere (|c001CE6B9" + recipeShop3 + "|r)")
+    +"Void Axe (|c001CE6B9" + recipeShop2 + "|r)\n"
+    +"Dark Sphere (|c001CE6B9" + recipeShop4 + "|r)")
     ..setHotkey("")
 
 //I0E1
@@ -9111,7 +9111,7 @@ init
 
 //I00M
     new ItemDefinition(ITEM_223, ItemIds.frostguard)
-    ..setAbilities(commaList('A05M', 'A02B', 'A05I', 'A045'))
+    ..setAbilities(commaList(STEELSHIELD_ABIL_1, STEELSHIELD_ABIL_2, STEELSHIELD_ABIL_3, STEELSHIELD_ABIL_4))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNrcgs.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
@@ -9145,6 +9145,28 @@ init
     ..setTooltipBasic("Purchase Steel Shield")
     ..setTooltipExtended("|c00FFFC01Effect:|r \n+50 Armor\n+30 Stats\n+2000 HP\n50% Chance to block 550 Damage.")
     ..setHotkey("F")
+
+    new AbilityDefinitionAllPlus1(STEELSHIELD_ABIL_1)
+    ..setStrengthBonus(1, 30)
+    ..setAgilityBonus(1, 30)
+    ..setIntelligenceBonus(1, 30)
+    ..setLevels(1)
+
+    new AbilityDefinitionDefenseBonusPlus1(STEELSHIELD_ABIL_2)
+    ..setLevels(1)
+    ..setDefenseBonus(1, 50)
+
+    new AbilityDefinitionMaxLifeBonusGreater(STEELSHIELD_ABIL_3)
+    ..setLevels(1)
+    ..setMaxLifeGained(1, 2000)
+
+    new AbilityDefinitionHardenedSkin(STEELSHIELD_ABIL_4)
+    ..setLevels(1)
+    ..setChancetoReduceDamage(1, 0.5)
+    ..setMinimumDamage(1, 0)
+    ..setIgnoredDamage(1, 550)
+    ..setIncludeMeleeDamage(1, true)
+    ..setIncludeRangedDamage(1, true)
 
 //I00N
     new ItemDefinition(ITEM_224, ItemIds.frostguard)

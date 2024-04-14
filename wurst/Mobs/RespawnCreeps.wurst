@@ -9,7 +9,6 @@ import TowerAbilities
 import ClosureForGroups
 let creepRespawns = new HashMap<int,real>
 let currentCreep = new HashMap<int,int>
-let currentRespawn = new HashMap<int,CallbackSingle>
 player hostile = players[PLAYER_NEUTRAL_AGGRESSIVE]
 unit array leftCreep = []
 unit array eliteCreep = []
@@ -19,6 +18,19 @@ unit array dryad = []
 real facing = 270
 real facingUp = 90
 integer frostyCounter = 0
+
+
+function int.testForEarlyMob() returns bool
+    if this == LEFT_CREEP_0
+        return false
+    if this == LEFT_CREEP_1
+        return false
+    if this == LEFT_CREEP_2
+        return false
+    if this == LEFT_CREEP_3
+        return false
+    return true
+
 init
     creepRespawner()
 
@@ -29,9 +41,10 @@ public function player.setCreepSettings(int unitId, vec2 pos)
         forUnitsInRange(pos, 600) (unit u) ->
             if u.isEnemyOf(this)
                 u.remove()
-        if currentRespawn.get(pid) != null
-            destroy currentRespawn.getAndRemove(pid)
-        createUnit(hostile, unitId, pos)
+        let u = createUnit(hostile, unitId, pos)
+        if(unitId.testForEarlyMob())
+            u..setArmor(u.getArmor() * armorDifficultyModifier[gameMode])
+            u..setMaxHP((u.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u.getMaxHP())
         currentCreep.put(pid, unitId)
 
 function creepRespawner()
@@ -44,11 +57,14 @@ function creepRespawner()
         
         u.dropItems()         
         if currentCreep.get(killOwnerId) == uid
-            let doAf = doAfter(creepRespawns.get(uid)) ->
-                if(currentCreep.get(killOwnerId) == uid)
-                    createUnit(hostile, uid, pos, rot)
+            currentCreep.put(killOwnerId, 0)
+            doAfter(creepRespawns.get(uid)) ->
+                if(currentCreep.get(killOwnerId) == 0)
+                    let u2 = createUnit(hostile, uid, pos, rot)
+                    if(uid.testForEarlyMob())
+                        u2..setArmor(u2.getArmor() * armorDifficultyModifier[gameMode])
+                        u2..setMaxHP((u2.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u2.getMaxHP())
                     currentCreep.put(killOwnerId, uid)
-            currentRespawn.put(killOwnerId, doAf)
         else
             if u.isIllusion()
                 skip
@@ -57,7 +73,9 @@ function creepRespawner()
                     if uid == ELITE_CREEP[9]
                         frostyCounter++
                     doAfter(creepRespawns.get(uid)) ->
-                        createUnit(hostile, uid, pos, rot)
+                        let u2 = createUnit(hostile, uid, pos, rot)
+                        u2..setArmor(u2.getArmor() * armorDifficultyModifier[gameMode])
+                        u2..setMaxHP((u2.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u2.getMaxHP())
         
 public function eliteSideCreepsSetup()
     for int i = 1 to 24
@@ -65,7 +83,9 @@ public function eliteSideCreepsSetup()
 
     for i = 1 to 5
         creepRespawns.put(ELITE_CREEP[i], 5)
-        createUnit(hostile, ELITE_CREEP[i], eliteLoc[i].getCenter(), facingUp.asAngleDegrees())
+        let u = createUnit(hostile, ELITE_CREEP[i], eliteLoc[i].getCenter(), facingUp.asAngleDegrees())
+        u..setArmor(u.getArmor() * armorDifficultyModifier[gameMode])
+        u..setMaxHP((u.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u.getMaxHP())
         
     for i = 6 to 10
         if i == 6 or i == 7
@@ -75,7 +95,9 @@ public function eliteSideCreepsSetup()
         if i == 9
             creepRespawns.put(ELITE_CREEP[i], 30)
                 
-        createUnit(hostile, ELITE_CREEP[i], eliteLoc[i].getCenter(), facing.asAngleDegrees())
+        let u = createUnit(hostile, ELITE_CREEP[i], eliteLoc[i].getCenter(), facing.asAngleDegrees())
+        u..setArmor(u.getArmor() * armorDifficultyModifier[gameMode])
+        u..setMaxHP((u.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u.getMaxHP())
 
 function dragonCreep(unit u)
     EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) -> 
@@ -83,6 +105,8 @@ function dragonCreep(unit u)
             for i = 1 to 7
                 if u == bossCreep[i]
                     bossCreep[i+1] = createUnit(hostile, (BOSS_CREEP[i+1]), bossLoc[1].getCenter(), facing.asAngleDegrees())
+                    bossCreep[i+1]..setArmor(bossCreep[i+1].getArmor() * armorDifficultyModifier[gameMode])
+                    bossCreep[i+1]..setMaxHP((bossCreep[i+1].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(bossCreep[i+1].getMaxHP())
                     dragonCreep(bossCreep[i+1])
         u.dropItems()
                     
@@ -92,6 +116,8 @@ function seaCreep(unit u)
             for i = 9 to 11
                 if u == bossCreep[i]
                     bossCreep[i+1] = createUnit(hostile, (BOSS_CREEP[i+1]), bossLoc[2].getCenter(), facing.asAngleDegrees())
+                    bossCreep[i+1]..setArmor(bossCreep[i+1].getArmor() * armorDifficultyModifier[gameMode])
+                    bossCreep[i+1]..setMaxHP((bossCreep[i+1].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(bossCreep[i+1].getMaxHP())
                     seaCreep(bossCreep[i+1])
         u.dropItems()
 
@@ -102,6 +128,8 @@ function dreadlordCreep(unit u)
                 bossCreep[14] = createUnit(hostile, (BOSS_CREEP[14]), bossLoc[4].getCenter(), facing.asAngleDegrees())
                 bossCreep[14].setLevel(80, false)
                 bossCreep[14].suspendXp(true)
+                bossCreep[14]..setArmor(bossCreep[14].getArmor() * armorDifficultyModifier[gameMode])
+                bossCreep[14]..setMaxHP((bossCreep[14].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(bossCreep[14].getMaxHP())
                 dreadlordCreep(bossCreep[14])
         u.dropItems()
 
@@ -120,19 +148,29 @@ function towerCreep(unit u)
             for i = 15 to 21
                 if u == bossCreep[i]
                     bossCreep[i+1] = createUnit(hostile, (BOSS_CREEP[i+1]), bossLoc[3].getCenter(), facing.asAngleDegrees())
+                    bossCreep[i+1]..setArmor(bossCreep[i+1].getArmor() * armorDifficultyModifier[gameMode])
+                    bossCreep[i+1]..setMaxHP((bossCreep[i+1].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(bossCreep[i+1].getMaxHP())
                     towerCreep(bossCreep[i+1])
         u.dropItems()
 
 public function bossCreepSetup()
     bossCreep[1] = createUnit(hostile, BOSS_CREEP[1], bossLoc[1].getCenter(), facing.asAngleDegrees()) // Dragon
+    bossCreep[1]..setArmor(bossCreep[1].getArmor() * armorDifficultyModifier[gameMode])
+    bossCreep[1]..setMaxHP((bossCreep[1].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(bossCreep[1].getMaxHP())
     dragonCreep(bossCreep[1])
     bossCreep[9] = createUnit(hostile, BOSS_CREEP[9], bossLoc[2].getCenter(), facing.asAngleDegrees()) // Sea
+    bossCreep[9]..setArmor(bossCreep[9].getArmor() * armorDifficultyModifier[gameMode])
+    bossCreep[9]..setMaxHP((bossCreep[9].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(bossCreep[9].getMaxHP())
     seaCreep(bossCreep[9])
     bossCreep[13] = createUnit(hostile, BOSS_CREEP[13], bossLoc[4].getCenter(), facing.asAngleDegrees()) // Dreadlord
     bossCreep[13].setLevel(80, false)
     bossCreep[13].suspendXp(true)
+    bossCreep[13]..setArmor(bossCreep[13].getArmor() * armorDifficultyModifier[gameMode])
+    bossCreep[13]..setMaxHP((bossCreep[13].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(bossCreep[13].getMaxHP())
     dreadlordCreep(bossCreep[13])
     bossCreep[15] = createUnit(hostile, BOSS_CREEP[15], bossLoc[3].getCenter(), facing.asAngleDegrees()) // Tower
+    bossCreep[15]..setArmor(bossCreep[15].getArmor() * armorDifficultyModifier[gameMode])
+    bossCreep[15]..setMaxHP((bossCreep[15].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(bossCreep[15].getMaxHP())
     towerCreep(bossCreep[15])
     
 function overdryaCreep(unit u)
@@ -143,14 +181,22 @@ function overdryaCreep(unit u)
             for i = 1 to 10
                 if u1 == overlord[i]
                     overlord[i] = createUnit(hostile, OVERDRYA_CREEP[2], pos, u1.getFacingAngle())
+                    overlord[i]..setArmor(overlord[i].getArmor() * armorDifficultyModifier[gameMode])
+                    overlord[i]..setMaxHP((overlord[i].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(overlord[i].getMaxHP())
                     overdryaCreep(overlord[i])
                 else if u1 == dryad[i]
                     dryad[i] = createUnit(hostile, OVERDRYA_CREEP[1], pos, u1.getFacingAngle())
+                    dryad[i]..setArmor(dryad[i].getArmor() * armorDifficultyModifier[gameMode])
+                    dryad[i]..setMaxHP((dryad[i].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(dryad[i].getMaxHP())
                     overdryaCreep(dryad[i])
 
 public function overdryaSetup()
     for i = 1 to 10
         overlord[i] = createUnit(hostile, OVERDRYA_CREEP[2], gg_rct_OverlordArea.randomPoint(), facing.asAngleDegrees())
+        overlord[i]..setArmor(overlord[i].getArmor() * armorDifficultyModifier[gameMode])
+        overlord[i]..setMaxHP((overlord[i].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(overlord[i].getMaxHP())
         overdryaCreep(overlord[i])
         dryad[i] = createUnit(hostile, OVERDRYA_CREEP[1], gg_rct_DryadArea.randomPoint(), facing.asAngleDegrees())
+        dryad[i]..setArmor(dryad[i].getArmor() * armorDifficultyModifier[gameMode])
+        dryad[i]..setMaxHP((dryad[i].getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(dryad[i].getMaxHP())
         overdryaCreep(dryad[i])

@@ -17,31 +17,32 @@ function newHero(unit replaced,int unitType)
     doAfter(4) ->
         sfx2.playAnimation(ANIM_TYPE_DEATH)
         doAfter(1) -> 
-            sfx.destr()
-            sfx2..setZ(-9999)..destr()
-            replaced.unPauseUnitIndef()
-            replaced.setInvulnerable(false)
-            item array items = [] 
-            let rep_xp = replaced.getXp()
-            let rep_str = replaced.getStr(false)
-            let rep_agi = replaced.getAgi(false)
-            let rep_int = replaced.getInt(false)
-            let rep_hp = replaced.getHP()
-            let rep_mp = replaced.getMana()
-            for i = 0 to 5
-                items[i] = replaced.itemInSlot(i)
-            let u1 = replaced.replace(createUnit(replaced.getOwner(), unitType, replaced.getPos()))
-            u1
-            ..setXp(rep_xp, true)
-            ..setStr(rep_str)
-            ..setAgi(rep_agi)
-            ..setInt(rep_int)
-            ..setHP(rep_hp)
-            ..setMana(rep_mp)
-            playerHero.put(replaced.getOwner(), u1)
-            u1.heroCheck()
-            for i = 0 to 5
-                u1.addItemToSlot(GetItemTypeId(items[i]), i)
+            if(replaced.getOwner().isIngame())
+                sfx.destr()
+                sfx2..setZ(-9999)..destr()
+                replaced.unPauseUnitIndef()
+                replaced.setInvulnerable(false)
+                item array items = [] 
+                let rep_xp = replaced.getXp()
+                let rep_str = replaced.getStr(false)
+                let rep_agi = replaced.getAgi(false)
+                let rep_int = replaced.getInt(false)
+                let rep_hp = replaced.getHP()
+                let rep_mp = replaced.getMana()
+                for i = 0 to 5
+                    items[i] = replaced.itemInSlot(i)
+                let u1 = replaced.replace(createUnit(replaced.getOwner(), unitType, replaced.getPos()))
+                u1
+                ..setXp(rep_xp, true)
+                ..setStr(rep_str)
+                ..setAgi(rep_agi)
+                ..setInt(rep_int)
+                ..setHP(rep_hp)
+                ..setMana(rep_mp)
+                playerHero.put(replaced.getOwner(), u1)
+                u1.heroCheck()
+                for i = 0 to 5
+                    u1.addItemToSlot(GetItemTypeId(items[i]), i)
 
 function evolution()
     EventListener.add(EVENT_PLAYER_HERO_LEVEL) -> 

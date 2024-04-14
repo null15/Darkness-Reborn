@@ -8,7 +8,7 @@ public function thunderClap()
     EventListener.onCast('A0DV') (unit caster) ->
         forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
             let lvl = caster.getAbilityLevel('A0DV')
-            let dmg = ((caster.getStr(true)*0.5)+(150*lvl))
+            let dmg = ((caster.getStr(true)*0.5+150)*lvl)
             doPeriodically(0.03) (CallbackPeriodic cb) ->
                 if caster.isEnemyOf(u) and u.hasAbility('BHtc')
                     caster.physicalDamageCode(dmg, u, true)

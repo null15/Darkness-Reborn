@@ -8,23 +8,15 @@ import Orders
 import ItemDrops
 import codeDamageTypings
 import MultiboardTimer
+import LinkedList
+import ClosureEvents
 
-integer count = 0
-integer wave_count = 1 // originally 1
+var internalWaveCount = 0
+var externalWaveCount = 1
 
-integer mini_lower = 0
-integer mini_higher = 0
-
-integer big_lower = 0
-integer big_higher = 0
-
-integer timercount1 = 0
-integer timercount2 = wave_count
-
-real facing = 270
-
-unit array miniboss = []
-unit bigboss = null
+let wavesList = new LinkedList<Waves>
+let bossWaveList = new LinkedList<BossWaves>
+let bigBossWaveList = new LinkedList<BossWaves>
 
 init
 	LEFT_CREEP_1.enumerateMagicResistanceId(80)
@@ -196,72 +188,121 @@ init
 	WAVE_HERO_28.enumerateMagicResistanceId(99)
 	WAVE_HERO_29.enumerateMagicResistanceId(80)
 
+
+class Waves
+	int unitID
+	
+	construct(int unitID)
+		this.unitID = unitID
+
+class BossWaves
+	int bossMin
+	int bossMax
+
+	construct(int bossMin, int bossMax)
+		this.bossMin = bossMin
+		this.bossMax = bossMax
+
+function wavesSetup()
+	for int i = 1 to 20
+		wavesList.add(new Waves(WAVE_MOB[i]))
+		bossWaveList.add(new BossWaves(calc_miniBossLower(i), calc_miniBossHigher(i)))
+	for int i = 1 to 4
+		bigBossWaveList.add(new BossWaves(calc_lowerBigBoss(i), calc_higherBigBoss(i)))
+	
+
+
 function continueUnitStats(integer uId) returns string
 	return "|r\n|c00aa3101Physical Pen: " + (uId.getPhysPenetration() * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (uId.getMagicResist() * 100).toString() + "%|r\n"
 
-function unitStats(unit u, int whichSide)
-	let uId = u.getTypeId()
+function unit.unitStats(int whichSide)
+	let uId = this.getTypeId()
 	switch whichSide
 		case 1
-			printTimed("Left Side Boss" + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
+			printTimed("Left Side Boss" + "\n|c00ffff00Unit: " + this.getName() + continueUnitStats(uId), 5)
 		case 2
-			printTimed("Middle Boss " + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
+			printTimed("Middle Boss " + "\n|c00ffff00Unit: " + this.getName() + continueUnitStats(uId), 5)
 		case 3
-			printTimed("Right Side Boss " + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
+			printTimed("Right Side Boss " + "\n|c00ffff00Unit: " + this.getName() + continueUnitStats(uId), 5)
 		case 4
-			printTimed("|c00c90c0c!!!WARNING!!!|r\nBig Boss " + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
+			printTimed("|c00c90c0c!!!WARNING!!!|r\nBig Boss " + "\n|c00ffff00Unit: " + this.getName() + continueUnitStats(uId), 5)
 		default
-			printTimed("Wave: " + wave_count.toString() + "\n|c00ffff00Unit: " + u.getName() + continueUnitStats(uId), 5)
+			printTimed("Wave: " + externalWaveCount.toString() + "\n|c00ffff00Unit: " + this.getName() + continueUnitStats(uId), 5)
 
 function spawnWavesNow()
-	if(count == 0)
-		let temp = createUnit(WAVE_MOB[wave_count])
-		unitStats(temp, 0)
+	print(internalWaveCount)
+	if(internalWaveCount == 1)
+		let temp = createUnit(wavesList.get(externalWaveCount).unitID)
+		temp.unitStats(0)
 		temp.remove()
-	count = count + 1
 
 	doPeriodicallyCounted(0.2, 12) (CallbackCounted cb) ->
-		createUnit(Player(11), WAVE_MOB[wave_count], gg_rct_LeftSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
+		createUnit(Player(11), wavesList.get(externalWaveCount).unitID, gg_rct_LeftSpawn.randomPoint(), bj_UNIT_FACING.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
 		
-		createUnit(Player(12), WAVE_MOB[wave_count], gg_rct_MiddleSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
+		createUnit(Player(12), wavesList.get(externalWaveCount).unitID, gg_rct_MiddleSpawn.randomPoint(), bj_UNIT_FACING.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
 
-		createUnit(Player(13), WAVE_MOB[wave_count], gg_rct_RightSpawn.randomPoint(), facing.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_RightSpawnMove1.randomPoint())
+		createUnit(Player(13), wavesList.get(externalWaveCount).unitID, gg_rct_RightSpawn.randomPoint(), bj_UNIT_FACING.asAngleDegrees()).issuePointOrderById(Orders.attack, gg_rct_RightSpawnMove1.randomPoint())
 
-	if count == 3
-		doAfter(2.5) -> 
-			mini_lower = calc_miniBossLower(wave_count)
-			mini_higher = calc_miniBossHigher(wave_count)
-			count = 0
-			wave_count = wave_count + 1
-			miniboss[1] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_LeftSpawn.getCenter(), facing.asAngleDegrees())
-			miniboss[1].issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
-			unitStats(miniboss[1], 1)
-			minibossDeath(miniboss[1])
-			miniboss[2] = createUnit(Player(12), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_MiddleSpawn.getCenter(), facing.asAngleDegrees())
-			miniboss[2].issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
-			unitStats(miniboss[2], 2)
-			minibossDeath(miniboss[2])
-			miniboss[3] = createUnit(Player(13), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_RightSpawn.getCenter(), facing.asAngleDegrees())
-			miniboss[3].issuePointOrderById(Orders.attack, gg_rct_RightSpawnMove1.randomPoint())
-			unitStats(miniboss[3], 3)
-			minibossDeath(miniboss[3])
-			if (wave_count-1) % 5 == 0
+	if internalWaveCount == 3
+		doAfter(2.5) ->
+			let mini_lower = bossWaveList.get(externalWaveCount).bossMin
+			let mini_higher = bossWaveList.get(externalWaveCount).bossMax
+			createUnit(Player(11), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_LeftSpawn.getCenter(), bj_UNIT_FACING.asAngleDegrees())
+			..issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
+			..unitStats(1)
+			..minibossDeath()
+
+			createUnit(Player(12), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_MiddleSpawn.getCenter(), bj_UNIT_FACING.asAngleDegrees())
+			..issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
+			..unitStats(2)
+			..minibossDeath()
+
+			createUnit(Player(13), WAVE_BOSS[GetRandomInt(mini_lower, mini_higher)], gg_rct_RightSpawn.getCenter(), bj_UNIT_FACING.asAngleDegrees())
+			..issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
+			..unitStats(3)
+			..minibossDeath()
+
+			if (externalWaveCount-1) % 5 == 0 and externalWaveCount-1 != 0
 				doAfter(2.5) -> 
-					if wave_count == 21
+					let big_lower = bigBossWaveList.get(((externalWaveCount-1)*0.25).toInt()).bossMin
+					let big_higher = bigBossWaveList.get(((externalWaveCount-1)*0.25).toInt()).bossMax
+					if externalWaveCount == 21
 						waveHeroSetup()
-					big_lower = calc_lowerBigBoss((wave_count-1))
-					big_higher = calc_higherBigBoss((wave_count-1))
-					miniboss[4] = createUnit(Player(11), WAVE_BOSS[GetRandomInt(big_lower, big_higher)], gg_rct_MiddleSpawn.getCenter(), facing.asAngleDegrees())
-					miniboss[4].issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove1.randomPoint())
-					minibossDeath(miniboss[4])
+					createUnit(Player(11), WAVE_BOSS[GetRandomInt(big_lower, big_higher)], gg_rct_MiddleSpawn.getCenter(), bj_UNIT_FACING.asAngleDegrees())
+					..issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
+					..unitStats(4)
+					..minibossDeath()
 
-function minibossDeath(unit u)
-	CreateTrigger()..registerUnitEvent(u, EVENT_UNIT_DEATH)..addAction() ->
-		let u1 = GetDyingUnit()
-		dropMyItemsMinibosses(u1)
+function unit.minibossDeath()
+	EventListener.add(this, EVENT_PLAYER_UNIT_DEATH) -> 
+		dropMyItemsMinibosses(this)
 
 function moveUnitsCond() returns boolean
 	return GetOwningPlayer(GetEnteringUnit()) == Player(11) or GetOwningPlayer(GetEnteringUnit()) == Player(12) or GetOwningPlayer(GetEnteringUnit()) == Player(13)
+
+function waveSetupTimerElapsed()
+	if externalWaveCount == 21
+		DoNothing()
+	else
+		if internalWaveCount == 3
+			externalWaveCount = externalWaveCount + 1
+			internalWaveCount = 1
+			graceWaveSpawnCb = doAfter(50) ->
+				waveSetupTimerElapsed()
+				spawnWavesNow()
+		else
+			internalWaveCount = internalWaveCount + 1
+			graceWaveSpawnCb = doAfter(20) -> 
+				waveSetupTimerElapsed()
+				spawnWavesNow()
+		titleString = "Wave "+externalWaveCount.toString()+" — ("+internalWaveCount.toString()+"/3)"
+
+public function waveSetup()
+
+	moveUnit()
+	moveUnit2()
+	waveSetupTimerElapsed()
+	spawnWavesNow()
 
 function moveUnit()
 	CreateTrigger()
@@ -278,35 +319,10 @@ function moveUnit2()
 	..addAction() ->
 		GetEnteringUnit().issuePointOrderById(Orders.attack, gg_rct_AllSpawnMove2.randomPoint())
 
-function waveSetupTimerElapsed()
-	if wave_count == 21
-		DoNothing()
-	else
-		timercount1 = timercount1 + 1
-		titleString = "Wave "+I2S(timercount2)+" — ("+I2S(timercount1+1)+"/3)"
-		if timercount1 == 2
-			timercount2 = timercount2 + 1
-			timercount1 = 0
-			graceWaveSpawnCb = doAfter(50) ->
-				waveSetupTimerElapsed()
-				spawnWavesNow() 
-		else
-			graceWaveSpawnCb = doAfter(20) -> 
-				waveSetupTimerElapsed()
-				spawnWavesNow()
-
-public function waveSetup()
-
-	moveUnit()
-	moveUnit2()
-	titleString = "Wave "+I2S(wave_count)+" — (1/3) "
-	graceWaveSpawnCb = doAfter(20) ->
-		spawnWavesNow()
-		waveSetupTimerElapsed()
-
 public function preWaveSetup()
+	wavesSetup()
 	titleString = "Preparation Phase "
-	graceWaveSpawnCb = doAfter(60) -> 
+	graceWaveSpawnCb = doAfter(80) -> 
 		waveSetup()
 
 	CreateTrigger()..registerRectEnterEventSource(gg_rct_LeftSpawn)

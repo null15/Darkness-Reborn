@@ -40,7 +40,7 @@ public function mindRipper()
             case ATTACK
                 let src = DamageEvent.getSource()
                 let lvl = src.getAbilityLevel(HERALD_ABILI_R)
-                if GetRandomInt(1, 100) < 15 and lvl > 0
+                if GetRandomInt(1, 100) < lvl * 5 and lvl > 0
                     staticChargeDamage()
             case CODE
                 let id = DamageEvent.getId()

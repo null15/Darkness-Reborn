@@ -3,40 +3,30 @@ import ClosureForGroups
 import ClosureEvents
 import ClosureTimers
 import Abilities
-import MyUnitIds
-import UnitIds
 import codeDamageTypings
-function calculateDistance (vec2 v1, vec2 v2) returns real
-    let a = (v2.x - v1.x)
-    let b = (v2.y - v1.y)
-    return SquareRoot(a*a + b*b)
-
+import Projectile
+import Units
 
 public function hawkeyeSplit()
     EventListener.onPointCast('A0U1') (unit caster, vec2 target) ->
         let lvl = caster.getAbilityLevel('A0U1')
-        let output = (caster.getInt(true) * 0.1 + 20) * lvl
-        let owl = createUnit(caster.getOwner(),DUMMY_UNIT_2,target)
-        let shooter = createUnit(caster.getOwner(), UnitIds.owl3, target)..setMoveSpeed(0)
-        doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
+        let owl = AddSpecialEffect(Units.owlSCOUT, target.x, target.y)
+        caster.setUserData(GetRandomInt(0, 359))
+        owl.setYaw(caster.getUserData().toReal())
+        owl.setHeight(150)
+        doPeriodicallyTimed(0.25, 5) (CallbackCounted cb) ->
+            if(caster.getUserData() + 18 > 360)
+                caster.setUserData(caster.getUserData() + 18 - 360)
+            else
+                caster.setUserData(caster.getUserData() + 18)
+            owl.setYaw(caster.getUserData().toReal())
             forUnitsInRange(target, 500, true) (unit u) ->
-                shooter.setFacing(shooter.getPos().angleTo(u.getPos()))
                 if caster.isEnemyOf(u) and u.isAlive()
-                    var x = owl.getX()
-                    var y = owl.getY()
-                    let projectile = AddSpecialEffect(Abilities.arrowMissile1, x, y)
-                    projectile.setHeight(50)
-                    doPeriodically(0.05) (CallbackPeriodic cb) ->
-                        let v = u.getPos()
-                        let angle = Atan2(v.y - y, v.x - x)
-                        x = x + 25 * Cos(angle)
-                        y = y + 25 * Sin(angle)
-                        projectile..setX(x)..setY(y)..setHeight(50).setYaw(angle)
-                        let dist = calculateDistance(projectile.getPos(), u.getPos())
-                        if(dist <= 25.00)
-                            projectile.destr()
-                            caster.magicalDamageCode(output, u)
-                            destroy cb
+                    let pos = owl.getPos()
+                    let projectile = AddSpecialEffect(Abilities.arrowMissile1, pos.x, pos.y)
+                    projectile.setHeight(150)
+                    fireProjectile(u, projectile, 4) (effect detectionUnit, unit target) ->
+                        let output = (caster.getInt(true) * 0.25 + 5.) * lvl
+                        caster.magicalDamageCode(output, u)
             if(cb.isLast())
-                owl.remove()
-                shooter.remove()
+                owl.destr()

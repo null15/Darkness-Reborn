@@ -31,6 +31,11 @@ public constant ABILITY_DUMMY_19 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_DUMMY_20 = compiletime(ABIL_ID_GEN.next())
 public constant ABILITY_DUMMY_21 = compiletime(ABIL_ID_GEN.next())
 
+public constant STEELSHIELD_ABIL_1 = compiletime(ABIL_ID_GEN.next())
+public constant STEELSHIELD_ABIL_2 = compiletime(ABIL_ID_GEN.next())
+public constant STEELSHIELD_ABIL_3 = compiletime(ABIL_ID_GEN.next())
+public constant STEELSHIELD_ABIL_4 = compiletime(ABIL_ID_GEN.next())
+
 public constant ABILITY_DUMMY_STUN = compiletime(ABIL_ID_GEN.next())
 
 public constant ABILITY_0 = compiletime(ABIL_ID_GEN.next())

@@ -22,6 +22,7 @@ public class Projectile
         if(target.isAlive())
             onHit.hit(sfx, target)
         sfx.destr()
+        destroy onHit
         destroy this
 
     function moveForward()

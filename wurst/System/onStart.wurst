@@ -14,8 +14,6 @@ import UpdateDropSite
 import MultiboardTimer
 import ClosureEvents
 
-import MyItemIds
-
 real facing = 270
 real facingUp = 90
 
@@ -180,9 +178,34 @@ function mapSetup()
     doAfter(0.5) -> 
         let dBox = new DialogBox("Choose difficulty")
 
+        dBox.addButton("Baby") -> 
+            gameMode = 0
+            dialogBoxClick()
+            print("All enemies will have 0.5x the health and 0.5x the damage/armor. \nAbilities of Tower bosses have been disabled.")
+            destroy dBox
+
+        dBox.addButton("Easy") -> 
+            gameMode = 1
+            dialogBoxClick()
+            print("All enemies will have 0.75x the health and 0.75x the damage/armor. \nAbilities of Tower bosses have been disabled.")
+            destroy dBox
+
         dBox.addButton("Normal") ->
             gameMode = 2
             dialogBoxClick()
+            print("All enemies will have 1x the health and 1x the damage/armor.")
+            destroy dBox
+
+        dBox.addButton("Hard") -> 
+            gameMode = 3
+            dialogBoxClick()
+            print("All enemies will have 2x the health and 1.5x the damage/armor. \nHealth and Armor doesn't work on the first 4 spawn mobs.")
+            destroy dBox
+        
+        dBox.addButton("Extreme") -> 
+            gameMode = 4
+            dialogBoxClick()
+            print("All enemies will have 4x the health and 2x the damage/armor. \nHealth and Armor doesn't work on the first 4 spawn mobs.")
             destroy dBox
         
         dBox.display(players[0], true)
