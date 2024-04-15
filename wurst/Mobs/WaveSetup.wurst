@@ -12,7 +12,7 @@ import LinkedList
 import ClosureEvents
 
 var internalWaveCount = 0
-var externalWaveCount = 1
+var externalWaveCount = 0
 var internalBigBossCount = 0
 
 let wavesList = new LinkedList<Waves>
@@ -262,12 +262,12 @@ function spawnWavesNow()
 			..unitStats(3)
 			..minibossDeath()
 
-			if (externalWaveCount-1) % 5 == 0
+			if (externalWaveCount) % 5 == 0 and externalWaveCount != 0
 				doAfter(2.5) -> 
 					internalBigBossCount = internalBigBossCount + 1
 					let big_lower = bigBossWaveList.get(((internalBigBossCount)*0.25).toInt()).bossMin
 					let big_higher = bigBossWaveList.get(((internalBigBossCount)*0.25).toInt()).bossMax
-					if externalWaveCount == 21
+					if internalBigBossCount == 4
 						waveHeroSetup()
 					createUnit(Player(11), WAVE_BOSS[GetRandomInt(big_lower, big_higher)], gg_rct_MiddleSpawn.getCenter(), bj_UNIT_FACING.asAngleDegrees())
 					..issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
@@ -282,7 +282,7 @@ function moveUnitsCond() returns boolean
 	return GetOwningPlayer(GetEnteringUnit()) == Player(11) or GetOwningPlayer(GetEnteringUnit()) == Player(12) or GetOwningPlayer(GetEnteringUnit()) == Player(13)
 
 function waveSetupTimerElapsed()
-	if externalWaveCount == 21
+	if internalBigBossCount == 4
 		DoNothing()
 	else
 		if internalWaveCount == 3
@@ -296,7 +296,7 @@ function waveSetupTimerElapsed()
 			graceWaveSpawnCb = doAfter(20) -> 
 				waveSetupTimerElapsed()
 				spawnWavesNow()
-		titleString = "Wave "+externalWaveCount.toString()+" — ("+internalWaveCount.toString()+"/3)"
+		titleString = "Wave "+(externalWaveCount+1).toString()+" — ("+internalWaveCount.toString()+"/3)"
 
 public function waveSetup()
 
