@@ -17,12 +17,14 @@ public class Projectile
         this.sfx = sfx
         this.onHit = onHit
         this.velocity = velocity
+
+    ondestroy
+        sfx.destr()
+        destroy onHit
         
     function impact()
         if(target.isAlive())
             onHit.hit(sfx, target)
-        sfx.destr()
-        destroy onHit
         destroy this
 
     function moveForward()
@@ -38,7 +40,7 @@ public class Projectile
                 impact()
                 destroy cb
             if target.isAlive() != true
-                impact()
+                destroy this
                 destroy cb
 
 public function fireProjectile(unit target, effect sfx, real velocity, OnProjectileHit onHit)

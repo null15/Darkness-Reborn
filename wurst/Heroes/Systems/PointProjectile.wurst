@@ -14,9 +14,12 @@ public class PointProjectile
         this.sfx = sfx
         this.onHit = onHit
         
+    ondestroy
+        sfx.destr()
+        destroy onHit
+
     function impact()
         onHit.hit(sfx, target)
-        sfx.destr()
         destroy this
 
     function moveForward(real velocity)

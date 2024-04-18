@@ -1,44 +1,12 @@
 package heroRespawn
 import ClosureEvents
-import TimerUtils
 import Global_Variables
 import HashMap
 import ClosureTimers
 import MultiboardTimer
 
-let timeDialogHasher = new HashMap<timer,Respawner>
-
-class Respawner
-    timerdialog tdial
-    player owner
-    
-    construct(timerdialog tdial, player owner)
-        this.tdial = tdial
-        this.owner = owner
-
-    ondestroy
-        tdial.destr()
-
 init
     heroRespawn()
-
-function timeDone()
-    let time = GetExpiredTimer()
-    let respawner = timeDialogHasher.getAndRemove(time)
-    time.release()
-    playerHero.get(respawner.owner).revive(gg_rct_Base.getCenter(), true)
-    destroy respawner
-
-function heroRespawnTimer(unit u)
-    let time = getTimer()
-    let timeDialog = time.createTimerDialog()
-    let respawner = new Respawner(timeDialog, u.getOwner())
-    timeDialogHasher.put(time, respawner)
-    let p = u.getOwner()
-    time.start(10, function timeDone)
-    timeDialog.setTitle(p.getName()+": ")
-    timeDialog.setTitleColor(PLAYER_COLORS[p.getId()].withAlpha(255))
-    timeDialog.display(true)
 
 function unit.heroRespawner()
     this.revive(gg_rct_Base.getCenter(), true)
@@ -53,6 +21,5 @@ public function heroRespawn()
                 u.heroRespawner()
                 heroRespawnTimerHash.remove(p)
             heroRespawnTimerHash.put(p, tim)
-            //heroRespawnTimer(u)
         else if u.isType(UNIT_TYPE_HERO) and not u.isIllusion() and p.getId() < 11
             print("Possible error encountered. " + p.getNameColored() + "'s hero has died. But, countdown has yet to initiate. Hero was " + u.getName() + ". The hero was supposed to be " + playerHero.get(p).getName())

@@ -99,8 +99,8 @@ function unit.assa_quest()
                 else
                     assaQuest[2]++
                     printTimedToPlayer("Third quest complete! Your enchantments grow stronger.\nYour R or E will be invisible, they're still active.", 10, killer.getOwner())
-                    killer.disableAbility(ASSASSIN_ABIL_3, false, true)
-                    killer.disableAbility(ASSASSIN_ABIL_3_QUEST, true, false)
+                    killer.disableAbility(ASSASSIN_ABIL_3, true, true)
+                    killer.disableAbility(ASSASSIN_ABIL_3_QUEST, false, false)
                     killer.setAbilityLevel(ASSASSIN_ABIL_3_QUEST, killer.getAbilityLevel(ASSASSIN_ABIL_3))
                     
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 4

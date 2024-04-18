@@ -8,6 +8,8 @@ import LinkedList
 
 public let itemlist = blacksmithJackedUp()
 
+CallbackSingle itemTimer
+
 public function blacksmithJackedUp() returns LinkedList<LinkedList<int>>
     let blacksmithItems = new LinkedList<LinkedList<int>>
     let perrecipe = new LinkedList<int>
@@ -101,22 +103,26 @@ public function blacksmithDoAfter()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
         let bs = GetTriggerUnit()
         if bs.getTypeId() == TINKERBUILDING_114
-            let atSpot = bs.checkInventoryForItems()
-            if atSpot > 0
-                bs.setAnimation("Work")
-                doAfter(20) ->
-                    if bs.checkInventoryForItems() > 0
-                        let rightList = itemlist.get(atSpot)
-                        let newite = rightList.getLast()
-                        for int i = 0 to rightList.size() - 2
-                            bs.removeItemById(rightList.get(i))
-                        let newitecur = bs.addItemById(newite)
-                        newitecur.setPos(bs.getPos())
-                        bs.setAnimation("Stand")
-                        printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed|r" + newitecur.getName(), 7)
-                        destroy rightList
+            if itemTimer == null
+                let atSpot = bs.checkInventoryForItems()
+                if atSpot > 0
+                    bs.setAnimation("Work")
+                    itemTimer = doAfter(20) ->
+                        if bs.checkInventoryForItems() > 0
+                            let rightList = itemlist.get(atSpot)
+                            let newite = rightList.getLast()
+                            for int i = 0 to rightList.size() - 2
+                                bs.removeItemById(rightList.get(i))
+                            let newitecur = bs.addItemById(newite)
+                            newitecur.setPos(bs.getPos())
+                            bs.setAnimation("Stand")
+                            printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed|r" + newitecur.getName(), 7)
+                            itemTimer = null
+                            destroy rightList
     EventListener.add(EVENT_PLAYER_UNIT_DROP_ITEM) -> 
         let bs = GetTriggerUnit()
         if bs.getTypeId() == TINKERBUILDING_114
             if bs.checkInventoryForItems() == 0
                 bs.setAnimation("Stand")
+                destroy itemTimer
+                itemTimer = null

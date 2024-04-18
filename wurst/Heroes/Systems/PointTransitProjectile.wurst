@@ -18,9 +18,12 @@ public class PointProjectile
         this.onHit = onHit
         this.tickRate = tickRate     
 
+    ondestroy
+        destroy onHit
+        sfx.destr()
+
     function impact()
         onHit.hit(target, false)
-        sfx.destr()
         destroy this
 
     function inTransit()

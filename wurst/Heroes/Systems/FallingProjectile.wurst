@@ -17,9 +17,12 @@ public class FallingProjectile
         this.onHit = onHit
         this.velocity = velocity
         
+    ondestroy
+        sfx.destr()
+        destroy onHit
+
     function impact(effect detectionUnit)
         onHit.hit(detectionUnit, target)
-        sfx.destr()
         destroy this
 
     function moveForward()
