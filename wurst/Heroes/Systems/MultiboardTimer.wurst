@@ -37,7 +37,7 @@ function updateMulti()
         if players[i].isIngame()
             playerSet.add(players[i])
 
-    doPeriodically(1) (CallbackPeriodic cb) ->
+    doPeriodically(0.25) (CallbackPeriodic cb) ->
         for int i = 0 to playerSet.size()
             let j = i + 1
             let playerSelected = playerSet.get(i)

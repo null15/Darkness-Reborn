@@ -232,21 +232,25 @@ function spawnBigBoss()
 	if bigBossWaveList.isEmpty()
 		skip
 	else
-		if (20-wavesList.size()) % 5 == 0 and wavesList.size() != 20
-			doAfter(2.5) -> //2.5 seconds
-				let big_lower = bigBossWaveList.get(0).bossMin
-				let big_higher = bigBossWaveList.get(0).bossMax
-				bigBossWaveList.removeAt(0)
-				createUnit(Player(11), WAVE_BOSS[GetRandomInt(big_lower, big_higher)], gg_rct_MiddleSpawn.getCenter(), bj_UNIT_FACING.asAngleDegrees())
-				..issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
-				..unitStats(4)
-				..minibossDeath()
+		titleString = "Big Boss Wave "+ bigBossWaveList.size().toString()
+		graceWaveSpawnCb = doAfter(10) -> //2 seconds
+			let big_lower = bigBossWaveList.get(0).bossMin
+			let big_higher = bigBossWaveList.get(0).bossMax
+			bigBossWaveList.removeAt(0)
+			createUnit(Player(11), WAVE_BOSS[GetRandomInt(big_lower, big_higher)], gg_rct_MiddleSpawn.getCenter(), bj_UNIT_FACING.asAngleDegrees())
+			..issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
+			..unitStats(4)
+			..minibossDeath()
+			titleString = "Wave "+(21-wavesList.size()).toString()+" — (1/3)"
+			doAfter(90) ->
+				spawnWave()
 
 function spawnBoss()
 	if bossWaveList.isEmpty()
 		skip
 	else
-		doAfter(2.5) -> // 2.5 seconds
+		titleString = "Boss Wave "+(21-wavesList.size()+1).toString()
+		graceWaveSpawnCb = doAfter(2) -> // 2 seconds
 			let mini_lower = bossWaveList.get(0).bossMin
 			let mini_higher = bossWaveList.get(0).bossMax
 			bossWaveList.removeAt(0)
@@ -264,8 +268,10 @@ function spawnBoss()
 			..issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
 			..unitStats(3)
 			..minibossDeath()
-
-			spawnBigBoss()
+			if (20-wavesList.size()) % 5 == 0 and wavesList.size() != 20
+				spawnBigBoss()
+			else
+				waveSetupTimerElapsed()
 			
 
 function spawnWave()
@@ -283,16 +289,16 @@ function spawnWavesNow()
 		if internalWaveCount == 1
 			readWaveStats()
 
-		doPeriodicallyCounted(0.2, 12) (CallbackCounted cb) ->
+		doPeriodicallyCounted(0.02, 12) (CallbackCounted cb) ->
 			spawnWave()
 
 		if internalWaveCount == 3 and bossWaveList.isEmpty() == false
 			spawnBoss()
 			destroy wavesList.get(0)
 			wavesList.removeAt(0)
+		else
+			waveSetupTimerElapsed()
 		
-		waveSetupTimerElapsed()
-
 function unit.minibossDeath()
 	EventListener.add(this, EVENT_PLAYER_UNIT_DEATH) -> 
 		dropMyItemsMinibosses(this)
@@ -306,11 +312,15 @@ function waveSetupTimerElapsed()
 	else 
 		if internalWaveCount == 3
 			internalWaveCount = 1
-			graceWaveSpawnCb = doAfter(50) -> //50 seconds
-				spawnWavesNow()
+			if wavesList.size() > 10
+				graceWaveSpawnCb = doAfter(45) -> //50 seconds
+					spawnWavesNow()
+			else
+				graceWaveSpawnCb = doAfter(50) -> //50 seconds
+					spawnWavesNow()
 		else 
 			internalWaveCount = internalWaveCount + 1
-			graceWaveSpawnCb = doAfter(20) -> //20 seconds
+			graceWaveSpawnCb = doAfter(30) -> //20 seconds
 				spawnWavesNow()
 		titleString = "Wave "+(21-wavesList.size()).toString()+" — ("+internalWaveCount.toString()+"/3)"
 
@@ -318,7 +328,6 @@ public function waveSetup()
 	moveUnit()
 	moveUnit2()
 	waveSetupTimerElapsed()
-	spawnWavesNow()
 
 function moveUnit()
 	CreateTrigger()
@@ -338,7 +347,7 @@ function moveUnit2()
 public function preWaveSetup()
 	wavesSetup()
 	titleString = "Preparation Phase "
-	graceWaveSpawnCb = doAfter(80) -> //80 seconds
+	graceWaveSpawnCb = doAfter(120) -> //120 seconds
 		waveSetup()
 
 	CreateTrigger()..registerRectEnterEventSource(gg_rct_LeftSpawn)
