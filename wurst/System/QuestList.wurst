@@ -1,0 +1,85 @@
+package QuestList
+
+import Quests
+import ClosureEvents
+import LinkedList
+
+public class QuestList
+    LinkedList<QuestIntInstant> instantIntQuests = new LinkedList<QuestIntInstant>
+    player listOwner
+    
+    construct(player listOwner)
+        this.listOwner = listOwner
+        questListInitiate()
+
+    private function questListEmpty() returns bool
+        if (instantIntQuests.isEmpty())
+            return true
+        else
+            return false
+
+    function questListInitiate()
+        EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
+            if EventData.getChatMessage().toLowerCase() == "-quests"
+                let p = EventData.getTriggerPlayer()
+                if(listOwner == p)
+                    if(questListEmpty())
+                        printTimedToPlayer("Your questlog is empty currently.", 10, listOwner)
+                    else
+                        printTimedToPlayer("Below are your current Quests not yet done:", 10, listOwner)
+                        instantIntQuests.forEach() (QuestIntInstant t) ->
+                            printTimedToPlayer(t.getTitle() + " required kills " + t.getRequired().toString() + " kills left " + (t.getRequired()-t.getResource()).toString(), 10, listOwner)
+                        
+
+public function startKillingTargetQuest(int required, player questOwner, LinkedList<int> targetUnitType, OnQuestComplete questDone)
+    let quest0 = new QuestIntInstant(required, questOwner, "Assassin Quest 1")
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+        if targetUnitType.has(GetDyingUnit().getTypeId())
+            let killer = GetKillingUnit()
+            if killer.getOwner() == questOwner
+                if quest0.getQuestStatus()
+                    skip
+                else
+                    quest0.addResource(1)
+                    if quest0.getQuestStatus()
+                        questDone.questComplete(questOwner)
+
+public function startKillingAnyQuest(int required, player questOwner, OnQuestComplete questDone)
+    let quest0 = new QuestIntInstant(required, questOwner, "Assassin Quest 2")
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+        let killer = GetKillingUnit()
+        if killer.getOwner() == questOwner
+            if quest0.getQuestStatus()
+                skip
+            else
+                quest0.addResource(1)
+                if quest0.getQuestStatus()
+                    questDone.questComplete(questOwner)
+
+public function startKillingLevelRangeQuest(int required, player questOwner, int lower_Range, int higher_Range, OnQuestComplete questDone)
+    let quest0 = new QuestIntInstant(required, questOwner, "Assassin Quest 3")
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+        let dyingUnitLvl = GetDyingUnit().getLevel()
+        if dyingUnitLvl > lower_Range and dyingUnitLvl < higher_Range
+            let killer = GetKillingUnit()
+            if killer.getOwner() == questOwner
+                if quest0.getQuestStatus()
+                    skip
+                else
+                    quest0.addResource(1)
+                    if quest0.getQuestStatus()
+                        questDone.questComplete(questOwner)
+
+public function startKillingLowestLevelQuest(int required, player questOwner, int lowestLevel, OnQuestComplete questDone)
+    let quest0 = new QuestIntInstant(required, questOwner, "Assassin Quest 4")
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+        let dyingUnitLvl = GetDyingUnit().getLevel()
+        if dyingUnitLvl > lowestLevel
+            let killer = GetKillingUnit()
+            if killer.getOwner() == questOwner
+                if quest0.getQuestStatus()
+                    skip
+                else
+                    quest0.addResource(1)
+                    if quest0.getQuestStatus()
+                        questDone.questComplete(questOwner)

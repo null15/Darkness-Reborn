@@ -1,0 +1,48 @@
+package Quests
+
+public interface OnQuestComplete
+    function questComplete(player questOwner)
+
+abstract class Quest
+    protected bool done = false
+    protected player questOwner
+    protected string title
+
+    function getQuestOwner() returns player
+        return questOwner
+
+    function getQuestStatus() returns bool
+        return done
+
+    function getTitle() returns string
+        return title
+
+    protected function toggleQuestStatus()
+        done = not done
+
+    construct(player questOwner, string title)
+        this.questOwner = questOwner
+        this.title = title
+        
+
+public class QuestIntInstant extends Quest
+    int quest_resource = 0
+    int quest_requirement
+
+    construct(int quest_requirement, player questOwner, string title)
+        super(questOwner,title)
+        this.quest_requirement = quest_requirement
+
+    function addResource(int toAdd)
+        quest_resource += toAdd
+        if quest_resource >= quest_requirement
+            toggleQuestStatus()
+
+    function removeResource(int toSub)
+        quest_resource -= toSub
+
+    function getResource() returns int
+        return quest_resource
+
+    function getRequired() returns int
+        return quest_requirement

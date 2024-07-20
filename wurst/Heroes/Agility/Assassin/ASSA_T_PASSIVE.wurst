@@ -2,7 +2,7 @@ package ASSA_T_PASSIVE
 import MyAbilityIds
 import ClosureEvents
 import codeDamageTypings
-let assaQuest = [0,0,0,0]
+import QuestList
 
 public function learnULT()
     EventListener.add(EVENT_PLAYER_HERO_SKILL) -> 
@@ -11,7 +11,7 @@ public function learnULT()
             u.assa_quest()
             if (u.getUserData() != 1)
                 u.setUserData(1)
-                printTimedToPlayer("You can now type -track to check Quest Track", 20, u.getOwner())
+                printTimedToPlayer("You can now type -Quests to check Quest Track", 20, u.getOwner())
                 EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
                     let killer = GetKillingUnit()
                     if(killer == u and GetRandomInt(1, 100) <= 50)
@@ -29,43 +29,9 @@ public function learnULT()
                             killer.setBaseDamage(lowDmg+20, 0)
                         else if (targetLevel <= 70)
                             killer.setBaseDamage(lowDmg+20, 0)
-                EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
-                    if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-track"
-                        let p = GetTriggerPlayer()
-
-                        if(u.getOwner() == p)
-                            printTimedToPlayer("Quest Track:\n"+
-                            "First Quest: "+checkCompletionQuest1()+"\n"+
-                            "Second Quest: "+checkCompletionQuest2()+"\n"+
-                            "Third Quest: "+checkCompletionQuest3()+"\n"+
-                            "Fourth Quest: "+checkCompletionQuest4(), 6, p)
-
-function checkCompletionQuest1() returns string
-    if assaQuest[0] < 200
-        return assaQuest[0].toString()
-    else
-        return "Done!"
-
-function checkCompletionQuest2() returns string
-    if assaQuest[1] < 100
-        return assaQuest[1].toString()
-    else
-        return "Done!"
-
-function checkCompletionQuest3() returns string
-    if assaQuest[2] < 20
-        return assaQuest[2].toString()
-    else
-        return "Done!"
-
-function checkCompletionQuest4() returns string
-    if assaQuest[3] < 1
-        return assaQuest[3].toString()
-    else
-        return "Done!"
 
 function unit.assa_quest()
-    if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 1
+    /*if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 1
         EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
             let killer = GetKillingUnit()
             if this == killer 
@@ -76,6 +42,8 @@ function unit.assa_quest()
                     let lowDmg = killer.getBaseDamage(0)
                     killer.setBaseDamage(lowDmg+500, 0)
                     printTimedToPlayer("First quest complete! You gain 500 base damage", 10, killer.getOwner())
+
+    
 
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 2
         EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
@@ -111,4 +79,33 @@ function unit.assa_quest()
                 if assaQuest[3] == 0
                     killer.basePhysPenAdd(10)
                     assaQuest[3]++
-                    printTimedToPlayer("Fourth quest complete! You gain 10% armor penetration", 10, killer.getOwner())
+                    printTimedToPlayer("Fourth quest complete! You gain 10% armor penetration", 10, killer.getOwner())*/
+
+    if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 1
+        startKillingAnyQuest(200, this.getOwner()) (player questOwner) ->
+            let lowDmg = this.getBaseDamage(0)
+            this.setBaseDamage(lowDmg+500, 0)
+            printTimedToPlayer("First quest complete! You gain 500 base damage", 10, this.getOwner())
+    
+    if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 2
+        startKillingLowestLevelQuest(100, this.getOwner(), 21) (player questOwner) ->
+            this.basePhysPenAdd(5)
+            printTimedToPlayer("Second quest complete! You gain 5% armor penetration", 10, this.getOwner())
+
+    if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 3
+        startKillingLowestLevelQuest(20, this.getOwner(), 43) (player questOwner) ->
+            printTimedToPlayer("Third quest complete! Your enchantments grow stronger.\nYour R or E will be invisible, they're still active.", 10, this.getOwner())
+            let abilityUpgrade = this.getAbility(ASSASSIN_ABIL_3)
+            for int i = 1 to 9
+                abilityUpgrade.setField(ABILITY_RLF_DAMAGE_BONUS_PERCENT, i, 1.2+0.2*i)
+                abilityUpgrade.setField(ABILITY_SF_NAME, "Enchanted Weapons")
+                abilityUpgrade.setField(ABILITY_SLF_TOOLTIP_LEARN, i, "Learn |cff8080ffEnchanted Weapon|r [ |c00FFFC01T|r ] - [|c00FFFC01Level " + i.toString() + "|r]")
+                abilityUpgrade.setField(ABILITY_SLF_TOOLTIP_LEARN_EXTENDED, i, "The Assassin's mastery of the blade allows him to deal more damage.")
+                abilityUpgrade.setField(ABILITY_SLF_TOOLTIP_NORMAL, i, "|cff8080ffEnchanted Weapon|r [ |c00FFFC01T|r ] -[|c00FFFC01Level " + i.toString() + "|r ]")
+                abilityUpgrade.setField(ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED, i, "The Assassin's mastery of the blade allows him to deal " + (120 + 20 * i).toString() + "% more damage.")
+                
+    
+    if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 4
+        startKillingLowestLevelQuest(1, this.getOwner(), 1) (player questOwner) ->
+            this.basePhysPenAdd(10)
+            printTimedToPlayer("Fourth quest complete! You gain 10% armor penetration", 10, this.getOwner())

@@ -13,6 +13,7 @@ import heroLoader
 import UpdateDropSite
 import MultiboardTimer
 import ClosureEvents
+import QuestList
 
 real facing = 270
 real facingUp = 90
@@ -51,9 +52,10 @@ public function questSetup()
     +"Lancelot's Ring + Guinevere's Ring + Pendant of Energy = Arkenstone Fragment")
 
 function onBuyHero(unit u)
-    EventListener.add(u, EVENT_PLAYER_UNIT_SELL) -> 
+    EventListener.add(u, EVENT_PLAYER_UNIT_SELL) ->
         let soldUnit = GetSoldUnit()
         let p = soldUnit.getOwner()
+        new QuestList(p)
         if playerHero.get(p) == null
             playerHero.put(p, soldUnit)
             soldUnit.heroCheck()

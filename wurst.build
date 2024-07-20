@@ -3,6 +3,6 @@ projectName: Darkness Reborn
 dependencies:
 - https://github.com/wurstscript/wurstStdlib2
 buildMapData:
-  name: '|cFF990000Darkness |cFF99FF99Reborn|r v1.9.52'
-  fileName: Darkness Reborn v1.9.52
+  name: '|cFF990000Darkness |cFF99FF99Reborn|r v1.9.53'
+  fileName: Darkness Reborn v1.9.53
   author: ' Community'

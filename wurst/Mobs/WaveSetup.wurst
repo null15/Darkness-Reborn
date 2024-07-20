@@ -241,9 +241,13 @@ function spawnBigBoss()
 			..issuePointOrderById(Orders.attack, gg_rct_LeftSpawnMove1.randomPoint())
 			..unitStats(4)
 			..minibossDeath()
-			titleString = "Wave "+(21-wavesList.size()).toString()+" — (1/3)"
-			doAfter(90) ->
-				spawnWave()
+			if wavesList.isEmpty()
+				waveHeroSetup()
+			else
+				titleString = "Wave "+(21-wavesList.size()).toString()+" — (1/3)"
+				graceWaveSpawnCb = doAfter(90) ->
+					internalWaveCount = 1
+					spawnWavesNow()
 
 function spawnBoss()
 	if bossWaveList.isEmpty()
@@ -307,22 +311,19 @@ function moveUnitsCond() returns boolean
 	return GetOwningPlayer(GetEnteringUnit()) == Player(11) or GetOwningPlayer(GetEnteringUnit()) == Player(12) or GetOwningPlayer(GetEnteringUnit()) == Player(13)
 
 function waveSetupTimerElapsed()
-	if wavesList.isEmpty()
-		waveHeroSetup()
-	else 
-		if internalWaveCount == 3
-			internalWaveCount = 1
-			if wavesList.size() > 10
-				graceWaveSpawnCb = doAfter(45) -> //50 seconds
-					spawnWavesNow()
-			else
-				graceWaveSpawnCb = doAfter(50) -> //50 seconds
-					spawnWavesNow()
-		else 
-			internalWaveCount = internalWaveCount + 1
-			graceWaveSpawnCb = doAfter(30) -> //20 seconds
+	if internalWaveCount == 3
+		internalWaveCount = 1
+		if wavesList.size() > 10
+			graceWaveSpawnCb = doAfter(45) -> //50 seconds
 				spawnWavesNow()
-		titleString = "Wave "+(21-wavesList.size()).toString()+" — ("+internalWaveCount.toString()+"/3)"
+		else
+			graceWaveSpawnCb = doAfter(50) -> //50 seconds
+				spawnWavesNow()
+	else 
+		internalWaveCount = internalWaveCount + 1
+		graceWaveSpawnCb = doAfter(30) -> //20 seconds
+			spawnWavesNow()
+	titleString = "Wave "+(21-wavesList.size()).toString()+" — ("+internalWaveCount.toString()+"/3)"
 
 public function waveSetup()
 	moveUnit()
