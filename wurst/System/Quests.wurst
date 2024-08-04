@@ -23,6 +23,7 @@ abstract class Quest
     construct(player questOwner, string title)
         this.questOwner = questOwner
         this.title = title
+        print(title + " has started!")
         
 
 public class QuestIntInstant extends Quest

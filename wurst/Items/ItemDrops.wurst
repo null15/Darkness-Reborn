@@ -780,6 +780,9 @@ init
                 dropItemsToStore.remove(t)
                 t.remove()
 
+public function unit.giveDropItem(int targetUnit)
+    this.addItemById(dropListHash.get(targetUnit).dropPool.getRandomElement().getRandomElement())
+
 public function unit.dropItems()
     let uid = this.getTypeId()
     if dropListHash.has(uid)

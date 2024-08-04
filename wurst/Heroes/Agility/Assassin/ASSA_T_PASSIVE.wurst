@@ -82,18 +82,22 @@ function unit.assa_quest()
                     printTimedToPlayer("Fourth quest complete! You gain 10% armor penetration", 10, killer.getOwner())*/
 
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 1
-        startKillingAnyQuest(200, this.getOwner()) (player questOwner) ->
+        startExclusiveKillingAnyQuest(200, this.getOwner(), "Assassin Initiate Training") (player questOwner) ->
             let lowDmg = this.getBaseDamage(0)
+            this.setName("Assassin Initiate")
             this.setBaseDamage(lowDmg+500, 0)
             printTimedToPlayer("First quest complete! You gain 500 base damage", 10, this.getOwner())
+            
     
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 2
-        startKillingLowestLevelQuest(100, this.getOwner(), 21) (player questOwner) ->
+        startKillingLowestLevelQuest(100, this.getOwner(), 21, "Assassin Test") (player questOwner) ->
+            this.setName("Assassin")
             this.basePhysPenAdd(5)
             printTimedToPlayer("Second quest complete! You gain 5% armor penetration", 10, this.getOwner())
 
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 3
-        startKillingLowestLevelQuest(20, this.getOwner(), 43) (player questOwner) ->
+        startKillingLowestLevelQuest(20, this.getOwner(), 43, "Assassin Expert Test") (player questOwner) ->
+            this.setName("Assassin Expert")
             printTimedToPlayer("Third quest complete! Your enchantments grow stronger.\nYour R or E will be invisible, they're still active.", 10, this.getOwner())
             let abilityUpgrade = this.getAbility(ASSASSIN_ABIL_3)
             for int i = 1 to 9
@@ -106,6 +110,7 @@ function unit.assa_quest()
                 
     
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 4
-        startKillingLowestLevelQuest(1, this.getOwner(), 1) (player questOwner) ->
+        startKillingLowestLevelQuest(1, this.getOwner(), 1, "Master Assassin Qualification Test") (player questOwner) ->
+            this.setName("Master Assassin")
             this.basePhysPenAdd(10)
             printTimedToPlayer("Fourth quest complete! You gain 10% armor penetration", 10, this.getOwner())

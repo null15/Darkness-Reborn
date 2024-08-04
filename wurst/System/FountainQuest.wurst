@@ -1,0 +1,150 @@
+package FountainQuest
+
+import HashSet
+import ClosureEvents
+import Global_Variables
+import MyItemIds
+import QuestList
+import MyUnitIds
+import ItemDrops
+
+let initialLevel = new HashSet<int>
+let secondaryLevel = new HashSet<int>
+let tertiaryLevel = new HashSet<int>
+let finalLevel = new HashSet<int>
+let epicPlusQuests = new HashSet<int>
+
+init
+    initialLevel.add(
+    LEFT_CREEP_0, 
+    LEFT_CREEP_1, 
+    LEFT_CREEP_2,
+    LEFT_CREEP_3,
+    LEFT_CREEP_4,
+    LEFT_CREEP_5)
+    secondaryLevel.add(   
+    LEFT_CREEP_6,
+    LEFT_CREEP_7,
+    LEFT_CREEP_8,
+    LEFT_CREEP_9,
+    LEFT_CREEP_10,
+    LEFT_CREEP_11)
+    tertiaryLevel.add(
+    LEFT_CREEP_12,
+    LEFT_CREEP_13,
+    LEFT_CREEP_14,
+    LEFT_CREEP_15,
+    LEFT_CREEP_16,
+    LEFT_CREEP_17)
+    finalLevel.add(
+    LEFT_CREEP_18,
+    LEFT_CREEP_19,
+    LEFT_CREEP_20,
+    LEFT_CREEP_21,
+    LEFT_CREEP_22,
+    LEFT_CREEP_23)
+    epicPlusQuests.add(
+    ELITE_CREEP_0,
+    ELITE_CREEP_1,
+    ELITE_CREEP_2,
+    ELITE_CREEP_3,
+    ELITE_CREEP_4
+    )
+    
+
+function questRarity() returns int
+    let random = GetRandomInt(1, 100)
+    if random <= 60 //Common 60%
+        return 0
+    if random > 60 and random <= 85 //Rare 25%
+        return 1
+    if random > 85 and random <= 99 //Epic 14%
+        return 2
+    else
+        return 3 //Legendary 1%
+
+function questStringConversion(int rarity) returns string
+    switch rarity
+        case 1
+            return "|cff3d5ce5Rare|r"
+        case 2
+            return "|cff59058dEpic|r"
+        case 3
+            return "|cffac8506Legendary|r"
+        default
+            return "|cffc7f1feCommon|r"
+
+function hasEliteEnemy(HashSet<int> targetUnitType) returns bool
+    if epicPlusQuests.has(targetUnitType.get(0))
+        return true
+    return false
+
+function filterEpicQuestKill(int rarity, HashSet<int> targetUnitType) returns int
+    if hasEliteEnemy(targetUnitType)
+        return rarity
+    return rarity * 3 + 7
+
+function player.epicQuestDrops(HashSet<int> targetUnitType)
+    playerHero.get(this).giveDropItem(targetUnitType.get(0))
+
+
+function player.initiateFountainQuest(HashSet<int> targetUnitType, int rarity)
+    let title = createUnit(targetUnitType.get(0))..remove().getName() + " Kill Quest " + questStringConversion(rarity)
+    let required = filterEpicQuestKill(rarity, targetUnitType) //rarity * 3 + 7
+    startKillingTargetQuest(required, this, targetUnitType, title) (player questOwner) ->
+        playerHero.get(this).addXp(350 * (rarity + 1), true)
+        this.addGold(750 * rarity)
+        if rarity > 1
+            playerHero.get(this).giveDropItem(targetUnitType.get(0))
+        if hasEliteEnemy(targetUnitType)
+            this.addLumber(10*(rarity-1))
+
+public function unit.questItemPickup()
+    EventListener.add(this, EVENT_PLAYER_UNIT_SELL_ITEM) ->
+        if EventData.getSoldItem().getTypeId() == ITEM_QUEST
+            let lvl = EventData.getBuyingUnit().getLevel()
+            let templist = new HashSet<int>
+            let rarity = questRarity()
+            if lvl < 17
+                if lvl > 10
+                    if rarity > 1
+                        templist.addAll(initialLevel)
+                        templist.addAll(secondaryLevel)
+                    else
+                        for int i = 0 to 3
+                            templist.add(initialLevel.get(i))
+                            templist.add(secondaryLevel.get(i))
+                else
+                    if rarity > 1
+                        templist.addAll(initialLevel)
+                    else
+                        for int i = 0 to 3
+                            templist.add(initialLevel.get(i))
+            else
+                if lvl < 31
+                    if lvl > 22
+
+                        if rarity > 1
+                            templist.addAll(epicPlusQuests)
+                            templist.addAll(tertiaryLevel)
+                            templist.addAll(finalLevel)
+                        else
+                            for int i = 0 to 3
+                                templist.add(tertiaryLevel.get(i))
+                                templist.add(finalLevel.get(i))
+                    else
+                        if rarity > 1
+                            templist.addAll(tertiaryLevel)
+                        else
+                            for int i = 0 to 3
+                                templist.add(tertiaryLevel.get(i))
+                else
+                    if rarity > 1
+                        templist.addAll(epicPlusQuests)
+                    else
+                        templist.addAll(tertiaryLevel)
+                        templist.addAll(finalLevel)
+            let targetUnitType = new HashSet<int>
+            targetUnitType.add(templist.getRandomElement())
+            EventData.getBuyingUnit().getOwner().initiateFountainQuest(targetUnitType, rarity)
+            destroy templist

@@ -14,6 +14,7 @@ import UpdateDropSite
 import MultiboardTimer
 import ClosureEvents
 import QuestList
+import FountainQuest
 
 real facing = 270
 real facingUp = 90
@@ -34,7 +35,8 @@ public function questSetup()
     QuestSetDiscovered(commands, true)
     QuestSetIconPath(commands, "ReplaceableTextures\\CommandButtons\\BTNSpy.blp")
     QuestSetTitle(commands, "Commands")
-    QuestSetDescription(commands, "-cam 500-4000 : Adjusts the camera view \n-clean : Cleans items in 10 seconds\n-stopclean : Stops cleaning process")
+    QuestSetDescription(commands, "-cam 500-4000 : Adjusts the camera view \n-clean : Cleans items in 10 seconds\n-stopclean : Stops cleaning process\n-Quests : View your questlist"
+    +"\n-votekick : Kicks the player, you can use number, full name, and partial name")
 
     QuestSetDiscovered(discord, true)
     QuestSetIconPath(discord, "ReplaceableTextures\\Icons\\discordIcon.blp")
@@ -55,7 +57,6 @@ function onBuyHero(unit u)
     EventListener.add(u, EVENT_PLAYER_UNIT_SELL) ->
         let soldUnit = GetSoldUnit()
         let p = soldUnit.getOwner()
-        new QuestList(p)
         if playerHero.get(p) == null
             playerHero.put(p, soldUnit)
             soldUnit.heroCheck()
@@ -151,7 +152,7 @@ function createSetup()
     posX = GetRectCenterX(gg_rct_Base)
     posY = GetRectCenterY(gg_rct_Base) + 200
 
-    CreateUnit(players[10], BUILDING_0, posX, posY, 270.000) // Fountain of Healing (at base)
+    CreateUnit(players[10], BUILDING_0, posX, posY, 270.000).questItemPickup() // Fountain of Healing (at base)
 
     dropSite = CreateUnit(players[10], DROPSITE, posX, posY - 800, 270.)//Dropsite
     updateDropSite() 
