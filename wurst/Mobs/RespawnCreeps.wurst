@@ -10,8 +10,6 @@ import ClosureForGroups
 let creepRespawns = new HashMap<int,real>
 let currentCreep = new HashMap<int,int>
 player hostile = players[PLAYER_NEUTRAL_AGGRESSIVE]
-unit array leftCreep = []
-unit array eliteCreep = []
 unit array bossCreep = []
 unit array overlord = []
 unit array dryad = []
@@ -54,9 +52,9 @@ function creepRespawner()
         let pos = u.getPos()
         let rot = u.getFacingAngle()
         let uid = u.getTypeId()
-        
-        u.dropItems()         
+            
         if currentCreep.get(killOwnerId) == uid
+            u.dropItems()
             currentCreep.put(killOwnerId, 0)
             doAfter(creepRespawns.get(uid)) ->
                 if(currentCreep.get(killOwnerId) == 0)
@@ -70,6 +68,7 @@ function creepRespawner()
                 skip
             else
                 if creepRespawns.has(uid)
+                    u.dropItems()
                     if uid == ELITE_CREEP[9]
                         frostyCounter++
                     doAfter(creepRespawns.get(uid)) ->

@@ -102,49 +102,51 @@ function player.initiateFountainQuest(HashSet<int> targetUnitType, int rarity)
 public function unit.questItemPickup()
     EventListener.add(this, EVENT_PLAYER_UNIT_SELL_ITEM) ->
         if EventData.getSoldItem().getTypeId() == ITEM_QUEST
-            let lvl = EventData.getBuyingUnit().getLevel()
-            let templist = new HashSet<int>
-            let rarity = questRarity()
-            if lvl < 17
-                if lvl > 10
-                    if rarity > 1
-                        templist.addAll(initialLevel)
-                        templist.addAll(secondaryLevel)
+            let questOwner = EventData.getBuyingUnit().getOwner()
+            if questListsOwners.get(questOwner).questListFull()
+                let lvl = EventData.getBuyingUnit().getLevel()
+                let templist = new HashSet<int>
+                let rarity = questRarity()
+                if lvl < 17
+                    if lvl > 10
+                        if rarity > 1
+                            templist.addAll(initialLevel)
+                            templist.addAll(secondaryLevel)
+                        else
+                            for int i = 0 to 3
+                                templist.add(initialLevel.get(i))
+                                templist.add(secondaryLevel.get(i))
                     else
-                        for int i = 0 to 3
-                            templist.add(initialLevel.get(i))
-                            templist.add(secondaryLevel.get(i))
+                        if rarity > 1
+                            templist.addAll(initialLevel)
+                        else
+                            for int i = 0 to 3
+                                templist.add(initialLevel.get(i))
                 else
-                    if rarity > 1
-                        templist.addAll(initialLevel)
-                    else
-                        for int i = 0 to 3
-                            templist.add(initialLevel.get(i))
-            else
-                if lvl < 31
-                    if lvl > 22
+                    if lvl < 31
+                        if lvl > 22
 
+                            if rarity > 1
+                                templist.addAll(epicPlusQuests)
+                                templist.addAll(tertiaryLevel)
+                                templist.addAll(finalLevel)
+                            else
+                                for int i = 0 to 3
+                                    templist.add(tertiaryLevel.get(i))
+                                    templist.add(finalLevel.get(i))
+                        else
+                            if rarity > 1
+                                templist.addAll(tertiaryLevel)
+                            else
+                                for int i = 0 to 3
+                                    templist.add(tertiaryLevel.get(i))
+                    else
                         if rarity > 1
                             templist.addAll(epicPlusQuests)
+                        else
                             templist.addAll(tertiaryLevel)
                             templist.addAll(finalLevel)
-                        else
-                            for int i = 0 to 3
-                                templist.add(tertiaryLevel.get(i))
-                                templist.add(finalLevel.get(i))
-                    else
-                        if rarity > 1
-                            templist.addAll(tertiaryLevel)
-                        else
-                            for int i = 0 to 3
-                                templist.add(tertiaryLevel.get(i))
-                else
-                    if rarity > 1
-                        templist.addAll(epicPlusQuests)
-                    else
-                        templist.addAll(tertiaryLevel)
-                        templist.addAll(finalLevel)
-            let targetUnitType = new HashSet<int>
-            targetUnitType.add(templist.getRandomElement())
-            EventData.getBuyingUnit().getOwner().initiateFountainQuest(targetUnitType, rarity)
-            destroy templist
+                let targetUnitType = new HashSet<int>
+                targetUnitType.add(templist.getRandomElement())
+                questOwner.initiateFountainQuest(targetUnitType, rarity)
+                destroy templist

@@ -18,7 +18,11 @@ public function blessedHammer()
         let dmg = str*lvl.toReal()
         sfx.setYaw(angle.radians())
         sfx.setScale(1.5)
-        firePointTransitTimedProjectile(target, sfx, 0.03, 1, 900) (vec2 target, boolean inTransit) ->
+        let tickRate = 0.03
+        let time = 1.
+        let range = 900.
+        let transitProjectile = new PointTransitProjectile(target, sfx, tickRate)
+        transitProjectile.timedMoveForward(range, time) (vec2 target, boolean inTransit) ->
             if inTransit
                 forUnitsInRange(sfx.getPos(), 150) (unit u) ->
                     if caster.isEnemyOf(u)

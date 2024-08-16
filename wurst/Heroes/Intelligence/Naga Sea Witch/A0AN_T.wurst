@@ -11,7 +11,10 @@ public function tornado()
     EventListener.onPointCast(NAGAWITCH_ABIL_5) (unit caster, vec2 target) ->
         let sfx = addEffect(Abilities.tornado, caster.getPos())
         let dist = caster.getPos().distanceTo(target)
-        firePointTransitTimedProjectile(target, sfx, 0.05, 6, dist) (vec2 target, boolean inTransit) ->
+        let tickRate = 0.05
+        let transitProjectile = new PointTransitProjectile(target, sfx, tickRate)
+        let time = 6.
+        transitProjectile.timedMoveForward(dist, time) (vec2 target, boolean inTransit) ->
             let lvl = caster.getAbilityLevel(NAGAWITCH_ABIL_5)
             let dmg = caster.getMaxMana() * lvl * 0.75 / 100
             if inTransit

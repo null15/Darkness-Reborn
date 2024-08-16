@@ -1,0 +1,154 @@
+package QuestList
+
+import Quests
+import ClosureEvents
+import HashSet
+import HashMap
+
+public class QuestList
+    private let instantIntKillAnyList = new HashSet<QuestIntKillAnyInstant>
+    private let instantIntKillTargetList = new HashSet<QuestIntKillTargetInstant>
+    private let instantIntKillLevelRangeList = new HashSet<QuestIntKillLevelRangeInstant>
+    private let instantIntKillLevelLowestList = new HashSet<QuestIntKillLowestLevelInstant>
+    player listOwner
+    
+    construct(player listOwner)
+        this.listOwner = listOwner
+ 
+    private function questListLimit() returns bool
+        if (instantIntKillAnyList.size() + instantIntKillTargetList.size() + instantIntKillLevelRangeList.size() + instantIntKillLevelLowestList.size()) > 2
+            return true
+        else
+            return false
+
+    function questListEmpty() returns bool
+        if (instantIntKillAnyList.size() + instantIntKillTargetList.size() + instantIntKillLevelRangeList.size() + instantIntKillLevelLowestList.size()) == 0
+            return true
+        else
+            return false
+
+    function questListFull() returns bool
+        if questListLimit()
+            print("Your quest list is full, you can't take any more right now.")
+            return false
+        else
+            return true
+
+    function printQuestList()
+        instantIntKillAnyList.forEach() (QuestIntKillAnyInstant t) ->
+            printTimedToPlayer(t.getTitle() + "\n|cffc2b30arequired kills |r" + t.getRequired().toString() + "\n|cff921313kills left " + (t.getRequired()-t.getResource()).toString() + "|r", 10, listOwner)
+        instantIntKillTargetList.forEach() (QuestIntKillTargetInstant t) ->
+            printTimedToPlayer(t.getTitle() + "\n|cffc2b30arequired kills |r" + t.getRequired().toString() + "\n|cff921313kills left " + (t.getRequired()-t.getResource()).toString() + "|r", 10, listOwner)
+        instantIntKillLevelRangeList.forEach() (QuestIntKillLevelRangeInstant t) ->
+            printTimedToPlayer(t.getTitle() + "\n|cffc2b30arequired kills |r" + t.getRequired().toString() + "\n|cff921313kills left " + (t.getRequired()-t.getResource()).toString() + "|r", 10, listOwner)
+        instantIntKillLevelLowestList.forEach() (QuestIntKillLowestLevelInstant t) ->
+            printTimedToPlayer(t.getTitle() + "\n|cffc2b30arequired kills |r" + t.getRequired().toString() + "\n|cff921313kills left " + (t.getRequired()-t.getResource()).toString() + "|r", 10, listOwner) 
+
+    function removeQuest(QuestIntKillAnyInstant newQuest)
+        instantIntKillAnyList.remove(newQuest)
+
+    function removeQuest(QuestIntKillTargetInstant newQuest)
+        instantIntKillTargetList.remove(newQuest)
+
+    function removeQuest(QuestIntKillLevelRangeInstant newQuest)
+        instantIntKillLevelRangeList.remove(newQuest)
+
+    function removeQuest(QuestIntKillLowestLevelInstant newQuest)
+        instantIntKillLevelLowestList.remove(newQuest)
+
+    function addQuest(QuestIntKillAnyInstant newQuest)
+        instantIntKillAnyList.add(newQuest)
+
+    function addQuest(QuestIntKillTargetInstant newQuest)
+        instantIntKillTargetList.add(newQuest)
+
+    function addQuest(QuestIntKillLevelRangeInstant newQuest)
+        instantIntKillLevelRangeList.add(newQuest)
+
+    function addQuest(QuestIntKillLowestLevelInstant newQuest)
+        instantIntKillLevelLowestList.add(newQuest)
+
+public let questListsOwners = new HashMap<player, QuestList>
+
+init
+    for int i = 0 to 9
+        let p = players[i]
+        if p.isIngame()
+            questListsOwners.put(p, new QuestList(p))
+
+    EventListener.add(EVENT_PLAYER_CHAT_FILTER) ->
+        if EventData.getChatMessage().toLowerCase() == "-quests"
+            let p = EventData.getTriggerPlayer()
+            if questListsOwners.has(p)
+                let questList = questListsOwners.get(p)
+                if(questList.questListEmpty())
+                    printTimedToPlayer("Your questlog is empty currently.", 10, p)
+                else
+                    printTimedToPlayer("Below are your current Quests not yet done:", 10, p)
+                    questList.printQuestList()
+                     
+
+public function startExclusiveKillingTargetQuest(int required, player questOwner, HashSet<int> targetUnitType, string title, OnQuestComplete questDone)
+    let newQuest = new QuestIntKillTargetInstant(required, questOwner, title, targetUnitType) (questOwner, questToRemove) ->
+        questDone.questComplete(questOwner)
+        questListsOwners.get(questOwner).removeQuest(questToRemove)
+        destroy questDone
+    questListsOwners.get(questOwner).addQuest(newQuest)
+
+public function startKillingTargetQuest(int required, player questOwner, HashSet<int> targetUnitType, string title, OnQuestComplete questDone)
+    let questList = questListsOwners.get(questOwner)
+    if questList.questListFull()
+        let newQuest = new QuestIntKillTargetInstant(required, questOwner, title, targetUnitType) (questOwner, questToRemove) ->
+            questDone.questComplete(questOwner)
+            questListsOwners.get(questOwner).removeQuest(questToRemove)
+            destroy questDone
+        questList.addQuest(newQuest)
+
+public function startExclusiveKillingAnyQuest(int required, player questOwner, string title, OnQuestComplete questDone)
+    let newQuest = new QuestIntKillAnyInstant(required, questOwner, title) (questOwner, questToRemove) ->
+        questDone.questComplete(questOwner)
+        questListsOwners.get(questOwner).removeQuest(questToRemove)
+        destroy questDone
+    questListsOwners.get(questOwner).addQuest(newQuest)
+
+public function startKillingAnyQuest(int required, player questOwner, string title, OnQuestComplete questDone)
+    let questList = questListsOwners.get(questOwner)
+    if questList.questListFull()
+        let newQuest = new QuestIntKillAnyInstant(required, questOwner, title) (questOwner, questToRemove) ->
+            questDone.questComplete(questOwner)
+            questListsOwners.get(questOwner).removeQuest(questToRemove)
+            destroy questDone
+        questList.addQuest(newQuest)
+
+public function startExclusiveKillingLevelRangeQuest(int required, player questOwner, int lower_Range, int higher_Range, string title, OnQuestComplete questDone)
+    let newQuest = new QuestIntKillLevelRangeInstant(required, questOwner, title, lower_Range, higher_Range) (questOwner, questToRemove) ->
+        questDone.questComplete(questOwner)
+        questListsOwners.get(questOwner).removeQuest(questToRemove)
+        destroy questDone
+    questListsOwners.get(questOwner).addQuest(newQuest)
+
+
+public function startKillingLevelRangeQuest(int required, player questOwner, int lower_Range, int higher_Range, string title, OnQuestComplete questDone)
+    let questList = questListsOwners.get(questOwner)
+    if questList.questListFull()
+        let newQuest = new QuestIntKillLevelRangeInstant(required, questOwner, title, lower_Range, higher_Range) (questOwner, questToRemove) ->
+            questDone.questComplete(questOwner)
+            questListsOwners.get(questOwner).removeQuest(questToRemove)
+            destroy questDone
+        questList.addQuest(newQuest)
+
+public function startExclusiveKillingLowestLevelQuest(int required, player questOwner, int lowestLevel, string title, OnQuestComplete questDone)
+    let newQuest = new QuestIntKillLowestLevelInstant(required, questOwner, title, lowestLevel) (questOwner, questToRemove) ->
+        questDone.questComplete(questOwner)
+        questListsOwners.get(questOwner).removeQuest(questToRemove)
+        destroy questDone
+    questListsOwners.get(questOwner).addQuest(newQuest)
+
+public function startKillingLowestLevelQuest(int required, player questOwner, int lowestLevel, string title, OnQuestComplete questDone)
+    let questList = questListsOwners.get(questOwner)
+    if questList.questListFull()
+        let newQuest = new QuestIntKillLowestLevelInstant(required, questOwner, title, lowestLevel) (questOwner, questToRemove) ->
+            questDone.questComplete(questOwner)
+            questListsOwners.get(questOwner).removeQuest(questToRemove)
+            destroy questDone
+        questList.addQuest(newQuest)

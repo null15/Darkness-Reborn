@@ -7,22 +7,19 @@ public interface OnProjectileHit
 public class PointProjectile
     protected vec2 target
     protected effect sfx
-    protected OnProjectileHit onHit
 
-    construct(vec2 target, effect sfx, OnProjectileHit onHit)
+    construct(vec2 target, effect sfx)
         this.target = target
         this.sfx = sfx
-        this.onHit = onHit
         
     ondestroy
         sfx.destr()
-        destroy onHit
 
-    function impact()
+    private function impact(OnProjectileHit onHit)
         onHit.hit(sfx, target)
         destroy this
 
-    function moveForward(real velocity)
+    function moveForward(real velocity, OnProjectileHit onHit)
         var pos1 = sfx.getPos()
         let angle = pos1.angleTo(target)
         doPeriodically(0.02) (CallbackPeriodic cb) ->
@@ -31,10 +28,11 @@ public class PointProjectile
             sfx..setPos(pos3).setYaw(angle.radians())
             let dist = pos1.distanceTo(target)
             if(dist <= 11.)
-                impact()
+                impact(onHit)
+                destroy onHit
                 destroy cb
 
-    function timedMoveForward(int range, real time)
+    function timedMoveForward(int range, real time, OnProjectileHit onHit)
         var pos1 = sfx.getPos()
         let angle = pos1.angleTo(target)
         let dist = (range * 0.02)/time
@@ -43,13 +41,6 @@ public class PointProjectile
             let distanceTravel = pos1.polarOffset(angle, dist)
             sfx..setPos(distanceTravel).setYaw(angle.radians())
             if(cb.isLast())
-                impact()
+                impact(onHit)
+                destroy onHit
                 destroy cb
-
-public function firePointProjectile(vec2 target, effect sfx, real velocity, OnProjectileHit onHit)
-    let detection = new PointProjectile(target, sfx, onHit)
-    detection.moveForward(velocity)
-
-public function fireTimesPointProjectile(vec2 target, effect sfx, real time, int range, OnProjectileHit onHit)
-    let detection = new PointProjectile(target, sfx, onHit)
-    detection.timedMoveForward(range, time)

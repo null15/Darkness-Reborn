@@ -9,13 +9,17 @@ public function unit.startTidal()
         this.magicalDamageCode(500, hit)
 
 public function unit.startTreant1()
-    startRotation(this, Abilities.rockBoltMissile, 0.2, 1, 8, 1000, 0.44, 0.78, 2.3) (unit hit) ->
-        this.magicalDamageCode(600, hit)
+    let rotation = new RotationProjectile()
+    rotation.rotationCreation(this, Abilities.rockBoltMissile, 0.2, 1, 8, 1000, 0.44, 0.78, 2.3) (unit hitUnit) ->
+        this.magicalDamageCode(600, hitUnit)       
 
 public function unit.startTreant2()
-    startRotation(this, Abilities.rockBoltMissile, 0.2, 2, 8, 1000, 0.44, 0.78, 2.3) (unit hit) ->
-        this.magicalDamageCode(1200, hit)
+    let rotation = new RotationProjectile()
+    rotation.rotationCreation(this, Abilities.rockBoltMissile, 0.2, 2, 8, 1000, 0.44, 0.78, 2.3) (unit hitUnit) ->
+        this.magicalDamageCode(1200, hitUnit)
+        
 
 public function unit.startTreant3()
-    startRotation(this, Abilities.rockBoltMissile, 0.2, 4, 8, 1000, 0.44, 0.78, 2.3) (unit hit) ->
-        this.magicalDamageCode(1750, hit)
+    let rotation = new RotationProjectile()
+    rotation.rotationCreation(this, Abilities.rockBoltMissile, 0.2, 4, 8, 1000, 0.44, 0.78, 2.3) (unit hitUnit) ->
+        this.magicalDamageCode(1750, hitUnit)

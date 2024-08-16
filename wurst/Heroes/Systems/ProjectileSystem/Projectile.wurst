@@ -9,25 +9,22 @@ public interface OnProjectileHit
 public class Projectile
     protected unit target
     protected effect sfx
-    protected OnProjectileHit onHit
     protected real velocity
 
-    construct(unit target, effect sfx, real velocity, OnProjectileHit onHit)
+    construct(unit target, effect sfx, real velocity)
         this.target = target
         this.sfx = sfx
-        this.onHit = onHit
         this.velocity = velocity
 
     ondestroy
         sfx.destr()
-        destroy onHit
         
-    function impact()
+    private function impact(OnProjectileHit onHit)
         if(target.isAlive())
             onHit.hit(sfx, target)
         destroy this
 
-    function moveForward()
+    function moveForward(OnProjectileHit onHit)
         let origPos = sfx.getPos()
         doPeriodically(0.02) (CallbackPeriodic cb) ->
             let pos1 = sfx.getPos()
@@ -37,12 +34,10 @@ public class Projectile
             sfx..setPos(pos3).setYaw(angle.radians())
             let dist = pos1.distanceTo(pos2)
             if(dist <= 11. or origPos.distanceTo(pos2) < origPos.distanceTo(pos1))
-                impact()
+                impact(onHit)
+                destroy onHit
                 destroy cb
             if target.isAlive() != true
+                destroy onHit
                 destroy this
                 destroy cb
-
-public function fireProjectile(unit target, effect sfx, real velocity, OnProjectileHit onHit)
-    let detection = new Projectile(target, sfx, velocity, onHit)
-    detection.moveForward()

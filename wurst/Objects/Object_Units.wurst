@@ -3029,15 +3029,16 @@ init
 + "Difficulty: 3/5\n")
     ..setManaRegeneration(0.01)
 
-    new UnitDefinition(PLAY_HERO_22_DUMMY, UnitIds.locust)
+    new UnitDefinition(PLAY_HERO_22_DUMMY, UnitIds.wisp)
     ..setModelFile("")
-    ..setUnitClassification("Unit")
+    ..setUnitClassification("_")
+    ..setNormalAbilities(commaList(AbilityIds.invulnerable, AbilityIds.locust))
 
-    new UnitDefinition(PLAY_HERO_22_DUMMY_2, UnitIds.locust)
+    new UnitDefinition(PLAY_HERO_22_DUMMY_2, UnitIds.wisp)
     ..setModelFile("Units\\Far seer(Zues)\\OrbLightningX.mdx")
     ..setScalingValue(0.4)
-    ..setUnitClassification("Unit")
-    ..setLevel(200)
+    ..setUnitClassification("_")
+    ..setNormalAbilities(commaList(AbilityIds.invulnerable, AbilityIds.locust))
 
     new HeroDefinition(PLAY_HERO_22, UnitIds.farseer)// herald of Lightning (O00S)
     ..hideHeroDeathMsg(true)

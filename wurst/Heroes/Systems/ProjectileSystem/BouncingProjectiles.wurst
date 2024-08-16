@@ -15,12 +15,10 @@ public class BouncingProjectiles
     protected int counter
     protected effect sfx
     protected unit target
-    protected OnProjectileHit onHit
 
-    construct(effect sfx, unit caster, unit target, real bounceRange, bool closestEnemy, int maxBounceCount, int buffBias, OnProjectileHit onHit)
+    construct(effect sfx, unit caster, unit target, real bounceRange, bool closestEnemy, int maxBounceCount, int buffBias)
         this.target = target
         this.sfx = sfx
-        this.onHit = onHit
         this.caster = caster
         this.closestEnemy = closestEnemy
         this.bounceRange = bounceRange
@@ -28,19 +26,29 @@ public class BouncingProjectiles
         this.counter = 0
         this.buffBias = buffBias
 
+    construct(effect sfx, unit caster, unit target, real bounceRange, bool closestEnemy, int maxBounceCount)
+        this.target = target
+        this.sfx = sfx
+        this.caster = caster
+        this.closestEnemy = closestEnemy
+        this.bounceRange = bounceRange
+        this.maxBounceCount = maxBounceCount
+        this.counter = 0
+        this.buffBias = 0
+
     ondestroy
-        destroy onHit
         sfx.destr()
 
-    function impact(effect detectionUnit)
+    private function impact(effect detectionUnit, OnProjectileHit onHit)
         if(target.isAlive())
             onHit.hit(detectionUnit, target)
         counter++
         if(counter >= maxBounceCount)
             sfx.destr()
+            destroy onHit
             destroy this
         else
-            swapTarget()
+            swapTarget(onHit)
 
     private function swapTargetClosest(vec2 sfxPos, unit u)
         if(u.isEnemyOf(caster.getOwner()))
@@ -65,7 +73,7 @@ public class BouncingProjectiles
                 if(udis > ndis and u.isAlive())
                     newTarg = u
 
-    private function swapTarget()
+    private function swapTarget(OnProjectileHit onHit)
         newTarg = null
         let sfxPos = sfx.getPos()
         if(closestEnemy)
@@ -79,9 +87,9 @@ public class BouncingProjectiles
             sfx.destr()
             destroy this
         else
-            moveForward()
+            moveForward(onHit)
 
-    function moveForward()
+    function moveForward(OnProjectileHit onHit)
         doPeriodically(0.02) (CallbackPeriodic cb) ->
             let pos1 = sfx.getPos()
             let pos2 = target.getPos()
@@ -90,13 +98,5 @@ public class BouncingProjectiles
             sfx..setPos(pos3).setYaw(angle.radians())
             let dist = pos1.distanceTo(pos2)
             if(dist <= 11.)
-                impact(sfx)
+                impact(sfx, onHit)
                 destroy cb
-
-public function fireBouncingBuffBiasProjectile(effect sfx, unit caster, unit target, int bias, int maxBounceCount, bool closestEnemy, real bounceRange, OnProjectileHit onHit)
-    let bounce = new BouncingProjectiles(sfx, caster, target, bounceRange, closestEnemy, maxBounceCount, bias, onHit)
-    bounce.moveForward()
-
-public function fireBouncingProjectile(effect sfx, unit caster, unit target, int maxBounceCount, bool closestEnemy, real bounceRange, OnProjectileHit onHit)
-    let bounce = new BouncingProjectiles(sfx, caster, target, bounceRange, closestEnemy, maxBounceCount, 0, onHit)
-    bounce.moveForward()

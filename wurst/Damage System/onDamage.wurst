@@ -35,6 +35,7 @@ import Turtle
 import A0RI_R
 import A0RL_E
 import ThornsAuraWave
+import SoulKilJaeden
 import Global_Variables
 
 @configurable constant DETECT_NATIVE_ABILITIES = true
@@ -117,6 +118,9 @@ init
                 //Crystal Armor
                 if targ.hasItemById(ITEM_122) and GetRandomInt(0, 100) < 50
                     crystalArmor(targ, src)
+                //SoulOfKiljaeden
+                if src.hasItemById(ITEM_27) and GetRandomInt(0, 100) <= 47
+                    kiljaedenSoul(src)
 
     DamageEvent.addListener(2) ->
         let src = DamageEvent.getSource()

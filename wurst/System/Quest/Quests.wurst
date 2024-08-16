@@ -1,0 +1,146 @@
+package Quests
+import HashList
+import ClosureEvents
+
+public interface OnQuestComplete
+    function questComplete(player questOwner)
+
+interface OnQuestKillAnyComplete
+    function questComplete(player questOwner, QuestIntKillAnyInstant questToRemove)
+
+interface OnQuestKillTargetComplete
+    function questComplete(player questOwner, QuestIntKillTargetInstant questToRemove)
+
+interface OnQuestKillLevelRangeComplete
+    function questComplete(player questOwner, QuestIntKillLevelRangeInstant questToRemove)
+
+interface OnQuestKillLowestLevelComplete
+    function questComplete(player questOwner, QuestIntKillLowestLevelInstant questToRemove)
+
+abstract class Quest
+    protected bool done = false
+    protected player questOwner
+    protected string title
+
+    function getQuestOwner() returns player
+        return questOwner
+
+    function getQuestStatus() returns bool
+        return done
+
+    function getTitle() returns string
+        return title
+
+    protected function toggleQuestStatus()
+        done = not done
+
+    construct(player questOwner, string title)
+        this.questOwner = questOwner
+        this.title = title
+        printTimedToPlayer(title + " has started!", 5, questOwner)
+        
+
+class QuestIntInstant extends Quest
+    int quest_resource = 0
+    int quest_requirement
+    
+
+    construct(int quest_requirement, player questOwner, string title)
+        super(questOwner,title)
+        this.quest_requirement = quest_requirement
+
+    function addResource(int toAdd)
+        quest_resource += toAdd
+        if quest_resource >= quest_requirement
+            toggleQuestStatus()
+
+    function removeResource(int toSub)
+        quest_resource -= toSub
+
+    function getResource() returns int
+        return quest_resource
+
+    function getRequired() returns int
+        return quest_requirement
+
+public class QuestIntKillAnyInstant extends QuestIntInstant
+    EventListener listener
+
+    construct(int quest_requirement, player questOwner, string title, OnQuestKillAnyComplete onComplete)
+        super(quest_requirement, questOwner, title)
+        listener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
+            let killer = EventData.getKillingUnit()
+            if killer.getOwner() == questOwner
+                if getQuestStatus()
+                    skip
+                else
+                    addResource(1)
+                    if getQuestStatus()
+                        onComplete.questComplete(questOwner, this)
+                        printTimedToPlayer(title + " is completed", 5, questOwner)
+                        destroy onComplete
+                        destroy listener
+                        destroy this
+
+public class QuestIntKillTargetInstant extends QuestIntInstant
+    EventListener listener
+
+    construct(int quest_requirement, player questOwner, string title, HashList<int> targetType, OnQuestKillTargetComplete onComplete)
+        super(quest_requirement, questOwner, title)
+        listener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
+            if targetType.has(GetDyingUnit().getTypeId())
+                let killer = GetKillingUnit()
+                if killer.getOwner() == questOwner
+                    if getQuestStatus()
+                        skip
+                    else
+                        addResource(1)
+                        if getQuestStatus()
+                            onComplete.questComplete(questOwner, this)
+                            printTimedToPlayer(title + " is completed", 5, questOwner)
+                            destroy targetType
+                            destroy listener
+                            destroy onComplete
+                            destroy this
+
+public class QuestIntKillLevelRangeInstant extends QuestIntInstant
+    EventListener listener
+
+    construct(int quest_requirement, player questOwner, string title, int lowRange, int highRange, OnQuestKillLevelRangeComplete onComplete)
+        super(quest_requirement, questOwner, title)
+        listener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+            let dyingUnitLvl = EventData.getDyingUnit().getLevel()
+            if dyingUnitLvl > lowRange and dyingUnitLvl < highRange
+                let killer = EventData.getKillingUnit()
+                if killer.getOwner() == questOwner
+                    if getQuestStatus()
+                        skip
+                    else
+                        addResource(1)
+                        if getQuestStatus()
+                            onComplete.questComplete(questOwner, this)
+                            printTimedToPlayer(title + " is completed", 5, questOwner)
+                            destroy onComplete
+                            destroy listener
+                            destroy this
+
+public class QuestIntKillLowestLevelInstant extends QuestIntInstant
+    EventListener listener
+
+    construct(int quest_requirement, player questOwner, string title, int lowestLevel, OnQuestKillLowestLevelComplete onComplete)
+        super(quest_requirement, questOwner, title)
+        listener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+            let dyingUnitLvl = GetDyingUnit().getLevel()
+            if dyingUnitLvl > lowestLevel
+                let killer = GetKillingUnit()
+                if killer.getOwner() == questOwner
+                    if getQuestStatus()
+                        skip
+                    else
+                        addResource(1)
+                        if getQuestStatus()
+                            onComplete.questComplete(questOwner, this)
+                            printTimedToPlayer(title + " is completed", 5, questOwner)
+                            destroy onComplete
+                            destroy listener
+                            destroy this

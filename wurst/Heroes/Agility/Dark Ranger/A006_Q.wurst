@@ -20,10 +20,10 @@ public function imageArrow()
             ..setVertexColor(100, 100, 100, 60)
             ..addAbility(DARKRANGER_DUMMYABIL_1)
             ..setAbilityLevel(DARKRANGER_DUMMYABIL_1, lvl)
-            fireProjectile(target, sfx, 2) (effect detectionUnit, unit target) ->
+            let proj = new Projectile(target, sfx, 2)
+            proj.moveForward() (effect detectionUnit, unit target) ->
                 let damage = caster.getAgi(true) * 0.6 * caster.getAbilityLevel(DARKRANGER_ABIL_1)
                 caster.magicalDamageCode(damage, target)
-                detectionUnit.destr()
 
         for int i = 1 to 3
             let polarProj = caster.getPos().polarOffset(angle.op_minus(225.0.asAngleRadians()), -200.*i)
@@ -34,7 +34,7 @@ public function imageArrow()
             ..setVertexColor(100, 100, 100, 60)
             ..addAbility(DARKRANGER_DUMMYABIL_1)
             ..setAbilityLevel(DARKRANGER_DUMMYABIL_1, lvl)
-            fireProjectile(target, sfx, 2) (effect detectionUnit, unit target) ->
+            let proj = new Projectile(target, sfx, 2)
+            proj.moveForward() (effect detectionUnit, unit target) ->
                 let damage = caster.getAgi(true) * 0.6 * caster.getAbilityLevel(DARKRANGER_ABIL_1)
                 caster.magicalDamageCode(damage, target)
-                detectionUnit.destr()

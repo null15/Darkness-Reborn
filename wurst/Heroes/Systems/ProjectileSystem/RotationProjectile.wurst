@@ -9,13 +9,10 @@ public interface OnRotationHit
     function hit(unit hitUnit)
 
 public class RotationProjectile
-    protected OnRotationHit onHit
     protected LinkedList<LinkedList<effect>> arms
     protected HashMap<effect,real> sfxRot
-    protected CallbackPeriodic timerVar
 
-    construct(OnRotationHit onHit)
-        this.onHit = onHit
+    construct()
         this.sfxRot = new HashMap<effect, real>
         this.arms = new LinkedList<LinkedList<effect>>
     
@@ -25,16 +22,10 @@ public class RotationProjectile
                 t.destr()
             destroy t
         destroy arms
-        destroy timerVar
-        destroy onHit
         sfxRot.flush()
         destroy sfxRot
-        
-    function impact(unit hitUnit)
-        onHit.hit(hitUnit)
-        destroy this
 
-    function rotationCreation(unit center, int armAmount, int amountPerArm, string sfxPath, real range, real rotationVelocity, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real sfxSize)
+    function rotationCreation(unit center, string sfxPath, real rotationVelocity, int armAmount, int amountPerArm, real range, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real sfxSize, OnRotationHit onHit)
         let randomRotStart = GetRandomInt(0, 359)
         let pos = center.getPos()
         let angle = 360/armAmount
@@ -51,17 +42,19 @@ public class RotationProjectile
                 tempSfx.setYaw(rot)
                 sfxRot.put(tempSfx, rot)
             arms.add(armInnerList)
-        moveRotation(center, rotationVelocity, sfxMinRotationVelocity, sfxMaxRotationVelocity, range2)
+        moveRotation(center, rotationVelocity, sfxMinRotationVelocity, sfxMaxRotationVelocity, range2, onHit)
         
-    function moveRotation(unit center, real rotationVelocity, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real colliSize)
-        timerVar = doPeriodically(0.02) (CallbackPeriodic cb) ->
+    private function moveRotation(unit center, real rotationVelocity, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real colliSize, OnRotationHit onHit)
+        doPeriodically(0.02) (CallbackPeriodic cb) ->
             if center.isAlive() == false
+                destroy onHit
+                destroy cb
                 destroy this
             else
                 arms.forEach() (LinkedList<effect> t) ->
-                    moveRotationPerArm(t, center, rotationVelocity, sfxMinRotationVelocity, sfxMaxRotationVelocity, colliSize)
+                    moveRotationPerArm(t, center, rotationVelocity, sfxMinRotationVelocity, sfxMaxRotationVelocity, colliSize, onHit)
 
-    function moveRotationPerArm(LinkedList<effect> arm, unit center, real rotationVelocity, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real colliSize)
+    private function moveRotationPerArm(LinkedList<effect> arm, unit center, real rotationVelocity, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real colliSize, OnRotationHit onHit)
         let centerPos = center.getPos()
         arm.forEach() (effect t) ->
             let randRot = GetRandomReal(sfxMinRotationVelocity, sfxMaxRotationVelocity)
@@ -75,7 +68,3 @@ public class RotationProjectile
             forUnitsInRange(pos2, colliSize) (unit u) ->
                 if u.isEnemyOf(center)
                     onHit.hit(u)
-
-public function startRotation(unit center, string sfxPath, real rotationVelocity, int armAmount, int amountPerArm, real range, real sfxMinRotationVelocity, real sfxMaxRotationVelocity, real sfxSize, OnRotationHit onHit)
-    let detection = new RotationProjectile(onHit)
-    detection.rotationCreation(center, armAmount, amountPerArm, sfxPath, range, rotationVelocity, sfxMinRotationVelocity, sfxMaxRotationVelocity, sfxSize)

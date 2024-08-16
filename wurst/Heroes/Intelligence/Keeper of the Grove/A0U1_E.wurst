@@ -23,10 +23,12 @@ public function hawkeyeSplit()
             forUnitsInRange(target, 500, true) (unit u) ->
                 if caster.isEnemyOf(u) and u.isAlive()
                     let pos = owl.getPos()
-                    let projectile = AddSpecialEffect(Abilities.arrowMissile1, pos.x, pos.y)
-                    projectile.setHeight(150)
-                    fireProjectile(u, projectile, 4) (effect detectionUnit, unit target) ->
+                    let sfx = AddSpecialEffect(Abilities.arrowMissile1, pos.x, pos.y)
+                    sfx.setHeight(150)
+                    let proj = new Projectile(u, sfx, 4)
+                    proj.moveForward() (effect detectionUnit, unit target) ->
                         let output = (caster.getInt(true) * 0.25 + 5.) * lvl
                         caster.magicalDamageCode(output, u)
+                        
             if(cb.isLast())
                 owl.destr()

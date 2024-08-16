@@ -5,31 +5,29 @@ import ClosureTimers
 public interface OnProjectileHit
     function hit(vec2 target, bool inTransit)
 
-public class PointProjectile
+public class PointTransitProjectile
     protected vec2 target
     protected effect sfx
-    protected OnProjectileHit onHit
     protected real tickCounter
     protected real tickRate
 
-    construct(vec2 target, effect sfx, real tickRate, OnProjectileHit onHit)
+    construct(vec2 target, effect sfx, real tickRate)
         this.target = target
         this.sfx = sfx
-        this.onHit = onHit
         this.tickRate = tickRate     
 
     ondestroy
-        destroy onHit
         sfx.destr()
 
-    function impact()
+    private function impact(OnProjectileHit onHit)
         onHit.hit(target, false)
         destroy this
 
-    function inTransit()
+    private function inTransit(OnProjectileHit onHit)
         onHit.hit(target, true)
 
-    function moveForward(real velocity)
+    function moveForward(real velocity, OnProjectileHit onHit)
+        let origPos = sfx.getPos()
         var pos1 = sfx.getPos()
         let angle = pos1.angleTo(target)
         doPeriodically(0.02) (CallbackPeriodic cb) ->
@@ -37,16 +35,17 @@ public class PointProjectile
             let pos3 = pos1.polarOffset(angle, 7. * velocity)
             sfx..setPos(pos3).setYaw(angle.radians())
             let dist = pos1.distanceTo(target)
-            if(dist <= 11.)
-                impact()
+            if(dist <= 11. or origPos.distanceTo(target) < origPos.distanceTo(pos1))
+                impact(onHit)
+                destroy onHit
                 destroy cb
             else if tickCounter > tickRate
                 tickCounter = tickCounter - tickRate
-                inTransit()
+                inTransit(onHit)
             else
                 tickCounter = tickCounter + 0.02
 
-    function timedMoveForward(real range, real time)
+    function timedMoveForward(real range, real time, OnProjectileHit onHit)
         var pos1 = sfx.getPos()
         let angle = pos1.angleTo(target)
         let dist = (range * tickRate)/time
@@ -55,15 +54,8 @@ public class PointProjectile
             let distanceTravel = pos1.polarOffset(angle, dist)
             sfx..setPos(distanceTravel).setYaw(angle.radians())
             if(cb.isLast())
-                impact()
+                impact(onHit)
+                destroy onHit
                 destroy cb
             else
-                inTransit()
-
-public function firePointTransitProjectile(vec2 target, effect sfx, real velocity, real tickRate, OnProjectileHit onHit)
-    let detection = new PointProjectile(target, sfx, tickRate, onHit)
-    detection.moveForward(velocity)
-
-public function firePointTransitTimedProjectile(vec2 target, effect sfx, real tickRate, real time, real range, OnProjectileHit onHit)
-    let detection = new PointProjectile(target, sfx, tickRate, onHit)
-    detection.timedMoveForward(range, time)
+                inTransit(onHit)

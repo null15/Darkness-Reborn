@@ -1,9 +1,4 @@
 package SoulKilJaeden
-import MyItemIds
-import ClosureEvents
-init
-    kiljaedenSoul()
-function kiljaedenSoul()
-    EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
-        if GetKillingUnit().hasItemById(ITEM_27) and GetRandomInt(0, 100) <= 47
-            GetKillingUnit().setMana(GetKillingUnit().getMana() + 95)
+
+public function kiljaedenSoul(unit owner)
+    owner.setMana(owner.getMana() + 95)
