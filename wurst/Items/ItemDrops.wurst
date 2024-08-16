@@ -8,7 +8,6 @@ import UpdateDropSite
 import ItemPickups
 import LinkedList
 
-let dropListHash = new HashMap<int,DropList>
 let dropItemsToStore = new LinkedList<item>
 
 let guaranteedSingleDrophash = new HashMap<int, ItemTable>
@@ -30,6 +29,7 @@ function rightCreepEnumerate()
     let hydraTable = new MultiChanceMultiDropTable()
     hydraTable.populateLatestTable(25, ITEM_332, ITEM_330, ITEM_327, ITEM_331)
     hydraTable.populateLatestTable(10, ITEM_341)
+    multiChanceMultiDropHash.put(ELITE_CREEP[2], hydraTable)
     // furbolg ursa warrior
     let furbolgWarriorTable = new SingleChanceMultiDropTable(25)
     furbolgWarriorTable.populateLatestTable(ITEM_334, ITEM_336, ITEM_335, ITEM_337)
@@ -345,7 +345,7 @@ class ItemTable //100% drop rate
             this.itemsListed.add(items)
 
     function giveFromTable(vec2 pos)
-        createItem(this.itemsListed.getRandomElement(), pos)
+        dropItemsToStore.add(createItem(this.itemsListed.getRandomElement(), pos))
 
     function giveUnitFromTable(unit toGiveTo)
         toGiveTo.addItemById(this.itemsListed.getRandomElement())
@@ -389,6 +389,7 @@ class MultiChanceMultiDropTable //% based drop rate
         listedList.removeAt(0)
         listedList.forEach() (integer items) ->
             newTable.populateTable(items)
+        itemTables.add(newTable)
     
     function multiDrop(vec2 pos)
         this.itemTables.forEach() (ChanceItemTable t) ->
@@ -470,36 +471,30 @@ function guaranteedMultiDropper(int uid, vec2 pos)
 function chanceSingleDropper(int uid, vec2 pos)
     chanceSingleDropHash.get(uid).dropCheck(pos)
 
-function chanceMultiDropper(int uid, vec2 pos)
+function multiChanceMultiDropper(int uid, vec2 pos)
     multiChanceMultiDropHash.get(uid).multiDrop(pos)
 
+function singleChanceMultiDropper(int uid, vec2 pos)
+    singleChanceMultiDropHash.get(uid).multiDrop(pos)
 
-public function unit.dropItems()
+public function unit.dropItems() returns bool
     let uid = this.getTypeId()
 
     if chanceSingleDropHash.has(uid)
         chanceSingleDropper(uid, this.getPos())
+        return true
+    if singleChanceMultiDropHash.has(uid)
+        singleChanceMultiDropper(uid, this.getPos())
+        return true
     if guaranteedSingleDrophash.has(uid)
         guaranteedSingleDropper(uid, this.getPos())
-    if multiChanceMultiDropHash.has(uid)
-        chanceMultiDropper(uid, this.getPos())
+        return true
     if guaranteedMultiDropHash.has(uid)
         guaranteedMultiDropper(uid, this.getPos())
-    
-        
-    /*if dropListHash.has(uid)
-        let dropList = dropListHash.get(uid)
-        for int i = 0 to dropList.dropPool.size() - 1
-            let chance = dropList.dropChance.get(i)
-            if GetRandomInt(1, 100) <= chance
-                let pos = this.getPos()
-                var lastCount = 0
-                for int j = 0 to dropList.dropPoolCutoff.get(i).size() - 1
-                    let cutOff = lastCount + dropList.dropPoolCutoff.get(i).get(j)
-                    let random = GetRandomInt(lastCount, cutOff - 1)
-                    lastCount = cutOff
-                    let iteId = dropList.dropPool.get(i).get(random)
-                    dropItemsToStore.add(createItem(iteId, pos))*/
+        return true
+    if multiChanceMultiDropHash.has(uid)
+        multiChanceMultiDropper(uid, this.getPos())
+    return false
 
 public function dropMyItemsMinibosses(unit u)
     let pos = u.getPos()

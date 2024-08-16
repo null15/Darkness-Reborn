@@ -81,6 +81,8 @@ public class QuestIntKillAnyInstant extends QuestIntInstant
                         destroy onComplete
                         destroy listener
                         destroy this
+                    else
+                        printTimedToPlayer("|cff921313" + (quest_requirement-getResource()).toString() + "|r left ", 2, questOwner)
 
 public class QuestIntKillTargetInstant extends QuestIntInstant
     EventListener listener
@@ -102,6 +104,8 @@ public class QuestIntKillTargetInstant extends QuestIntInstant
                             destroy listener
                             destroy onComplete
                             destroy this
+                        else
+                            printTimedToPlayer("|cff921313" + (quest_requirement-getResource()).toString() + "|r left ", 2, questOwner)
 
 public class QuestIntKillLevelRangeInstant extends QuestIntInstant
     EventListener listener
@@ -123,6 +127,8 @@ public class QuestIntKillLevelRangeInstant extends QuestIntInstant
                             destroy onComplete
                             destroy listener
                             destroy this
+                        else
+                            printTimedToPlayer("|cff921313" + (quest_requirement-getResource()).toString() + "|r left ", 2, questOwner)
 
 public class QuestIntKillLowestLevelInstant extends QuestIntInstant
     EventListener listener
@@ -144,3 +150,5 @@ public class QuestIntKillLowestLevelInstant extends QuestIntInstant
                             destroy onComplete
                             destroy listener
                             destroy this
+                        else
+                            printTimedToPlayer("|cff921313" + (quest_requirement-getResource()).toString() + "|r left ", 2, questOwner)
