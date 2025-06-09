@@ -3,7 +3,7 @@ package Recipes
 import LinkedList
 
 public class Recipe
-    LinkedList<int> items
+    let items = new LinkedList<int>
     int completedItem
 
     ondestroy
@@ -17,9 +17,7 @@ public class Recipe
             tempList.add(items)
         completedItem = tempList.get(0)
         tempList.remove(0)
-        items = tempList
-
-
+        items.addAll(tempList)
 
     construct(int item1, int item2, int completedItem)
         items.add(item1)

@@ -367,7 +367,11 @@ import OrderIds
     //A0Y0
     new AbilityDefinitionStrengthBonusPlus1(STRMOD_42)
     ..setStrengthBonus(1, 999)
-       
+
+@compiletime function intAbils()
+    
+
+
 @compiletime function buildingGeneral()
     new AbilityDefinitionShopSharing(SHOP_SHARE)
     ..setLevels(1)
@@ -3235,7 +3239,7 @@ import OrderIds
     ..presetDetectionRadius(lvl -> 400.)
     ..presetIcon(Icons.bTNHammer)
 
-    new AbilityDefinitionBerserk(UTHER_ABIL_2)
+    new AbilityDefinitionFrenzy(UTHER_ABIL_2)
     ..setLevels(9)
     ..setHotkeyLearn("W")
     ..setHotkeyNormal("W")

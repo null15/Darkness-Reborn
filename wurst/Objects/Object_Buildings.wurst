@@ -9982,8 +9982,3 @@ import Units
     ..setRequirements(TINKERBUILDING_60.toRawCode())
     ..setName("Siege Engine")
     ..setManaRegeneration(0.00)
-
-
-
-
-

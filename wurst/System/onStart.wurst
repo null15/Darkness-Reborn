@@ -180,6 +180,8 @@ function mapSetup()
     doAfter(0.5) -> 
         let dBox = new DialogBox("Choose difficulty")
 
+        gameMode = -1
+
         dBox.addButton("Baby") -> 
             gameMode = 0
             dialogBoxClick()

@@ -87,17 +87,34 @@ function filterEpicQuestKill(int rarity, HashSet<int> targetUnitType) returns in
 function player.epicQuestDrops(HashSet<int> targetUnitType)
     playerHero.get(this).giveDropItem(targetUnitType.get(0))
 
+function fountainQuestNormalReward(int rarity, player questOwner, HashSet<int> targetUnitType)
+    let goldGained = 750 * rarity
+    let xpGained = 350 * (rarity + 1)
+    
+    playerHero.get(questOwner).addXp(xpGained, true)
+    questOwner.addGold(goldGained)
+    printTimedToPlayer("You have gained " + goldGained.toString() + " Gold and " + xpGained.toString() + " EXP.", 5, questOwner)
+    if(rarity > 1)
+        playerHero.get(questOwner).giveDropItem(targetUnitType.get(0))
+
+function fountainQuestEliteReward(int rarity, player questOwner, HashSet<int> targetUnitType)
+    let goldGained = 750 * rarity
+    let xpGained = 350 * (rarity + 1)
+    let lumberGain = 10*(rarity-1)
+    playerHero.get(questOwner).addXp(xpGained, true)
+    questOwner.addGold(goldGained)
+    questOwner.addLumber(lumberGain)
+    printTimedToPlayer("You have gained " + goldGained.toString() + " Gold, " + lumberGain.toString() + " Lumber and " + xpGained.toString() + " EXP.", 10, questOwner)
+    playerHero.get(questOwner).giveDropItem(targetUnitType.get(0))
 
 function player.initiateFountainQuest(HashSet<int> targetUnitType, int rarity)
     let title = createUnit(targetUnitType.get(0))..remove().getName() + " Kill Quest " + questStringConversion(rarity)
     let required = filterEpicQuestKill(rarity, targetUnitType) //rarity * 3 + 7
     startKillingTargetQuest(required, this, targetUnitType, title) (player questOwner) ->
-        playerHero.get(this).addXp(350 * (rarity + 1), true)
-        this.addGold(750 * rarity)
-        if rarity > 1
-            playerHero.get(this).giveDropItem(targetUnitType.get(0))
         if hasEliteEnemy(targetUnitType)
-            this.addLumber(10*(rarity-1))
+            fountainQuestEliteReward(rarity, questOwner, targetUnitType)
+        else
+            fountainQuestNormalReward(rarity, questOwner, targetUnitType)
 
 public function unit.questItemPickup()
     EventListener.add(this, EVENT_PLAYER_UNIT_SELL_ITEM) ->

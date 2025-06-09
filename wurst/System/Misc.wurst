@@ -3,7 +3,6 @@ package Misc
 import ClosureEvents
 
 init
-
     disableTK() // Disables team attack
     shoptobaseTp() // Teleports to below fountain if they enter shop area
 
@@ -18,5 +17,5 @@ function shoptobaseTp()
 
 function disableTK()
     EventListener.add(EVENT_PLAYER_UNIT_ATTACKED) -> 
-        if GetAttacker().isAllyOf(GetTriggerUnit())
-            GetAttacker().issueImmediateOrder("stop")
+        if EventData.getAttackerUnit().isAllyOf(EventData.getTriggerUnit())
+            EventData.getAttackerUnit().issueImmediateOrder("stop")

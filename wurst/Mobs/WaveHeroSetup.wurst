@@ -506,6 +506,7 @@ function waveHeroTimerElapsed()
         graceWaveSpawnCb = doAfter(60) ->
             waveHeroSpawn()
             waveHeroTimerElapsed()
+            graceWaveSpawnCb = null
     else
         DoNothing()
 
