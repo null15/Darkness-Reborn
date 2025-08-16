@@ -1,5 +1,6 @@
 package ThiefRAbility
 import ClosureEvents
+import Abilities
 
 public function goldBonus() 
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
@@ -7,3 +8,4 @@ public function goldBonus()
         if(u.getAbilityLevel('A0XD') * 3 > GetRandomInt(0, 100))
             let p = u.getOwner()
             p.addGold(u.getAgi(true))
+            flashEffect(Abilities.goldBottleMissile, u.getPos(), 2.)

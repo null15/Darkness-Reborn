@@ -22,12 +22,12 @@ public function fireballCast()
         let closestEnemy = true
         let buffBias = BUFF_12
         let bouncingProjectile = new BouncingProjectiles(sfx, caster, target, bounceRange, closestEnemy, udg_BounceAmount[level-1], buffBias)
-        bouncingProjectile.moveForward() (effect detectionUnit, unit target) ->
+        bouncingProjectile.moveForward(false) (boolean explicitCheck, effect detectionUnit, unit target) ->
             let damage = udg_FireBallDamage[level-1] + level * 0.8 * caster.getInt(true)
             blaze(caster, target)
             new DummyCaster()
             ..owner(caster.getOwner())
             ..origin(sfx.getPos())
             ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, target)
-            caster.magicalDamageCodeElementId(damage, target, DAMAGE_ELEMENT_FIRE, 'blaz')
             flashEffect(Abilities.fireLordDeathExplode, target.getPos())
+            caster.magicalDamageCodeElementId(damage, target, DAMAGE_ELEMENT_FIRE, 'blaz')

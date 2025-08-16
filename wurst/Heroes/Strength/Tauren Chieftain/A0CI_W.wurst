@@ -24,7 +24,7 @@ public function blessedHammer()
         let transitProjectile = new PointTransitProjectile(target, sfx, tickRate)
         transitProjectile.timedMoveForward(range, time) (vec2 target, boolean inTransit) ->
             if inTransit
-                forUnitsInRange(sfx.getPos(), 150) (unit u) ->
+                forUnitsInRange(target, 150) (unit u) ->
                     if caster.isEnemyOf(u)
                         new DummyCaster()
                         ..owner(GetOwningPlayer(caster))

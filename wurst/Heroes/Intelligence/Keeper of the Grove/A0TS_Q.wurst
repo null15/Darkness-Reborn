@@ -17,7 +17,7 @@ public function entanglingRoots()
         let lvl = caster.getAbilityLevel('A0TS')
         let output = 2.00 * lvl * caster.getInt(true) + entanglingDamage[lvl-1]
         forUnitsInRange(target, 350, true) (unit u) ->
-            if caster.isEnemyOf(u)
+            if caster.isEnemyOf(u) and u.isAlive()
                 new DummyCaster()
                 ..owner(caster.getOwner())
                 ..origin(caster.getPos())

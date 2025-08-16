@@ -21,7 +21,7 @@ public function imageArrow()
             ..addAbility(DARKRANGER_DUMMYABIL_1)
             ..setAbilityLevel(DARKRANGER_DUMMYABIL_1, lvl)
             let proj = new Projectile(target, sfx, 2)
-            proj.moveForward() (effect detectionUnit, unit target) ->
+            proj.moveForward(false) (effect detectionUnit, unit target) ->
                 let damage = caster.getAgi(true) * 0.6 * caster.getAbilityLevel(DARKRANGER_ABIL_1)
                 caster.magicalDamageCode(damage, target)
 
@@ -35,6 +35,6 @@ public function imageArrow()
             ..addAbility(DARKRANGER_DUMMYABIL_1)
             ..setAbilityLevel(DARKRANGER_DUMMYABIL_1, lvl)
             let proj = new Projectile(target, sfx, 2)
-            proj.moveForward() (effect detectionUnit, unit target) ->
+            proj.moveForward(false) (effect detectionUnit, unit target) ->
                 let damage = caster.getAgi(true) * 0.6 * caster.getAbilityLevel(DARKRANGER_ABIL_1)
                 caster.magicalDamageCode(damage, target)

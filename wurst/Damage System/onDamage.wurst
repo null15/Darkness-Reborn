@@ -36,6 +36,7 @@ import A0RI_R
 import A0RL_E
 import ThornsAuraWave
 import SoulKilJaeden
+import SpikeOfCrypt
 import Global_Variables
 
 @configurable constant DETECT_NATIVE_ABILITIES = true
@@ -211,6 +212,8 @@ function reflectionChecks(unit src, unit targ)
     let targuID = targ.getTypeId()
     if(targ.hasItemById(ITEM_175))
         reactiveArmor1(targ, src, dam)
+    if(targ.hasItemById(ITEM_701))
+        spikeofCrypt(targ, src, dam)
     if(targ.hasItemById(ITEM_251))
         reactiveArmor2(targ, src, dam)
     if(targ.hasItemById(ITEM_226))

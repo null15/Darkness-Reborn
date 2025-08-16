@@ -4453,7 +4453,6 @@ import OrderIds
 @compiletime function itemAbils()
     new AbilityDefinitionCryptLordSpikedCarapace(ITEM_ABIL_1) //Spike of Crypt
     ..setLevels(1)
-    ..setReturnedDamageFactor(1, 500)
     ..setItemAbility(true)
     ..setDefenseBonus(1, 230)
 

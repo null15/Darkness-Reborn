@@ -3,3 +3,5 @@ wurst.dependencies
 /.vscode
 *.md
 ToDo.md
+compiled.j.txt
+temp/output.j

@@ -99,16 +99,31 @@ function unit.checkInventoryForItems() returns int
     destroy slots
     return atSpot
 
+function checkItemListParity(LinkedList<item> itemListA, LinkedList<item> itemListB) returns bool
+    for int i = 0 to itemListA.size()
+        if itemListB.has(itemListA.get(i))
+            return false
+    return true
+
+
 public function blacksmithDoAfter()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
         let bs = GetTriggerUnit()
         if bs.getTypeId() == TINKERBUILDING_114
             if itemTimer == null
+                
                 let atSpot = bs.checkInventoryForItems()
                 if atSpot > 0
                     bs.setAnimation("Work")
+                    let itemInBs = new LinkedList<item>()
+                    for int i = 0  to 5
+                        itemInBs.add(bs.itemInSlot(i))
                     itemTimer = doAfter(20) ->
-                        if bs.checkInventoryForItems() > 0
+                        itemTimer = null
+                        let currentItemInBs = new LinkedList<item>()
+                        for int i = 0  to 5
+                            currentItemInBs.add(bs.itemInSlot(i))
+                        if checkItemListParity(itemInBs, currentItemInBs)
                             let rightList = itemlist.get(atSpot)
                             let newite = rightList.getLast()
                             for int i = 0 to rightList.size() - 2
@@ -117,7 +132,6 @@ public function blacksmithDoAfter()
                             newitecur.setPos(bs.getPos())
                             bs.setAnimation("Stand")
                             printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed|r" + newitecur.getName(), 7)
-                            itemTimer = null
                             destroy rightList
     EventListener.add(EVENT_PLAYER_UNIT_DROP_ITEM) -> 
         let bs = GetTriggerUnit()

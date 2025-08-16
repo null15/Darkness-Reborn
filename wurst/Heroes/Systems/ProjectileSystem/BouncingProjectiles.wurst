@@ -3,7 +3,7 @@ import ClosureForGroups
 import ClosureTimers
 
 public interface OnProjectileHit
-    function hit(effect detectionUnit, unit target)
+    function hit(bool explicitCheck, effect detectionUnit, unit target)
 
 public class BouncingProjectiles
     protected bool closestEnemy
@@ -39,16 +39,18 @@ public class BouncingProjectiles
     ondestroy
         sfx.destr()
 
-    private function impact(effect detectionUnit, OnProjectileHit onHit)
-        if(target.isAlive())
-            onHit.hit(detectionUnit, target)
+    private function impact(bool explicitCheck, effect detectionUnit, OnProjectileHit onHit)
+        if(explicitCheck)
+            onHit.hit(explicitCheck, detectionUnit, target)
+        else if(target.isAlive())
+            onHit.hit(explicitCheck, detectionUnit, target)
         counter++
         if(counter >= maxBounceCount)
             sfx.destr()
             destroy onHit
             destroy this
         else
-            swapTarget(onHit)
+            swapTarget(explicitCheck,onHit)
 
     private function swapTargetClosest(vec2 sfxPos, unit u)
         if(u.isEnemyOf(caster.getOwner()))
@@ -73,7 +75,7 @@ public class BouncingProjectiles
                 if(udis > ndis and u.isAlive())
                     newTarg = u
 
-    private function swapTarget(OnProjectileHit onHit)
+    private function swapTarget(bool explicitCheck, OnProjectileHit onHit)
         newTarg = null
         let sfxPos = sfx.getPos()
         if(closestEnemy)
@@ -87,9 +89,9 @@ public class BouncingProjectiles
             sfx.destr()
             destroy this
         else
-            moveForward(onHit)
+            moveForward(explicitCheck,onHit)
 
-    function moveForward(OnProjectileHit onHit)
+    function moveForward(bool explicitCheck, OnProjectileHit onHit)
         doPeriodically(0.02) (CallbackPeriodic cb) ->
             let pos1 = sfx.getPos()
             let pos2 = target.getPos()
@@ -98,5 +100,5 @@ public class BouncingProjectiles
             sfx..setPos(pos3).setYaw(angle.radians())
             let dist = pos1.distanceTo(pos2)
             if(dist <= 11.)
-                impact(sfx, onHit)
+                impact(explicitCheck,sfx, onHit)
                 destroy cb

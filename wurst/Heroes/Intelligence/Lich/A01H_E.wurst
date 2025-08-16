@@ -18,15 +18,15 @@ public function chainTest()
         let closestEnemy = true
         let maxBounceCount = level+3
         let bouncingProjectiles = new BouncingProjectiles(sfx, caster, target, bounceRange, closestEnemy, maxBounceCount)
-        bouncingProjectiles.moveForward() (effect detectionUnit, unit target) ->
+        bouncingProjectiles.moveForward(false) (bool explicitCheck, effect detectionUnit, unit target) ->
             let damage = level * 1. * caster.getInt(true)
             new DummyCaster()
             ..owner(caster.getOwner())
             ..origin(detectionUnit.getPos())
             ..castTarget(ABILITY_DUMMY_13, 1, OrderIds.cripple, target)
-            caster.magicalDamageCode(damage, target)
             new DummyCaster()
             ..owner(caster.getOwner())
             ..origin(detectionUnit.getPos())
             ..castTarget(ABILITY_DUMMY_4, 1, OrderIds.thunderbolt, target)
             flashEffect(Abilities.frostArmorDamage, target.getPos())
+            caster.magicalDamageCode(damage, target)

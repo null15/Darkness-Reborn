@@ -24,7 +24,7 @@ public class PointTransitProjectile
         destroy this
 
     private function inTransit(OnProjectileHit onHit)
-        onHit.hit(target, true)
+        onHit.hit(sfx.getPos(), true)
 
     function moveForward(real velocity, OnProjectileHit onHit)
         let origPos = sfx.getPos()

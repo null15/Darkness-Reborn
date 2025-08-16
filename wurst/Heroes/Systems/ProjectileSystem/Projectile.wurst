@@ -19,12 +19,16 @@ public class Projectile
     ondestroy
         sfx.destr()
         
-    private function impact(OnProjectileHit onHit)
-        if(target.isAlive())
+    private function impact(OnProjectileHit onHit, bool explicitCheck)
+        if(explicitCheck)
             onHit.hit(sfx, target)
+        else
+            if(target != null)
+                if(target.isAlive())
+                    onHit.hit(sfx, target)
         destroy this
 
-    function moveForward(OnProjectileHit onHit)
+    function moveForward(bool explicitCheck, OnProjectileHit onHit)
         let origPos = sfx.getPos()
         doPeriodically(0.02) (CallbackPeriodic cb) ->
             let pos1 = sfx.getPos()
@@ -34,10 +38,10 @@ public class Projectile
             sfx..setPos(pos3).setYaw(angle.radians())
             let dist = pos1.distanceTo(pos2)
             if(dist <= 11. or origPos.distanceTo(pos2) < origPos.distanceTo(pos1))
-                impact(onHit)
+                impact(onHit, explicitCheck)
                 destroy onHit
                 destroy cb
-            if target.isAlive() != true
+            else if target.isAlive() != true
                 destroy onHit
                 destroy this
                 destroy cb

@@ -18,7 +18,7 @@ public function tornado()
             let lvl = caster.getAbilityLevel(NAGAWITCH_ABIL_5)
             let dmg = caster.getMaxMana() * lvl * 0.75 / 100
             if inTransit
-                forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
+                forUnitsInRange(target, 300, true) (unit u) ->
                     if u.isEnemyOf(caster)
                         caster.magicalDamageCode(dmg, u)
                         if sfx.getPos().isTerrainWalkable()

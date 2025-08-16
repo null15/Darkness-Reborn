@@ -1,9 +1,29 @@
 package A0U2_T
 import Abilities
 import ClosureEvents
+import MyUnitIds
+import Global_Variables
 
 public function spiritGuardian()
     EventListener.onPointCast('A0U2') (unit caster, vec2 target) ->
         let spirit = createUnit(caster.getOwner(), 'e003', target)..setTimedLife(60)
         spirit.setAbilityLevel('A11E', caster.getAbilityLevel('A0U2'))
         AddSpecialEffect(Abilities.animateDeadTarget, target.x, target.y).destr()
+    EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
+        let summoner = GetSummoningUnit()
+        if(summoner.getTypeId() == PLAY_HERO_20 or summoner.getTypeId() == 'e003')
+            let summon = GetSummonedUnit()
+            
+            let heroInt = playerHero.get(summon.getOwner()).getInt(true)
+
+
+            if summon.getTypeId() == 'e003'
+                let lvl = summoner.getAbilityLevel('A0U2')
+                summon.setMaxHP((0.05*heroInt + lvl * 125).toInt(), true)
+                summon.setArmor(0.4 * summoner.getArmor() + lvl * 8)
+                summon.setBaseDamage((0.15 * heroInt).toInt(), 0)
+            if summon.getTypeId() == 'e004'
+                let lvl = summoner.getAbilityLevel('A11E')
+                summon.setMaxHP((0.05 * heroInt + lvl * 125).toInt(), true)
+                summon.setArmor(0.4 * summoner.getArmor() + lvl * 8)
+                summon.setBaseDamage((0.1 * heroInt).toInt(), 0)

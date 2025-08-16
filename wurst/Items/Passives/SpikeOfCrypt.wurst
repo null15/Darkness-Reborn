@@ -1,0 +1,5 @@
+package SpikeOfCrypt
+
+import codeDamageTypings
+public function spikeofCrypt(unit holder, unit attacker, real dam)
+    holder.physicalDamageCode(dam * 5, attacker, true)

@@ -4530,7 +4530,7 @@ init
     +"+6000 HP\n"
     +"+700 Damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Void Axe (|c001CE6B9" + recipeShop3 + "|r)")
+    +"Void Axe (|c001CE6B9" + recipeShop2 + "|r)")
     ..setHotkey("")
 
 //I0E3
