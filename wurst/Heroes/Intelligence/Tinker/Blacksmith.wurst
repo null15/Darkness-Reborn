@@ -14,67 +14,67 @@ public function blacksmithJackedUp() returns LinkedList<LinkedList<int>>
     let blacksmithItems = new LinkedList<LinkedList<int>>
     let perrecipe = new LinkedList<int>
 
-    perrecipe.add(ITEM_501,ITEM_503,ITEM_369,ITEM_448)
+    perrecipe.add(ITEM_BASIC_GOLD_RING,ITEM_RING_OF_SUN,ITEM_HOVER_RING,ITEM_GOLDEN_RING)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_506,ITEM_508,ITEM_310,ITEM_447)
+    perrecipe.add(ITEM_WOOD_BRACER,ITEM_GOLDEN_BRACER,ITEM_MAGIC_POTION,ITEM_MYSTERY_BRACER)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_512,ITEM_514,ITEM_516,ITEM_518, ITEM_409)
+    perrecipe.add(ITEM_KNIFE_OF_HUNTER,ITEM_STEEL_SWORD,ITEM_SWORD_FANG,ITEM_SWORD_OF_DRUIDMASTER, ITEM_GOD_SWORD)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_520,ITEM_522,ITEM_524,ITEM_368, ITEM_526)
+    perrecipe.add(ITEM_SPIRIT_SWORD_L2,ITEM_SPIRIT_BLADE,ITEM_SPIRIT_GIANT_BLADE,ITEM_APOCALYPSE, ITEM_GOLDEN_PHOENIX_SWORD)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_528,ITEM_530,ITEM_532,ITEM_534,ITEM_535)
+    perrecipe.add(ITEM_MIDNIGHT_MACE,ITEM_DOOMS_GRAND_STAFF,ITEM_VENGEANCE_WAR_STAFF,ITEM_FIERCE_GREATSTAFF,ITEM_MERCY)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_537,ITEM_539,ITEM_541,ITEM_589)
+    perrecipe.add(ITEM_CAPE_OF_CURSED,ITEM_FUSION_HIDE_DRAPE,ITEM_BLOODIED_WOOL_CLOAK,ITEM_FROZEN_CLOTH_GREATCLOAK)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_543,ITEM_545,ITEM_547,ITEM_549,ITEM_550)
+    perrecipe.add(ITEM_OLD_RING,ITEM_RING_OF_MYSTERY,ITEM_GOLD_SIMPLE_RING,ITEM_RING_OF_FAKE_SUN,ITEM_RING_OF_LEGACY)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_552,ITEM_554,ITEM_556,ITEM_558,ITEM_559)
+    perrecipe.add(ITEM_SIMPLE_HAMMER,ITEM_WARRIOR_HAMMER,ITEM_FUSION_HAMMER,ITEM_THUNDERCHAOS_HAMMER,ITEM_GOLDEN_HAMMER)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_561,ITEM_563,ITEM_565,ITEM_590)
+    perrecipe.add(ITEM_ARMOR_OF_HELL,ITEM_SILVER_GIANT_ARMOR,ITEM_DESTROYER_ARMOR,ITEM_INHERITED_ARMOR)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_567,ITEM_569,ITEM_571,ITEM_573,ITEM_591)
+    perrecipe.add(ITEM_BLOOD_ORB,ITEM_GOLD_CRYSTAL_ORB,ITEM_CHAOS_ORB,ITEM_GOLDEN_ORB,ITEM_MATRIX_ORB)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_575,ITEM_577,ITEM_579,ITEM_580)
+    perrecipe.add(ITEM_LEATHER_BOOTS,ITEM_HEAVY_BOOTS,ITEM_BLOOD_INFUSED_LINEN_BOOTS,ITEM_FIRESOUL_WOOL_BOOTS)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_582,ITEM_584,ITEM_586,ITEM_587,ITEM_592)
+    perrecipe.add(ITEM_FREE_PLEDGE_RING,ITEM_AGED_IMAGE,ITEM_SUN_NECKLACE,ITEM_FAINT_TRINKET_NECKLACE,ITEM_SONG_BROOCH)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_181,ITEM_588,ITEM_119,ITEM_593)
+    perrecipe.add(ITEM_VAMPIRELLA,ITEM_MYSTERY_PURPLE_STAFF,ITEM_PERFECT_SAPPHIRE,ITEM_MYSTERY_RED_STAFF)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_462,ITEM_238,ITEM_534,ITEM_594)
+    perrecipe.add(ITEM_FORGE_STAFF_L4,ITEM_FREEZE_WAND,ITEM_FIERCE_GREATSTAFF,ITEM_FROZEN_STAFF)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_595,ITEM_185,ITEM_596)
+    perrecipe.add(ITEM_HYDRAS_TREASURE_BIG,ITEM_PERFECT_ARKENSTONE,ITEM_HYDRAS_TREASURE_PERFECT)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 
-    perrecipe.add(ITEM_597,ITEM_185,ITEM_598)
+    perrecipe.add(ITEM_SPIDERS_TREASURE_BIG,ITEM_PERFECT_ARKENSTONE,ITEM_SPIDERS_TREASURE_PERFECT)
     blacksmithItems.add(new LinkedList<int>(perrecipe))
     perrecipe.clear()
 

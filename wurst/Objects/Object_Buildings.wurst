@@ -83,7 +83,7 @@ import Units
     ..setPathingMap("")
     ..setItemsSold("")
     ..setModelFile("Red Item.mdl")
-    ..setItemsMade(commaList(ITEM_706,ITEM_707))
+    ..setItemsMade(commaList(UPGRADE_BASE_ARMOR,UPGRADE_BASE_HEALTH))
     ..setUpgradesTo("")
     ..setUpgradesUsed("RM0e,RM0d")
     ..setArmorType(ArmorType.Fortified)
@@ -112,7 +112,7 @@ import Units
     ..setSightRadiusDay(30000)
     ..setSightRadiusNight(30000)
     ..setItemsMade(commaList(""))
-    ..setItemsSold(commaList(ITEM_490, ITEM_167, ITEM_168, ITEM_QUEST))
+    ..setItemsSold(commaList(ITEM_LUMBER100_TO_GOLD, ITEM_LUMBER_100, ITEM_EMPTY_VIAL, ITEM_QUEST))
     ..setUnitsSold(commaList(HORSE_UNIT_1, HORSE_UNIT_2))
     ..setHideMinimapDisplay(true)
     ..setUnitClassification(commaList("mechanical", "neutral", "townhall"))
@@ -132,7 +132,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_0, ITEM_1, ITEM_2, ITEM_3, ITEM_4, ITEM_5, ITEM_6, ITEM_7, ITEM_8, ITEM_9, ITEM_10))
+    ..setItemsMade(commaList(ITEM_GLOVES_OF_HASTE, ITEM_GLOVES_OF_HADES, ITEM_GLOVES_OF_WIND, ITEM_LIFE_STEAL, ITEM_LEATHER_ARMOR, ITEM_IRON_ARMOR, ITEM_SILVER_ARMOR, ITEM_SIMPLE_SWORD, ITEM_CLAWS_OF_ATTACK, ITEM_STURDY_WAR_AXE, ITEM_MAUL_OF_STRENGTH))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_2, UnitIds.goblinmerchant)
@@ -150,7 +150,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_11, ITEM_12, ITEM_13, ITEM_14, ITEM_15, ITEM_16, ITEM_17, ITEM_18, ITEM_19, ITEM_20, ITEM_21))
+    ..setItemsMade(commaList(ITEM_BOOTS_OF_SPEED, ITEM_JADE_RING, ITEM_SOUL_RING, ITEM_RING_OF_ARCHMAGI, ITEM_RING_OF_REGENERATION, ITEM_RING_OF_PROTECTION, ITEM_ROBE_OF_MAGI, ITEM_BOOTS_OF_QUELTHALAS, ITEM_BELT_OF_GIANT_STRENGTH, ITEM_CIRCLET_OF_NOBILITY, ITEM_CRYSTAL_BALL))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_3, UnitIds.goblinmerchant)
@@ -168,7 +168,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_22, ITEM_23, ITEM_24, ITEM_25, ITEM_26, ITEM_27, ITEM_28, ITEM_29, ITEM_30, ITEM_31, ITEM_32))
+    ..setItemsMade(commaList(ITEM_ORB_OF_CORRUPTION, ITEM_ORB_OF_DARKNESS, ITEM_ORB_OF_LIGHTNING, ITEM_ORB_OF_FIRE, ITEM_ORB_OF_FROST, ITEM_ORB_OF_KILJAEDAN, ITEM_AMULET_OF_SPELL_SHIELD, ITEM_TALISMAN_OF_EVASION, ITEM_ENCHANTED_SHIELD, ITEM_ARCANITE_SHIELD, ITEM_SHIELD_OF_HONOR))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_4, UnitIds.goblinmerchant)
@@ -186,7 +186,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_33, ITEM_34, ITEM_35, ITEM_36, ITEM_37, ITEM_38, ITEM_39, ITEM_40))
+    ..setItemsMade(commaList(ITEM_POTION_OF_GREATER_HEALING, ITEM_POTION_OF_GREATER_MANA, ITEM_PENDANT_OF_ENERGY, ITEM_PENDANT_OF_MANA, ITEM_PERIAPT_OF_VITALITY, ITEM_KHADGARS_PENDANT_OF_HEALTH, ITEM_CLOAK_OF_SHADOWS, ITEM_TOME_OF_RETRAINING))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_5, UnitIds.goblinmerchant)
@@ -204,7 +204,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_41, ITEM_42, ITEM_43, ITEM_44, ITEM_45, ITEM_46, ITEM_47, ITEM_48, ITEM_49, ITEM_50, ITEM_51, ITEM_52))
+    ..setItemsMade(commaList(ITEM_RECIPE_ICE_SWORD, ITEM_RECIPE_FIRE_SWORD, ITEM_RECIPE_BOOTS_OF_TELEPORTATION, ITEM_RECIPE_BOOTS_OF_INVISIBILITY, ITEM_RECIPE_WINGED_BOOTS, ITEM_RECIPE_STEEL_AXE, ITEM_RECIPE_SILVER_HAMMER, ITEM_RECIPE_GLOVES_OF_SPEED, ITEM_RECIPE_HALF_OF_ARKENSTONE, ITEM_RECIPE_LIGHT_ARMOR, ITEM_RECIPE_SCROLL_OF_FUSION, ITEM_RECIPE_AMULET_OF_WILD))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_6, UnitIds.goblinmerchant)
@@ -222,7 +222,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_53, ITEM_54, ITEM_55, ITEM_56, ITEM_57, ITEM_58, ITEM_59, ITEM_60, ITEM_61, ITEM_62, ITEM_63, ITEM_64))
+    ..setItemsMade(commaList(ITEM_RECIPE_HELM_OF_VALOR, ITEM_RECIPE_MEDALLION_OF_COURAGE, ITEM_RECIPE_ALLERIA_FLUTE_OF_ACCURACY, ITEM_RECIPE_ANCIENT_JANGGO_OF_ENDURANCE, ITEM_RECIPE_LION_HORN_OF_STORMWIND, ITEM_RECIPE_WARSONG_BATTLE_DRUMS, ITEM_RECIPE_DRUMS_OF_FUTURE, ITEM_RECIPE_GOLDEN_HORN, ITEM_RECIPE_TRIBAL_DRUMS, ITEM_RECIPE_NATURE_FLUTE, ITEM_RECIPE_VOID_AXE, ITEM_RECIPE_AINZ_SWORD))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_7, UnitIds.goblinmerchant)
@@ -240,7 +240,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_65, ITEM_66, ITEM_67, ITEM_68, ITEM_69, ITEM_70, ITEM_71, ITEM_72, ITEM_73, ITEM_74, ITEM_75, ITEM_76))
+    ..setItemsMade(commaList(ITEM_RECIPE_SEER_STAFF, ITEM_RECIPE_SCALE_AXE, ITEM_RECIPE_DALAN_AXE, ITEM_RECIPE_DURATION_AXE, ITEM_RECIPE_DWARVEN_AXE, ITEM_RECIPE_BLADE_OF_HELL, ITEM_RECIPE_KRAKEN_DAGGER, ITEM_RECIPE_MIDNIGHT_BLADE, ITEM_RECIPE_BLOOD_GORGED_BLADE, ITEM_RECIPE_STEEL_SHIELD, ITEM_RECIPE_SACRED_SHIELD, ITEM_RECIPE_IRON_SHIELD))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_8, UnitIds.goblinmerchant)
@@ -258,7 +258,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_77, ITEM_78, ITEM_79, ITEM_80, ITEM_81, ITEM_82, ITEM_83, ITEM_84, ITEM_85, ITEM_86, ITEM_87, ITEM_88))
+    ..setItemsMade(commaList(ITEM_RECIPE_SPLIT_ARMOR, ITEM_RECIPE_AVATAR_ARMOR, ITEM_RECIPE_CHAOS_BLADE, ITEM_RECIPE_O_CLOCK, ITEM_RECIPE_THUNDER_BOW, ITEM_RECIPE_SOUL_OF_KILJEADEN, ITEM_RECIPE_LIZARD_PENDANT, ITEM_RECIPE_HELM_HERMES, ITEM_RECIPE_DARK_SPHERE, ITEM_RECIPE_MYSTERY_GREEN_STAFF, ITEM_RECIPE_ICE_WAND, ITEM_RECIPE_WAR_ENERGY))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_9, UnitIds.goblinmerchant) // MIGRATED TO MEDIUM SHOP 1-4
@@ -292,7 +292,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_89, ITEM_90, ITEM_91, ITEM_92, ITEM_93, ITEM_94, ITEM_95, ITEM_96, ITEM_97, ITEM_98, ITEM_99))
+    ..setItemsMade(commaList(ITEM_RECIPE_ICE_FIRE_SWORD, ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD, ITEM_RECIPE_DESTROY_SWORD, ITEM_RECIPE_PLATINUM_HAMMER, ITEM_RECIPE_GLOVES_OF_FLESH, ITEM_RECIPE_DARK_STEEL_SWORD, ITEM_RECIPE_PERFECT_ARKENSTONE, ITEM_RECIPE_SHINY_ARMOR, ITEM_RECIPE_REACTIVE_ARMOR, ITEM_RECIPE_HOLY_ARMOR, ITEM_RECIPE_GOLD_AXE))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_11, UnitIds.goblinmerchant)
@@ -310,7 +310,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_100, ITEM_101, ITEM_102, ITEM_103, ITEM_104, ITEM_105, ITEM_106, ITEM_107, ITEM_108))
+    ..setItemsMade(commaList(ITEM_RECIPE_DARK_MATTER, ITEM_RECIPE_RAIN_SWORD, ITEM_RECIPE_CURROUSIVE_HAMMER, ITEM_RECIPE_VAMPIRELLA, ITEM_RECIPE_LANCELOT_SHIELD, ITEM_RECIPE_LANCELOT_ARMOR, ITEM_RECIPE_LANCELOT_HELM, ITEM_RECIPE_MYSTERY_BLUE_STAFF, ITEM_RECIPE_FREEZE_WAND))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_12, UnitIds.goblinmerchant)
@@ -328,7 +328,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsSold("")
-    ..setItemsMade(commaList(ITEM_109, ITEM_110, ITEM_111, ITEM_112, ITEM_113, ITEM_114, ITEM_115, ITEM_116, ITEM_117, ITEM_118, ITEM_119, ITEM_120))
+    ..setItemsMade(commaList(ITEM_GARNET, ITEM_PERFECT_CARNELIAN, ITEM_PERFECT_CITRINE, ITEM_PERFECT_TOPAZ, ITEM_PERFECT_OBSIDIAN, ITEM_PERFECT_AQUAMARINE, ITEM_PERFECT_NEPHRITE, ITEM_PERFECT_EMERALD, ITEM_PERFECT_PEARL, ITEM_PERFECT_HIPPOPUS, ITEM_PERFECT_SAPPHIRE, ITEM_PERFECT_AMETHYST))
     ..setStockReplenishInterval(300)
     ..setHideMinimapDisplay(true)
 
@@ -346,8 +346,8 @@ import Units
     ..setModelFile(Buildings.arcaneVault1)
     ..setPathingMap("")
     ..setPlacementRequires("")
-    ..setItemsSold(commaList(ITEM_169, ITEM_170, ITEM_171))
-    ..setItemsMade(commaList(ITEM_121, ITEM_122, ITEM_123, ITEM_124, ITEM_125, ITEM_126))
+    ..setItemsSold(commaList(ITEM_TOME_OF_FROSTY_INTELLIGENCE, ITEM_TOME_OF_FROSTY_STRENGTH, ITEM_TOME_OF_FROSTY_AGILITY))
+    ..setItemsMade(commaList(ITEM_BULION, ITEM_CRYSTAL_ARMOR, ITEM_CRYSTAL_DUAL_SWORD, ITEM_CRYSTAL_KNIFE, ITEM_CRYSTAL_SPEAR, ITEM_RECIPE_DRAGON_WINGS))
     ..setStockReplenishInterval(120)
     ..setHideMinimapDisplay(true)
 
@@ -365,7 +365,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsMade("")
-    ..setItemsSold(commaList(ITEM_127, ITEM_128, ITEM_129, ITEM_130, ITEM_131, ITEM_132, ITEM_133, ITEM_134, ITEM_135, ITEM_136, ITEM_137, ITEM_138))
+    ..setItemsSold(commaList(CREEP_TP_SPIDER, CREEP_TP_MUD_GOLEM, CREEP_TP_MURLOC_TIDERUNNER, CREEP_TP_TIMBER_WOLF, CREEP_TP_CRAB_SHORECRAWLER, CREEP_TP_FACELESS_ONE_TRICKSTER, CREEP_TP_SPITTING_SPIDER, CREEP_TP_ROCK_GOLEM, CREEP_TP_MURGUL_SHADOWCASTER, CREEP_TP_POLAR_FURBOLG, CREEP_TP_GHOST, CREEP_TP_FACELESS_ONE_DEATHBRINGER))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_15, UnitIds.goblinmerchant)
@@ -382,7 +382,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsMade("")
-    ..setItemsSold(commaList(ITEM_139, ITEM_140, ITEM_141, ITEM_142, ITEM_143, ITEM_144, ITEM_145, ITEM_146, ITEM_147, ITEM_148, ITEM_149, ITEM_150))
+    ..setItemsSold(commaList(CREEP_TP_BROOD_MOTHER, CREEP_TP_GRANITE_GOLEM, CREEP_TP_TURTLE, CREEP_TP_GIANT_POLAR_BEAR, CREEP_TP_STORM_WYRM, CREEP_TP_SKELETON_WARRIOR, CREEP_TP_FOREST_TROLL_WARLOCK, CREEP_TP_DIRE_MAMMOTH, CREEP_TP_FEL_RAVAGER, CREEP_TP_DALARAN_REJECT, CREEP_TP_VILE_TORMENTOR, CREEP_TP_ELDER_VOIDWALKER))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_16, UnitIds.goblinmerchant)
@@ -399,7 +399,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsMade("")
-    ..setItemsSold(commaList(ITEM_151, ITEM_152, ITEM_153, ITEM_154, ITEM_155, ITEM_156, ITEM_157, ITEM_158, ITEM_159, ITEM_160, ITEM_161, ITEM_162))
+    ..setItemsSold(commaList(CREEP_TP_NERUBIAN_QUEEN, CREEP_TP_HYDRALISK, CREEP_TP_FLESH_GOLEM, CREEP_TP_FURBOLG_GIANT, CREEP_TP_DOOM_GUARD, CREEP_TP_SCARY_SCREAM, CREEP_TP_FROSTY_SNOWMAN, CREEP_TP_ICE_REVENANT, CREEP_TP_OVERLORD, CREEP_TP_DRYAD, CREEP_TP_FOOTMAN, CREEP_TP_CAPTIAN))
     ..setHideMinimapDisplay(true)
 
     new BuildingDefinition(BUILDING_17, UnitIds.goblinmerchant)
@@ -416,7 +416,7 @@ import Units
     ..setPathingMap("")
     ..setPlacementRequires("")
     ..setItemsMade("")
-    ..setItemsSold(commaList(ITEM_163, ITEM_164, ITEM_165, ITEM_166))
+    ..setItemsSold(commaList(CREEP_TP_DRAGONS, CREEP_TP_TOWER, CREEP_TP_DREADLORD, CREEP_TP_WATER))
     ..setHideMinimapDisplay(true)
 
 @compiletime function tinkerBuildings()
@@ -9081,7 +9081,7 @@ import Units
     ..setManaMaximum(0)
     ..setLumberCost(0)
     ..setItemsMade("")
-    ..setItemsSold(commaList(ITEM_171, ITEM_170, ITEM_169, ITEM_483, ITEM_343, ITEM_345, ITEM_344))
+    ..setItemsSold(commaList(ITEM_TOME_OF_FROSTY_AGILITY, ITEM_TOME_OF_FROSTY_STRENGTH, ITEM_TOME_OF_FROSTY_INTELLIGENCE, ITEM_TOME_OF_FROSTY_ALL_STATS, ITEM_TOME_OF_AGILITY_10, ITEM_TOME_OF_STRENGTH_10, ITEM_TOME_OF_INTELLIGENCE_10))
     ..setUpgradesTo(commaList(""))
     ..setTooltipBasic("Magic Vault")
     ..setTooltipExtended("Sells Tomes to increase stats.")
@@ -9169,7 +9169,7 @@ import Units
     ..setManaMaximum(0)
     ..setLumberCost(0)
     ..setItemsMade("")
-    ..setItemsSold(commaList(ITEM_484, ITEM_485, ITEM_486, ITEM_487, ITEM_488, ITEM_489, ITEM_490, ITEM_491))
+    ..setItemsSold(commaList(ITEM_GOLD_TO_LUMBER1, ITEM_GOLD_TO_LUMBER9, ITEM_GOLD_TO_LUMBER90, ITEM_GOLD_TO_LUMBER900, ITEM_LUMBER1_TO_GOLD, ITEM_LUMBER10_TO_GOLD, ITEM_LUMBER100_TO_GOLD, ITEM_LUMBER1000_TO_GOLD))
     ..setUpgradesTo(commaList(""))
     ..setTooltipBasic("Trade Goods")
     ..setTooltipExtended("Convert Gold to Wood or vice versa.")
@@ -9258,7 +9258,7 @@ import Units
     ..setLumberCost(0)
     ..setUpgradesTo(commaList(""))
     ..setItemsMade("")
-    ..setItemsSold(commaList(ITEM_492, ITEM_493, ITEM_494, ITEM_495, ITEM_496, ITEM_497, ITEM_498, ITEM_705))
+    ..setItemsSold(commaList(ITEM_RECIPE_FIRE_ICE_SWORD_II, ITEM_RECIPE_DARK_STEEL_SWORD_II, ITEM_RECIPE_DESTROY_SWORD_II, ITEM_RECIPE_HAMMER_PLATIUM_II, ITEM_RECIPE_GOLD_AXE_II, ITEM_RECIPE_REACTIVE_ARMOR_II, ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD_II, ITEM_RECIPE_OOO_CLOCK))
     ..setTooltipBasic("Delicious Recipes")
     ..setTooltipExtended("Sells recipes.")
     ..setName("Delicious Recipes")

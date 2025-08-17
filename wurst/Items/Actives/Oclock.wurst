@@ -12,5 +12,5 @@ function oClock()
         caster.resetCooldown()
 
 function oooClock()
-    EventListener.onCast(ITEM_704_ABI1) (unit caster) ->
+    EventListener.onCast(ITEM_OOO_CLOCK_ABI1) (unit caster) ->
         caster.resetCooldown()

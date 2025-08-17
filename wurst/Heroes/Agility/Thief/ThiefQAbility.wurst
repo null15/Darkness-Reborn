@@ -14,9 +14,9 @@ enum dropList
 
 let dropListHash = new HashMap<integer, dropList>
 
-integer array lowerItems = [ITEM_500, ITEM_560, ITEM_581, ITEM_505, ITEM_574, ITEM_566, ITEM_527, ITEM_542, ITEM_536, ITEM_551, ITEM_519, ITEM_511]
-integer array higherItems = [ITEM_583, ITEM_544, ITEM_562, ITEM_521, ITEM_576, ITEM_513, ITEM_568, ITEM_553, ITEM_529, ITEM_507, ITEM_504, ITEM_538, ITEM_502]
-integer array eliteItems = [ITEM_516, ITEM_531, ITEM_523, ITEM_555, ITEM_570, ITEM_585, ITEM_366, ITEM_517, ITEM_515, ITEM_563,ITEM_530, ITEM_578, ITEM_572, ITEM_548, ITEM_557, ITEM_533, ITEM_509, ITEM_525]
+integer array lowerItems = [ITEM_BASIC_RING, ITEM_ARMOR_OF_SACRED, ITEM_BLOSSOM_RING, ITEM_LEATHER_BRACER, ITEM_LONELY_WOOL_BOOTS, ITEM_POISON_ORB, ITEM_ECHO_MACE, ITEM_SIMPLE_RING, ITEM_SOUL_SILK_CAPE, ITEM_STEEL_HAMMER, ITEM_SPIRIT_SWORD_L1, ITEM_KNIFE]
+integer array higherItems = [ITEM_BLIND_BUBBLE_NECKLACE, ITEM_RING_OF_MEDIVH, ITEM_THIEF_SILVER_ARMOR, ITEM_SPIRIT_DAGGER, ITEM_LEATHER_GIANT_BOOTS, ITEM_KNIFE_OF_BAHAMUT, ITEM_EARTH_ORB, ITEM_GIANT_HAMMER, ITEM_INVOCATION, ITEM_GOOD_BRACER, ITEM_SUNFLOWER_RING, ITEM_BINDING_SORROW_CLOAK, ITEM_SILVER_RING]
+integer array eliteItems = [ITEM_SWORD_FANG, ITEM_SWAN_SONG, ITEM_SPIRIT_MIDDLE_BLADE, ITEM_PLATE_HAMMER, ITEM_LIGHT_THUNDER_ORB, ITEM_TENDER_LEAF, ITEM_FAIR_DROP, ITEM_SWORD_ROAR, ITEM_SWORD_OF_HUNTER, ITEM_SILVER_GIANT_ARMOR,ITEM_DOOMS_GRAND_STAFF, ITEM_MENDED_DEMON_WARBOOTS, ITEM_FUSION_ORB, ITEM_DOMINION_RING, ITEM_FIREHELL_HAMMER, ITEM_HONED_WARPWOOD_GRAND_STAFF, ITEM_HAMANUS_BRACER, ITEM_ASHRUNE]
 
 function genericLoot(unit caster)
     let itemId = lowerItems[GetRandomInt(0, 11)]
@@ -40,47 +40,47 @@ function eliteLoot(unit caster)
         createItem(itemId, caster.getPos())
 
 function bossLoot(int unitId, unit caster)
-    var itemId = ITEM_677
+    var itemId = ITEM_HYDRAS_TREASURE
     if unitId == WAVE_BOSS_27
-        itemId = ITEM_678
+        itemId = ITEM_SPIDERS_TREASURE
     else if unitId == WAVE_BOSS_28
-        itemId = ITEM_681
+        itemId = ITEM_ABO_TREASURE
     else if unitId == WAVE_BOSS_29
-        itemId = ITEM_679
+        itemId = ITEM_CHIMAERAS_LIGHNING_POWER
     else if unitId == WAVE_BOSS_55
-        itemId = ITEM_700
+        itemId = ITEM_IRONWOOD_BRANCH
     else if unitId == WAVE_BOSS_56
-        itemId = ITEM_702
+        itemId = ITEM_CLOAK_OF_FLAMES
     else if unitId == WAVE_BOSS_57
-        itemId = ITEM_703
+        itemId = ITEM_SCORPION_POTION
     else if unitId == WAVE_BOSS_83
-        itemId = ITEM_701
+        itemId = ITEM_SPIKE_OF_CRYPTLORD
     else if unitId == WAVE_HERO_7
-        itemId = ITEM_699
+        itemId = ITEM_FROSMOUNE_L5
     if(caster.isAlive())
         caster.addItemById(itemId)
     else
         createItem(itemId, caster.getPos())
 
 function callLoot(int unitId, unit caster)
-    var itemId = ITEM_0
+    var itemId = ITEM_GLOVES_OF_HASTE
     if unitId == ELITE_CREEP_3
         let random = GetRandomInt(0, 8)
         if(random == 8)
-            itemId = ITEM_691
+            itemId = ITEM_CALL_OF_FLESH_GOLEM
         else
             itemId = ITEM_DROP[57+random]
     else if unitId == ELITE_CREEP_2
         let random = GetRandomInt(0, 10)
         if(random == 10)
-            itemId = ITEM_689
+            itemId = ITEM_CALL_OF_FURBOLG_URSA
         else
             itemId = ITEM_DROP[54+random]
     else if unitId == ELITE_CREEP_4
         
         let random = GetRandomInt(0, 8)
         if(random == 8)
-            itemId = ITEM_690
+            itemId = ITEM_CALL_OF_DOOM
         else if random < 5
             itemId = ITEM_DROP[60+random]
         else
