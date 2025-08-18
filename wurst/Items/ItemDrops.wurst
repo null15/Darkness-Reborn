@@ -76,11 +76,11 @@ function leftCreepEnumerate1()
     chanceSingleDropHash.put(LEFT_CREEP[1], spiderTable)
     // Mud Golem
     let mudTable = new ChanceItemTable(20)
-    mudTable.populateTable(ITEM_DIAMOND_OF_SUMMONING, ITEM_SLIPPERS_OF_AGILITY, ITEM_MATLE_OF_INTELLIGENCE)
+    mudTable.populateTable(ITEM_DIAMOND_OF_SUMMONING, ITEM_SLIPPERS_OF_AGILITY, ITEM_MANTLE_OF_INTELLIGENCE)
     chanceSingleDropHash.put(LEFT_CREEP[2], mudTable)
     // Tiderunner
     let tiderunnerTable = new ChanceItemTable(20)
-    tiderunnerTable.populateTable(ITEM_RUSTY_MINING_PICK, ITEM_WIRTS_LEG, ITEM_DIAMOND_OF_SUMMONING, ITEM_MATLE_OF_INTELLIGENCE, ITEM_DRUID_POUCH, ITEM_SKULL_SHIELD)
+    tiderunnerTable.populateTable(ITEM_RUSTY_MINING_PICK, ITEM_WIRTS_LEG, ITEM_DIAMOND_OF_SUMMONING, ITEM_MANTLE_OF_INTELLIGENCE, ITEM_DRUID_POUCH, ITEM_SKULL_SHIELD)
     chanceSingleDropHash.put(LEFT_CREEP[3], tiderunnerTable)
     // Wolf
     let wolfTable = new ChanceItemTable(20)

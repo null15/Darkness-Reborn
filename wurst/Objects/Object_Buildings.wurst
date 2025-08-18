@@ -9343,7 +9343,6 @@ import Units
     ..setManaMaximum(0)
     ..setLumberCost(0)
     ..setResearchesAvailable(UPGRADE_11.toRawCode())
-    ..setUnitsTrained(DUMMY_BLACKSMITH_WISP.toRawCode())
     ..setUpgradesUsed(UPGRADE_11.toRawCode())
     ..setUpgradesTo(commaList(""))
     ..setTooltipBasic("Blacksmith")

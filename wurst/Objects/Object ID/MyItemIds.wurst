@@ -289,7 +289,7 @@ public constant ITEM_RUSTY_MINING_PICK = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_WIRTS_LEG = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_SLIPPERS_OF_AGILITY = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DIAMOND_OF_SUMMONING = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_MATLE_OF_INTELLIGENCE = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_MANTLE_OF_INTELLIGENCE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DRUID_POUCH = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_RUNED_GAUNTLETS = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_SKULL_SHIELD = compiletime(ITEM_ID_GEN.next())
@@ -411,7 +411,7 @@ public constant ITEM_FORGE_SWORD_L3 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_SLASH_SWORD_L4 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_SLASH_SWORD_L5 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_NOBLE_SWORD_L1 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_BERSERK_SWORD_L2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_NOBLE_SWORD_L2 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_NOBLE_SWORD_L3 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_NOBLE_SWORD_L4 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_FORGE_SWORD_L4 = compiletime(ITEM_ID_GEN.next())
@@ -422,11 +422,11 @@ public constant ITEM_RAIN_SWORD_L1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_RAIN_SWORD_L2 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_RAIN_SWORD_L3 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_RAIN_SWORD_L4 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CORROUSIVE_HAMMER_L1 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CORROUSIVE_HAMMER_L2 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CORROUSIVE_HAMMER_L3 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CORROUSIVE_HAMMER_L4 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CORROUSIVE_HAMMER_L5 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CORROSIVE_HAMMER_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CORROSIVE_HAMMER_L2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CORROSIVE_HAMMER_L3 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CORROSIVE_HAMMER_L4 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CORROSIVE_HAMMER_L5 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_VAMPIRELLA_L1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_VAMPIRELLA_L2 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_VAMPIRELLA_L3 = compiletime(ITEM_ID_GEN.next())
@@ -435,7 +435,7 @@ public constant ITEM_CROWN_OF_ASSASIN_L1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CROWN_OF_ASSASIN_L2 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CROWN_OF_ASSASIN_L3 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CROWN_OF_ASSASIN_L4 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_ASSASIN_L5 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_ASSASSIN_L5 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CROWN_OF_SOLDIER_L1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CROWN_OF_SOLDIER_L2 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CROWN_OF_SOLDIER_L3 = compiletime(ITEM_ID_GEN.next())
@@ -609,9 +609,9 @@ public constant ITEM_SPIDERS_TREASURE_PERFECT = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ROYAL_ARMOR_L1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ROYAL_ARMOR_L2 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ROYAL_ARMOR_L3 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_COMPOSITEL_ARMOR_L1 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_COMPOSITEL_ARMOR_L2 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_COMPOSITEL_ARMOR_L3 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_COMPOSITE_ARMOR_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_COMPOSITE_ARMOR_L2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_COMPOSITE_ARMOR_L3 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ROYAL_ARMOR_L4 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ROYAL_ARMOR_L5 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_LIMIT_ARMOR = compiletime(ITEM_ID_GEN.next())
@@ -626,12 +626,12 @@ public constant ITEM_GLOW_GLOVES_L2 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_GLOW_GLOVES_L3 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_GLOW_GLOVES_L4 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_GLOW_GLOVES_L5 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_PLATIUM_SHIELD_L1 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_PLATIUM_SHIELD_L2 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_PLATIUM_SHIELD_L3 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_PLATIUM_SHIELD_L4 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_PLATIUM_SHIELD_L5 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_PLATIUM_SHIELD_L6 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_PLATINUM_SHIELD_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_PLATINUM_SHIELD_L2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_PLATINUM_SHIELD_L3 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_PLATINUM_SHIELD_L4 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_PLATINUM_SHIELD_L5 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_PLATINUM_SHIELD_L6 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_STORM_BOOTS_L1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_STORM_BOOTS_L2 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_STORM_BOOTS_L3 = compiletime(ITEM_ID_GEN.next())
@@ -734,11 +734,11 @@ function compileItems()
     ITEM_UPGRADE[6] = ITEM_RAIN_SWORD_L4//Rain Sword +4
     ITEM_UPGRADE[7] = ITEM_RAIN_SWORD_L5//Rain Sword +5
     ITEM_UPGRADE[8] = ITEM_CORROSIVE_HAMMER//Corrosive Hammer
-    ITEM_UPGRADE[9] = ITEM_CORROUSIVE_HAMMER_L1//Corrosive Hammer +1
-    ITEM_UPGRADE[10] = ITEM_CORROUSIVE_HAMMER_L2//Corrosive Hammer +2
-    ITEM_UPGRADE[11] = ITEM_CORROUSIVE_HAMMER_L3//Corrosive Hammer +3
-    ITEM_UPGRADE[12] = ITEM_CORROUSIVE_HAMMER_L4//Corrosive Hammer +4
-    ITEM_UPGRADE[13] = ITEM_CORROUSIVE_HAMMER_L5//Corrosive Hammer +5
+    ITEM_UPGRADE[9] = ITEM_CORROSIVE_HAMMER_L1//Corrosive Hammer +1
+    ITEM_UPGRADE[10] = ITEM_CORROSIVE_HAMMER_L2//Corrosive Hammer +2
+    ITEM_UPGRADE[11] = ITEM_CORROSIVE_HAMMER_L3//Corrosive Hammer +3
+    ITEM_UPGRADE[12] = ITEM_CORROSIVE_HAMMER_L4//Corrosive Hammer +4
+    ITEM_UPGRADE[13] = ITEM_CORROSIVE_HAMMER_L5//Corrosive Hammer +5
     ITEM_UPGRADE[14] = ITEM_VAMPIRELLA//Vampirella
     ITEM_UPGRADE[15] = ITEM_VAMPIRELLA_L1//Vampirella +1
     ITEM_UPGRADE[16] = ITEM_VAMPIRELLA_L2//Vampirella +2
@@ -750,7 +750,7 @@ function compileItems()
     ITEM_UPGRADE[22] = ITEM_CROWN_OF_ASSASIN_L2//crown of assasin +2
     ITEM_UPGRADE[23] = ITEM_CROWN_OF_ASSASIN_L3//crown of assasin +3
     ITEM_UPGRADE[24] = ITEM_CROWN_OF_ASSASIN_L4//crown of assasin +4
-    ITEM_UPGRADE[25] = ITEM_CROWN_OF_ASSASIN_L5//crown of assasin +5
+    ITEM_UPGRADE[25] = ITEM_CROWN_OF_ASSASSIN_L5//crown of assasin +5
     ITEM_UPGRADE[26] = ITEM_CROWN_OF_SOLDIER//Crown of Soldier
     ITEM_UPGRADE[27] = ITEM_CROWN_OF_SOLDIER_L1//Crown of Soldier +1
     ITEM_UPGRADE[28] = ITEM_CROWN_OF_SOLDIER_L2//Crown of Soldier +2
@@ -815,7 +815,7 @@ function compileItems()
     ITEM_WIRTS_LEG,
     ITEM_SLIPPERS_OF_AGILITY,
     ITEM_DIAMOND_OF_SUMMONING,
-    ITEM_MATLE_OF_INTELLIGENCE,
+    ITEM_MANTLE_OF_INTELLIGENCE,
     ITEM_DRUID_POUCH,
     ITEM_RUNED_GAUNTLETS,
     ITEM_SKULL_SHIELD,

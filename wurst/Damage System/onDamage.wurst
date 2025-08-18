@@ -140,7 +140,7 @@ init
                     if src.hasItemById(ITEM_NOBLE_SWORD_L1) and GetRandomInt(0, 100) < 11
                         nobleSword(src, targ, 0)
 
-                    if src.hasItemById(ITEM_BERSERK_SWORD_L2) and GetRandomInt(0, 100) < 12
+                    if src.hasItemById(ITEM_NOBLE_SWORD_L2) and GetRandomInt(0, 100) < 12
                         nobleSword(src, targ, 1)
 
                     if src.hasItemById(ITEM_NOBLE_SWORD_L3) and GetRandomInt(0, 100) < 13

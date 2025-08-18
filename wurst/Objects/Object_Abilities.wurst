@@ -397,13 +397,14 @@ import OrderIds
     ..setTargetsAllowed(1, commaList(TargetsAllowed.ground, TargetsAllowed.air))
 
 @compiletime function horseAbils()
-    new AbilityDefinitionInventoryPackMule(HORSE_INVENTORY_1)
+
+    new AbilityDefinitionInventory(HORSE_INVENTORY_1)
     ..setItemCapacity(1, 4)
     ..setLevels(1)
     ..setCheckDependencies(false)
     ..setRequirements("")
 
-    new AbilityDefinitionInventoryPackMule(HORSE_INVENTORY_2)
+    new AbilityDefinitionInventory(HORSE_INVENTORY_2)
     ..setItemCapacity(1, 6)
     ..setLevels(1)
     ..setCheckDependencies(false)

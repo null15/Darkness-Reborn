@@ -4,9 +4,46 @@ import ClosureEvents
 import DummyCaster
 import OrderIds
 import MyAbilityIds
-import Blacksmith
-import MyUnitIds
+import Recipes
 import LinkedList
+import MyUnitIds
+import MyItemIds
+
+let blacksmithJackedList = new RecipeList()
+
+public function blacksmithJackedUp()
+    // Golden Ring
+    blacksmithJackedList.addRecipe(ITEM_BASIC_GOLD_RING,ITEM_RING_OF_SUN,ITEM_HOVER_RING,ITEM_GOLDEN_RING)
+    // Mystery Bracer
+    blacksmithJackedList.addRecipe(ITEM_WOOD_BRACER,ITEM_GOLDEN_BRACER,ITEM_MAGIC_POTION,ITEM_MYSTERY_BRACER)
+    // God Sword
+    blacksmithJackedList.addRecipe(ITEM_KNIFE_OF_HUNTER,ITEM_STEEL_SWORD,ITEM_SWORD_FANG,ITEM_SWORD_OF_DRUIDMASTER, ITEM_GOD_SWORD)
+    // Golden Phoenix Sword
+    blacksmithJackedList.addRecipe(ITEM_SPIRIT_SWORD_L2,ITEM_SPIRIT_BLADE,ITEM_SPIRIT_GIANT_BLADE,ITEM_APOCALYPSE, ITEM_GOLDEN_PHOENIX_SWORD)
+    // Mercy
+    blacksmithJackedList.addRecipe(ITEM_MIDNIGHT_MACE,ITEM_DOOMS_GRAND_STAFF,ITEM_VENGEANCE_WAR_STAFF,ITEM_FIERCE_GREATSTAFF,ITEM_MERCY)
+    // Frozen Greatcloak
+    blacksmithJackedList.addRecipe(ITEM_CAPE_OF_CURSED,ITEM_FUSION_HIDE_DRAPE,ITEM_BLOODIED_WOOL_CLOAK,ITEM_FROZEN_CLOTH_GREATCLOAK)
+    // Ring of Legacy
+    blacksmithJackedList.addRecipe(ITEM_OLD_RING,ITEM_RING_OF_MYSTERY,ITEM_GOLD_SIMPLE_RING,ITEM_RING_OF_FAKE_SUN,ITEM_RING_OF_LEGACY)
+    // Golden Hammer
+    blacksmithJackedList.addRecipe(ITEM_SIMPLE_HAMMER,ITEM_WARRIOR_HAMMER,ITEM_FUSION_HAMMER,ITEM_THUNDERCHAOS_HAMMER,ITEM_GOLDEN_HAMMER)
+    // Inherited Armor
+    blacksmithJackedList.addRecipe(ITEM_ARMOR_OF_HELL,ITEM_SILVER_GIANT_ARMOR,ITEM_DESTROYER_ARMOR,ITEM_INHERITED_ARMOR)
+    // Matrix Orb
+    blacksmithJackedList.addRecipe(ITEM_BLOOD_ORB,ITEM_GOLD_CRYSTAL_ORB,ITEM_CHAOS_ORB,ITEM_GOLDEN_ORB,ITEM_MATRIX_ORB)
+    // Firesoul Boots
+    blacksmithJackedList.addRecipe(ITEM_LEATHER_BOOTS,ITEM_HEAVY_BOOTS,ITEM_BLOOD_INFUSED_LINEN_BOOTS,ITEM_FIRESOUL_WOOL_BOOTS)
+    // Song Brooch
+    blacksmithJackedList.addRecipe(ITEM_FREE_PLEDGE_RING,ITEM_AGED_IMAGE,ITEM_SUN_NECKLACE,ITEM_FAINT_TRINKET_NECKLACE,ITEM_SONG_BROOCH)
+    // Mystery Red Staff
+    blacksmithJackedList.addRecipe(ITEM_VAMPIRELLA,ITEM_MYSTERY_PURPLE_STAFF,ITEM_PERFECT_SAPPHIRE,ITEM_MYSTERY_RED_STAFF)
+    // Frozen Staff
+    blacksmithJackedList.addRecipe(ITEM_FORGE_STAFF_L4,ITEM_FREEZE_WAND,ITEM_FIERCE_GREATSTAFF,ITEM_FROZEN_STAFF)
+    // Hydra Perfect
+    blacksmithJackedList.addRecipe(ITEM_HYDRAS_TREASURE_BIG,ITEM_PERFECT_ARKENSTONE,ITEM_HYDRAS_TREASURE_PERFECT)
+    // Spider Perfect
+    blacksmithJackedList.addRecipe(ITEM_SPIDERS_TREASURE_BIG,ITEM_PERFECT_ARKENSTONE,ITEM_SPIDERS_TREASURE_PERFECT)
 
 public function metalStrength()
     EventListener.onTargetCast('A0DG') (unit caster, unit target) ->
@@ -16,25 +53,12 @@ public function metalStrength()
         ..castTarget(ABILITY_DUMMY_8, 1, OrderIds.innerfire, target)
         let bs = target
         if bs.getTypeId() == TINKERBUILDING_114
-            let slots = new LinkedList<int>
-            var foundItem = false
-            var atSpot = 0
-            for int i = 0 to bs.inventorySize() -1
-                slots.add(bs.itemInSlot(i).getTypeId())
-            for int i = 0 to itemlist.size() - 2
-                let itemCheck = itemlist.get(i)
-                for int j = 0 to slots.size() - 1
-                    if itemCheck.has(slots.get(j))
-                        foundItem = true
-                        atSpot = i
-                        break
-                if foundItem
-                    break
-            destroy slots
-            if foundItem
-                let rightList = itemlist.get(atSpot)
-                for int i = 0 to rightList.size() - 2
-                    bs.removeItemById(rightList.get(i))
-                let newite = bs.addItemById(rightList.getLast())
-                newite.setPos(bs.getPos())
-                destroy rightList
+            let itemInBs = new LinkedList<item>()
+            for int i = 0  to 5
+                itemInBs.add(bs.itemInSlot(i))
+            let recipePos = blacksmithJackedList.checkRecipePosition(itemInBs)
+            let foundRecipe = blacksmithJackedList.get(recipePos)
+            for int i = 0 to foundRecipe.items.size()
+                bs.removeItemById(foundRecipe.items.get(i))
+            let newite = bs.addItemById(foundRecipe.completedItem)
+            newite.setPos(bs.getPos())

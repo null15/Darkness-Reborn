@@ -11411,7 +11411,7 @@ init
     ..setHotkey("R")
 
 //I038
-    new ItemDefinition(ITEM_MATLE_OF_INTELLIGENCE, ItemIds.mantleofIntelligence3)
+    new ItemDefinition(ITEM_MANTLE_OF_INTELLIGENCE, ItemIds.mantleofIntelligence3)
     ..setAbilities(commaList('AIi3'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNMantleOfIntelligence.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
@@ -16047,7 +16047,7 @@ init
     ..setHotkey("")
 
 //I077
-    new ItemDefinition(ITEM_BERSERK_SWORD_L2, ItemIds.vampiricPotion)
+    new ItemDefinition(ITEM_NOBLE_SWORD_L2, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
     ..setAbilities(commaList('A0IG', AGIMOD_26, 'A0F9', 'A02D'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRaven_Sword.blp")
@@ -16460,7 +16460,7 @@ init
     ..setHotkey("")
 
 //I0ER
-    new ItemDefinition(ITEM_CORROUSIVE_HAMMER_L1, ItemIds.hoodofCunning)
+    new ItemDefinition(ITEM_CORROSIVE_HAMMER_L1, ItemIds.hoodofCunning)
     ..setAbilities(commaList(STRMOD_25, 'A0G3', 'A0ET'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
@@ -16497,7 +16497,7 @@ init
     ..setHotkey("")
 
 //I0ES
-    new ItemDefinition(ITEM_CORROUSIVE_HAMMER_L2, ItemIds.hoodofCunning)
+    new ItemDefinition(ITEM_CORROSIVE_HAMMER_L2, ItemIds.hoodofCunning)
     ..setAbilities(commaList(STRMOD_29, 'A0G4', 'A0EU'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
@@ -16534,7 +16534,7 @@ init
     ..setHotkey("")
 
 //I0ET
-    new ItemDefinition(ITEM_CORROUSIVE_HAMMER_L3, ItemIds.hoodofCunning)
+    new ItemDefinition(ITEM_CORROSIVE_HAMMER_L3, ItemIds.hoodofCunning)
     ..setAbilities(commaList(STRMOD_34, 'A0G5', STRMOD_2))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
@@ -16571,7 +16571,7 @@ init
     ..setHotkey("")
 
 //I0EU
-    new ItemDefinition(ITEM_CORROUSIVE_HAMMER_L4, ItemIds.hoodofCunning)
+    new ItemDefinition(ITEM_CORROSIVE_HAMMER_L4, ItemIds.hoodofCunning)
     ..setAbilities(commaList(STRMOD_41, 'A0G6', 'A0EW'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
@@ -16608,7 +16608,7 @@ init
     ..setHotkey("")
 
 //I0EV
-    new ItemDefinition(ITEM_CORROUSIVE_HAMMER_L5, ItemIds.hoodofCunning)
+    new ItemDefinition(ITEM_CORROSIVE_HAMMER_L5, ItemIds.hoodofCunning)
     ..setAbilities(commaList(STRMOD_8, 'A0G7', 'A0EY'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
@@ -16945,7 +16945,7 @@ init
     ..setHotkey("K")
 
 //I0F7
-    new ItemDefinition(ITEM_CROWN_OF_ASSASIN_L5, ItemIds.bloodKey)
+    new ItemDefinition(ITEM_CROWN_OF_ASSASSIN_L5, ItemIds.bloodKey)
     ..setAbilities(commaList('A03A', 'A0KC', 'A0LM'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHelmutPurple.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
@@ -23437,7 +23437,7 @@ init
     ..setHotkey("V")
 
 //I07F
-    new ItemDefinition(ITEM_COMPOSITEL_ARMOR_L1, ItemIds.vampiricPotion)
+    new ItemDefinition(ITEM_COMPOSITE_ARMOR_L1, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
     ..setAbilities(commaList('A06X', 'A02V', 'A04C'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmor2.blp")
@@ -23475,7 +23475,7 @@ init
     ..setHotkey("V")
 
 //I063
-    new ItemDefinition(ITEM_COMPOSITEL_ARMOR_L2, ItemIds.vampiricPotion)
+    new ItemDefinition(ITEM_COMPOSITE_ARMOR_L2, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
     ..setAbilities(commaList('A0FI', 'A02S', 'A02C'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmor2.blp")
@@ -23513,7 +23513,7 @@ init
     ..setHotkey("V")
 
 //I083
-    new ItemDefinition(ITEM_COMPOSITEL_ARMOR_L3, ItemIds.vampiricPotion)
+    new ItemDefinition(ITEM_COMPOSITE_ARMOR_L3, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
     ..setAbilities(commaList('A0BP', 'A0H5', 'A05G'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmor2.blp")
@@ -24083,7 +24083,7 @@ init
     ..setHotkey("V")
 
 //I08P
-    new ItemDefinition(ITEM_PLATIUM_SHIELD_L1, ItemIds.vampiricPotion)
+    new ItemDefinition(ITEM_PLATINUM_SHIELD_L1, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
     ..setAbilities(commaList('A0HN', 'A0BC'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")
@@ -24121,7 +24121,7 @@ init
     ..setHotkey("V")
 
 //I08Q
-    new ItemDefinition(ITEM_PLATIUM_SHIELD_L2, ItemIds.vampiricPotion)
+    new ItemDefinition(ITEM_PLATINUM_SHIELD_L2, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
     ..setAbilities(commaList('A0HO', 'A06C'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")
@@ -24159,7 +24159,7 @@ init
     ..setHotkey("V")
 
 //I08R
-    new ItemDefinition(ITEM_PLATIUM_SHIELD_L3, ItemIds.vampiricPotion)
+    new ItemDefinition(ITEM_PLATINUM_SHIELD_L3, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
     ..setAbilities(commaList('A0HP', 'A0H4'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")
@@ -24197,7 +24197,7 @@ init
     ..setHotkey("V")
 
 //I08S
-    new ItemDefinition(ITEM_PLATIUM_SHIELD_L4, ItemIds.vampiricPotion)
+    new ItemDefinition(ITEM_PLATINUM_SHIELD_L4, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
     ..setAbilities(commaList('A0HQ', 'A0BK'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")
@@ -24235,7 +24235,7 @@ init
     ..setHotkey("V")
 
 //I08T
-    new ItemDefinition(ITEM_PLATIUM_SHIELD_L5, ItemIds.vampiricPotion)
+    new ItemDefinition(ITEM_PLATINUM_SHIELD_L5, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
     ..setAbilities(commaList('A0HR', 'A0HV'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")
@@ -24273,7 +24273,7 @@ init
     ..setHotkey("V")
 
 //I08U
-    new ItemDefinition(ITEM_PLATIUM_SHIELD_L6, ItemIds.vampiricPotion)
+    new ItemDefinition(ITEM_PLATINUM_SHIELD_L6, ItemIds.vampiricPotion)
     ..setCooldownGroup("AIpv")
     ..setAbilities(commaList('A0HS', 'A0HW'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")
