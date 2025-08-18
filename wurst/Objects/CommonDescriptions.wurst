@@ -1,10 +1,10 @@
 package CommonDescriptions
 
 public let colRst             = "|r"
-public let colBasic           = "|c0000с800"
-public let colRecipe          = "|c000000с8"
-public let colLateGame1       = "|c00c80000"
-public let colLateGame2       = "|c00e19648"
+public let colBasic           = "|c0000C800"
+public let colRecipe          = "|c000000C8"
+public let colLateGame1       = "|c00C80000"
+public let colLateGame2       = "|c004896E1"
 public let colHotKey          = "|c00FFFC01"
 
 public function itemNameBasic(string name) returns string
@@ -31,8 +31,8 @@ public let shopRecipes4       = itemNameRecipe("Recipes Shop (4)")
 
 public let shopLateGameItems1 = itemNameLateGame1("Late Game Items (1)")
 public let shopLateGameItems2 = itemNameLateGame1("Late Game Items (2)")
-public let shopDecentItems    = itemNameLateGame2("Gems Shop (3)"      )
-public let shopLateGameItems  = itemNameLateGame2("Late Game Items (4)")
+public let shopGems           = itemNameLateGame2("Gems Shop (3)"      )
+public let shopLateGameItems4 = itemNameLateGame2("Late Game Items (4)")
 
 public let monsterDrop = "Monster Drop"
 public let bossDrop    = "Boss Drop"

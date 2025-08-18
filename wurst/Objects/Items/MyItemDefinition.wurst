@@ -1,9 +1,11 @@
 package MyItemDefinition
 
 import ItemIds
+import Recipes
 import Object_ItemsNames
 import ItemObjEditing
 import CommonDescriptions
+import LinkedList
 
 public class MyItemBaseDefinition extends ItemDefinition
 
@@ -49,24 +51,26 @@ public class MyItemBaseDefinition extends ItemDefinition
         setRequirements("")
         setRequirementsLevels("")
         setClassification("PowerUp")
-
         
 public class MyItemDefinition extends MyItemBaseDefinition
     int id
+    LinkedList<int> components
+    int recipeId
+
+    string name
+    string effects
 
     construct(int newId)
         super(newId)
         id = newId
+        this.components = null
+        this.recipeId = 0
+        this.name = "null"
+        this.effects = "null"
         
     private function describeShopItem(string name, string effects)
-        // The item name
-        setName(name)
-        // The chest item description
-        setDescription(effectsDescr + "\n" + effects)
-        // The shop name
-        setTooltipBasic("Purchase " + name)
-        // The shop text
-        setDescription(effectsDescr + "\n" + effects)
+        this.name = name
+        this.effects = effects
 
     function describeBasicItem(string effects)
         describeShopItem(itemNameBasic(getItemName(id)), effects)
@@ -79,6 +83,28 @@ public class MyItemDefinition extends MyItemBaseDefinition
 
     function describeLateGame2Item(string effects)
         describeShopItem(itemNameLateGame2(getItemName(id)), effects)
+
+    function addRecipe(vararg int components)
+        this.components = new LinkedList<int>()
+        for component in components
+		    this.components.add(component)
+
+    function addRecipeId(int recipeId)
+        this.recipeId = recipeId
+
+    ondestroy
+        // Create recipe ...
+
+        // Generate effects ... 
+
+        // The item name
+        setName(name)
+        // The chest item description
+        setDescription(effectsDescr + "\n" + effects)
+        // The shop name
+        setTooltipBasic("Purchase " + name)
+        // The shop text
+        setDescription(effectsDescr + "\n" + effects)
 
 public class MyCreepTpDefinition extends MyItemBaseDefinition
 
