@@ -1,0 +1,215 @@
+package Objects_ItemsLateGame2
+
+import CommonDescriptions
+import MyItemDefinition
+import ItemObjEditing
+import AbilityObjEditing
+import ItemIds
+import MyItemIds
+import ObjectIds
+import MyAbilityIds
+import Icons
+import Abilities
+
+init
+
+@compiletime function createItems()
+
+//I0BP
+    new MyItemDefinition(ITEM_RECIPE_GOLD_AXE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAxeStrike.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(14000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 11)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 11)|r")
+    ..setTooltipExtended("|c00FFFC01Gold Axe|r\n"
+    +"|c00FFFC01Effect:|r  \n"
+    +"+700 Damage\n"
+    +"70% Chance to Crit for 2 times Damage.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Blade of Hell (|c001CE6B9" + shopRecipes3 + "|r)\n"
+    +"Steel Axe (|c001CE6B9" + shopRecipes1 + "|r)")
+    ..setHotkey("")
+
+//I0CO
+    new MyItemDefinition(ITEM_RECIPE_DARK_MATTER)    
+    ..setClassification("Charged")
+    ..setGoldCost(10500)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("|cffffcc00Effect|r: \n+150 STR\n+100 HP/s")
+    ..setName("Dark Matter")
+    ..setTooltipBasic("Dark Matter")
+    ..setTooltipExtended("|c00FFFC01Dark Matter|r\n"
+    +"|cffffcc00Effect of item|r: \n"
+    +"+150 Strength\n"
+    +"+100 HP/s\n"
+    +"Every 1 second deal 2000 Damage to a nearby enemy within 650 Range.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Orb of Darkness (|c007EBFF1" +  shopBasicItems3 + "|r)\n"
+    +"Void Axe (|c001CE6B9" + shopRecipes2 + "|r)\n"
+    +"Dark Sphere (|c001CE6B9" + shopRecipes4 + "|r)")
+    ..setHotkey("")
+
+//I0E1
+    new MyItemDefinition(ITEM_RECIPE_RAIN_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(35000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 13)|r")
+    ..setTooltipBasic("|c00FFFC01Advanced Recipe (Recipe 13)|r")
+    ..setTooltipExtended("|c00FFFC01Rain Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+350 Agility\n"
+    +"+70 Armor\n"
+    +"+700 Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Ainz' Sword ("+ shopRecipes2 +")")
+    ..setHotkey("")
+
+//I0E2
+    new MyItemDefinition(ITEM_RECIPE_CORROSIVE_HAMMER)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(35000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 14)|r")
+    ..setTooltipBasic("|c00FFFC01Advanced Recipe (Recipe 14)|r")
+    ..setTooltipExtended("|c00FFFC01Curosive Hammer|r\n |c00FFFC01Effect of item:|r\n"
+    +"+350 Strength\n"
+    +"+6000 HP\n"
+    +"+700 Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Void Axe (|c001CE6B9" + shopRecipes2 + "|r)")
+    ..setHotkey("")
+
+//I0E3
+    new MyItemDefinition(ITEM_RECIPE_VAMPIRELLA)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(35000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 15)|r")
+    ..setTooltipBasic("|c00FFFC01Advanced Recipe (Recipe 15)|r")
+    ..setTooltipExtended("|c00FFFC01Vampirella|r\n |c00FFFC01Effect of item:|r\n"
+    +"+400 Intelligence\n"
+    +"+6000 MP\n"
+    +"+700 Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Seer Staff (|c001CE6B9" + shopRecipes3 + "|r)")
+    ..setHotkey("")
+
+//I0ED
+    new MyItemDefinition(ITEM_RECIPE_LANCELOT_SHIELD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLancelot_Shield.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(20000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 16)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 16)|r")
+    ..setTooltipExtended("|c00FFFC01Lancelot Shield|r\n "
+    +"|c00FFFC01Effect of item:|r"
+    +"\n"
+    +"+130 Armor.\n"
+    +"+HP 5000\n"
+    +"When attacked you have a 30% to heal for 500 HP\n"
+    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Scepter of Healing (|c007EBFF1" + monsterDrop + "|r)\n"
+    +"Steel Shield (|c007EBFF1" + shopRecipes3 + "|r)")
+    ..setHotkey("")
+
+//I0EE
+    new MyItemDefinition(ITEM_RECIPE_LANCELOT_ARMOR)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLancelot_Plate.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(20000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 17)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 17)|r")
+    ..setTooltipExtended("|c00FFFC01Lancelot Armor|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+190 Armor.\n"
+    +"+2000HP.\n"
+    +"+200 Intelligence.\n"
+    +"When attacked you have a 20% to gain back 1xint mana\n"
+    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Light Armor (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Soul of Kil'jeaden(|c007EBFF1" + shopRecipes4 + "|r)\n"
+    +"Crown of Soldier(" + monsterDrop + ")")
+    ..setHotkey("")
+
+//I0EF
+    new MyItemDefinition(ITEM_RECIPE_LANCELOT_HELM)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLancelot_Helm.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(13500)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 18)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe ( Page18)|r")
+    ..setTooltipExtended("|c00FFFC01Lancelot Helm|r\n |c00FFFC01Effect of item:|r\n"
+    +"+100 Armor.\n"
+    +"+1000 HP.\n"
+    +"+50 HP/s\n"
+    +"Active: Deals 10.000 Damage to enemies in a 600 AoE around the Hero. Cooldown: 30 seconds.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Seer Staff (|c001CE6B9" + shopRecipes3 + "|r)\n"
+    +"Shiny Armor (|c001CE6B9Advanced " + shopRecipes1 + "|r)")
+    ..setHotkey("")
+
+//I0IL
+    new MyItemDefinition(ITEM_RECIPE_MYSTERY_BLUE_STAFF)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff2.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(18000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 19)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 19)|r")
+    ..setTooltipExtended("|c00FFFC01Mystery Blue Staff|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+280 Intelligence.\n"
+    +"+235% Attack speed.\n"
+    +"+200%Mana Regeneration.\n"
+    +"|c00FFFC01Special Effects: Active: Deals 14800 Damage to the target enemy. Cooldown: 30 seconds\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Mystery Green Staff (|c001CE6B9" + shopRecipes4 + "|r)\n"
+    +"Thunderlizard Diamond (" + monsterDrop + ")")
+    ..setHotkey("")
+
+//I0IW
+    new MyItemDefinition(ITEM_RECIPE_FREEZE_WAND)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC2.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(15500)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 20)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 20)|r")
+    ..setTooltipExtended("|c00FFFC01Freeze Wand|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+280 Intelligence\n"
+    +"+5600 HP\n"
+    +"|c00FFFC01Special Effects : Active: Sends a Frost Nova on the target"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Ice Wand (|c001CE6B9" + shopRecipes4 + "|r)\n"
+    +"Ice Sword (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Khadgar's Pendant of Health (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")

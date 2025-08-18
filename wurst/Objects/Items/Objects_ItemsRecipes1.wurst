@@ -1,0 +1,291 @@
+package Objects_ItemsRecipes1
+
+import CommonDescriptions
+import MyItemDefinition
+import ItemObjEditing
+import AbilityObjEditing
+import ItemIds
+import MyItemIds
+import ObjectIds
+import MyAbilityIds
+import Icons
+import Abilities
+
+init
+
+@compiletime function createItems()
+
+//I01A
+    new MyItemDefinition(ITEM_RECIPE_ICE_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFrostSword.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(800)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(3)
+    ..setStockStartDelay(3)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 1)")
+    ..setTooltipBasic("Buy Recipe (Recipe 1)")
+    ..setTooltipExtended("|c00FFFC01Ice Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+80 Damage\n"
+    +"+50% Attack speed.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r) \n"
+    +"Claw of Attack (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Orb of Frost (|c007EBFF1" +  shopBasicItems3 + "|r)")
+    ..setHotkey("")
+
+//I011
+    new MyItemDefinition(ITEM_RECIPE_FIRE_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFireSword.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(800)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 2)")
+    ..setTooltipBasic("Buy Recipe (Recipe 2)")
+    ..setTooltipExtended("|c00FFFC01Fire Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+80 Damage\n"
+    +"+50% Attack speed\n"
+    +"15% Chance to Crit for 2\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r) \n"
+    +"Claw of Attack (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Orb of Fire (|c007EBFF1" +  shopBasicItems3 + "|r)")
+    ..setHotkey("")
+
+//I01V
+    new MyItemDefinition(ITEM_RECIPE_BOOTS_OF_TELEPORTATION)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFire Boot.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(600)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 3)")
+    ..setTooltipBasic("Buy Recipe (Recipe 3)")
+    ..setTooltipExtended("|c00FFFC01Boots of Teleportation|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+100 Movement Speed\n"
+    +"+24 All Stats\n"
+    +"Active: Teleport to allied unit or building. Cooldown: 20 seconds.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Boots of Speed (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Crystal Ball (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Circlet of Nobility (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")
+
+//I01W
+    new MyItemDefinition(ITEM_RECIPE_BOOTS_OF_INVISIBILITY)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Sandals.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(670)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 4)")
+    ..setTooltipBasic("Buy Recipe (Recipe 4)")
+    ..setTooltipExtended("|c00FFFC01Boots of Invisibility|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+120 Movement Speed\n"
+    +"+24 All Stats\n"
+    +"Active: Invisibility for 30 seconds. Cooldown: 30 seconds.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Boots of Speed (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Crystal Ball (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Cloak of Shadows (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")
+
+//I01X
+    new MyItemDefinition(ITEM_RECIPE_WINGED_BOOTS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNwind boots.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(800)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 5)")
+    ..setTooltipBasic("Buy Recipe (Recipe 5)")
+    ..setTooltipExtended("|c00FFFC01Winged Boots|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+140 Movement Speed\n"
+    +"+60% Attack speed\n"
+    +"+24 All Stats\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Boots of Speed (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Crystal Ball (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Gloves of Haste (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    ..setHotkey("")
+
+//I01Z
+    new MyItemDefinition(ITEM_RECIPE_STEEL_AXE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_AxeSteel.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(3000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 6)")
+    ..setTooltipBasic("Buy Recipe (Recipe 6)")
+    ..setTooltipExtended("|c00FFFC01Steel Axe|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+400 Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Maul of Strength (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Study War Axe (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Claws of Attack (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    ..setHotkey("")
+
+//I020
+    new MyItemDefinition(ITEM_RECIPE_SILVER_HAMMER)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStoneHammer.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(2550)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 7)")
+    ..setTooltipBasic("Buy Recipe (Recipe 7)")
+    ..setTooltipExtended("|c00FFFC01Silver Hammer|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+90 Damage\n"
+    +"10% Chance to Bash for 0.1s\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Maul of Strength (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Belt of Giant Strength (|c007EBFF1" +  shopBasicItems2 + "|r)\n")
+    ..setHotkey("")
+
+//I022
+    new MyItemDefinition(ITEM_RECIPE_GLOVES_OF_SPEED)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPlated Gauntlet2.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1750)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 8)")
+    ..setTooltipBasic("Buy Recipe (Recipe 8)")
+    ..setTooltipExtended("|c00FFFC01Gloves of Speed|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+80 Damage\n"
+    +"+80% Attack speed\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Gloves of Haste (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Gloves of Hades (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Gloves of Wind (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    ..setHotkey("")
+
+//I02E
+    new MyItemDefinition(ITEM_RECIPE_HALF_OF_ARKENSTONE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Misc_Gem_Opal_02.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 9)")
+    ..setTooltipBasic("Buy Recipe (Recipe 9)")
+    ..setTooltipExtended("|c00FFFC01Half of Arkenstone|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+5.000 HP\n"
+    +"+50 HP/s\n"
+    +"+5.000 MP\n"
+    +"+300% Mana Regeneration\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Arkenstone Fragment |c00FF0303 (|c007EBFF1Combination|r)|r\n"
+    +"Lancelot's Ring|c00FF0303 (|c007EBFF1Combination|r)|r\n"
+    +"Guinevere's Ring|c00FF0303 (|c007EBFF1Combination|r)|r")
+    ..setHotkey("")
+
+//I035
+    new MyItemDefinition(ITEM_RECIPE_LIGHT_ARMOR)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Composite Armor.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1200)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(3)
+    ..setStockStartDelay(3)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 10)")
+    ..setTooltipBasic("Buy Recipe (Recipe 10)")
+    ..setTooltipExtended(" |c00FFFC01Light Armor|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+50 Armor\n"
+    +"+20 All Stats\n"
+    +"+10HP/s\n"
+    +"+100% Mana Regeneration\n"
+    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Leather Armor (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Iron Armor (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Crystal Ball (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")
+
+//I040
+    new MyItemDefinition(ITEM_RECIPE_SCROLL_OF_FUSION)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(400)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(3)
+    ..setStockStartDelay(3)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 11)")
+    ..setTooltipBasic("Buy Recipe (Recipe 11)")
+    ..setTooltipExtended("|c00FFFC01Scroll of Fusion|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+12 All Stats\n"
+    +"+300 HP\n"
+    +"+10 Armor\n"
+    +"+5 HP/s\n"
+    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+    +"Circlet of Nobility (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Ring of Regeneration (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Ring of Protection (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")
+
+//I03Z
+    new MyItemDefinition(ITEM_RECIPE_AMULET_OF_THE_WILD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAmuletOftheWild.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(3)
+    ..setStockStartDelay(3)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 12)")
+    ..setTooltipBasic("Buy Recipe (Recipe 12)")
+    ..setTooltipExtended("|c00FFFC01Amulet of Wild|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+40 Agility\n+12 Intelligence\n"
+    +"+12 Strength\n"
+    +"+500 HP\n"
+    +"+15 Armor\n"
+    +"+7 HP/s\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + " |r)\n"
+    +"Jade Ring (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Boots of Quel'Thalas (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")

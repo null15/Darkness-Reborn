@@ -1,0 +1,237 @@
+package Objects_ItemsLateGame1
+
+import CommonDescriptions
+import MyItemDefinition
+import ItemObjEditing
+import AbilityObjEditing
+import ItemIds
+import MyItemIds
+import ObjectIds
+import MyAbilityIds
+import Icons
+import Abilities
+
+init
+
+@compiletime function createItems()
+
+//I005
+    new MyItemDefinition(ITEM_RECIPE_ICE_AND_FIRE_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFrostFireSwords.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(11000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 1)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 1)|r")
+    ..setTooltipExtended("|c00FFFC01Ice & Fire Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+400 Damage\n"
+    +"30% Chance to Freeze Target for 0.1s + deal 1000 Damage\n"
+    +"28% Chance to Crit for 5x damage\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Fire Sword (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Ice Sword (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Blade of Hell (|c001CE6B9" + shopRecipes3 + "|r)")
+    ..setHotkey("")
+
+//I01G
+    new MyItemDefinition(ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHoly Heavy Boots.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(8500)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 2)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 2)|r")
+    ..setTooltipExtended("|c00FFFC01Boots of Crystal Gold|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+250 Movement Speed\n"
+    +"+100 All Stats\n"
+    +"Active: Teleport to allied unit or building. Cooldown: 20 seconds.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Boots of Teleportation (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Winged Boots (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Boots of Invisibility (|c001CE6B9" + shopRecipes1 + "|r)")
+    ..setHotkey("")
+
+//I01Y
+    new MyItemDefinition(ITEM_RECIPE_DESTROY_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSword.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(10000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 3)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 3)|r")
+    ..setTooltipExtended("|c00FFFC01Destroy Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+700 Damage\n"
+    +"25% Chance to Crit for 8\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Fire Sword (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Kraken Dagger (|c001CE6B9" + shopRecipes3 + "|r)\n"
+    +"Steel Axe (|c001CE6B9" + shopRecipes1 + "|r)")
+    ..setHotkey("")
+
+//I021
+    new MyItemDefinition(ITEM_RECIPE_PLATINUM_HAMMER)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHammerofThor.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(6800)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 4)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Page 4)|r")
+    ..setTooltipExtended("|c00FFFC01Platinum Hammer|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+500 Damage\n"
+    +"+120 Strength\n"
+    +"25% Chance to Bash for 0.5s dealing 1000 bonus Damage.\n"
+    +"Cooldown: 5 seconds\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Silver Hammer (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Kraken Dagger (|c001CE6B9" + shopRecipes2 + "|r)\n"
+    +"Soul Ring (|c001CE6B9" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")
+
+//I023
+    new MyItemDefinition(ITEM_RECIPE_GLOVES_OF_FLASH)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPlated Gauntlet.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1500)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 5)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 5)|r")
+    ..setTooltipExtended(" |c00FFFC01Effect of item:|r\n"
+    +"+200 Damage\n"
+    +"+180% Attack speed.\n"
+    +"10% Armor Pen\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Gloves of Speed (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Claws of Attack (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    ..setHotkey("")
+
+//I024
+    new MyItemDefinition(ITEM_RECIPE_DARK_STEEL_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDark_Steel_Sword.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(8250)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("|c00FFFC01Dark Steel Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+400 Damage\n"
+    +"+100% Attack speed\n"
+    +"-80 Armor on-hit.\n"
+    +"Effect cannot be used together with Orb of Corruption\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Midnight Blade (|c001CE6B9" + shopRecipes3 + "|r)\n"
+    +"Gloves of Speed (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Orb of Corruption (|c001CE6B9" +  shopBasicItems3 + "|r)")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 6)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 6)|r")
+    ..setTooltipExtended("|c00FFFC01Dark Steel Sword|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+400 Damage\n"
+    +"+100% Attack speed\n"
+    +"-80 Armor on-hit.\n"
+    +"Effect cannot be used together with Orb of Corruption\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Midnight Blade (|c001CE6B9" + shopRecipes3 + "|r)\n"
+    +"Gloves of Speed (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Orb of Corruption (|c001CE6B9" +  shopBasicItems3 + "|r)")
+    ..setHotkey("")
+
+//I02D
+    new MyItemDefinition(ITEM_RECIPE_PERFECT_ARKENSTONE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Misc_Gem_Opal_01.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(6000)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 7)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 7)|r")
+    ..setTooltipExtended("|c00FFFC01Perfect Arkenstone|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+10.000 HP\n"
+    +"+100 HP/s\n"
+    +"+10.000 MP\n"
+    +"+450% Mana Regeneration.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Half Arkenstone (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Arkenstone Fragment (|c007EBFF1Combination|r)")
+    ..setHotkey("")
+
+//I036
+    new MyItemDefinition(ITEM_RECIPE_SHINY_ARMOR)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNShinyArmor.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(5600)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 8)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 8)|r")
+    ..setTooltipExtended("|c00FFFC01Shiny Armor|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+100 Armor\n"
+    +"+30% Magic Resistance\n"
+    +"+1000 HP\n"
+    +"+20HP/s\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Amulet of Spell Shield (|c007EBFF1" +  shopBasicItems3 + "|r)\n"
+    +"Silver Armor (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Light Armor (|c001CE6B9" + shopRecipes1 + "|r)")
+    ..setHotkey("")
+
+//I05J
+    new MyItemDefinition(ITEM_RECIPE_REACTIVE_ARMOR)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpikedArmor.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(11500)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 9)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 9)|r")
+    ..setTooltipExtended("|c00FFFC01Reactive Armor|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+200 Armor\n"
+    +"+100HP/s\n"
+    +"Return 50% of the damage dealt to you back to the attacker.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Split Armor (|c001CE6B9" + shopRecipes4 + "|r)\n"
+    +"Light Armor. (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Spiked Armor. (" + monsterDrop + ")")
+    ..setHotkey("")
+
+//I05O
+    new MyItemDefinition(ITEM_RECIPE_HOLY_ARMOR)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHoly Armor.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(18500)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("|c00FFFC01Advanced Recipe (Recipe 10)|r")
+    ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 10)|r")
+    ..setTooltipExtended("|c00FFFC01Holy Armor|r\n "
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+200 Armor\n"
+    +"60% Magic Resistance\n"
+    +"+2000 HP\n"
+    +"+40Hp/s\n"
+    +"Changes Armor Type to Hero.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Shiny Armor (|c001CE6B9Advanced " + shopRecipes1 + "|r)\n"
+    +"Light Armor (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Crown of Assassin (" + bossDrop + ")")
+    ..setHotkey("")

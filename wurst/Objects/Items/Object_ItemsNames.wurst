@@ -82,7 +82,7 @@ public function getItemName(int id) returns string
         case ITEM_ORB_OF_LIGHTNING
             return "Orb of Lightning"
         
-        // Not sorted
+        // Basic Items (4)
 
         case ITEM_POTION_OF_GREATER_HEALING
             return "Potion of Greater Healing"
@@ -92,150 +92,185 @@ public function getItemName(int id) returns string
             return "Pendant of Energy"
         case ITEM_PENDANT_OF_MANA
             return "Pendant of Mana"
+
         case ITEM_PERIAPT_OF_VITALITY
             return "Periapt of Vitality"
         case ITEM_KHADGARS_PENDANT_OF_HEALTH
             return "Khadgar's Pendant of Health"
         case ITEM_CLOAK_OF_SHADOWS
             return "Cloak of Shadows"
+
         case ITEM_TOME_OF_RETRAINING
             return "Tome of Retraining"
+
+        // Recipes (1)
+
         case ITEM_RECIPE_ICE_SWORD
-            return "Recipe (Recipe 1)"
+            return "Recipe " + compiletime(getItemName(ITEM_ICE_SWORD))
         case ITEM_RECIPE_FIRE_SWORD
-            return "Recipe (Recipe 2)"
+            return "Recipe " + compiletime(getItemName(ITEM_FIRE_SWORD))
         case ITEM_RECIPE_BOOTS_OF_TELEPORTATION
-            return "Recipe (Recipe 3)"
+            return "Recipe " + compiletime(getItemName(ITEM_BOOTS_OF_TELEPORTATION))
         case ITEM_RECIPE_BOOTS_OF_INVISIBILITY
-            return "Recipe (Recipe 4)"
+            return "Recipe " + compiletime(getItemName(ITEM_BOOTS_OF_INVISIBILITY))
+
         case ITEM_RECIPE_WINGED_BOOTS
-            return "Recipe (Recipe 5)"
+            return "Recipe " + compiletime(getItemName(ITEM_WINGED_BOOTS))
         case ITEM_RECIPE_STEEL_AXE
-            return "Recipe (Recipe 6)"
+            return "Recipe " + compiletime(getItemName(ITEM_STEEL_AXE))
         case ITEM_RECIPE_SILVER_HAMMER
-            return "Recipe (Recipe 7)"
+            return "Recipe " + compiletime(getItemName(ITEM_SILVER_HAMMER))
         case ITEM_RECIPE_GLOVES_OF_SPEED
-            return "Recipe (Recipe 8)"
+            return "Recipe " + compiletime(getItemName(ITEM_GLOVES_OF_SPEED))
+
         case ITEM_RECIPE_HALF_OF_ARKENSTONE
-            return "Recipe (Recipe 9)"
+            return "Recipe " + compiletime(getItemName(ITEM_HALF_OF_ARKENSTONE))
         case ITEM_RECIPE_LIGHT_ARMOR
-            return "Recipe (Recipe 10)"
+            return "Recipe " + compiletime(getItemName(ITEM_LIGHT_ARMOR))
         case ITEM_RECIPE_SCROLL_OF_FUSION
-            return "Recipe (Recipe 11)"
-        case ITEM_RECIPE_AMULET_OF_WILD
-            return "Recipe (Recipe 12)"
+            return "Recipe " + compiletime(getItemName(ITEM_SCROLL_OF_FUSION))
+        case ITEM_RECIPE_AMULET_OF_THE_WILD
+            return "Recipe " + compiletime(getItemName(ITEM_AMULET_OF_THE_WILD))
+        
+        // Recipes (2)
+
         case ITEM_RECIPE_HELM_OF_VALOR
-            return "Recipe (Recipe 13)"
+            return "Recipe " + compiletime(getItemName(ITEM_HELM_OF_VALOR))
         case ITEM_RECIPE_MEDALLION_OF_COURAGE
-            return "Recipe (Recipe 14)"
+            return "Recipe " + compiletime(getItemName(ITEM_MEDALLION_OF_COURAGE))
         case ITEM_RECIPE_ALLERIA_FLUTE_OF_ACCURACY
-            return "Recipe (Recipe 15)"
+            return "Recipe " + compiletime(getItemName(ITEM_ALLERIAS_FLUTE_OF_ACCURACY))
         case ITEM_RECIPE_ANCIENT_JANGGO_OF_ENDURANCE
-            return "Recipe (Recipe 16)"
-        case ITEM_RECIPE_LION_HORN_OF_STORMWIND
-            return "Recipe (Recipe 17)"
+            return "Recipe " + compiletime(getItemName(ITEM_ANCIENT_JANGGO_OF_ENDURANCE))
+
+        case ITEM_RECIPE_THE_LION_HORN_OF_STORMWIND
+            return "Recipe " + compiletime(getItemName(ITEM_THE_LION_HORN_OF_STORMWIND))
         case ITEM_RECIPE_WARSONG_BATTLE_DRUMS
-            return "Recipe (Recipe 18)"
+            return "Recipe " + compiletime(getItemName(ITEM_WARSONG_BATTLE_DRUMS))
         case ITEM_RECIPE_DRUMS_OF_FUTURE
-            return "Recipe (Recipe 19)"
-        case ITEM_RECIPE_GOLDEN_HORN
-            return "Recipe (Recipe 20)"
+            return "Recipe " + compiletime(getItemName(ITEM_DRUMS_OF_FUTURE))
+        case ITEM_RECIPE_THE_GOLDEN_HORN
+            return "Recipe " + compiletime(getItemName(ITEM_THE_GOLDEN_HORN))
+
         case ITEM_RECIPE_TRIBAL_DRUMS
-            return "Recipe (Recipe 21)"
+            return "Recipe " + compiletime(getItemName(ITEM_TRIBAL_DRUMS))
         case ITEM_RECIPE_NATURE_FLUTE
-            return "Recipe (Recipe 22)"
+            return "Recipe " + compiletime(getItemName(ITEM_NATURE_FLUTE))
         case ITEM_RECIPE_VOID_AXE
-            return "Recipe (Recipe 23)"
+            return "Recipe " + compiletime(getItemName(ITEM_VOID_AXE))
         case ITEM_RECIPE_AINZ_SWORD
-            return "Recipe (Recipe 24)"
+            return "Recipe " + compiletime(getItemName(ITEM_AINZ_SWORD))
+        
+        // Recipes (3)
+
         case ITEM_RECIPE_SEER_STAFF
-            return "Recipe (Recipe 25)"
+            return "Recipe " + compiletime(getItemName(ITEM_SEER_STAFF))
         case ITEM_RECIPE_SCALE_AXE
-            return "Recipe (Recipe 26)"
+            return "Recipe " + compiletime(getItemName(ITEM_SCALE_AXE))
         case ITEM_RECIPE_DALAN_AXE
-            return "Recipe (Recipe 27)"
+            return "Recipe " + compiletime(getItemName(ITEM_DALAN_AXE))
         case ITEM_RECIPE_DURATION_AXE
-            return "Recipe (Recipe 28)"
+            return "Recipe " + compiletime(getItemName(ITEM_DURATION_AXE))
+
         case ITEM_RECIPE_DWARVEN_AXE
-            return "Recipe (Recipe 29)"
+            return "Recipe " + compiletime(getItemName(ITEM_DWARVEN_AXE))
         case ITEM_RECIPE_BLADE_OF_HELL
-            return "Recipe (Recipe 30)"
+            return "Recipe " + compiletime(getItemName(ITEM_BLADE_OF_HELL))
         case ITEM_RECIPE_KRAKEN_DAGGER
-            return "Recipe (Recipe 31)"
+            return "Recipe " + compiletime(getItemName(ITEM_KRAKEN_DAGGER))
         case ITEM_RECIPE_MIDNIGHT_BLADE
-            return "Recipe (Recipe 32)"
+            return "Recipe " + compiletime(getItemName(ITEM_MIDNIGHT_BLADE))
+
         case ITEM_RECIPE_BLOOD_GORGED_BLADE
-            return "Recipe (Recipe 33)"
+            return "Recipe " + compiletime(getItemName(ITEM_BLOOD_GORGED_BLADE))
         case ITEM_RECIPE_STEEL_SHIELD
-            return "Recipe (Recipe 34)"
+            return "Recipe " + compiletime(getItemName(ITEM_STEEL_SHIELD))
         case ITEM_RECIPE_SACRED_SHIELD
-            return "Recipe (Recipe 35)"
+            return "Recipe " + compiletime(getItemName(ITEM_SACRED_SHIELD))
         case ITEM_RECIPE_IRON_SHIELD
-            return "Recipe (Recipe 36)"
+            return "Recipe " + compiletime(getItemName(ITEM_IRON_SHIELD))
+
+        // Recipes (4)
+
         case ITEM_RECIPE_SPLIT_ARMOR
-            return "Recipe (Recipe 37)"
+            return "Recipe " + compiletime(getItemName(ITEM_SPLIT_ARMOR))
         case ITEM_RECIPE_AVATAR_ARMOR
-            return "Recipe (Recipe 38)"
+            return "Recipe " + compiletime(getItemName(ITEM_AVATAR_ARMOR))
         case ITEM_RECIPE_CHAOS_BLADE
-            return "Recipe (Recipe 39)"
+            return "Recipe " + compiletime(getItemName(ITEM_CHAOS_BLADE))
         case ITEM_RECIPE_O_CLOCK
-            return "Recipe (Recipe 40)"
+            return "Recipe " + compiletime(getItemName(ITEM_O_CLOCK))
+
         case ITEM_RECIPE_THUNDER_BOW
-            return "Recipe (Recipe 41)"
+            return "Recipe " + compiletime(getItemName(ITEM_THUNDER_BOW))
         case ITEM_RECIPE_SOUL_OF_KILJEADEN
-            return "Recipe (Recipe 42)"
+            return "Recipe " + compiletime(getItemName(ITEM_SOUL_OF_KILJEADEN))
         case ITEM_RECIPE_LIZARD_PENDANT
-            return "Recipe (Recipe 43)"
+            return "Recipe " + compiletime(getItemName(ITEM_LIZARD_PEDANT))
         case ITEM_RECIPE_HELM_HERMES
-            return "Recipe (Recipe 44)"
+            return "Recipe " + compiletime(getItemName(ITEM_HELM_HERMES))
+
         case ITEM_RECIPE_DARK_SPHERE
-            return "Recipe (Recipe 45)"
+            return "Recipe " + compiletime(getItemName(ITEM_DARK_SPHERE))
         case ITEM_RECIPE_MYSTERY_GREEN_STAFF
-            return "Recipe (Recipe 46)"
+            return "Recipe " + compiletime(getItemName(ITEM_MYSTERY_GREEN_STAFF))
         case ITEM_RECIPE_ICE_WAND
-            return "Recipe (Recipe 47)"
+            return "Recipe " + compiletime(getItemName(ITEM_ICE_WAND))
         case ITEM_RECIPE_WAR_ENERGY
-            return "Recipe (Recipe 48)"
-        case ITEM_RECIPE_ICE_FIRE_SWORD
-            return "Advanced Recipe (Recipe 1)"
+            return "Recipe " + compiletime(getItemName(ITEM_WAR_ENERY))
+
+        // Late Game (1)
+
+        case ITEM_RECIPE_ICE_AND_FIRE_SWORD
+            return "Recipe " + compiletime(getItemName(ITEM_ICE_AND_FIRE_SWORD))
         case ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD
-            return "Advanced Recipe (Recipe 2)"
+            return "Recipe " + compiletime(getItemName(ITEM_BOOTS_OF_CRYSTAL_GOLD))
         case ITEM_RECIPE_DESTROY_SWORD
-            return "Advanced Recipe (Recipe 3)"
+            return "Recipe " + compiletime(getItemName(ITEM_DESTROY_SWORD))
         case ITEM_RECIPE_PLATINUM_HAMMER
-            return "Advanced Recipe (Recipe 4)"
-        case ITEM_RECIPE_GLOVES_OF_FLESH
-            return "Advanced Recipe (Recipe 5)"
+            return "Recipe " + compiletime(getItemName(ITEM_PLATINUM_HAMMER))
+
+        case ITEM_RECIPE_GLOVES_OF_FLASH
+            return "Recipe " + compiletime(getItemName(ITEM_GLOVES_OF_FLASH))
         case ITEM_RECIPE_DARK_STEEL_SWORD
-            return "Advanced Recipe (Recipe 6)"
+            return "Recipe " + compiletime(getItemName(ITEM_DARK_STEEL_SWORD))
         case ITEM_RECIPE_PERFECT_ARKENSTONE
-            return "Advanced Recipe (Recipe 7)"
+            return "Recipe " + compiletime(getItemName(ITEM_PERFECT_ARKENSTONE))
         case ITEM_RECIPE_SHINY_ARMOR
-            return "Advanced Recipe (Recipe 8)"
+            return "Recipe " + compiletime(getItemName(ITEM_SHINY_ARMOR))
+
         case ITEM_RECIPE_REACTIVE_ARMOR
-            return "Advanced Recipe (Recipe 9)"
+            return "Recipe " + compiletime(getItemName(ITEM_REACTIVE_ARMOR))
         case ITEM_RECIPE_HOLY_ARMOR
-            return "Advanced Recipe (Recipe 10)"
+            return "Recipe " + compiletime(getItemName(ITEM_HOLY_ARMOR))
         case ITEM_RECIPE_GOLD_AXE
-            return "Advanced Recipe (Recipe 11)"
+            return "Recipe " + compiletime(getItemName(ITEM_GOLD_AXE))
+
+        // Late Game (2)
+
         case ITEM_RECIPE_DARK_MATTER
             return "Dark Matter"
         case ITEM_RECIPE_RAIN_SWORD
-            return "Advanced Recipe (Recipe 13)"
-        case ITEM_RECIPE_CURROUSIVE_HAMMER
-            return "Advanced Recipe (Recipe 14)"
+            return "Recipe " + compiletime(getItemName(ITEM_RAIN_SWORD))
+        case ITEM_RECIPE_CORROSIVE_HAMMER
+            return "Recipe " + compiletime(getItemName(ITEM_CORROSIVE_HAMMER))
         case ITEM_RECIPE_VAMPIRELLA
-            return "Advanced Recipe (Recipe 15)"
+            return "Recipe " + compiletime(getItemName(ITEM_VAMPIRELLA))
+
         case ITEM_RECIPE_LANCELOT_SHIELD
-            return "Advanced Recipe (Recipe 16)"
+            return "Recipe " + compiletime(getItemName(ITEM_LANCELOT_SHIELD))
         case ITEM_RECIPE_LANCELOT_ARMOR
-            return "Advanced Recipe (Recipe 17)"
+            return "Recipe " + compiletime(getItemName(ITEM_LANCELOT_ARMOR))
         case ITEM_RECIPE_LANCELOT_HELM
-            return "Advanced Recipe (Recipe 18)"
+            return "Recipe " + compiletime(getItemName(ITEM_LANCELOT_HELM))
         case ITEM_RECIPE_MYSTERY_BLUE_STAFF
-            return "Advanced Recipe (Recipe 19)"
+            return "Recipe " + compiletime(getItemName(ITEM_MYSTERY_BLUE_STAFF))
+
         case ITEM_RECIPE_FREEZE_WAND
-            return "Advanced Recipe (Recipe 20)"
+            return "Recipe " + compiletime(getItemName(ITEM_FREEZE_WAND))
+
+        // Gems (3)
+
         case ITEM_GARNET
             return "Perfect Garnet"
         case ITEM_PERFECT_CARNELIAN
@@ -244,6 +279,7 @@ public function getItemName(int id) returns string
             return "Perfect Citrine"
         case ITEM_PERFECT_TOPAZ
             return "Perfect Topaz"
+
         case ITEM_PERFECT_OBSIDIAN
             return "Perfect Obsidian"
         case ITEM_PERFECT_AQUAMARINE
@@ -252,6 +288,7 @@ public function getItemName(int id) returns string
             return "Perfect Nephrite"
         case ITEM_PERFECT_EMERALD
             return "Perfect Emerald"
+
         case ITEM_PERFECT_PEARL
             return "Perfect Pearl"
         case ITEM_PERFECT_HIPPOPUS
@@ -260,6 +297,9 @@ public function getItemName(int id) returns string
             return "Perfect Sapphire"
         case ITEM_PERFECT_AMETHYST
             return "Perfect Amethyst"
+
+        // Late Game (4)
+
         case ITEM_BULION
             return "Bulion"
         case ITEM_CRYSTAL_ARMOR
@@ -268,10 +308,21 @@ public function getItemName(int id) returns string
             return "Crystal Dual Sword"
         case ITEM_CRYSTAL_KNIFE
             return "Crystal Knife"
+
         case ITEM_CRYSTAL_SPEAR
             return "Crystal Spear"
         case ITEM_RECIPE_DRAGON_WINGS
             return "Dragon Wings"
+
+        case ITEM_TOME_OF_FROSTY_INTELLIGENCE
+            return "Tome of Frosty Intelligence"
+        case ITEM_TOME_OF_FROSTY_STRENGTH
+            return "Tome of Frosty Strength"
+        case ITEM_TOME_OF_FROSTY_AGILITY
+            return "Tome of Frosty Agility"
+
+        // Creeps (1)
+
         case CREEP_TP_SPIDER
             return "Spider"
         case CREEP_TP_MUD_GOLEM
@@ -280,6 +331,7 @@ public function getItemName(int id) returns string
             return "Murloc Tiderunner"
         case CREEP_TP_TIMBER_WOLF
             return "Timber Wolf"
+
         case CREEP_TP_CRAB_SHORECRAWLER
             return "Crab Shorecrawler"
         case CREEP_TP_FACELESS_ONE_TRICKSTER
@@ -288,6 +340,7 @@ public function getItemName(int id) returns string
             return "Spitting Spider"
         case CREEP_TP_ROCK_GOLEM
             return "Rock Golem"
+
         case CREEP_TP_MURGUL_SHADOWCASTER
             return "Mur'gul Shadowcaster"
         case CREEP_TP_POLAR_FURBOLG
@@ -296,6 +349,9 @@ public function getItemName(int id) returns string
             return "Ghost"
         case CREEP_TP_FACELESS_ONE_DEATHBRINGER
             return "Faceless One Deathbringer"
+        
+        // Creeps (2)
+
         case CREEP_TP_BROOD_MOTHER
             return "Brood Mother"
         case CREEP_TP_GRANITE_GOLEM
@@ -304,6 +360,7 @@ public function getItemName(int id) returns string
             return "Turtle"
         case CREEP_TP_GIANT_POLAR_BEAR
             return "Giant Polar Bear"
+
         case CREEP_TP_STORM_WYRM
             return "Storm Wyrm"
         case CREEP_TP_SKELETON_WARRIOR
@@ -312,6 +369,7 @@ public function getItemName(int id) returns string
             return "Forest Troll Warlock"
         case CREEP_TP_DIRE_MAMMOTH
             return "Dire Mammoth"
+
         case CREEP_TP_FEL_RAVAGER
             return "Fel Ravager"
         case CREEP_TP_DALARAN_REJECT
@@ -320,6 +378,9 @@ public function getItemName(int id) returns string
             return "Vile Tormentor"
         case CREEP_TP_ELDER_VOIDWALKER
             return "Elder Voidwalker"
+        
+        // Creeps (3)
+
         case CREEP_TP_NERUBIAN_QUEEN
             return "Nerubian Queen"
         case CREEP_TP_HYDRALISK
@@ -328,6 +389,7 @@ public function getItemName(int id) returns string
             return "Flesh Golem"
         case CREEP_TP_FURBOLG_GIANT
             return "Furbolg Ursa Warriror (Giant)"
+
         case CREEP_TP_DOOM_GUARD
             return "Doom Guard"
         case CREEP_TP_SCARY_SCREAM
@@ -336,6 +398,7 @@ public function getItemName(int id) returns string
             return "Frosty the Snowman"
         case CREEP_TP_ICE_REVENANT
             return "Ice Revenant"
+
         case CREEP_TP_OVERLORD
             return "OverLord"
         case CREEP_TP_DRYAD
@@ -344,6 +407,9 @@ public function getItemName(int id) returns string
             return "Betray Footman"
         case CREEP_TP_CAPTIAN
             return "Captain"
+        
+        // Creeps (4)
+
         case CREEP_TP_DRAGONS
             return "Dragon's Lair"
         case CREEP_TP_TOWER
@@ -352,16 +418,13 @@ public function getItemName(int id) returns string
             return "Dreadlord"
         case CREEP_TP_WATER
             return "Water"
+        
+        //  Not sorted
+
         case ITEM_LUMBER_100
             return "Lumber 100"
         case ITEM_EMPTY_VIAL
             return "Empty Vial (Fusion)"
-        case ITEM_TOME_OF_FROSTY_INTELLIGENCE
-            return "Tome of Frosty Intelligence"
-        case ITEM_TOME_OF_FROSTY_STRENGTH
-            return "Tome of Frosty Strength"
-        case ITEM_TOME_OF_FROSTY_AGILITY
-            return "Tome of Frosty Agility"
         case ITEM_ICE_AND_FIRE_SWORD
             return "Ice & Fire Sword"
         case ITEM_DARK_STEEL_SWORD

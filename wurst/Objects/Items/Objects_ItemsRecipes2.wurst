@@ -1,0 +1,264 @@
+package Objects_ItemsRecipes2
+
+import CommonDescriptions
+import MyItemDefinition
+import ItemObjEditing
+import AbilityObjEditing
+import ItemIds
+import MyItemIds
+import ObjectIds
+import MyAbilityIds
+import Icons
+import Abilities
+
+init
+
+@compiletime function createItems()
+
+//I041
+    new MyItemDefinition(ITEM_RECIPE_HELM_OF_VALOR)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHelmOfValor.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(3)
+    ..setStockStartDelay(3)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 13)")
+    ..setTooltipBasic("Buy Recipe (Recipe 13)")
+    ..setTooltipExtended("|c00FFFC01Helm of Valor|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+40 Strength\n"
+    +"+12 Intelligence\n"
+    +"+12 Agility\n"
+    +"+500 HP\n"
+    +"+15 Armor\n"
+    +"+7 HP/s \n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Belt of Giant Strength (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Soul Ring (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")
+
+//I042
+    new MyItemDefinition(ITEM_RECIPE_MEDALLION_OF_COURAGE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNMedalionOfCourage.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 14)")
+    ..setTooltipBasic("Buy Recipe (Recipe 14)")
+    ..setTooltipExtended("|c00FFFC01 Medallion of Courage|r\n "
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+40 Intelligence\n"
+    +"+12 Strength\n"
+    +"+12 Agility\n"
+    +"+500 HP\n"
+    +"+15 Armor\n"
+    +"+7 HP/s\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Robe of Magi (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Ring of the Archmagi (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")
+
+//I04L
+    new MyItemDefinition(ITEM_RECIPE_ALLERIA_FLUTE_OF_ACCURACY)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAlleriaFlute.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 15)")
+    ..setTooltipBasic("Buy Recipe (Recipe 15)")
+    ..setTooltipExtended("|c00FFFC01 Alleria's Flute of Accuracy|r\n "
+    +"|c00FFFC01Effect of item:|r\n"
+    +"Passive: Increases Damage dealt by Ranged Attacks by 50% for Allies in a 900 Radius.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Study War Axe (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    ..setHotkey("")
+
+//I04M
+    new MyItemDefinition(ITEM_RECIPE_ANCIENT_JANGGO_OF_ENDURANCE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJanggo.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 16)")
+    ..setTooltipBasic("Buy Recipe (Recipe 16)")
+    ..setTooltipExtended("|c00FFFC01 Ancient Janggo of Endurance|r\n "
+    +"|c00FFFC01Effect of item:|r\n"
+    +"Passive: Increases 50% Attack speed and 10% Movement Speed for Allies in a 900 Radius.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Gloves of Wind (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Boots of Speed (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")
+
+//I04N
+    new MyItemDefinition(ITEM_RECIPE_THE_LION_HORN_OF_STORMWIND)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLionHorn.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 17)")
+    ..setTooltipBasic("Buy Recipe (Recipe 17)")
+    ..setTooltipExtended("|c00FFFC01 The Lion Horn of Stormwind|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"Passive: Increases Armor by 15 for Allies in a 900 Radius.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Leather Armor (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Ring of Protection (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    ..setHotkey("")
+
+//I04O
+    new MyItemDefinition(ITEM_RECIPE_WARSONG_BATTLE_DRUMS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDrum.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 18)")
+    ..setTooltipBasic("Buy Recipe (Recipe 18)")
+    ..setTooltipExtended("|c00FFFC01Warsong Battle Drums|r\nn "
+    +"|c00FFFC01Effect of item:|r\n"
+    +"Passive: Increases Damage dealt by 35% for Allies in a 900 Radius.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Maul of Strength (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    ..setHotkey("")
+
+//I04P
+    new MyItemDefinition(ITEM_RECIPE_DRUMS_OF_FUTURE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWarlockAura.BLP")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setStockReplenishInterval(5)
+    ..setStockStartDelay(5)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 19)")
+    ..setTooltipBasic("Buy Recipe (Recipe 19)")
+    ..setTooltipExtended("|c00FFFC01Drums of Future|r\n "
+    +"|c00FFFC01Effect of item:|r\n"
+    +"Passive: Increases 150% Attack speed and 50% Movement Speed for Allies in a 900 Radius.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Ancient Janggo of Endurance (|c001CE6B9" + shopRecipes2 + "|r)")
+    ..setHotkey("")
+
+//I04Q
+    new MyItemDefinition(ITEM_RECIPE_THE_GOLDEN_HORN)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSHorn.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 20)")
+    ..setTooltipBasic("Buy Recipe (Recipe 20)")
+    ..setTooltipExtended("|c00FFFC01The Golden Horn|r\n "
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+800 HP\n"
+    +"+1000 MP\n"
+    +"Passive: Increases Armor by 60 for Allies in a 900 Radius.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"The Lion Horn of Stormwind (|c001CE6B9" + shopRecipes2 + "|r)")
+    ..setHotkey("")
+
+//I04R
+    new MyItemDefinition(ITEM_RECIPE_TRIBAL_DRUMS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTribal Drum of War.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 21)")
+    ..setTooltipBasic("Buy Recipe (Recipe 21)")
+    ..setTooltipExtended("|c00FFFC01Tribal Drums|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+20 All Stats\n"
+    +"Passive: Increases Damage dealt by 95% for Allies in a 900 Radius.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Warsong Battle Drums.(|c001CE6B9" + shopRecipes2 + "|r)")
+    ..setHotkey("")
+
+//I04S
+    new MyItemDefinition(ITEM_RECIPE_NATURE_FLUTE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNNatureFlute.BLP")    
+    ..setClassification("Charged")
+    ..setGoldCost(1100)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 22)")
+    ..setTooltipBasic("Buy Recipe (Recipe 22)")
+    ..setTooltipExtended("|c00FFFC01Nature Flute|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+25 All Stats\n"
+    +"+50% Attack speed\n"
+    +"Passive: Increases Damage dealt by Ranged Attacks by 110% for Allies in a 900 Radius.\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Alleria's Flute of Accuracy (|c001CE6B9" + shopRecipes2 + "|r)")
+    ..setHotkey("")
+
+//I04X
+    new MyItemDefinition(ITEM_RECIPE_VOID_AXE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_INV_Axe_Of_Void.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(4300)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 23)")
+    ..setTooltipBasic("Buy Recipe (Recipe 23)")
+    ..setTooltipExtended("|c00FFFC01Void Axe|r\n"
+    +" |c00FFFC01Effect of item:|r\n"
+    +"+150 Strength\n"
+    +"+2500 HP\n"
+    +"+240 Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Helm of Valor (|c001CE6B9" + shopRecipes2 + "|r)\n"
+    +"Study War Axe (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    ..setHotkey("")
+
+//I04Y
+    new MyItemDefinition(ITEM_RECIPE_AINZ_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Short Sword.blp")    
+    ..setClassification("Charged")
+    ..setGoldCost(5600)
+    ..setLevel(5)
+    ..setPriority(118)
+    ..setDescription("Nearby units move and attack more swiftly.")
+    ..setName("Recipe (Recipe 24)")
+    ..setTooltipBasic("Buy Recipe (Recipe 24)")
+    ..setTooltipExtended("|c00FFFC01Ainz' Sword|r\n"
+    +"|c00FFFC01Effect of item:|r\n"
+    +"+130 Agility\n"
+    +"+40 Armor\n"
+    +"+240 Damage\n"
+    +"|c00FEBA0EMaterials required to craft this item:|r\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Amulet of the Wild (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    ..setHotkey("")
