@@ -87,15 +87,18 @@ public class RecipeList
 
     function checkRecipePosition(LinkedList<item> unitInventory) returns int
         var itemFound = -1
-        for int i = 0 to recipeList.size() - 1
-            let recip = recipeList.get(i)
-            for int j = 0 to unitInventory.size()
-                for int k = 0 to recip.items.size() - 1
-                    let testItem = recip.items.get(k)
-                    if(testItem == unitInventory.get(j).getTypeId())
+        for int i = 0 to recipeList.size() - 1 // March through all recipes to match
+            let recip = recipeList.get(i) // Get ith recipe
+            var testSucceed = 0
+            for int j = 0 to unitInventory.size() // Loop through inventory
+                for int k = 0 to recip.items.size() - 1 //Loop through all items
+                    let testItem = recip.items.get(k) // Grab item to test
+                    if(testItem == unitInventory.get(j).getTypeId()) // If recipe item is the same as inventory, go to next recipe item
+                        testSucceed++
                         break
-        if(itemFound > -1)
-            itemFound = recipeList.get(itemFound).completedItem
+            if(testSucceed == recip.items.size()) // Test amount of success in finding item to item amount and then break
+                itemFound = i
+                break
         return itemFound
 
 public function unit.checkRecipe(RecipeList recipeList)
@@ -106,7 +109,12 @@ public function unit.checkRecipe(RecipeList recipeList)
     let recipePos = recipeList.checkRecipePosition(origInventory)
     if(recipePos > -1)
         let foundRecipe = recipeList.get(recipePos)
-        for int i = 0 to foundRecipe.items.size()
-            this.removeItemById(foundRecipe.items.get(i))
+        for int i = 0 to foundRecipe.items.size() - 1 // All the items in the found recipe loop through
+            let testItem = foundRecipe.items.get(i) // Grab item to test
+            for int j = 0 to origInventory.size() - 1 // Loop through the inventory
+                if(testItem == origInventory.get(j).getTypeId()) // If found item to remove, remove item and go to next recipe item
+                    origInventory.get(j).remove()
+                    break
+
         this.addItemById(foundRecipe.completedItem)
         destroy origInventory
