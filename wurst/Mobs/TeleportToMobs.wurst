@@ -20,31 +20,31 @@ public function setRegions()
         player2RegionY.put(players[i], creepLoc[i+1].getCenterY())
 
 
-    item2Unit.put(ITEM_127, LEFT_CREEP_0)
-    item2Unit.put(ITEM_128, LEFT_CREEP_1)
-    item2Unit.put(ITEM_129, LEFT_CREEP_2)
-    item2Unit.put(ITEM_130, LEFT_CREEP_3)
-    item2Unit.put(ITEM_131, LEFT_CREEP_4)
-    item2Unit.put(ITEM_132, LEFT_CREEP_5)
-    item2Unit.put(ITEM_133, LEFT_CREEP_6)
-    item2Unit.put(ITEM_134, LEFT_CREEP_7)
-    item2Unit.put(ITEM_135, LEFT_CREEP_8)
-    item2Unit.put(ITEM_136, LEFT_CREEP_9)
-    item2Unit.put(ITEM_137, LEFT_CREEP_10)
-    item2Unit.put(ITEM_138, LEFT_CREEP_11)
+    item2Unit.put(CREEP_TP_SPIDER, LEFT_CREEP_0)
+    item2Unit.put(CREEP_TP_MUD_GOLEM, LEFT_CREEP_1)
+    item2Unit.put(CREEP_TP_MURLOC_TIDERUNNER, LEFT_CREEP_2)
+    item2Unit.put(CREEP_TP_TIMBER_WOLF, LEFT_CREEP_3)
+    item2Unit.put(CREEP_TP_CRAB_SHORECRAWLER, LEFT_CREEP_4)
+    item2Unit.put(CREEP_TP_FACELESS_ONE_TRICKSTER, LEFT_CREEP_5)
+    item2Unit.put(CREEP_TP_SPITTING_SPIDER, LEFT_CREEP_6)
+    item2Unit.put(CREEP_TP_ROCK_GOLEM, LEFT_CREEP_7)
+    item2Unit.put(CREEP_TP_MURGUL_SHADOWCASTER, LEFT_CREEP_8)
+    item2Unit.put(CREEP_TP_POLAR_FURBOLG, LEFT_CREEP_9)
+    item2Unit.put(CREEP_TP_GHOST, LEFT_CREEP_10)
+    item2Unit.put(CREEP_TP_FACELESS_ONE_DEATHBRINGER, LEFT_CREEP_11)
 
-    item2Unit.put(ITEM_139, LEFT_CREEP_12)
-    item2Unit.put(ITEM_140, LEFT_CREEP_13)
-    item2Unit.put(ITEM_141, LEFT_CREEP_14)
-    item2Unit.put(ITEM_142, LEFT_CREEP_15)
-    item2Unit.put(ITEM_143, LEFT_CREEP_16)
-    item2Unit.put(ITEM_144, LEFT_CREEP_17)
-    item2Unit.put(ITEM_145, LEFT_CREEP_18)
-    item2Unit.put(ITEM_146, LEFT_CREEP_19)
-    item2Unit.put(ITEM_147, LEFT_CREEP_20)
-    item2Unit.put(ITEM_148, LEFT_CREEP_21)
-    item2Unit.put(ITEM_149, LEFT_CREEP_22)
-    item2Unit.put(ITEM_150, LEFT_CREEP_23)
+    item2Unit.put(CREEP_TP_BROOD_MOTHER, LEFT_CREEP_12)
+    item2Unit.put(CREEP_TP_GRANITE_GOLEM, LEFT_CREEP_13)
+    item2Unit.put(CREEP_TP_TURTLE, LEFT_CREEP_14)
+    item2Unit.put(CREEP_TP_GIANT_POLAR_BEAR, LEFT_CREEP_15)
+    item2Unit.put(CREEP_TP_STORM_WYRM, LEFT_CREEP_16)
+    item2Unit.put(CREEP_TP_SKELETON_WARRIOR, LEFT_CREEP_17)
+    item2Unit.put(CREEP_TP_FOREST_TROLL_WARLOCK, LEFT_CREEP_18)
+    item2Unit.put(CREEP_TP_DIRE_MAMMOTH, LEFT_CREEP_19)
+    item2Unit.put(CREEP_TP_FEL_RAVAGER, LEFT_CREEP_20)
+    item2Unit.put(CREEP_TP_DALARAN_REJECT, LEFT_CREEP_21)
+    item2Unit.put(CREEP_TP_VILE_TORMENTOR, LEFT_CREEP_22)
+    item2Unit.put(CREEP_TP_ELDER_VOIDWALKER, LEFT_CREEP_23)
 
 public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
     EventListener.add(u1, EVENT_PLAYER_UNIT_SELL_ITEM) ->
@@ -84,38 +84,38 @@ public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
 
     EventListener.add(u3, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
         let buyer = EventData.getBuyingUnit()
-        if EventData.getSoldItem().getTypeId() == ITEM_151
+        if EventData.getSoldItem().getTypeId() == CREEP_TP_NERUBIAN_QUEEN
             buyer.setPos(gg_rct_EliteTP1.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_152
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_HYDRALISK
             buyer.setPos(gg_rct_EliteTP2.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_153
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_FLESH_GOLEM
             buyer.setPos(gg_rct_EliteTP4.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_154
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_FURBOLG_GIANT
             buyer.setPos(gg_rct_EliteTP3.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_155
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_DOOM_GUARD
             buyer.setPos(gg_rct_EliteTP5.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_156
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_SCARY_SCREAM
             buyer.setPos(gg_rct_EliteTP8.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_157
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_FROSTY_SNOWMAN
             buyer.setPos(gg_rct_EliteTP9.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_158
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_ICE_REVENANT
             buyer.setPos(gg_rct_EliteTP10.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_159
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_OVERLORD
             buyer.setPos(gg_rct_OverlordArea.randomPoint())
-        else if EventData.getSoldItem().getTypeId() == ITEM_160
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_DRYAD
             buyer.setPos(gg_rct_DryadArea.randomPoint())
-        else if EventData.getSoldItem().getTypeId() == ITEM_161
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_FOOTMAN
             buyer.setPos(gg_rct_EliteTP6.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_162
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_CAPTIAN
             buyer.setPos(gg_rct_EliteTP7.getCenter())
 
     EventListener.add(u4, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
         let buyer = EventData.getBuyingUnit()
-        if EventData.getSoldItem().getTypeId() == ITEM_163
+        if EventData.getSoldItem().getTypeId() == CREEP_TP_DRAGONS
             buyer.setPos(gg_rct_DragonTP.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_164
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_TOWER
             buyer.setPos(gg_rct_TowerTP.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_165
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_DREADLORD
             buyer.setPos(gg_rct_DreadlordTP.getCenter())
-        else if EventData.getSoldItem().getTypeId() == ITEM_166
+        else if EventData.getSoldItem().getTypeId() == CREEP_TP_WATER
             buyer.setPos(gg_rct_ElementalTP.getCenter())

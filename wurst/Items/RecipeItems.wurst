@@ -5,848 +5,356 @@ import MyItemIds
 import LinkedList
 
 init
-    recipeItemReplace()
     recipeListed()
+    registerTrigger()
+    
+function registerTrigger()
+    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)..addAction() ->
+        let u = GetTriggerUnit()
+        u.checkRecipe()
 
 function recipeListed()
     //OOO'Clock
-    let tempRecipe = new Recipe(ITEM_229, ITEM_229, ITEM_229, ITEM_705, ITEM_704)
-    recipes.add(tempRecipe)
-
-function recipeItemReplace()
-    CreateTrigger()..registerAnyUnitEvent(EVENT_PLAYER_UNIT_PICKUP_ITEM)..addAction() ->
-        let u = GetTriggerUnit()
-
-        // Empty Vial & Ruby Fragment +1 -> Ruby Fragments +2
-        if u.hasItemById(ITEM_168) and u.hasItemById(ITEM_328)
-            u.getItemById(ITEM_168).remove()
-            u.getItemById(ITEM_328).remove()
-            u.addItemById(ITEM_254)
-
-        // Ruby Fragments +3
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_254)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_254).remove()
-            u.addItemById(ITEM_255)
-
-        // Ruby Fragments +4
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_255)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_255).remove()
-            u.addItemById(ITEM_256)
-
-        // Ruby Fragments +5
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_256)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_256).remove()
-            u.addItemById(ITEM_257)
-
-        // Ruby Fragments +6
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_257)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_257).remove()
-            u.addItemById(ITEM_258)
-
-        // Ruby Fragments +7
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_258)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_258).remove()
-            u.addItemById(ITEM_259)
-
-        // Ruby Fragments +8
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_259)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_259).remove()
-            u.addItemById(ITEM_260)
-
-        // Ruby Fragments +9
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_260)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_260).remove()
-            u.addItemById(ITEM_261)
-
-        // Ruby Fragments +10
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_261)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_261).remove()
-            u.addItemById(ITEM_262)
-
-        // Ruby Fragments +11
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_262)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_262).remove()
-            u.addItemById(ITEM_263)
-
-        // Ruby Fragments +12
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_263)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_263).remove()
-            u.addItemById(ITEM_264)
-
-        // Ruby Fragments +13
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_264)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_264).remove()
-            u.addItemById(ITEM_265)
-
-        // Ruby Fragments +14
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_265)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_265).remove()
-            u.addItemById(ITEM_266)
-
-        // Ruby Fragments +15
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_266)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_266).remove()
-            u.addItemById(ITEM_267)
-
-        // Ruby Fragments +16
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_267)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_267).remove()
-            u.addItemById(ITEM_268)
-
-        // Ruby Fragments +17
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_268)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_268).remove()
-            u.addItemById(ITEM_269)
-
-        // Ruby Fragments +18
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_269)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_269).remove()
-            u.addItemById(ITEM_270)
-
-        // Ruby Fragments +19
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_270)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_270).remove()
-            u.addItemById(ITEM_271)
-
-        // Ruby Fragments +20
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_271)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_271).remove()
-            u.addItemById(ITEM_272)
-
-        // Half Rubystone
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_272)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_272).remove()
-            u.addItemById(ITEM_273)
-
-        // Divine Rubystone
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_273)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_273).remove()
-            u.addItemById(ITEM_274)
-
-        // Rubystone
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_274)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_274).remove()
-            u.addItemById(ITEM_275)
-
-        // Perfect Rubystone
-        else if u.hasItemById(ITEM_328) and u.hasItemById(ITEM_275)
-            u.getItemById(ITEM_328).remove()
-            u.getItemById(ITEM_275).remove()
-            u.addItemById(ITEM_276)
-
-        // Ice Sword
-        else if u.hasItemById(ITEM_7) and u.hasItemById(ITEM_8) and u.hasItemById(ITEM_26) and u.hasItemById(ITEM_41)
-            RemoveItem(u.getItemById(ITEM_7))
-            RemoveItem(u.getItemById(ITEM_8))
-            RemoveItem(u.getItemById(ITEM_26))
-            RemoveItem(u.getItemById(ITEM_41))
-            RemoveItem(u.getItemById(ITEM_41))
-            u.addItemById(ITEM_190)
-
-        // Fire Sword
-        else if u.hasItemById(ITEM_42) and u.hasItemById(ITEM_7) and u.hasItemById(ITEM_8) and u.hasItemById(ITEM_25)
-            RemoveItem(u.getItemById(ITEM_42))
-            RemoveItem(u.getItemById(ITEM_7))
-            RemoveItem(u.getItemById(ITEM_8))
-            RemoveItem(u.getItemById(ITEM_25))
-            u.addItemById(ITEM_240)
-
-        // Boots of Teleportation
-        else if u.hasItemById(ITEM_11) and u.hasItemById(ITEM_21) and u.hasItemById(ITEM_20) and u.hasItemById(ITEM_43)
-            RemoveItem(u.getItemById(ITEM_11))
-            RemoveItem(u.getItemById(ITEM_21))
-            RemoveItem(u.getItemById(ITEM_20))
-            RemoveItem(u.getItemById(ITEM_43))
-            u.addItemById(ITEM_242)
-
-        // Boots of Invisibility
-        else if u.hasItemById(ITEM_44) and u.hasItemById(ITEM_11) and u.hasItemById(ITEM_21) and u.hasItemById(ITEM_39)
-            RemoveItem(u.getItemById(ITEM_44))
-            RemoveItem(u.getItemById(ITEM_11))
-            RemoveItem(u.getItemById(ITEM_21))
-            RemoveItem(u.getItemById(ITEM_39))
-            u.addItemById(ITEM_243)
-
-        // Winged Boots
-        else if u.hasItemById(ITEM_45) and u.hasItemById(ITEM_11) and u.hasItemById(ITEM_21) and u.hasItemById(ITEM_0)
-            RemoveItem(u.getItemById(ITEM_45))
-            RemoveItem(u.getItemById(ITEM_11))
-            RemoveItem(u.getItemById(ITEM_21))
-            RemoveItem(u.getItemById(ITEM_0))
-            u.addItemById(ITEM_244)
-
-        // Steel Axe
-        else if u.hasItemById(ITEM_46) and u.hasItemById(ITEM_10) and u.hasItemById(ITEM_9) and u.hasItemById(ITEM_8)
-            RemoveItem(u.getItemById(ITEM_46))
-            RemoveItem(u.getItemById(ITEM_10))
-            RemoveItem(u.getItemById(ITEM_9))
-            RemoveItem(u.getItemById(ITEM_8))
-            u.addItemById(ITEM_196)
-
-        // Silver Hammer
-        else if u.hasItemById(ITEM_47) and u.hasItemById(ITEM_10) and u.hasItemById(ITEM_19)
-            RemoveItem(u.getItemById(ITEM_47))
-            RemoveItem(u.getItemById(ITEM_10))
-            RemoveItem(u.getItemById(ITEM_19))
-            u.addItemById(ITEM_197)
-
-        // Gloves of Speed
-        else if u.hasItemById(ITEM_48) and u.hasItemById(ITEM_0) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_2)
-            RemoveItem(u.getItemById(ITEM_48))
-            RemoveItem(u.getItemById(ITEM_0))
-            RemoveItem(u.getItemById(ITEM_1))
-            RemoveItem(u.getItemById(ITEM_2))
-            u.addItemById(ITEM_241)
-
-        // Half of Arkenstone
-        else if u.hasItemById(ITEM_49) and u.hasItemById(ITEM_193) and u.hasItemById(ITEM_191) and u.hasItemById(ITEM_192)
-            RemoveItem(u.getItemById(ITEM_49))
-            RemoveItem(u.getItemById(ITEM_193))
-            RemoveItem(u.getItemById(ITEM_191))
-            RemoveItem(u.getItemById(ITEM_192))
-            u.addItemById(ITEM_198)
-
-        // Light Armor
-        else if u.hasItemById(ITEM_50) and u.hasItemById(ITEM_5) and u.hasItemById(ITEM_21) and u.hasItemById(ITEM_4)
-            RemoveItem(u.getItemById(ITEM_50))
-            RemoveItem(u.getItemById(ITEM_5))
-            RemoveItem(u.getItemById(ITEM_21))
-            RemoveItem(u.getItemById(ITEM_4))
-            u.addItemById(ITEM_199)
-
-        // Scroll of Fusion
-        else if u.hasItemById(ITEM_20) and u.hasItemById(ITEM_15) and u.hasItemById(ITEM_16) and u.hasItemById(ITEM_51)
-            RemoveItem(u.getItemById(ITEM_20))
-            RemoveItem(u.getItemById(ITEM_15))
-            RemoveItem(u.getItemById(ITEM_16))
-            RemoveItem(u.getItemById(ITEM_51))
-            u.addItemById(ITEM_200)
-
-        // Amulet of the Wild
-        else if u.hasItemById(ITEM_52) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_12) and u.hasItemById(ITEM_18)
-            RemoveItem(u.getItemById(ITEM_52))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_12))
-            RemoveItem(u.getItemById(ITEM_18))
-            u.addItemById(ITEM_201)
-
-        // Helm of Valor
-        else if u.hasItemById(ITEM_53) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_19) and u.hasItemById(ITEM_13)
-            RemoveItem(u.getItemById(ITEM_53))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_19))
-            RemoveItem(u.getItemById(ITEM_13))
-            u.addItemById(ITEM_202)
-
-        // Medallion of Courage
-        else if u.hasItemById(ITEM_54) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_17) and u.hasItemById(ITEM_14)
-            RemoveItem(u.getItemById(ITEM_54))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_17))
-            RemoveItem(u.getItemById(ITEM_14))
-            u.addItemById(ITEM_203)
-
-        // Alleria's Flute of Accuracy
-        else if u.hasItemById(ITEM_55) and u.hasItemById(ITEM_7) and u.hasItemById(ITEM_9)
-            RemoveItem(u.getItemById(ITEM_55))
-            RemoveItem(u.getItemById(ITEM_7))
-            RemoveItem(u.getItemById(ITEM_9))
-            u.addItemById(ITEM_204)
-
-        // Ancient Janggo of Endurance
-        else if u.hasItemById(ITEM_56) and u.hasItemById(ITEM_2) and u.hasItemById(ITEM_11)
-            RemoveItem(u.getItemById(ITEM_56))
-            RemoveItem(u.getItemById(ITEM_2))
-            RemoveItem(u.getItemById(ITEM_11))
-            u.addItemById(ITEM_205)
-
-        // The Lion Horn of Stormwind
-        else if u.hasItemById(ITEM_57) and u.hasItemById(ITEM_4) and u.hasItemById(ITEM_16)
-            RemoveItem(u.getItemById(ITEM_57))
-            RemoveItem(u.getItemById(ITEM_4))
-            RemoveItem(u.getItemById(ITEM_16))
-            u.addItemById(ITEM_206)
-
-        // Warsong Battle Drums
-        else if u.hasItemById(ITEM_58) and u.hasItemById(ITEM_10)
-            RemoveItem(u.getItemById(ITEM_58))
-            RemoveItem(u.getItemById(ITEM_10))
-            u.addItemById(ITEM_207)
-
-        // Drums of Future
-        else if u.hasItemById(ITEM_59) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_205)
-            RemoveItem(u.getItemById(ITEM_59))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_205))
-            u.addItemById(ITEM_208)
-
-        // The Golden Horn
-        else if u.hasItemById(ITEM_60) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_206)
-            RemoveItem(u.getItemById(ITEM_60))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_206))
-            u.addItemById(ITEM_209)
-
-        // Tribal Drums
-        else if u.hasItemById(ITEM_61) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_207)
-            RemoveItem(u.getItemById(ITEM_61))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_207))
-            u.addItemById(ITEM_210)
-
-        // Nature Flute
-        else if u.hasItemById(ITEM_62) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_204)
-            RemoveItem(u.getItemById(ITEM_62))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_204))
-            u.addItemById(ITEM_211)
-
-        // Void Axe
-        else if u.hasItemById(ITEM_63) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_202) and u.hasItemById(ITEM_9)
-            RemoveItem(u.getItemById(ITEM_63))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_202))
-            RemoveItem(u.getItemById(ITEM_9))
-            u.addItemById(ITEM_212)
-
-        // Ainz Sword
-        else if u.hasItemById(ITEM_64) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_201) and u.hasItemById(ITEM_7)
-            RemoveItem(u.getItemById(ITEM_64))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_201))
-            RemoveItem(u.getItemById(ITEM_7))
-            u.addItemById(ITEM_213)
-
-        // Seer Staff
-        else if u.hasItemById(ITEM_65) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_203) and u.hasItemById(ITEM_36)
-            RemoveItem(u.getItemById(ITEM_65))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_203))
-            RemoveItem(u.getItemById(ITEM_36))
-            u.addItemById(ITEM_214)
-
-        // Scale Axe
-        else if u.hasItemById(ITEM_66) and u.hasItemById(ITEM_9)
-            RemoveItem(u.getItemById(ITEM_66))
-            RemoveItem(u.getItemById(ITEM_9))
-            u.addItemById(ITEM_215)
-
-        // Dalan Axe
-        else if u.hasItemById(ITEM_215) and u.hasItemById(ITEM_19) and u.hasItemById(ITEM_20) and u.hasItemById(ITEM_67)
-            RemoveItem(u.getItemById(ITEM_215))
-            RemoveItem(u.getItemById(ITEM_19))
-            RemoveItem(u.getItemById(ITEM_20))
-            RemoveItem(u.getItemById(ITEM_67))
-            u.addItemById(ITEM_216)
-
-        // Duration Axe
-        else if u.hasItemById(ITEM_216) and u.hasItemById(ITEM_68) and u.hasItemById(ITEM_13) and u.hasItemById(ITEM_8)
-            RemoveItem(u.getItemById(ITEM_216))
-            RemoveItem(u.getItemById(ITEM_68))
-            RemoveItem(u.getItemById(ITEM_13))
-            RemoveItem(u.getItemById(ITEM_8))
-            u.addItemById(ITEM_217)
-
-        // Dwarven Axe
-        else if u.hasItemById(ITEM_69) and u.hasItemById(ITEM_217) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_9)
-            RemoveItem(u.getItemById(ITEM_69))
-            RemoveItem(u.getItemById(ITEM_217))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_9))
-            u.addItemById(ITEM_218)
-
-        // Blade of Hell
-        else if u.hasItemById(ITEM_70) and u.hasItemById(ITEM_7) and u.hasItemById(ITEM_241) and u.hasItemById(ITEM_240)
-            RemoveItem(u.getItemById(ITEM_70))
-            RemoveItem(u.getItemById(ITEM_7))
-            RemoveItem(u.getItemById(ITEM_241))
-            RemoveItem(u.getItemById(ITEM_240))
-            u.addItemById(ITEM_219)
-
-        // Kraken Dagger
-        else if u.hasItemById(ITEM_71) and u.hasItemById(ITEM_13) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_38)
-            RemoveItem(u.getItemById(ITEM_71))
-            RemoveItem(u.getItemById(ITEM_13))
-            RemoveItem(u.getItemById(ITEM_1))
-            RemoveItem(u.getItemById(ITEM_38))
-            u.addItemById(ITEM_220)
-
-        // Midnight Blade
-        else if u.hasItemById(ITEM_72) and u.hasItemById(ITEM_22) and u.hasItemById(ITEM_7) and u.hasItemById(ITEM_2)
-            RemoveItem(u.getItemById(ITEM_22))
-            RemoveItem(u.getItemById(ITEM_72))
-            RemoveItem(u.getItemById(ITEM_7))
-            RemoveItem(u.getItemById(ITEM_2))
-            u.addItemById(ITEM_221)
-
-        // Blood Gorged Blade
-        else if u.hasItemById(ITEM_73) and u.hasItemById(ITEM_3) and u.hasItemById(ITEM_7) and u.hasItemById(ITEM_37)
-            RemoveItem(u.getItemById(ITEM_73))
-            RemoveItem(u.getItemById(ITEM_3))
-            RemoveItem(u.getItemById(ITEM_7))
-            RemoveItem(u.getItemById(ITEM_37))
-            u.addItemById(ITEM_222)
-
-        // Steel Shield
-        else if u.hasItemById(ITEM_74) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_30) and u.hasItemById(ITEM_31)
-            RemoveItem(u.getItemById(ITEM_74))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_30))
-            RemoveItem(u.getItemById(ITEM_31))
-            u.addItemById(ITEM_223)
-
-        // Sacred Shield
-        else if u.hasItemById(ITEM_223) and u.hasItemById(ITEM_30) and u.hasItemById(ITEM_32) and u.hasItemById(ITEM_75)
-            RemoveItem(u.getItemById(ITEM_223))
-            RemoveItem(u.getItemById(ITEM_30))
-            RemoveItem(u.getItemById(ITEM_32))
-            RemoveItem(u.getItemById(ITEM_75))
-            u.addItemById(ITEM_224)
-
-        // Iron Shield
-        else if u.hasItemById(ITEM_76) and u.hasItemById(ITEM_223) and u.hasItemById(ITEM_202)
-            RemoveItem(u.getItemById(ITEM_76))
-            RemoveItem(u.getItemById(ITEM_223))
-            RemoveItem(u.getItemById(ITEM_202))
-            u.addItemById(ITEM_225)
-
-        // Split Armor
-        else if u.hasItemById(ITEM_77) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_5) and u.hasItemById(ITEM_303)
-            RemoveItem(u.getItemById(ITEM_77))
-            RemoveItem(u.getItemById(ITEM_199))
-            RemoveItem(u.getItemById(ITEM_5))
-            RemoveItem(u.getItemById(ITEM_303))
-            u.addItemById(ITEM_226)
-
-        // Avatar Armor
-        else if u.hasItemById(ITEM_78) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_38) and u.hasItemById(ITEM_15)
-            RemoveItem(u.getItemById(ITEM_78))
-            RemoveItem(u.getItemById(ITEM_199))
-            RemoveItem(u.getItemById(ITEM_38))
-            RemoveItem(u.getItemById(ITEM_15))
-            u.addItemById(ITEM_227)
-
-        // Chaos Blade
-        else if u.hasItemById(ITEM_220) and u.hasItemById(ITEM_200) and u.hasItemById(ITEM_79) and u.hasItemById(ITEM_7)
-            RemoveItem(u.getItemById(ITEM_220))
-            RemoveItem(u.getItemById(ITEM_200))
-            RemoveItem(u.getItemById(ITEM_79))
-            RemoveItem(u.getItemById(ITEM_7))
-            u.addItemById(ITEM_228)
-
-        // O'Clock
-        else if u.hasItemById(ITEM_80) and u.hasItemById(ITEM_28) and u.hasItemById(ITEM_31) and u.hasItemById(ITEM_40)
-            RemoveItem(u.getItemById(ITEM_80))
-            RemoveItem(u.getItemById(ITEM_28))
-            RemoveItem(u.getItemById(ITEM_31))
-            RemoveItem(u.getItemById(ITEM_40))
-            u.addItemById(ITEM_229)
-
-        // Thunder Bow
-        else if u.hasItemById(ITEM_81) and u.hasItemById(ITEM_201) and u.hasItemById(ITEM_24) and u.hasItemById(ITEM_203)
-            RemoveItem(u.getItemById(ITEM_81))
-            RemoveItem(u.getItemById(ITEM_201))
-            RemoveItem(u.getItemById(ITEM_24))
-            RemoveItem(u.getItemById(ITEM_203))
-            u.addItemById(ITEM_230)
-
-        // Soul of Kil'jeaden
-        else if u.hasItemById(ITEM_82) and u.hasItemById(ITEM_203) and u.hasItemById(ITEM_36) and u.hasItemById(ITEM_27)
-            RemoveItem(u.getItemById(ITEM_82))
-            RemoveItem(u.getItemById(ITEM_203))
-            RemoveItem(u.getItemById(ITEM_36))
-            RemoveItem(u.getItemById(ITEM_27))
-            u.addItemById(ITEM_231)
-
-        // Lizard Pedant
-        else if u.hasItemById(ITEM_83) and u.hasItemById(ITEM_202) and u.hasItemById(ITEM_199)
-            RemoveItem(u.getItemById(ITEM_83))
-            RemoveItem(u.getItemById(ITEM_202))
-            RemoveItem(u.getItemById(ITEM_199))
-            u.addItemById(ITEM_232)
-
-        // Helm Hermes
-        else if u.hasItemById(ITEM_84) and u.hasItemById(ITEM_202) and u.hasItemById(ITEM_226)
-            RemoveItem(u.getItemById(ITEM_84))
-            RemoveItem(u.getItemById(ITEM_202))
-            RemoveItem(u.getItemById(ITEM_226))
-            u.addItemById(ITEM_233)
-
-        // Dark Sphere
-        else if u.hasItemById(ITEM_85) and u.hasItemById(ITEM_23) and u.hasItemById(ITEM_202)
-            RemoveItem(u.getItemById(ITEM_85))
-            RemoveItem(u.getItemById(ITEM_23))
-            RemoveItem(u.getItemById(ITEM_202))
-            u.addItemById(ITEM_234)
-
-        // Mystery Green Staff
-        else if u.hasItemById(ITEM_86) and u.hasItemById(ITEM_214) and u.hasItemById(ITEM_14) and u.hasItemById(ITEM_305)
-            RemoveItem(u.getItemById(ITEM_86))
-            RemoveItem(u.getItemById(ITEM_214))
-            RemoveItem(u.getItemById(ITEM_14))
-            RemoveItem(u.getItemById(ITEM_305))
-            u.addItemById(ITEM_235)
-
-        // Ice Wand
-        else if u.hasItemById(ITEM_87) and u.hasItemById(ITEM_214) and u.hasItemById(ITEM_26) and u.hasItemById(ITEM_318)
-            RemoveItem(u.getItemById(ITEM_87))
-            RemoveItem(u.getItemById(ITEM_214))
-            RemoveItem(u.getItemById(ITEM_26))
-            RemoveItem(u.getItemById(ITEM_318))
-            u.addItemById(ITEM_237)
-
-        // War Enery
-        else if u.hasItemById(ITEM_88) and u.hasItemById(ITEM_231) and u.hasItemById(ITEM_198)
-            RemoveItem(u.getItemById(ITEM_88))
-            RemoveItem(u.getItemById(ITEM_231))
-            RemoveItem(u.getItemById(ITEM_198))
-            u.addItemById(ITEM_239)
-
-        // Ice & Fire Sword
-        else if u.hasItemById(ITEM_89) and u.hasItemById(ITEM_240) and u.hasItemById(ITEM_190) and u.hasItemById(ITEM_219)
-            RemoveItem(u.getItemById(ITEM_89))
-            RemoveItem(u.getItemById(ITEM_240))
-            RemoveItem(u.getItemById(ITEM_190))
-            RemoveItem(u.getItemById(ITEM_219))
-            u.addItemById(ITEM_172)
-
-        // Boots of Crystal Gold
-        else if u.hasItemById(ITEM_90) and u.hasItemById(ITEM_242) and u.hasItemById(ITEM_244) and u.hasItemById(ITEM_243)
-            RemoveItem(u.getItemById(ITEM_90))
-            RemoveItem(u.getItemById(ITEM_242))
-            RemoveItem(u.getItemById(ITEM_244))
-            RemoveItem(u.getItemById(ITEM_243))
-            u.addItemById(ITEM_189)
-
-        // Destroy Sword
-        else if u.hasItemById(ITEM_91) and u.hasItemById(ITEM_240) and u.hasItemById(ITEM_196) and u.hasItemById(ITEM_220)
-            RemoveItem(u.getItemById(ITEM_91))
-            RemoveItem(u.getItemById(ITEM_240))
-            RemoveItem(u.getItemById(ITEM_196))
-            RemoveItem(u.getItemById(ITEM_220))
-            u.addItemById(ITEM_186)
-
-        // Platinum Hammer
-        else if u.hasItemById(ITEM_92) and u.hasItemById(ITEM_197) and u.hasItemById(ITEM_220) and u.hasItemById(ITEM_13)
-            RemoveItem(u.getItemById(ITEM_92))
-            RemoveItem(u.getItemById(ITEM_197))
-            RemoveItem(u.getItemById(ITEM_220))
-            RemoveItem(u.getItemById(ITEM_13))
-            u.addItemById(ITEM_187)
-
-        // Gloves of Flash
-        else if u.hasItemById(ITEM_93) and u.hasItemById(ITEM_241) and u.hasItemById(ITEM_8)
-            RemoveItem(u.getItemById(ITEM_93))
-            RemoveItem(u.getItemById(ITEM_241))
-            RemoveItem(u.getItemById(ITEM_8))
-            u.addItemById(ITEM_188)
-
-        // Dark Steel Sword
-        else if u.hasItemById(ITEM_94) and u.hasItemById(ITEM_221) and u.hasItemById(ITEM_22) and u.hasItemById(ITEM_241)
-            RemoveItem(u.getItemById(ITEM_94))
-            RemoveItem(u.getItemById(ITEM_221))
-            RemoveItem(u.getItemById(ITEM_22))
-            RemoveItem(u.getItemById(ITEM_241))
-            u.addItemById(ITEM_173)
-
-        // Perfect Arkenstone
-        else if u.hasItemById(ITEM_95) and u.hasItemById(ITEM_198) and u.hasItemById(ITEM_193)
-            RemoveItem(u.getItemById(ITEM_95))
-            RemoveItem(u.getItemById(ITEM_198))
-            RemoveItem(u.getItemById(ITEM_193))
-            u.addItemById(ITEM_185)
-
-        // Shiny Armor
-        else if u.hasItemById(ITEM_96) and u.hasItemById(ITEM_28) and u.hasItemById(ITEM_6) and u.hasItemById(ITEM_199)
-            RemoveItem(u.getItemById(ITEM_96))
-            RemoveItem(u.getItemById(ITEM_28))
-            RemoveItem(u.getItemById(ITEM_6))
-            RemoveItem(u.getItemById(ITEM_199))
-            u.addItemById(ITEM_174)
-
-        // Reactive Armor
-        else if u.hasItemById(ITEM_97) and u.hasItemById(ITEM_226) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_303)
-            RemoveItem(u.getItemById(ITEM_97))
-            RemoveItem(u.getItemById(ITEM_226))
-            RemoveItem(u.getItemById(ITEM_199))
-            RemoveItem(u.getItemById(ITEM_303))
-            u.addItemById(ITEM_175)
-
-        // Holy Armor
-        else if u.hasItemById(ITEM_98) and u.hasItemById(ITEM_174) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_336)
-            RemoveItem(u.getItemById(ITEM_98))
-            RemoveItem(u.getItemById(ITEM_174))
-            RemoveItem(u.getItemById(ITEM_199))
-            RemoveItem(u.getItemById(ITEM_336))
-            u.addItemById(ITEM_176)
-
-        // Gold Axe
-        else if u.hasItemById(ITEM_99) and u.hasItemById(ITEM_219) and u.hasItemById(ITEM_196)
-            RemoveItem(u.getItemById(ITEM_99))
-            RemoveItem(u.getItemById(ITEM_219))
-            RemoveItem(u.getItemById(ITEM_196))
-            u.addItemById(ITEM_177)
-
-        // Dark Matter
-        else if u.hasItemById(ITEM_100) and u.hasItemById(ITEM_212) and u.hasItemById(ITEM_23) and u.hasItemById(ITEM_234)
-            RemoveItem(u.getItemById(ITEM_100))
-            RemoveItem(u.getItemById(ITEM_212))
-            RemoveItem(u.getItemById(ITEM_23))
-            RemoveItem(u.getItemById(ITEM_234))
-            u.addItemById(ITEM_178)
-
-        // Rain Sword
-        else if u.hasItemById(ITEM_101) and u.hasItemById(ITEM_213)
-            RemoveItem(u.getItemById(ITEM_101))
-            RemoveItem(u.getItemById(ITEM_213))
-            u.addItemById(ITEM_179)
-
-        // Corrosive Hammer
-        else if u.hasItemById(ITEM_102) and u.hasItemById(ITEM_212)
-            RemoveItem(u.getItemById(ITEM_102))
-            RemoveItem(u.getItemById(ITEM_212))
-            u.addItemById(ITEM_180)
-
-        // Vampirella
-        else if u.hasItemById(ITEM_103) and u.hasItemById(ITEM_214)
-            RemoveItem(u.getItemById(ITEM_103))
-            RemoveItem(u.getItemById(ITEM_214))
-            u.addItemById(ITEM_181)
-
-        // Lancelot Shield
-        else if u.hasItemById(ITEM_104) and u.hasItemById(ITEM_314) and u.hasItemById(ITEM_223)
-            RemoveItem(u.getItemById(ITEM_104))
-            RemoveItem(u.getItemById(ITEM_314))
-            RemoveItem(u.getItemById(ITEM_223))
-            u.addItemById(ITEM_182)
-
-        // Lancelot Armor   
-        else if u.hasItemById(ITEM_105) and u.hasItemById(ITEM_199) and u.hasItemById(ITEM_231) and u.hasItemById(ITEM_335)
-            RemoveItem(u.getItemById(ITEM_105))
-            RemoveItem(u.getItemById(ITEM_199))
-            RemoveItem(u.getItemById(ITEM_231))
-            RemoveItem(u.getItemById(ITEM_335))
-            u.addItemById(ITEM_183)
-
-        // Lancelot Helm
-        else if u.hasItemById(ITEM_106) and u.hasItemById(ITEM_214) and u.hasItemById(ITEM_174)
-            RemoveItem(u.getItemById(ITEM_106))
-            RemoveItem(u.getItemById(ITEM_214))
-            RemoveItem(u.getItemById(ITEM_174))
-            u.addItemById(ITEM_184)
-
-        // Mystery Blue Staff
-        else if u.hasItemById(ITEM_107) and u.hasItemById(ITEM_235) and u.hasItemById(ITEM_305)
-            RemoveItem(u.getItemById(ITEM_107))
-            RemoveItem(u.getItemById(ITEM_235))
-            RemoveItem(u.getItemById(ITEM_305))
-            u.addItemById(ITEM_236)
-
-        // Freeze Wand
-        else if u.hasItemById(ITEM_108) and u.hasItemById(ITEM_237) and u.hasItemById(ITEM_190) and u.hasItemById(ITEM_38)
-            RemoveItem(u.getItemById(ITEM_108))
-            RemoveItem(u.getItemById(ITEM_237))
-            RemoveItem(u.getItemById(ITEM_190))
-            RemoveItem(u.getItemById(ITEM_38))
-            u.addItemById(ITEM_238)
-
-        // Dragon Wings
-        else if u.hasItemById(ITEM_126) and u.hasItemById(ITEM_356) and u.hasItemById(ITEM_357) and u.hasItemById(ITEM_358) and u.hasItemById(ITEM_359)
-            RemoveItem(u.getItemById(ITEM_126))
-            RemoveItem(u.getItemById(ITEM_356))
-            RemoveItem(u.getItemById(ITEM_357))
-            RemoveItem(u.getItemById(ITEM_358))
-            RemoveItem(u.getItemById(ITEM_359))
-            u.addItemById(ITEM_245)
-        
-        // CHAOS
-        else if u.hasItemById(ITEM_373) and u.hasItemById(ITEM_374) and u.hasItemById(ITEM_375) and u.hasItemById(ITEM_376) and u.hasItemById(ITEM_377) and u.hasItemById(ITEM_378)
-            RemoveItem(u.getItemById(ITEM_373))
-            RemoveItem(u.getItemById(ITEM_374))
-            RemoveItem(u.getItemById(ITEM_375))
-            RemoveItem(u.getItemById(ITEM_376))
-            RemoveItem(u.getItemById(ITEM_377))
-            RemoveItem(u.getItemById(ITEM_378))
-            u.addItemById(ITEM_253)
-
-        // Ice & Fire Sword II - Tinker
-        else if u.hasItemById(ITEM_172) and u.hasItemById(ITEM_240) and u.hasItemById(ITEM_190) and u.hasItemById(ITEM_492)
-            RemoveItem(u.getItemById(ITEM_172))
-            RemoveItem(u.getItemById(ITEM_240))
-            RemoveItem(u.getItemById(ITEM_190))
-            RemoveItem(u.getItemById(ITEM_492))
-            u.addItemById(ITEM_246)
-
-        // Dark Steel Sword II - Tinker
-        else if u.hasItemById(ITEM_173) and u.hasItemById(ITEM_332) and u.hasItemById(ITEM_493)
-            RemoveItem(u.getItemById(ITEM_173))
-            RemoveItem(u.getItemById(ITEM_332))
-            RemoveItem(u.getItemById(ITEM_493))
-            u.addItemById(ITEM_247)
-
-        // Destroy Sword II - Tinker
-        else if u.hasItemById(ITEM_186) and u.hasItemById(ITEM_219) and u.hasItemById(ITEM_331) and u.hasItemById(ITEM_494)
-            RemoveItem(u.getItemById(ITEM_186))
-            RemoveItem(u.getItemById(ITEM_219))
-            RemoveItem(u.getItemById(ITEM_331))
-            RemoveItem(u.getItemById(ITEM_494))
-            u.addItemById(ITEM_248)
-
-        // Platinum Hammer II - Tinker
-        else if u.hasItemById(ITEM_187) and u.hasItemById(ITEM_197) and u.hasItemById(ITEM_180) and u.hasItemById(ITEM_495)
-            RemoveItem(u.getItemById(ITEM_187))
-            RemoveItem(u.getItemById(ITEM_197))
-            RemoveItem(u.getItemById(ITEM_180))
-            RemoveItem(u.getItemById(ITEM_495))
-            u.addItemById(ITEM_249)
-
-        // Gold Axe II - Tinker
-        else if u.hasItemById(ITEM_177) and u.hasItemById(ITEM_499) and u.hasItemById(ITEM_496)
-            RemoveItem(u.getItemById(ITEM_177))
-            RemoveItem(u.getItemById(ITEM_499))
-            RemoveItem(u.getItemById(ITEM_496))
-            u.addItemById(ITEM_250)
-
-        // Reactive Armor II - Tinker
-        else if u.hasItemById(ITEM_175) and u.hasItemById(ITEM_226) and u.hasItemById(ITEM_497)
-            RemoveItem(u.getItemById(ITEM_175))
-            RemoveItem(u.getItemById(ITEM_226))
-            RemoveItem(u.getItemById(ITEM_497))
-            u.addItemById(ITEM_251)
-
-        // Boots of Crystal Gold II - Tinker
-        else if u.hasItemById(ITEM_189) and u.hasItemById(ITEM_498)
-            RemoveItem(u.getItemById(ITEM_189))
-            RemoveItem(u.getItemById(ITEM_498))
-            u.addItemById(ITEM_252)
-        
-        //Jewelry of Life
-        else if u.hasItemById(ITEM_37) and u.hasItemById(ITEM_38)
-            RemoveItem(u.getItemById(ITEM_37))
-            RemoveItem(u.getItemById(ITEM_38))
-            u.addItemById(ITEM_195)
-
-        //Lancelot's ring
-        else if u.hasItemById(ITEM_194) and u.hasItemById(ITEM_36)
-            RemoveItem(u.getItemById(ITEM_194))
-            RemoveItem(u.getItemById(ITEM_36))
-            u.addItemById(ITEM_191)
-
-        //Guinevere's Ring
-        else if u.hasItemById(ITEM_37) and u.hasItemById(ITEM_195) and u.hasItemById(ITEM_15)
-            RemoveItem(u.getItemById(ITEM_37))
-            RemoveItem(u.getItemById(ITEM_195))
-            RemoveItem(u.getItemById(ITEM_15))
-            u.addItemById(ITEM_192)
-
-        //Jewelry of Mana
-        else if u.hasItemById(ITEM_36) and u.hasItemById(ITEM_35)
-            RemoveItem(u.getItemById(ITEM_36))
-            RemoveItem(u.getItemById(ITEM_35))
-            u.addItemById(ITEM_194)
-
-        //ArkenstoneFragment
-        else if u.hasItemById(ITEM_192) and u.hasItemById(ITEM_191) and u.hasItemById(ITEM_35)
-            RemoveItem(u.getItemById(ITEM_192))
-            RemoveItem(u.getItemById(ITEM_191))
-            RemoveItem(u.getItemById(ITEM_35))
-            u.addItemById(ITEM_193)
-
-        //Perfect Carnelian
-        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_333)
-            RemoveItem(u.getItemById(ITEM_276))
-            RemoveItem(u.getItemById(ITEM_333))
-            u.addItemById(ITEM_110)
-
-        //Perfect Topaz
-        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_232)
-            RemoveItem(u.getItemById(ITEM_276))
-            RemoveItem(u.getItemById(ITEM_232))
-            u.addItemById(ITEM_112)
-
-        //Perfect Aquamarine
-        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_175)
-            RemoveItem(u.getItemById(ITEM_276))
-            RemoveItem(u.getItemById(ITEM_175))
-            u.addItemById(ITEM_114)
-
-        //Perfect Nephrite
-        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_337)
-            RemoveItem(u.getItemById(ITEM_276))
-            RemoveItem(u.getItemById(ITEM_337))
-            u.addItemById(ITEM_115)
-            
-        //Perfect Hippopus
-        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_341)
-            RemoveItem(u.getItemById(ITEM_276))
-            RemoveItem(u.getItemById(ITEM_341))
-            u.addItemById(ITEM_118)
-
-        //Perfect Pearl
-        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_240) and u.hasItemById(ITEM_190)
-            RemoveItem(u.getItemById(ITEM_276))
-            RemoveItem(u.getItemById(ITEM_240))
-            RemoveItem(u.getItemById(ITEM_190))
-            u.addItemById(ITEM_117)
-
-        //Perfect Emerald
-        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_211) and u.hasItemById(ITEM_208) and u.hasItemById(ITEM_209) and u.hasItemById(ITEM_210)
-            RemoveItem(u.getItemById(ITEM_276))
-            RemoveItem(u.getItemById(ITEM_211))
-            RemoveItem(u.getItemById(ITEM_208))
-            RemoveItem(u.getItemById(ITEM_209))
-            RemoveItem(u.getItemById(ITEM_210))
-            u.addItemById(ITEM_116)
-
-        //Perfect Sapphire
-        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_236) and u.hasItemById(ITEM_24)
-            RemoveItem(u.getItemById(ITEM_276))
-            RemoveItem(u.getItemById(ITEM_236))
-            RemoveItem(u.getItemById(ITEM_24))
-            u.addItemById(ITEM_119)
-
-        //Perfect Amethyst
-        else if u.hasItemById(ITEM_276) and u.hasItemById(ITEM_173) and u.hasItemById(ITEM_22)
-            RemoveItem(u.getItemById(ITEM_276))
-            RemoveItem(u.getItemById(ITEM_173))
-            RemoveItem(u.getItemById(ITEM_22))
-            u.addItemById(ITEM_120)
-
-        u.checkRecipe()    
-            
-
-        // // 
-        // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     u.addItemById(ITEM_1)
-        // // 
-        // else if u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1) and u.hasItemById(ITEM_1)
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     RemoveItem(u.getItemById(ITEM_1))
-        //     u.addItemById(ITEM_1)
+    addRecipe(ITEM_O_CLOCK, ITEM_O_CLOCK, ITEM_O_CLOCK, ITEM_RECIPE_OOO_CLOCK, ITEM_OOO_CLOCK)
+
+    // Ruby Fragments +2
+    addRecipe(ITEM_EMPTY_VIAL, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L2)
+
+    // Ruby Fragments +3
+    addRecipe(ITEM_RUBY_FRAGMENTS_L2, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L3)
+
+    // Ruby Fragments +4
+    addRecipe(ITEM_RUBY_FRAGMENTS_L3, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L4)
+
+    // Ruby Fragments +5
+    addRecipe(ITEM_RUBY_FRAGMENTS_L4, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L5)
+
+    // Ruby Fragments +6
+    addRecipe(ITEM_RUBY_FRAGMENTS_L5, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L6)
+
+    // Ruby Fragments +7
+    addRecipe(ITEM_RUBY_FRAGMENTS_L6, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L7)
+
+    // Ruby Fragments +8
+    addRecipe(ITEM_RUBY_FRAGMENTS_L7, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L8)
+
+    // Ruby Fragments +9
+    addRecipe(ITEM_RUBY_FRAGMENTS_L8, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L9)
+
+    // Ruby Fragments +10
+    addRecipe(ITEM_RUBY_FRAGMENTS_L9, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L10)
+
+    // Ruby Fragments +11
+    addRecipe(ITEM_RUBY_FRAGMENTS_L10, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L11)
+
+    // Ruby Fragments +12
+    addRecipe(ITEM_RUBY_FRAGMENTS_L11, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L12)
+
+    // Ruby Fragments +13
+    addRecipe(ITEM_RUBY_FRAGMENTS_L12, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L13)
+
+    // Ruby Fragments +14
+    addRecipe(ITEM_RUBY_FRAGMENTS_L13, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L14)
+
+    // Ruby Fragments +15
+    addRecipe(ITEM_RUBY_FRAGMENTS_L14, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L15)
+
+    // Ruby Fragments +16
+    addRecipe(ITEM_RUBY_FRAGMENTS_L15, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L16)
+
+    // Ruby Fragments +17
+    addRecipe(ITEM_RUBY_FRAGMENTS_L16, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L17)
+
+    // Ruby Fragments +18
+    addRecipe(ITEM_RUBY_FRAGMENTS_L17, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L18)
+
+    // Ruby Fragments +19
+    addRecipe(ITEM_RUBY_FRAGMENTS_L18, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L19)
+
+    // Ruby Fragments +20
+    addRecipe(ITEM_RUBY_FRAGMENTS_L19, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L20)
+
+    // Half Rubystone
+    addRecipe(ITEM_RUBY_FRAGMENTS_L20, ITEM_RUBY_FRAGMENT_L1, ITEM_HALF_RUBYSTONE)
+
+    // Divine Rubystone
+    addRecipe(ITEM_HALF_RUBYSTONE, ITEM_RUBY_FRAGMENT_L1, ITEM_DIVINE_RUBYSTONE)
+
+    // Rubystone
+    addRecipe(ITEM_DIVINE_RUBYSTONE, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBYSTONE)
+
+    // Perfect Rubystone
+    addRecipe(ITEM_RUBYSTONE, ITEM_RUBY_FRAGMENT_L1, ITEM_PERFECT_RUBYSTONE)
+
+    // Ice Sword
+    addRecipe(ITEM_ORB_OF_FROST, ITEM_RECIPE_ICE_SWORD, ITEM_SIMPLE_SWORD, ITEM_CLAWS_OF_ATTACK, ITEM_ICE_SWORD)
+
+    // Fire Sword
+    addRecipe(ITEM_ORB_OF_FIRE, ITEM_RECIPE_FIRE_SWORD, ITEM_SIMPLE_SWORD, ITEM_CLAWS_OF_ATTACK, ITEM_FIRE_SWORD)
+
+    // Boots of Teleportation
+    addRecipe(ITEM_BOOTS_OF_SPEED, ITEM_CIRCLET_OF_NOBILITY, ITEM_CRYSTAL_BALL, ITEM_RECIPE_BOOTS_OF_TELEPORTATION, ITEM_BOOTS_OF_TELEPORTATION)
+
+    // Boots of Invisibility
+    addRecipe(ITEM_BOOTS_OF_SPEED, ITEM_CRYSTAL_BALL, ITEM_CLOAK_OF_SHADOWS, ITEM_RECIPE_BOOTS_OF_INVISIBILITY, ITEM_BOOTS_OF_INVISIBILITY)
+
+    // Winged Boots
+    addRecipe(ITEM_GLOVES_OF_HASTE, ITEM_BOOTS_OF_SPEED, ITEM_CRYSTAL_BALL, ITEM_RECIPE_WINGED_BOOTS, ITEM_WINGED_BOOTS)
+
+    // Steel Axe
+    addRecipe(ITEM_MAUL_OF_STRENGTH, ITEM_RECIPE_STEEL_AXE, ITEM_CLAWS_OF_ATTACK, ITEM_STURDY_WAR_AXE, ITEM_STEEL_AXE)
+
+    // Silver Hammer
+    addRecipe(ITEM_MAUL_OF_STRENGTH, ITEM_BELT_OF_GIANT_STRENGTH, ITEM_RECIPE_SILVER_HAMMER, ITEM_SILVER_HAMMER)
+
+    // Gloves of Speed
+    addRecipe(ITEM_GLOVES_OF_HASTE, ITEM_GLOVES_OF_HADES, ITEM_GLOVES_OF_WIND, ITEM_RECIPE_GLOVES_OF_SPEED, ITEM_GLOVES_OF_SPEED)
+
+    // Half of Arkenstone
+    addRecipe(ITEM_LANCELOTS_RING, ITEM_GUINEVERES_RING, ITEM_ARKENSTONEFRAGMENT, ITEM_RECIPE_HALF_OF_ARKENSTONE, ITEM_HALF_OF_ARKENSTONE)
+
+    // Light Armor
+    addRecipe(ITEM_CRYSTAL_BALL, ITEM_LEATHER_ARMOR, ITEM_IRON_ARMOR, ITEM_RECIPE_LIGHT_ARMOR, ITEM_LIGHT_ARMOR)
+
+    // Scroll of Fusion
+    addRecipe(ITEM_RING_OF_REGENERATION, ITEM_RING_OF_PROTECTION, ITEM_CIRCLET_OF_NOBILITY, ITEM_RECIPE_SCROLL_OF_FUSION, ITEM_SCROLL_OF_FUSION)
+
+    // Amulet of the Wild
+    addRecipe(ITEM_JADE_RING, ITEM_BOOTS_OF_QUELTHALAS, ITEM_SCROLL_OF_FUSION, ITEM_RECIPE_AMULET_OF_WILD, ITEM_AMULET_OF_THE_WILD)
+
+    // Helm of Valor
+    addRecipe(ITEM_SOUL_RING, ITEM_BELT_OF_GIANT_STRENGTH, ITEM_SCROLL_OF_FUSION, ITEM_RECIPE_HELM_OF_VALOR, ITEM_HELM_OF_VALOR)
+
+    // Medallion of Courage
+    addRecipe(ITEM_RING_OF_ARCHMAGI, ITEM_ROBE_OF_MAGI, ITEM_SCROLL_OF_FUSION, ITEM_RECIPE_MEDALLION_OF_COURAGE, ITEM_MEDALLION_OF_COURAGE)
+
+    // Alleria's Flute of Accuracy
+    addRecipe(ITEM_RECIPE_ALLERIA_FLUTE_OF_ACCURACY, ITEM_SIMPLE_SWORD, ITEM_STURDY_WAR_AXE, ITEM_ALLERIAS_FLUTE_OF_ACCURACY)
+
+    // Ancient Janggo of Endurance
+    addRecipe(ITEM_BOOTS_OF_SPEED, ITEM_GLOVES_OF_WIND, ITEM_RECIPE_ANCIENT_JANGGO_OF_ENDURANCE, ITEM_ANCIENT_JANGGO_OF_ENDURANCE)
+
+    // The Lion Horn of Stormwind
+    addRecipe(ITEM_RING_OF_PROTECTION, ITEM_LEATHER_ARMOR, ITEM_RECIPE_LION_HORN_OF_STORMWIND, ITEM_THE_LION_HORN_OF_STORMWIND)
+
+    // Warsong Battle Drums
+    addRecipe(ITEM_MAUL_OF_STRENGTH, ITEM_RECIPE_WARSONG_BATTLE_DRUMS, ITEM_WARSONG_BATTLE_DRUMS)
+
+    // Drums of Future
+    addRecipe(ITEM_SCROLL_OF_FUSION, ITEM_ANCIENT_JANGGO_OF_ENDURANCE, ITEM_RECIPE_DRUMS_OF_FUTURE, ITEM_DRUMS_OF_FUTURE)
+
+    // The Golden Horn
+    addRecipe(ITEM_SCROLL_OF_FUSION, ITEM_THE_LION_HORN_OF_STORMWIND, ITEM_RECIPE_GOLDEN_HORN, ITEM_THE_GOLDEN_HORN)
+
+    // Tribal Drums
+    addRecipe(ITEM_SCROLL_OF_FUSION, ITEM_WARSONG_BATTLE_DRUMS, ITEM_RECIPE_TRIBAL_DRUMS, ITEM_TRIBAL_DRUMS)
+
+    // Nature Flute
+    addRecipe(ITEM_SCROLL_OF_FUSION, ITEM_ALLERIAS_FLUTE_OF_ACCURACY, ITEM_RECIPE_NATURE_FLUTE, ITEM_NATURE_FLUTE)
+
+    // Void Axe
+    addRecipe(ITEM_SCROLL_OF_FUSION, ITEM_HELM_OF_VALOR, ITEM_RECIPE_VOID_AXE, ITEM_STURDY_WAR_AXE, ITEM_VOID_AXE)
+
+    // Ainz Sword
+    addRecipe(ITEM_SCROLL_OF_FUSION, ITEM_AMULET_OF_THE_WILD, ITEM_RECIPE_AINZ_SWORD, ITEM_SIMPLE_SWORD, ITEM_AINZ_SWORD)
+
+    // Seer Staff
+    addRecipe(ITEM_SCROLL_OF_FUSION, ITEM_MEDALLION_OF_COURAGE, ITEM_PENDANT_OF_MANA, ITEM_RECIPE_SEER_STAFF, ITEM_SEER_STAFF)
+
+    // Scale Axe
+    addRecipe(ITEM_RECIPE_SCALE_AXE, ITEM_STURDY_WAR_AXE, ITEM_SCALE_AXE)
+
+    // Dalan Axe
+    addRecipe(ITEM_BELT_OF_GIANT_STRENGTH, ITEM_CIRCLET_OF_NOBILITY, ITEM_SCALE_AXE, ITEM_RECIPE_DALAN_AXE, ITEM_DALAN_AXE)
+
+    // Duration Axe
+    addRecipe(ITEM_SOUL_RING, ITEM_DALAN_AXE, ITEM_RECIPE_DURATION_AXE, ITEM_CLAWS_OF_ATTACK, ITEM_DURATION_AXE)
+
+    // Dwarven Axe
+    addRecipe(ITEM_SCROLL_OF_FUSION, ITEM_DURATION_AXE, ITEM_RECIPE_DWARVEN_AXE, ITEM_STURDY_WAR_AXE, ITEM_DWARVEN_AXE)
+
+    // Blade of Hell
+    addRecipe(ITEM_FIRE_SWORD, ITEM_GLOVES_OF_SPEED, ITEM_SIMPLE_SWORD, ITEM_RECIPE_BLADE_OF_HELL, ITEM_BLADE_OF_HELL)
+
+    // Kraken Dagger
+    addRecipe(ITEM_GLOVES_OF_HADES, ITEM_SOUL_RING, ITEM_KHADGARS_PENDANT_OF_HEALTH, ITEM_RECIPE_KRAKEN_DAGGER, ITEM_KRAKEN_DAGGER)
+
+    // Midnight Blade
+    addRecipe(ITEM_GLOVES_OF_WIND, ITEM_ORB_OF_CORRUPTION, ITEM_SIMPLE_SWORD, ITEM_RECIPE_MIDNIGHT_BLADE, ITEM_MIDNIGHT_BLADE)
+
+    // Blood Gorged Blade
+    addRecipe(ITEM_LIFE_STEAL, ITEM_PERIAPT_OF_VITALITY, ITEM_SIMPLE_SWORD, ITEM_RECIPE_BLOOD_GORGED_BLADE, ITEM_BLOOD_GORGED_BLADE)
+
+    // Steel Shield
+    addRecipe(ITEM_SCROLL_OF_FUSION, ITEM_ENCHANTED_SHIELD, ITEM_ARCANITE_SHIELD, ITEM_RECIPE_STEEL_SHIELD, ITEM_STEEL_SHIELD)
+
+    // Sacred Shield
+    addRecipe(ITEM_STEEL_SHIELD, ITEM_ENCHANTED_SHIELD, ITEM_SHIELD_OF_HONOR, ITEM_RECIPE_SACRED_SHIELD, ITEM_SACRED_SHIELD)
+
+    // Iron Shield
+    addRecipe(ITEM_HELM_OF_VALOR, ITEM_STEEL_SHIELD, ITEM_RECIPE_IRON_SHIELD, ITEM_IRON_SHIELD)
+
+    // Split Armor
+    addRecipe(ITEM_LIGHT_ARMOR, ITEM_SPIKED_ARMOR, ITEM_IRON_ARMOR, ITEM_RECIPE_SPLIT_ARMOR, ITEM_SPLIT_ARMOR)
+
+    // Avatar Armor
+    addRecipe(ITEM_RING_OF_REGENERATION, ITEM_LIGHT_ARMOR, ITEM_KHADGARS_PENDANT_OF_HEALTH, ITEM_RECIPE_AVATAR_ARMOR, ITEM_AVATAR_ARMOR)
+
+    // Chaos Blade
+    addRecipe(ITEM_SCROLL_OF_FUSION, ITEM_KRAKEN_DAGGER, ITEM_SIMPLE_SWORD, ITEM_RECIPE_CHAOS_BLADE, ITEM_CHAOS_BLADE)
+
+    // O'Clock
+    addRecipe(ITEM_AMULET_OF_SPELL_SHIELD, ITEM_ARCANITE_SHIELD, ITEM_TOME_OF_RETRAINING, ITEM_RECIPE_O_CLOCK, ITEM_O_CLOCK)
+
+    // Thunder Bow
+    addRecipe(ITEM_AMULET_OF_THE_WILD, ITEM_MEDALLION_OF_COURAGE, ITEM_ORB_OF_LIGHTNING, ITEM_RECIPE_THUNDER_BOW, ITEM_THUNDER_BOW)
+
+    // Soul of Kil'jeaden
+    addRecipe(ITEM_MEDALLION_OF_COURAGE, ITEM_ORB_OF_KILJAEDAN, ITEM_PENDANT_OF_MANA, ITEM_RECIPE_SOUL_OF_KILJEADEN, ITEM_SOUL_OF_KILJEADEN)
+
+    // Lizard Pedant
+    addRecipe(ITEM_LIGHT_ARMOR, ITEM_HELM_OF_VALOR, ITEM_RECIPE_LIZARD_PENDANT, ITEM_LIZARD_PEDANT)
+
+    // Helm Hermes
+    addRecipe(ITEM_HELM_OF_VALOR, ITEM_SPLIT_ARMOR, ITEM_RECIPE_HELM_HERMES, ITEM_HELM_HERMES)
+
+    // Dark Sphere
+    addRecipe(ITEM_HELM_OF_VALOR, ITEM_ORB_OF_DARKNESS, ITEM_RECIPE_DARK_SPHERE, ITEM_DARK_SPHERE)
+
+    // Mystery Green Staff
+    addRecipe(ITEM_RING_OF_ARCHMAGI, ITEM_SEER_STAFF, ITEM_THUNDERLIZARD_DIAMON, ITEM_RECIPE_MYSTERY_GREEN_STAFF, ITEM_MYSTERY_GREEN_STAFF)
+
+    // Ice Wand
+    addRecipe(ITEM_SEER_STAFF, ITEM_ORB_OF_FROST, ITEM_SCEPTER_OF_MASTERY, ITEM_RECIPE_ICE_WAND, ITEM_ICE_WAND)
+
+    // War Enery
+    addRecipe(ITEM_HALF_OF_ARKENSTONE, ITEM_SOUL_OF_KILJEADEN, ITEM_RECIPE_WAR_ENERGY, ITEM_WAR_ENERY)
+
+    // Ice & Fire Sword
+    addRecipe(ITEM_ICE_SWORD, ITEM_BLADE_OF_HELL, ITEM_FIRE_SWORD, ITEM_RECIPE_ICE_FIRE_SWORD, ITEM_ICE_AND_FIRE_SWORD)
+
+    // Boots of Crystal Gold
+    addRecipe(ITEM_BOOTS_OF_TELEPORTATION, ITEM_BOOTS_OF_INVISIBILITY, ITEM_WINGED_BOOTS, ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD, ITEM_BOOTS_OF_CRYSTAL_GOLD)
+
+    // Destroy Sword
+    addRecipe(ITEM_STEEL_AXE, ITEM_KRAKEN_DAGGER, ITEM_FIRE_SWORD, ITEM_RECIPE_DESTROY_SWORD, ITEM_DESTROY_SWORD)
+
+    // Platinum Hammer
+    addRecipe(ITEM_SOUL_RING, ITEM_SILVER_HAMMER, ITEM_KRAKEN_DAGGER, ITEM_RECIPE_PLATINUM_HAMMER, ITEM_PLATINUM_HAMMER)
+
+    // Gloves of Flash
+    addRecipe(ITEM_GLOVES_OF_SPEED, ITEM_CLAWS_OF_ATTACK, ITEM_RECIPE_GLOVES_OF_FLESH, ITEM_GLOVES_OF_FLASH)
+
+    // Dark Steel Sword
+    addRecipe(ITEM_ORB_OF_CORRUPTION, ITEM_MIDNIGHT_BLADE, ITEM_GLOVES_OF_SPEED, ITEM_RECIPE_DARK_STEEL_SWORD, ITEM_DARK_STEEL_SWORD)
+
+    // Perfect Arkenstone
+    addRecipe(ITEM_ARKENSTONEFRAGMENT, ITEM_HALF_OF_ARKENSTONE, ITEM_RECIPE_PERFECT_ARKENSTONE, ITEM_PERFECT_ARKENSTONE)
+
+    // Shiny Armor
+    addRecipe(ITEM_LIGHT_ARMOR, ITEM_AMULET_OF_SPELL_SHIELD, ITEM_SILVER_ARMOR, ITEM_RECIPE_SHINY_ARMOR, ITEM_SHINY_ARMOR)
+
+    // Reactive Armor
+    addRecipe(ITEM_LIGHT_ARMOR, ITEM_SPLIT_ARMOR, ITEM_SPIKED_ARMOR, ITEM_RECIPE_REACTIVE_ARMOR, ITEM_REACTIVE_ARMOR)
+
+    // Holy Armor
+    addRecipe(ITEM_SHINY_ARMOR, ITEM_LIGHT_ARMOR, ITEM_CROWN_OF_ASSASSIN, ITEM_RECIPE_HOLY_ARMOR, ITEM_HOLY_ARMOR)
+
+    // Gold Axe
+    addRecipe(ITEM_STEEL_AXE, ITEM_BLADE_OF_HELL, ITEM_RECIPE_GOLD_AXE, ITEM_GOLD_AXE)
+
+    // Dark Matter
+    addRecipe(ITEM_RECIPE_DARK_MATTER, ITEM_VOID_AXE, ITEM_ORB_OF_DARKNESS, ITEM_DARK_SPHERE, ITEM_DARK_MATTER)
+
+    // Rain Sword
+    addRecipe(ITEM_RECIPE_RAIN_SWORD, ITEM_AINZ_SWORD, ITEM_RAIN_SWORD)
+
+    // Corrosive Hammer
+    addRecipe(ITEM_RECIPE_CURROUSIVE_HAMMER, ITEM_VOID_AXE, ITEM_CORROSIVE_HAMMER)
+
+    // Vampirella
+    addRecipe(ITEM_RECIPE_VAMPIRELLA, ITEM_SEER_STAFF, ITEM_VAMPIRELLA)
+
+    // Lancelot Shield
+    addRecipe(ITEM_RECIPE_LANCELOT_SHIELD, ITEM_STEEL_SHIELD, ITEM_SCEPTER_OF_HEALING, ITEM_LANCELOT_SHIELD)
+
+    // Lancelot Armor
+    addRecipe(ITEM_RECIPE_LANCELOT_ARMOR, ITEM_LIGHT_ARMOR, ITEM_SOUL_OF_KILJEADEN, ITEM_CROWN_OF_SOLDIER, ITEM_LANCELOT_ARMOR)
+
+    // Lancelot Helm
+    addRecipe(ITEM_RECIPE_LANCELOT_HELM, ITEM_SHINY_ARMOR, ITEM_SEER_STAFF, ITEM_LANCELOT_HELM)
+
+    // Mystery Blue Staff
+    addRecipe(ITEM_RECIPE_MYSTERY_BLUE_STAFF, ITEM_MYSTERY_GREEN_STAFF, ITEM_THUNDERLIZARD_DIAMON, ITEM_MYSTERY_BLUE_STAFF)
+
+    // Freeze Wand
+    addRecipe(ITEM_RECIPE_FREEZE_WAND, ITEM_ICE_SWORD, ITEM_ICE_WAND, ITEM_KHADGARS_PENDANT_OF_HEALTH, ITEM_FREEZE_WAND)
+
+    // Dragon Wings
+    addRecipe(ITEM_RECIPE_DRAGON_WINGS, ITEM_DRAGON_BONE, ITEM_DRAGON_SKIN, ITEM_DRAGON_CLAW, ITEM_DRAGON_SPIRIT, ITEM_DRAGON_WINGS)
+
+    // CHAOS
+    addRecipe(ITEM_BEASTMASTER_CARD, ITEM_WARDEN_CARD, ITEM_BLADEMASTER_CARD, ITEM_TAUREN_CARD, ITEM_MOUNTAIN_KING_CARD, ITEM_PITLORD_CARD, ITEM_CHAOS)
+
+    // Ice & Fire Sword II
+    addRecipe(ITEM_ICE_AND_FIRE_SWORD, ITEM_ICE_SWORD, ITEM_FIRE_SWORD, ITEM_RECIPE_FIRE_ICE_SWORD_II, ITEM_ICE_AND_FIRE_SWORD_II)
+
+    // Dark Steel Sword II
+    addRecipe(ITEM_DARK_STEEL_SWORD, ITEM_CRYSTAL_SWORD, ITEM_RECIPE_DARK_STEEL_SWORD_II, ITEM_DARK_STEEL_SWORD_II)
+
+    // Destroy Sword II
+    addRecipe(ITEM_DESTROY_SWORD, ITEM_BLADE_OF_HELL, ITEM_DREAM_SWORD, ITEM_RECIPE_DESTROY_SWORD_II, ITEM_DESTROY_SWORD_II)
+
+    // Platinum Hammer II
+    addRecipe(ITEM_CORROSIVE_HAMMER, ITEM_PLATINUM_HAMMER, ITEM_SILVER_HAMMER, ITEM_RECIPE_HAMMER_PLATIUM_II, ITEM_PLATINUM_HAMMER_II)
+
+    // Gold Axe II
+    addRecipe(ITEM_GOLD_AXE, ITEM_RECIPE_GOLD_AXE_II, ITEM_CRITICAL_AXE, ITEM_GOLD_AXE_II)
+
+    // Reactive Armor II
+    addRecipe(ITEM_REACTIVE_ARMOR, ITEM_SPLIT_ARMOR, ITEM_RECIPE_REACTIVE_ARMOR_II, ITEM_REACTIVE_ARMOR_II)
+
+    // Boots of Crystal Gold II
+    addRecipe(ITEM_BOOTS_OF_CRYSTAL_GOLD, ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD_II, ITEM_BOOTS_OF_CRYSTAL_GOLD_II)
+
+    // Jewelry of Life
+    addRecipe(ITEM_PERIAPT_OF_VITALITY, ITEM_KHADGARS_PENDANT_OF_HEALTH, ITEM_JEWELRY_OF_LIFE)
+
+    // Lancelot's ring
+    addRecipe(ITEM_JEWELRY_OF_MANA, ITEM_PENDANT_OF_MANA, ITEM_LANCELOTS_RING)
+
+    // Guinevere's Ring
+    addRecipe(ITEM_RING_OF_REGENERATION, ITEM_JEWELRY_OF_LIFE, ITEM_PERIAPT_OF_VITALITY, ITEM_GUINEVERES_RING)
+
+    // Jewelry of Mana
+    addRecipe(ITEM_PENDANT_OF_ENERGY, ITEM_PENDANT_OF_MANA, ITEM_JEWELRY_OF_MANA)
+
+    // ArkenstoneFragment
+    addRecipe(ITEM_LANCELOTS_RING, ITEM_GUINEVERES_RING, ITEM_PENDANT_OF_ENERGY, ITEM_ARKENSTONEFRAGMENT)
+
+    // Perfect Carnelian
+    addRecipe(ITEM_PERFECT_RUBYSTONE, ITEM_BLOODY_DAGGER, ITEM_PERFECT_CARNELIAN)
+
+    // Perfect Topaz
+    addRecipe(ITEM_LIZARD_PEDANT, ITEM_PERFECT_RUBYSTONE, ITEM_PERFECT_TOPAZ)
+
+    // Perfect Aquamarine
+    addRecipe(ITEM_REACTIVE_ARMOR, ITEM_PERFECT_RUBYSTONE, ITEM_PERFECT_AQUAMARINE)
+
+    // Perfect Nephrite
+    addRecipe(ITEM_PERFECT_RUBYSTONE, ITEM_GLOVERSHIELD, ITEM_PERFECT_NEPHRITE)
+
+    // Perfect Hippopus
+    addRecipe(ITEM_PERFECT_RUBYSTONE, ITEM_LAZARUS_BELT, ITEM_PERFECT_HIPPOPUS)
+
+    // Perfect Pearl
+    addRecipe(ITEM_ICE_SWORD, ITEM_FIRE_SWORD, ITEM_PERFECT_RUBYSTONE, ITEM_PERFECT_PEARL)
+
+    // Perfect Emerald
+    addRecipe(ITEM_DRUMS_OF_FUTURE, ITEM_THE_GOLDEN_HORN, ITEM_TRIBAL_DRUMS, ITEM_NATURE_FLUTE, ITEM_PERFECT_RUBYSTONE, ITEM_PERFECT_EMERALD)
+
+    // Perfect Sapphire
+    addRecipe(ITEM_MYSTERY_BLUE_STAFF, ITEM_ORB_OF_LIGHTNING, ITEM_PERFECT_RUBYSTONE, ITEM_PERFECT_SAPPHIRE)
+
+    // Perfect Amethyst
+    addRecipe(ITEM_DARK_STEEL_SWORD, ITEM_ORB_OF_CORRUPTION, ITEM_PERFECT_RUBYSTONE, ITEM_PERFECT_AMETHYST)

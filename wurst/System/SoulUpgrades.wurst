@@ -14,7 +14,7 @@ function soulUpgrades()
         let b = GetBuyingUnit().getOwner().getId()
         if u.getTypeId() == ELEMENTAL_SOUL
             let i = GetSoldItem()
-            if i.getTypeId() == ITEM_706//armor
+            if i.getTypeId() == UPGRADE_BASE_ARMOR//armor
                 let lvl = GetPlayerTechCountSimple('RM0d', Player(p))
                 if lvl < 20
                     SetPlayerTechResearched(Player(p), 'RM0d', lvl+1)
@@ -24,7 +24,7 @@ function soulUpgrades()
                     AdjustPlayerStateBJ(2000, Player(b) , PLAYER_STATE_RESOURCE_GOLD)
 
 
-            if i.getTypeId() == ITEM_707//health
+            if i.getTypeId() == UPGRADE_BASE_HEALTH//health
                 let lvl = GetPlayerTechCountSimple('RM0e', Player(p))
                 if lvl < 20
                     SetPlayerTechResearched(Player(p), 'RM0e', lvl+1)
