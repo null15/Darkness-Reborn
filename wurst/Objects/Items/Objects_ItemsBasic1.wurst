@@ -57,7 +57,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNMaskOfDeath.blp")    
     ..setGoldCost(1000)
     ..describeBasicItem(
-    +"+11% Life Steal")
+    "+11% Life Steal")
 
 //I01Q
     new AbilityDefinitionDefenseBonusPlus1(ITEM_LEATHER_ARMOR_ABI1)
