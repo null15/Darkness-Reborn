@@ -98,13 +98,13 @@ function createSetup()
     var dividend = (posMax - posMin) / 4
     posY = posMin + 100
 
-    CreateUnit(p, BUILDING_4, posX, posY, 270.000) // Basic Items 4
+    CreateUnit(p, BUILDING_SHOP_BASIC_ITEMS4, posX, posY, 270.000) // Basic Items 4
     posY = posY + dividend
-    CreateUnit(p, BUILDING_3, posX, posY, 270.000) // Basic Items 3
+    CreateUnit(p, BUILDING_SHOP_BASIC_ITEMS3, posX, posY, 270.000) // Basic Items 3
     posY = posY + dividend
-    CreateUnit(p, BUILDING_2, posX, posY, 270.000) // Basic Items 2
+    CreateUnit(p, BUILDING_SHOP_BASIC_ITEMS2, posX, posY, 270.000) // Basic Items 2
     posY = posY + dividend
-    CreateUnit(p, BUILDING_1, posX, posY, 270.000) // Basic Items 1
+    CreateUnit(p, BUILDING_SHOP_BASIC_ITEMS1, posX, posY, 270.000) // Basic Items 1
 
     posX = GetRectCenterX(gg_rct_ShopRight) - 150
     posMax = GetRectMaxY(gg_rct_ShopRight)
@@ -126,13 +126,13 @@ function createSetup()
     dividend = (posMax - posMin) / 4
     posY = posMin + 100
 
-    CreateUnit(p, BUILDING_8, posX, posY, 270.000) // Recipe shop 4
+    CreateUnit(p, BUILDING_SHOP_RECIPES4, posX, posY, 270.000) // Recipe shop 4
     posY = posY + dividend
-    CreateUnit(p, BUILDING_7, posX, posY, 270.000) // Recipe Shop 3
+    CreateUnit(p, BUILDING_SHOP_RECIPES3, posX, posY, 270.000) // Recipe Shop 3
     posY = posY + dividend
-    CreateUnit(p, BUILDING_6, posX, posY, 270.000) // Recipe Shop 2
+    CreateUnit(p, BUILDING_SHOP_RECIPES2, posX, posY, 270.000) // Recipe Shop 2
     posY = posY + dividend
-    CreateUnit(p, BUILDING_5, posX, posY, 270.000) // Recipe Shop 1
+    CreateUnit(p, BUILDING_SHOP_RECIPES1, posX, posY, 270.000) // Recipe Shop 1
 
     posX = GetRectCenterX(gg_rct_ShopRight) + 150
     posMax = GetRectMaxY(gg_rct_ShopRight)
@@ -144,9 +144,9 @@ function createSetup()
     posY = posY + dividend
     CreateUnit(p, BUILDING_12, posX, posY, 270.000) // Decent Items
     posY = posY + dividend
-    CreateUnit(p, BUILDING_11, posX, posY, 270.000) // Late Game Items
+    CreateUnit(p, BUILDING_SHOP_LATE_GAME_ITEMS2, posX, posY, 270.000) // Late Game Items
     posY = posY + dividend
-    CreateUnit(p, BUILDING_10, posX, posY, 270.000) // Late Game Items
+    CreateUnit(p, BUILDING_SHOP_LATE_GAME_ITEMS1, posX, posY, 270.000) // Late Game Items
  
     posX = GetRectCenterX(gg_rct_Base)
     posY = GetRectCenterY(gg_rct_Base) + 200

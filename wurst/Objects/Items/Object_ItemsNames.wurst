@@ -1,0 +1,86 @@
+package Object_ItemsNames
+
+import MyItemIds
+
+public function getItemName(int id) returns string
+    switch (id)
+        // Basic Items (1)
+        case ITEM_GLOVES_OF_HASTE
+            return "Gloves of Haste"
+        case ITEM_GLOVES_OF_HADES
+            return "Gloves of Hades"
+        case ITEM_GLOVES_OF_WIND
+            return "Gloves of Wind"
+        case ITEM_LIFE_STEAL
+            return "Mask of Death"
+
+        case ITEM_LEATHER_ARMOR
+            return "Leather Armor"
+        case ITEM_IRON_ARMOR
+            return "Iron Armor"
+        case ITEM_SILVER_ARMOR
+            return "Silver Armor"
+        case ITEM_SIMPLE_SWORD
+            return "Simple Sword"
+
+        case ITEM_CLAWS_OF_ATTACK
+            return "Claws of Attack"
+        case ITEM_STURDY_WAR_AXE
+            return "Sturdy War Axe"
+        case ITEM_MAUL_OF_STRENGTH
+            return "Maul of Strength"
+
+        // Basic Items (2)
+        case ITEM_BOOTS_OF_SPEED
+            return "Boots of Speed"
+        case ITEM_JADE_RING
+            return "Jade Ring"
+        case ITEM_SOUL_RING
+            return "Soul Ring"
+        case ITEM_RING_OF_ARCHMAGI
+            return "Ring of the Archmagi"
+
+        case ITEM_RING_OF_REGENERATION
+            return "Ring of Regeneration"
+        case ITEM_RING_OF_PROTECTION
+            return "Ring of Protection"
+        case ITEM_ROBE_OF_MAGI
+            return "Robe of the Magi"
+        case ITEM_BOOTS_OF_QUELTHALAS
+            return "Boots of Quel'Thalas"
+
+        case ITEM_BELT_OF_GIANT_STRENGTH
+            return "Belt of Giant Strength"
+        case ITEM_CIRCLET_OF_NOBILITY
+            return "Circlet of Nobility"
+        case ITEM_CRYSTAL_BALL
+            return "Crystal Ball"
+
+        // Basic Items (3)
+        case ITEM_ORB_OF_DARKNESS
+            return "Orb of Darkness"
+        case ITEM_ORB_OF_FROST
+            return "Orb of Frost"
+        case ITEM_ORB_OF_KILJAEDAN
+            return "Orb of Kil'jaeden"
+        case ITEM_AMULET_OF_SPELL_SHIELD
+            return "Amulet of Spell Shield"
+
+        case ITEM_TALISMAN_OF_EVASION
+            return "Talisman of Evasion"
+        case ITEM_ENCHANTED_SHIELD
+            return "Enchanted Shield"
+        case ITEM_ARCANITE_SHIELD
+            return "Arcanite Shield"
+        case ITEM_SHIELD_OF_HONOR
+            return "Shield of Honor"
+
+        case ITEM_ORB_OF_CORRUPTION
+            return "Orb of Corruption"
+        case ITEM_ORB_OF_FIRE
+            return "Orb of Fire"
+        case ITEM_ORB_OF_LIGHTNING
+            return "Orb of Lightning"
+        
+        default
+            return "Not implemented"

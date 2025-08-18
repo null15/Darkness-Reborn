@@ -1,0 +1,41 @@
+package CommonDescriptions
+
+public let colRst             = "|r"
+public let colBasic           = "|c0000с800"
+public let colRecipe          = "|c000000с8"
+public let colLateGame1       = "|c00c80000"
+public let colLateGame2       = "|c00e19648"
+public let colHotKey          = "|c00FFFC01"
+
+public function itemNameBasic(string name) returns string
+    return colBasic + name + colRst
+
+public function itemNameRecipe(string name) returns string
+    return colRecipe + name + colRst
+
+public function itemNameLateGame1(string name) returns string
+    return colLateGame1 + name + colRst
+
+public function itemNameLateGame2(string name) returns string
+    return colLateGame2 + name + colRst
+
+public let shopBasicItems1    = itemNameBasic("Basic Items (1)")
+public let shopBasicItems2    = itemNameBasic("Basic Items (2)")
+public let shopBasicItems3    = itemNameBasic("Basic Items (3)")
+public let shopBasicItems4    = itemNameBasic("Basic Items (4)")
+
+public let shopRecipes1       = itemNameRecipe("Recipes Shop (1)")
+public let shopRecipes2       = itemNameRecipe("Recipes Shop (2)")
+public let shopRecipes3       = itemNameRecipe("Recipes Shop (3)")
+public let shopRecipes4       = itemNameRecipe("Recipes Shop (4)")
+
+public let shopLateGameItems1 = itemNameLateGame1("Late Game Items (1)")
+public let shopLateGameItems2 = itemNameLateGame1("Late Game Items (2)")
+public let shopDecentItems    = itemNameLateGame2("Gems Shop (3)"      )
+public let shopLateGameItems  = itemNameLateGame2("Late Game Items (4)")
+
+public let monsterDrop = "Monster Drop"
+public let bossDrop    = "Boss Drop"
+
+public let effectsDescr = "|c00FFFC01Effect:|r"
+

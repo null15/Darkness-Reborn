@@ -1,0 +1,88 @@
+package MyItemDefinition
+
+import ItemIds
+import Object_ItemsNames
+import ItemObjEditing
+import CommonDescriptions
+
+public class MyItemBaseDefinition extends ItemDefinition
+
+    construct(int newId)
+        super(newId, ItemIds.orbofDarkness)
+
+        setActivelyUsed(false)
+        setUseAutomaticallyWhenAcquired(false)
+        setAbilities("")
+
+        setGoldCost(0)
+        setLumberCost(0)
+
+        setStockMaximum(1)
+        setStockReplenishInterval(0)
+        setStockStartDelay(0)
+
+        setPerishable(false)
+        setNumberofCharges(0)
+
+        setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
+
+        setScalingValue(1)
+        setTintingColor1Red(255)
+        setTintingColor2Green(255)
+        setTintingColor3Blue(255)
+
+        setCanBeSoldByMerchants(true)
+        setCanBeSoldToMerchants(true)
+
+        setCanBeDropped(true)
+        setDroppedWhenCarrierDies(false)
+
+        setIgnoreCooldown(false)
+        setIncludeAsRandomChoice(true)
+        setValidTargetForTransformation(false)
+
+        setPriority(1)
+        setLevel(1)
+        // So any 1 lvl hero can destroy item in creeps room.
+        setHitPoints(10)
+
+        setRequirements("")
+        setRequirementsLevels("")
+        setClassification("PowerUp")
+
+        
+public class MyItemDefinition extends MyItemBaseDefinition
+    int id
+
+    construct(int newId)
+        super(newId)
+        id = newId
+        
+    private function describeShopItem(string name, string effects)
+        // The item name
+        setName(name)
+        // The chest item description
+        setDescription(effectsDescr + "\n" + effects)
+        // The shop name
+        setTooltipBasic("Purchase " + name)
+        // The shop text
+        setDescription(effectsDescr + "\n" + effects)
+
+    function describeBasicItem(string effects)
+        describeShopItem(itemNameBasic(getItemName(id)), effects)
+
+    function describeRecipeItem(string effects)
+        describeShopItem(itemNameRecipe(getItemName(id)), effects)
+
+    function describeLateGame1Item(string effects)
+        describeShopItem(itemNameLateGame1(getItemName(id)), effects)
+
+    function describeLateGame2Item(string effects)
+        describeShopItem(itemNameLateGame2(getItemName(id)), effects)
+
+public class MyCreepTpDefinition extends MyItemBaseDefinition
+
+    construct(int newId)
+        super(newId)
+
+

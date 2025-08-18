@@ -1,0 +1,39 @@
+package Objects_ItemsMisc
+
+import ItemObjEditing
+import ItemIds
+import MyItemIds
+
+init
+
+@compiletime function createItems()
+
+    new ItemDefinition(NEXTPAGE, ItemIds.amuletofRecall)
+    ..setAbilities("")
+    ..setGoldCost(0)
+    ..setLumberCost(0)
+    ..setName("Next Page")
+    ..setClassification("Powerup")
+    ..setUseAutomaticallyWhenAcquired(true)
+    ..setStockReplenishInterval(1)
+    ..setDescription("Turns the Drop Site to the next page")
+    ..setTooltipBasic("Turns the Drop Site to the next page")
+    ..setTooltipExtended("Turns the Drop Site to the next page")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNEast.blp")
+    ..setButtonPositionX(3)
+    ..setButtonPositionY(2)
+
+    new ItemDefinition(PREVPAGE, ItemIds.amuletofRecall)
+    ..setAbilities("")
+    ..setGoldCost(0)
+    ..setLumberCost(0)
+    ..setClassification("Powerup")
+    ..setUseAutomaticallyWhenAcquired(true)
+    ..setName("Previous Page")
+    ..setStockReplenishInterval(1)
+    ..setDescription("Turns the Drop Site to the previous page")
+    ..setTooltipBasic("Turns the Drop Site to the previous page")
+    ..setTooltipExtended("Turns the Drop Site to the previous page")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWest.blp")
+    ..setButtonPositionX(0)
+    ..setButtonPositionY(2)
