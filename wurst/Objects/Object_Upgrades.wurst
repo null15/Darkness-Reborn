@@ -7,7 +7,7 @@ import MyUnitIds
 import Icons
 
 @compiletime function upgrades()
-    new UpgradeDefinition(UPGRADE_0, 3) // R00W
+    new UpgradeDefinition(barrageUpgrade, 3) // R00W
     ..setGoldCostBase(5000)
     ..setGoldCostIncrement(5000)
     ..setLumberCostBase(10)
@@ -29,7 +29,7 @@ import Icons
     ..setButtonPositionX(3)
     ..setButtonPositionY(0)
 
-    new UpgradeDefinition(UPGRADE_1, 3) // R00V
+    new UpgradeDefinition(cleaveAttackUpgrade, 3) // R00V
     ..setGoldCostBase(7800)
     ..setGoldCostIncrement(2555)
     ..setLumberCostBase(10)
@@ -51,7 +51,7 @@ import Icons
     ..setButtonPositionX(3)
     ..setButtonPositionY(2)
 
-    new UpgradeDefinition(UPGRADE_2, 3) // R00S
+    new UpgradeDefinition(clusterRocketUpgrade, 3) // R00S
     ..setGoldCostBase(5350)
     ..setGoldCostIncrement(1055)
     ..setLumberCostBase(7)
@@ -73,7 +73,7 @@ import Icons
     ..setButtonPositionX(2)
     ..setButtonPositionY(2)
 
-    new UpgradeDefinition(UPGRADE_3, 3) // R00P
+    new UpgradeDefinition(critStrikeFelOrcUpgrade, 3) // R00P
     ..setGoldCostBase(3800)
     ..setGoldCostIncrement(355)
     ..setLumberCostBase(5)
@@ -95,7 +95,7 @@ import Icons
     ..setButtonPositionX(1)
     ..setButtonPositionY(0)
 
-    new UpgradeDefinition(UPGRADE_4, 3) // R00T
+    new UpgradeDefinition(critStrikeFlyMachUpgrade, 3) // R00T
     ..setGoldCostBase(4800)
     ..setGoldCostIncrement(555)
     ..setLumberCostBase(6)
@@ -117,7 +117,7 @@ import Icons
     ..setButtonPositionX(2)
     ..setButtonPositionY(0)
 
-    new UpgradeDefinition(UPGRADE_5, 3) // R00M
+    new UpgradeDefinition(critStrikeFlyMarineUpgrade, 3) // R00M
     ..setGoldCostBase(3800)
     ..setGoldCostIncrement(555)
     ..setLumberCostBase(5)
@@ -139,7 +139,7 @@ import Icons
     ..setButtonPositionX(0)
     ..setButtonPositionY(0)
 
-    new UpgradeDefinition(UPGRADE_6, 3) // R00U
+    new UpgradeDefinition(flyMachineUpg, 3) // R00U
     ..setGoldCostBase(3850)
     ..setGoldCostIncrement(333)
     ..setLumberCostBase(6)
@@ -161,7 +161,7 @@ import Icons
     ..setButtonPositionX(2)
     ..setButtonPositionY(2)
 
-    new UpgradeDefinition(UPGRADE_7, 3) // R00N
+    new UpgradeDefinition(marineAuraUpgrade, 3) // R00N
     ..setGoldCostBase(2350)
     ..setGoldCostIncrement(555)
     ..setLumberCostBase(3)
@@ -183,7 +183,7 @@ import Icons
     ..setButtonPositionX(0)
     ..setButtonPositionY(2)
 
-    new UpgradeDefinition(UPGRADE_8, 3) // R00R
+    new UpgradeDefinition(felOrcAuraUpgrade, 3) // R00R
     ..setGoldCostBase(2350)
     ..setGoldCostIncrement(555)
     ..setLumberCostBase(3)
@@ -205,7 +205,7 @@ import Icons
     ..setButtonPositionX(1)
     ..setButtonPositionY(2)
 
-    new UpgradeDefinition(UPGRADE_9, 3) // R00O
+    new UpgradeDefinition(marineSummonUpgrade, 3) // R00O
     ..setGoldCostBase(3350)
     ..setGoldCostIncrement(455)
     ..setLumberCostBase(3)
@@ -227,7 +227,7 @@ import Icons
     ..setButtonPositionX(0)
     ..setButtonPositionY(2)
 
-    new UpgradeDefinition(UPGRADE_10, 3) // R00Q
+    new UpgradeDefinition(felOrcSummonUpgrade, 3) // R00Q
     ..setGoldCostBase(3350)
     ..setGoldCostIncrement(455)
     ..setLumberCostBase(3)
@@ -249,7 +249,7 @@ import Icons
     ..setButtonPositionX(0)
     ..setButtonPositionY(2)
 
-    new UpgradeDefinition(UPGRADE_11, 5) // R00K
+    new UpgradeDefinition(blacksmithInventoryUpgrade, 5) // R00K
     ..setGoldCostBase(7000)
     ..setGoldCostIncrement(12500)
     ..setLumberCostBase(0)
@@ -269,7 +269,7 @@ import Icons
     ..setRequirements(5, TINKERBUILDING_114.toRawCode())
     ..setRequirements(6, TINKERBUILDING_114.toRawCode())
 
-    new UpgradeDefinition(UPGRADE_12, 20) // R00F
+    new UpgradeDefinition(elementalSoulArmorUpgrade, 20) // R00F
     ..setGoldCostBase(1000)
     ..setGoldCostIncrement(300)
     ..setLumberCostBase(0)
@@ -287,7 +287,7 @@ import Icons
     ..setButtonPositionX(0)
     ..setButtonPositionY(0)
 
-    new UpgradeDefinition(UPGRADE_13, 20) // R00G
+    new UpgradeDefinition(elementalSoulHealthUpgrade, 20) // R00G
     ..setGoldCostBase(1000)
     ..setGoldCostIncrement(300)
     ..setLumberCostBase(0)
@@ -305,7 +305,7 @@ import Icons
     ..setButtonPositionX(1)
     ..setButtonPositionY(0)
 
-    new UpgradeDefinition(UPGRADE_14, 20) // R00H
+    new UpgradeDefinition(goblinBlasterArmorUpgrade, 20) // R00H
     ..setGoldCostBase(2000)
     ..setGoldCostIncrement(450)
     ..setLumberCostBase(0)
@@ -321,7 +321,7 @@ import Icons
     ..setButtonPositionX(0)
     ..setButtonPositionY(1)
 
-    new UpgradeDefinition(UPGRADE_15, 20) // R00I
+    new UpgradeDefinition(goblinBlasterDamageUpgrade, 20) // R00I
     ..setGoldCostBase(2000)
     ..setGoldCostIncrement(500)
     ..setLumberCostBase(0)
@@ -338,7 +338,7 @@ import Icons
     ..setButtonPositionX(1)
     ..setButtonPositionY(1)
 
-    new UpgradeDefinition(UPGRADE_16, 6) // R00J
+    new UpgradeDefinition(goblinBlasterAttackSpeedUpgrade, 6) // R00J
     ..setGoldCostBase(2000)
     ..setGoldCostIncrement(500)
     ..setLumberCostBase(0)

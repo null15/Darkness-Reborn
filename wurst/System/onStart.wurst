@@ -81,16 +81,19 @@ function createSetup()
         players[i]..addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)..addState(PLAYER_STATE_RESOURCE_GOLD, 800)
         
     var posX = GetRectCenterX(gg_rct_HeroPicker) - 384.
-    var posY = GetRectCenterY(gg_rct_HeroPicker)
+    var posY = GetRectCenterY(gg_rct_HeroPicker) - 128
 
-    let tavern1 = CreateUnit(p, BUILDING_TAVERN_STR, posX, posY, bj_UNIT_FACING)
-    onBuyHero(tavern1)
+
+    onBuyHero(CreateUnit(p, BUILDING_TAVERN_DEFENDER, posX, posY, bj_UNIT_FACING))
+    onBuyHero(CreateUnit(p, BUILDING_TAVERN_SUPPORT, posX, posY + 164, bj_UNIT_FACING))
+    onBuyHero(CreateUnit(p, BUILDING_TAVERN_ASCENSION, posX, posY + 328, bj_UNIT_FACING))
     posX = GetRectCenterX(gg_rct_HeroPicker)
-    let tavern2 = CreateUnit(p, BUILDING_TAVERN_AGI, posX, posY, bj_UNIT_FACING)
-    onBuyHero(tavern2)
+    onBuyHero(CreateUnit(p, BUILDING_TAVERN_PHYSICAL_DPS, posX, posY, bj_UNIT_FACING))
+    onBuyHero(CreateUnit(p, BUILDING_TAVERN_MAGICAL_DPS, posX, posY + 328, bj_UNIT_FACING))
     posX = GetRectCenterX(gg_rct_HeroPicker) + 384.
-    let tavern3 = CreateUnit(p, BUILDING_TAVERN_INT, posX, posY, bj_UNIT_FACING)
-    onBuyHero(tavern3)
+    onBuyHero(CreateUnit(p, BUILDING_TAVERN_BUILDER, posX, posY, bj_UNIT_FACING))
+    onBuyHero(CreateUnit(p, BUILDING_TAVERN_GATHERER, posX, posY + 328, bj_UNIT_FACING))
+    onBuyHero(CreateUnit(p, BUILDING_TAVERN_CRAFTER, posX, posY + 164, bj_UNIT_FACING))
 
     posX = GetRectCenterX(gg_rct_ShopLeft) + 150
     var posMax = GetRectMaxY(gg_rct_ShopLeft)

@@ -9,6 +9,8 @@ import MyAbilityIds
 import Abilities
 import AbilityObjEditing
 import Soundsets
+import UpgradeObjEditing
+import MyUpgradesIds
 
 init
     
@@ -326,6 +328,10 @@ init
     let support = "|c00E12891Support|r"
     let ascendant = "|c00FC293EAscend|r"
     let builder = "|c00065cdeBuilder|r"
+    let gatherer = "|c00a806deGatherer|r"
+
+    new UpgradeDefinition(heroPickBlocker, 1)
+    ..setName(1, "Hero in construction")
 
     new BuildingDefinition(HERO_PICKER, UnitIds.circleofpower)
     ..setName("Hero Picker")
@@ -3909,7 +3915,7 @@ init
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList('A0WF', 'A0WE', 'A0WG', 'A0WH', 'A0WI'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
-    
+    ..setRequirements(commaList(heroPickBlocker))
     ..setPrimaryAttribute("Agility")
     ..setStartingStrength(10)
     ..setStartingAgility(19)
@@ -3987,7 +3993,6 @@ init
     ..setRequierementsForTier(7, "")
     ..setRequierementsForTier(8, "")
     ..setRequierementsForTier(9, "")
-    ..setRequirements("")
     ..setCollisionSize(32.00)
     ..setHitPointsRegenerationType("always")
     ..setDefenseBase(0)
@@ -4115,7 +4120,7 @@ init
     ..setName("Thief")
     ..setTooltipBasic("|c00F7EC46Thief|r")
     ..setTooltipExtended("|c00F7EC46Thief|r\n"
-+ "Roles: " + crafter + "/" + farmer + "\n\n"
++ "Roles: " + gatherer + "/" + farmer + "\n\n"
 + "|c00EE0404Physical Damage|r: 2/5\n"
 + "|c0076ECF9Magical Damage|r: 2/5\n"
 + "|c00B0B0B0Defense|r: 1/5\n"
@@ -4133,6 +4138,7 @@ init
     ..setStartingAgility(15)
     ..setStartingIntelligence(19)
     ..setScalingValue(0.75)
+    ..setRequirements(commaList(heroPickBlocker))
     ..setModelFile(Units.stormPandarenBrewmaster)
     ..setIconGameInterface(Icons.bTNStormBrewMaster)
     ..setIconScoreScreen(Icons.bTNStormBrewMaster)
@@ -4205,7 +4211,6 @@ init
     ..setRequierementsForTier(7, "")
     ..setRequierementsForTier(8, "")
     ..setRequierementsForTier(9, "")
-    ..setRequirements("")
     ..setCollisionSize(32.00)
     ..setHitPointsRegenerationType("always")
     ..setDefenseBase(0)
