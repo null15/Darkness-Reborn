@@ -1,0 +1,217 @@
+package Objects_ItemsBasic3
+
+import CommonDescriptions
+import MyItemDefinition
+import ItemObjEditing
+import AbilityObjEditing
+import ItemIds
+import MyItemIds
+import ObjectIds
+import MyAbilityIds
+import Icons
+import Abilities
+
+init
+
+@compiletime function createItems()
+
+//I0CM
+    new AbilityDefinitionPhoenixFire(ITEM_ORB_OF_DARKNESS_ABI1)
+    ..setDamagePerSecond(1, 0)
+    ..setInitialDamage(1, 30)
+    ..setDurationHero(1, 0.1)
+    ..setDurationNormal(1, 0.1)
+    ..setCooldown(1, 0.75)
+    ..setCastRange(1, 650)
+    ..setMissileArt(Abilities.avengerMissile)
+
+    new MyItemDefinition(ITEM_ORB_OF_DARKNESS)
+    ..setAbilities(commaList(ITEM_ORB_OF_DARKNESS_ABI1))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfDarkness.blp")    
+    ..setGoldCost(1850)
+    ..setLevel(6)
+    ..setPriority(96)
+    ..setDescription("|c00FFFC01Effect:|r \n"
+    +"Every 0.75 seconds deal 30 damage to a random enemy in 650 range")
+    ..setName("Orb of Darkness")
+    ..setTooltipBasic("Purchase Orb of Darkness |c00FFFC01[ i ]|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
+    +"Every 0.75 seconds deal 30 damage to a random enemy in 650 range")
+    ..setHotkey("I")
+    
+//I017¨
+    new AbilityDefinitionFrostDamageBonus(ITEM_ORB_OF_FROST_ABI1)
+    ..setDamageBonus(1, 15)
+    ..setDurationHero(1, 4)
+    ..setDurationNormal(1, 4)
+
+    new MyItemDefinition(ITEM_ORB_OF_FROST)
+    ..setAbilities(commaList(ITEM_ORB_OF_FROST_ABI1))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfFrost.blp")    
+    ..setGoldCost(1200)
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15 Damage\n"
+    +"+Frost Effect on-hit.")
+    ..setName("Orb of Frost")
+    ..setTooltipBasic("Purchase Orb of Frost |c00FFFC01[ H ]|r")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"+15 Damage\n"
+    +"+Frost Effect on-hit.")
+    ..setHotkey("H")
+
+//I07O
+    new MyItemDefinition(ITEM_ORB_OF_KILJAEDAN)
+    ..setAbilities(commaList('A0GA', 'A05V'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNUsedSoulGem.blp")    
+    ..setGoldCost(1250)
+    ..setStockReplenishInterval(120)
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15 Damage\n"
+    +"+12 Mana per attack.")
+    ..setName("Orb of Kil'jaeden")
+    ..setTooltipBasic("Purchase Orb of Kil'jaeden |c00FFFC01[ J ]|r")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"+15 Damage\n"
+    +"+12 Mana per attack.")
+    ..setHotkey("J")
+
+//I00R
+    new MyItemDefinition(ITEM_AMULET_OF_SPELL_SHIELD)
+    ..setAbilities(commaList('ANss'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpellShieldAmulet.blp")    
+    ..setGoldCost(1000)
+    ..setPriority(113)
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"Blocks one negative spell \n"
+    +"Cooldown: 40 seconds")
+    ..setName("Amulet of Spell Shield")
+    ..setTooltipBasic("Purchase Amulet of Spell Shield |c00FFFC01[ K ]|r")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"Blocks one negative spell \n"
+    +"Cooldown: 40 seconds")
+    ..setHotkey("K")
+
+//I014
+    new MyItemDefinition(ITEM_TALISMAN_OF_EVASION)
+    ..setAbilities(commaList('A038', 'A039'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTalisman.blp")    
+    ..setGoldCost(300)
+    ..setPriority(99)
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15% Evasion")
+    ..setName("Talisman of Evasion")
+    ..setTooltipBasic("Purchase Talisman of Evasion |c00FFFC01[ L ]|r")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"+15% Evasion")
+    ..setHotkey("L")
+
+//I01E
+    new MyItemDefinition(ITEM_ENCHANTED_SHIELD)
+    ..setAbilities(commaList('A022', 'A05Y'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNThoriumArmor.blp")    
+    ..setGoldCost(1050)
+    ..setPriority(0)
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"20% chance to block 50 Damage\n"
+    +"+10 HP/s")
+    ..setName("Enchanted Shield")
+    ..setTooltipBasic("Purchase Enchanted Shield |c00FFFC01[ B ]|r")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"20% chance to block 50 Damage\n"
+    +"+10 HP/s")
+    ..setHotkey("B")
+
+//I019
+    new MyItemDefinition(ITEM_ARCANITE_SHIELD)
+    ..setAbilities(commaList('A060', 'A05Z'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcaniteArmor.blp")    
+    ..setGoldCost(1600)
+    ..setPriority(0)
+    ..setDescription(" |c00FFFC01Effect:|r\n3"
+    +"0% Chance to block 250 Damage\n"
+    +"+15 HP/s")
+    ..setName("Arcanite Shield")
+    ..setTooltipBasic("Purchase Arcanite Shield |c00FFFC01[ N ]|r")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n3"
+    +"0% Chance to block 250 Damage\n"
+    +"+15 HP/s")
+    ..setHotkey("N")
+
+//I01C
+    new MyItemDefinition(ITEM_SHIELD_OF_HONOR)
+    ..setAbilities(commaList('A061', 'A05X'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHumanArmorUpThree.blp")    
+    ..setGoldCost(2200)
+    ..setPriority(0)
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+40% chance to block 500 Damage\n"
+    +"+25 HP/s")
+    ..setName("Shield of Honor")
+    ..setTooltipBasic("Purchase Shield of Honor |c00FFFC01[ M ]|r")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"+40% chance to block 500 Damage\n"
+    +"+25 HP/s")
+    ..setHotkey("M")
+
+//I01D
+    new AbilityDefinitionOrbofCorruption(ITEM_ORB_OF_CORRUPTION_ABI1)
+    ..setArmorPenalty(1, 5)
+    new AbilityDefinitionAttackBonus(ITEM_ORB_OF_CORRUPTION_ABI2)
+    ..setAttackBonus(1, 8)
+    
+    new MyItemDefinition(ITEM_ORB_OF_CORRUPTION)
+    ..setAbilities(commaList(ITEM_ORB_OF_CORRUPTION_ABI1, ITEM_ORB_OF_CORRUPTION_ABI2))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfCorruption.blp")    
+    ..setGoldCost(1550)
+    ..setPriority(93)
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+8 Damage\n"
+    +"-5 Armor on-hit.\n"
+    +"|c00FF0303Note: Doesn't stack with similar items.")
+    ..setName("Orb of Corruption")
+    ..setTooltipBasic("Purchase Orb of Corruption |c00FFFC01[ U ]|r")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"+8 Damage\n"
+    +"-5 Armor on-hit.\n"
+    +"|c00FF0303Note: Doesn't stack with similar items.")
+    ..setHotkey("U")
+
+//I01U
+    new AbilityDefinitionAttackBonus(ITEM_ORB_OF_FIRE_ABI1)
+    ..setAttackBonus(1, 15)
+    new AbilityDefinitionPitLordCleavingAttack(ITEM_ORB_OF_FIRE_ABI2)
+    ..setDistributedDamageFactor(1, 0.1)
+    ..setCastRange(1, 200)
+
+    new MyItemDefinition(ITEM_ORB_OF_FIRE)
+    ..setAbilities(commaList(ITEM_ORB_OF_FIRE_ABI1, ITEM_ORB_OF_FIRE_ABI2))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfFire.blp")    
+    ..setGoldCost(1200)
+    ..setPriority(95)
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+ 15 Damage")
+    ..setName("Orb of Fire")
+    ..setTooltipBasic("Purchase Orb of Fire |c00FFFC01[ P ]|r")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"+ 15 Damage\n"
+    +"Adds a 10% cleave in 200 range")
+    ..setHotkey("P")
+
+//I07N
+    new AbilityDefinitionAttackBonus(ITEM_ORB_OF_LIGHTNING_ABI1)
+    ..setAttackBonus(1, 15)
+
+    new MyItemDefinition(ITEM_ORB_OF_LIGHTNING)
+    ..setAbilities(commaList(ITEM_ORB_OF_LIGHTNING_ABI1))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfLightning.blp")    
+    ..setGoldCost(3200)
+    ..setPriority(92)
+    ..setDescription(" |c00FFFC01Effect:|r\n"
+    +"+15 Damage\n"
+    +"+20% Chance to shoot a Thunder Lightning dealing 100 Damage to up to 4 targets in 900 range.")
+    ..setName("Orb of Lightning")
+    ..setTooltipBasic("Purchase Orb of Lightning |c00FFFC01[ O ]|r")
+    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
+    +"+15 Damage\n"
+    +"+20% Chance to shoot a Thunder Lightning dealing 100 Damage to up to 4 targets in 900 range.")
+    ..setHotkey("O")
