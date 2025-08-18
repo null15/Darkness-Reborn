@@ -375,7 +375,7 @@ import OrderIds
 @compiletime function buildingGeneral()
     new AbilityDefinitionShopSharing(SHOP_SHARE)
     ..setLevels(1)
-    ..presetActivationRadius(lvl -> 1200)
+    ..presetActivationRadius(lvl -> 2600)
     ..setShowSelectUnitButton(1, false)
 
     new AbilityDefinitionShopSharing(SHOP_CRYSTAL)
