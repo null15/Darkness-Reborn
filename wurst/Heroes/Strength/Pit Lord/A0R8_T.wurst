@@ -8,15 +8,11 @@ public function noblesseAura()
         let killer = GetKillingUnit()
         let lvl = killer.getAbilityLevel('A0R8')
         if(lvl > 0)
-            if(strGain < lvl * 750)
-                if(lvl == 4)
-                    killer.addStr(2)
-                    strGain = strGain + 2
-                    if(strGain > 3000)
-                        killer.setStr(killer.getStr(false) - 2)
-                else
-                    killer.addStr(1)
+            let limit = 750 * lvl
+            if (strGain < limit)
+                strGain++
+                killer.addStr(1)
+                if(lvl == 4 and strGain < limit)
                     strGain++
-                    if(strGain > 750 * lvl)
-                        killer.setStr(killer.getStr(false) - 1)
+                    killer.addStr(1)
             killer.setMaxHP(R2I(killer.getMaxHP()+lvl*7), true)

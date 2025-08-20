@@ -10,6 +10,7 @@ import Icons
 import Abilities
 
 init
+    
 
 @compiletime function createItems()
     let basicShop1 = "|c007EBFF1Basic Shop 1|r"

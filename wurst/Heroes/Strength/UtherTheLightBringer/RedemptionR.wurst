@@ -20,7 +20,7 @@ public function redemptionHoly()
                 let damtyp = DamageEvent.getDamageType()
                 if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
                     let lvl = src.getAbilityLevel(UTHER_ABIL_4)
-                    if (lvl > 0 and GetRandomInt(0, 100) < 20)
+                    if (lvl > 0 and GetRandomInt(0, 100) < 5 * lvl)
                         let targ = DamageEvent.getTarget()
                         let str = src.getStr(true)
                         let amount = str * 0.5 + 75 * lvl
