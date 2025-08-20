@@ -1,0 +1,56 @@
+package Object_Buildings
+
+import UnitObjEditing
+import UnitIds
+import Buildings
+import ObjectIds
+import MyBuildingsIds
+import MyUnitIds
+import MyItemIds
+import MyAbilityIds
+
+@compiletime function buildings()
+
+    new BuildingDefinition(ELEMENTAL_SOUL, UnitIds.castle)
+    ..setName("Elemental Soul")
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_CRYSTAL, 'Abds', 'Apit', 'AM3~'))
+    ..setHitPointsMaximumBase(2500)
+    ..setResearchesAvailable("")
+    ..setCollisionSize(0)
+    ..setPathingMap("")
+    ..setItemsSold("")
+    ..setModelFile("Red Item.mdl")
+    ..setItemsMade(commaList(UPGRADE_BASE_ARMOR,UPGRADE_BASE_HEALTH))
+    ..setUpgradesTo("")
+    ..setUpgradesUsed("RM0e,RM0d")
+    ..setArmorType(ArmorType.Fortified)
+    ..setScalingValue(5)
+    ..setDefenseBase(25)
+    ..setDefenseUpgradeBonus(5)
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(DROPSITE, UnitIds.marketplace)
+    ..setName("Drop Site")
+    ..setGroundTexture("")
+    ..setModelFile(Buildings.magicVault)
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Aneu', 'Apit', 'Asid'))
+    ..setResearchesAvailable("")
+    ..setCollisionSize(0)
+    ..setPathingMap("")
+    ..setItemsSold(commaList(""))
+    ..setItemsMade("")
+
+    new BuildingDefinition(BUILDING_0, UnitIds.fountainofhealth)
+    ..setName("Provides healing")
+    ..setGroundTexture("")
+    ..setModelFile(Buildings.fountainOfLifeDefiled1)
+    ..setNormalAbilities(commaList('Avul', FOUNTAIN_HEALING, FOUNTAIN_MANAREGEN, 'Ane2', 'Aneu', 'Asud', 'Apit', 'Abds', SHOP_SHARE))
+    ..setHitPointsRegenerationRate(1000)
+    ..setSightRadiusDay(30000)
+    ..setSightRadiusNight(30000)
+    ..setItemsMade(commaList(""))
+    ..setItemsSold(commaList(ITEM_LUMBER100_TO_GOLD, ITEM_LUMBER_100, ITEM_EMPTY_VIAL, ITEM_QUEST))
+    ..setUnitsSold(commaList(HORSE_UNIT_1, HORSE_UNIT_2))
+    ..setHideMinimapDisplay(true)
+    ..setUnitClassification(commaList("mechanical", "neutral", "townhall"))

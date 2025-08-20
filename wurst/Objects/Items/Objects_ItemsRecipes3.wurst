@@ -33,9 +33,9 @@ init
     +"+120% Attack speed\n"
     +"+3000 MP\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Medallion of Courage (|c001CE6B9" + shopRecipes2 + "|r)\n"
-    +"Pendant of Mana (|c007EBFF1" +  shopBasicItems4 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Medallion of Courage (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
+    +"Pendant of Mana (|c007EBFF1" +  shopNameBasicItems4 + "|r)")
     ..setHotkey("")
 
 //I057
@@ -52,7 +52,7 @@ init
     +"|c00FFFC01Effect of item:|r\n"
     +"+15 Damage\n+25% Cleave on 200 Range\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Study War Axe (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Study War Axe (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I058
@@ -74,9 +74,9 @@ init
     +"+10 Strength\n"
     +"28% Cleave on 250 Range\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scale Axe (|c001CE6B9" + shopRecipes3 + "|r)\n"
-    +"Belt of Giant Strength (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Circlet of Nobility (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    +"Scale Axe (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
+    +"Belt of Giant Strength (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Circlet of Nobility (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")
 
 //I059
@@ -97,9 +97,9 @@ init
     +"+18 Strength\n"
     +"32% Cleave on 300 Range\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Dalan Axe (|c001CE6B9" + shopRecipes3 + "|r)\n"
-    +"Soul Ring (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Claws of Attack (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Dalan Axe (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
+    +"Soul Ring (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Claws of Attack (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I05A
@@ -120,9 +120,9 @@ init
     +"+25 All Stats\n"
     +"36% Cleave on 350 Range\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Duration Axe (|c001CE6B9" + shopRecipes3 + "|r)\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Study War Axe (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Duration Axe (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Study War Axe (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I05B
@@ -144,9 +144,9 @@ init
     +"+12 All Stats\n"
     +"18% Chance to Crit for 3\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Fire Sword (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Gloves of Speed (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Fire Sword (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Gloves of Speed (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I05C
@@ -167,9 +167,9 @@ init
     +"+50 Strength\n"
     +"+50% Attack speed\n"
     +"|c00FEBA0EMaterial that's used to craft itemsp :|r\n"
-    +"Soul Ring (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Gloves of Hades (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Khadgar's Pendant of Health (|c007EBFF1" +  shopBasicItems4 + "|r)")
+    +"Soul Ring (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Gloves of Hades (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Khadgar's Pendant of Health (|c007EBFF1" +  shopNameBasicItems4 + "|r)")
     ..setHotkey("")
 
 //I05D
@@ -190,9 +190,9 @@ init
     +"+60% Attack speed\n"
     +"-30 Armor on-hit.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Orb of Corruption (|c007EBFF1" +  shopBasicItems3 + "|r)\n"
-    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Gloves of Wind (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Orb of Corruption (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
+    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Gloves of Wind (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I05E
@@ -214,9 +214,9 @@ init
     +"+15 HP/s\n"
     +"+16% Life Steal.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Mask of Death (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Periapt of Vitality (|c007EBFF1" +  shopBasicItems4 + "|r)")
+    +"Mask of Death (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Periapt of Vitality (|c007EBFF1" +  shopNameBasicItems4 + "|r)")
     ..setHotkey("")
 
 //I05F
@@ -238,9 +238,9 @@ init
     +"+2000 HP\n"
     +"50% Chance to block 550 Damage.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Enchanted Shield (|c007EBFF1" +  shopBasicItems3 + "|r)\n"
-    +"Arcanite Shield (|c007EBFF1" +  shopBasicItems3 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Enchanted Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
+    +"Arcanite Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)")
     ..setHotkey("")
 
 //I05G
@@ -261,9 +261,9 @@ init
     +"+50 All Stats\n"
     +"30% Chance to block 1600 Damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Steel Shield (|c001CE6B9" + shopRecipes4 + "|r)\n"
-    +"Enchanted Shield (|c007EBFF1" +  shopBasicItems3 + "|r)\n"
-    +"Shield of Honor (|c007EBFF1" +  shopBasicItems3 + "|r)")
+    +"Steel Shield (|c001CE6B9" + shopNameRecipes4 + "|r)\n"
+    +"Enchanted Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
+    +"Shield of Honor (|c007EBFF1" +  shopNameBasicItems3 + "|r)")
     ..setHotkey("")
 
 //I05H
@@ -287,6 +287,6 @@ init
     +"+50 HP/s\n"
     +"60% Chance to block 1400 Damage.\n"
     +"|c00FEBA0EMaterial that's used to craft items:|r\n"
-    +"Steel Shield (|c001CE6B9" + shopRecipes4 + "|r)\n"
-    +"Helm of Valor (|c001CE6B9" + shopRecipes2 + "|r)")
+    +"Steel Shield (|c001CE6B9" + shopNameRecipes4 + "|r)\n"
+    +"Helm of Valor (|c001CE6B9" + shopNameRecipes2 + "|r)")
     ..setHotkey("")

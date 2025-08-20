@@ -140,9 +140,9 @@ function createSetup()
     dividend = (posMax - posMin) / 4
     posY = posMin + 100
 
-    CreateUnit(p, BUILDING_13, posX, posY, 270.000) // End Game Items
+    CreateUnit(p, BUILDING_SHOP_LATE_GAME_ITEMS4, posX, posY, 270.000) // End Game Items
     posY = posY + dividend
-    CreateUnit(p, BUILDING_12, posX, posY, 270.000) // Decent Items
+    CreateUnit(p, BUILDING_SHOP_GEMS, posX, posY, 270.000) // Decent Items
     posY = posY + dividend
     CreateUnit(p, BUILDING_SHOP_LATE_GAME_ITEMS2, posX, posY, 270.000) // Late Game Items
     posY = posY + dividend

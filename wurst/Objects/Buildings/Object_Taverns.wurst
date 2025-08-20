@@ -1,0 +1,63 @@
+package Object_Taverns
+
+import UnitObjEditing
+import UnitIds
+import ObjectIds
+import MyBuildingsIds
+import MyUnitIds
+
+@compiletime function taverns()
+    new BuildingDefinition(TEST_TURRET, UnitIds.humanarcanetower)
+    ..setName("TEST TURRET")
+    ..setAttack1DamageBase(250000)
+    ..setHitPointsMaximumBase(50000000)
+    ..setDefenseBase(250000)
+    ..setHitPointsRegenerationRate(1000)
+    ..setHitPointsRegenerationType("Always")
+    ..setAttack1AnimationBackswingPoint(0.01)
+    ..setAttack1AnimationDamagePoint(0.01)
+    ..setAttack1ProjectileSpeed(5000)
+    ..setAttack1Range(2000)
+    ..setAcquisitionRange(2000)
+    ..setTurnRate(50)
+    ..setAttack1CooldownTime(0.01)
+
+
+    new BuildingDefinition(BUILDING_TAVERN_STR, UnitIds.cantina)// Tavern Build Strenght Heroes (n00C)
+    ..setName("Strength Heroes")
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList('Ane2', 'Avul'))
+    ..setShadowTextureBuilding("")
+    ..setArmorType(ArmorType.Unarmored)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setTintingColorBlue(0)
+    ..setTintingColorGreen(0)
+    ..setTintingColorRed(255)
+    .setUnitsSold(commaList(PLAY_HERO_0, PLAY_HERO_1_INITIAL, PLAY_HERO_2, PLAY_HERO_3, PLAY_HERO_4, PLAY_HERO_5, PLAY_HERO_6, PLAY_HERO_7, PLAY_HERO_8, PLAY_HERO_18, PLAY_HERO_34))
+
+    new BuildingDefinition(BUILDING_TAVERN_AGI, UnitIds.cantina)// Tavern Build Agility Heroes (n00A)
+    ..setName("Agility Heroes")
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList('Ane2', 'Avul'))
+    ..setShadowTextureBuilding("")
+    ..setTintingColorBlue(0)
+    ..setTintingColorGreen(255)
+    ..setTintingColorRed(0)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    .setUnitsSold(commaList(PLAY_HERO_9, PLAY_HERO_10, PLAY_HERO_31, PLAY_HERO_11, PLAY_HERO_12, PLAY_HERO_13, PLAY_HERO_14, PLAY_HERO_15, PLAY_HERO_16, PLAY_HERO_17))
+
+    new BuildingDefinition(BUILDING_TAVERN_INT, UnitIds.cantina)// Tavern Build Intelligent Heroes (n00B)
+    ..setName("Intelligent Heroes")
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList('Ane2', 'Avul'))
+    ..setShadowTextureBuilding("")
+    ..setTintingColorBlue(255)
+    ..setTintingColorGreen(0)
+    ..setTintingColorRed(0)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    .setUnitsSold(commaList(PLAY_HERO_33, PLAY_HERO_19, PLAY_HERO_20, PLAY_HERO_21, PLAY_HERO_22, PLAY_HERO_23, PLAY_HERO_24, PLAY_HERO_25, PLAY_HERO_26, PLAY_HERO_27, PLAY_HERO_28, PLAY_HERO_29))

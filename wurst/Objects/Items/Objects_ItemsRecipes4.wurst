@@ -33,8 +33,8 @@ init
     +"+50HP/s\n"
     +"Return 22% of the damage dealt to you back to the attacker.\n"
     +"|c00FEBA0EMaterial that's used to craft items:|r\n"
-    +"Light Armor (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Iron Armor (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
+    +"Light Armor (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Iron Armor (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
     +"Spiked Armor (" + monsterDrop + ")|r")
     ..setHotkey("")
 
@@ -57,9 +57,9 @@ init
     +"+1000 HP\n"
     +"Active: Activate Avatar for 30 seconds\n"
     +"|c00FEBA0EMaterial that's used to craft items:|r\n"
-    +"Light Armor (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Khadgar's Pendant of Health (|c007EBFF1" +  shopBasicItems4 + "|r)\n"
-    +"Ring of Regeneration (|c007EBFF1" +  shopBasicItems2 + "|r)|r")
+    +"Light Armor (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Khadgar's Pendant of Health (|c007EBFF1" +  shopNameBasicItems4 + "|r)\n"
+    +"Ring of Regeneration (|c007EBFF1" +  shopNameBasicItems2 + "|r)|r")
     ..setHotkey("")
 
 //I05Q
@@ -82,9 +82,9 @@ init
     +"+69 Strength\n"
     +"+69 Intelligence\n"
     +"|c00FEBA0EMaterial that's used to craft items:|r\n"
-    +"Kraken Dagger (|c001CE6B9" + shopRecipes3 + "|r)\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Kraken Dagger (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I05S
@@ -104,9 +104,9 @@ init
     +"+20 All Stats \n"
     +"Active: Reset all of your Skill Cooldowns. Cooldown: 220 seconds.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Amulet of Spell Shield (|c007EBFF1" +  shopBasicItems3 + "|r)\n"
-    +"Arcanite Shield (|c007EBFF1" +  shopBasicItems3 + "|r)\n"
-    +"Tome of Retraining (|c007EBFF1" +  shopBasicItems4 + "|r)")
+    +"Amulet of Spell Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
+    +"Arcanite Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
+    +"Tome of Retraining (|c007EBFF1" +  shopNameBasicItems4 + "|r)")
     ..setHotkey("")
 
 //I07M
@@ -128,9 +128,9 @@ init
     +"+120% Attack speed\n"
     +"+10% Chance to shoot a Thunder Lightning dealing 1000 Damage to up to 4 targets in 900 range.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Medallion of Courage (|c001CE6B9" + shopRecipes2 + "|r)\n"
-    +"Amulet of the Wild (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Orb of Lightning (|c007EBFF1" +  shopBasicItems3 + "|r)\n"
+    +"Medallion of Courage (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
+    +"Amulet of the Wild (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Orb of Lightning (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
     +"|c00FF0303Note: Only works for ranged heroes")
     ..setHotkey("")
 
@@ -153,9 +153,9 @@ init
     +"+150% Mana Regeneration\n"
     +"+47% chance to restore 95 MP on-hit.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Medallion of Courage (|c001CE6B9" + shopRecipes2 + "|r)\n"
-    +"Pendant of Mana (|c007EBFF1" +  shopBasicItems4 + "|r)\n"
-    +"Orb of Kil'jeaden (|c007EBFF1" +  shopBasicItems3 + "|r)")
+    +"Medallion of Courage (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
+    +"Pendant of Mana (|c007EBFF1" +  shopNameBasicItems4 + "|r)\n"
+    +"Orb of Kil'jeaden (|c007EBFF1" +  shopNameBasicItems3 + "|r)")
     ..setHotkey("")
 
 //I0BF
@@ -174,8 +174,8 @@ init
     +"|c00FFFC01Effect of item:|r\n"
     +"+40 Armor. +150 Strength. +3000 HP. +1% HP/s\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Helm of Valor (|c001CE6B9" + shopRecipes2 + "|r)\n"
-    +"Light Armor (|c001CE6B9" + shopRecipes1 + "|r)")
+    +"Helm of Valor (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
+    +"Light Armor (|c001CE6B9" + shopNameRecipes1 + "|r)")
     ..setHotkey("")
 
 //I0BS
@@ -196,8 +196,8 @@ init
     +"+2500 Health\n"
     +"100% to return 0.5xstr damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Helm of Valor (|c001CE6B9" + shopRecipes2 + "|r)\n"
-    +"Split Armor (|c001CE6B9" + shopRecipes4 + "|r)")
+    +"Helm of Valor (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
+    +"Split Armor (|c001CE6B9" + shopNameRecipes4 + "|r)")
     ..setHotkey("")
 
 //I0CN
@@ -218,8 +218,8 @@ init
     +"+10 HP/s\n"
     +"Passively attack 1 target every 1 second with 700 Damage in 650 range.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Orb of Darkness (|c007EBFF1" +  shopBasicItems3 + "|r)\n"
-    +"Helm of Valor (|c001CE6B9" + shopRecipes2 + "|r)")
+    +"Orb of Darkness (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
+    +"Helm of Valor (|c001CE6B9" + shopNameRecipes2 + "|r)")
     ..setHotkey("")
 
 //I0IK
@@ -241,8 +241,8 @@ init
     +"+100% Mana Regeneration\n"
     +"|c00FFFC01Special Effects: Active: Deals 7800 Damage to the target enemy. Cooldown: 30 seconds|r\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Seer Staff (|c001CE6B9" + shopRecipes3 + "|r)\n"
-    +"Ring of Archmagi (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
+    +"Seer Staff (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
+    +"Ring of Archmagi (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
     +"Thunderlizard Diamond (" + monsterDrop + ")")
     ..setHotkey("")
 
@@ -264,8 +264,8 @@ init
     +"+3200 HP\n"
     +"|c00FFFC01Special Effect: Active: Sends a Frost Nova on the target\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Seer Staff (|c001CE6B9" + shopRecipes3 + "|r)\n"
-    +"Orb of Frost (|c001CE6B9" +  shopBasicItems3 + "|r)\n"
+    +"Seer Staff (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
+    +"Orb of Frost (|c001CE6B9" +  shopNameBasicItems3 + "|r)\n"
     +"Scepter of Mastery  (" + monsterDrop + ")")
     ..setHotkey("")
 
@@ -285,6 +285,6 @@ init
     +"|c00FFFC01Effect of item:|r\n"
     +"Increase 7000 MP \n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Soul of Kil'jaeden (|c001CE6B9" + shopRecipes3 + "|r)\n"
+    +"Soul of Kil'jaeden (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
     +"Arkenstone Fragment (|c007EBFF1Combination|r)")
     ..setHotkey("")

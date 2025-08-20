@@ -31,9 +31,9 @@ init
     +"30% Chance to Freeze Target for 0.1s + deal 1000 Damage\n"
     +"28% Chance to Crit for 5x damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Fire Sword (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Ice Sword (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Blade of Hell (|c001CE6B9" + shopRecipes3 + "|r)")
+    +"Fire Sword (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Ice Sword (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Blade of Hell (|c001CE6B9" + shopNameRecipes3 + "|r)")
     ..setHotkey("")
 
 //I01G
@@ -52,9 +52,9 @@ init
     +"+100 All Stats\n"
     +"Active: Teleport to allied unit or building. Cooldown: 20 seconds.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Boots of Teleportation (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Winged Boots (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Boots of Invisibility (|c001CE6B9" + shopRecipes1 + "|r)")
+    +"Boots of Teleportation (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Winged Boots (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Boots of Invisibility (|c001CE6B9" + shopNameRecipes1 + "|r)")
     ..setHotkey("")
 
 //I01Y
@@ -72,9 +72,9 @@ init
     +"+700 Damage\n"
     +"25% Chance to Crit for 8\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Fire Sword (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Kraken Dagger (|c001CE6B9" + shopRecipes3 + "|r)\n"
-    +"Steel Axe (|c001CE6B9" + shopRecipes1 + "|r)")
+    +"Fire Sword (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Kraken Dagger (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
+    +"Steel Axe (|c001CE6B9" + shopNameRecipes1 + "|r)")
     ..setHotkey("")
 
 //I021
@@ -94,9 +94,9 @@ init
     +"25% Chance to Bash for 0.5s dealing 1000 bonus Damage.\n"
     +"Cooldown: 5 seconds\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Silver Hammer (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Kraken Dagger (|c001CE6B9" + shopRecipes2 + "|r)\n"
-    +"Soul Ring (|c001CE6B9" +  shopBasicItems2 + "|r)")
+    +"Silver Hammer (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Kraken Dagger (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
+    +"Soul Ring (|c001CE6B9" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")
 
 //I023
@@ -114,8 +114,8 @@ init
     +"+180% Attack speed.\n"
     +"10% Armor Pen\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Gloves of Speed (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Claws of Attack (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Gloves of Speed (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Claws of Attack (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I024
@@ -132,9 +132,9 @@ init
     +"-80 Armor on-hit.\n"
     +"Effect cannot be used together with Orb of Corruption\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Midnight Blade (|c001CE6B9" + shopRecipes3 + "|r)\n"
-    +"Gloves of Speed (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Orb of Corruption (|c001CE6B9" +  shopBasicItems3 + "|r)")
+    +"Midnight Blade (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
+    +"Gloves of Speed (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Orb of Corruption (|c001CE6B9" +  shopNameBasicItems3 + "|r)")
     ..setName("|c00FFFC01Advanced Recipe (Recipe 6)|r")
     ..setTooltipBasic("Buy |c00FFFC01Advanced Recipe (Recipe 6)|r")
     ..setTooltipExtended("|c00FFFC01Dark Steel Sword|r\n"
@@ -144,9 +144,9 @@ init
     +"-80 Armor on-hit.\n"
     +"Effect cannot be used together with Orb of Corruption\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Midnight Blade (|c001CE6B9" + shopRecipes3 + "|r)\n"
-    +"Gloves of Speed (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Orb of Corruption (|c001CE6B9" +  shopBasicItems3 + "|r)")
+    +"Midnight Blade (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
+    +"Gloves of Speed (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Orb of Corruption (|c001CE6B9" +  shopNameBasicItems3 + "|r)")
     ..setHotkey("")
 
 //I02D
@@ -166,7 +166,7 @@ init
     +"+10.000 MP\n"
     +"+450% Mana Regeneration.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Half Arkenstone (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Half Arkenstone (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
     +"Arkenstone Fragment (|c007EBFF1Combination|r)")
     ..setHotkey("")
 
@@ -187,9 +187,9 @@ init
     +"+1000 HP\n"
     +"+20HP/s\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Amulet of Spell Shield (|c007EBFF1" +  shopBasicItems3 + "|r)\n"
-    +"Silver Armor (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Light Armor (|c001CE6B9" + shopRecipes1 + "|r)")
+    +"Amulet of Spell Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
+    +"Silver Armor (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Light Armor (|c001CE6B9" + shopNameRecipes1 + "|r)")
     ..setHotkey("")
 
 //I05J
@@ -208,8 +208,8 @@ init
     +"+100HP/s\n"
     +"Return 50% of the damage dealt to you back to the attacker.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Split Armor (|c001CE6B9" + shopRecipes4 + "|r)\n"
-    +"Light Armor. (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Split Armor (|c001CE6B9" + shopNameRecipes4 + "|r)\n"
+    +"Light Armor. (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
     +"Spiked Armor. (" + monsterDrop + ")")
     ..setHotkey("")
 
@@ -231,7 +231,7 @@ init
     +"+40Hp/s\n"
     +"Changes Armor Type to Hero.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Shiny Armor (|c001CE6B9Advanced " + shopRecipes1 + "|r)\n"
-    +"Light Armor (|c001CE6B9" + shopRecipes1 + "|r)\n"
+    +"Shiny Armor (|c001CE6B9Advanced " + shopNameRecipes1 + "|r)\n"
+    +"Light Armor (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
     +"Crown of Assassin (" + bossDrop + ")")
     ..setHotkey("")

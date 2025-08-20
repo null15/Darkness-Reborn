@@ -32,9 +32,9 @@ init
     +"+80 Damage\n"
     +"+50% Attack speed.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r) \n"
-    +"Claw of Attack (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Orb of Frost (|c007EBFF1" +  shopBasicItems3 + "|r)")
+    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r) \n"
+    +"Claw of Attack (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Orb of Frost (|c007EBFF1" +  shopNameBasicItems3 + "|r)")
     ..setHotkey("")
 
 //I011
@@ -55,9 +55,9 @@ init
     +"+50% Attack speed\n"
     +"15% Chance to Crit for 2\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r) \n"
-    +"Claw of Attack (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Orb of Fire (|c007EBFF1" +  shopBasicItems3 + "|r)")
+    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r) \n"
+    +"Claw of Attack (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Orb of Fire (|c007EBFF1" +  shopNameBasicItems3 + "|r)")
     ..setHotkey("")
 
 //I01V
@@ -78,9 +78,9 @@ init
     +"+24 All Stats\n"
     +"Active: Teleport to allied unit or building. Cooldown: 20 seconds.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Boots of Speed (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Crystal Ball (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Circlet of Nobility (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    +"Boots of Speed (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Crystal Ball (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Circlet of Nobility (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")
 
 //I01W
@@ -101,9 +101,9 @@ init
     +"+24 All Stats\n"
     +"Active: Invisibility for 30 seconds. Cooldown: 30 seconds.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Boots of Speed (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Crystal Ball (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Cloak of Shadows (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    +"Boots of Speed (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Crystal Ball (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Cloak of Shadows (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")
 
 //I01X
@@ -124,9 +124,9 @@ init
     +"+60% Attack speed\n"
     +"+24 All Stats\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Boots of Speed (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Crystal Ball (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Gloves of Haste (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Boots of Speed (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Crystal Ball (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Gloves of Haste (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I01Z
@@ -145,9 +145,9 @@ init
     +" |c00FFFC01Effect of item:|r\n"
     +"+400 Damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Maul of Strength (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Study War Axe (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Claws of Attack (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Maul of Strength (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Study War Axe (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Claws of Attack (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I020
@@ -167,8 +167,8 @@ init
     +"+90 Damage\n"
     +"10% Chance to Bash for 0.1s\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Maul of Strength (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Belt of Giant Strength (|c007EBFF1" +  shopBasicItems2 + "|r)\n")
+    +"Maul of Strength (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Belt of Giant Strength (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n")
     ..setHotkey("")
 
 //I022
@@ -188,9 +188,9 @@ init
     +"+80 Damage\n"
     +"+80% Attack speed\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Gloves of Haste (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Gloves of Hades (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Gloves of Wind (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Gloves of Haste (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Gloves of Hades (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Gloves of Wind (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I02E
@@ -236,9 +236,9 @@ init
     +"+10HP/s\n"
     +"+100% Mana Regeneration\n"
     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Leather Armor (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Iron Armor (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Crystal Ball (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    +"Leather Armor (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Iron Armor (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Crystal Ball (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")
 
 //I040
@@ -246,23 +246,18 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")    
     ..setClassification("Charged")
     ..setGoldCost(400)
-    ..setLevel(5)
-    ..setPriority(118)
     ..setStockReplenishInterval(3)
     ..setStockStartDelay(3)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 11)")
-    ..setTooltipBasic("Buy Recipe (Recipe 11)")
-    ..setTooltipExtended("|c00FFFC01Scroll of Fusion|r\n"
-    +" |c00FFFC01Effect of item:|r\n"
+    ..describeRecipeItem(
     +"+12 All Stats\n"
     +"+300 HP\n"
     +"+10 Armor\n"
-    +"+5 HP/s\n"
+    +"+5 HP/s\n")
+    
     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Circlet of Nobility (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Ring of Regeneration (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Ring of Protection (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    +"Circlet of Nobility (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Ring of Regeneration (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Ring of Protection (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")
 
 //I03Z
@@ -285,7 +280,7 @@ init
     +"+15 Armor\n"
     +"+7 HP/s\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + " |r)\n"
-    +"Jade Ring (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Boots of Quel'Thalas (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + " |r)\n"
+    +"Jade Ring (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Boots of Quel'Thalas (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")

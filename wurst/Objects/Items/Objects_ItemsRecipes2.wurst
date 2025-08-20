@@ -36,9 +36,9 @@ init
     +"+15 Armor\n"
     +"+7 HP/s \n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Belt of Giant Strength (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Soul Ring (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Belt of Giant Strength (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Soul Ring (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")
 
 //I042
@@ -60,9 +60,9 @@ init
     +"+15 Armor\n"
     +"+7 HP/s\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Robe of Magi (|c007EBFF1" +  shopBasicItems2 + "|r)\n"
-    +"Ring of the Archmagi (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Robe of Magi (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    +"Ring of the Archmagi (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")
 
 //I04L
@@ -79,8 +79,8 @@ init
     +"|c00FFFC01Effect of item:|r\n"
     +"Passive: Increases Damage dealt by Ranged Attacks by 50% for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Study War Axe (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Study War Axe (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I04M
@@ -99,8 +99,8 @@ init
     +"|c00FFFC01Effect of item:|r\n"
     +"Passive: Increases 50% Attack speed and 10% Movement Speed for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Gloves of Wind (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Boots of Speed (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    +"Gloves of Wind (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Boots of Speed (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")
 
 //I04N
@@ -119,8 +119,8 @@ init
     +" |c00FFFC01Effect of item:|r\n"
     +"Passive: Increases Armor by 15 for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Leather Armor (|c007EBFF1" +  shopBasicItems1 + "|r)\n"
-    +"Ring of Protection (|c007EBFF1" +  shopBasicItems2 + "|r)")
+    +"Leather Armor (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
+    +"Ring of Protection (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
     ..setHotkey("")
 
 //I04O
@@ -139,7 +139,7 @@ init
     +"|c00FFFC01Effect of item:|r\n"
     +"Passive: Increases Damage dealt by 35% for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Maul of Strength (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Maul of Strength (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I04P
@@ -158,8 +158,8 @@ init
     +"|c00FFFC01Effect of item:|r\n"
     +"Passive: Increases 150% Attack speed and 50% Movement Speed for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Ancient Janggo of Endurance (|c001CE6B9" + shopRecipes2 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Ancient Janggo of Endurance (|c001CE6B9" + shopNameRecipes2 + "|r)")
     ..setHotkey("")
 
 //I04Q
@@ -178,8 +178,8 @@ init
     +"+1000 MP\n"
     +"Passive: Increases Armor by 60 for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"The Lion Horn of Stormwind (|c001CE6B9" + shopRecipes2 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"The Lion Horn of Stormwind (|c001CE6B9" + shopNameRecipes2 + "|r)")
     ..setHotkey("")
 
 //I04R
@@ -197,8 +197,8 @@ init
     +"+20 All Stats\n"
     +"Passive: Increases Damage dealt by 95% for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Warsong Battle Drums.(|c001CE6B9" + shopRecipes2 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Warsong Battle Drums.(|c001CE6B9" + shopNameRecipes2 + "|r)")
     ..setHotkey("")
 
 //I04S
@@ -217,8 +217,8 @@ init
     +"+50% Attack speed\n"
     +"Passive: Increases Damage dealt by Ranged Attacks by 110% for Allies in a 900 Radius.\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Alleria's Flute of Accuracy (|c001CE6B9" + shopRecipes2 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Alleria's Flute of Accuracy (|c001CE6B9" + shopNameRecipes2 + "|r)")
     ..setHotkey("")
 
 //I04X
@@ -237,9 +237,9 @@ init
     +"+2500 HP\n"
     +"+240 Damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Helm of Valor (|c001CE6B9" + shopRecipes2 + "|r)\n"
-    +"Study War Axe (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Helm of Valor (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
+    +"Study War Axe (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
 
 //I04Y
@@ -258,7 +258,7 @@ init
     +"+40 Armor\n"
     +"+240 Damage\n"
     +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Amulet of the Wild (|c001CE6B9" + shopRecipes1 + "|r)\n"
-    +"Simple Sword (|c007EBFF1" +  shopBasicItems1 + "|r)")
+    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Amulet of the Wild (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
+    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
     ..setHotkey("")
