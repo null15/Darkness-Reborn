@@ -13,6 +13,9 @@ import Icons
 import LinkedList
 import HashMap
 
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
 public class ShopInfo
     int shopId
     string shopName
@@ -25,11 +28,18 @@ public class ShopInfo
         this.itemsMade = itemsMade
         this.itemsSold = itemsSold
 
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
 let shopsInfo = new LinkedList<ShopInfo>()
 // key = itemId, value = shopId
 let itemsShopsMap = new HashMap<int, int>()
 
-init
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+@compiletime
+function initLists()
     shopsInfo.add(
         new ShopInfo(
             BUILDING_SHOP_BASIC_ITEMS1,
@@ -222,15 +232,26 @@ init
     )
 
     for shopInfo in shopsInfo
+        //println("ShopInfo.\n\tshopId = {0}\n\tshopName = {1}".format(shopInfo.shopId.toString(), shopInfo.shopName))
+
+        //println("\n\titemsMade:")
         for itemId in shopInfo.itemsMade
             itemsShopsMap.put(itemId, shopInfo.shopId)
+            //println("\t\titemId = {0}".format(itemId.toString()))
+
+        //println("\n\titemsSold:")
         for itemId in shopInfo.itemsSold
             itemsShopsMap.put(itemId, shopInfo.shopId)
+            //println("\t\titemId = {0}".format(itemId.toString()))
+        //println("\n\n\n\n")
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 public function getShopIdForItem(int itemId) returns int
-    //if (itemsShopsMap.has(itemId))
-    return itemsShopsMap.get(itemId)
-    //return -1
+    if (itemsShopsMap.has(itemId))
+        return itemsShopsMap.get(itemId)
+    return -1
 
 public function getShopInfoById(int shopId) returns ShopInfo
     for shopInfo in shopsInfo
@@ -240,6 +261,8 @@ public function getShopInfoById(int shopId) returns ShopInfo
 
 public function getShopInfoForItem(int itemId) returns ShopInfo
     let shopId = getShopIdForItem(itemId)
+    if (shopId == -1)
+        return null
     return getShopInfoById(shopId)
 
 public function getShopNameForItem(int itemId) returns string
@@ -269,7 +292,8 @@ public function getShopName(int shopId) returns string
 
 public function getShopItemsListMade(int shopId) returns string
     let shopInfo = getShopInfoById(shopId)
-    if (shopInfo == null)
+    if (shopInfo == null or
+        shopInfo.itemsMade.size() == 0)
         return ""
 
     string result = ""
@@ -280,7 +304,8 @@ public function getShopItemsListMade(int shopId) returns string
 
 public function getShopItemsListSold(int shopId) returns string
     let shopInfo = getShopInfoById(shopId)
-    if (shopInfo == null)
+    if (shopInfo == null or
+        shopInfo.itemsSold.size() == 0)
         return ""
 
     string result = ""
@@ -291,7 +316,7 @@ public function getShopItemsListSold(int shopId) returns string
 
 public function getHotKey(int itemId) returns string
     let hotKeys = [
-        "Q", "W", "R", "T",
+        "Q", "W", "E", "R",
         "A", "S", "D", "F",
         "Z", "X", "C", "V"
     ]
@@ -309,6 +334,9 @@ public function getHotKey(int itemId) returns string
         idx++
     
     return ""
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 @compiletime function shops()
     // Basic Items Shops
@@ -535,6 +563,9 @@ public function getHotKey(int itemId) returns string
     ..setStockReplenishInterval(120)
     ..setHideMinimapDisplay(true)
 
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
 @compiletime function creeps_rooms_tp()
     new BuildingDefinition(BUILDING_CREEPS_TP1, UnitIds.goblinmerchant)
     ..setName(shopNameCreepsTp1)
@@ -603,6 +634,9 @@ public function getHotKey(int itemId) returns string
     ..setItemsMade(getShopItemsListMade(BUILDING_CREEPS_TP4))
     ..setItemsSold(getShopItemsListSold(BUILDING_CREEPS_TP4))
     ..setHideMinimapDisplay(true)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 @compiletime function tinkerShops()
 
@@ -883,3 +917,5 @@ public function getHotKey(int itemId) returns string
     ..setTooltipExtended("Sells advanced items' recipes.")
     ..setName(shopNameTinkerRecipes)
     ..setManaRegeneration(0.00)
+
+// ----------------------------------------------------------------------------

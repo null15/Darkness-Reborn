@@ -1,0 +1,205 @@
+package MyItemBaseDefinition
+
+import CommonDescriptions
+import ItemIds
+import Recipes
+import Object_Shops
+import Object_ItemsNames
+import ItemObjEditing
+import LinkedList
+import MyItemIds
+import UnitObjEditing
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public class MyItemBaseDefinition extends ItemDefinition
+    // The item's ID. Example: Scroll of Fusion.
+    int itemId
+
+    construct(int newId)
+        super(newId, ItemIds.orbofDarkness)
+        this.itemId = newId
+
+        setActivelyUsed(false)
+        setUseAutomaticallyWhenAcquired(false)
+        setAbilities("")
+
+        setGoldCost(0)
+        setLumberCost(0)
+
+        setStockMaximum(1)
+        setStockReplenishInterval(0)
+        setStockStartDelay(0)
+
+        setPerishable(false)
+        setNumberofCharges(0)
+
+        setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
+
+        setScalingValue(1)
+        setTintingColor1Red(255)
+        setTintingColor2Green(255)
+        setTintingColor3Blue(255)
+
+        setCanBeSoldByMerchants(true)
+        setCanBeSoldToMerchants(true)
+
+        setCanBeDropped(true)
+        setDroppedWhenCarrierDies(false)
+
+        setIgnoreCooldown(false)
+        setIncludeAsRandomChoice(true)
+        setValidTargetForTransformation(false)
+
+        setPriority(1)
+        setLevel(1)
+        // So any 1 lvl hero can destroy item in creeps room.
+        setHitPoints(10)
+
+        setRequirements("")
+        setRequirementsLevels("")
+        setClassification("PowerUp")
+
+    function register()
+        
+    string tooltipExtended
+    string tooltipBasic
+    string name
+    string hotkey
+    string description
+    int    goldCost
+    string interfaceIcon
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+    override function setTooltipExtended(string data)
+        super.setTooltipExtended(data)
+        tooltipExtended = data
+
+    override function setTooltipBasic(string data)
+        super.setTooltipBasic(data)
+        tooltipBasic = data
+
+    override function setRequirementsLevels(string data)
+        super.setRequirementsLevels(data)
+
+    override function setRequirements(string data)
+        super.setRequirements(data)
+
+    override function setName(string data)
+        super.setName(data)
+        name = data
+
+    override function setHotkey(string data)
+        super.setHotkey(data)
+        hotkey = data
+
+    override function setDescription(string data)
+        super.setDescription(data)
+        description = data
+
+    override function setButtonPositionY(int data)
+        super.setButtonPositionY(data)
+
+    override function setButtonPositionX(int data)
+        super.setButtonPositionX(data)
+
+    override function setAbilities(string data)
+        super.setAbilities(data)
+
+    override function setArmorType(ArmorType data)
+        super.setArmorType(data)
+
+    override function setClassification(string data)
+        super.setClassification(data)
+
+    override function setTintingColor3Blue(int data)
+        super.setTintingColor3Blue(data)
+
+    override function setTintingColor2Green(int data)
+        super.setTintingColor2Green(data)
+
+    override function setTintingColor1Red(int data)
+        super.setTintingColor1Red(data)
+
+    override function setCooldownGroup(string data)
+        super.setCooldownGroup(data)
+
+    override function setDroppedWhenCarrierDies(boolean data)
+        super.setDroppedWhenCarrierDies(data)
+
+    override function setCanBeDropped(boolean data)
+        super.setCanBeDropped(data)
+
+    override function setModelUsed(string data)
+        super.setModelUsed(data)
+
+    override function setGoldCost(int data)
+        super.setGoldCost(data)
+        goldCost = data
+
+    override function setHitPoints(int data)
+        super.setHitPoints(data)
+
+    override function setIgnoreCooldown(boolean data)
+        super.setIgnoreCooldown(data)
+
+    override function setLevel(int data)
+        super.setLevel(data)
+
+    override function setLumberCost(int data)
+        super.setLumberCost(data)
+
+    override function setValidTargetForTransformation(boolean data)
+        super.setValidTargetForTransformation(data)
+
+    override function setLevelUnclassified(int data)
+        super.setLevelUnclassified(data)
+
+    override function setPerishable(boolean data)
+        super.setPerishable(data)
+
+    override function setIncludeAsRandomChoice(boolean data)
+        super.setIncludeAsRandomChoice(data)
+
+    override function setUseAutomaticallyWhenAcquired(boolean data)
+        super.setUseAutomaticallyWhenAcquired(data)
+
+    override function setPriority(int data)
+        super.setPriority(data)
+
+    override function setScalingValue(real data)
+        super.setScalingValue(data)
+
+    override function setCanBeSoldByMerchants(boolean data)
+        super.setCanBeSoldByMerchants(data)
+
+    override function setCanBeSoldToMerchants(boolean data)
+        super.setCanBeSoldToMerchants(data)
+
+    override function setStockMaximum(int data)
+        super.setStockMaximum(data)
+
+    override function setStockReplenishInterval(int data)
+        super.setStockReplenishInterval(data)
+
+    override function setStockStartDelay(int data)
+        super.setStockStartDelay(data)
+
+    override function setActivelyUsed(boolean data)
+        super.setActivelyUsed(data)
+
+    override function setNumberofCharges(int data)
+        super.setNumberofCharges(data)
+
+    override function setInterfaceIcon(string data)
+        super.setInterfaceIcon(data)
+        interfaceIcon = data
+
+    override function setMaxStack(int data)
+        super.setMaxStack(data)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------

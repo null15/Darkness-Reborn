@@ -2,7 +2,7 @@ package CommonDescriptions
 
 public let colRst             = "|r"
 public let colBasic           = "|c0000C800"
-public let colRecipe          = "|c000000C8"
+public let colRecipe          = "|c002979fa"
 public let colLateGame1       = "|c00C80000"
 public let colLateGame2       = "|c004896E1"
 public let colHotKey          = "|c00FFFC01"

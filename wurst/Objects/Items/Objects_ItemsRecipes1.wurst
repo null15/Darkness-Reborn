@@ -10,8 +10,7 @@ import ObjectIds
 import MyAbilityIds
 import Icons
 import Abilities
-
-init
+import RecipeItems
 
 @compiletime function createItems()
 
@@ -242,22 +241,25 @@ init
     ..setHotkey("")
 
 //I040
-    new MyItemDefinition(ITEM_RECIPE_SCROLL_OF_FUSION)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")    
-    ..setClassification("Charged")
+    new MyRecipeItemDefinition(ITEM_SCROLL_OF_FUSION, itemRecipeList, ITEM_RECIPE_SCROLL_OF_FUSION, 
+    (MyItemBaseDefinition itemRecipe) -> itemRecipe
     ..setGoldCost(400)
-    ..setStockReplenishInterval(3)
-    ..setStockStartDelay(3)
-    // ..describeRecipeItem(
-    // +"+12 All Stats\n"
-    // +"+300 HP\n"
-    // +"+10 Armor\n"
-    // +"+5 HP/s\n")
-    
-    // +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    // +"Circlet of Nobility (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
-    // +"Ring of Regeneration (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
-    // +"Ring of Protection (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
+    ..setStockReplenishInterval(3)   
+    ..setStockStartDelay(3) 
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
+    ..setClassification("Charged")
+    ..describe(
+    "+12 All Stats\n" +
+    "+300 HP\n" +
+    "+10 Armor\n" +
+    "+5 HP/s\n")
+    ..addComponents(
+    ITEM_RING_OF_REGENERATION,
+    ITEM_RING_OF_PROTECTION,
+    ITEM_CIRCLET_OF_NOBILITY,
+    ITEM_RECIPE_SCROLL_OF_FUSION)
+    ..register()
 
 //I03Z
     new MyItemDefinition(ITEM_RECIPE_AMULET_OF_THE_WILD)
