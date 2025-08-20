@@ -58,10 +58,9 @@ class MyItemBaseDefinition extends ItemDefinition
         setRequirements("")
         setRequirementsLevels("")
         setClassification("PowerUp")
-
-    ondestroy
-        setHotkey(getHotKey(itemId))
         
+        setHotkey(getHotKey(itemId))
+
 // ----------------------------------------------------------------------------
 
 public class MyItemDefinition extends MyItemBaseDefinition
@@ -149,134 +148,134 @@ class MyItemCombinationDefinition extends MyItemBaseDefinition
 
 // ----------------------------------------------------------------------------
 
-public class MyRecipeItemDefinition extends MyItemCombinationDefinition
-    // The item's ID. Example: Scroll of Fusion.
-    int itemId
+// public class MyRecipeItemDefinition extends MyItemCombinationDefinition
+//     // The item's ID. Example: Scroll of Fusion.
+//     int itemId
 
-    // ID of the recipe-item for this item. Example: Recipe Scroll of Fusion.
-    // If there is no recipeItem, then 'recipeItemId' == -1. Example: Angel Mace.
-    int recipeItemId
-    // Link to list with recipes.
-    RecipeList recipeList
-    // List of components. If 'recipeItemId' != -1, then 'recipeItemId' must be included in 'components'.
-    LinkedList<int> components
+//     // ID of the recipe-item for this item. Example: Recipe Scroll of Fusion.
+//     // If there is no recipeItem, then 'recipeItemId' == -1. Example: Angel Mace.
+//     int recipeItemId
+//     // Link to list with recipes.
+//     RecipeList recipeList
+//     // List of components. If 'recipeItemId' != -1, then 'recipeItemId' must be included in 'components'.
+//     LinkedList<int> components
 
-    string effects
+//     string effects
     
-    int recipeGoldCost
-    int recipeLumberCost
+//     int recipeGoldCost
+//     int recipeLumberCost
 
-    construct(int newId, RecipeList recipeList)
-        super(newId)
-        this.itemId           = newId
+//     construct(int newId, RecipeList recipeList)
+//         super(newId)
+//         this.itemId           = newId
 
-        this.recipeItemId     = -1
-        this.components       = null
-        this.recipeList       = recipeList
+//         this.recipeItemId     = -1
+//         this.components       = null
+//         this.recipeList       = recipeList
 
-        this.effects          = "null"
+//         this.effects          = "null"
 
-        this.recipeGoldCost   = 0
-        this.recipeLumberCost = 0
+//         this.recipeGoldCost   = 0
+//         this.recipeLumberCost = 0
         
-    function describe(string effects)
-        this.effects = effects
+//     function describe(string effects)
+//         this.effects = effects
 
-    function addRecipeItemId(int recipeItemId)
-        this.recipeItemId = recipeItemId
+//     function addRecipeItemId(int recipeItemId)
+//         this.recipeItemId = recipeItemId
 
-    override function setGoldCost(int itemGoldCost)
-        super.setGoldCost(itemGoldCost)
+//     override function setGoldCost(int itemGoldCost)
+//         super.setGoldCost(itemGoldCost)
 
-    override function setLumberCost(int itemLumberCost)
-        super.setLumberCost(itemLumberCost)
+//     override function setLumberCost(int itemLumberCost)
+//         super.setLumberCost(itemLumberCost)
 
-    function setGoldCost(int itemGoldCost, int recipeGoldCost)
-        super.setGoldCost(itemGoldCost)
-        this.recipeGoldCost = recipeGoldCost
+//     function setGoldCost(int itemGoldCost, int recipeGoldCost)
+//         super.setGoldCost(itemGoldCost)
+//         this.recipeGoldCost = recipeGoldCost
         
-    function setLumberCost(int itemLumberCost, int recipeLumberCost)
-        super.setLumberCost(itemLumberCost)
-        this.recipeLumberCost = recipeLumberCost
+//     function setLumberCost(int itemLumberCost, int recipeLumberCost)
+//         super.setLumberCost(itemLumberCost)
+//         this.recipeLumberCost = recipeLumberCost
 
-    ondestroy
-        if (recipeItemId != -1)
-            // Create definition for item's recipe.
+//     ondestroy
+//         if (recipeItemId != -1)
+//             // Create definition for item's recipe.
                     
-            new MyItemDefinition(ITEM_SCROLL_OF_FUSION)
-            ..setGoldCost(0)
-            ..setLevel(3)
-            ..setPerishable(true)
-            ..setPriority(0)
-            ..setStockMaximum(2)
-            ..setStockReplenishInterval(120)
-            ..setDescription("Scroll")
-            ..setName("Scroll of Fusion")
-            ..setTooltipBasic("Mua Scroll of Fusion")
-            ..setTooltipExtended("|c00FFFC01Effect:|r  \n+12 All Stats\n+300 HP\n+10 Armor\n+5 HP/s")
-            ..setHotkey("D")
+//             new MyItemDefinition(ITEM_SCROLL_OF_FUSION)
+//             ..setGoldCost(0)
+//             ..setLevel(3)
+//             ..setPerishable(true)
+//             ..setPriority(0)
+//             ..setStockMaximum(2)
+//             ..setStockReplenishInterval(120)
+//             ..setDescription("Scroll")
+//             ..setName("Scroll of Fusion")
+//             ..setTooltipBasic("Mua Scroll of Fusion")
+//             ..setTooltipExtended("|c00FFFC01Effect:|r  \n+12 All Stats\n+300 HP\n+10 Armor\n+5 HP/s")
+//             ..setHotkey("D")
 
-            let recipeItem = new MyItemDefinition(recipeItemId)
-            ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")    
-            ..setClassification("Charged")
-            ..setGoldCost(recipeGoldCost)
-            ..setLumberCost(recipeLumberCost)
-            ..setStockReplenishInterval(3)
-            ..setStockStartDelay(3)
-            ..describeRecipeItem(
-            +"+12 All Stats\n"
-            +"+300 HP\n"
-            +"+10 Armor\n"
-            +"+5 HP/s\n")
+//             let recipeItem = new MyItemDefinition(recipeItemId)
+//             ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")    
+//             ..setClassification("Charged")
+//             ..setGoldCost(recipeGoldCost)
+//             ..setLumberCost(recipeLumberCost)
+//             ..setStockReplenishInterval(3)
+//             ..setStockStartDelay(3)
+//             ..describeRecipeItem(
+//             +"+12 All Stats\n"
+//             +"+300 HP\n"
+//             +"+10 Armor\n"
+//             +"+5 HP/s\n")
             
 
-    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Circlet of Nobility (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
-    +"Ring of Regeneration (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
-    +"Ring of Protection (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
-    ..setHotkey("")
+//     +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+//     +"Circlet of Nobility (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+//     +"Ring of Regeneration (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+//     +"Ring of Protection (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
+//     ..setHotkey("")
 
-        // Generate effects ... 
+//         // Generate effects ... 
 
-        let itemName = getItemName(itemId)
-        // The item name
-        setName(itemName)
-        // The chest item description
-        setDescription(wordEffects + "\n" + effects)
-        // The shop name
-        setTooltipBasic("Purchase " + itemName)
-        // The shop text
-        setDescription(wordEffects + "\n" + effects)
+//         let itemName = getItemName(itemId)
+//         // The item name
+//         setName(itemName)
+//         // The chest item description
+//         setDescription(wordEffects + "\n" + effects)
+//         // The shop name
+//         setTooltipBasic("Purchase " + itemName)
+//         // The shop text
+//         setDescription(wordEffects + "\n" + effects)
 
-    function addComponents(int item1)
-        this.recipeList.addRecipe(item1, this.itemId)
-        this.components = new LinkedList<int>()
-        this.components.add(item1)
+//     function addComponents(int item1)
+//         this.recipeList.addRecipe(item1, this.itemId)
+//         this.components = new LinkedList<int>()
+//         this.components.add(item1)
 
-    function addComponents(int item1, int item2)
-        this.recipeList.addRecipe(item1, item2, this.itemId)
-        this.components = new LinkedList<int>()
-        this.components.add(item1, item2)
+//     function addComponents(int item1, int item2)
+//         this.recipeList.addRecipe(item1, item2, this.itemId)
+//         this.components = new LinkedList<int>()
+//         this.components.add(item1, item2)
 
-    function addComponents(int item1, int item2, int item3)
-        this.recipeList.addRecipe(item1, item2, item3, this.itemId)
-        this.components = new LinkedList<int>()
-        this.components.add(item1, item2, item3)
+//     function addComponents(int item1, int item2, int item3)
+//         this.recipeList.addRecipe(item1, item2, item3, this.itemId)
+//         this.components = new LinkedList<int>()
+//         this.components.add(item1, item2, item3)
 
-    function addComponents(int item1, int item2, int item3, int item4)
-        this.recipeList.addRecipe(item1, item2, item3, item4, this.itemId)
-        this.components = new LinkedList<int>()
-        this.components.add(item1, item2, item3, item4)
+//     function addComponents(int item1, int item2, int item3, int item4)
+//         this.recipeList.addRecipe(item1, item2, item3, item4, this.itemId)
+//         this.components = new LinkedList<int>()
+//         this.components.add(item1, item2, item3, item4)
 
-    function addComponents(int item1, int item2, int item3, int item4, int item5)
-        this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.itemId)
-        this.components = new LinkedList<int>()
-        this.components.add(item1, item2, item3, item4, item5)
+//     function addComponents(int item1, int item2, int item3, int item4, int item5)
+//         this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.itemId)
+//         this.components = new LinkedList<int>()
+//         this.components.add(item1, item2, item3, item4, item5)
 
-    function addComponents(int item1, int item2, int item3, int item4, int item5, int item6)
-        this.recipeList.addRecipe(item1, item2, item3, item4, item5, item6, this.itemId)
-        this.components = new LinkedList<int>()
-        this.components.add(item1, item2, item3, item4, item5, item6)
+//     function addComponents(int item1, int item2, int item3, int item4, int item5, int item6)
+//         this.recipeList.addRecipe(item1, item2, item3, item4, item5, item6, this.itemId)
+//         this.components = new LinkedList<int>()
+//         this.components.add(item1, item2, item3, item4, item5, item6)
 
 // ----------------------------------------------------------------------------
 

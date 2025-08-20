@@ -248,17 +248,16 @@ init
     ..setGoldCost(400)
     ..setStockReplenishInterval(3)
     ..setStockStartDelay(3)
-    ..describeRecipeItem(
-    +"+12 All Stats\n"
-    +"+300 HP\n"
-    +"+10 Armor\n"
-    +"+5 HP/s\n")
+    // ..describeRecipeItem(
+    // +"+12 All Stats\n"
+    // +"+300 HP\n"
+    // +"+10 Armor\n"
+    // +"+5 HP/s\n")
     
-    +"|c00FEBA0EMaterials required to craft this item: :|r\n"
-    +"Circlet of Nobility (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
-    +"Ring of Regeneration (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
-    +"Ring of Protection (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
-    ..setHotkey("")
+    // +"|c00FEBA0EMaterials required to craft this item: :|r\n"
+    // +"Circlet of Nobility (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    // +"Ring of Regeneration (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
+    // +"Ring of Protection (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
 
 //I03Z
     new MyItemDefinition(ITEM_RECIPE_AMULET_OF_THE_WILD)

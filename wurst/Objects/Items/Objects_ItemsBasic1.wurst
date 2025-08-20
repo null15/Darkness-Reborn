@@ -23,8 +23,8 @@ init
     ..setAbilities(commaList(ITEM_GLOVES_OF_HASTE_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGlove.blp")
     ..setGoldCost(700)
-    ..describeBasicItem(
-    "+15% Attack speed")
+    // ..describeBasicItem(
+    // "+15% Attack speed")
 
 //I00Z
     new AbilityDefinitionAttackSpeedIncrease(ITEM_GLOVES_OF_HADES_ABI1)
@@ -34,8 +34,8 @@ init
     ..setAbilities(commaList(ITEM_GLOVES_OF_HADES_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRogues Gauntlets.blp")    
     ..setGoldCost(1000)
-    ..describeBasicItem(
-    "+25% Attack speed")
+    // ..describeBasicItem(
+    // "+25% Attack speed")
 
 //I01T
     new AbilityDefinitionAttackSpeedIncrease(ITEM_GLOVES_OF_WIND_ABI1)
@@ -45,8 +45,8 @@ init
     ..setAbilities(commaList(ITEM_GLOVES_OF_WIND_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDuelists Gauntlets.blp")    
     ..setGoldCost(1400)
-    ..describeBasicItem(
-    "+40% Attack speed")
+    // ..describeBasicItem(
+    // "+40% Attack speed")
 
 //I018
     new AbilityDefinitionVampiricattack(ITEM_LIFE_STEAL_ABI1)
@@ -56,8 +56,8 @@ init
     ..setAbilities(commaList(ITEM_LIFE_STEAL_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNMaskOfDeath.blp")    
     ..setGoldCost(1000)
-    ..describeBasicItem(
-    "+11% Life Steal")
+    // ..describeBasicItem(
+    // "+11% Life Steal")
 
 //I01Q
     new AbilityDefinitionDefenseBonusPlus1(ITEM_LEATHER_ARMOR_ABI1)

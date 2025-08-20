@@ -112,13 +112,13 @@ function createSetup()
     dividend = (posMax - posMin) / 4
     posY = posMin + 100
 
-    let endGamebosses = CreateUnit(p, BUILDING_17, posX, posY, 270.000) // End-game bosses
+    let endGamebosses = CreateUnit(p, BUILDING_CREEPS_TP4, posX, posY, 270.000) // End-game bosses
     posY = posY + dividend
-    let eliteGrounds = CreateUnit(p, BUILDING_16, posX, posY, 270.000) // Elite hunting grounds
+    let eliteGrounds = CreateUnit(p, BUILDING_CREEPS_TP3, posX, posY, 270.000) // Elite hunting grounds
     posY = posY + dividend
-    let intermediateGrounds = CreateUnit(p, BUILDING_15, posX, posY, 270.000) // Intermediate hunting grounds
+    let intermediateGrounds = CreateUnit(p, BUILDING_CREEPS_TP2, posX, posY, 270.000) // Intermediate hunting grounds
     posY = posY + dividend
-    let easyGrounds = CreateUnit(p, BUILDING_14, posX, posY, 270.000) // Easy hunting grounds
+    let easyGrounds = CreateUnit(p, BUILDING_CREEPS_TP1, posX, posY, 270.000) // Easy hunting grounds
 
     posX = GetRectCenterX(gg_rct_ShopLeft) - 150
     posMax = GetRectMaxY(gg_rct_ShopLeft)

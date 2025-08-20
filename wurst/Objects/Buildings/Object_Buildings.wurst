@@ -28,7 +28,7 @@ import MyAbilityIds
     ..setScalingValue(5)
     ..setDefenseBase(25)
     ..setDefenseUpgradeBonus(5)
-    ..setHideMinimapDisplay(true)
+    ..setHideMinimapDisplay(false)
 
     new BuildingDefinition(DROPSITE, UnitIds.marketplace)
     ..setName("Drop Site")
@@ -52,5 +52,5 @@ import MyAbilityIds
     ..setItemsMade(commaList(""))
     ..setItemsSold(commaList(ITEM_LUMBER100_TO_GOLD, ITEM_LUMBER_100, ITEM_EMPTY_VIAL, ITEM_QUEST))
     ..setUnitsSold(commaList(HORSE_UNIT_1, HORSE_UNIT_2))
-    ..setHideMinimapDisplay(true)
+    ..setHideMinimapDisplay(false)
     ..setUnitClassification(commaList("mechanical", "neutral", "townhall"))

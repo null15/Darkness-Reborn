@@ -11,6 +11,8 @@ public let colTinkerTomes     = "|c006BF1F6"
 public let colTinkerLumber    = "|c005FA412"
 public let colTinkerRecipes   = "|c00AF3BD9"
 
+public let colCreepsTp        = "|c00505050" 
+
 public function itemNameBasic(string name) returns string
     return colBasic + name + colRst
 
@@ -32,6 +34,9 @@ public function itemNameTinkerLumber(string name) returns string
 public function itemNameTinkerRecipe(string name) returns string
     return colTinkerRecipes + name + colRst
 
+public function itemNameCreepsTp(string name) returns string
+    return colCreepsTp + name + colRst
+
 public let shopNameBasicItems1    = itemNameBasic("Basic Items (1)")
 public let shopNameBasicItems2    = itemNameBasic("Basic Items (2)")
 public let shopNameBasicItems3    = itemNameBasic("Basic Items (3)")
@@ -50,6 +55,11 @@ public let shopNameLateGameItems4 = itemNameLateGame2("Late Game Items (4)")
 public let shopNameTinkerTomes    = itemNameTinkerTome("Tomes Advanced Shop")
 public let shopNameTinkerLumber   = itemNameTinkerLumber("Advanced Lumber Shop")
 public let shopNameTinkerRecipes  = itemNameTinkerRecipe("Goblin Items Shop")
+
+public let shopNameCreepsTp1      = itemNameCreepsTp("Easy hunting grounds")
+public let shopNameCreepsTp2      = itemNameCreepsTp("Intermediate hunting grounds")
+public let shopNameCreepsTp3      = itemNameCreepsTp("Elite hunting grounds")
+public let shopNameCreepsTp4      = itemNameCreepsTp("End-game bosses")
 
 public let monsterDrop      = "Monster Drop"
 public let bossDrop         = "Boss Drop"
