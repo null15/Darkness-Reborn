@@ -241,24 +241,24 @@ import RecipeItems
     ..setHotkey("")
 
 //I040
-    new MyRecipeItemDefinition(ITEM_SCROLL_OF_FUSION, itemRecipeList, ITEM_RECIPE_SCROLL_OF_FUSION, 
-    (MyItemBaseDefinition itemRecipe) -> itemRecipe
+    new MyItemWithRecipeDefinition(ITEM_SCROLL_OF_FUSION, itemRecipeList, ITEM_RECIPE_SCROLL_OF_FUSION, 
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(400)
     ..setStockReplenishInterval(3)   
     ..setStockStartDelay(3) 
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
     ..setClassification("Charged")
-    ..describe(
-    "+12 All Stats\n" +
-    "+300 HP\n" +
-    "+10 Armor\n" +
-    "+5 HP/s\n")
+    ..addStats(addAllStats(12))
+    ..addStats(addHP(300))
+    ..addStats(addArmor(10))
+    ..addStats(addHPReg(5))
     ..addComponents(
     ITEM_RING_OF_REGENERATION,
     ITEM_RING_OF_PROTECTION,
     ITEM_CIRCLET_OF_NOBILITY,
     ITEM_RECIPE_SCROLL_OF_FUSION)
+    ..addHotKey()
     ..register()
 
 //I03Z

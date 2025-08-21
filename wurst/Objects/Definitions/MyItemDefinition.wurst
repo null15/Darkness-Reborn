@@ -8,11 +8,13 @@ import Object_ItemsNames
 import ItemObjEditing
 import LinkedList
 import MyItemIds
+import ObjectIds
+import public ItemStats
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 
-public class MyItemBaseDefinition extends ItemDefinition
+public class MyItemDefinitionBase extends ItemDefinition
     // The item's ID. Example: Scroll of Fusion.
     int itemId
 
@@ -65,9 +67,37 @@ public class MyItemBaseDefinition extends ItemDefinition
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 
-public class MyItemDefinition extends MyItemBaseDefinition
+// To define simple items: ring of protection, simple sword.
+public class MyItemDefinition extends MyItemDefinitionBase
+    string abilityList
+    string effects
+    string extraEffects
+
     construct(int newId)
         super(newId)
+        this.abilityList  = ""
+        this.effects      = ""
+        this.extraEffects = ""
+
+    function addStats(ItemStats itemStats)
+        itemStats.addCustomStats(itemId)
+        effects = effects + itemStats.effects + "\n"
+        
+        if (itemStats.addToAbilityList())
+            abilityList = abilityList + itemStats.abilityId.toRawCode() + ","
+    
+    function applyStats()
+        abilityList = abilityList.substring(0, abilityList.length() - 1)
+        setAbilities(abilityList)
+
+    function addExtraDescription(string extraDescription)
+        this.extraEffects = extraDescription
+
+    function getEffectsDescription() returns string
+        if (extraEffects == "")
+            return wordEffects + effects
+        else
+            return wordEffects + effects + wordExtraEffects + extraEffects
         
     function describe(string effects)
         let itemName = getItemName(itemId)
@@ -80,48 +110,76 @@ public class MyItemDefinition extends MyItemBaseDefinition
         // The shop and inventory text
         setTooltipExtended(wordEffects + "\n" + effects)
 
+    function addHotKey()
+        setHotkey(getHotKey(itemId))
+
     override function register()
+        applyStats()
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 
-class MyItemCombinationDefinition extends MyItemBaseDefinition
+// To define 'hidden' recipes (jacksmith, thief, arkenstone, angel mace).
+// Such recipes have no recipe-item. But info-recipe-item can be added to help
+// players.
+class MyItemWithCraftInfoDefinition extends MyItemDefinition
+    // Item and recipe-item icon.
+    string icon
+
     // Link to list with recipes.
     RecipeList recipeList
     // List of components.
     LinkedList<int> components
-
-    string effects
     
-    construct(int newId, RecipeList recipeList)
+    // ID of the recipe-item for this item.
+    // -1 to not add.
+    int recipeItemId
+    
+    construct(int newId, RecipeList recipeList, int recipeItemId)
         super(newId)
 
-        this.components       = null
         this.recipeList       = recipeList
+        this.recipeItemId     = recipeItemId
 
-        this.effects          = "null"
+        this.icon             = ""
+        this.components       = null
         
-    function describe(string effects)
-        this.effects = effects
-
     function getMaterialsDescription() returns string
         string materials = wordMaterials
         for comp in components
             materials = materials + getItemName(comp) + " (" + getShopNameForItem(comp) + ")\n"
         return materials
 
+    function getRecipeDescription() returns string
+        return getEffectsDescription() + getMaterialsDescription()
+
     override function register()
-        let materials = getMaterialsDescription()
+        applyStats()
 
         let itemName = getItemName(itemId)
+        let descrEffects = getEffectsDescription()
+        let descrRecipe  = getRecipeDescription()
+
         // The item name
         setName(itemName)
         // The chest item description
-        setDescription(wordEffects + effects + "\n" + materials)
+        setDescription(descrEffects)
         // The shop name
         setTooltipBasic("Purchase " + itemName)
         // The shop and inventory text
-        setTooltipExtended(wordEffects + effects + materials)
+        setTooltipExtended(descrEffects)
+
+        if (recipeItemId != -1)
+            new MyItemDefinitionBase(recipeItemId)
+            ..setInterfaceIcon(icon)
+            ..setName("Craft Info " + itemName)
+            ..setTooltipBasic("Craft Info " + itemName)
+            ..setTooltipExtended(descrRecipe)
+            ..setStockMaximum(0)
+
+    override function setInterfaceIcon(string data)
+        super.setInterfaceIcon(data)
+        icon = data
 
     function addComponents(int item1)
         this.recipeList.addRecipe(item1, this.itemId)
@@ -158,35 +216,43 @@ class MyItemCombinationDefinition extends MyItemBaseDefinition
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+// Set properties to the recipe-item.
+// Example: 
+// setGoldCost(400)
+// setStockReplenishInterval(3)   
+// setStockStartDelay(3) 
 public interface InitItem
-    function call(MyItemBaseDefinition itemDef)
+    function call(MyItemDefinitionBase itemDef)
 
-public class MyRecipeItemDefinition extends MyItemCombinationDefinition
-    // The item's ID. Example: Scroll of Fusion.
-    int itemId
-    string icon
-
-    // ID of the recipe-item for this item. Example: Recipe Scroll of Fusion.
-    int recipeItemId
-
+// To define item with recipe-item.
+// Example: scroll of fusion = ring of protection + ring of regeneration + circlet of nobility + Recipe scroll of fusion.
+// The item 'scroll of fusion' has the recipe-item 'Recipe scroll of fusion'.
+public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
+    // Example: itemRecipeList, jackSmithRecipe. 
     InitItem initRecipe
 
     construct(int itemId, RecipeList recipeList, int recipeItemId, InitItem initRecipe)
-        super(itemId, recipeList)
-        this.itemId       = itemId
-        this.recipeItemId = recipeItemId
+        super(itemId, recipeList, recipeItemId)
         this.initRecipe   = initRecipe
 
-    override function setInterfaceIcon(string data)
-        super.setInterfaceIcon(data)
-        icon = data
+    override function getMaterialsDescription() returns string
+        string materials = wordMaterials
+        for comp in components
+            // Exclude 'Recipe Item' from materials required, because materials required
+            // list already shown in recipe item.
+            if (comp != recipeItemId)
+                materials = materials + getItemName(comp) + " (" + getShopNameForItem(comp) + ")\n"
+        return materials
 
     override function register()
-        let materials = getMaterialsDescription()
-
+        applyStats()
+        
         let itemName = getItemName(itemId)
-        let descrEffects = wordEffects + effects
-        let descrEffectsMaterials = descrEffects + materials
+        let descrEffects = getEffectsDescription()
+        let descrRecipe  = getRecipeDescription()
 
         // The item name
         setName(itemName)
@@ -197,12 +263,12 @@ public class MyRecipeItemDefinition extends MyItemCombinationDefinition
         // The shop and inventory text
         setTooltipExtended(descrEffects)
 
-        let recipeItemDef = new MyItemBaseDefinition(recipeItemId)
+        let recipeItemDef = new MyItemDefinitionBase(recipeItemId)
         recipeItemDef.setInterfaceIcon(icon)
         recipeItemDef.setName("Recipe " + itemName)
-        recipeItemDef.setDescription(descrEffectsMaterials)
+        recipeItemDef.setDescription(descrRecipe)
         recipeItemDef.setTooltipBasic("Purchase Recipe " + itemName)
-        recipeItemDef.setTooltipExtended(descrEffectsMaterials)
+        recipeItemDef.setTooltipExtended(descrRecipe)
         recipeItemDef.setHotkey(getHotKey(recipeItemId))
 
         initRecipe.call(recipeItemDef)
@@ -210,11 +276,10 @@ public class MyRecipeItemDefinition extends MyItemCombinationDefinition
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 
-public class MyCreepTpDefinition extends MyItemBaseDefinition
-
+// TODO. Will be used to list items dropped by creeps in info shops
+public class MyCreepTpDefinition extends MyItemDefinitionBase
     construct(int newId)
         super(newId)
-
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------

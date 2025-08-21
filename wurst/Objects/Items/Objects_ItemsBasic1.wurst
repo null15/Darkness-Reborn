@@ -16,173 +16,103 @@ init
 @compiletime function createItems()
 
 //I01S
-    new AbilityDefinitionAttackSpeedIncrease(ITEM_GLOVES_OF_HASTE_ABI1)
-    ..setAttackSpeedIncrease(1, 0.15)
-
     new MyItemDefinition(ITEM_GLOVES_OF_HASTE)
-    ..setAbilities(commaList(ITEM_GLOVES_OF_HASTE_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGlove.blp")
     ..setGoldCost(700)
-    // ..describeBasicItem(
-    // "+15% Attack speed")
+    ..addStats(addAttackSpeed(0.15))
+    ..addHotKey()
+    ..register()
 
 //I00Z
-    new AbilityDefinitionAttackSpeedIncrease(ITEM_GLOVES_OF_HADES_ABI1)
-    ..setAttackSpeedIncrease(1, 0.25)
-
     new MyItemDefinition(ITEM_GLOVES_OF_HADES)
     ..setAbilities(commaList(ITEM_GLOVES_OF_HADES_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRogues Gauntlets.blp")    
     ..setGoldCost(1000)
-    // ..describeBasicItem(
-    // "+25% Attack speed")
+    ..addStats(addAttackSpeed(0.25))
+    ..addHotKey()
+    ..register()
 
 //I01T
-    new AbilityDefinitionAttackSpeedIncrease(ITEM_GLOVES_OF_WIND_ABI1)
-    ..setAttackSpeedIncrease(1, 0.4)
-
     new MyItemDefinition(ITEM_GLOVES_OF_WIND)
     ..setAbilities(commaList(ITEM_GLOVES_OF_WIND_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDuelists Gauntlets.blp")    
     ..setGoldCost(1400)
-    // ..describeBasicItem(
-    // "+40% Attack speed")
+    ..addStats(addAttackSpeed(0.4))
+    ..addHotKey()
+    ..register()
 
 //I018
-    new AbilityDefinitionVampiricattack(ITEM_LIFE_STEAL_ABI1)
-    ..setLifeStolenPerAttack(1, 0.11)
-
     new MyItemDefinition(ITEM_LIFE_STEAL)
     ..setAbilities(commaList(ITEM_LIFE_STEAL_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNMaskOfDeath.blp")    
     ..setGoldCost(1000)
-    // ..describeBasicItem(
-    // "+11% Life Steal")
+    ..addStats(addLifeSteal(0.11))
+    ..addHotKey()
+    ..register()
 
 //I01Q
-    new AbilityDefinitionDefenseBonusPlus1(ITEM_LEATHER_ARMOR_ABI1)
-    ..setDefenseBonus(1, 5)
-    new AbilityDefinitionMaxLifeBonusGreater(ITEM_LEATHER_ARMOR_ABI2)
-    ..setMaxLifeGained(1, 200)
-
     new MyItemDefinition(ITEM_LEATHER_ARMOR)
     ..setAbilities(commaList(ITEM_LEATHER_ARMOR_ABI1, ITEM_LEATHER_ARMOR_ABI2))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLeatherShirt.blp")    
     ..setGoldCost(1300)
-    ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+5 Armor\n"
-    +"+200 HP")
-    ..setName("Leather Armor")
-    ..setTooltipBasic("Purchase Leather Armor |c00FFFC01[ H ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+5 Armor\n"
-    +"+200 HP")
-    ..setHotkey("H")
+    ..addStats(addArmor(5))
+    ..addStats(addHP(200))
+    ..addHotKey()
+    ..register()
 
 //I00P
-    new AbilityDefinitionDefenseBonusPlus1(ITEM_IRON_ARMOR_ABI1)
-    ..setDefenseBonus(1, 10)
-    new AbilityDefinitionMaxLifeBonusGreater(ITEM_IRON_ARMOR_ABI2)
-    ..setMaxLifeGained(1, 300)
-
     new MyItemDefinition(ITEM_IRON_ARMOR)
     ..setAbilities(commaList(ITEM_IRON_ARMOR_ABI1, ITEM_IRON_ARMOR_ABI2))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPlateArmor.blp")    
     ..setGoldCost(2500)
-    ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+10 Armor\n"
-    +"+300 HP")
-    ..setName("Iron Armor")
-    ..setTooltipBasic("Purchase Iron Armor |c00FFFC01[ J ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+10 Armor\n"
-    +"+300 HP")
-    ..setHotkey("J")
+    ..addStats(addArmor(10))
+    ..addStats(addHP(300))
+    ..addHotKey()
+    ..register()
 
 //I01R
-    new AbilityDefinitionDefenseBonusPlus1(ITEM_SILVER_ARMOR_ABI1)
-    ..setDefenseBonus(1, 10)
-    new AbilityDefinitionMaxLifeBonusGreater(ITEM_SILVER_ARMOR_ABI2)
-    ..setMaxLifeGained(1, 700)
-
     new MyItemDefinition(ITEM_SILVER_ARMOR)
     ..setAbilities(commaList('A01V', 'A044'))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSerpents' Plate Mail.blp")    
     ..setGoldCost(4000)
-    ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+20 Armor\n"
-    +"+700 HP")
-    ..setName("Silver Armor")
-    ..setTooltipBasic("Purchase Silver Armor |c00FFFC01[ K ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+20 Armor\n"
-    +"+700 HP")
-    ..setHotkey("K")
+    ..addStats(addArmor(10))
+    ..addStats(addHP(700))
+    ..addHotKey()
+    ..register()
 
 //I006
-    new AbilityDefinitionAttackBonus(ITEM_SIMPLE_SWORD_ABI1)
-    ..setAttackBonus(1, 20)
-    new AbilityDefinitionAgilityBonusPlus1(ITEM_SIMPLE_SWORD_ABI2)
-    ..setAgilityBonus(1, 5)
-
     new MyItemDefinition(ITEM_SIMPLE_SWORD)
     ..setAbilities(commaList(ITEM_SIMPLE_SWORD_ABI1, ITEM_SIMPLE_SWORD_ABI2))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_CW_Rune_Sword.blp")    
     ..setGoldCost(1200)
-    ..setDescription("|c00FFFC01Effect:|r\n"
-    +"+20 Damage\n"
-    +"+5 Agility")
-    ..setName("Simple Sword")
-    ..setTooltipBasic("Purchase Simple Sword |c00FFFC01[ L ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
-    +"+20 Damage\n"
-    +"+5 Agility")
-    ..setHotkey("L")
+    ..addStats(addDamage(20))
+    ..addStats(addAgi(5))
+    ..addHotKey()
+    ..register()
 
 //I00Q
-    new AbilityDefinitionAttackBonus(ITEM_CLAWS_OF_ATTACK_ABI1)
-    ..setAttackBonus(1, 12)
-
     new MyItemDefinition(ITEM_CLAWS_OF_ATTACK)
     ..setAbilities(commaList(ITEM_CLAWS_OF_ATTACK_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp")    
     ..setGoldCost(1000)
-    ..setDescription("|c00FFFC01Effect:|r\n"
-    +"+12 Damage")
-    ..setName("Claws of Attack")
-    ..setTooltipBasic("Purchase Claws of Attack  |c00FFFC01[ B ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
-    +"+12 Damage")
-    ..setHotkey("B")
+    ..addStats(addDamage(12))
+    ..addHotKey()
+    ..register()
 
 //I01B
-    new AbilityDefinitionAttackBonus(ITEM_STURDY_WAR_AXE_ABI1)
-    ..setAttackBonus(1, 30)
-
     new MyItemDefinition(ITEM_STURDY_WAR_AXE)
     ..setAbilities(commaList(ITEM_STURDY_WAR_AXE_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrcMeleeUpOne.blp")    
     ..setGoldCost(1300)
-    ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+30 Damage")
-    ..setName("Sturdy War Axe")
-    ..setTooltipBasic("Purchase Sturdy War Axe |c00FFFC01[ N ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+30 Damage")
-    ..setHotkey("N")
+    ..addStats(addDamage(30))
+    ..addHotKey()
+    ..register()
 
 //I01I
-    new AbilityDefinitionAttackBonus(ITEM_MAUL_OF_STRENGTH_ABI1)
-    ..setAttackBonus(1, 50)
-
     new MyItemDefinition(ITEM_MAUL_OF_STRENGTH)
     ..setAbilities(commaList(ITEM_MAUL_OF_STRENGTH_ABI1))
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHammer.blp")    
     ..setGoldCost(2000)
-    ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+50 Damage")
-    ..setName("Maul of Strength")
-    ..setTooltipBasic("Purchase Maul of Strength |c00FFFC01[ M ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+50 Damage")
-    ..setHotkey("M")
+    ..addStats(addDamage(50))
+    ..addHotKey()
+    ..register()

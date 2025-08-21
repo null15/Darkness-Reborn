@@ -61,26 +61,33 @@ public let shopNameCreepsTp2      = itemNameCreepsTp("Intermediate hunting groun
 public let shopNameCreepsTp3      = itemNameCreepsTp("Elite hunting grounds")
 public let shopNameCreepsTp4      = itemNameCreepsTp("End-game bosses")
 
-public let monsterDrop      = "Monster Drop"
-public let bossDrop         = "Boss Drop"
+public let monsterDrop         = "Monster Drop"
+public let bossDrop            = "Boss Drop"
 
-public let wordEffects      = "|c00FFFC01Effect:|r\n"
-public let wordMaterials    = "|c00FEBA0EMaterials required to craft this item:|r\n"
+public let wordEffects         = "|c00FFFC01Effects:|r\n"
+public let wordExtraEffects    = "|c00FFFC01Extra Effects:|r\n"
+public let wordMaterials       = "|c00FEBA0EMaterials required to craft this item:|r\n"
 
-public let wordAttackSpeed  = "Attack Speed"
-public let wordDamage       = "Damage"
-public let wordLifeSteal    = "Life Steal"
-public let wordArmorOnHit   = "Armor on hit"
-public let wordArmorPen     = "Armor penetration"
+public let wordAttackSpeed     = "Attack Speed"
+public let wordDamage          = "Damage"
+public let wordLifeSteal       = "Life Steal"
+public let wordArmorOnHit      = "Armor on hit"
+public let wordArmorPen        = "Armor penetration"
 
-public let wordHP           = "HP"
-public let wordHPReg        = "HP/s"
-public let wordArmor        = "Armor"
+public let wordCleave          = "Cleave: {0} damage in {1} range"
+public let wordCrit            = "Crit: {0}% chance to do x{1} damage"
 
-public let wordMP           = "MP"
-public let wordMPReg        = "MP Regeneration"
+public let wordHP              = "HP"
+public let wordHPReg           = "HP/s"
+public let wordArmor           = "Armor"
+public let wordDamageBlock     = "Block: {0}% chance to block {1} damage"
+public let wordEvasion         = "Evasion"
+public let wordMovementSpeed   = "Movement Speed"
 
-public let wordAgi          = "Agility"
-public let wordStr          = "Strength"
-public let wordInt          = "Intelligence"
-public let wordAllStats     = "All stats"
+public let wordMP              = "MP"
+public let wordMPReg           = "MP Regeneration"
+
+public let wordAgi             = "Agility"
+public let wordStr             = "Strength"
+public let wordInt             = "Intelligence"
+public let wordAllStats        = "All stats"
