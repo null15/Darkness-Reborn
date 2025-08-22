@@ -10,281 +10,213 @@ import ObjectIds
 import MyAbilityIds
 import Icons
 import Abilities
+import RecipeItems
 
 init
 
 @compiletime function createItems()
 
 //I05I
-    new MyItemDefinition(ITEM_RECIPE_SPLIT_ARMOR)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBanditsLeather.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_SPLIT_ARMOR, itemRecipeList, ITEM_RECIPE_SPLIT_ARMOR,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(1600)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 37)")
-    ..setTooltipBasic("Buy Recipe (Recipe 37)")
-    ..setTooltipExtended("|c00FFFC01Split Armor|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+100 Armor\n"
-    +"+50HP/s\n"
-    +"Return 22% of the damage dealt to you back to the attacker.\n"
-    +"|c00FEBA0EMaterial that's used to craft items:|r\n"
-    +"Light Armor (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
-    +"Iron Armor (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
-    +"Spiked Armor (" + monsterDrop + ")|r")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBanditsLeather.blp")
+    ..setClassification("Charged")
+    ..addStats(addArmor(100))
+    ..addStats(addHpReg(50))
+    ..addStats(addSpikes(0.2))
+    ..addComponents(
+    ITEM_LIGHT_ARMOR,
+    ITEM_IRON_ARMOR,
+    ITEM_SPIKED_ARMOR)
+    ..addHotKey()
+    ..register()
 
 //I05N
-    new MyItemDefinition(ITEM_RECIPE_AVATAR_ARMOR)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPhantom SKin.blp")    
+    new MyItemWithRecipeDefinition(ITEM_AVATAR_ARMOR, itemRecipeList, ITEM_RECIPE_AVATAR_ARMOR,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(2000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPhantom SKin.blp")
     ..setClassification("Charged")
-    ..setGoldCost(1285)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 38)")
-    ..setTooltipBasic("Buy Recipe (Recipe 38)")
-    ..setTooltipExtended("|c00FFFC01Avatar Armor|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+50 Armor\n"
-    +"+25 HP/s\n"
-    +"+1000 HP\n"
-    +"Active: Activate Avatar for 30 seconds\n"
-    +"|c00FEBA0EMaterial that's used to craft items:|r\n"
-    +"Light Armor (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
-    +"Khadgar's Pendant of Health (|c007EBFF1" +  shopNameBasicItems4 + "|r)\n"
-    +"Ring of Regeneration (|c007EBFF1" +  shopNameBasicItems2 + "|r)|r")
-    ..setHotkey("")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(50))
+    ..addStats(addHpReg(25))
+    ..addStats(addHp(1000))
+    ..addStats(addAbilityAvatarMagicImmune(20, 10, 2000))
+    ..addComponents(
+    ITEM_LIGHT_ARMOR,
+    ITEM_KHADGAR_PENDANT_OF_HEALTH,
+    ITEM_RING_OF_REGENERATION)
+    ..addHotKey()
+    ..register()
 
 //I05Q
-    new MyItemDefinition(ITEM_RECIPE_CHAOS_BLADE)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNChaosCrime.blp")    
+    new MyItemWithRecipeDefinition(ITEM_CHAOS_BLADE, itemRecipeList, ITEM_RECIPE_CHAOS_BLADE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(2000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNChaosCrime.blp")
     ..setClassification("Charged")
-    ..setGoldCost(1285)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 39)")
-    ..setTooltipBasic("Buy Recipe (Recipe 39)")
-    ..setTooltipExtended("|c00FFFC01Chaos Blade|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+400 Damage\n"
-    +"+120% Attack Speed\n"
-    +"+180 Agility\n"
-    +"+69 Strength\n"
-    +"+69 Intelligence\n"
-    +"|c00FEBA0EMaterial that's used to craft items:|r\n"
-    +"Kraken Dagger (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
-    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
-    ..setHotkey("")
+    ..addStats(addDamage(400))
+    ..addStats(addAttackSpeed(150))
+    ..addStats(addStr(70))
+    ..addStats(addAgi(200))
+    ..addStats(addInt(70))
+    ..addComponents(
+    ITEM_KRAKEN_DAGGER,
+    ITEM_SCROLL_OF_FUSION,
+    ITEM_SIMPLE_SWORD)
+    ..addHotKey()
+    ..register()
 
 //I05S
-    new MyItemDefinition(ITEM_RECIPE_O_CLOCK)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")    
+    new MyItemWithRecipeDefinition(ITEM_O_CLOCK, itemRecipeList, ITEM_RECIPE_O_CLOCK,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(12000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")
     ..setClassification("Charged")
-    ..setGoldCost(11500)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 40)")
-    ..setTooltipBasic("Buy Recipe (Recipe 40)")
-    ..setTooltipExtended("|c00FFFC01O'clock|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+20 All Stats \n"
-    +"Active: Reset all of your Skill Cooldowns. Cooldown: 220 seconds.\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Amulet of Spell Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
-    +"Arcanite Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
-    +"Tome of Retraining (|c007EBFF1" +  shopNameBasicItems4 + "|r)")
-    ..setHotkey("")
+    ..addStats(addAllStats(20))
+    ..addStats(addAbilityResetCd(220, 3000))
+    ..addComponents(
+    ITEM_AMULET_OF_SPELL_SHIELD,
+    ITEM_ARCANITE_SHIELD,
+    ITEM_TOME_OF_RETRAINING)
+    ..addHotKey()
+    ..register()
 
 //I07M
-    new MyItemDefinition(ITEM_RECIPE_THUNDER_BOW)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNbow.blp")    
+    new MyItemWithRecipeDefinition(ITEM_THUNDER_BOW, itemRecipeList, ITEM_RECIPE_THUNDER_BOW,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(4000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNbow.blp")
     ..setClassification("Charged")
-    ..setGoldCost(3250)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 41)")
-    ..setTooltipBasic("Buy Recipe (Recipe 41)")
-    ..setTooltipExtended("|c00FFFC01Thunder Bow|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+70 All Stats\n"
-    +"+240 Damage\n"
-    +"+120% Attack speed\n"
-    +"+10% Chance to shoot a Thunder Lightning dealing 1000 Damage to up to 4 targets in 900 range.\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Medallion of Courage (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
-    +"Amulet of the Wild (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
-    +"Orb of Lightning (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
-    +"|c00FF0303Note: Only works for ranged heroes")
-    ..setHotkey("")
+    ..addStats(addAllStats(100))
+    ..addStats(addDamage(300))
+    ..addStats(addAttackSpeed(2))
+    ..addStats(addChainLighting(0.4, 3000, 0.1, 5))
+    ..addComponents(
+    ITEM_MEDALLION_OF_COURAGE,
+    ITEM_AMULET_OF_THE_WILD,
+    ITEM_ORB_OF_LIGHTNING)
+    ..addHotKey()
+    ..register()
 
 //I07Q
-    new MyItemDefinition(ITEM_RECIPE_SOUL_OF_KILJEADEN)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSoulGem.blp")    
+    new MyItemWithRecipeDefinition(ITEM_SOUL_OF_KILJEADEN, itemRecipeList, ITEM_RECIPE_SOUL_OF_KILJEADEN,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(6000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSoulGem.blp")
     ..setClassification("Charged")
-    ..setGoldCost(5600)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 42)")
-    ..setTooltipBasic("Buy Recipe (Recipe 42)")
-    ..setTooltipExtended("|c00FFFC01Soul of Kil'jeaden|r\n"
-    +" |c00FFFC01Effect of item:|r\n"
-    +"+200 Damage\n"
-    +"+1000 MP\n"
-    +"+150% Mana Regeneration\n"
-    +"+47% chance to restore 95 MP on-hit.\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Medallion of Courage (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
-    +"Pendant of Mana (|c007EBFF1" +  shopNameBasicItems4 + "|r)\n"
-    +"Orb of Kil'jeaden (|c007EBFF1" +  shopNameBasicItems3 + "|r)")
-    ..setHotkey("")
+    ..addStats(addDamage(200))
+    ..addStats(addMp(3000))
+    ..addStats(addMpReg(1.5))
+    ..addStats(addMpOnHit(0.1))
+    ..addComponents(
+    ITEM_MEDALLION_OF_COURAGE,
+    ITEM_PENDANT_OF_MANA,
+    ITEM_ORB_OF_KILJAEDAN)
+    ..addHotKey()
+    ..register()
 
 //I0BF
-    new MyItemDefinition(ITEM_RECIPE_LIZARD_PENDANT)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (2).blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_LIZARD_PENDANT, itemRecipeList, ITEM_RECIPE_LIZARD_PENDANT,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(5600)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 43)")
-    ..setTooltipBasic("Buy Recipe (Recipe 43)")
-    ..setTooltipExtended("|c00FFFC01Lizard Pendant|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+40 Armor. +150 Strength. +3000 HP. +1% HP/s\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Helm of Valor (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
-    +"Light Armor (|c001CE6B9" + shopNameRecipes1 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (2).blp")
+    ..setClassification("Charged")
+    ..addStats(addArmor(40))
+    ..addStats(addStr(150))
+    ..addStats(addHp(3000))
+    ..addStats(addHpRegRel(0.01))
+    ..addComponents(
+    ITEM_HELM_OF_VALOR,
+    ITEM_LIGHT_ARMOR)
+    ..addHotKey()
+    ..register()
 
 //I0BS
-    new MyItemDefinition(ITEM_RECIPE_HELM_HERMES)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (3).blp")    
+    new MyItemWithRecipeDefinition(ITEM_HELM_HERMES, itemRecipeList, ITEM_RECIPE_HELM_HERMES,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(7000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (3).blp")
     ..setClassification("Charged")
-    ..setGoldCost(6800)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 44)")
-    ..setTooltipBasic("Buy Recipe (Recipe 44)")
-    ..setTooltipExtended("|c00FFFC01Helm Hermes|r\n"
-    +" |c00FFFC01Effect of item:|r\n"
-    +"+100 Strength\n"
-    +"+2500 Health\n"
-    +"100% to return 0.5xstr damage\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Helm of Valor (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
-    +"Split Armor (|c001CE6B9" + shopNameRecipes4 + "|r)")
-    ..setHotkey("")
+    ..addStats(addStr(100))
+    ..addStats(addHp(3000))
+    ..addStats("100% to return 0.5xstr damage\n")
+    ..addComponents(
+    ITEM_HELM_HERMES,
+    ITEM_SPLIT_ARMOR)
+    ..addHotKey()
+    ..register()
 
 //I0CN
-    new MyItemDefinition(ITEM_RECIPE_DARK_SPHERE)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDarkSphere.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_DARK_SPHERE, itemRecipeList, ITEM_RECIPE_DARK_SPHERE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(2800)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 45)")
-    ..setTooltipBasic("Buy Recipe (Recipe 45)")
-    ..setTooltipExtended("|c00FFFC01Dark Sphere|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+50 Strength\n"
-    +"+10 HP/s\n"
-    +"Passively attack 1 target every 1 second with 700 Damage in 650 range.\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Orb of Darkness (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
-    +"Helm of Valor (|c001CE6B9" + shopNameRecipes2 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDarkSphere.blp")
+    ..setClassification("Charged")
+    ..addStats(addStr(50))
+    ..addStats(addHpReg(10))
+    ..addStats(addAbilityPhoenixFire(700, 1, 650))
+    ..addComponents(
+    ITEM_ORB_OF_DARKNESS,
+    ITEM_HELM_OF_VALOR)
+    ..addHotKey()
+    ..register()
 
 //I0IK
-    new MyItemDefinition(ITEM_RECIPE_MYSTERY_GREEN_STAFF)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff1.blp")    
-    ..setClassification("Charged")
-    ..setGoldCost(4750)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 46)")
-    ..setTooltipBasic("Buy Recipe (Recipe 46)")
-    ..setTooltipExtended("|c00FFFC01Mystery Green Staff|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+180 Intelligence.\n"
-    +"+180% Attack speed.\n"
-    +"+100% Mana Regeneration\n"
-    +"|c00FFFC01Special Effects: Active: Deals 7800 Damage to the target enemy. Cooldown: 30 seconds|r\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Seer Staff (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
-    +"Ring of Archmagi (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
-    +"Thunderlizard Diamond (" + monsterDrop + ")")
-    ..setHotkey("")
+    new MyItemWithRecipeDefinition(ITEM_MYSTERY_GREEN_STAFF, itemRecipeList, ITEM_RECIPE_MYSTERY_GREEN_STAFF,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(4800)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff1.blp")
+    ..setCooldownGroup("A0XN")
+    ..setActivelyUsed(true)
+    ..addStats(addInt(180))
+    ..addStats(addAttackSpeed(1.8))
+    ..addStats(addMpReg(1))
+    ..addStats("[DOESN'T WORK] Active: Deals 7800 Damage to the target enemy. Cooldown: 30 seconds")
+    ..addComponents(
+    ITEM_SEER_STAFF,
+    ITEM_RING_OF_ARCHMAGI,
+    ITEM_THUNDERLIZARD_DIAMOND)
+    ..addHotKey()
+    ..register()
 
 //I0IV
-    new MyItemDefinition(ITEM_RECIPE_ICE_WAND)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC1.blp")    
-    ..setClassification("Charged")
-    ..setGoldCost(5680)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 47)")
-    ..setTooltipBasic("Buy Recipe (Recipe 47)")
-    ..setTooltipExtended("|c00FFFC01Ice Wand|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+180 Intelligence\n"
-    +"+3200 HP\n"
-    +"|c00FFFC01Special Effect: Active: Sends a Frost Nova on the target\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Seer Staff (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
-    +"Orb of Frost (|c001CE6B9" +  shopNameBasicItems3 + "|r)\n"
-    +"Scepter of Mastery  (" + monsterDrop + ")")
-    ..setHotkey("")
+    new MyItemWithRecipeDefinition(ITEM_ICE_WAND, itemRecipeList, ITEM_RECIPE_ICE_WAND,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(5700)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC1.blp")
+    ..addStats(addInt(180))
+    ..addStats(addHp(3200))
+    ..addStats("[DOESN'T WORK] Active: Sends a Frost Nova on the target")
+    ..addComponents(
+    ITEM_SEER_STAFF,
+    ITEM_ORB_OF_FROST,
+    ITEM_SCEPTER_OF_MASTERY)
+    ..addHotKey()
+    ..register()
 
 //I0JK
-    new MyItemDefinition(ITEM_RECIPE_WAR_ENERGY)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAnimalWarTraining.blp")    
+    new MyItemWithRecipeDefinition(ITEM_WAR_ENERGY, itemRecipeList, ITEM_RECIPE_WAR_ENERGY,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(7600)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAnimalWarTraining.blp")
     ..setClassification("Charged")
-    ..setGoldCost(7625)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(9999)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 48)")
-    ..setTooltipBasic("Buy Recipe (Recipe 48)")
-    ..setTooltipExtended("|c00FFFC01War Energy|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"Increase 7000 MP \n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Soul of Kil'jaeden (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
-    +"Arkenstone Fragment (|c007EBFF1Combination|r)")
-    ..setHotkey("")
+    ..addStats(addMp(7000))
+    ..addComponents(
+    ITEM_SOUL_OF_KILJEADEN,
+    ITEM_ARKENSTONE_FRAGMENT)
+    ..addHotKey()
+    ..register()

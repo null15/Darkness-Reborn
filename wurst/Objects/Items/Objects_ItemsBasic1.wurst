@@ -1,15 +1,8 @@
 package Objects_ItemsBasic1
 
-import CommonDescriptions
 import MyItemDefinition
 import ItemObjEditing
-import AbilityObjEditing
-import ItemIds
 import MyItemIds
-import ObjectIds
-import MyAbilityIds
-import Icons
-import Abilities
 
 init
 
@@ -18,6 +11,7 @@ init
 //I01S
     new MyItemDefinition(ITEM_GLOVES_OF_HASTE)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGlove.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(700)
     ..addStats(addAttackSpeed(0.15))
     ..addHotKey()
@@ -25,8 +19,8 @@ init
 
 //I00Z
     new MyItemDefinition(ITEM_GLOVES_OF_HADES)
-    ..setAbilities(commaList(ITEM_GLOVES_OF_HADES_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRogues Gauntlets.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRogues Gauntlets.blp")   
+    ..setClassification("PowerUp") 
     ..setGoldCost(1000)
     ..addStats(addAttackSpeed(0.25))
     ..addHotKey()
@@ -34,8 +28,8 @@ init
 
 //I01T
     new MyItemDefinition(ITEM_GLOVES_OF_WIND)
-    ..setAbilities(commaList(ITEM_GLOVES_OF_WIND_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDuelists Gauntlets.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDuelists Gauntlets.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(1400)
     ..addStats(addAttackSpeed(0.4))
     ..addHotKey()
@@ -43,8 +37,8 @@ init
 
 //I018
     new MyItemDefinition(ITEM_LIFE_STEAL)
-    ..setAbilities(commaList(ITEM_LIFE_STEAL_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNMaskOfDeath.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNMaskOfDeath.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(1000)
     ..addStats(addLifeSteal(0.11))
     ..addHotKey()
@@ -52,38 +46,38 @@ init
 
 //I01Q
     new MyItemDefinition(ITEM_LEATHER_ARMOR)
-    ..setAbilities(commaList(ITEM_LEATHER_ARMOR_ABI1, ITEM_LEATHER_ARMOR_ABI2))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLeatherShirt.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLeatherShirt.blp")
+    ..setClassification("PowerUp")  
     ..setGoldCost(1300)
     ..addStats(addArmor(5))
-    ..addStats(addHP(200))
+    ..addStats(addHp(200))
     ..addHotKey()
     ..register()
 
 //I00P
     new MyItemDefinition(ITEM_IRON_ARMOR)
-    ..setAbilities(commaList(ITEM_IRON_ARMOR_ABI1, ITEM_IRON_ARMOR_ABI2))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPlateArmor.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPlateArmor.blp")
+    ..setClassification("PowerUp")  
     ..setGoldCost(2500)
     ..addStats(addArmor(10))
-    ..addStats(addHP(300))
+    ..addStats(addHp(300))
     ..addHotKey()
     ..register()
 
 //I01R
     new MyItemDefinition(ITEM_SILVER_ARMOR)
-    ..setAbilities(commaList('A01V', 'A044'))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSerpents' Plate Mail.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSerpents' Plate Mail.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(4000)
     ..addStats(addArmor(10))
-    ..addStats(addHP(700))
+    ..addStats(addHp(700))
     ..addHotKey()
     ..register()
 
 //I006
     new MyItemDefinition(ITEM_SIMPLE_SWORD)
-    ..setAbilities(commaList(ITEM_SIMPLE_SWORD_ABI1, ITEM_SIMPLE_SWORD_ABI2))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_CW_Rune_Sword.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_CW_Rune_Sword.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(1200)
     ..addStats(addDamage(20))
     ..addStats(addAgi(5))
@@ -92,8 +86,8 @@ init
 
 //I00Q
     new MyItemDefinition(ITEM_CLAWS_OF_ATTACK)
-    ..setAbilities(commaList(ITEM_CLAWS_OF_ATTACK_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNClawsOfAttack.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(1000)
     ..addStats(addDamage(12))
     ..addHotKey()
@@ -101,8 +95,8 @@ init
 
 //I01B
     new MyItemDefinition(ITEM_STURDY_WAR_AXE)
-    ..setAbilities(commaList(ITEM_STURDY_WAR_AXE_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrcMeleeUpOne.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrcMeleeUpOne.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(1300)
     ..addStats(addDamage(30))
     ..addHotKey()
@@ -110,8 +104,8 @@ init
 
 //I01I
     new MyItemDefinition(ITEM_MAUL_OF_STRENGTH)
-    ..setAbilities(commaList(ITEM_MAUL_OF_STRENGTH_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHammer.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHammer.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(2000)
     ..addStats(addDamage(50))
     ..addHotKey()

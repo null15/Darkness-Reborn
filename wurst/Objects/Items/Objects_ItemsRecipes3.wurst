@@ -3,290 +3,215 @@ package Objects_ItemsRecipes3
 import CommonDescriptions
 import MyItemDefinition
 import ItemObjEditing
-import AbilityObjEditing
-import ItemIds
 import MyItemIds
-import ObjectIds
-import MyAbilityIds
-import Icons
-import Abilities
+import RecipeItems
 
 init
 
 @compiletime function createItems()
 
 //I04Z
-    new MyItemDefinition(ITEM_RECIPE_SEER_STAFF)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSeerStaff.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_SEER_STAFF, itemRecipeList, ITEM_RECIPE_SEER_STAFF,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(4600)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 25)")
-    ..setTooltipBasic("Buy Recipe (Recipe 25)")
-    ..setTooltipExtended("|c00FFFC01Seer Staff|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+160 Intelligence\n"
-    +"+120% Attack speed\n"
-    +"+3000 MP\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
-    +"Medallion of Courage (|c001CE6B9" + shopNameRecipes2 + "|r)\n"
-    +"Pendant of Mana (|c007EBFF1" +  shopNameBasicItems4 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSeerStaff.blp")
+    ..setClassification("Charged")
+    ..addStats(addInt(160))
+    ..addStats(addAttackSpeed(1))
+    ..addStats(addMp(3000))
+    ..addComponents(
+    ITEM_SCROLL_OF_FUSION,
+    ITEM_MEDALLION_OF_COURAGE,
+    ITEM_PENDANT_OF_MANA)
+    ..addHotKey()
+    ..register()
 
 //I057
-    new MyItemDefinition(ITEM_RECIPE_SCALE_AXE)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Axe_06.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_SCALE_AXE, itemRecipeList, ITEM_RECIPE_SCALE_AXE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(750)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 26)")
-    ..setTooltipBasic("Buy Recipe (Recipe 26)")
-    ..setTooltipExtended("|c00FFFC01Scale Axe|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+15 Damage\n+25% Cleave on 200 Range\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Study War Axe (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Axe_06.blp")
+    ..setClassification("Charged")
+    ..addStats(addDamage(15))
+    ..addStats(addCleave(0.25, 200))
+    ..addComponents(
+    ITEM_STURDY_WAR_AXE)
+    ..addHotKey()
+    ..register()
 
 //I058
-    new MyItemDefinition(ITEM_RECIPE_DALAN_AXE)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Axe_05.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_DALAN_AXE, itemRecipeList, ITEM_RECIPE_DALAN_AXE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(1250)
-    ..setHitPoints(1)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 27)")
-    ..setTooltipBasic("Buy Recipe (Recipe 27)")
-    ..setTooltipExtended("|c00FFFC01Dalan Axe|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+23 Damage\n"
-    +"+10 Strength\n"
-    +"28% Cleave on 250 Range\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scale Axe (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
-    +"Belt of Giant Strength (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
-    +"Circlet of Nobility (|c007EBFF1" +  shopNameBasicItems2 + "|r)")
-    ..setHotkey("")
-
-//I059
-    new MyItemDefinition(ITEM_RECIPE_DURATION_AXE)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Axe_04.blp")    
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Axe_05.blp")
     ..setClassification("Charged")
+    ..addStats(addDamage(23))
+    ..addStats(addStr(10))
+    ..addStats(addCleave(0.28, 250))
+    ..addComponents(
+    ITEM_SCALE_AXE,
+    ITEM_BELT_OF_GIANT_STRENGTH,
+    ITEM_CIRCLET_OF_NOBILITY)
+    ..addHotKey()
+    ..register()
+    
+//I059
+    new MyItemWithRecipeDefinition(ITEM_DURATION_AXE, itemRecipeList, ITEM_RECIPE_DURATION_AXE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(1850)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 28)")
-    ..setTooltipBasic("Buy Recipe (Recipe 28)")
-    ..setTooltipExtended("|c00FFFC01Duration Axe|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+50 Damage\n"
-    +"+18 Strength\n"
-    +"32% Cleave on 300 Range\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Dalan Axe (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
-    +"Soul Ring (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
-    +"Claws of Attack (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Axe_04.blp")
+    ..setClassification("Charged")
+    ..addStats(addDamage(50))
+    ..addStats(addStr(18))
+    ..addStats(addCleave(0.32, 300))
+    ..addComponents(
+    ITEM_DALAN_AXE,
+    ITEM_SOUL_RING,
+    ITEM_CLAWS_OF_ATTACK)
+    ..addHotKey()
+    ..register()
 
 //I05A
-    new MyItemDefinition(ITEM_RECIPE_DWARVEN_AXE)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDwarvenDoubleAxe2.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_DWARVEN_AXE, itemRecipeList, ITEM_RECIPE_DWARVEN_AXE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(2100)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 29)")
-    ..setTooltipBasic("Buy Recipe (Recipe 29)")
-    ..setTooltipExtended("|c00FFFC01Dwarven Axe|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+90 Damage\n"
-    +"+25 All Stats\n"
-    +"36% Cleave on 350 Range\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Duration Axe (|c001CE6B9" + shopNameRecipes3 + "|r)\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
-    +"Study War Axe (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDwarvenDoubleAxe2.blp")
+    ..setClassification("Charged")
+    ..addStats(addDamage(100))
+    ..addStats(addStr(30))
+    ..addStats(addCleave(0.4, 400))
+    ..addComponents(
+    ITEM_DURATION_AXE,
+    ITEM_SCROLL_OF_FUSION,
+    ITEM_STURDY_WAR_AXE)
+    ..addHotKey()
+    ..register()
 
 //I05B
-    new MyItemDefinition(ITEM_RECIPE_BLADE_OF_HELL)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFireBlade.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_BLADE_OF_HELL, itemRecipeList, ITEM_RECIPE_BLADE_OF_HELL,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(3200)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 30)")
-    ..setTooltipBasic("Buy Recipe (Recipe 30)")
-    ..setTooltipExtended("|c00FFFC01Blade of Hell|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+220 Damage\n"
-    +"+100% Attack speed\n"
-    +"+12 All Stats\n"
-    +"18% Chance to Crit for 3\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Fire Sword (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
-    +"Gloves of Speed (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
-    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFireBlade.blp")
+    ..setClassification("Charged")
+    ..addStats(addDamage(220))
+    ..addStats(addAttackSpeed(1))
+    ..addStats(addAllStats(12))
+    ..addStats(addCrit(0.18, 3))
+    ..addComponents(
+    ITEM_FIRE_SWORD,
+    ITEM_GLOVES_OF_SPEED,
+    ITEM_SIMPLE_SWORD)
+    ..addHotKey()
+    ..register()
 
 //I05C
-    new MyItemDefinition(ITEM_RECIPE_KRAKEN_DAGGER)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDeathKnightDagger.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_KRAKEN_DAGGER, itemRecipeList, ITEM_RECIPE_KRAKEN_DAGGER,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(2300)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 31)")
-    ..setTooltipBasic("Buy Recipe (Recipe 31)")
-    ..setTooltipExtended("|c00FFFC01Kraken Dagger|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+105 Damage\n"
-    +"+50 Strength\n"
-    +"+50% Attack speed\n"
-    +"|c00FEBA0EMaterial that's used to craft itemsp :|r\n"
-    +"Soul Ring (|c007EBFF1" +  shopNameBasicItems2 + "|r)\n"
-    +"Gloves of Hades (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
-    +"Khadgar's Pendant of Health (|c007EBFF1" +  shopNameBasicItems4 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDeathKnightDagger.blp")
+    ..setClassification("Charged")
+    ..addStats(addDamage(120))
+    ..addStats(addStr(60))
+    ..addStats(addAttackSpeed(0.6))
+    ..addComponents(
+    ITEM_SOUL_RING,
+    ITEM_GLOVES_OF_HADES,
+    ITEM_KHADGAR_PENDANT_OF_HEALTH)
+    ..addHotKey()
+    ..register()
 
 //I05D
-    new MyItemDefinition(ITEM_RECIPE_MIDNIGHT_BLADE)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNmidnightGS.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_MIDNIGHT_BLADE, itemRecipeList, ITEM_RECIPE_MIDNIGHT_BLADE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(2250)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 32)")
-    ..setTooltipBasic("Buy Recipe (Recipe 32)")
-    ..setTooltipExtended("|c00FFFC01Midnight Blade|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+65 Damage\n"
-    +"+60% Attack speed\n"
-    +"-30 Armor on-hit.\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Orb of Corruption (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
-    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
-    +"Gloves of Wind (|c007EBFF1" +  shopNameBasicItems1 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNmidnightGS.blp")
+    ..setClassification("Charged")
+    ..addStats(addDamage(65))
+    ..addStats(addAttackSpeed(0.6))
+    ..addStats(addArmorOnHit(-30))
+    ..addComponents(
+    ITEM_ORB_OF_CORRUPTION,
+    ITEM_SIMPLE_SWORD,
+    ITEM_GLOVES_OF_WIND)
+    ..addHotKey()
+    ..register()
 
 //I05E
-    new MyItemDefinition(ITEM_RECIPE_BLOOD_GORGED_BLADE)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_CR_Blood-Gorged Blade.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_BLOOD_GORGED_BLADE, itemRecipeList, ITEM_RECIPE_BLOOD_GORGED_BLADE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(400)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 33)")
-    ..setTooltipBasic("Buy Recipe (Recipe 33)")
-    ..setTooltipExtended("|c00FFFC01Blood Gorged Blade|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+75 Damage\n"
-    +"+800 HP\n"
-    +"+15 HP/s\n"
-    +"+16% Life Steal.\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Mask of Death (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
-    +"Simple Sword (|c007EBFF1" +  shopNameBasicItems1 + "|r)\n"
-    +"Periapt of Vitality (|c007EBFF1" +  shopNameBasicItems4 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_CR_Blood-Gorged Blade.blp")
+    ..setClassification("Charged")
+    ..addStats(addDamage(80))
+    ..addStats(addHp(1000))
+    ..addStats(addHpReg(15))
+    ..addStats(addLifeSteal(0.16))
+    ..addComponents(
+    ITEM_LIFE_STEAL,
+    ITEM_SIMPLE_SWORD,
+    ITEM_PERIAPT_OF_VITALITY)
+    ..addHotKey()
+    ..register()
 
 //I05F
-    new MyItemDefinition(ITEM_RECIPE_STEEL_SHIELD)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNrcgs.blp")    
-    ..setClassification("Charged")
+    new MyItemWithRecipeDefinition(ITEM_STEEL_SHIELD, itemRecipeList, ITEM_RECIPE_STEEL_SHIELD,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(2100)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 34)")
-    ..setTooltipBasic("Buy Recipe (Recipe 34)")
-    ..setTooltipExtended("|c00FFFC01Steel Shield|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+50 Armor\n"
-    +"+30 All Stats\n"
-    +"+2000 HP\n"
-    +"50% Chance to block 550 Damage.\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Scroll of Fusion (|c001CE6B9" + shopNameRecipes1 + "|r)\n"
-    +"Enchanted Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
-    +"Arcanite Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)")
-    ..setHotkey("")
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNrcgs.blp")
+    ..setClassification("Charged")
+    ..addStats(addArmor(50))
+    ..addStats(addAllStats(30))
+    ..addStats(addHp(2000))
+    ..addStats(addDamageBlock(0.5, 600))
+    ..addComponents(
+    ITEM_SCROLL_OF_FUSION,
+    ITEM_ENCHANTED_SHIELD,
+    ITEM_ARCANITE_SHIELD)
+    ..addHotKey()
+    ..register()
 
 //I05G
-    new MyItemDefinition(ITEM_RECIPE_SACRED_SHIELD)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNElectricrune.blp")    
+    new MyItemWithRecipeDefinition(ITEM_SACRED_SHIELD, itemRecipeList, ITEM_RECIPE_SACRED_SHIELD,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(3500)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNElectricrune.blp")
     ..setClassification("Charged")
-    ..setGoldCost(2800)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 35)")
-    ..setTooltipBasic("Buy Recipe (Recipe 35)")
-    ..setTooltipExtended("|c00FFFC01Sacred Shield|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+70 Armor\n"
-    +"+50 All Stats\n"
-    +"30% Chance to block 1600 Damage\n"
-    +"|c00FEBA0EMaterials required to craft this item:|r\n"
-    +"Steel Shield (|c001CE6B9" + shopNameRecipes4 + "|r)\n"
-    +"Enchanted Shield (|c007EBFF1" +  shopNameBasicItems3 + "|r)\n"
-    +"Shield of Honor (|c007EBFF1" +  shopNameBasicItems3 + "|r)")
-    ..setHotkey("")
+    ..addStats(addArmor(150))
+    ..addStats(addAllStats(50))
+    ..addStats(addDamageBlock(0.6, 3000))
+    ..addComponents(
+    ITEM_STEEL_SHIELD,
+    ITEM_ENCHANTED_SHIELD,
+    ITEM_SHIELD_OF_HONOR)
+    ..addHotKey()
+    ..register()
 
 //I05H
-    new MyItemDefinition(ITEM_RECIPE_IRON_SHIELD)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcanum Protector.blp")    
+    new MyItemWithRecipeDefinition(ITEM_IRON_SHIELD, itemRecipeList, ITEM_RECIPE_IRON_SHIELD,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(3000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcanum Protector.blp")
     ..setClassification("Charged")
-    ..setGoldCost(2600)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setStockReplenishInterval(5)
-    ..setStockStartDelay(5)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("Recipe (Recipe 36)")
-    ..setTooltipBasic("Buy Recipe (Recipe 36)")
-    ..setTooltipExtended("|c00FFFC01Iron Shield|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+100 Armor\n"
-    +"+50 Strength\n"
-    +"+30 Agility\n"
-    +"+30 Intelligence\n"
-    +"+50 HP/s\n"
-    +"60% Chance to block 1400 Damage.\n"
-    +"|c00FEBA0EMaterial that's used to craft items:|r\n"
-    +"Steel Shield (|c001CE6B9" + shopNameRecipes4 + "|r)\n"
-    +"Helm of Valor (|c001CE6B9" + shopNameRecipes2 + "|r)")
-    ..setHotkey("")
+    ..addStats(addArmor(100))
+    ..addStats(addStr(80))
+    ..addStats(addAgi(50))
+    ..addStats(addInt(50))
+    ..addStats(addHpReg(50))
+    ..addStats(addDamageBlock(0.6, 2000))
+    ..addComponents(
+    ITEM_STEEL_SHIELD,
+    ITEM_HELM_OF_VALOR)
+    ..addHotKey()
+    ..register()

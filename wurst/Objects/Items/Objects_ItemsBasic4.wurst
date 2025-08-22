@@ -1,115 +1,96 @@
 package Objects_ItemsBasic4
 
-import CommonDescriptions
 import MyItemDefinition
 import ItemObjEditing
-import AbilityObjEditing
 import ItemIds
 import MyItemIds
-import ObjectIds
-import MyAbilityIds
 import Icons
-import Abilities
 
 init
 
 @compiletime function createItems()
 
 //I015
-    new MyItemDefinition(ITEM_POTION_OF_GREATER_HEALING)    
+    new MyItemDefinition(ITEM_POTION_OF_GREATER_HEALING)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.bTNPotionGreen)
     ..setActivelyUsed(true)
     ..setGoldCost(300)
     ..setNumberofCharges(5)
     ..setPerishable(true)
-    ..setDescription("Restores lost hit points.")
-    ..setName("Potion of Greater Healing")
-    ..setTooltipBasic("Purchase Potion of G|cffffcc00r|reater Healing |c00FFFC01[ U ]|r")
-    ..setTooltipExtended("Heals <AIh2,DataA1> hit points when used.")
+    ..addStats(addRestoreHpOnUse(600))
+    ..addHotKey()
+    ..register()
 
 //I016
-    new MyItemDefinition(ITEM_POTION_OF_GREATER_MANA)    
+    new MyItemDefinition(ITEM_POTION_OF_GREATER_MANA)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.bTNPotionBlueBig)  
     ..setActivelyUsed(true)
     ..setGoldCost(300)
     ..setNumberofCharges(5)
     ..setPerishable(true)
-    ..setPriority(68)
-    ..setDescription("Restores lost mana.")
-    ..setName("Potion of Greater Mana")
-    ..setTooltipBasic("Purchase Potion of Greater |cffffcc00M|rana |c00FFFC01[ i ]|r")
-    ..setTooltipExtended("Restores <AIm2,DataA1> mana when used.")
-    ..setHotkey("I")
+    ..addStats(addRestoreMpOnUse(400))
+    ..addHotKey()
+    ..register()
 
 //I012
-    new MyItemDefinition(ITEM_PENDANT_OF_ENERGY)    
+    new MyItemDefinition(ITEM_PENDANT_OF_ENERGY)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.bTNPendantOfEnergy)
     ..setGoldCost(700)
-    ..setPriority(50)
-    ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+200 MP\n"
-    +"+50% Mana Regeneration")
-    ..setName("Pendant of Energy")
-    ..setTooltipBasic("Purchase Pendant of Energy |c00FFFC01[ O ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+200 MP\n"
-    +"+50% Mana Regeneration")
-    ..setHotkey("O")
+    ..addStats(addMp(200))
+    ..addStats(addMpReg(0.5))
+    ..addHotKey()
+    ..register()
 
 //I013
-    new MyItemDefinition(ITEM_PENDANT_OF_MANA)    
+    new MyItemDefinition(ITEM_PENDANT_OF_MANA)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.bTNPendantOfMana) 
     ..setGoldCost(1250)
-    ..setPriority(61)
-    ..setDescription("Provides additional mana.")
-    ..setName("Pendant of Mana")
-    ..setTooltipBasic("Purchase Pendant of Mana |c00FFFC01[ P ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+ 500 MP\n"
-    +"+75% Mana Regeneration")
-    ..setHotkey("P")
+    ..addStats(addMp(500))
+    ..addStats(addMpReg(0.75))
+    ..addHotKey()
+    ..register()
 
 //I01P
-    new MyItemDefinition(ITEM_PERIAPT_OF_VITALITY)    
+    new MyItemDefinition(ITEM_PERIAPT_OF_VITALITY)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.dISBTNPeriapt)
     ..setGoldCost(1000)
-    ..setPriority(107)
-    ..setDescription("Increases the hit points of the Hero.")
-    ..setName("Periapt of Vitality")
-    ..setTooltipBasic("Purchase Periapt of |cffffcc00V|ritality |c00FFFC01[ H ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
-    +"+500 HP")
-    ..setHotkey("H")
+    ..addStats(addHp(500))
+    ..addHotKey()
+    ..register()
 
 //I025
-    new MyItemDefinition(ITEM_KHADGARS_PENDANT_OF_HEALTH)    
+    new MyItemDefinition(ITEM_KHADGAR_PENDANT_OF_HEALTH)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.dISBTNPeriapt1)
     ..setGoldCost(1800)
-    ..setPriority(128)
-    ..setDescription("Increases the hit points of the Hero.")
-    ..setName("Khadgar's Pendant of Health")
-    ..setTooltipBasic("Purchase Khadgar's Pendant of |cffffcc00H|realth |c00FFFC01[ J ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+1000HP")
-    ..setHotkey("J")
+    ..addStats(addHp(1000))
+    ..addHotKey()
+    ..register()
 
 //I00V
-    new MyItemDefinition(ITEM_CLOAK_OF_SHADOWS)    
+    new MyItemDefinition(ITEM_CLOAK_OF_SHADOWS, ItemIds.cloakofShadows)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.dISBTNCloak) 
     ..setGoldCost(550)
-    ..setPriority(2)
-    ..setDescription("Allows the hero to turn invisible.")
-    ..setName("Cloak of Shadows")
-    ..setTooltipBasic("Purchase |cffffcc00C|rloak of Shadows |c00FFFC01[ K ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
-    +"Invisibility at Night.")
-    ..setHotkey("K")
+    ..addStats("Allows the hero to turn invisible at night")
+    ..addHotKey()
+    ..register()
 
 //I05L
-    new MyItemDefinition(ITEM_TOME_OF_RETRAINING)    
+    new MyItemDefinition(ITEM_TOME_OF_RETRAINING, ItemIds.tomeofRetraining)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.dISBTNTomeOfRetraining)
     ..setActivelyUsed(true)
     ..setGoldCost(650)
-    ..setLevel(3)
     ..setNumberofCharges(1)
-    ..setPerishable(true)
-    ..setPriority(0)
     ..setStockReplenishInterval(120)
     ..setStockStartDelay(440)
-    ..setDescription("Unlearns a Hero's skills.")
-    ..setName("Tome of Retraining")
-    ..setTooltipBasic("Purchase Tome of Retraining |c00FFFC01[ M ]|r")
-    ..setTooltipExtended("Can reset skills that aren't on Cooldown.")
-    ..setHotkey("M")
+    ..setPerishable(true)
+    ..addStats("Unlearns a Hero's skills (resets them to zero level to redistribute skill points again).")
+    ..addHotKey()
+    ..register()

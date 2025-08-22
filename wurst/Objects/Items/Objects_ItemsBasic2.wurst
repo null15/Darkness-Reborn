@@ -1,196 +1,108 @@
 package Objects_ItemsBasic2
 
-import CommonDescriptions
 import MyItemDefinition
 import ItemObjEditing
-import AbilityObjEditing
-import ItemIds
 import MyItemIds
-import ObjectIds
-import MyAbilityIds
-import Icons
-import Abilities
 
 init
 
 @compiletime function createItems()
 
 //I00U
-    new AbilityDefinitionMoveSpeedBonus(ITEM_BOOTS_OF_SPEED_ABI1)
-    ..setMovementSpeedBonus(1, 100)
-
     new MyItemDefinition(ITEM_BOOTS_OF_SPEED)
-    ..setAbilities(commaList('AIms'))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBootsOfSpeed.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBootsOfSpeed.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(450)
-    ..setDescription("|c00FFFC01Effect:|r\n"
-    +"+100 Movement Speed.")
-    ..setName("Boots of Speed")
-    ..setTooltipBasic("Purchase Boots of Speed |c00FFFC01[ U ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
-    +"+100 Movement Speed.")
-    ..setHotkey("U")
+    ..addStats(addMovementSpeed(100))
+    ..addHotKey()
+    ..register()
 
 //I01J
-    new AbilityDefinitionAgilityBonusPlus1(ITEM_JADE_RING_ABI1)
-    ..setAgilityBonus(1, 15)
-
     new MyItemDefinition(ITEM_JADE_RING)
-    ..setAbilities(commaList(ITEM_JADE_RING_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingJadeFalcon.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingJadeFalcon.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(1400)
-    ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+15 Agility")
-    ..setName("Jade Ring")
-    ..setTooltipBasic("Purchase Jade Ring |c00FFFC01[ i ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+15 Agility")
-    ..setHotkey("I")
+    ..addStats(addAgi(15))
+    ..addHotKey()
+    ..register()
 
 //I01K
-    new AbilityDefinitionStrengthBonusPlus1(ITEM_SOUL_RING_ABI1)
-    ..setStrengthBonus(1, 15)
-
     new MyItemDefinition(ITEM_SOUL_RING)
-    ..setAbilities(commaList(ITEM_SOUL_RING_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGoldRing.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGoldRing.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(1400)
-    ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+15 Strength")
-    ..setName("Soul Ring")
-    ..setTooltipBasic("Purchase Soul Ring |c00FFFC01[ O ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+15 Strength")
-    ..setHotkey("O")
+    ..addStats(addStr(15))
+    ..addHotKey()
+    ..register()
 
 //I01H
-    new AbilityDefinitionIntelligenceBonusPlus1(ITEM_RING_OF_ARCHMAGI_ABI1)
-    ..setIntelligenceBonus(1, 15)
-
     new MyItemDefinition(ITEM_RING_OF_ARCHMAGI)
-    ..setAbilities(commaList(ITEM_RING_OF_ARCHMAGI_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingPurple.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingPurple.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(1400)
-    ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+15 Intelligence")
-    ..setName("Ring of the Archmagi")
-    ..setTooltipBasic("Purchase Ring of the Archmagi |c00FFFC01[ P ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+15 Intelligence")
-    ..setHotkey("P")
+    ..addStats(addInt(15))
+    ..addHotKey()
+    ..register()
 
 //I00T
-    new AbilityDefinitionRegenLife(ITEM_RING_OF_REGENERATION_ABI1)
-    ..setHitPointsRegeneratedPerSecond(1, 3)
-    
     new MyItemDefinition(ITEM_RING_OF_REGENERATION)
-    ..setAbilities(commaList(ITEM_RING_OF_REGENERATION_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingSkull.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingSkull.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(500)
-    ..setDescription(" |c00FFFC01Effect:|r\n"
-    +"+3 HP/s")
-    ..setName("Ring of Regeneration")
-    ..setTooltipBasic("Purchase Ring of Regeneration |c00FFFC01[ H ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+3 HP/s")
-    ..setHotkey("H")
+    ..addStats(addHpReg(3))
+    ..addHotKey()
+    ..register()
 
 //I00S
-    new AbilityDefinitionDefenseBonusPlus1(ITEM_RING_OF_PROTECTION_ABI1)
-    ..setDefenseBonus(1, 4)
-
     new MyItemDefinition(ITEM_RING_OF_PROTECTION)
-    ..setAbilities(commaList(ITEM_RING_OF_PROTECTION_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingGreen.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingGreen.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(300)
-    ..setDescription("|c00FFFC01Effect:|r\n"
-    +"+4 Armor.")
-    ..setName("Ring of Protection")
-    ..setTooltipBasic("Purchase Ring of Protection |c00FFFC01[ J ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
-    +"+4 Armor.")
-    ..setHotkey("J")
+    ..addStats(addArmor(4))
+    ..addHotKey()
+    ..register()
 
 //I01L
-    new AbilityDefinitionIntelligenceBonusPlus1(ITEM_ROBE_OF_MAGI_ABI1)
-    ..setIntelligenceBonus(1, 6)
-
     new MyItemDefinition(ITEM_ROBE_OF_MAGI)
-    ..setAbilities(commaList(ITEM_ROBE_OF_MAGI_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRobeOfTheMagi.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRobeOfTheMagi.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(550)
-    ..setDescription("|c00FFFC01Effect:|r\n"
-    +"+ 6 Intelligence")
-    ..setName("Robe of the Magi")
-    ..setTooltipBasic("Purchase Robe of the Magi |c00FFFC01[ K ]|r")
-    ..setTooltipExtended(" |c00FFFC01Effect:|r\n"
-    +"+ 6 Intelligence")
-    ..setHotkey("K")
+    ..addStats(addInt(6))
+    ..addHotKey()
+    ..register()
 
 //I00X
-    new AbilityDefinitionAgilityBonusPlus1(ITEM_BOOTS_OF_QUELTHALAS_ABI1)
-    ..setAgilityBonus(1, 6)
-
     new MyItemDefinition(ITEM_BOOTS_OF_QUELTHALAS)
-    ..setAbilities(commaList(ITEM_BOOTS_OF_QUELTHALAS_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBoots.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBoots.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(550)
-    ..setDescription("|c00FFFC01Effect:|r\n"
-    +"+6 Agility")
-    ..setName("Boots of Quel'Thalas ")
-    ..setTooltipBasic("Purchase Boots of Quel'Thalas |c00FFFC01[ L ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
-    +"+6 Agility")
-    ..setHotkey("L")
+    ..addStats(addAgi(6))
+    ..addHotKey()
+    ..register()
 
 //I00W
-    new AbilityDefinitionStrengthBonusPlus1(ITEM_BELT_OF_GIANT_STRENGTH_ABI1)
-    ..setStrengthBonus(1, 6)
-
     new MyItemDefinition(ITEM_BELT_OF_GIANT_STRENGTH)
-    ..setAbilities(commaList(ITEM_BELT_OF_GIANT_STRENGTH_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(550)
-    ..setDescription("|c00FFFC01Effect:|r\n"
-    +"+6 Strength.")
-    ..setName("Belt of Giant Strength +6")
-    ..setTooltipBasic("Purchase Belt of Giant Strength |c00FFFC01[ B ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
-    +"+6 Strength.")
-    ..setHotkey("B")
+    ..addStats(addStr(6))
+    ..addHotKey()
+    ..register()
 
 //I00Y
-    new AbilityDefinitionAllPlus1(ITEM_CIRCLET_OF_NOBILITY_ABI1)
-    ..setAgilityBonus(1, 4)
-    ..setStrengthBonus(1, 4)
-    ..setIntelligenceBonus(1, 4)
-
     new MyItemDefinition(ITEM_CIRCLET_OF_NOBILITY)
-    ..setAbilities(commaList(ITEM_CIRCLET_OF_NOBILITY_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCirclet.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCirclet.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(580)
-    ..setDescription("|c00FFFC01Effect:|r\n"
-    +"+ 4 All Stats")
-    ..setName("Circlet of Nobility")
-    ..setTooltipBasic("Purchase Circlet of Nobility |c00FFFC01[ N ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
-    +"+ 4 All Stats")
-    ..setHotkey("N")
+    ..addStats(addAllStats(4))
+    ..addHotKey()
+    ..register()
 
 //I010
-    new AbilityDefinitionAllPlus1(ITEM_CRYSTAL_BALL_ABI1)
-    ..setAgilityBonus(1, 15)
-    ..setStrengthBonus(1, 15)
-    ..setIntelligenceBonus(1, 15)
-
     new MyItemDefinition(ITEM_CRYSTAL_BALL)
-    ..setAbilities(commaList(ITEM_CRYSTAL_BALL_ABI1))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCrystalBall.blp")    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCrystalBall.blp")
+    ..setClassification("PowerUp")
     ..setGoldCost(2300)
-    ..setDescription("|c00FFFC01Effect:|r\n"
-    +"+ 15 All Stats")
-    ..setName("Crystal Ball")
-    ..setTooltipBasic("Purchase Crystal Ball |c00FFFC01[ M ]|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r\n"
-    +"+ 15 All Stats")
-    ..setHotkey("M")
+    ..addStats(addAllStats(15))
+    ..addHotKey()
+    ..register()

@@ -4,12 +4,13 @@ import CommonDescriptions
 import ItemIds
 import Recipes
 import Object_Shops
-import Object_ItemsNames
+import ItemsNames
 import ItemObjEditing
 import LinkedList
 import MyItemIds
 import ObjectIds
 import public ItemStats
+import ObjectIdGenerator
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -17,10 +18,17 @@ import public ItemStats
 public class MyItemDefinitionBase extends ItemDefinition
     // The item's ID. Example: Scroll of Fusion.
     int itemId
-
+    
     construct(int newId)
         super(newId, ItemIds.orbofDarkness)
-        this.itemId = newId
+        initBase(newId)
+
+    construct(int newId, int oldId)
+        super(newId, oldId)
+        initBase(newId)
+
+    private function initBase(int itemId)
+        this.itemId = itemId
 
         setActivelyUsed(false)
         setUseAutomaticallyWhenAcquired(false)
@@ -42,9 +50,8 @@ public class MyItemDefinitionBase extends ItemDefinition
         setTintingColor1Red(255)
         setTintingColor2Green(255)
         setTintingColor3Blue(255)
-
-        setCanBeSoldByMerchants(true)
-        setCanBeSoldToMerchants(true)
+        
+        setCanBeSold(true)
 
         setCanBeDropped(true)
         setDroppedWhenCarrierDies(false)
@@ -62,10 +69,17 @@ public class MyItemDefinitionBase extends ItemDefinition
         setRequirementsLevels("")
         setClassification("PowerUp")
 
+    function setCanBeSold(boolean value)
+        setCanBeSoldByMerchants(value)
+        setCanBeSoldToMerchants(value)
+
     function register()
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
+
+public interface ItemAbilityFunc
+    function run(int abilityId)
 
 // To define simple items: ring of protection, simple sword.
 public class MyItemDefinition extends MyItemDefinitionBase
@@ -73,8 +87,15 @@ public class MyItemDefinition extends MyItemDefinitionBase
     string effects
     string extraEffects
 
+    construct(int newId, int oldId)
+        super(newId, oldId)
+        initThis()
+    
     construct(int newId)
         super(newId)
+        initThis()
+
+    private function initThis()
         this.abilityList  = ""
         this.effects      = ""
         this.extraEffects = ""
@@ -85,36 +106,53 @@ public class MyItemDefinition extends MyItemDefinitionBase
         
         if (itemStats.addToAbilityList())
             abilityList = abilityList + itemStats.abilityId.toRawCode() + ","
+
+    function addStats(int abilityId, string effects)
+        this.effects = this.effects + effects + "\n"
+        abilityList = abilityList + abilityId.toRawCode() + ","
     
-    function applyStats()
-        abilityList = abilityList.substring(0, abilityList.length() - 1)
-        setAbilities(abilityList)
+    function addStats(ItemAbilityFunc initFunc, string effects)
+        let abilityId = ABIL_ID_GEN.next()
+        initFunc.run(abilityId)
+
+        this.effects = this.effects + effects + "\n"
+        abilityList = abilityList + abilityId.toRawCode() + ","
+    
+    function addStats(string effects)
+        this.effects = this.effects + effects + "\n"
 
     function addExtraDescription(string extraDescription)
         this.extraEffects = extraDescription
 
-    function getEffectsDescription() returns string
+    protected function applyStats()
+        abilityList = abilityList.substring(0, abilityList.length() - 1)
+        setAbilities(abilityList)
+
+    protected function getEffectsDescription() returns string
         if (extraEffects == "")
             return wordEffects + effects
         else
-            return wordEffects + effects + wordExtraEffects + extraEffects
-        
-    function describe(string effects)
+            return extraEffects + wordEffects + effects
+
+    protected function basicEffectsDescr()
         let itemName = getItemName(itemId)
+        let descrEffects = getEffectsDescription()
+
         // The item name
         setName(itemName)
         // The chest item description
-        setDescription(wordEffects + "\n" + effects)
+        setDescription(descrEffects)
         // The shop name
         setTooltipBasic("Purchase " + itemName)
         // The shop and inventory text
-        setTooltipExtended(wordEffects + "\n" + effects)
-
+        setTooltipExtended(descrEffects)
+        
     function addHotKey()
         setHotkey(getHotKey(itemId))
 
     override function register()
         applyStats()
+        basicEffectsDescr()
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -144,30 +182,21 @@ class MyItemWithCraftInfoDefinition extends MyItemDefinition
         this.icon             = ""
         this.components       = null
         
-    function getMaterialsDescription() returns string
+    protected function getMaterialsDescription() returns string
         string materials = wordMaterials
         for comp in components
             materials = materials + getItemName(comp) + " (" + getShopNameForItem(comp) + ")\n"
         return materials
 
-    function getRecipeDescription() returns string
+    protected function getRecipeDescription() returns string
         return getEffectsDescription() + getMaterialsDescription()
 
     override function register()
         applyStats()
+        basicEffectsDescr()
 
         let itemName = getItemName(itemId)
-        let descrEffects = getEffectsDescription()
         let descrRecipe  = getRecipeDescription()
-
-        // The item name
-        setName(itemName)
-        // The chest item description
-        setDescription(descrEffects)
-        // The shop name
-        setTooltipBasic("Purchase " + itemName)
-        // The shop and inventory text
-        setTooltipExtended(descrEffects)
 
         if (recipeItemId != -1)
             new MyItemDefinitionBase(recipeItemId)
@@ -198,8 +227,6 @@ class MyItemWithCraftInfoDefinition extends MyItemDefinition
 
     function addComponents(int item1, int item2, int item3, int item4)
         this.recipeList.addRecipe(item1, item2, item3, item4, this.itemId)
-        println("Added item to recipe list")
-        println(recipeList.size().toString())
         this.components = new LinkedList<int>()
         this.components.add(item1, item2, item3, item4)
 
@@ -236,7 +263,7 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
 
     construct(int itemId, RecipeList recipeList, int recipeItemId, InitItem initRecipe)
         super(itemId, recipeList, recipeItemId)
-        this.initRecipe   = initRecipe
+        this.initRecipe = initRecipe
 
     override function getMaterialsDescription() returns string
         string materials = wordMaterials
@@ -249,29 +276,62 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
 
     override function register()
         applyStats()
+        basicEffectsDescr()
         
         let itemName = getItemName(itemId)
-        let descrEffects = getEffectsDescription()
         let descrRecipe  = getRecipeDescription()
 
-        // The item name
-        setName(itemName)
-        // The chest item description
-        setDescription(descrEffects)
-        // The shop name
-        setTooltipBasic("Purchase " + itemName)
-        // The shop and inventory text
-        setTooltipExtended(descrEffects)
-
         let recipeItemDef = new MyItemDefinitionBase(recipeItemId)
-        recipeItemDef.setInterfaceIcon(icon)
-        recipeItemDef.setName("Recipe " + itemName)
-        recipeItemDef.setDescription(descrRecipe)
-        recipeItemDef.setTooltipBasic("Purchase Recipe " + itemName)
-        recipeItemDef.setTooltipExtended(descrRecipe)
-        recipeItemDef.setHotkey(getHotKey(recipeItemId))
+        ..setInterfaceIcon(icon)
+        ..setName("Recipe " + itemName)
+        ..setClassification("Charged")
+        ..setDescription(descrRecipe)
+        ..setTooltipBasic("Purchase Recipe " + itemName)
+        ..setTooltipExtended(descrRecipe)
+        ..setHotkey(getHotKey(recipeItemId))
+        ..setStockReplenishInterval(3)
+        ..setStockStartDelay(3)
 
         initRecipe.call(recipeItemDef)
+
+    override function addComponents(int item1)
+        this.recipeList.addRecipe(item1, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, this.recipeItemId)
+
+    override function addComponents(int item1, int item2)
+        this.recipeList.addRecipe(item1, item2, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, this.recipeItemId)
+
+    override function addComponents(int item1, int item2, int item3)
+        this.recipeList.addRecipe(item1, item2, item3, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, this.recipeItemId)
+
+    override function addComponents(int item1, int item2, int item3, int item4)
+        this.recipeList.addRecipe(item1, item2, item3, item4, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4, this.recipeItemId)
+
+    override function addComponents(int item1, int item2, int item3, int item4, int item5)
+        this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4, item5, this.recipeItemId)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public class MyGemDefinition extends MyItemDefinition
+    construct(int newId)
+        super(newId)
+        setActivelyUsed(true)
+        setCanBeSold(false)
+        setGoldCost(149000)
+
+        setStockReplenishInterval(600)
+        setStockStartDelay(100)
+
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------

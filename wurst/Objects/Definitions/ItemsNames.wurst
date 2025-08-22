@@ -1,4 +1,4 @@
-package Object_ItemsNames
+package ItemsNames
 
 import MyItemIds
 
@@ -95,7 +95,7 @@ public function getItemName(int id) returns string
 
         case ITEM_PERIAPT_OF_VITALITY
             return "Periapt of Vitality"
-        case ITEM_KHADGARS_PENDANT_OF_HEALTH
+        case ITEM_KHADGAR_PENDANT_OF_HEALTH
             return "Khadgar's Pendant of Health"
         case ITEM_CLOAK_OF_SHADOWS
             return "Cloak of Shadows"
@@ -139,7 +139,7 @@ public function getItemName(int id) returns string
         case ITEM_RECIPE_MEDALLION_OF_COURAGE
             return "Recipe " + compiletime(getItemName(ITEM_MEDALLION_OF_COURAGE))
         case ITEM_RECIPE_ALLERIA_FLUTE_OF_ACCURACY
-            return "Recipe " + compiletime(getItemName(ITEM_ALLERIAS_FLUTE_OF_ACCURACY))
+            return "Recipe " + compiletime(getItemName(ITEM_ALLERIA_FLUTE_OF_ACCURACY))
         case ITEM_RECIPE_ANCIENT_JANGGO_OF_ENDURANCE
             return "Recipe " + compiletime(getItemName(ITEM_ANCIENT_JANGGO_OF_ENDURANCE))
 
@@ -206,7 +206,7 @@ public function getItemName(int id) returns string
         case ITEM_RECIPE_SOUL_OF_KILJEADEN
             return "Recipe " + compiletime(getItemName(ITEM_SOUL_OF_KILJEADEN))
         case ITEM_RECIPE_LIZARD_PENDANT
-            return "Recipe " + compiletime(getItemName(ITEM_LIZARD_PEDANT))
+            return "Recipe " + compiletime(getItemName(ITEM_LIZARD_PENDANT))
         case ITEM_RECIPE_HELM_HERMES
             return "Recipe " + compiletime(getItemName(ITEM_HELM_HERMES))
 
@@ -217,7 +217,7 @@ public function getItemName(int id) returns string
         case ITEM_RECIPE_ICE_WAND
             return "Recipe " + compiletime(getItemName(ITEM_ICE_WAND))
         case ITEM_RECIPE_WAR_ENERGY
-            return "Recipe " + compiletime(getItemName(ITEM_WAR_ENERY))
+            return "Recipe " + compiletime(getItemName(ITEM_WAR_ENERGY))
 
         // Late Game (1)
 
@@ -271,7 +271,7 @@ public function getItemName(int id) returns string
 
         // Gems (3)
 
-        case ITEM_GARNET
+        case ITEM_PERFECT_GARNET
             return "Perfect Garnet"
         case ITEM_PERFECT_CARNELIAN
             return "Perfect Carnelian"
@@ -467,7 +467,7 @@ public function getItemName(int id) returns string
             return "Lancelot's Ring"
         case ITEM_GUINEVERES_RING
             return "Guinevere's Ring"
-        case ITEM_ARKENSTONEFRAGMENT
+        case ITEM_ARKENSTONE_FRAGMENT
             return "Arkenstone Fragments"
         case ITEM_JEWELRY_OF_MANA
             return "Jewelry of Mana"
@@ -489,7 +489,7 @@ public function getItemName(int id) returns string
             return "Helm of Valor"
         case ITEM_MEDALLION_OF_COURAGE
             return "Medallion of Courage"
-        case ITEM_ALLERIAS_FLUTE_OF_ACCURACY
+        case ITEM_ALLERIA_FLUTE_OF_ACCURACY
             return "Alleria's Flute of Accuracy"
         case ITEM_ANCIENT_JANGGO_OF_ENDURANCE
             return "Ancient Janggo of Endurance"
@@ -545,7 +545,7 @@ public function getItemName(int id) returns string
             return "Thunder Bow"
         case ITEM_SOUL_OF_KILJEADEN
             return "Soul of Kil'jeaden"
-        case ITEM_LIZARD_PEDANT
+        case ITEM_LIZARD_PENDANT
             return "Lizard Pendant"
         case ITEM_HELM_HERMES
             return "Helm Hermes"
@@ -559,7 +559,7 @@ public function getItemName(int id) returns string
             return "Ice Wand"
         case ITEM_FREEZE_WAND
             return "Freeze Wand"
-        case ITEM_WAR_ENERY
+        case ITEM_WAR_ENERGY
             return "War Energy"
         case ITEM_FIRE_SWORD
             return "Fire Sword"
@@ -691,7 +691,7 @@ public function getItemName(int id) returns string
             return "Spiked Armor"
         case ITEM_FLAK_CANNONS
             return "Flak Cannons"
-        case ITEM_THUNDERLIZARD_DIAMON
+        case ITEM_THUNDERLIZARD_DIAMOND
             return "Thunderlizard Diamond"
         case ITEM_GEM_OF_POISON
             return "Gem of Poison"
@@ -749,11 +749,11 @@ public function getItemName(int id) returns string
             return "Crystal Sword"
         case ITEM_BLOODY_DAGGER
             return "Bloody Dagger"
-        case ITEM_CROWN_OF_WIZARD
+        case ITEM_CROWN_OF_WIZARD_L0
             return "Crown of Wizard"
-        case ITEM_CROWN_OF_SOLDIER
+        case ITEM_CROWN_OF_SOLDIER_L0
             return "Crown of Soldier"
-        case ITEM_CROWN_OF_ASSASSIN
+        case ITEM_CROWN_OF_ASSASSIN_L0
             return "Crown of Assassin"
         case ITEM_GLOVERSHIELD
             return "Clovershield"
@@ -929,13 +929,13 @@ public function getItemName(int id) returns string
             return "Vampirella +3"
         case ITEM_VAMPIRELLA_L4
             return "Vampirella +4"
-        case ITEM_CROWN_OF_ASSASIN_L1
+        case ITEM_CROWN_OF_ASSASSIN_L1
             return "Crown of Assassin +1"
-        case ITEM_CROWN_OF_ASSASIN_L2
+        case ITEM_CROWN_OF_ASSASSIN_L2
             return "Crown of Assassin +2"
-        case ITEM_CROWN_OF_ASSASIN_L3
+        case ITEM_CROWN_OF_ASSASSIN_L3
             return "Crown of Assassin +3"
-        case ITEM_CROWN_OF_ASSASIN_L4
+        case ITEM_CROWN_OF_ASSASSIN_L4
             return "Crown of Assassin +4"
         case ITEM_CROWN_OF_ASSASSIN_L5
             return "Crown of Assassin +5"

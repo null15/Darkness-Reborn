@@ -361,7 +361,7 @@ init
     ..setHotkey("2")
 
 //I02B
-    new MyItemDefinition(ITEM_ARKENSTONEFRAGMENT)    
+    new MyItemDefinition(ITEM_ARKENSTONE_FRAGMENT)    
     ..setClassification("Permanent")
     ..setGoldCost(0)
     ..setLevel(1)
@@ -503,7 +503,7 @@ init
     ..setHotkey("")
 
 //I04E
-    new MyItemDefinition(ITEM_ALLERIAS_FLUTE_OF_ACCURACY)    
+    new MyItemDefinition(ITEM_ALLERIA_FLUTE_OF_ACCURACY)    
     ..setClassification("Permanent")
     ..setGoldCost(0)
     ..setLevel(4)
@@ -921,7 +921,7 @@ init
     ..setHotkey("G")
 
 //I0BD
-    new MyItemDefinition(ITEM_LIZARD_PEDANT)    
+    new MyItemDefinition(ITEM_LIZARD_PENDANT)    
     ..setActivelyUsed(true)
     ..setClassification("Miscellaneous")
     ..setGoldCost(0)
@@ -1024,7 +1024,7 @@ init
     ..setHotkey("W")
 
 //I0JJ
-    new MyItemDefinition(ITEM_WAR_ENERY)    
+    new MyItemDefinition(ITEM_WAR_ENERGY)    
     ..setCooldownGroup("A0ZN§")
     ..setActivelyUsed(true)
     ..setClassification("Miscellaneous")
@@ -2071,7 +2071,7 @@ init
     ..setHotkey("R")
 
 //I03M
-    new MyItemDefinition(ITEM_THUNDERLIZARD_DIAMON)    
+    new MyItemDefinition(ITEM_THUNDERLIZARD_DIAMOND)    
     ..setActivelyUsed(true)
     ..setGoldCost(0)
     ..setLevel(1)
@@ -2505,7 +2505,7 @@ init
     ..setHotkey("K")
 
 //I045
-    new MyItemDefinition(ITEM_CROWN_OF_WIZARD)    
+    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L0)    
     ..setCooldownGroup("A0BX")
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
@@ -2531,7 +2531,7 @@ init
     ..setHotkey("K")
 
 //I044
-    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER)    
+    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L0)    
     ..setCooldownGroup("A0BW")
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
@@ -2557,7 +2557,7 @@ init
     ..setHotkey("K")
 
 //I043
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN)    
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L0)    
     ..setClassification("Artifact")
     ..setGoldCost(0)
     ..setLevel(4)
@@ -3921,7 +3921,7 @@ init
     ..setHotkey("")
 
 //I0F3
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASIN_L1)    
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L1)    
     ..setClassification("Artifact")
     ..setGoldCost(0)
     ..setLevel(4)
@@ -3934,7 +3934,7 @@ init
     ..setHotkey("K")
 
 //I0F4
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASIN_L2)    
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L2)    
     ..setClassification("Artifact")
     ..setGoldCost(0)
     ..setLevel(4)
@@ -3949,7 +3949,7 @@ init
     ..setHotkey("K")
 
 //I0F5
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASIN_L3)    
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L3)    
     ..setClassification("Artifact")
     ..setGoldCost(0)
     ..setLevel(4)
@@ -3964,7 +3964,7 @@ init
     ..setHotkey("K")
 
 //I0F6
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASIN_L4)    
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L4)    
     ..setClassification("Artifact")
     ..setGoldCost(0)
     ..setLevel(4)

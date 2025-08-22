@@ -1,15 +1,11 @@
 package Objects_ItemsLateGame4
 
-import CommonDescriptions
 import MyItemDefinition
 import ItemObjEditing
-import AbilityObjEditing
-import ItemIds
 import MyItemIds
 import ObjectIds
 import MyAbilityIds
-import Icons
-import Abilities
+import RecipeItems
 
 init
 
@@ -19,107 +15,86 @@ init
     new MyItemDefinition(ITEM_BULION)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGold.blp")    
     ..setClassification("Artifact")
-    ..setGoldCost(0)
-    ..setLevel(4)
     ..setLumberCost(100)
-    ..setPriority(126)
-    ..setDescription("+6000 MP.")
-    ..setName("|cffffcc00Bulion|r")
-    ..setTooltipBasic("|cffffcc00Bulion|r")
-    ..setTooltipExtended("|cffffcc00Used to upgrade some type of item|r")
-    ..setHotkey("K")
+    ..addStats(addMp(6000))
+    ..addExtraDescription("Used to upgrade some type of item")
+    ..addHotKey()
+    ..register()
 
 //I0CD
     new MyItemDefinition(ITEM_CRYSTAL_ARMOR)
-    ..setAbilities(commaList('A05G', STRMOD_5, 'A0SZ'))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (7).blp")    
-    ..setScalingValue(0.50)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (7).blp")
     ..setClassification("Campaign")
-    ..setGoldCost(50000)
-    ..setLevel(0)
     ..setLumberCost(1100)
-    ..setPerishable(true)
-    ..setPriority(39)
     ..setStockMaximum(2)
     ..setStockReplenishInterval(45)
-    ..setDescription("")
-    ..setName("|c000050FF Crystal Armor|r")
-    ..setTooltipBasic("|c000050FF Crystal Armor|r")
-    ..setTooltipExtended("|c000050FF+1200 Strength\n+300 Armor\nSpecial abilities :50% Chance to deal 2x Strength damage back to enemies attacking you.|r")
-    ..setHotkey("V")
+    ..addStats(addStr(1200))
+    ..addStats(addArmor(300))
+    ..addStats('A0SZ', "50% Chance to deal 2x Strength damage back to enemies attacking you.")
+    ..addHotKey()
+    ..register()
 
 //I0CC
     new MyItemDefinition(ITEM_CRYSTAL_DUAL_SWORD)
-    ..setAbilities(commaList('A0IP', AGIMOD_25, 'A0C4'))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (2).blp")    
-    ..setScalingValue(0.50)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (2).blp")
     ..setClassification("Campaign")
     ..setGoldCost(50000)
-    ..setLevel(0)
     ..setLumberCost(700)
-    ..setPerishable(true)
-    ..setPriority(39)
     ..setStockMaximum(2)
     ..setStockReplenishInterval(45)
-    ..setDescription("")
-    ..setName("|c000050FF Crystal Dual Sword|r")
-    ..setTooltipBasic("|c000050FF Crystal Dual Sword|r")
-    ..setTooltipExtended("|c000050FF+1500 Damage\n+690 Agility\n5% Armor Pen\nSpecial abilities: +4% Chance to deal 60 x Damage|r")
-    ..setHotkey("V")
+    ..addStats(addDamage(1500))
+    ..addStats(addAgi(690))
+    ..addStats(addArmorPen(5))
+    ..addStats(addCrit(60, 0.04))
+    ..addHotKey()
+    ..register()
 
 //I0CJ
     new MyItemDefinition(ITEM_CRYSTAL_KNIFE)
-    ..setAbilities(commaList('A0SR', 'A074'))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (9).blp")    
-    ..setScalingValue(0.50)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (9).blp")
     ..setClassification("Campaign")
+    ..setScalingValue(0.50)
     ..setGoldCost(50000)
-    ..setLevel(0)
     ..setLumberCost(700)
-    ..setPerishable(true)
-    ..setPriority(39)
     ..setStockMaximum(2)
     ..setStockReplenishInterval(45)
-    ..setDescription("")
-    ..setName("|c000050FF Crystal Knife|r")
-    ..setTooltipBasic("|c000050FF Crystal Knife|r")
-    ..setTooltipExtended("|c000050FF+600 All Stats\nSpecial abilities :-300 Armor on-hit|r")
-    ..setHotkey("V")
+    ..addStats(addAllStats(600))
+    ..addStats(addArmorOnHit(-300))
+    ..addHotKey()
+    ..register()
 
 //I0CE
     new MyItemDefinition(ITEM_CRYSTAL_SPEAR)
-    ..setAbilities(commaList('A0IG', 'A0SM'))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (3).blp")    
-    ..setScalingValue(0.50)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (3).blp")
     ..setClassification("Campaign")
+    ..setScalingValue(0.50)
     ..setGoldCost(50000)
-    ..setLevel(0)
     ..setLumberCost(700)
-    ..setPerishable(true)
-    ..setPriority(39)
+    ..addStats(addInt(1350))
     ..setStockMaximum(2)
     ..setStockReplenishInterval(45)
-    ..setDescription("")
-    ..setName("|c000050FF Crystal Spear|r")
-    ..setTooltipBasic("|c000050FF Crystal Spear|r")
-    ..setTooltipExtended("|c000050FF+1350 Intelligence\nSpecial abilities : 15% chance to deal 10 times Intelligence Damage on-hit|r")
-    ..setHotkey("V")
+    ..addStats('A0IG', "15% chance to deal 10 times Intelligence Damage on-hit")
+    ..addHotKey()
+    ..register()
 
 //I0AX
-    new MyItemDefinition(ITEM_RECIPE_DRAGON_WINGS)
+    new MyItemWithRecipeDefinition(ITEM_DRAGON_WINGS, itemRecipeList, ITEM_RECIPE_DRAGON_WINGS,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(25000)
+    )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDragonWing.blp")
     ..setModelUsed("assets-wings effect\\DwingsStand.mdx")
+    ..setClassification("Campaign")
     ..setScalingValue(0.80)
-    ..setClassification("Charged")
-    ..setGoldCost(25000)
-    ..setLevel(5)
-    ..setPriority(118)
-    ..setDescription("Nearby units move and attack more swiftly.")
-    ..setName("|c00FF0303Dragon Wings|r")
-    ..setTooltipBasic("Buy |c00FF0303Dragon Wings|r")
-    ..setTooltipExtended("|c00FF0303Dragon Wings require Dragon Bone, Dragon Spirit, Dragon Claw and Dragon Skin|r")
-    ..setHotkey("")
-    
+    ..addStats("WIP")
+    ..addComponents(
+    ITEM_DRAGON_BONE,
+    ITEM_DRAGON_CLAW,
+    ITEM_DRAGON_SKIN,
+    ITEM_DRAGON_SPIRIT)
+    ..addHotKey()
+    ..register()
+
 //I0CI
     new MyItemDefinition(ITEM_TOME_OF_FROSTY_INTELLIGENCE)
     ..setModelUsed("Objects\\InventoryItems\\tomeGreen\\tomeGreen.mdl")
@@ -134,11 +109,9 @@ init
     ..setStockReplenishInterval(900)
     ..setStockStartDelay(3000)
     ..setUseAutomaticallyWhenAcquired(true)
-    ..setDescription("")
-    ..setName("|c000050FFTome of Frosty Intelligence|r")
-    ..setTooltipBasic("|c000050FFTome of Frosty Intelligence|r")
-    ..setTooltipExtended("|c000050FF+2999 Intelligence|r")
-    ..setHotkey("")
+    ..addStats("+2999 Int on use")
+    ..addHotKey()
+    ..register()
 
 //I0CF
     new MyItemDefinition(ITEM_TOME_OF_FROSTY_STRENGTH)
@@ -154,11 +127,9 @@ init
     ..setStockReplenishInterval(900)
     ..setStockStartDelay(3000)
     ..setUseAutomaticallyWhenAcquired(true)
-    ..setDescription("")
-    ..setName("|c000050FFTome of Frosty Strength|r")
-    ..setTooltipBasic("Purchase Tome of Strength +2999")
-    ..setTooltipExtended("|c000050FF+ 2999 Strength|r")
-    ..setHotkey("")
+    ..addStats("+2999 Str on use")
+    ..addHotKey()
+    ..register()
 
 //I0CH
     new MyItemDefinition(ITEM_TOME_OF_FROSTY_AGILITY)
@@ -174,8 +145,6 @@ init
     ..setStockReplenishInterval(900)
     ..setStockStartDelay(3000)
     ..setUseAutomaticallyWhenAcquired(true)
-    ..setDescription("")
-    ..setName("|c000050FFTome of Frosty Agility|r")
-    ..setTooltipBasic("|c000050FFTome of Frosty Agility|r")
-    ..setTooltipExtended("|c000050FF+2999 Agility|r")
-    ..setHotkey("")
+    ..addStats("+2999 Agi on use")
+    ..addHotKey()
+    ..register()

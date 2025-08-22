@@ -45,7 +45,7 @@ public constant ITEM_POTION_OF_GREATER_MANA = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_PENDANT_OF_ENERGY = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_PENDANT_OF_MANA = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_PERIAPT_OF_VITALITY = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_KHADGARS_PENDANT_OF_HEALTH = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_KHADGAR_PENDANT_OF_HEALTH = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CLOAK_OF_SHADOWS = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_TOME_OF_RETRAINING = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_RECIPE_ICE_SWORD = compiletime(ITEM_ID_GEN.next())
@@ -116,7 +116,7 @@ public constant ITEM_RECIPE_LANCELOT_ARMOR = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_RECIPE_LANCELOT_HELM = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_RECIPE_MYSTERY_BLUE_STAFF = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_RECIPE_FREEZE_WAND = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_GARNET = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_PERFECT_GARNET = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_PERFECT_CARNELIAN = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_PERFECT_CITRINE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_PERFECT_TOPAZ = compiletime(ITEM_ID_GEN.next())
@@ -200,7 +200,7 @@ public constant ITEM_BOOTS_OF_CRYSTAL_GOLD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ICE_SWORD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_LANCELOTS_RING = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_GUINEVERES_RING = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_ARKENSTONEFRAGMENT = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_ARKENSTONE_FRAGMENT = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_JEWELRY_OF_MANA = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_JEWELRY_OF_LIFE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_STEEL_AXE = compiletime(ITEM_ID_GEN.next())
@@ -211,7 +211,7 @@ public constant ITEM_SCROLL_OF_FUSION = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_AMULET_OF_THE_WILD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_HELM_OF_VALOR = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_MEDALLION_OF_COURAGE = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_ALLERIAS_FLUTE_OF_ACCURACY = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_ALLERIA_FLUTE_OF_ACCURACY = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ANCIENT_JANGGO_OF_ENDURANCE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_THE_LION_HORN_OF_STORMWIND = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_WARSONG_BATTLE_DRUMS = compiletime(ITEM_ID_GEN.next())
@@ -239,14 +239,14 @@ public constant ITEM_CHAOS_BLADE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_O_CLOCK = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_THUNDER_BOW = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_SOUL_OF_KILJEADEN = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_LIZARD_PEDANT = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_LIZARD_PENDANT = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_HELM_HERMES = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DARK_SPHERE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_MYSTERY_GREEN_STAFF = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_MYSTERY_BLUE_STAFF = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ICE_WAND = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_FREEZE_WAND = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_WAR_ENERY = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_WAR_ENERGY = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_FIRE_SWORD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_GLOVES_OF_SPEED = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_BOOTS_OF_TELEPORTATION = compiletime(ITEM_ID_GEN.next())
@@ -312,7 +312,7 @@ public constant ITEM_BLOOD_GEM = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_STAFF_OF_PRESERVATION = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_SPIKED_ARMOR = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_FLAK_CANNONS = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_THUNDERLIZARD_DIAMON = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_THUNDERLIZARD_DIAMOND = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_GEM_OF_POISON = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_MOON_ARMOR = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_AMULET_OF_RECALL = compiletime(ITEM_ID_GEN.next())
@@ -341,9 +341,9 @@ public constant ITEM_ESSENCE_OF_ASZUNE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DREAM_SWORD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CRYSTAL_SWORD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_BLOODY_DAGGER = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_WIZARD = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_SOLDIER = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_ASSASSIN = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_WIZARD_L0 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_SOLDIER_L0 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_ASSASSIN_L0 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_GLOVERSHIELD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_BOOK_OF_WIND = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_BOOK_OF_RAIN = compiletime(ITEM_ID_GEN.next())
@@ -431,10 +431,10 @@ public constant ITEM_VAMPIRELLA_L1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_VAMPIRELLA_L2 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_VAMPIRELLA_L3 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_VAMPIRELLA_L4 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_ASSASIN_L1 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_ASSASIN_L2 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_ASSASIN_L3 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_ASSASIN_L4 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_ASSASSIN_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_ASSASSIN_L2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_ASSASSIN_L3 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_ASSASSIN_L4 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CROWN_OF_ASSASSIN_L5 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CROWN_OF_SOLDIER_L1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CROWN_OF_SOLDIER_L2 = compiletime(ITEM_ID_GEN.next())
@@ -745,19 +745,19 @@ function compileItems()
     ITEM_UPGRADE[17] = ITEM_VAMPIRELLA_L3//Vampirella +3
     ITEM_UPGRADE[18] = ITEM_VAMPIRELLA_L4//Vampirella +4
     ITEM_UPGRADE[19] = ITEM_VAMPIRELLA_L5//Vampirella +5
-    ITEM_UPGRADE[20] = ITEM_CROWN_OF_ASSASSIN//crown of assasin
-    ITEM_UPGRADE[21] = ITEM_CROWN_OF_ASSASIN_L1//crown of assasin +1
-    ITEM_UPGRADE[22] = ITEM_CROWN_OF_ASSASIN_L2//crown of assasin +2
-    ITEM_UPGRADE[23] = ITEM_CROWN_OF_ASSASIN_L3//crown of assasin +3
-    ITEM_UPGRADE[24] = ITEM_CROWN_OF_ASSASIN_L4//crown of assasin +4
+    ITEM_UPGRADE[20] = ITEM_CROWN_OF_ASSASSIN_L0//crown of assasin
+    ITEM_UPGRADE[21] = ITEM_CROWN_OF_ASSASSIN_L1//crown of assasin +1
+    ITEM_UPGRADE[22] = ITEM_CROWN_OF_ASSASSIN_L2//crown of assasin +2
+    ITEM_UPGRADE[23] = ITEM_CROWN_OF_ASSASSIN_L3//crown of assasin +3
+    ITEM_UPGRADE[24] = ITEM_CROWN_OF_ASSASSIN_L4//crown of assasin +4
     ITEM_UPGRADE[25] = ITEM_CROWN_OF_ASSASSIN_L5//crown of assasin +5
-    ITEM_UPGRADE[26] = ITEM_CROWN_OF_SOLDIER//Crown of Soldier
+    ITEM_UPGRADE[26] = ITEM_CROWN_OF_SOLDIER_L0//Crown of Soldier
     ITEM_UPGRADE[27] = ITEM_CROWN_OF_SOLDIER_L1//Crown of Soldier +1
     ITEM_UPGRADE[28] = ITEM_CROWN_OF_SOLDIER_L2//Crown of Soldier +2
     ITEM_UPGRADE[29] = ITEM_CROWN_OF_SOLDIER_L3//Crown of Soldier +3
     ITEM_UPGRADE[30] = ITEM_CROWN_OF_SOLDIER_L4//Crown of Soldier +4
     ITEM_UPGRADE[31] = ITEM_CROWN_OF_SOLDIER_L5//Crown of Soldier +5
-    ITEM_UPGRADE[32] = ITEM_CROWN_OF_WIZARD//Crown of Wizard
+    ITEM_UPGRADE[32] = ITEM_CROWN_OF_WIZARD_L0//Crown of Wizard
     ITEM_UPGRADE[33] = ITEM_CROWN_OF_WIZARD_L1//Crown of Wizard +1
     ITEM_UPGRADE[34] = ITEM_CROWN_OF_WIZARD_L2//Crown of Wizard +2
     ITEM_UPGRADE[35] = ITEM_CROWN_OF_WIZARD_L3//Crown of Wizard +3
@@ -840,7 +840,7 @@ function compileItems()
     ITEM_STAFF_OF_PRESERVATION,
     ITEM_SPIKED_ARMOR,
     ITEM_FLAK_CANNONS,
-    ITEM_THUNDERLIZARD_DIAMON,
+    ITEM_THUNDERLIZARD_DIAMOND,
     ITEM_GEM_OF_POISON,
     ITEM_MOON_ARMOR,
     ITEM_AMULET_OF_RECALL,
@@ -873,11 +873,11 @@ function compileItems()
     ITEM_DREAM_SWORD,
     ITEM_CRYSTAL_SWORD,
     ITEM_BLOODY_DAGGER,
-    ITEM_CROWN_OF_WIZARD
+    ITEM_CROWN_OF_WIZARD_L0
     )
     itemList.add(
-    ITEM_CROWN_OF_SOLDIER,
-    ITEM_CROWN_OF_ASSASSIN,
+    ITEM_CROWN_OF_SOLDIER_L0,
+    ITEM_CROWN_OF_ASSASSIN_L0,
     ITEM_GLOVERSHIELD,
     ITEM_BOOK_OF_WIND,
     ITEM_BOOK_OF_RAIN,
@@ -915,9 +915,9 @@ function compileItems()
     ITEM_BLOODY_DAGGER
     )
     itemList.add(
-    ITEM_CROWN_OF_WIZARD,
-    ITEM_CROWN_OF_SOLDIER,
-    ITEM_CROWN_OF_ASSASSIN,
+    ITEM_CROWN_OF_WIZARD_L0,
+    ITEM_CROWN_OF_SOLDIER_L0,
+    ITEM_CROWN_OF_ASSASSIN_L0,
     ITEM_GLOVERSHIELD,
     ITEM_BOOK_OF_WIND,
     ITEM_BOOK_OF_RAIN,
@@ -941,7 +941,7 @@ function compileItems()
     ITEM_CORROSIVE_HAMMER,
     ITEM_MYSTERY_GREEN_STAFF,
     ITEM_O_CLOCK,
-    ITEM_LIZARD_PEDANT,
+    ITEM_LIZARD_PENDANT,
     ITEM_PERFECT_ARKENSTONE,
     ITEM_FREEZE_WAND,
     ITEM_FALLING_STAR,

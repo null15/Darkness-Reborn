@@ -61,33 +61,54 @@ public let shopNameCreepsTp2      = itemNameCreepsTp("Intermediate hunting groun
 public let shopNameCreepsTp3      = itemNameCreepsTp("Elite hunting grounds")
 public let shopNameCreepsTp4      = itemNameCreepsTp("End-game bosses")
 
-public let monsterDrop         = "Monster Drop"
-public let bossDrop            = "Boss Drop"
+public let monsterDrop            = "Monster Drop"
+public let bossDrop               = "Boss Drop"
+   
+public let wordEffects            = "|c00FFFC01Effects:|r\n"
+public let wordExtraEffects       = "|c00FFFC01Extra Effects:|r\n"
+public let wordMaterials          = "|c00FEBA0EMaterials required to craft this item:|r\n"
+   
+public let wordAttackSpeed        = "Attack Speed"
+public let wordDamage             = "Damage"
+public let wordLifeSteal          = "Life Steal"
+public let wordArmorOnHit         = "Armor on hit (Orb Effect)"
+public let wordArmorPen           = "Armor penetration"
+public let wordMpOnHit            = "{0}% of max MP on hit"
+public let wordFrost1             = "Frost Orb Effect on-hit: {0} sec"
+public let wordFrost2             = "Frost Orb Effect on-hit: {0} sec (normal), {1} sec (hero)"
+public let wordLightning          = "{0}% chance to shoot a chain lightning dealing {1} damage to up to {2} targets ({3} damage reduction per target)"   
+   
+public let wordCleave             = "Cleave: {0} damage in {1} range"
+public let wordCrit               = "Crit: {0}% chance to do x{1} damage"
+public let wordBash               = "Bash: {0}% chance to do {1} bonus damage and stun for {2} sec (cd {3} sec)"
+   
+public let wordHp                 = "HP"
+public let wordHpReg              = "HP/s"
+public let wordRestoreHp          = "Restores {0} HP when used"
+   
+public let wordArmor              = "Armor"
+public let wordDamageBlock        = "Block: {0}% chance to block {1} damage"
+public let wordEvasion            = "Evasion"
+public let wordSpikes             = "Return {0}% of the damage dealt to you back to the attacker"
+public let wordSpellShield        = "Blocks one negative spell (cd {0} sec)"
+public let wordMovementSpeed      = "Movement Speed"
+public let wordTp                 = "Active: teleport to allied unit or building (cd 20 sec)"
+   
+public let wordMp                 = "MP"
+public let wordMpReg              = "MP Regeneration"
+public let wordRestoreMp          = "Restores {0} MP when used"
+   
+public let wordAgi                = "Agility"
+public let wordStr                = "Strength"
+public let wordInt                = "Intelligence"
+public let wordAllStats           = "All stats"
 
-public let wordEffects         = "|c00FFFC01Effects:|r\n"
-public let wordExtraEffects    = "|c00FFFC01Extra Effects:|r\n"
-public let wordMaterials       = "|c00FEBA0EMaterials required to craft this item:|r\n"
+public let wordAuraTrueshot       = "Trueshot Aura: {0}% ranged damage in {1} range"
+public let wordAuraEndurance      = "Endurance Aura: {0}% movement speed, {1}% attack speed in {2} range"
+public let wordAuraDevotionFlat   = "Devotion Aura: {0} armor in {1} range"
+public let wordAuraDevotionRel    = "Devotion Aura: {0}% armor in {1} range"
+public let wordAuraCommandRel     = "Command Aura: {0}% damage in {1} range"
 
-public let wordAttackSpeed     = "Attack Speed"
-public let wordDamage          = "Damage"
-public let wordLifeSteal       = "Life Steal"
-public let wordArmorOnHit      = "Armor on hit"
-public let wordArmorPen        = "Armor penetration"
-
-public let wordCleave          = "Cleave: {0} damage in {1} range"
-public let wordCrit            = "Crit: {0}% chance to do x{1} damage"
-
-public let wordHP              = "HP"
-public let wordHPReg           = "HP/s"
-public let wordArmor           = "Armor"
-public let wordDamageBlock     = "Block: {0}% chance to block {1} damage"
-public let wordEvasion         = "Evasion"
-public let wordMovementSpeed   = "Movement Speed"
-
-public let wordMP              = "MP"
-public let wordMPReg           = "MP Regeneration"
-
-public let wordAgi             = "Agility"
-public let wordStr             = "Strength"
-public let wordInt             = "Intelligence"
-public let wordAllStats        = "All stats"
+public let wordAvatar             = "Active: activate Avatar for {0} sec (cd {1} sec)"
+public let wordResetSpellCd       = "Active: Reset all of your Skill Cooldowns (cd {0} sec)"
+public let wordPhoenixFire        = "Every {0} second deal {1} Damage to a nearby enemy within {2} Range"
