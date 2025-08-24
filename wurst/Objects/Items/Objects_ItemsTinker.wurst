@@ -125,66 +125,39 @@ init
     ..addHotKey()
     ..register()
 
+    new MyItemWithRecipeDefinition(ITEM_O3_CLOCK, itemRecipeList, ITEM_RECIPE_O3_CLOCK,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setStockReplenishInterval(120)
+    )
+    ..setCooldownGroup("A0CL")
+    ..setActivelyUsed(true)
+    ..setClassification("Miscellaneous")
+    ..addStats(addAllStats(150))
+    ..addStats(addAbilityResetCd(150, 6000))
+    ..addExtraDescription("Use horse to craft this item since hero can carry only one instance of O'Clock, but three is needed in recipe.")
+    ..addComponents(
+    ITEM_O_CLOCK,
+    ITEM_O_CLOCK,
+    ITEM_O_CLOCK)
+    ..addHotKey()
+    ..register()
     
-    new AbilityDefinitionBerserk(ITEM_OOO_CLOCK_ABI1)
-    ..setLevels(1)
-    ..setHotkeyLearn("")
-    ..setHotkeyNormal("")
-    ..presetDurationHero(lvl -> 0.01)
-    ..presetDurationNormal(lvl -> 0.01)
-    ..presetCooldown(lvl -> 180)
-    ..presetManaCost(lvl -> 2500)
-    ..presetAttackSpeedIncrease(lvl -> 0)
-    ..presetMovementSpeedIncrease(lvl -> 0)
-    ..presetDamageTakenIncrease(lvl -> 0)
-    ..presetBuffs(lvl -> commaList(""))
-
-    new AbilityDefinitionAttributeModifierSkill(ITEM_OOO_CLOCK_ABI2)
-    ..setLevels(1)
-    ..setAgilityBonus(1, 150)
-    ..setStrengthBonus(1, 150)
-    ..setIntelligenceBonus(1, 150)
-
-    new MyItemDefinition(ITEM_OOO_CLOCK)    
+    // You need to be patient and attentive to buy all nine tomes of retraining...
+    // Will be available starting with 26 minute due to tomes of retraining cd.
+    new MyItemWithRecipeDefinition(ITEM_O9_CLOCK, itemRecipeList, ITEM_RECIPE_O9_CLOCK,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setStockReplenishInterval(120)
+    ..setLumberCost(100)
+    )
     ..setCooldownGroup("A0CL")
     ..setActivelyUsed(true)
     ..setClassification("Miscellaneous")
-    ..setGoldCost(0)
-    ..setLevel(0)
-    ..setPriority(38)
-    ..setStockReplenishInterval(120)
-    ..setDescription("|c00FFFC01OOO'Clock|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+150 stats\n"
-    +"Active: Reset all of your Skill Cooldowns. Cooldown: 180 seconds.")
-    ..setName("OOO'Clock")
-    ..setTooltipBasic("Purchase OOO'Clock")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n"
-    +"+150 All Stats\n"
-    +"Active: Reset all of your Skill Cooldowns. Cooldown: 180 seconds.")
-    ..setHotkey("W")
-
-    new MyItemDefinition(ITEM_RECIPE_OOO_CLOCK)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")
-    ..setCooldownGroup("A0CL")
-    ..setActivelyUsed(true)
-    ..setClassification("Miscellaneous")
-    ..setStockReplenishInterval(120)
-    ..setDescription("|c00FFFC01OOO'Clock|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+150 stats\n"
-    +"Active: Reset all of your Skill Cooldowns. Cooldown: 180 seconds."
-    +"|c00FEBA0EMaterials required to craft this item: (Horse)|r\n"
-    +"O'Clock\n"
-    +"O'Clock\n"
-    +"O'Clock")
-    ..setName("Treasure of Tinker (Recipe 8)")
-    ..setTooltipBasic("Buy Treasure of Tinker (Recipe 8)")
-    ..setTooltipExtended("|c00FFFC01OOO'Clock|r\n"
-    +"|c00FFFC01Effect of item:|r\n"
-    +"+150 stats\n"
-    +"Active: Reset all of your Skill Cooldowns. Cooldown: 180 seconds."
-    +"|c00FEBA0EMaterials required to craft this item: (Horse)|r\n"
-    +"O'Clock\n"
-    +"O'Clock\n"
-    +"O'Clock")
+    ..addStats(addAllStats(600))
+    ..addStats(addAbilityResetCd(60, 18000))
+    ..addExtraDescription("Use horse to craft this item since hero can carry only one instance of OOO'Clock, but three is needed in recipe.")
+    ..addComponents(
+    ITEM_O3_CLOCK,
+    ITEM_O3_CLOCK,
+    ITEM_O3_CLOCK)
+    ..addHotKey()
+    ..register()

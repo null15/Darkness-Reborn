@@ -79,7 +79,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")
     ..setClassification("Charged")
     ..addStats(addAllStats(20))
-    ..addStats(addAbilityResetCd(220, 3000))
+    ..addStats(addAbilityResetCd(220, 2000))
     ..addComponents(
     ITEM_AMULET_OF_SPELL_SHIELD,
     ITEM_ARCANITE_SHIELD,

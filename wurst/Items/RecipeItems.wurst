@@ -17,7 +17,7 @@ function registerTrigger()
 
 function recipeListed()
     //OOO'Clock
-    itemRecipeList.addRecipe(ITEM_O_CLOCK, ITEM_O_CLOCK, ITEM_O_CLOCK, ITEM_RECIPE_OOO_CLOCK, ITEM_OOO_CLOCK)
+    itemRecipeList.addRecipe(ITEM_O_CLOCK, ITEM_O_CLOCK, ITEM_O_CLOCK, ITEM_RECIPE_O3_CLOCK, ITEM_O3_CLOCK)
 
     // Ruby Fragments +2
     itemRecipeList.addRecipe(ITEM_EMPTY_VIAL, ITEM_RUBY_FRAGMENT_L1, ITEM_RUBY_FRAGMENTS_L2)

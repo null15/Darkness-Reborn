@@ -1489,9 +1489,11 @@ public function getItemName(int id) returns string
             return "Cloak of Flames"
         case ITEM_SCORPION_POTION
             return "Scorpion Potion"
-        case ITEM_OOO_CLOCK
+        case ITEM_O3_CLOCK
             return "OOO'Clock"
-        case ITEM_RECIPE_OOO_CLOCK
+        case ITEM_O9_CLOCK
+            return "O9'Clock"
+        case ITEM_RECIPE_O3_CLOCK
             return "Treasure of Tinker (Recipe 8)"
         case UPGRADE_BASE_ARMOR
             return "Upgrade Armor"
