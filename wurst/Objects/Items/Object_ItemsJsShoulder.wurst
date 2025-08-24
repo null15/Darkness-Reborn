@@ -1,0 +1,94 @@
+package Object_ItemsJsShoulder
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+
+init
+
+@compiletime function createItems()
+
+//I0AN
+    new MyItemDefinition(ITEM_SOFT_SHOULDER)
+    ..setAbilities(commaList('A068', 'A029', 'A02P'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSH_Armor_Upgrade_F.blp")    
+    ..setClassification("Purchasable")
+    ..setGoldCost(75)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c007EBFF1Soft Shoulder|r")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor+ 10.\nStats + 10.\nHP + 500.|r")
+    ..setHotkey("V")
+
+//I0AO
+    new MyItemDefinition(ITEM_HARD_SHOULDER)
+    ..setAbilities(commaList('A044', 'A01V', 'A02N'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSH_Armor_Upgrade_S.blp")    
+    ..setClassification("Purchasable")
+    ..setGoldCost(75)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c007EBFF1Hard Shoulder|r")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor + 20.\nStats + 20.\nHP + 1000.|r")
+    ..setHotkey("V")
+
+//I0AP
+    new MyItemDefinition(ITEM_HEAVY_SHOULDER)
+    ..setAbilities(commaList('A045', 'A02B', 'A02Q'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSH_Armor_Upgrade_T.blp")    
+    ..setClassification("Purchasable")
+    ..setGoldCost(75)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c007EBFF1Heavy Shoulder|r")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor + 50.\nStats + 50.\nHP + 2000.|r")
+    ..setHotkey("V")
+
+//I0AQ
+    new MyItemDefinition(ITEM_ROYAL_SHOULDER)
+    ..setAbilities(commaList('A047', 'A0BK', 'A01Y'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSH_Armor_Upgrade_Fo.blp")    
+    ..setClassification("Purchasable")
+    ..setGoldCost(75)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c007EBFF1Royal Shoulder|r")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor + 100.\nStats + 100.\nHP + 4000.|r")
+    ..setHotkey("V")
+    
+//I0AW
+    new MyItemDefinition(ITEM_NOBLESSE_SHOULDER)
+    ..setAbilities(commaList('A0BP', 'A02C', 'A02O'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHr.BLP")    
+    ..setClassification("Purchasable")
+    ..setGoldCost(75)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c007EBFF1Noblesse Shoulder|r")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor +200.\nAll Stats +200.\nHP +6000.|r")
+    ..setHotkey("V")

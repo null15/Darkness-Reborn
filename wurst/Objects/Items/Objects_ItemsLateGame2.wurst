@@ -15,7 +15,7 @@ init
     ..setGoldCost(14000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAxeStrike.blp")
-    ..setClassification("Charged")
+    ..setClassification("Artifact")
     ..addStats(addDamage(700))
     ..addStats(addCrit(2, 0.7))
     ..addComponents(
@@ -30,7 +30,7 @@ init
     ..setGoldCost(10500)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDarkMatter.blp")
-    ..setClassification("Charged")
+    ..setClassification("Artifact")
     ..addStats(addStr(150))
     ..addStats(addHpReg(100))
     ..addStats(addAbilityPhoenixFire(2000, 1, 650))
@@ -47,7 +47,7 @@ init
     ..setGoldCost(35000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")  
-    ..setClassification("Charged")
+    ..setClassification("Artifact")
     ..addStats(addAgi(350))
     ..addStats(addArmor(70))
     ..addStats(addDamage(700))
@@ -62,7 +62,7 @@ init
     ..setGoldCost(35000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
-    ..setClassification("Charged")
+    ..setClassification("Artifact")
     ..addStats(addStr(350))
     ..addStats(addHp(6000))
     ..addStats(addDamage(700))
@@ -77,7 +77,7 @@ init
     ..setGoldCost(35000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
-    ..setClassification("Charged")
+    ..setClassification("Artifact")
     ..addStats(addInt(400))
     ..addStats(addMp(6000))
     ..addStats(addDamage(700))
@@ -92,10 +92,10 @@ init
     ..setGoldCost(20000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLancelot_Shield.blp")
-    ..setClassification("Charged")
+    ..setClassification("Artifact")
     ..addStats(addArmor(130))
     ..addStats(addHp(5000))
-    ..addStats("[DOESN'T WORK] When attacked you have a 30% to heal for 500 HP")
+    ..addStats("[WIP] When attacked you have a 30% to heal for 500 HP")
     ..addComponents(
     ITEM_STEEL_SHIELD,
     ITEM_SCEPTER_OF_HEALING)
@@ -108,11 +108,11 @@ init
     ..setGoldCost(20000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLancelot_Plate.blp")
-    ..setClassification("Charged")
+    ..setClassification("Artifact")
     ..addStats(addArmor(190))
     ..addStats(addHp(3000))
     ..addStats(addInt(200))
-    ..addStats("[NOT WORK] When attacked you have a 20% to gain back 1xint mana")
+    ..addStats("[WIP] When attacked you have a 20% to gain back 1xint mana")
     ..addComponents(
     ITEM_LIGHT_ARMOR,
     ITEM_SOUL_OF_KILJEADEN,
@@ -125,12 +125,14 @@ init
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(13500)
     )
+    ..setCooldownGroup("A0UB")
+    ..setActivelyUsed(true)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLancelot_Helm.blp")
-    ..setClassification("Charged")
+    ..setClassification("Artifact")
     ..addStats(addArmor(100))
     ..addStats(addHp(5000))
     ..addStats(addHpReg(50))
-    ..addStats("[NOT WORK] Active: Deals 10.000 Damage to enemies in a 600 AoE around the Hero. Cooldown: 30 seconds")
+    ..addStats("[WIP] Active: Deals 10.000 Damage to enemies in a 600 AoE around the Hero. Cooldown: 30 seconds")
     ..addComponents(
     ITEM_SEER_STAFF,
     ITEM_SHINY_ARMOR)
@@ -143,11 +145,11 @@ init
     ..setGoldCost(18000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff2.blp")
-    ..setClassification("Charged")
+    ..setClassification("Artifact")
     ..addStats(addInt(280))
     ..addStats(addAttackSpeed(2.4))
     ..addStats(addMpReg(2))
-    ..addStats("[NOT WORK] Active: Deals 14800 Damage to the target enemy. Cooldown: 30 seconds")
+    ..addStats("[WIP] Active: Deals 14800 Damage to the target enemy. Cooldown: 30 seconds")
     ..addComponents(
     ITEM_MYSTERY_GREEN_STAFF,
     ITEM_THUNDERLIZARD_DIAMOND)
@@ -160,10 +162,10 @@ init
     ..setGoldCost(15500)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC2.blp")
-    ..setClassification("Charged")
+    ..setClassification("Artifact")
     ..addStats(addInt(280))
     ..addStats(addHp(6000))
-    ..addStats("[NOT WORK] Active: Sends a Frost Nova on the target")
+    ..addStats("[WIP] Active: Sends a Frost Nova on the target")
     ..addComponents(
     ITEM_ICE_WAND,
     ITEM_ICE_SWORD,

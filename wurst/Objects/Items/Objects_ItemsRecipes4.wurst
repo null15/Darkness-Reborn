@@ -60,7 +60,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNChaosCrime.blp")
     ..setClassification("Charged")
     ..addStats(addDamage(400))
-    ..addStats(addAttackSpeed(150))
+    ..addStats(addAttackSpeed(1.5))
     ..addStats(addStr(70))
     ..addStats(addAgi(200))
     ..addStats(addInt(70))
@@ -183,7 +183,7 @@ init
     ..addStats(addInt(180))
     ..addStats(addAttackSpeed(1.8))
     ..addStats(addMpReg(1))
-    ..addStats("[DOESN'T WORK] Active: Deals 7800 Damage to the target enemy. Cooldown: 30 seconds")
+    ..addStats("[WIP] Active: Deals 7800 Damage to the target enemy. Cooldown: 30 seconds")
     ..addComponents(
     ITEM_SEER_STAFF,
     ITEM_RING_OF_ARCHMAGI,
@@ -199,7 +199,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC1.blp")
     ..addStats(addInt(180))
     ..addStats(addHp(3200))
-    ..addStats("[DOESN'T WORK] Active: Sends a Frost Nova on the target")
+    ..addStats("[WIP] Active: Sends a Frost Nova on the target")
     ..addComponents(
     ITEM_SEER_STAFF,
     ITEM_ORB_OF_FROST,

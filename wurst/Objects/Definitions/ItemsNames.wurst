@@ -249,7 +249,7 @@ public function getItemName(int id) returns string
         // Late Game (2)
 
         case ITEM_RECIPE_DARK_MATTER
-            return "Dark Matter"
+            return "Recipe " + compiletime(getItemName(ITEM_DARK_MATTER))
         case ITEM_RECIPE_RAIN_SWORD
             return "Recipe " + compiletime(getItemName(ITEM_RAIN_SWORD))
         case ITEM_RECIPE_CORROSIVE_HAMMER
@@ -463,7 +463,7 @@ public function getItemName(int id) returns string
             return "Boots of Crystal Gold"
         case ITEM_ICE_SWORD
             return "Ice Sword"
-        case ITEM_LANCELOTS_RING
+        case ITEM_LANCELOT_RING
             return "Lancelot's Ring"
         case ITEM_GUINEVERES_RING
             return "Guinevere's Ring"
@@ -1065,13 +1065,13 @@ public function getItemName(int id) returns string
             return "Gold Tinker 100"
         case ITEM_LUMBER1000_TO_GOLD
             return "Gold Tinker 1000"
-        case ITEM_RECIPE_FIRE_ICE_SWORD_II
+        case ITEM_RECIPE_ICE_AND_FIRE_SWORD_II
             return "Treasure of Tinker (Recipe 1)"
         case ITEM_RECIPE_DARK_STEEL_SWORD_II
             return "Treasure of Tinker (Recipe 2)"
         case ITEM_RECIPE_DESTROY_SWORD_II
             return "Treasure of Tinker (Recipe 3)"
-        case ITEM_RECIPE_HAMMER_PLATIUM_II
+        case ITEM_RECIPE_PLATINUM_HAMMER_II
             return "Treasure of Tinker (Recipe 4)"
         case ITEM_RECIPE_GOLD_AXE_II
             return "Treasure of Tinker (Recipe 5)"

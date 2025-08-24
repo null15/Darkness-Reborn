@@ -3643,9 +3643,9 @@ import OrderIds
     ..setButtonPositionResearchX(3)
     ..setButtonPositionResearchY(1)
     ..setTooltipLearn("Learn Frenzy [|cffffcc00T|r]  - [|cffffcc00Level %d|r]")
-    ..setTooltipLearnExtended("Gives 9% chance to deal 50x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: Doesn't work on summons|r")
+    ..setTooltipLearnExtended("Gives 9% chance to deal 50x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: WIP on summons|r")
     ..presetTooltipNormal(lvl -> "Frenzy [|cffffcc00T|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
-    ..presetTooltipNormalExtended(lvl -> "Gives 9% chance to deal 50x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: Doesn't work on summons|r")
+    ..presetTooltipNormalExtended(lvl -> "Gives 9% chance to deal 50x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: WIP on summons|r")
     ..setChancetoCriticalStrike(1, 9)
     ..setDamageMultiplier(1, 50)
 

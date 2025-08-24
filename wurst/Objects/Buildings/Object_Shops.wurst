@@ -185,7 +185,7 @@ function initLists()
             BUILDING_TINKER_SHOP_RECIPES,
             shopNameTinkerRecipes,
             asList(
-            ITEM_RECIPE_FIRE_ICE_SWORD_II, ITEM_RECIPE_DARK_STEEL_SWORD_II, ITEM_RECIPE_DESTROY_SWORD_II, ITEM_RECIPE_HAMMER_PLATIUM_II,
+            ITEM_RECIPE_ICE_AND_FIRE_SWORD_II, ITEM_RECIPE_DARK_STEEL_SWORD_II, ITEM_RECIPE_DESTROY_SWORD_II, ITEM_RECIPE_PLATINUM_HAMMER_II,
             ITEM_RECIPE_GOLD_AXE_II, ITEM_RECIPE_REACTIVE_ARMOR_II, ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD_II, ITEM_RECIPE_OOO_CLOCK
             ),
             new LinkedList<int>()
@@ -194,40 +194,40 @@ function initLists()
         new ShopInfo(
             BUILDING_CREEPS_TP1,
             shopNameCreepsTp1,
+            new LinkedList<int>(),
             asList(
             CREEP_TP_SPIDER, CREEP_TP_MUD_GOLEM, CREEP_TP_MURLOC_TIDERUNNER, CREEP_TP_TIMBER_WOLF,
             CREEP_TP_CRAB_SHORECRAWLER, CREEP_TP_FACELESS_ONE_TRICKSTER, CREEP_TP_SPITTING_SPIDER, CREEP_TP_ROCK_GOLEM,
             CREEP_TP_MURGUL_SHADOWCASTER, CREEP_TP_POLAR_FURBOLG, CREEP_TP_GHOST, CREEP_TP_FACELESS_ONE_DEATHBRINGER
-            ),
-            new LinkedList<int>()
+            )
         ),
         new ShopInfo(
             BUILDING_CREEPS_TP2,
             shopNameCreepsTp2,
+            new LinkedList<int>(),
             asList(
             CREEP_TP_BROOD_MOTHER, CREEP_TP_GRANITE_GOLEM, CREEP_TP_TURTLE, CREEP_TP_GIANT_POLAR_BEAR,
             CREEP_TP_STORM_WYRM, CREEP_TP_SKELETON_WARRIOR, CREEP_TP_FOREST_TROLL_WARLOCK, CREEP_TP_DIRE_MAMMOTH,
             CREEP_TP_FEL_RAVAGER, CREEP_TP_DALARAN_REJECT, CREEP_TP_VILE_TORMENTOR, CREEP_TP_ELDER_VOIDWALKER
-            ),
-            new LinkedList<int>()
+            )
         ),
         new ShopInfo(
             BUILDING_CREEPS_TP3,
             shopNameCreepsTp3,
+            new LinkedList<int>(),
             asList(
             CREEP_TP_NERUBIAN_QUEEN, CREEP_TP_HYDRALISK, CREEP_TP_FLESH_GOLEM, CREEP_TP_FURBOLG_GIANT,
             CREEP_TP_DOOM_GUARD, CREEP_TP_SCARY_SCREAM, CREEP_TP_FROSTY_SNOWMAN, CREEP_TP_ICE_REVENANT,
             CREEP_TP_OVERLORD, CREEP_TP_DRYAD, CREEP_TP_FOOTMAN, CREEP_TP_CAPTIAN
-            ),
-            new LinkedList<int>()
+            )
         ),
         new ShopInfo(
             BUILDING_CREEPS_TP4,
             shopNameCreepsTp4,
+            new LinkedList<int>(),
             asList(
             CREEP_TP_DRAGONS, CREEP_TP_TOWER, CREEP_TP_DREADLORD, CREEP_TP_WATER
-            ),
-            new LinkedList<int>()
+            )
         )
     )
 
@@ -242,30 +242,41 @@ function initLists()
         //println("\n\titemsSold:")
         for itemId in shopInfo.itemsSold
             itemsShopsMap.put(itemId, shopInfo.shopId)
-            //println("\t\titemId = {0}".format(itemId.toString()))
-        //println("\n\n\n\n")
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 
 public function getShopIdForItem(int itemId) returns int
+    if (itemId == -1)
+        return -1
+
     if (itemsShopsMap.has(itemId))
         return itemsShopsMap.get(itemId)
     return -1
 
 public function getShopInfoById(int shopId) returns ShopInfo
+    if (shopId == -1)
+        return null
+
     for shopInfo in shopsInfo
         if (shopInfo.shopId == shopId)
             return shopInfo
     return null
 
 public function getShopInfoForItem(int itemId) returns ShopInfo
+    if (itemId == -1)
+        return null
+
     let shopId = getShopIdForItem(itemId)
     if (shopId == -1)
         return null
+
     return getShopInfoById(shopId)
 
 public function getShopNameForItem(int itemId) returns string
+    if (itemId == -1)
+        return "null"
+
     let shopInfo = getShopInfoForItem(itemId)
     if (shopInfo == null)
         return "null"
@@ -275,6 +286,9 @@ public function getShopNameForItem(int itemId) returns string
     return "null"
 
 public function getShopItemsListForItem(int itemId) returns LinkedList<int>
+    if (itemId == -1)
+        return null
+
     let shopInfo = getShopInfoForItem(itemId)
     if (shopInfo == null)
         return null
@@ -284,6 +298,9 @@ public function getShopItemsListForItem(int itemId) returns LinkedList<int>
     return null
 
 public function getShopName(int shopId) returns string
+    if (shopId == -1)
+        return "null"
+
     let shopInfo = getShopInfoById(shopId)
     if (shopInfo == null)
         return "null"
@@ -291,6 +308,9 @@ public function getShopName(int shopId) returns string
     return shopInfo.shopName
 
 public function getShopItemsListMade(int shopId) returns string
+    if (shopId == -1)
+        return "null"
+
     let shopInfo = getShopInfoById(shopId)
     if (shopInfo == null or
         shopInfo.itemsMade.size() == 0)
@@ -303,6 +323,9 @@ public function getShopItemsListMade(int shopId) returns string
     return result.substring(0, result.length() - 1)
 
 public function getShopItemsListSold(int shopId) returns string
+    if (shopId == -1)
+        return "null"
+
     let shopInfo = getShopInfoById(shopId)
     if (shopInfo == null or
         shopInfo.itemsSold.size() == 0)
@@ -315,6 +338,9 @@ public function getShopItemsListSold(int shopId) returns string
     return result.substring(0, result.length() - 1)
 
 public function getHotKey(int itemId) returns string
+    if (itemId == -1)
+        return ""
+
     let hotKeys = [
         "Q", "W", "E", "R",
         "A", "S", "D", "F",

@@ -1,0 +1,300 @@
+package Object_ItemsCreeps3
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+
+init
+
+@compiletime function createItems()
+
+//I047
+    new MyItemDefinition(ITEM_SPHERE_OF_FIRE)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("|cffffcc00Effect|r: +6000 HP")
+    ..setName("|cffffcc00Sphere of Fire|r")
+    ..setTooltipBasic("|cffffcc00Sphere of Fire|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: +6000 HP")
+    ..setHotkey("K")
+
+
+//I046
+    new MyItemDefinition(ITEM_SPHERE_OF_WATER)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("|cffffcc00Effect|r: +6000 MP")
+    ..setName("|cffffcc00Sphere of Water|r")
+    ..setTooltipBasic("|cffffcc00Sphere of Water|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: +6000 MP")
+    ..setHotkey("K")
+
+//I03P
+    new MyItemDefinition(ITEM_ESSENCE_OF_ASZUNE)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(89)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("|c00FFFC01Effect:|r \n+80 All Stats")
+    ..setName("|cffffcc00Essence of Aszune|r")
+    ..setTooltipBasic("|cffffcc00Essence of Aszune|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n+80 All Stats")
+    ..setHotkey("E")
+
+//I04B
+    new MyItemDefinition(ITEM_DREAM_SWORD)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(53)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("|cffffcc00Effect|r: +220 Damage\n+120% Attack speed\n+12 All Stats\n12% Chance to Crit for 4")
+    ..setName("|cffffcc00Dream Sword|r")
+    ..setTooltipBasic("|cffffcc00Dream Sword|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: +220 Damage\n+120% Attack speed.\n+12 All Stats\n12% Chance to Crit for 4")
+    ..setHotkey("")
+
+//I04C
+    new MyItemDefinition(ITEM_CRYSTAL_SWORD)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(53)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("|cffffcc00Effect|r: +240 Damage\n+120% Attack speed\n+20 All Stats\n-65 Armor on-hit. ")
+    ..setName("|cffffcc00Crystal Sword|r")
+    ..setTooltipBasic("|cffffcc00Crystal Sword|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: +240 Damage\n+120% Attack speed\n+20 All Stats\n-65 Armor on-hit.")
+    ..setHotkey("")
+
+//I0AY
+    new MyItemDefinition(ITEM_BLOODY_DAGGER)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("+220 Damage\n+30 All Stats\n+20% Life Steal")
+    ..setName("|cffffcc00Bloody Dagger|r")
+    ..setTooltipBasic("|cffffcc00Bloody Dagger|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: +220 Damage\n+30 All Stats\n+20% Life Steal")
+    ..setHotkey("K")
+
+//I045
+    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L0)    
+    ..setCooldownGroup("A0BX")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("|cffffcc00Effect|r: +120 Armor\n"
+    +"+100 Intelligence\n"
+    +"+38 Strength\n"
+    +"+38 Agility\n"
+    +"Active: Restore MP to full. \n"
+    +"Cooldown: 240 seconds.")
+    ..setName("|cffffcc00Crown of Wizard|r")
+    ..setTooltipBasic("|cffffcc00Crown of Wizard|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: +120 Armor\n"
+    +"+100 Intelligence\n"
+    +"+38 Strength\n"
+    +"+38 Agility\n"
+    +"Active: Restore MP to full. \n"
+    +"Cooldown: 240 seconds.")
+    ..setHotkey("K")
+
+//I044
+    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L0)    
+    ..setCooldownGroup("A0BW")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("|cffffcc00Effect|r: +120 Armor\n"
+    +"+100 Strength\n"
+    +"+38 Intelligence\n"
+    +"+38 Agility\n"
+    +"Active: Restore HP to full. \n"
+    +"Cooldown: 240 seconds.")
+    ..setName("|cffffcc00Crown of Soldier|r")
+    ..setTooltipBasic("Purchase |cffffcc00Crown of Soldier|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: +120 Armor\n"
+    +"+100 Strength\n"
+    +"+38 Intelligence\n"
+    +"+38 Agility\n"
+    +"Active: Restore HP to full. \n"
+    +"Cooldown: 240 seconds.")
+    ..setHotkey("K")
+
+//I043
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L0)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("+120 Armor\n+100 Agility\n+38 Strength\n+38 Intelligence\n+25% Evasion.")
+    ..setName("|cffffcc00Crown of Assassin|r")
+    ..setTooltipBasic("|cffffcc00Crown of Assassin|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: +120 Armor\n+100 Agility\n+38 Strength\n+38 Intelligence\n+25% Evasion.")
+    ..setHotkey("K")
+
+//I0BB
+    new MyItemDefinition(ITEM_GLOVERSHIELD)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("+100 Armor. 30% Magic Resistance. Has the Ability to resurrect. Cooldown: 240 seconds.")
+    ..setName("|cffffcc00Clovershield|r")
+    ..setTooltipBasic("|cffffcc00Clovershield|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: +100 Armor. 30% Magic Resistance. Has the Ability to resurrect. Cooldown: 240 seconds.")
+    ..setHotkey("K")
+
+//I048
+    new MyItemDefinition(ITEM_BOOK_OF_WIND)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("+220 Agility")
+    ..setName("|cffffcc00Book of Wind|r")
+    ..setTooltipBasic("|cffffcc00Book of Wind|r")
+    ..setTooltipExtended("|cffffcc00Effect:|r +220 Agility")
+    ..setHotkey("K")
+
+//I04A
+    new MyItemDefinition(ITEM_BOOK_OF_RAIN)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("+280 Intelligence")
+    ..setName("|cffffcc00Book of Rain|r")
+    ..setTooltipBasic("|cffffcc00Book of Rain|r")
+    ..setTooltipExtended("|cffffcc00Effect:|r +280 Intelligence")
+    ..setHotkey("K")
+
+//I049
+    new MyItemDefinition(ITEM_BOOK_OF_EARTHQUAKE)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("+250 Strength")
+    ..setName("|cffffcc00Book of Earthquake|r")
+    ..setTooltipBasic("|cffffcc00Book of Earthquake|r")
+    ..setTooltipExtended("|cffffcc00Effect:|r +250 Strength")
+    ..setHotkey("K")
+
+//I0BC
+    new MyItemDefinition(ITEM_LAZARUS_BELT)    
+    ..setActivelyUsed(true)
+    ..setClassification("Miscellaneous")
+    ..setGoldCost(0)
+    ..setLevel(0)
+    ..setPriority(38)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("Increases combat effectiveness of nearby units.")
+    ..setName("Lazarus Belt")
+    ..setTooltipBasic("Purchase Lazarus Belt")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n+100 Armor. +80 Intelligence. +2000 MP. Mana Shield that drains 1 Mana per 0.8 damage taken.")
+    ..setHotkey("W")
+
+
+//I06V
+    new MyItemDefinition(ITEM_MENELAUS)    
+    ..setClassification("Artifact")
+    ..setGoldCost(300)
+    ..setLevel(3)
+    ..setPriority(116)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("")
+    ..setName("|c00FEBA0EMenelaus|r")
+    ..setTooltipBasic("|c00FEBA0EMenelaus|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n+240 Armor\n+70% Magic Resistance\n+2500 HP\n+200 Movement speed")
+    ..setHotkey("4")
+
+//I07U
+    new MyItemDefinition(ITEM_CROWN_OF_EVIL)    
+    ..setCooldownGroup("A0GS")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("|cffffcc00Effect|r: \n"
+    +"+220 Armor\n"
+    +"+154 All Stats\n"
+    +"30% Evasion\n"
+    +"Active: Fully Restore HP/MP. \n"
+    +"Cooldown: 90s.")
+    ..setName("|c00FEBA0ECrown of Evil|r")
+    ..setTooltipBasic("|c00FEBA0ECrown of Evil|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: \n"
+    +"+220 Armor\n"
+    +"+154 All Stats\n"
+    +"30% Evasion\n"
+    +"Active: Fully Restore HP/MP. \n"
+    +"Cooldown: 90s.")
+    ..setHotkey("K")
+
+//I0BE
+    new MyItemDefinition(ITEM_SOUL_BLAME)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(3)
+    ..setPriority(116)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setDescription("")
+    ..setName("|c00FEBA0ESoul Blame|r")
+    ..setTooltipBasic("|c00FEBA0ESoul Blame|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n+700 Damage. +140% Attack speed. +1000 HP. -120 Armor on-hit.")
+    ..setHotkey("4")
+
+//I0BO
+    new MyItemDefinition(ITEM_TITANIUM)    
+    ..setClassification("Campaign")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(0)
+    ..setDescription("|cffffcc00Effect:|r 50% Evasion")
+    ..setName("|c000042FFTitanium|r")
+    ..setTooltipBasic("|c000042FFTitanium|r")
+    ..setTooltipExtended("|cffffcc00Effect:|r 50% Evasion")
+    ..setHotkey("K")

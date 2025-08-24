@@ -1,0 +1,131 @@
+package Object_ItemsCards
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+
+init
+
+@compiletime function createItems()
+
+//I0CP
+    new MyItemDefinition(ITEM_BEASTMASTER_CARD)    
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|cffffcc00Effect|r: \n+ 6000 HP\n+ 6000 MP\nActivate the ability to summon a Misha Bear maintain 60 seconds.")
+    ..setName(" |c00FF0303Beastmaster Card|r")
+    ..setTooltipBasic(" |c00FF0303Beastmaster Card|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: \n+ 6000 HP\n+ 6000 MP\nActivate the ability to summon a Misha Bear maintain 60 seconds.")
+    ..setHotkey("K")
+
+//I0CR
+    new MyItemDefinition(ITEM_WARDEN_CARD)    
+    ..setCooldownGroup("A0TE")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockReplenishInterval(120)
+    ..setDescription("+125 Agillity")
+    ..setName(" |c00FF0303Warden Card|r")
+    ..setTooltipBasic(" |c00FF0303Warden Card|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: \n+ 100% Attack speed.\n+ 125 Agility\nActivate the Fan of Knives to cause Damage 15.000 in 600 AoE")
+    ..setHotkey("K")
+
+//I0CU
+    new MyItemDefinition(ITEM_BLADEMASTER_CARD)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|cffffcc00Effect|r: \n+ 100 Armor.\n+ 700 Damage.\n+ 100% Criticial  x 2.")
+    ..setName(" |c00FF0303Blademaster Card|r")
+    ..setTooltipBasic(" |c00FF0303Blademaster Card|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: \n+ 100 Armor.\n+ 700 Damage.\n+ 100% Criticial  x 2 Damage.")
+    ..setHotkey("K")
+
+//I0CS
+    new MyItemDefinition(ITEM_TAUREN_CARD)    
+    ..setCooldownGroup("A0XS")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockReplenishInterval(120)
+    ..setDescription("+100% Attack speed")
+    ..setName(" |c00FF0303Tauren Card|r")
+    ..setTooltipBasic(" |c00FF0303Tauren Card|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: \n+ 100% Attack speed.\n+ 150 Strength.\nActivate the Warstomp caused 25")
+    ..setHotkey("K")
+
+//I0CQ
+    new MyItemDefinition(ITEM_MOUNTAIN_KING_CARD)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|cffffcc00Effect|r: \n+ 100 Armor.\n+ 700 Danage.\n+ 25% stun the enemy and cause 899 Damage.")
+    ..setName(" |c00FF0303Mountain King Card|r")
+    ..setTooltipBasic(" |c00FF0303Mountain King Card|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: \n+ 100 Armor.\n+ 700 Damage.\n+ 25% stun the enemy and cause 899 Damage.")
+    ..setHotkey("K")
+
+//I0CT
+    new MyItemDefinition(ITEM_PITLORD_CARD)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|cffffcc00Effect|r: \n+ 100 Armor.\n+ 700 Damage.\n 35% cleave Damage")
+    ..setName(" |c00FF0303Pitlord Card|r")
+    ..setTooltipBasic(" |c00FF0303Pitlord Card|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: \n+ 100 Armor.\n+ 700 Damage.\n 35% cleave Damage")
+    ..setHotkey("K")
+
+//I096
+    new MyItemDefinition(ITEM_BERSERKERS_BOOTS)
+    ..setAbilities(commaList('A02C', 'A02O', 'A0I1'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBerserkersBoots.blp")    
+    ..setClassification("Campaign")
+    ..setGoldCost(75)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("Damage bonus and life-stealing attack.")
+    ..setName("|c00FEBA0EBerserkers Boots|r")
+    ..setTooltipBasic("Purchase |cffffcc00V|rampiric Potion")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor + 200.\nStats + 200.\nMovement speed+ MAXIMUM.|r")
+    ..setHotkey("V")
+    
+//I0CW
+    new MyItemWithCraftInfoDefinition(ITEM_CHAOS, itemRecipeList, ITEM_INFO_CHAOS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (7).blp")
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..setGoldCost(75000)
+    ..addStats(addAllStats(600))
+    ..addStats(addAttackSpeed(2.2))
+    ..addStats(addArmor(300))
+    ..addStats("Activate special skills when open the CHAOS.")
+    ..addExtraDescription("A powerful relic of the great demon that is holding souls of the traitor")
+    ..addComponents(
+    ITEM_BEASTMASTER_CARD,
+    ITEM_WARDEN_CARD,
+    ITEM_BLADEMASTER_CARD,
+    ITEM_TAUREN_CARD,
+    ITEM_MOUNTAIN_KING_CARD,
+    ITEM_PITLORD_CARD)
+    ..addHotKey()
+    ..register()
+    

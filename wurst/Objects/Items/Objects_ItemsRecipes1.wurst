@@ -8,14 +8,14 @@ import RecipeItems
 @compiletime function createItems()
 
 //I01A    
-    new MyItemWithRecipeDefinition(ITEM_RECIPE_ICE_SWORD, itemRecipeList, ITEM_RECIPE_ICE_SWORD,
+    new MyItemWithRecipeDefinition(ITEM_ICE_SWORD, itemRecipeList, ITEM_RECIPE_ICE_SWORD,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(800)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFrostSword.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addDamage(80))
-    ..addStats(addAttackSpeed(50))
+    ..addStats(addAttackSpeed(0.5))
     ..addComponents(
     ITEM_SIMPLE_SWORD,
     ITEM_CLAWS_OF_ATTACK,
@@ -24,19 +24,20 @@ import RecipeItems
     ..register()
 
 //I011
-    new MyItemWithRecipeDefinition(ITEM_RECIPE_FIRE_SWORD, itemRecipeList, ITEM_RECIPE_FIRE_SWORD,
+    new MyItemWithRecipeDefinition(ITEM_FIRE_SWORD, itemRecipeList, ITEM_RECIPE_FIRE_SWORD,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(800)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFireSword.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addDamage(80))
-    ..addStats(addAttackSpeed(50))
+    ..addStats(addAttackSpeed(0.5))
     ..addStats(addCrit(2, 0.15))
     ..addComponents(
     ITEM_SIMPLE_SWORD,
     ITEM_CLAWS_OF_ATTACK,
-    ITEM_ORB_OF_FIRE)
+    ITEM_ORB_OF_FIRE,
+    ITEM_STURDY_WAR_AXE)
     ..addHotKey()
     ..register()
 
@@ -46,7 +47,7 @@ import RecipeItems
     ..setGoldCost(600)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\ITEM_BOOTS_OF_TELEPORTATION.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addAllStats(24))
     ..addStats(addMovementSpeed(100))
     ..addStats(addTp(20))
@@ -63,7 +64,7 @@ import RecipeItems
     ..setGoldCost(670)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Sandals.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addAllStats(24))    
     ..addStats(addMovementSpeed(120))
     // TODO. Previously here was invis 30 sec, cd 30 sec.
@@ -80,9 +81,9 @@ import RecipeItems
     ..setGoldCost(800)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNwind boots.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addAllStats(24))
-    ..addStats(addAttackSpeed(60))
+    ..addStats(addAttackSpeed(0.6))
     ..addStats(addMovementSpeed(140))
     ..addComponents(
     ITEM_BOOTS_OF_SPEED,
@@ -97,7 +98,7 @@ import RecipeItems
     ..setGoldCost(3000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_AxeSteel.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addDamage(400))
     ..addComponents(
     ITEM_MAUL_OF_STRENGTH,
@@ -112,7 +113,7 @@ import RecipeItems
     ..setGoldCost(2550)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStoneHammer.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addDamage(90))
     ..addStats(addBash(0.1, 200, 0.1, 0))
     ..addComponents(
@@ -127,9 +128,9 @@ import RecipeItems
     ..setGoldCost(1750)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPlated Gauntlet2.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addDamage(80))
-    ..addStats(addAttackSpeed(80))
+    ..addStats(addAttackSpeed(0.8))
     ..addComponents(
     ITEM_GLOVES_OF_HASTE,
     ITEM_GLOVES_OF_HADES,
@@ -143,14 +144,14 @@ import RecipeItems
     ..setGoldCost(100)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Misc_Gem_Opal_02.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addHp(5000))
     ..addStats(addHpReg(50))
     ..addStats(addMp(5000))
     ..addStats(addMpReg(3))
     ..addComponents(
     ITEM_ARKENSTONE_FRAGMENT,
-    ITEM_LANCELOTS_RING,
+    ITEM_LANCELOT_RING,
     ITEM_GUINEVERES_RING)
     ..addHotKey()
     ..register()
@@ -161,7 +162,7 @@ import RecipeItems
     ..setGoldCost(1200)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Composite Armor.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addArmor(50))
     ..addStats(addAllStats(20))
     ..addStats(addHpReg(10))
@@ -181,7 +182,7 @@ import RecipeItems
     ..setStockStartDelay(3) 
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addAllStats(12))
     ..addStats(addHp(300))
     ..addStats(addArmor(10))
@@ -199,7 +200,7 @@ import RecipeItems
     ..setGoldCost(1100)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAmuletOftheWild.blp")
-    ..setClassification("Charged")
+    ..setClassification("Permanent")
     ..addStats(addStr(12))
     ..addStats(addAgi(40))
     ..addStats(addInt(12))

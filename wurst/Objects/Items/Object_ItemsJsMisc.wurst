@@ -1,0 +1,62 @@
+package Object_ItemsJsMisc
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+
+init
+
+@compiletime function createItems()
+
+//I0F2
+    new MyItemDefinition(ITEM_FALLING_STAR)    
+    ..setClassification("Campaign")
+    ..setGoldCost(10000)
+    ..setLevel(4)
+    ..setPriority(71)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|cffffcc00Effect:|r\n+50.000 MP .")
+    ..setName("|c000042FFFalling Star|r")
+    ..setTooltipBasic("|c000042FFFalling Star|r")
+    ..setTooltipExtended("|cffffcc00Effect:|r\n+50.000 MP.")
+    ..setHotkey("")
+
+//I0C3
+    new MyItemDefinition(ITEM_CRYSTAL_MOON)    
+    ..setClassification("Campaign")
+    ..setGoldCost(10000)
+    ..setLevel(4)
+    ..setPriority(71)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|cffffcc00Effect:|r\n+50.000 HP")
+    ..setName("|c000042FFCrystal Moon|r")
+    ..setTooltipBasic("|c000042FFCrystal Moon|r")
+    ..setTooltipExtended("|cffffcc00Effect:|r\n+50.000 HP")
+    ..setHotkey("")
+
+
+//I0EI
+    new MyItemDefinition(ITEM_LANCELOT_SET)    
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockReplenishInterval(120)
+    ..setDescription(" |c00FF0303????????|r\n|cffffcc00Effect|r: \n|c00FF0303+400 Armor \n+10.000 HP\n+300 Intelligence|r\n|c00FEBA0ESpecial Effect:|r \n |c00FF0303When attacked gets 50% to heal for 1000 HP and 30% to gain back 1xint Mana")
+    ..setName(" |c00FF0303Lancelot Set|r")
+    ..setTooltipBasic(" |c00FF0303Lancelot Set|r")
+    ..setTooltipExtended(" |c00FF0303????????|r\n|cffffcc00Effect|r: \n|c00FF0303+400 Armor \n+10.000 HP\n+300 Intelligence|r\n|c00FEBA0ESpecial Effect:|r \n|c00FF0303When attacked gets 50% to heal for 1000 HP and 30% to gain back 1xint Mana")
+    ..setHotkey("K")
+
+//I0C2
+    new MyItemDefinition(ITEM_SPHERE_OF_CHAOS)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setDescription("|cffffcc00Effect|r: +15.000 HP\n+15.000 MP\n+150HP/s\n+500% Mana Regeneration")
+    ..setName("|cffffcc00Sphere of Chaos|r")
+    ..setTooltipBasic("|cffffcc00Sphere of Fire|r")
+    ..setTooltipExtended("|cffffcc00Effect|r: +15.000 HP\n+15.000 MP\n+150HP/s\n+500% Mana Regeneration")
+    ..setHotkey("K")

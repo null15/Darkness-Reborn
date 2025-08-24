@@ -7,10 +7,10 @@ import Object_Shops
 import ItemsNames
 import ItemObjEditing
 import LinkedList
-import MyItemIds
 import ObjectIds
 import public ItemStats
 import ObjectIdGenerator
+import ItemsAndRecipesHashTable
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -125,8 +125,9 @@ public class MyItemDefinition extends MyItemDefinitionBase
         this.extraEffects = extraDescription
 
     protected function applyStats()
-        abilityList = abilityList.substring(0, abilityList.length() - 1)
-        setAbilities(abilityList)
+        if (abilityList.length() > 0)
+            abilityList = abilityList.substring(0, abilityList.length() - 1)
+            setAbilities(abilityList)
 
     protected function getEffectsDescription() returns string
         if (extraEffects == "")
@@ -160,7 +161,7 @@ public class MyItemDefinition extends MyItemDefinitionBase
 // To define 'hidden' recipes (jacksmith, thief, arkenstone, angel mace).
 // Such recipes have no recipe-item. But info-recipe-item can be added to help
 // players.
-class MyItemWithCraftInfoDefinition extends MyItemDefinition
+public class MyItemWithCraftInfoDefinition extends MyItemDefinition
     // Item and recipe-item icon.
     string icon
 
@@ -185,7 +186,11 @@ class MyItemWithCraftInfoDefinition extends MyItemDefinition
     protected function getMaterialsDescription() returns string
         string materials = wordMaterials
         for comp in components
-            materials = materials + getItemName(comp) + " (" + getShopNameForItem(comp) + ")\n"
+            string shopName = getShopNameForItem(comp)
+            if (shopName == "null")
+                shopName = getShopNameForItem(getItemRecipeId(comp))
+
+            materials = materials + getItemName(comp) + " (" + shopName + ")\n"
         return materials
 
     protected function getRecipeDescription() returns string

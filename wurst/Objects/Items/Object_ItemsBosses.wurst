@@ -1,0 +1,204 @@
+package Object_ItemsCreeps4
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+
+init
+
+@compiletime function createItems()
+
+//I0C0
+    new MyItemDefinition(ITEM_SCOURGE_BONE_CHIMES)    
+    ..setClassification("Artifact")
+    ..setGoldCost(10000)
+    ..setLevel(4)
+    ..setPriority(71)
+    ..setDescription("Nearby units gain some life from damage they deal to enemy units.")
+    ..setName(" |c00FF0303Scourge Bone Chimes|r")
+    ..setTooltipBasic("Purchase Scourge Bone Chimes")
+    ..setTooltipExtended("|cffffcc00Effect:|r\n"
+    +"+450 Strength\n"
+    +"+100% Attack speed\n"
+    +"+100 HP Regeneration\n"
+    +"|c00FEBA0ESpecial Effect:|r \n"
+    +"|c00FF0303+20% Lifesteal Aura in 900 Range")
+    ..setHotkey("")
+
+//I0C1
+    new MyItemDefinition(ITEM_SKULL_OF_MALGANIS)    
+    ..setClassification("Artifact")
+    ..setGoldCost(10000)
+    ..setLevel(4)
+    ..setPriority(71)
+    ..setDescription("Nearby units gain some life from damage they deal to enemy units.")
+    ..setName(" |c00FF0303Skull of Mal'ganis|r")
+    ..setTooltipBasic(" |c00FF0303Skull of Mal'ganis|r")
+    ..setTooltipExtended("|cffffcc00Effect:|r\n+30.000 HP")
+    ..setHotkey("")
+
+//I05W
+    new MyItemDefinition(ITEM_SCARYS_POTION)    
+    ..setClassification("Campaign")
+    ..setGoldCost(40000)
+    ..setLevel(5)
+    ..setPriority(126)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(0)
+    ..setDescription("+600 All Stats")
+    ..setName("|c000042FFScary's potion|r")
+    ..setTooltipBasic("|c000042FFScary's potion|r")
+    ..setTooltipExtended("|cffffcc00Effect|r:+600 All Stats")
+    ..setHotkey("K")
+
+//I0AS
+    new MyItemDefinition(ITEM_DRAGON_BONE)
+    ..setAbilities("")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNA1.blp")    
+    ..setClassification("Purchasable")
+    ..setGoldCost(10000)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c00FF0303Bone|r")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FF0303A Bone of a Dragon. (Material to craft Dragon Wings)|r")
+    ..setHotkey("V")
+
+//I0AU
+    new MyItemDefinition(ITEM_DRAGON_SKIN)
+    ..setAbilities("")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNA3.blp")    
+    ..setClassification("Purchasable")
+    ..setGoldCost(10000)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c00FF0303Skin|r")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FF0303The Skin of a Dragon. (Material to craft Dragon Wings)")
+    ..setHotkey("V")
+
+//I0AR
+    new MyItemDefinition(ITEM_DRAGON_CLAW)
+    ..setAbilities("")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNA2.blp")    
+    ..setClassification("Purchasable")
+    ..setGoldCost(10000)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c00FF0303Claw|r")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FF0303The Claw of a Dragon. (Material to craft Dragon Wings)|r")
+    ..setHotkey("V")
+
+//I0AT
+    new MyItemDefinition(ITEM_DRAGON_SPIRIT)
+    ..setAbilities("")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNA4.blp")    
+    ..setClassification("Purchasable")
+    ..setGoldCost(10000)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c00FF0303Spirit|r")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FF0303A Soul devoured by a Dragon. (Material to craft Dragon Wings)|r")
+    ..setHotkey("V")
+
+//I0JG
+    new MyItemDefinition(ITEM_WATER_SCROLL)    
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..setGoldCost(86000)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|cffffcc00Water Scroll \n"
+    +"Effect:  \n"
+    +"1680 Intelligence\n"
+    +"24.000 HP ")
+    ..setName("|cffffcc00Water Scroll|r")
+    ..setTooltipBasic("|cffffcc00Water Scroll|r")
+    ..setTooltipExtended("|cffffcc00Water Scroll \n"
+    +"Effect:  \n"
+    +"1680 Intelligence\n"
+    +"24.000 HP ")
+    ..setHotkey("K")
+
+//I0JI
+    new MyItemDefinition(ITEM_CRONUS_HAND)    
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..setGoldCost(75000)
+    ..setLevel(4)
+    ..setPriority(126)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|cffffcc00Cronus's Hand \n"
+    +"Effect:\n"
+    +"+ 500 Armor")
+    ..setName("|cffffcc00Cronus's Hand|r")
+    ..setTooltipBasic("|cffffcc00Cronus's Hand|r")
+    ..setTooltipExtended("|cffffcc00Cronus's Hand \n"
+    +"Effect:\n"
+    +"+ 500 Armor")
+    ..setHotkey("K")
+
+//I0HD
+    new MyItemDefinition(ITEM_FAIR_DROP)    
+    ..setClassification("Charged")
+    ..setGoldCost(0)
+    ..setLevel(1)
+    ..setPriority(79)
+    ..setDescription("|c00FFFC01Effect:\n+ 440% recovery speed MP.\n|r    ")
+    ..setName("|c00FFFC01The Fair Drop|r")
+    ..setTooltipBasic("Purchase |cffffcc00C|rirclet of Nobility")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+ 440  Mana Regeneration.\n|r    ")
+    ..setHotkey("C")
+    
+//I0C4
+    new MyItemDefinition(ITEM_HOLY_GOLD_SHIELD)    
+    ..setClassification("Campaign")
+    ..setGoldCost(200000)
+    ..setLevel(4)
+    ..setPriority(71)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|cffffcc00Effect:|r\n"
+    +"+250 Armor\n"
+    +"+10000 HP\n"
+    +"|c00FEBA0ESpecial Effect:|r \n "
+    +"|c00FF0303When attacked you have a 50% Chance to restore 4000 HP.\n"
+    +"Infinite Revival with no Cooldown.|r")
+    ..setName(" |c00FF0303Holy Gold Shield|r")
+    ..setTooltipBasic(" |c00FF0303Holy Gold Shield|r")
+    ..setTooltipExtended("|cffffcc00Effect:|r\n"
+    +"+250 Armor\n"
+    +"+10000 HP\n"
+    +"|c00FEBA0ESpecial Effect:|r \n "
+    +"|c00FF0303When attacked you have a 50% Chance to restore 4000 HP.\n"
+    +"Infinite Revival with no Cooldown.|r")
+    ..setHotkey("")
+    
+    new MyItemDefinition(ITEM_FROST_SHIELD)
+    ..setClassification("Artifact")
+    ..setCanBeSoldToMerchants(false)
+    ..setLevel(4)
+    ..setStockReplenishInterval(1)
+    ..setStockStartDelay(1)
+    ..setMaxStack(1)
+    ..setName("Frost Shield")
+    ..setTooltipBasic("Frost Shield")
+    ..setTooltipExtended("|cffffcc00Frost Shield\n\nEffect: + 500 armor, 420 Intelligent, 160 Strenght, 160 Agility.|r")

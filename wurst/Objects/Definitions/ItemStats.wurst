@@ -281,6 +281,14 @@ public function addEvasion(real chance) returns ItemStats
 
 // ----------------------------------------------------------------------------
 
+public function addMagicResist(real value) returns ItemStats
+    let effects = wordMagicResist.format(realToString(value, 0))
+    
+    return new ItemStatsCustomFunc(effects,
+    (itemId) -> itemId.putInMagicResItemHash(value))
+
+// ----------------------------------------------------------------------------
+
 public function addSpikes(real factor) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
     let effects = wordSpikes.format((100*factor).toString())

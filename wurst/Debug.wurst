@@ -1,0 +1,10 @@
+package Debug
+
+let DEBUG = true
+
+public function initDebug(player p)
+    if (not DEBUG)
+        return
+
+    p.addGold(100000000)
+    p.addLumber(100000000)

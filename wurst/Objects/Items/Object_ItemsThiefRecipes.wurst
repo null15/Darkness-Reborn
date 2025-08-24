@@ -1,0 +1,105 @@
+package Object_ItemsThiefRecipes
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+
+init
+
+@compiletime function createItems()
+
+//I0IB
+    new MyItemDefinition(ITEM_GOD_SWORD)    
+    ..setClassification("Artifact")
+    ..setGoldCost(0)
+    ..setLevel(1)
+    ..setPriority(79)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|c00FFFC01Effect:\n+20%  the opportunity cause Damage  x 12.\n|r    ")
+    ..setName("|c00FFFC01God Sword|r")
+    ..setTooltipBasic("|c00FFFC01God Sword|r")
+    ..setTooltipExtended("|c00FFFC01Effect:\n+20%  the opportunity cause Damageg  x 12.\n|r    ")
+    ..setHotkey("C")
+
+//I0IR
+    new MyItemDefinition(ITEM_ARES)
+    ..setAbilities(commaList('A0GU', 'A0IP', 'A0HK', 'A0Y7'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif103.blp")    
+    ..setClassification("Campaign")
+    ..setGoldCost(300000)
+    ..setLevel(0)
+    ..setLumberCost(300)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c00FF0303Ares|r")
+    ..setTooltipBasic("|c00FF0303Ares|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c00FF0303+2500 Damage\n+333 All Stats\n+220% Attack speed\n+20% chance to deal 20 times Damage.\n 15% Armor Pen|r")
+    ..setHotkey("")
+    
+//I0IJ
+    new MyItemDefinition(ITEM_MYSTERY_RED_STAFF)    
+    ..setActivelyUsed(true)
+    ..setClassification("Campaign")
+    ..setGoldCost(0)
+    ..setLevel(0)
+    ..setPriority(38)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|c00FF0303Mystery Red Staff|r")
+    ..setName("|c00FF0303Mystery Red Staff|r")
+    ..setTooltipBasic("|c00FF0303Mystery Red Staff|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c00FF0303\n+1350 Intelligence.\n+500% Attack speed.\n+450% Mana Regeneration.|r\n|c00FFFC01Special effects:t|r: |c00FF0303 Active: Deals 30.000 + 89x Intelligence Damage to the target enemy. Cooldown: 30 seconds|r")
+    ..setHotkey("W")
+
+//I0IU
+    new MyItemDefinition(ITEM_FROZEN_STAFF)    
+    ..setCooldownGroup("A0YB")
+    ..setActivelyUsed(true)
+    ..setClassification("Campaign")
+    ..setGoldCost(0)
+    ..setCooldownGroup("A0YB")
+    ..setLevel(0)
+    ..setPriority(38)
+    ..setStockReplenishInterval(120)
+    ..setDescription("|c00FFFC01Effect:|r \n|c00FF0303:+440 Intelligence\n+9000 HP|r\n|c00FFFC01Special Effect:|r|c00FF0303 Active: Sends a Frost Nova on the target")
+    ..setName("|c00FF0303Frozen Staff|r")
+    ..setTooltipBasic("|c00FF0303Frozen Staff|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c00FF0303+440 Intelligence\n+9000 HP|r\n|c00FFFC01Special Effect:|r|c00FF0303 Active: Sends a Frost Nova on the target")
+    ..setHotkey("W")
+    
+//I0IP
+    new MyItemDefinition(ITEM_AMULET_OF_LUCIFER)
+    ..setAbilities(commaList('A0Y2', 'A0Y4'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif101.blp")    
+    ..setClassification("Campaign")
+    ..setGoldCost(666666)
+    ..setLevel(0)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c00FF0303 Amulet of Lucifer|r")
+    ..setTooltipBasic("|c00FF0303 Amulet of Lucifer|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c00FF0303+999 All Stats\n+9999 Damage\n5% Armor Pen|r")
+    ..setHotkey("V")
+
+//I0IQ
+    new MyItemDefinition(ITEM_VEJOVIS)
+    ..setAbilities(commaList('A0Y6', 'A0Y5'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif102.blp")    
+    ..setClassification("Campaign")
+    ..setGoldCost(666666)
+    ..setLevel(0)
+    ..setLumberCost(666)
+    ..setPerishable(true)
+    ..setPriority(39)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..setDescription("")
+    ..setName("|c00FF0303 Vejovis|r")
+    ..setTooltipBasic("|c00FF0303 Vejovis|r")
+    ..setTooltipExtended("|c00FFFC01Effect:|r \n|c00FF0303\n+100.000 HP & MP|r")
+    ..setHotkey("V")

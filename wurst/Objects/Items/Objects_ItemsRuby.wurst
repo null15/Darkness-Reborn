@@ -1,0 +1,459 @@
+package Objects_ItemsRuby
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import RecipeItems
+
+init
+
+@compiletime function createItems()
+
+//I0IM
+    new MyItemDefinition(ITEM_EMPTY_VIAL)
+    ..setGoldCost(200)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("This is an empty vial.")
+    ..setName("Empty Vial (Fusion)")
+    ..setTooltipBasic("Purchase Empty Vial")
+    ..setTooltipExtended("An empty vial that allows upgrading Ruby Fragment +1 to Ruby Fragments +2")
+    ..addHotKey()
+    ..register()
+    
+//I02G
+    new MyItemDefinition(ITEM_RUBY_FRAGMENT_L1)
+    ..setModelUsed("Red Item.mdl")
+    ..setScalingValue(0.80)
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(99)
+    ..setStockReplenishInterval(0)
+    ..setStockStartDelay(1)
+    ..setDescription("A Ruby Fragments")
+    ..setName("Ruby Fragment +1")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +1 All Stats\n|c00FEBA0ENote: Buy an Empty Vial from the Fountain to fuse Ruby Fragments together!")
+    ..setHotkey("")
+
+//I02H
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L2)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(0)
+    ..setStockStartDelay(1)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +2")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +2 All Stats\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02I
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L3)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +3")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +4 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02J
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L4)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(0)
+    ..setStockStartDelay(1)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +4")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +7 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02K
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L5)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +5")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +11 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02L
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L6)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +6")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +16 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02M
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L7)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +7")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \nAdds +22 All Stats\n|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02N
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L8)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +8")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC0Effect:|r    \n"
+    +"Adds +29 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02O
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L9)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +9")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +37 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02P
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L10)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +10")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +46 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02Q
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L11)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +11")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +56 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02R
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L12)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +12")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +67 All Stats\n"
+    +"|c00FEBA0ELNote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I030
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L13)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +13")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +79 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I032
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L14)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +14")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +92 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02Y
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L15)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +15")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +106 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02X
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L16)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +16")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +121 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02W
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L17)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +17")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +137 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I033
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L18)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +18")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +154 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02Z
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L19)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments +19")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +172 All Stats\n"
+    +"|c00FEBA0ENote: Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I031
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L20)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setClassification("Campaign")
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Ruby Fragments + 20")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +191 All Stats\n"
+    +"|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02S
+    new MyItemDefinition(ITEM_HALF_RUBYSTONE)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setClassification("Campaign")
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Half Rubystone")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("One half of a Rubystone. Not much more to go!\n"
+    +"|c00FFFC01Effect:|r    \n"
+    +"Adds +211 All Stats\n"
+    +"|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02T
+    new MyItemDefinition(ITEM_DIVINE_RUBYSTONE)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setClassification("Campaign")
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("A handful of Ruby Fragments.")
+    ..setName("Divine Rubystone")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +232 All Stats\n"
+    +"|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Rubystone.")
+    ..setHotkey("")
+
+//I02U
+    new MyItemDefinition(ITEM_RUBYSTONE)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setClassification("Campaign")
+    ..setGoldCost(200)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setDescription("Rubystone")
+    ..setName("Rubystone")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +254 All Stats\n"
+    +"|c00FEBA0ENote:|r Collect more Ruby Fragments to form a Perfect Rubystone.")
+    ..setHotkey("")
+
+//I02V
+    new MyItemDefinition(ITEM_PERFECT_RUBYSTONE)
+    ..setModelUsed("Red Item.mdl")
+    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldToMerchants(false)
+    ..setClassification("Campaign")
+    ..setGoldCost(100000)
+    ..setLevel(0)
+    ..setPriority(0)
+    ..setStockMaximum(9)
+    ..setStockReplenishInterval(3600)
+    ..setStockStartDelay(100)
+    ..setDescription("Perfect Rubystone")
+    ..setName("Perfect Rubystone")
+    ..setTooltipBasic("")
+    ..setTooltipExtended("|c00FFFC01Effect:|r    \n"
+    +"Adds +277 All Stats\n"
+    +"|c00FEBA0ENote:|r Find a way to evolve it!")
+    ..setHotkey("")

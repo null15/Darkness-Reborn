@@ -14,6 +14,7 @@ import UpdateDropSite
 import MultiboardTimer
 import ClosureEvents
 import FountainQuest
+import Debug
 
 real facing = 270
 real facingUp = 90
@@ -79,6 +80,7 @@ function createSetup()
     for i = 0 to 9
         createUnit(players[i], HERO_PICKER, gg_rct_HeroPicker.getCenter())
         players[i]..addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)..addState(PLAYER_STATE_RESOURCE_GOLD, 800)
+        initDebug(players[i])
         
     var posX = GetRectCenterX(gg_rct_HeroPicker) - 384.
     var posY = GetRectCenterY(gg_rct_HeroPicker)
@@ -203,13 +205,13 @@ function mapSetup()
         dBox.addButton("Hard") -> 
             gameMode = 3
             dialogBoxClick()
-            print("All enemies will have 2x the health and 1.5x the damage/armor. \nHealth and Armor doesn't work on the first 4 spawn mobs.")
+            print("All enemies will have 2x the health and 1.5x the damage/armor. \nHealth and Armor WIP on the first 4 spawn mobs.")
             destroy dBox
         
         dBox.addButton("Extreme") -> 
             gameMode = 4
             dialogBoxClick()
-            print("All enemies will have 4x the health and 2x the damage/armor. \nHealth and Armor doesn't work on the first 4 spawn mobs.")
+            print("All enemies will have 4x the health and 2x the damage/armor. \nHealth and Armor WIP on the first 4 spawn mobs.")
             destroy dBox
         
         dBox.display(players[0], true)

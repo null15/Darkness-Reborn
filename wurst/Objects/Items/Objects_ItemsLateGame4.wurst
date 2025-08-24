@@ -82,11 +82,14 @@ init
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(25000)
     )
+    // setAbilities('A0JY')
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDragonWing.blp")
     ..setModelUsed("assets-wings effect\\DwingsStand.mdx")
     ..setClassification("Campaign")
     ..setScalingValue(0.80)
-    ..addStats("WIP")
+    ..addStats(addDamage(2500))
+    ..addStats(addAllStats(200))
+    ..addStats("[WIP] Changes your Damage Type to 'Blood' permanently if picked up.")
     ..addComponents(
     ITEM_DRAGON_BONE,
     ITEM_DRAGON_CLAW,

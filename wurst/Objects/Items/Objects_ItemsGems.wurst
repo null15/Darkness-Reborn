@@ -3,6 +3,7 @@ package Objects_ItemsGems
 import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
+import RecipeItems
 
 init
 
@@ -23,7 +24,7 @@ init
     ..register()
 
 //I0AZ
-    new MyGemDefinition(ITEM_PERFECT_CARNELIAN)
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_CARNELIAN, itemRecipeList, ITEM_INFO_PERFECT_CARNELIAN)
     ..setTintingColor1Red(255)
     ..setTintingColor2Green(0)
     ..setTintingColor3Blue(0)
@@ -31,6 +32,9 @@ init
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
     ..addStats("[WIP] +25% Life Steal")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_BLOODY_DAGGER)
     ..addHotKey()
     ..register()
 
@@ -50,7 +54,7 @@ init
     ..register()
 
 //I0B1
-    new MyGemDefinition(ITEM_PERFECT_TOPAZ)
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_TOPAZ, itemRecipeList, ITEM_INFO_PERFECT_TOPAZ)
     ..setModelUsed("Red Item.mdl")
     ..setTintingColor1Red(150)
     ..setTintingColor2Green(150)
@@ -58,6 +62,9 @@ init
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
     ..addStats("[WIP] Passively restores 2% HP/s of every ally in 900 Range")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_LIZARD_PENDANT)
     ..addHotKey()
     ..register()
 
@@ -75,7 +82,7 @@ init
     ..register()
 
 //I0B2
-    new MyGemDefinition(ITEM_PERFECT_AQUAMARINE)
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AQUAMARINE, itemRecipeList, ITEM_INFO_PERFECT_AQUAMARINE)
     ..setModelUsed("Red Item.mdl")
     ..setClassification("Campaign")
     ..setTintingColor1Red(255)
@@ -84,11 +91,14 @@ init
     ..addStats(addAllStats(300))
     ..addStats(addArmor(300))
     ..addStats(addSpikes(1))
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_REACTIVE_ARMOR)
     ..addHotKey()
     ..register()
 
 //I0B6
-    new MyGemDefinition(ITEM_PERFECT_NEPHRITE)
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_NEPHRITE, itemRecipeList, ITEM_INFO_PERFECT_NEPHRITE)
     ..setModelUsed("Green Item.mdl")
     ..setCooldownGroup("A0L8")
     ..setTintingColor1Red(0)
@@ -97,12 +107,16 @@ init
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
     ..addStats(addArmor(120))
-    ..addStats("[WIP] +50% Magic Resistance. Revives the wearer. Cooldown: 240 seconds.")
+    ..addStats(addMagicResist(50))
+    ..addStats("[WIP] Revives the wearer. Cooldown: 240 seconds.")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_GLOVERSHIELD)
     ..addHotKey()
     ..register()
 
 //I0B4
-    new MyGemDefinition(ITEM_PERFECT_EMERALD)
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_EMERALD, itemRecipeList, ITEM_INFO_PERFECT_EMERALD)
     ..setModelUsed("Green Item.mdl")
     ..setTintingColor1Red(0)
     ..setTintingColor2Green(255)
@@ -110,11 +124,17 @@ init
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
     ..addStats("[WIP] Increases Attack Speed by 180%")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE, 
+    ITEM_DRUMS_OF_FUTURE,
+    ITEM_THE_GOLDEN_HORN,
+    ITEM_TRIBAL_DRUMS,
+    ITEM_NATURE_FLUTE)
     ..addHotKey()
     ..register()
 
 //I0B7
-    new MyGemDefinition(ITEM_PERFECT_PEARL)
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_PEARL, itemRecipeList, ITEM_INFO_PERFECT_PEARL)
     ..setModelUsed("Red Item.mdl")
     ..setCooldownGroup("A0L9")
     ..setTintingColor1Red(0)
@@ -123,11 +143,15 @@ init
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
     ..addStats("Create 2 copies with all the stats and Armor")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_ICE_SWORD,
+    ITEM_FIRE_SWORD)
     ..addHotKey()
     ..register()
 
 //I0B0
-    new MyGemDefinition(ITEM_PERFECT_HIPPOPUS)
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_HIPPOPUS, itemRecipeList, ITEM_INFO_PERFECT_HIPPOPUS)
     ..setModelUsed("Red Item.mdl")
     ..setCooldownGroup("A0KY")
     ..setTintingColor1Red(0)
@@ -136,11 +160,14 @@ init
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
     ..addStats("Activates a Mana Shield that drains 1 Mana per 1.5 damage taken")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_LAZARUS_BELT)
     ..addHotKey()
     ..register()
 
 //I0B9
-    new MyGemDefinition(ITEM_PERFECT_SAPPHIRE)
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_SAPPHIRE, itemRecipeList, ITEM_INFO_PERFECT_SAPPHIRE)
     ..setModelUsed("Red Item.mdl")
     ..setCooldownGroup("A0LE")
     ..setTintingColor1Red(100)
@@ -149,11 +176,15 @@ init
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
     ..addStats("Calls down a Lightning Bolt on a target")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_MYSTERY_BLUE_STAFF,
+    ITEM_ORB_OF_LIGHTNING)
     ..addHotKey()
     ..register()
 
 //I0B3
-    new MyGemDefinition(ITEM_PERFECT_AMETHYST)
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AMETHYST, itemRecipeList, ITEM_INFO_PERFECT_AMETHYST)
     ..setModelUsed("Red Item.mdl")
     ..setTintingColor1Red(100)
     ..setTintingColor2Green(0)
@@ -161,5 +192,9 @@ init
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
     ..addStats("[WIP] Reduces 86 Armor of all enemies in 900 Range")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_DARK_STEEL_SWORD,
+    ITEM_ORB_OF_CORRUPTION)
     ..addHotKey()
     ..register()
