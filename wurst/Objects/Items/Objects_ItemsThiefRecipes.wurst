@@ -1,4 +1,4 @@
-package Object_ItemsThiefRecipes
+package Objects_ItemsThiefRecipes
 
 import MyItemDefinition
 import ItemObjEditing

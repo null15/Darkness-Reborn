@@ -1,4 +1,4 @@
-package Object_ItemsJsAngelMace
+package Objects_ItemsJsAngelMace
 
 import MyItemDefinition
 import ItemObjEditing

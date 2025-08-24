@@ -1,4 +1,4 @@
-package Object_ItemsCreeps1
+package Objects_ItemsCreeps1
 
 import MyItemDefinition
 import ItemObjEditing

@@ -1,4 +1,4 @@
-package Object_ItemsJsScepter
+package Objects_ItemsJsScepter
 
 import MyItemDefinition
 import ItemObjEditing

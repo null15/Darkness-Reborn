@@ -1,4 +1,4 @@
-package Object_ItemsTomes
+package Objects_ItemsTomes
 
 import MyItemDefinition
 import ItemObjEditing

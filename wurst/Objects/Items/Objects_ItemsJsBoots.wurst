@@ -1,4 +1,4 @@
-package Object_ItemsJsBoots
+package Objects_ItemsJsBoots
 
 import MyItemDefinition
 import ItemObjEditing
@@ -246,3 +246,12 @@ init
     ..setTooltipBasic("Purchase |cffffcc00V|rampiric Potion")
     ..setTooltipExtended("|c00FFFC01Effect:|r \n|c0020C000Armor + 130.\nStats + 130.\nAttack speed + 140%.\nMovement speed + 160.|r")
     ..setHotkey("V")
+
+//I096
+    new MyItemDefinition(ITEM_BERSERKERS_BOOTS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBerserkersBoots.blp")    
+    ..setClassification("Campaign")
+    ..addStats(addArmor(200))
+    ..addStats(addAllStats(200))
+    ..addStats(addMovementSpeed(1000)) // What maximum value? 522 is the old value?
+    ..register()

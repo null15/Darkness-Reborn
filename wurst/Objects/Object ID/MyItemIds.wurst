@@ -350,7 +350,7 @@ public constant ITEM_SCROLL_OF_UNHOLY_LEGION = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DRUID_OF_CLAW_MASTER = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CRYSTAL_SKULL = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_SPHERE_OF_FIRE = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_RUBY_FRAGMENT_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_RUBY_FRAGMENTS_L1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_SPHERE_OF_WATER = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ESSENCE_OF_ASZUNE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DREAM_SWORD = compiletime(ITEM_ID_GEN.next())
@@ -883,7 +883,7 @@ function compileItems()
     ITEM_CRYSTAL_SKULL,
     ITEM_JEWELRY_OF_LIFE,
     ITEM_SPHERE_OF_FIRE,
-    ITEM_RUBY_FRAGMENT_L1,
+    ITEM_RUBY_FRAGMENTS_L1,
     ITEM_SPHERE_OF_WATER,
     ITEM_SPHERE_OF_FIRE,
     ITEM_ESSENCE_OF_ASZUNE,

@@ -1,4 +1,4 @@
-package Object_ItemsJsHelm
+package Objects_ItemsJsHelm
 
 import MyItemDefinition
 import ItemObjEditing

@@ -85,7 +85,8 @@ public interface ItemAbilityFunc
 public class MyItemDefinition extends MyItemDefinitionBase
     string abilityList
     string effects
-    string extraEffects
+    string title
+    string extraDescription
 
     construct(int newId, int oldId)
         super(newId, oldId)
@@ -96,9 +97,10 @@ public class MyItemDefinition extends MyItemDefinitionBase
         initThis()
 
     private function initThis()
-        this.abilityList  = ""
-        this.effects      = ""
-        this.extraEffects = ""
+        this.abilityList      = ""
+        this.effects          = ""
+        this.extraDescription = ""
+        this.title            = ""
 
     function addStats(ItemStats itemStats)
         itemStats.addCustomStats(itemId)
@@ -122,7 +124,10 @@ public class MyItemDefinition extends MyItemDefinitionBase
         this.effects = this.effects + effects + "\n"
 
     function addExtraDescription(string extraDescription)
-        this.extraEffects = extraDescription
+        this.extraDescription = extraDescription
+
+    function addTitle(string title)
+        this.title = title
 
     protected function applyStats()
         if (abilityList.length() > 0)
@@ -130,10 +135,14 @@ public class MyItemDefinition extends MyItemDefinitionBase
             setAbilities(abilityList)
 
     protected function getEffectsDescription() returns string
-        if (extraEffects == "")
-            return wordEffects + effects
-        else
-            return extraEffects + wordEffects + effects
+        string result = ""
+        if (title != "")
+            result = title
+        if (effects != "")
+            result = result + wordEffects + effects
+        if (extraDescription != "")
+            result = result + extraDescription + wordEffects
+        return result
 
     protected function basicEffectsDescr()
         let itemName = getItemName(itemId)

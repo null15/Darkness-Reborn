@@ -1,4 +1,4 @@
-package Object_ItemsJsAxe
+package Objects_ItemsJsAxe
 
 import MyItemDefinition
 import ItemObjEditing

@@ -524,3 +524,15 @@ public function addAbilityPhoenixFire(real damage, real attackCd, real range) re
     return new ItemStats(abilityId, effects)
 
 // ----------------------------------------------------------------------------
+
+public function addAbilityLifeStealAura(real factor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordVampiricAura.format((100*factor).toString(), range.toString())
+
+    new AbilityDefinitionDreadlordVampiricAura(abilityId)
+    ..setAttackDamageStolen(1, factor)
+    ..setCastRange(1, range)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------

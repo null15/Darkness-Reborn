@@ -1,4 +1,4 @@
-package Object_ItemsJsGloves
+package Objects_ItemsJsGloves
 
 import MyItemDefinition
 import ItemObjEditing

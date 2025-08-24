@@ -1,4 +1,4 @@
-package Object_ItemsJsShield
+package Objects_ItemsJsShield
 
 import MyItemDefinition
 import ItemObjEditing

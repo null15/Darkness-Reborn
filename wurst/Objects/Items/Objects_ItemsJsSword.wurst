@@ -1,4 +1,4 @@
-package Object_ItemsJsSword
+package Objects_ItemsJsSword
 
 import MyItemDefinition
 import ItemObjEditing

@@ -1,4 +1,4 @@
-package Object_ItemsJsStr
+package Objects_ItemsJsStr
 
 import MyItemDefinition
 import ItemObjEditing

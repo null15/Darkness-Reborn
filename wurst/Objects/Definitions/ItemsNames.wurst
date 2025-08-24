@@ -737,7 +737,7 @@ public function getItemName(int id) returns string
             return "Crystal Skull"
         case ITEM_SPHERE_OF_FIRE
             return "Sphere of Fire"
-        case ITEM_RUBY_FRAGMENT_L1
+        case ITEM_RUBY_FRAGMENTS_L1
             return "Ruby Fragment +1"
         case ITEM_SPHERE_OF_WATER
             return "Sphere of Water"

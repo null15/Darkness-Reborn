@@ -1,4 +1,4 @@
-package Object_ItemsThiefDrops
+package Objects_ItemsThiefDrops
 
 import MyItemDefinition
 import ItemObjEditing

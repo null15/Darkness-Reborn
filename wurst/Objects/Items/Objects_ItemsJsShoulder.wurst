@@ -1,4 +1,4 @@
-package Object_ItemsJsShoulder
+package Objects_ItemsJsShoulder
 
 import MyItemDefinition
 import ItemObjEditing

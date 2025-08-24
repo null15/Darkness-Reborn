@@ -1,4 +1,4 @@
-package Object_ItemsJsMisc
+package Objects_ItemsJsMisc
 
 import MyItemDefinition
 import ItemObjEditing

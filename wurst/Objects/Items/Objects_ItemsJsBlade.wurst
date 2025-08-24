@@ -1,4 +1,4 @@
-package Object_ItemsJsBlade
+package Objects_ItemsJsBlade
 
 import MyItemDefinition
 import ItemObjEditing

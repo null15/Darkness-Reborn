@@ -1,4 +1,4 @@
-package Object_ItemsThiefBosses
+package Objects_ItemsThiefBosses
 
 import MyItemDefinition
 import ItemObjEditing
