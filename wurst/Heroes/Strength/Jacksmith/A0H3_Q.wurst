@@ -4,8 +4,7 @@ import MyItemIds
 import ClosureEvents
 import Recipes
 
-let jackSmithRecipe = new RecipeList()
-
+public let jackSmithRecipe = compiletime(new RecipeList())
 
 init
     initRecipes()

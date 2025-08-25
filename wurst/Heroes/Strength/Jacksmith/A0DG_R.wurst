@@ -9,7 +9,7 @@ import LinkedList
 import MyUnitIds
 import MyItemIds
 
-let blacksmithJackedList = new RecipeList()
+let blacksmithJackedList = compiletime(new RecipeList())
 
 public function blacksmithJackedUp()
     // Golden Ring

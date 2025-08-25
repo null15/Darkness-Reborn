@@ -1,89 +1,14 @@
 package RecipeItems
 
 import Recipes
-import MyItemIds
 import ClosureEvents
 
 public let itemRecipeList = compiletime(new RecipeList())
 
 init
-    recipeListed()
     registerTrigger()
     
 function registerTrigger()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) -> 
         let u = EventData.getTriggerUnit()
         u.checkRecipe(itemRecipeList)
-
-function recipeListed()
-    //OOO'Clock
-    itemRecipeList.addRecipe(ITEM_O_CLOCK, ITEM_O_CLOCK, ITEM_O_CLOCK, ITEM_RECIPE_O3_CLOCK, ITEM_O3_CLOCK)
-
-    // Ruby Fragments +2
-    itemRecipeList.addRecipe(ITEM_EMPTY_VIAL, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L2)
-
-    // Ruby Fragments +3
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L2, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L3)
-
-    // Ruby Fragments +4
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L3, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L4)
-
-    // Ruby Fragments +5
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L4, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L5)
-
-    // Ruby Fragments +6
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L5, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L6)
-
-    // Ruby Fragments +7
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L6, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L7)
-
-    // Ruby Fragments +8
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L7, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L8)
-
-    // Ruby Fragments +9
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L8, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L9)
-
-    // Ruby Fragments +10
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L9, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L10)
-
-    // Ruby Fragments +11
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L10, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L11)
-
-    // Ruby Fragments +12
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L11, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L12)
-
-    // Ruby Fragments +13
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L12, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L13)
-
-    // Ruby Fragments +14
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L13, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L14)
-
-    // Ruby Fragments +15
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L14, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L15)
-
-    // Ruby Fragments +16
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L15, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L16)
-
-    // Ruby Fragments +17
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L16, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L17)
-
-    // Ruby Fragments +18
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L17, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L18)
-
-    // Ruby Fragments +19
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L18, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L19)
-
-    // Ruby Fragments +20
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L19, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBY_FRAGMENTS_L20)
-
-    // Half Rubystone
-    itemRecipeList.addRecipe(ITEM_RUBY_FRAGMENTS_L20, ITEM_RUBY_FRAGMENTS_L1, ITEM_HALF_RUBYSTONE)
-
-    // Divine Rubystone
-    itemRecipeList.addRecipe(ITEM_HALF_RUBYSTONE, ITEM_RUBY_FRAGMENTS_L1, ITEM_DIVINE_RUBYSTONE)
-
-    // Rubystone
-    itemRecipeList.addRecipe(ITEM_DIVINE_RUBYSTONE, ITEM_RUBY_FRAGMENTS_L1, ITEM_RUBYSTONE)
-
-    // Perfect Rubystone
-    itemRecipeList.addRecipe(ITEM_RUBYSTONE, ITEM_RUBY_FRAGMENTS_L1, ITEM_PERFECT_RUBYSTONE)
