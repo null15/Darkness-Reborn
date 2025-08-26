@@ -1,0 +1,113 @@
+package Objects_ItemsJsStatsAgi
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import Jacksmith_Q
+
+init
+
+@compiletime function createItems()
+
+
+//I0BG
+    new MyItemWithCraftInfoDefinition(ITEM_CHAINS_RING, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (5).blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAgi(20))
+    ..addComponents(
+    ITEM_SLIPPERS_OF_AGILITY,
+    ITEM_KILLMAIM)
+    ..register()
+
+//I0BI
+    new MyItemWithCraftInfoDefinition(ITEM_RING_OF_HEAVEN, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (9).blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAgi(50))
+    ..addComponents(
+    ITEM_CHAINS_RING,
+    ITEM_BOOTS_OF_QUELTHALAS,
+    ITEM_JADE_RING)
+    ..register()
+
+//I0BH
+    new MyItemWithCraftInfoDefinition(ITEM_RING_OF_WITCH, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (11).blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAgi(125))
+    ..addComponents(
+    ITEM_RING_OF_HEAVEN,
+    ITEM_LIONS_RING)
+    ..register()
+
+//I0BJ
+    new MyItemWithCraftInfoDefinition(ITEM_EMERALD_RING, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (10).blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAgi(235))
+    ..addComponents(
+    ITEM_RING_OF_WITCH,
+    ITEM_AMULET_OF_THE_WILD)
+    ..register()
+
+//I0BK
+    new MyItemWithCraftInfoDefinition(ITEM_ICE_RING, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (1).blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAgi(455))
+    ..addComponents(
+    ITEM_EMERALD_RING,
+    ITEM_AINZ_SWORD,
+    ITEM_ARCANE_SCROLL)
+    ..register()
+
+//I0BL
+    new MyItemWithCraftInfoDefinition(ITEM_ROLL_RING, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (6).blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAgi(555))
+    ..addStats(addArmor(50))
+    ..addStats(addEvasion(0.3))
+    ..addComponents(
+    ITEM_ICE_RING,
+    ITEM_CROWN_OF_ASSASSIN_L0)
+    ..register()
+
+//I0BM
+    new MyItemWithCraftInfoDefinition(ITEM_BRYNHILDR, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (7).blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAgi(1100))
+    ..addStats(addArmor(100))
+    ..addStats(addDamage(500))
+    ..addStats(addEvasion(0.4))
+    ..addComponents(
+    ITEM_ROLL_RING,
+    ITEM_TITANIUM)
+    ..register()
+
+//I0BN
+    new MyItemWithCraftInfoDefinition(ITEM_VALKYRIE, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (8).blp")    
+    ..setClassification("Campaign")
+    ..addStats(addAgi(2200))
+    ..addStats(addArmor(200))
+    ..addStats(addDamage(1000))
+    ..addStats(addEvasion(0.5))
+    ..addComponents(
+    ITEM_BRYNHILDR,
+    ITEM_BOOK_OF_WIND,
+    ITEM_PERFECT_RUBYSTONE)
+    ..register()
+    
+//I0IN
+    new MyItemWithCraftInfoDefinition(ITEM_VALKYRIE_L5, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (8).blp")    
+    ..setClassification("Campaign")
+    ..setGoldCost(666666)
+    ..addStats(addAgi(3500))
+    ..addStats(addArmor(600))
+    ..addStats(addDamage(15000))
+    ..addStats(addEvasion(0.6))
+    ..register()

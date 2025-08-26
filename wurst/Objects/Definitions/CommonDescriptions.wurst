@@ -1,0 +1,118 @@
+package CommonDescriptions
+
+public let colRst             = "|r"
+public let colBasic           = "|c0000C800"
+public let colRecipe          = "|c002979fa"
+public let colLateGame1       = "|c00C80000"
+public let colLateGame2       = "|c004896E1"
+public let colHotKey          = "|c00FFFC01"
+
+public let colTinkerTomes     = "|c006BF1F6"
+public let colTinkerLumber    = "|c005FA412"
+public let colTinkerRecipes   = "|c00AF3BD9"
+
+public let colCreepsTp        = "|c00505050" 
+
+public function itemNameBasic(string name) returns string
+    return colBasic + name + colRst
+
+public function itemNameRecipe(string name) returns string
+    return colRecipe + name + colRst
+
+public function itemNameLateGame1(string name) returns string
+    return colLateGame1 + name + colRst
+
+public function itemNameLateGame2(string name) returns string
+    return colLateGame2 + name + colRst
+
+public function itemNameTinkerTome(string name) returns string
+    return colTinkerTomes + name + colRst
+
+public function itemNameTinkerLumber(string name) returns string
+    return colTinkerLumber + name + colRst
+
+public function itemNameTinkerRecipe(string name) returns string
+    return colTinkerRecipes + name + colRst
+
+public function itemNameCreepsTp(string name) returns string
+    return colCreepsTp + name + colRst
+
+public let shopNameBasicItems1    = itemNameBasic("Basic Items (1)")
+public let shopNameBasicItems2    = itemNameBasic("Basic Items (2)")
+public let shopNameBasicItems3    = itemNameBasic("Basic Items (3)")
+public let shopNameBasicItems4    = itemNameBasic("Basic Items (4)")
+
+public let shopNameRecipes1       = itemNameRecipe("Recipes Shop (1)")
+public let shopNameRecipes2       = itemNameRecipe("Recipes Shop (2)")
+public let shopNameRecipes3       = itemNameRecipe("Recipes Shop (3)")
+public let shopNameRecipes4       = itemNameRecipe("Recipes Shop (4)")
+
+public let shopNameLateGameItems1 = itemNameLateGame1("Late Game Items (1)")
+public let shopNameLateGameItems2 = itemNameLateGame1("Late Game Items (2)")
+public let shopNameGems           = itemNameLateGame2("Gems Shop (3)"      )
+public let shopNameLateGameItems4 = itemNameLateGame2("Late Game Items (4)")
+
+public let shopNameTinkerTomes    = itemNameTinkerTome("Tomes Advanced Shop")
+public let shopNameTinkerLumber   = itemNameTinkerLumber("Advanced Lumber Shop")
+public let shopNameTinkerRecipes  = itemNameTinkerRecipe("Goblin Items Shop")
+
+public let shopNameCreepsTp1      = itemNameCreepsTp("Easy hunting grounds")
+public let shopNameCreepsTp2      = itemNameCreepsTp("Intermediate hunting grounds")
+public let shopNameCreepsTp3      = itemNameCreepsTp("Elite hunting grounds")
+public let shopNameCreepsTp4      = itemNameCreepsTp("End-game bosses")
+
+public let monsterDrop            = "Monster Drop"
+public let bossDrop               = "Boss Drop"
+   
+public let wordEffects            = "|c00FFFC01Effects:|r\n"
+public let wordExtraEffects       = "|c00FFFC01Extra Effects:|r\n"
+public let wordMaterials          = "|c00FEBA0EMaterials required to craft this item:|r\n"
+public let wordNote               = "|c00FEBA0ENote:|r\n"
+   
+public let wordAttackSpeed        = "Attack Speed"
+public let wordDamage             = "Damage"
+public let wordLifeSteal          = "Life Steal"
+public let wordArmorOnHit         = "Armor on hit (Orb Effect)"
+public let wordArmorPen           = "Armor penetration"
+public let wordMpOnHit            = "{0}% of max MP on hit"
+public let wordFrost1             = "Frost Orb Effect on-hit: {0} sec"
+public let wordFrost2             = "Frost Orb Effect on-hit: {0} sec (normal), {1} sec (hero)"
+public let wordLightning          = "{0}% chance to shoot a chain lightning dealing {1} damage to up to {2} targets ({3} damage reduction per target)"   
+   
+public let wordCleave             = "Cleave: {0} damage in {1} range"
+public let wordCrit               = "Crit: {0}% chance to do x{1} damage"
+public let wordBash               = "Bash: {0}% chance to do {1} bonus damage and stun for {2} sec (cd {3} sec)"
+   
+public let wordHp                 = "HP"
+public let wordHpReg              = "HP/s"
+public let wordHpRegAura          = "+{0} in {1} range"
+public let wordRestoreHp          = "Restores {0} HP when used"
+   
+public let wordArmor              = "Armor"
+public let wordDamageBlock        = "Block: {0}% chance to block {1} damage"
+public let wordEvasion            = "Evasion"
+public let wordMagicResist        = "{0}% Magic Resistance"
+public let wordSpikes             = "Return {0}% of the damage dealt to you back to the attacker"
+public let wordSpellShield        = "Blocks one negative spell (cd {0} sec)"
+public let wordMovementSpeed      = "Movement Speed"
+public let wordTp                 = "Active: teleport to allied unit or building (cd 20 sec)"
+   
+public let wordMp                 = "MP"
+public let wordMpReg              = "MP Regeneration"
+public let wordRestoreMp          = "Restores {0} MP when used"
+   
+public let wordAgi                = "Agility"
+public let wordStr                = "Strength"
+public let wordInt                = "Intelligence"
+public let wordAllStats           = "All stats"
+
+public let wordAuraTrueshot       = "Trueshot Aura: {0}% ranged damage in {1} range"
+public let wordAuraEndurance      = "Endurance Aura: {0}% movement speed, {1}% attack speed in {2} range"
+public let wordAuraDevotionFlat   = "Devotion Aura: {0} armor in {1} range"
+public let wordAuraDevotionRel    = "Devotion Aura: {0}% armor in {1} range"
+public let wordAuraCommandRel     = "Command Aura: {0}% damage in {1} range"
+
+public let wordAvatar             = "Active: activate Avatar for {0} sec (cd {1} sec)"
+public let wordResetSpellCd       = "Active: Reset all of your Skill Cooldowns (cd {0} sec)"
+public let wordPhoenixFire        = "Every {0} second deal {1} Damage to a nearby enemy within {2} Range"
+public let wordVampiricAura       = "Life Steal Aura: converts {0} damage into hp, {1} range"

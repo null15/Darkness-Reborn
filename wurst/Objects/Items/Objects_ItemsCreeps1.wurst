@@ -1,0 +1,178 @@
+package Objects_ItemsCreeps1
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+
+init
+
+@compiletime function createItems()
+
+//I037
+    new MyItemDefinition(ITEM_GAUNTLETS_OF_OGRE_STRENGTH)
+    ..addStats(addStr(3))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06N
+    new MyItemDefinition(ITEM_RUSTY_MINING_PICK)
+    ..addStats(addDamage(15))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06Q
+    new MyItemDefinition(ITEM_WIRTS_LEG)
+    ..addStats(addHpReg(3))
+    ..addStats(addMovementSpeed(50))
+    ..setStockMaximum(99)
+    ..register()
+
+//I00J
+    new MyItemDefinition(ITEM_SLIPPERS_OF_AGILITY)
+    ..addStats(addAgi(3))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06G
+    new MyItemDefinition(ITEM_DIAMOND_OF_SUMMONING)
+    ..addStats(addHp(200))
+    ..addStats(addHpReg(5))
+    ..setStockMaximum(99)
+    ..register()
+
+//I038
+    new MyItemDefinition(ITEM_MANTLE_OF_INTELLIGENCE)
+    ..addStats(addInt(3))
+    ..setStockMaximum(99)
+    ..register()
+
+//I03A
+    new MyItemDefinition(ITEM_DRUID_POUCH)
+    ..addStats(addAllStats(2))
+    ..setStockMaximum(99)
+    ..register()
+
+//I03E
+    new MyItemDefinition(ITEM_RUNED_GAUNTLETS)
+    ..addStats(addDamage(9))
+    ..addStats(addAttackSpeed(0.18))
+    ..setStockMaximum(99)
+    ..register()
+
+//I03G
+    new MyItemDefinition(ITEM_SKULL_SHIELD)
+    ..addStats(addAllStats(5))
+    ..addStats(addArmor(5))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06E
+    new MyItemDefinition(ITEM_VOODOO_DOLL)
+    ..addStats(addHpReg(6))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06F
+    new MyItemDefinition(ITEM_ANCIENT_FIGURINE)
+    ..addStats(addAllStats(4))
+    ..addStats(addArmor(4))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06I
+    new MyItemDefinition(ITEM_SPIDER_SILK_BROACH)
+    ..addStats(addArmor(5))
+    ..addStats(addMp(200))
+    ..setStockMaximum(99)
+    ..register()
+
+//I03B
+    new MyItemDefinition(ITEM_BATTLE_STANDARD)
+    ..addStats(addArmor(5))
+    ..addStats(addHp(100))
+    ..setStockMaximum(99)
+    ..register()
+
+//I03D
+    new MyItemDefinition(ITEM_BLADEBANE_ARMOR)
+    ..addStats(addArmor(7))
+    ..addStats(addHpReg(7))
+    ..setStockMaximum(99)
+    ..register()
+
+//I03F
+    new MyItemDefinition(ITEM_FIREHAND_GAUNTLETS)
+    ..addStats(addDamage(18))
+    ..addStats(addAttackSpeed(0.25))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06B
+    new MyItemDefinition(ITEM_FLARE_GUN)
+    ..addStats(addDamage(20))
+    ..addStats(addInt(7))
+    ..setStockMaximum(99)
+    ..register()
+
+//I039
+    new MyItemDefinition(ITEM_ANCESTRAL_STAFF)    
+    ..setActivelyUsed(true)
+    ..addStats(addInt(12))
+    ..addStats("[WIP] Active: Hurl a Fireball that deals 100 Damage and stuns for 2 seconds (cd 5 sec).")
+    ..setStockMaximum(99)
+    ..register()
+
+//I06D
+    new MyItemDefinition(ITEM_POISON_SPEARS)
+    ..addStats(addDamage(20))
+    ..setStockMaximum(99)
+    ..register()
+
+//I03H
+    new MyItemDefinition(ITEM_KILLMAIM)
+    ..addStats(addAgi(10))
+    ..addStats(addDamage(10))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06J
+    new MyItemDefinition(ITEM_DRUID_OF_CLAW)
+    ..addStats(addDamage(30))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06T
+    new MyItemDefinition(ITEM_BOOK_OF_DEAD)
+    ..addStats(addAgi(10))
+    ..addStats(addMp(400))
+    ..setStockMaximum(99)
+    ..register()
+
+//I03I
+    new MyItemDefinition(ITEM_HORN_OF_CLOUDS)
+    ..addStats(addStr(10))
+    ..addStats(addHpReg(10))
+    ..setStockMaximum(99)
+    ..register()
+
+//I07A
+    new MyItemDefinition(ITEM_HALF_MOON_ARMOR)
+    ..addStats(addArmor(5))
+    ..addStats(addAllStats(5))
+    ..addStats(addHp(300))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06U
+    new MyItemDefinition(ITEM_HUMAN_FLAG)
+    ..addStats(addInt(17))
+    ..addStats(addAttackSpeed(0.3))
+    ..setStockMaximum(99)
+    ..register()
+
+//I06H
+    new MyItemDefinition(ITEM_BLOOD_GEM)
+    ..addStats(addHp(800))
+    ..addStats(addHpReg(15))
+    ..setStockMaximum(99)
+    ..register()

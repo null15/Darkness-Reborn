@@ -1,0 +1,212 @@
+package Objects_ItemsGems
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import RecipeItems
+
+init
+
+@compiletime function createItems()
+
+
+//I0B5
+    new MyGemDefinition(ITEM_PERFECT_GARNET)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Red2.blp")
+    ..setModelUsed("Red Item.mdl")
+    ..setClassification("Campaign")
+    ..setCooldownGroup("A0LD")
+    ..setTintingColor1Red(255)
+    ..setTintingColor2Green(0)
+    ..setTintingColor3Blue(0)
+    ..addStats(addAllStats(300))
+    ..addStats("[WIP] Increases Armor by 9999 and HP/s by 700 for 30 seconds. Cooldown: 60 seconds.")
+    ..addHotKey()
+    ..register()
+
+//I0AZ
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_CARNELIAN, itemRecipeList, ITEM_INFO_PERFECT_CARNELIAN)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelcrafting_gem_16.blp")
+    ..setModelUsed("Red Item.mdl")
+    ..setTintingColor1Red(255)
+    ..setTintingColor2Green(0)
+    ..setTintingColor3Blue(0)
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(300))
+    ..addStats("[WIP] +25% Life Steal")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_BLOODY_DAGGER)
+    ..addHotKey()
+    ..register()
+
+
+//I0BA
+    new MyGemDefinition(ITEM_PERFECT_CITRINE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Yellow2.blp")
+    ..setModelUsed("Red Item.mdl")
+    ..setTintingColor1Red(255)
+    ..setTintingColor2Green(255)
+    ..setTintingColor3Blue(0)
+    ..setCooldownGroup("A0LC")
+    ..setCooldownGroup("A0LC")
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(300))
+    ..addStats("[WIP] Can use Holy Light on someone")
+    ..addHotKey()
+    ..register()
+
+//I0B1
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_TOPAZ, itemRecipeList, ITEM_INFO_PERFECT_TOPAZ)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Yellow.blp")
+    ..setModelUsed("Red Item.mdl")
+    ..setTintingColor1Red(150)
+    ..setTintingColor2Green(150)
+    ..setTintingColor3Blue(0)
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(300))
+    ..addStats(addHpRegAura(0.02, true, 900))
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_LIZARD_PENDANT)
+    ..addHotKey()
+    ..register()
+
+//I0B8
+    new MyGemDefinition(ITEM_PERFECT_OBSIDIAN)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe2.blp")
+    ..setModelUsed("Red Item.mdl")
+    ..setCooldownGroup("Infernal")
+    ..setTintingColor1Red(255)
+    ..setTintingColor2Green(255)
+    ..setTintingColor3Blue(0)
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(300))
+    ..addStats("Creates a Golem Infernal")
+    ..addHotKey()
+    ..register()
+
+//I0B2
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AQUAMARINE, itemRecipeList, ITEM_INFO_PERFECT_AQUAMARINE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe.blp")
+    ..setModelUsed("Red Item.mdl")
+    ..setClassification("Campaign")
+    ..setTintingColor1Red(255)
+    ..setTintingColor2Green(255)
+    ..setTintingColor3Blue(0)
+    ..addStats(addAllStats(300))
+    ..addStats(addArmor(300))
+    ..addStats(addSpikes(1))
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_REACTIVE_ARMOR)
+    ..addHotKey()
+    ..register()
+
+//I0B6
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_NEPHRITE, itemRecipeList, ITEM_INFO_PERFECT_NEPHRITE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green2.blp")
+    ..setModelUsed("Green Item.mdl")
+    ..setCooldownGroup("A0L8")
+    ..setTintingColor1Red(0)
+    ..setTintingColor2Green(255)
+    ..setTintingColor3Blue(0)
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(300))
+    ..addStats(addArmor(120))
+    ..addStats(addMagicResist(50))
+    ..addStats("[WIP] Revives the wearer. Cooldown: 240 seconds.")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_GLOVERSHIELD)
+    ..addHotKey()
+    ..register()
+
+//I0B4
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_EMERALD, itemRecipeList, ITEM_INFO_PERFECT_EMERALD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green.blp")
+    ..setModelUsed("Green Item.mdl")
+    ..setTintingColor1Red(0)
+    ..setTintingColor2Green(255)
+    ..setTintingColor3Blue(0)
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(300))
+    ..addStats("[WIP] Increases Attack Speed by 180%")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE, 
+    ITEM_DRUMS_OF_FUTURE,
+    ITEM_THE_GOLDEN_HORN,
+    ITEM_TRIBAL_DRUMS,
+    ITEM_NATURE_FLUTE)
+    ..addHotKey()
+    ..register()
+
+//I0B7
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_PEARL, itemRecipeList, ITEM_INFO_PERFECT_PEARL)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Blue2.blp")
+    ..setModelUsed("Red Item.mdl")
+    ..setCooldownGroup("A0L9")
+    ..setTintingColor1Red(0)
+    ..setTintingColor2Green(100)
+    ..setTintingColor3Blue(200)
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(300))
+    ..addStats("Create 2 copies with all the stats and Armor")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_ICE_SWORD,
+    ITEM_FIRE_SWORD)
+    ..addHotKey()
+    ..register()
+
+//I0B0
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_HIPPOPUS, itemRecipeList, ITEM_INFO_PERFECT_HIPPOPUS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Blue.blp")
+    ..setModelUsed("Red Item.mdl")
+    ..setCooldownGroup("A0KY")
+    ..setTintingColor1Red(0)
+    ..setTintingColor2Green(0)
+    ..setTintingColor3Blue(255)
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(300))
+    ..addStats("Activates a Mana Shield that drains 1 Mana per 1.5 damage taken")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_LAZARUS_BELT)
+    ..addHotKey()
+    ..register()
+
+//I0B9
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_SAPPHIRE, itemRecipeList, ITEM_INFO_PERFECT_SAPPHIRE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple2.blp")
+    ..setModelUsed("Red Item.mdl")
+    ..setCooldownGroup("A0LE")
+    ..setTintingColor1Red(100)
+    ..setTintingColor2Green(0)
+    ..setTintingColor3Blue(255)
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(300))
+    ..addStats("Calls down a Lightning Bolt on a target")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_MYSTERY_BLUE_STAFF,
+    ITEM_ORB_OF_LIGHTNING)
+    ..addHotKey()
+    ..register()
+
+//I0B3
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AMETHYST, itemRecipeList, ITEM_INFO_PERFECT_AMETHYST)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple.blp")
+    ..setModelUsed("Red Item.mdl")
+    ..setTintingColor1Red(100)
+    ..setTintingColor2Green(0)
+    ..setTintingColor3Blue(255)
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(300))
+    ..addStats("[WIP] Reduces 86 Armor of all enemies in 900 Range")
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_DARK_STEEL_SWORD,
+    ITEM_ORB_OF_CORRUPTION)
+    ..addHotKey()
+    ..register()

@@ -14,7 +14,7 @@ import UpdateDropSite
 import MultiboardTimer
 import ClosureEvents
 import FountainQuest
-import MyItemIds
+import Debug
 
 real facing = 270
 real facingUp = 90
@@ -64,8 +64,6 @@ function onBuyHero(unit u)
             soldUnit.setPos(gg_rct_Base.getCenter())
             p.setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 0)
             GetBuyingUnit().remove()
-            soldUnit.setLevel(200, true)
-            p.addGold(2000000)
         else
             soldUnit.remove()
             printTimedToPlayer("Your hero was killed by the newly recruited one as it left.", 10, p)
@@ -104,13 +102,13 @@ function createSetup()
     var dividend = (posMax - posMin) / 4
     posY = posMin + 100
 
-    CreateUnit(p, BUILDING_4, posX, posY, 270.000) // Basic Items 4
+    CreateUnit(p, BUILDING_SHOP_BASIC_ITEMS4, posX, posY, 270.000) // Basic Items 4
     posY = posY + dividend
-    CreateUnit(p, BUILDING_3, posX, posY, 270.000) // Basic Items 3
+    CreateUnit(p, BUILDING_SHOP_BASIC_ITEMS3, posX, posY, 270.000) // Basic Items 3
     posY = posY + dividend
-    CreateUnit(p, BUILDING_2, posX, posY, 270.000) // Basic Items 2
+    CreateUnit(p, BUILDING_SHOP_BASIC_ITEMS2, posX, posY, 270.000) // Basic Items 2
     posY = posY + dividend
-    CreateUnit(p, BUILDING_1, posX, posY, 270.000) // Basic Items 1
+    CreateUnit(p, BUILDING_SHOP_BASIC_ITEMS1, posX, posY, 270.000) // Basic Items 1
 
     posX = GetRectCenterX(gg_rct_ShopRight) - 150
     posMax = GetRectMaxY(gg_rct_ShopRight)
@@ -118,13 +116,13 @@ function createSetup()
     dividend = (posMax - posMin) / 4
     posY = posMin + 100
 
-    let endGamebosses = CreateUnit(p, BUILDING_17, posX, posY, 270.000) // End-game bosses
+    let endGamebosses = CreateUnit(p, BUILDING_CREEPS_TP4, posX, posY, 270.000) // End-game bosses
     posY = posY + dividend
-    let eliteGrounds = CreateUnit(p, BUILDING_16, posX, posY, 270.000) // Elite hunting grounds
+    let eliteGrounds = CreateUnit(p, BUILDING_CREEPS_TP3, posX, posY, 270.000) // Elite hunting grounds
     posY = posY + dividend
-    let intermediateGrounds = CreateUnit(p, BUILDING_15, posX, posY, 270.000) // Intermediate hunting grounds
+    let intermediateGrounds = CreateUnit(p, BUILDING_CREEPS_TP2, posX, posY, 270.000) // Intermediate hunting grounds
     posY = posY + dividend
-    let easyGrounds = CreateUnit(p, BUILDING_14, posX, posY, 270.000) // Easy hunting grounds
+    let easyGrounds = CreateUnit(p, BUILDING_CREEPS_TP1, posX, posY, 270.000) // Easy hunting grounds
 
     posX = GetRectCenterX(gg_rct_ShopLeft) - 150
     posMax = GetRectMaxY(gg_rct_ShopLeft)
@@ -132,13 +130,13 @@ function createSetup()
     dividend = (posMax - posMin) / 4
     posY = posMin + 100
 
-    CreateUnit(p, BUILDING_8, posX, posY, 270.000) // Recipe shop 4
+    CreateUnit(p, BUILDING_SHOP_RECIPES4, posX, posY, 270.000) // Recipe shop 4
     posY = posY + dividend
-    CreateUnit(p, BUILDING_7, posX, posY, 270.000) // Recipe Shop 3
+    CreateUnit(p, BUILDING_SHOP_RECIPES3, posX, posY, 270.000) // Recipe Shop 3
     posY = posY + dividend
-    CreateUnit(p, BUILDING_6, posX, posY, 270.000) // Recipe Shop 2
+    CreateUnit(p, BUILDING_SHOP_RECIPES2, posX, posY, 270.000) // Recipe Shop 2
     posY = posY + dividend
-    CreateUnit(p, BUILDING_5, posX, posY, 270.000) // Recipe Shop 1
+    CreateUnit(p, BUILDING_SHOP_RECIPES1, posX, posY, 270.000) // Recipe Shop 1
 
     posX = GetRectCenterX(gg_rct_ShopRight) + 150
     posMax = GetRectMaxY(gg_rct_ShopRight)
@@ -146,13 +144,13 @@ function createSetup()
     dividend = (posMax - posMin) / 4
     posY = posMin + 100
 
-    CreateUnit(p, BUILDING_13, posX, posY, 270.000) // End Game Items
+    CreateUnit(p, BUILDING_SHOP_LATE_GAME_ITEMS4, posX, posY, 270.000) // End Game Items
     posY = posY + dividend
-    CreateUnit(p, BUILDING_12, posX, posY, 270.000) // Decent Items
+    CreateUnit(p, BUILDING_SHOP_GEMS, posX, posY, 270.000) // Decent Items
     posY = posY + dividend
-    CreateUnit(p, BUILDING_11, posX, posY, 270.000) // Late Game Items
+    CreateUnit(p, BUILDING_SHOP_LATE_GAME_ITEMS2, posX, posY, 270.000) // Late Game Items
     posY = posY + dividend
-    CreateUnit(p, BUILDING_10, posX, posY, 270.000) // Late Game Items
+    CreateUnit(p, BUILDING_SHOP_LATE_GAME_ITEMS1, posX, posY, 270.000) // Late Game Items
  
     posX = GetRectCenterX(gg_rct_Base)
     posY = GetRectCenterY(gg_rct_Base) + 200
@@ -166,6 +164,8 @@ function createSetup()
     elementalSoul.onDefeat()
 
     teleportToMobs(easyGrounds, intermediateGrounds, eliteGrounds, endGamebosses)
+
+    initDebug()
 
 function dialogBoxClick()
     preWaveSetup()
@@ -209,13 +209,13 @@ function mapSetup()
         dBox.addButton("Hard") -> 
             gameMode = 3
             dialogBoxClick()
-            print("All enemies will have 2x the health and 1.5x the damage/armor. \nHealth and Armor doesn't work on the first 4 spawn mobs.")
+            print("All enemies will have 2x the health and 1.5x the damage/armor. \nHealth and Armor WIP on the first 4 spawn mobs.")
             destroy dBox
         
         dBox.addButton("Extreme") -> 
             gameMode = 4
             dialogBoxClick()
-            print("All enemies will have 4x the health and 2x the damage/armor. \nHealth and Armor doesn't work on the first 4 spawn mobs.")
+            print("All enemies will have 4x the health and 2x the damage/armor. \nHealth and Armor WIP on the first 4 spawn mobs.")
             destroy dBox
         
         dBox.display(players[0], true)

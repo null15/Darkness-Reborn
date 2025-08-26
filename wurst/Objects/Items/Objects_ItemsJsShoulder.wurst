@@ -1,0 +1,72 @@
+package Objects_ItemsJsShoulder
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import Jacksmith_Q
+
+init
+
+@compiletime function createItems()
+
+//I0AN
+    new MyItemWithCraftInfoDefinition(ITEM_SOFT_SHOULDER, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSH_Armor_Upgrade_F.blp")
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(10))
+    ..addStats(addAllStats(10))
+    ..addStats(addHp(500))
+    ..addComponents(
+    ITEM_ANCIENT_FIGURINE,
+    ITEM_BATTLE_STANDARD)
+    ..register()
+
+//I0AO
+    new MyItemWithCraftInfoDefinition(ITEM_HARD_SHOULDER, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSH_Armor_Upgrade_S.blp")
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(20))
+    ..addStats(addAllStats(20))
+    ..addStats(addHp(1000))
+    ..addComponents(
+    ITEM_SOFT_SHOULDER,
+    ITEM_HALF_MOON_ARMOR)
+    ..register()
+
+//I0AP
+    new MyItemWithCraftInfoDefinition(ITEM_HEAVY_SHOULDER, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSH_Armor_Upgrade_T.blp")
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(50))
+    ..addStats(addAllStats(50))
+    ..addStats(addHp(2000))
+    ..addComponents(
+    ITEM_HARD_SHOULDER,
+    ITEM_MOON_ARMOR,
+    ITEM_BLOOD_GEM)
+    ..register()
+
+//I0AQ
+    new MyItemWithCraftInfoDefinition(ITEM_ROYAL_SHOULDER, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSH_Armor_Upgrade_Fo.blp")
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(100))
+    ..addStats(addAllStats(100))
+    ..addStats(addHp(4000))
+    ..addComponents(
+    ITEM_HEAVY_SHOULDER,
+    ITEM_LIGHT_ARMOR)
+    ..register()
+    
+//I0AW
+    new MyItemWithCraftInfoDefinition(ITEM_NOBLESSE_SHOULDER, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHr.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(200))
+    ..addStats(addAllStats(200))
+    ..addStats(addHp(6000))
+    ..addStats(addAbilityAvatarMagicImmune(30, 10, 2000))
+    ..addComponents(
+    ITEM_ROYAL_SHOULDER,
+    ITEM_AVATAR_ARMOR)
+    ..register()

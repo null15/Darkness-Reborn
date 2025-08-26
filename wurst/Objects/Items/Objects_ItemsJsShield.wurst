@@ -1,0 +1,122 @@
+package Objects_ItemsJsShield
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import Jacksmith_Q
+
+init
+
+@compiletime function createItems()
+
+//I08M
+    new MyItemDefinition(ITEM_FORGE_SHIELD_L1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG2.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(8))
+    ..addStats(addDamageBlock(0.2, 100))
+    ..register()
+
+//I08N
+    new MyItemDefinition(ITEM_FORGE_SHIELD_L2)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG2.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(20))
+    ..addStats(addDamageBlock(0.25, 200))
+    ..register()
+
+//I08O
+    new MyItemDefinition(ITEM_FORGE_SHIELD_L3)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG2.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(45))
+    ..addStats(addDamageBlock(0.3, 300))
+    ..register()
+
+//I069
+    new MyItemDefinition(ITEM_FORGE_SHIELD_L4)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG2.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(80))
+    ..addStats(addDamageBlock(0.4, 500))
+    ..register()
+    
+//I08P
+    new MyItemWithCraftInfoDefinition(ITEM_PLATINUM_SHIELD_L1, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(15))
+    ..addStats(addDamageBlock(0.25, 200))
+    ..addComponents(
+    ITEM_FORGE_SHIELD_L1,
+    ITEM_ENCHANTED_SHIELD)
+    ..register()
+
+//I08Q
+    new MyItemWithCraftInfoDefinition(ITEM_PLATINUM_SHIELD_L2, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(40))
+    ..addStats(addDamageBlock(0.3, 300))
+    ..addComponents(
+    ITEM_PLATINUM_SHIELD_L1,
+    ITEM_ARCANITE_SHIELD)
+    ..register()
+
+//I08R
+    new MyItemWithCraftInfoDefinition(ITEM_PLATINUM_SHIELD_L3, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(60))
+    ..addStats(addDamageBlock(0.4, 600))
+    ..addComponents(
+    ITEM_PLATINUM_SHIELD_L2,
+    ITEM_FORGE_SHIELD_L2,
+    ITEM_FORGE_ARMOR_L1)
+    ..register()
+
+//I08S
+    new MyItemWithCraftInfoDefinition(ITEM_PLATINUM_SHIELD_L4, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(100))
+    ..addStats(addDamageBlock(0.5, 1200))
+    ..addComponents(
+    ITEM_PLATINUM_SHIELD_L3,
+    ITEM_SHIELD_OF_HONOR)
+    ..register()
+
+//I08T
+    new MyItemWithCraftInfoDefinition(ITEM_PLATINUM_SHIELD_L5, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(130))
+    ..addStats(addDamageBlock(0.6, 1800))
+    ..addComponents(
+    ITEM_PLATINUM_SHIELD_L4,
+    ITEM_STEEL_SHIELD)
+    ..register()
+
+//I08U
+    new MyItemWithCraftInfoDefinition(ITEM_PLATINUM_SHIELD_L6, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmorUPG3.BLP")    
+    ..setClassification("Purchasable")
+    ..addStats(addArmor(160))
+    ..addStats(addDamageBlock(0.7, 2500))
+    ..addComponents(
+    ITEM_PLATINUM_SHIELD_L5,
+    ITEM_SACRED_SHIELD,
+    ITEM_FORGE_SHIELD_L3)
+    ..register()
+    
+//I08V
+    new MyItemWithCraftInfoDefinition(ITEM_BERSERKERS_SHIELD, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBerserkersShoulder.blp")    
+    ..setClassification("Campaign")
+    ..addStats(addArmor(200))
+    ..addStats(addDamageBlock(0.8, 3500))
+    ..addComponents(
+    ITEM_PLATINUM_SHIELD_L6,
+    ITEM_IRON_SHIELD,
+    ITEM_FORGE_SHIELD_L4)
+    ..register()

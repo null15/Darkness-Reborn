@@ -79,6 +79,7 @@ globals
     camerasetup             gg_cam_CameraHeroPick      = null
     camerasetup             gg_cam_CameraHeroPicked    = null
     trigger                 gg_trg_GameSpeed           = null
+    rect                    gg_rct_DebugBlacksmith     = null
 endglobals
 
 function InitGlobals takes nothing returns nothing
@@ -127,26 +128,26 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_ElementalSpawn = Rect( 4288.0, -10720.0, 4480.0, -10528.0 )
     set gg_rct_TowerSpawn = Rect( 7008.0, -8640.0, 7200.0, -8448.0 )
     set gg_rct_DreadlordSpawn = Rect( 4320.0, -8032.0, 4512.0, -7840.0 )
-    set gg_rct_EliteTP1 = Rect( 1984.0, -5248.0, 2176.0, -5088.0 )
-    set gg_rct_EliteTP2 = Rect( 3264.0, -5248.0, 3456.0, -5088.0 )
-    set gg_rct_EliteTP3 = Rect( 4544.0, -5248.0, 4736.0, -5088.0 )
-    set gg_rct_EliteTP4 = Rect( 5824.0, -5248.0, 6016.0, -5088.0 )
-    set gg_rct_EliteTP5 = Rect( 7104.0, -5248.0, 7296.0, -5088.0 )
-    set gg_rct_EliteSpawn10 = Rect( 7104.0, -3456.0, 7296.0, -3296.0 )
-    set gg_rct_EliteSpawn9 = Rect( 5824.0, -3456.0, 6016.0, -3296.0 )
-    set gg_rct_EliteSpawn8 = Rect( 4544.0, -3456.0, 4736.0, -3296.0 )
-    set gg_rct_EliteSpawn7 = Rect( 3264.0, -3456.0, 3456.0, -3296.0 )
-    set gg_rct_EliteSpawn6 = Rect( 1984.0, -3456.0, 2176.0, -3296.0 )
-    set gg_rct_EliteSpawn1 = Rect( 1984.0, -6144.0, 2176.0, -5984.0 )
-    set gg_rct_EliteSpawn2 = Rect( 3264.0, -6144.0, 3456.0, -5984.0 )
-    set gg_rct_EliteSpawn3 = Rect( 4544.0, -6144.0, 4736.0, -5984.0 )
-    set gg_rct_EliteSpawn4 = Rect( 5824.0, -6144.0, 6016.0, -5984.0 )
-    set gg_rct_EliteSpawn5 = Rect( 7104.0, -6144.0, 7296.0, -5984.0 )
-    set gg_rct_EliteTP10 = Rect( 7104.0, -4352.0, 7296.0, -4192.0 )
-    set gg_rct_EliteTP9 = Rect( 5824.0, -4352.0, 6016.0, -4192.0 )
-    set gg_rct_EliteTP8 = Rect( 4544.0, -4352.0, 4736.0, -4192.0 )
-    set gg_rct_EliteTP7 = Rect( 3264.0, -4352.0, 3456.0, -4192.0 )
-    set gg_rct_EliteTP6 = Rect( 1984.0, -4352.0, 2176.0, -4192.0 )
+    set gg_rct_EliteTP1 = Rect( 3872.0, -5408.0, 4064.0, -5248.0 )
+    set gg_rct_EliteTP2 = Rect( 5152.0, -5408.0, 5344.0, -5248.0 )
+    set gg_rct_EliteTP3 = Rect( 6432.0, -5408.0, 6624.0, -5248.0 )
+    set gg_rct_EliteTP4 = Rect( 7712.0, -5408.0, 7904.0, -5248.0 )
+    set gg_rct_EliteTP5 = Rect( 8992.0, -5408.0, 9184.0, -5248.0 )
+    set gg_rct_EliteSpawn10 = Rect( 8992.0, -3616.0, 9184.0, -3456.0 )
+    set gg_rct_EliteSpawn9 = Rect( 7712.0, -3616.0, 7904.0, -3456.0 )
+    set gg_rct_EliteSpawn8 = Rect( 6432.0, -3616.0, 6624.0, -3456.0 )
+    set gg_rct_EliteSpawn7 = Rect( 5152.0, -3616.0, 5344.0, -3456.0 )
+    set gg_rct_EliteSpawn6 = Rect( 3872.0, -3616.0, 4064.0, -3456.0 )
+    set gg_rct_EliteSpawn1 = Rect( 3872.0, -6304.0, 4064.0, -6144.0 )
+    set gg_rct_EliteSpawn2 = Rect( 5152.0, -6304.0, 5344.0, -6144.0 )
+    set gg_rct_EliteSpawn3 = Rect( 6432.0, -6304.0, 6624.0, -6144.0 )
+    set gg_rct_EliteSpawn4 = Rect( 7712.0, -6304.0, 7904.0, -6144.0 )
+    set gg_rct_EliteSpawn5 = Rect( 8992.0, -6304.0, 9184.0, -6144.0 )
+    set gg_rct_EliteTP10 = Rect( 8992.0, -4512.0, 9184.0, -4352.0 )
+    set gg_rct_EliteTP9 = Rect( 7712.0, -4512.0, 7904.0, -4352.0 )
+    set gg_rct_EliteTP8 = Rect( 6432.0, -4512.0, 6624.0, -4352.0 )
+    set gg_rct_EliteTP7 = Rect( 5152.0, -4512.0, 5344.0, -4352.0 )
+    set gg_rct_EliteTP6 = Rect( 3872.0, -4512.0, 4064.0, -4352.0 )
     set gg_rct_OverlordArea = Rect( 2464.0, -1984.0, 4192.0, -256.0 )
     set gg_rct_DryadArea = Rect( 5024.0, -1984.0, 6752.0, -320.0 )
     set gg_rct_HeroPicker = Rect( -9152.0, -12000.0, -9088.0, -11936.0 )
@@ -159,6 +160,7 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_BlockTinkerBuildings = Rect( -1728.0, -5728.0, -128.0, -2208.0 )
     set gg_rct_CleanItemsArea2 = Rect( -5376.0, -416.0, 3648.0, 5920.0 )
     set gg_rct_CleanItemsArea3 = Rect( -1728.0, -3584.0, -32.0, -384.0 )
+    set gg_rct_DebugBlacksmith = Rect( -1056.0, -4288.0, -800.0, -4032.0 )
 endfunction
 
 //***************************************************************************
@@ -788,7 +790,7 @@ endfunction
 
 //===========================================================================
 function main takes nothing returns nothing
-    call SetCameraBounds( -14080.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -13184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 8832.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 6016.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -14080.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 6016.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 8832.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -13184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM) )
+    call SetCameraBounds( -14080.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), -13184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM), 11264.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), 6016.0 - GetCameraMargin(CAMERA_MARGIN_TOP), -14080.0 + GetCameraMargin(CAMERA_MARGIN_LEFT), 6016.0 - GetCameraMargin(CAMERA_MARGIN_TOP), 11264.0 - GetCameraMargin(CAMERA_MARGIN_RIGHT), -13184.0 + GetCameraMargin(CAMERA_MARGIN_BOTTOM) )
     call SetDayNightModels( "Environment\\DNC\\DNCUnderground\\DNCUndergroundTerrain\\DNCUndergroundTerrain.mdl", "Environment\\DNC\\DNCUnderground\\DNCUndergroundUnit\\DNCUndergroundUnit.mdl" )
     call NewSoundEnvironment( "Default" )
     call SetAmbientDaySound( "DungeonDay" )

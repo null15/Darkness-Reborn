@@ -1,0 +1,264 @@
+package Objects_ItemsRuby
+
+import CommonDescriptions
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import RecipeItems
+
+init
+
+@compiletime function createItems()
+
+    let upgradeNote = "Collect more Ruby Fragments +1 to form the Perfect Rubystone"
+
+//I0IM
+    new MyItemDefinition(ITEM_EMPTY_VIAL)
+    ..setGoldCost(200)
+    ..setStockMaximum(3)
+    ..setStockReplenishInterval(120)
+    ..setName("Empty Vial")
+    ..setTooltipBasic("Purchase Empty Vial")
+    ..setTooltipExtended("An empty vial that allows upgrading Ruby Fragment +1 to Ruby Fragments +2")
+    ..setDescription("An empty vial that allows upgrading Ruby Fragment +1 to Ruby Fragments +2")
+    ..register()
+    
+//I02G
+    new MyItemDefinition(ITEM_RUBY_FRAGMENTS_L1)
+    ..setModelUsed("Red Item.mdl")
+    ..setScalingValue(0.80)
+    ..setGoldCost(200)
+    ..addExtraDescription(wordNote + "Buy an Empty Vial from the Fountain to fuse Ruby Fragments together!")
+    ..addStats(addAllStats(1))
+    ..register()
+
+//I02H
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L2, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(2))
+    ..addComponents(
+    ITEM_EMPTY_VIAL,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02I
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L3, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(4))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L2,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02J
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L4, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(7))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L3,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02K
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L5, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(11))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L4,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02L
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L6, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(16))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L5,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02M
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L7, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(22))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L6,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02N
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L8, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(29))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L7,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02O
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L9, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(37))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L8,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02P
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L10, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(46))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L9,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02Q
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L11, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(56))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L10,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02R
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L12, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(67))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L11,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I030
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L13, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(79))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L12,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I032
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L14, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(92))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L13,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02Y
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L15, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(106))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L14,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02X
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L16, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(121))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L15,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02W
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L17, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(137))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L16,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I033
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L18, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(154))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L17,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02Z
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L19, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(172))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L18,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I031
+    new MyItemWithCraftInfoDefinition(ITEM_RUBY_FRAGMENTS_L20, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(191))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L19,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02S
+    new MyItemWithCraftInfoDefinition(ITEM_HALF_RUBYSTONE, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(211))
+    ..addComponents(
+    ITEM_RUBY_FRAGMENTS_L20,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02T
+    new MyItemWithCraftInfoDefinition(ITEM_DIVINE_RUBYSTONE, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(232))
+    ..addComponents(
+    ITEM_HALF_RUBYSTONE,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02U
+    new MyItemWithCraftInfoDefinition(ITEM_RUBYSTONE, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..addExtraDescription(wordNote + upgradeNote)
+    ..addStats(addAllStats(254))
+    ..addComponents(
+    ITEM_DIVINE_RUBYSTONE,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()
+
+//I02V
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_RUBYSTONE, itemRecipeList, -1)
+    ..setModelUsed("Red Item.mdl")
+    ..setGoldCost(200000)
+    ..setCanBeSoldToMerchants(true)
+    ..addStats(addAllStats(277))
+    ..addComponents(
+    ITEM_RUBYSTONE,
+    ITEM_RUBY_FRAGMENTS_L1)
+    ..register()

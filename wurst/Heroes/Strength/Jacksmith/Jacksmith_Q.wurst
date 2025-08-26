@@ -1,0 +1,14 @@
+package Jacksmith_Q
+
+import Recipes
+import ClosureEvents
+
+public let jackSmithRecipe = compiletime(new RecipeList())
+
+public function forge()
+    EventListener.onCast('A0H3') (unit caster) ->
+        let js = caster
+
+        caster.checkRecipe(jackSmithRecipe)
+
+        js.addEffect("Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl", "chest")

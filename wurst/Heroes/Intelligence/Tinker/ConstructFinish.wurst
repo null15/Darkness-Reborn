@@ -28,17 +28,17 @@ function unit.swapPlayTech(int setTo)
     else if (conID == TINKERBUILDING_110)
         SetPlayerTechMaxAllowedSwap(TINKERBUILDING_110, setTo, this.getOwner())
 
-    else if (conID == TINKERBUILDING_111)
-        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_111, setTo, this.getOwner())
+    else if (conID == BUILDING_TINKER_SHOP_TOMES)
+        SetPlayerTechMaxAllowedSwap(BUILDING_TINKER_SHOP_TOMES, setTo, this.getOwner())
 
-    else if (conID == TINKERBUILDING_112)
-        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_112, setTo, this.getOwner())
+    else if (conID == BUILDING_TINKER_SHOP_LUMBER)
+        SetPlayerTechMaxAllowedSwap(BUILDING_TINKER_SHOP_LUMBER, setTo, this.getOwner())
 
-    else if (conID == TINKERBUILDING_113)
-        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_113, setTo, this.getOwner())
+    else if (conID == BUILDING_TINKER_SHOP_RECIPES)
+        SetPlayerTechMaxAllowedSwap(BUILDING_TINKER_SHOP_RECIPES, setTo, this.getOwner())
 
-    else if (conID == TINKERBUILDING_114)
-        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_114, setTo, this.getOwner())
+    else if (conID == BUILDING_TINKER_BLACKSMITH)
+        SetPlayerTechMaxAllowedSwap(BUILDING_TINKER_BLACKSMITH, setTo, this.getOwner())
 
     else if (conID == TINKERBUILDING_115)
         SetPlayerTechMaxAllowedSwap(TINKERBUILDING_115, setTo, this.getOwner())

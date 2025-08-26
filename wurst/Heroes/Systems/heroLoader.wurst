@@ -29,11 +29,11 @@ import A07Q_R
 import A0R8_T
 import A0RS_W
 import PitlordAbilQ
-import A0DE_E
-import A0DG_R
-import A0DH_W
-import A0H3_Q
-import A0JR_T
+import Jacksmith_E
+import Jacksmith_R
+import Jacksmith_W
+import Jacksmith_Q
+import Jacksmith_T
 import HolyStormW
 import JudgementQ
 import LightsWrathT
@@ -177,8 +177,6 @@ public function unit.heroCheck()
             metalStrength()
             radiantRing()
             forge()
-            blacksmithJackedUp()
-            initRecipes()
             forgeMaster()
         case PLAY_HERO_8//Uthar
             holyStorm()
@@ -263,7 +261,6 @@ public function unit.heroCheck()
             construction()
             tinkerResourceProduction()
             blacksmithDoAfter()
-            blacksmithThiefedUp()
             repair()
             factorySpawn()
             clusterRockets()
