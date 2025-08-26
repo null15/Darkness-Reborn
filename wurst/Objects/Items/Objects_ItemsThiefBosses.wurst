@@ -22,16 +22,6 @@ init
     ..addStats("Summon Hydra 1 level 1 for the user recovery time skills 80 seconds.")
     ..register()
 
-
-//I0IZ
-    new MyItemDefinition(ITEM_HYDRAS_TREASURE_PERFECT)
-    ..setAbilities(commaList('A0YD'))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHydra1.blp")
-    ..setActivelyUsed(true)
-    ..setClassification("Permanent")
-    ..addStats("[WIP] Summon Hydra 1 level 3 for users Recovery time skills 200 seconds")
-    ..register()
-
 //I0J0
     new MyItemDefinition(ITEM_SPIDERS_TREASURE)
     ..setAbilities(commaList('A0YF'))
@@ -39,15 +29,6 @@ init
     ..setActivelyUsed(true)
     ..setClassification("Permanent")
     ..addStats("[WIP] Summon Spider 1 level 1 for the user recovery time skills 80 seconds")
-    ..register()
-
-//I0J2
-    new MyItemDefinition(ITEM_SPIDERS_TREASURE_PERFECT)
-    ..setAbilities(commaList('A0YH'))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeb.blp")
-    ..setActivelyUsed(true)
-    ..setClassification("Permanent")
-    ..addStats("[WIP] Summon 1 BroodMother for users recovery time skills 200 seconds.")
     ..register()
 
 //I0J3

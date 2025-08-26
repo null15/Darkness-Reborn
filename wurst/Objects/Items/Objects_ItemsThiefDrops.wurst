@@ -22,25 +22,11 @@ init
     ..addStats(addAgi(20))
     ..register()
 
-//I0HP
-    new MyItemDefinition(ITEM_BASIC_GOLD_RING)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif1.blp")
-    ..setClassification("Purchasable")
-    ..addStats(addAgi(60))
-    ..register()
-
 //I0HQ
     new MyItemDefinition(ITEM_SILVER_RING)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif3.blp")
     ..setClassification("Purchasable")
     ..addStats(addAgi(120))
-    ..register()
-
-//I0HR
-    new MyItemDefinition(ITEM_RING_OF_SUN)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif4.blp")
-    ..setClassification("Purchasable")
-    ..addStats(addAgi(180))
     ..register()
 
 //I0HS
@@ -49,33 +35,12 @@ init
     ..setClassification("Purchasable")
     ..addStats(addAgi(280))
     ..register()
-
-//I0HT
-    new MyItemDefinition(ITEM_HOVER_RING)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif6.blp")
-    ..setClassification("Permanent")
-    ..addStats(addAgi(380))
-    ..register()
     
-//I0HU
-    new MyItemDefinition(ITEM_GOLDEN_RING)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif7.blp")   
-    ..setClassification("Artifact")
-    ..addStats(addAgi(600))
-    ..register()
-
 //I0HV
     new MyItemDefinition(ITEM_LEATHER_BRACER)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif31.blp")
     ..setClassification("Purchasable")
     ..addStats(addStr(20))
-    ..register()
-
-//I0HW
-    new MyItemDefinition(ITEM_WOOD_BRACER)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif32.blp")
-    ..setClassification("Purchasable")
-    ..addStats(addStr(60))
     ..register()
 
 //I0HX
@@ -85,25 +50,11 @@ init
     ..addStats(addStr(120))
     ..register()
 
-//I0HY
-    new MyItemDefinition(ITEM_GOLDEN_BRACER)    
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif34.blp")
-    ..addStats(addStr(180))
-    ..register()
-
 //I0HZ
     new MyItemDefinition(ITEM_HAMANUS_BRACER)    
     ..setClassification("Permanent")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif35.blp")
     ..addStats(addStr(280))
-    ..register()
-
-//I0I0
-    new MyItemDefinition(ITEM_BRACER_OF_EVIL)    
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif36.blp")
-    ..addStats(addStr(380))
     ..register()
 
 //I0I2
@@ -113,25 +64,11 @@ init
     ..addStats(addCrit(3, 0.05))
     ..register()
 
-//I0I3
-    new MyItemDefinition(ITEM_KNIFE_OF_HUNTER)
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif19.blp")
-    ..addStats(addCrit(4, 0.07))
-    ..register()
-
 //I0I4
     new MyItemDefinition(ITEM_KNIFE_OF_BAHAMUT)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif12.blp")
     ..addStats(addCrit(5, 0.09))
-    ..register()
-
-//I0I5
-    new MyItemDefinition(ITEM_STEEL_SWORD)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif12.blp")
-    ..addStats(addCrit(6, 0.11))
     ..register()
 
 //I0I6
@@ -141,25 +78,11 @@ init
     ..addStats(addCrit(7, 0.13))
     ..register()
 
-//I0I7
-    new MyItemDefinition(ITEM_SWORD_FANG)
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif15.blp")
-    ..addStats(addCrit(8, 0.15))
-    ..register()
-
 //I0I8
     new MyItemDefinition(ITEM_SWORD_ROAR)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif16.blp")
     ..addStats(addCrit(9, 0.17))
-    ..register()
-
-//I0I9
-    new MyItemDefinition(ITEM_SWORD_OF_DRUIDMASTER)
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif16.blp")
-    ..addStats(addCrit(10, 0.19))
     ..register()
 
 //I0HF
@@ -169,53 +92,11 @@ init
     ..setClassification("PowerUp")
     ..register()
 
-//I0HG
-    new MyItemDefinition(ITEM_SPIRIT_SWORD_L2)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif21.blp")
-    ..addStats("[WIP] +10% Damage to all the team around")
-    ..setClassification("PowerUp")
-    ..register()
-
-//I0HH
-    new MyItemDefinition(ITEM_SPIRIT_DAGGER)    
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif22.blp")
-    ..addStats("[WIP] +15% Damage to all the team around")
-    ..setClassification("PowerUp")
-    ..register()
-
-//I0HI
-    new MyItemDefinition(ITEM_SPIRIT_BLADE)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif23.blp")
-    ..addStats("[WIP] +30% Damage to all the team around")
-    ..setClassification("PowerUp")
-    ..register()
-
-//I0HJ
-    new MyItemDefinition(ITEM_SPIRIT_MIDDLE_BLADE)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif24.blp")
-    ..addStats("[WIP] +45% Damage to all the team around")
-    ..setClassification("PowerUp")
-    ..register()
-
-//I0HK
-    new MyItemDefinition(ITEM_SPIRIT_GIANT_BLADE)    
-    ..setClassification("Permanent")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif25.blp")
-    ..addStats("[WIP] +60% Damage to all the team around")
-    ..register()
-
 //I0HL
     new MyItemDefinition(ITEM_ASHRUNE)    
     ..setClassification("Purchasable")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif26.blp")
     ..addStats("[WIP] +60% Damage to all the team around")
-    ..register()
-
-//I0HN
-    new MyItemDefinition(ITEM_GOLDEN_PHOENIX_SWORD)    
-    ..setClassification("Artifact")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif28.blp")
-    ..addStats("[WIP] +150% Damage to all the team around")
     ..register()
 
 //I0G7
@@ -226,28 +107,12 @@ init
     ..addStats(addInt(7))
     ..register()
 
-//I0G8
-    new MyItemDefinition(ITEM_MIDNIGHT_MACE)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif42.blp")
-    ..addStats(addDamage(15))
-    ..addStats(addInt(15))
-    ..register()
-
 //I0G9
     new MyItemDefinition(ITEM_INVOCATION)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif43.blp")
     ..addStats(addDamage(25))
     ..addStats(addInt(25))
-    ..register()
-
-//I0GA
-    new MyItemDefinition(ITEM_DOOMS_GRAND_STAFF)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif44.blp")
-    ..addStats(addDamage(35))
-    ..addStats(addInt(35))
     ..register()
 
 //I0GB
@@ -258,36 +123,12 @@ init
     ..addStats(addInt(70))
     ..register()
 
-//I0GC
-    new MyItemDefinition(ITEM_VENGEANCE_WAR_STAFF)
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif46.blp")
-    ..addStats(addDamage(120))
-    ..addStats(addInt(120))
-    ..register()
-
 //I0GD
     new MyItemDefinition(ITEM_HONED_WARPWOOD_GRAND_STAFF)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif47.blp")
     ..addStats(addDamage(250))
     ..addStats(addInt(250))
     ..setClassification("Permanent")
-    ..register()
-
-//I0GE
-    new MyItemDefinition(ITEM_FIERCE_GREATSTAFF)
-    ..setClassification("Artifact")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif48.blp")
-    ..addStats(addDamage(400))
-    ..addStats(addInt(400))
-    ..register()
-
-//I0GF
-    new MyItemDefinition(ITEM_MERCY)    
-    ..setClassification("Campaign")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif48.blp")
-    ..addStats(addDamage(700))
-    ..addStats(addInt(700))
     ..register()
 
 //I0GG
@@ -298,28 +139,12 @@ init
     ..addStats(addCrit(2, 0.08))
     ..register()
 
-//I0GH
-    new MyItemDefinition(ITEM_CAPE_OF_CURSED)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif002.blp")
-    ..addStats(addEvasion(0.12))
-    ..addStats(addCrit(3, 0.12))
-    ..register()
-
 //I0GI
     new MyItemDefinition(ITEM_BINDING_SORROW_CLOAK)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif003.blp")
     ..addStats(addEvasion(0.18))
     ..addStats(addCrit(4, 0.18))
-    ..register()
-
-//I0GJ
-    new MyItemDefinition(ITEM_FUSION_HIDE_DRAPE)    
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif004.blp")
-    ..addStats(addEvasion(0.24))
-    ..addStats(addCrit(5, 0.24))
     ..register()
 
 //I0GK
@@ -330,28 +155,12 @@ init
     ..addStats(addCrit(6, 0.32))
     ..register()
 
-//I0GL
-    new MyItemDefinition(ITEM_BLOODIED_WOOL_CLOAK)    
-    ..setClassification("Permanent")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif006.blp")
-    ..addStats(addEvasion(0.46))
-    ..addStats(addCrit(7, 0.46))
-    ..register()
-
 //I0FP
     new MyItemDefinition(ITEM_SIMPLE_RING)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif01.blp")
     ..addStats(addDamage(7))
     ..addStats(addAgi(7))
-    ..register()
-
-//I0FQ
-    new MyItemDefinition(ITEM_OLD_RING)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif02.blp")
-    ..addStats(addDamage(15))
-    ..addStats(addAgi(15))
     ..register()
 
 //I0FR
@@ -362,28 +171,12 @@ init
     ..addStats(addAgi(25))
     ..register()
 
-//I0FS
-    new MyItemDefinition(ITEM_RING_OF_MYSTERY)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif04.blp")
-    ..addStats(addDamage(35))
-    ..addStats(addAgi(35))
-    ..register()
-
 //I0FT
     new MyItemDefinition(ITEM_HOLLHOVER)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif05.blp")
     ..addStats(addDamage(70))
     ..addStats(addAgi(70))
-    ..register()
-
-//I0FU
-    new MyItemDefinition(ITEM_GOLD_SIMPLE_RING)
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif06.blp")
-    ..addStats(addDamage(120))
-    ..addStats(addAgi(120))
     ..register()
 
 //I0FV
@@ -394,36 +187,12 @@ init
     ..addStats(addAgi(250))
     ..register()
 
-//I0FW
-    new MyItemDefinition(ITEM_RING_OF_FAKE_SUN)    
-    ..setClassification("Artifact")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif08.blp")
-    ..addStats(addDamage(420))
-    ..addStats(addAgi(420))
-    ..register()
-
-//I0FX
-    new MyItemDefinition(ITEM_RING_OF_LEGACY)
-    ..setClassification("Campaign")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif09.blp")
-    ..addStats(addDamage(700))
-    ..addStats(addAgi(700))
-    ..register()
-
 //I0FY
     new MyItemDefinition(ITEM_STEEL_HAMMER)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif91.blp")
     ..addStats(addDamage(7))
     ..addStats(addStr(7))
-    ..register()
-
-//I0FZ
-    new MyItemDefinition(ITEM_SIMPLE_HAMMER)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif92.blp")
-    ..addStats(addDamage(15))
-    ..addStats(addStr(15))
     ..register()
 
 //I0G0
@@ -434,28 +203,12 @@ init
     ..addStats(addStr(35))
     ..register()
 
-//I0G1
-    new MyItemDefinition(ITEM_WARRIOR_HAMMER)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif94.blp")
-    ..addStats(addDamage(70))
-    ..addStats(addStr(70))
-    ..register()
-
 //I0G2
     new MyItemDefinition(ITEM_PLATE_HAMMER)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif95.blp")
     ..addStats(addDamage(120))
     ..addStats(addStr(120))
-    ..register()
-
-//I0G3
-    new MyItemDefinition(ITEM_FUSION_HAMMER)    
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif99.blp")
-    ..addStats(addDamage(150))
-    ..addStats(addStr(150))
     ..register()
 
 //I0G4
@@ -466,36 +219,12 @@ init
     ..addStats(addStr(250))
     ..register()
 
-//I0G5
-    new MyItemDefinition(ITEM_THUNDERCHAOS_HAMMER)    
-    ..setClassification("Artifact")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif98.blp")
-    ..addStats(addDamage(420))
-    ..addStats(addStr(420))
-    ..register()
-
-//I0G6
-    new MyItemDefinition(ITEM_GOLDEN_HAMMER)    
-    ..setClassification("Campaign")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif96.blp")
-    ..addStats(addDamage(700))
-    ..addStats(addStr(700))
-    ..register()
-
 //I0GM
     new MyItemDefinition(ITEM_ARMOR_OF_SACRED)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif61.blp")
     ..addStats(addArmor(3))
     ..addStats(addHpReg(7))
-    ..register()
-
-//I0GN
-    new MyItemDefinition(ITEM_ARMOR_OF_HELL)    
-    ..setClassification("Purchasable")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif62.blp")
-    ..addStats(addArmor(9))
-    ..addStats(addHpReg(15))
     ..register()
 
 //I0GO
@@ -506,28 +235,12 @@ init
     ..addStats(addHpReg(25))
     ..register()
 
-//I0GP
-    new MyItemDefinition(ITEM_SILVER_GIANT_ARMOR)    
-    ..setClassification("Purchasable")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif64.blp")
-    ..addStats(addArmor(50))
-    ..addStats(addHpReg(55))
-    ..register()
-
 //I0GQ
     new MyItemDefinition(ITEM_SILVER_SPLIT_ARMOR)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif65.blp")
     ..addStats(addArmor(110))
     ..addStats(addHpReg(150))
-    ..register()
-
-//I0GR
-    new MyItemDefinition(ITEM_DESTROYER_ARMOR)
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif67.blp")
-    ..addStats(addArmor(240))
-    ..addStats(addHpReg(250))
     ..register()
 
 //I0GS
@@ -538,28 +251,12 @@ init
     ..addStats(addMp(200))
     ..register()
 
-//I0GT
-    new MyItemDefinition(ITEM_BLOOD_ORB)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif82.blp")
-    ..addStats(addHp(500))
-    ..addStats(addMp(500))
-    ..register()
-
 //I0GU
     new MyItemDefinition(ITEM_EARTH_ORB)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif83.blp")
     ..addStats(addHp(1100))
     ..addStats(addMp(1100))
-    ..register()
-
-//I0GV
-    new MyItemDefinition(ITEM_GOLD_CRYSTAL_ORB)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif84.blp")
-    ..addStats(addHp(1700))
-    ..addStats(addMp(1700))
     ..register()
 
 //I0GW
@@ -570,28 +267,12 @@ init
     ..addStats(addMp(2900))
     ..register()
 
-//I0GX
-    new MyItemDefinition(ITEM_CHAOS_ORB)
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif86.blp")
-    ..addStats(addHp(5600))
-    ..addStats(addMp(5600))
-    ..register()
-
 //I0GY
     new MyItemDefinition(ITEM_FUSION_ORB)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif87.blp")
     ..addStats(addHp(7800))
     ..addStats(addMp(7800))
-    ..register()
-
-//I0GZ
-    new MyItemDefinition(ITEM_GOLDEN_ORB)
-    ..setClassification("Artifact")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif8x.blp")
-    ..addStats(addHp(18000))
-    ..addStats(addMp(18000))
     ..register()
 
 //I0H0
@@ -602,28 +283,12 @@ init
     ..addStats(addAttackSpeed(0.1))
     ..register()
 
-//I0H1
-    new MyItemDefinition(ITEM_LEATHER_BOOTS)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif52.blp")
-    ..addStats(addMovementSpeed(2))
-    ..addStats(addAttackSpeed(0.2))
-    ..register()
-
 //I0H2
     new MyItemDefinition(ITEM_LEATHER_GIANT_BOOTS)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif53.blp")
     ..addStats(addMovementSpeed(3))
     ..addStats(addAttackSpeed(0.3))
-    ..register()
-
-//I0H3
-    new MyItemDefinition(ITEM_HEAVY_BOOTS)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif54.blp")
-    ..addStats(addMovementSpeed(50))
-    ..addStats(addAttackSpeed(0.5))
     ..register()
 
 //I0H4
@@ -634,33 +299,11 @@ init
     ..addStats(addAttackSpeed(0.7))
     ..register()
 
-//I0H5
-    new MyItemDefinition(ITEM_BLOOD_INFUSED_LINEN_BOOTS)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif56.blp")
-    ..addStats(addMovementSpeed(130))
-    ..addStats(addAttackSpeed(1.3))
-    ..register()
-
-//I0H6
-    new MyItemDefinition(ITEM_FIRESOUL_WOOL_BOOTS)    
-    ..setClassification("Artifact")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif57.blp")
-    ..addStats(addMovementSpeed(230))
-    ..addStats(addAttackSpeed(2.3))
-    ..register()
-
 //I0H7
     new MyItemDefinition(ITEM_BLOSSOM_RING)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif70.blp")
     ..addStats(addMpReg(0.1))
-    ..register()
-
-//I0H8
-    new MyItemDefinition(ITEM_FREE_PLEDGE_RING)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif71.blp")
-    ..addStats(addMpReg(0.2))
     ..register()
 
 //I0H9
@@ -670,13 +313,6 @@ init
     ..addStats(addMpReg(0.4))
     ..register()
 
-//I0HA
-    new MyItemDefinition(ITEM_AGED_IMAGE)
-    ..setClassification("PowerUp")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif73.blp")
-    ..addStats(addMpReg(0.8))
-    ..register()
-
 //I0HB
     new MyItemDefinition(ITEM_TENDER_LEAF)
     ..setClassification("Charged")
@@ -684,58 +320,4 @@ init
     ..addStats(addMpReg(1.6))
     ..register()
 
-//I0HC
-    new MyItemDefinition(ITEM_SUN_NECKLACE)
-    ..setClassification("Charged")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif75.blp")
-    ..addStats(addMpReg(2.2))
-    ..register()
-
-//I0HE
-    new MyItemDefinition(ITEM_FAINT_TRINKET_NECKLACE)
-    ..setClassification("Artifact")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif77.blp")
-    ..addStats(addMpReg(6))
-    ..register()
-
 //I0II
-    new MyItemDefinition(ITEM_MYSTERY_PURPLE_STAFF)
-    ..setActivelyUsed(true)
-    ..setClassification("Campaign")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff3.blp")
-    ..addStats(addInt(400))
-    ..addStats(addAttackSpeed(3))
-    ..addStats(addMpReg(3.5))
-    ..addStats("[WIP] Active: Deals 24500 Damage to the target enemy. Cooldown: 30 seconds")
-    ..register()
-
-//I0IC
-    new MyItemDefinition(ITEM_FROZEN_CLOTH_GREATCLOAK)
-    ..setClassification("Artifact")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif00x.blp")
-    ..addStats(addEvasion(0.5))
-    ..addStats(addCrit(10, 0.5))
-    ..register()
-
-//I0ID
-    new MyItemDefinition(ITEM_INHERITED_ARMOR)
-    ..setClassification("Artifact")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif6x.blp")
-    ..addStats(addArmor(350))
-    ..addStats(addHpReg(350))
-    ..register()
-
-//I0IE
-    new MyItemDefinition(ITEM_MATRIX_ORB)
-    ..setClassification("Campaign")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif88.blp")
-    ..addStats(addHp(24000))
-    ..addStats(addMp(24000))
-    ..register()
-
-//I0IF
-    new MyItemDefinition(ITEM_SONG_BROOCH)
-    ..setClassification("Campaign")
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif7x.blp")
-    ..addStats(addMpReg(8))
-    ..register()

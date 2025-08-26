@@ -9,13 +9,6 @@ init
 
 @compiletime function createItems()
 
-//I0I1
-    new MyItemWithCraftInfoDefinition(ITEM_MYSTERY_BRACER, jackSmithRecipe, -1)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif37.blp")
-    ..setClassification("Artifact")
-    ..addStats(addStr(600))
-    ..register()
-
 //I0BX
     new MyItemWithCraftInfoDefinition(ITEM_BELT_OF_SLAYER, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (3).blp")    

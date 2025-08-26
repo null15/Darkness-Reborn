@@ -7,72 +7,11 @@ import MyUnitIds
 import LinkedList
 import Recipes
 
-let blacksmithThiefList = compiletime(new RecipeList())
+public let blacksmithThiefList = compiletime(new RecipeList())
 
 CallbackCounted countedTime
 
 texttag timerTextTag
-
-public function blacksmithThiefedUp()
-    // Rings
-    blacksmithThiefList.addRecipe(ITEM_BASIC_RING,ITEM_BASIC_GOLD_RING)
-    blacksmithThiefList.addRecipe(ITEM_SILVER_RING,ITEM_RING_OF_SUN)
-    blacksmithThiefList.addRecipe(ITEM_SUNFLOWER_RING,ITEM_HOVER_RING)
-    // Bracers
-    blacksmithThiefList.addRecipe(ITEM_LEATHER_BRACER,ITEM_WOOD_BRACER)
-    blacksmithThiefList.addRecipe(ITEM_GOOD_BRACER,ITEM_GOLDEN_BRACER)
-    blacksmithThiefList.addRecipe(ITEM_GOOD_BRACER,ITEM_GOLDEN_BRACER)
-    blacksmithThiefList.addRecipe(ITEM_HAMANUS_BRACER,ITEM_BRACER_OF_EVIL)
-    // Knives
-    blacksmithThiefList.addRecipe(ITEM_KNIFE,ITEM_KNIFE_OF_HUNTER)
-    blacksmithThiefList.addRecipe(ITEM_KNIFE_OF_BAHAMUT,ITEM_STEEL_SWORD)
-    blacksmithThiefList.addRecipe(ITEM_SWORD_OF_HUNTER,ITEM_SWORD_FANG)
-    blacksmithThiefList.addRecipe(ITEM_SWORD_ROAR,ITEM_SWORD_OF_DRUIDMASTER)
-    // Spirit Swords
-    blacksmithThiefList.addRecipe(ITEM_SPIRIT_SWORD_L1,ITEM_SPIRIT_SWORD_L2)
-    blacksmithThiefList.addRecipe(ITEM_SPIRIT_SWORD_L2,ITEM_SPIRIT_DAGGER)
-    blacksmithThiefList.addRecipe(ITEM_SPIRIT_DAGGER,ITEM_SPIRIT_BLADE)
-    blacksmithThiefList.addRecipe(ITEM_SPIRIT_BLADE,ITEM_SPIRIT_MIDDLE_BLADE)
-    blacksmithThiefList.addRecipe(ITEM_SPIRIT_MIDDLE_BLADE,ITEM_SPIRIT_GIANT_BLADE)
-    blacksmithThiefList.addRecipe(ITEM_ASHRUNE,ITEM_GOLDEN_PHOENIX_SWORD)
-    // Maces
-    blacksmithThiefList.addRecipe(ITEM_ECHO_MACE,ITEM_MIDNIGHT_MACE)
-    // Staffs
-    blacksmithThiefList.addRecipe(ITEM_INVOCATION,ITEM_DOOMS_GRAND_STAFF)
-    blacksmithThiefList.addRecipe(ITEM_SWAN_SONG,ITEM_VENGEANCE_WAR_STAFF)
-    blacksmithThiefList.addRecipe(ITEM_HONED_WARPWOOD_GRAND_STAFF,ITEM_FIERCE_GREATSTAFF)
-    // Cloaks
-    blacksmithThiefList.addRecipe(ITEM_SOUL_SILK_CAPE,ITEM_CAPE_OF_CURSED)
-    blacksmithThiefList.addRecipe(ITEM_BINDING_SORROW_CLOAK,ITEM_FUSION_HIDE_DRAPE)
-    blacksmithThiefList.addRecipe(ITEM_PADDED_GREATCLOAK,ITEM_BLOODIED_WOOL_CLOAK)
-    // Second Ring Set
-    blacksmithThiefList.addRecipe(ITEM_SIMPLE_RING,ITEM_OLD_RING)
-    blacksmithThiefList.addRecipe(ITEM_RING_OF_MEDIVH,ITEM_RING_OF_MYSTERY)
-    blacksmithThiefList.addRecipe(ITEM_HOLLHOVER,ITEM_GOLD_SIMPLE_RING)
-    blacksmithThiefList.addRecipe(ITEM_DOMINION_RING,ITEM_RING_OF_FAKE_SUN)
-    // Hammers
-    blacksmithThiefList.addRecipe(ITEM_STEEL_HAMMER,ITEM_SIMPLE_HAMMER)
-    blacksmithThiefList.addRecipe(ITEM_GIANT_HAMMER,ITEM_WARRIOR_HAMMER)
-    blacksmithThiefList.addRecipe(ITEM_PLATE_HAMMER,ITEM_FUSION_HAMMER)
-    blacksmithThiefList.addRecipe(ITEM_FIREHELL_HAMMER,ITEM_THUNDERCHAOS_HAMMER)
-    // Armors
-    blacksmithThiefList.addRecipe(ITEM_ARMOR_OF_SACRED,ITEM_ARMOR_OF_HELL)
-    blacksmithThiefList.addRecipe(ITEM_THIEF_SILVER_ARMOR,ITEM_SILVER_GIANT_ARMOR)
-    blacksmithThiefList.addRecipe(ITEM_SILVER_SPLIT_ARMOR,ITEM_DESTROYER_ARMOR)
-    // Orbs
-    blacksmithThiefList.addRecipe(ITEM_POISON_ORB,ITEM_BLOOD_ORB)
-    blacksmithThiefList.addRecipe(ITEM_EARTH_ORB,ITEM_GOLD_CRYSTAL_ORB)
-    blacksmithThiefList.addRecipe(ITEM_LIGHT_THUNDER_ORB,ITEM_CHAOS_ORB)
-    blacksmithThiefList.addRecipe(ITEM_FUSION_ORB,ITEM_GOLDEN_ORB)
-    // Boots
-    blacksmithThiefList.addRecipe(ITEM_LONELY_WOOL_BOOTS,ITEM_LEATHER_BOOTS)
-    blacksmithThiefList.addRecipe(ITEM_LEATHER_GIANT_BOOTS,ITEM_HEAVY_BOOTS)
-    blacksmithThiefList.addRecipe(ITEM_MENDED_DEMON_WARBOOTS,ITEM_BLOOD_INFUSED_LINEN_BOOTS)
-    // Mana Regen Set
-    blacksmithThiefList.addRecipe(ITEM_BLOSSOM_RING,ITEM_FREE_PLEDGE_RING)
-    blacksmithThiefList.addRecipe(ITEM_BLIND_BUBBLE_NECKLACE,ITEM_AGED_IMAGE)
-    blacksmithThiefList.addRecipe(ITEM_TENDER_LEAF,ITEM_SUN_NECKLACE)
-    blacksmithThiefList.addRecipe(ITEM_FAIR_DROP,ITEM_FAINT_TRINKET_NECKLACE)
 
 public function blacksmithDoAfter()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->

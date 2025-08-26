@@ -193,6 +193,9 @@ public class MyItemWithCraftInfoDefinition extends MyItemDefinition
         this.components       = null
         
     protected function getMaterialsDescription() returns string
+        if (components == null)
+            return ""
+
         string materials = wordMaterials
         for comp in components
             string shopName = getShopNameForItem(comp)
@@ -280,6 +283,9 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
         this.initRecipe = initRecipe
 
     override function getMaterialsDescription() returns string
+        if (components == null)
+            return ""
+        
         string materials = wordMaterials
         for comp in components
 

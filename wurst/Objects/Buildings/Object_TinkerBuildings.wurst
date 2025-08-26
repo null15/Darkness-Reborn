@@ -12,7 +12,6 @@ import Icons
 import Doodads
 import MyUpgradesIds
 import Units
-import MyBuildingsIds
 
 @compiletime function tinkerBuildings()
 
