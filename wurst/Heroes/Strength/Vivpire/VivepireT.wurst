@@ -32,6 +32,6 @@ public function vivpireUnleashed()
                 ..addAgi(oldBlood * -4)
                 ..addStr(oldBlood * -4)
                 ..addInt(oldBlood * -4)
-                ..setFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 1, 
-                caster.getFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 1) - oldBlood * 8 - damage[lvl-1])
+                ..setFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 0, 
+                caster.getFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 0) - oldBlood * 8 - damage[lvl-1])
                 .resetArmor()
