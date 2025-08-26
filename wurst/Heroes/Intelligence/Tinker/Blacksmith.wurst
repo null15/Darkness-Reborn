@@ -1,6 +1,5 @@
 package Blacksmith
 
-import MyItemIds
 import ClosureTimers
 import ClosureEvents
 import MyUnitIds

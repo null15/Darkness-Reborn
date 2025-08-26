@@ -14,6 +14,7 @@ import UpdateDropSite
 import MultiboardTimer
 import ClosureEvents
 import FountainQuest
+import TomesGive
 import Debug
 
 real facing = 270
@@ -144,7 +145,7 @@ function createSetup()
     dividend = (posMax - posMin) / 4
     posY = posMin + 100
 
-    CreateUnit(p, BUILDING_SHOP_LATE_GAME_ITEMS4, posX, posY, 270.000) // End Game Items
+    CreateUnit(p, BUILDING_SHOP_LATE_GAME_ITEMS4, posX, posY, 270.000).tomeSold() // End Game Items
     posY = posY + dividend
     CreateUnit(p, BUILDING_SHOP_GEMS, posX, posY, 270.000) // Decent Items
     posY = posY + dividend
