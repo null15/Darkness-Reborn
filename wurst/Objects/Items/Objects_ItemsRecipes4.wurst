@@ -192,7 +192,7 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC1.blp")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityDealMagicDamageInt(15, 1500, 20))
+    ..addStats(addAbilityDealMagicDamageInt(10, 1500, 20))
     ..addStats(addInt(180))
     ..addStats(addHp(3200))
     ..addStats(addMp(3200))

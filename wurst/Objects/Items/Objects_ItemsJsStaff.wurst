@@ -86,10 +86,10 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_HEAVEN_STAFF_L1, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcane Staff.blp")    
     ..setActivelyUsed(true)
+    ..addStats(addAbilityHolyLight(5, 3000, 0.5, 1000, 5))
     ..addStats(addInt(150))
     ..addStats(addMp(2000))
     ..addStats(addMpReg(2.5))
-    ..addStats("[WIP] Holy Light ( 1500/25s)")
     ..addComponents(
     ITEM_GOLDEN_STAFF_L3,
     ITEM_SCEPTER_OF_HEALING)
@@ -99,10 +99,10 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_HEAVEN_STAFF_L2, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcane Staff.blp")    
     ..setActivelyUsed(true)
+    ..addStats(addAbilityHolyLight(10, 6000, 0.5, 1500, 5))
     ..addStats(addInt(180))
     ..addStats(addMp(2500))
     ..addStats(addMpReg(3))
-    ..addStats("[WIP] Holy Light ( 2800/25s)")
     ..addComponents(
     ITEM_HEAVEN_STAFF_L1,
     ITEM_FORGE_STAFF_L3,
@@ -113,11 +113,10 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_HEAVEN_STAFF_L3, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcane Staff.blp")    
     ..setActivelyUsed(true)
+    ..addStats(addAbilityHolyLight(15, 8000, 0.5, 2000, 5))
     ..addStats(addInt(250))
     ..addStats(addMp(3000))
     ..addStats(addMpReg(3.5))
-    ..addStats("[WIP] Holy Light ( 5000/25s)")
-    ..addStats("[WIP] Have the ability to recover 500 HP for himself or team")
     ..addComponents(
     ITEM_HEAVEN_STAFF_L2,
     ITEM_FORGE_STAFF_L4,

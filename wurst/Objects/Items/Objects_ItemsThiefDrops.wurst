@@ -12,7 +12,7 @@ init
     new MyItemDefinition(ITEM_APOCALYPSE)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif27.blp")
     ..setClassification("Purchasable")
-    ..addStats("[WIP] +75% Damage to all the team around")
+    ..addStats(addAuraCommandRel2(0.75, 900))
     ..register()
 
 //I0HO
@@ -88,15 +88,15 @@ init
 //I0HF
     new MyItemDefinition(ITEM_SPIRIT_SWORD_L1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif20.blp")
-    ..addStats("[WIP] +5% Damage to all the team around")
     ..setClassification("PowerUp")
+    ..addStats(addAuraCommandRel2(0.05, 900))
     ..register()
 
 //I0HL
     new MyItemDefinition(ITEM_ASHRUNE)    
-    ..setClassification("Purchasable")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif26.blp")
-    ..addStats("[WIP] +60% Damage to all the team around")
+    ..setClassification("Purchasable")
+    ..addStats(addAuraCommandRel2(0.6, 900))
     ..register()
 
 //I0G7
