@@ -8,6 +8,7 @@ import ObjectIds
 import Abilities
 import ClosureEvents
 import ItemObjEditing
+import ResetCd
 
 // ----------------------------------------------------------------------------
 
@@ -97,7 +98,7 @@ public function addArmorOnHit(int value) returns ItemStats
     let effects = intToString(value) + " " + wordArmorOnHit
 
     new AbilityDefinitionOrbofCorruption(abilityId)
-    ..setArmorPenalty(1, value)
+    ..setArmorPenalty(1, -value)
 
     return new ItemStats(abilityId, effects)
 
@@ -229,6 +230,26 @@ public function addHpRegRel(real percentOfMaxHp) returns ItemStats
     new AbilityDefinitionNeutralRegenhealthonly(abilityId)
     ..setPercentage(1, true)
     ..setAmountofHitPointsRegenerated(1, percentOfMaxHp)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.self))
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addHpRegAura(real amount, bool percentage, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+
+    string effects = ""
+    if (percentage)
+        effects = wordHpRegAura.format((100*amount).toString() + "% of max HP", range.toString())
+    else
+        effects = wordHpRegAura.format(amount.toString() + " HP/s", range.toString())
+
+    new AbilityDefinitionNeutralRegenhealthonly(abilityId)
+    ..setAreaofEffect(1, range)
+    ..setPercentage(1, percentage)
+    ..setAmountofHitPointsRegenerated(1, amount)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.ground, TargetsAllowed.air, TargetsAllowed.friend))
 
     return new ItemStats(abilityId, effects)
 
@@ -492,9 +513,7 @@ public function addAbilityAvatarMagicImmune(real duration, real cd, int manaCost
     ..setDurationNormal(1, cd)
     ..setManaCost(1, manaCost)
 
-    return new ItemStatsCustomFunc(abilityId, effects,
-    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
-    )
+    return new ItemStats(abilityId, effects)
 
 // ----------------------------------------------------------------------------
 
@@ -505,14 +524,18 @@ public function addAbilityResetCd(real cd, int manaCost) returns ItemStats
     let effects = wordResetSpellCd.format(cd.toString())
 
     new AbilityDefinitionBerserk(abilityId)
+    ..setLevels(1)
     ..setDurationHero(1, 0.01)
     ..setDurationNormal(1, 0.01)
     ..setCooldown(1, cd)
     ..setManaCost(1, manaCost)
+    ..setAttackSpeedIncrease(1, 0)
+    ..setMovementSpeedIncrease(1, 0)
+    ..setDamageTakenIncrease(1, 0)
+    ..setBuffs(1, "")
 
-    EventListener.onCast(abilityId) caster ->
-        caster.resetCooldown()
-        
+    resetCdAbilitiesList.add(abilityId)
+    
     return new ItemStatsCustomFunc(abilityId, effects,
     (itemId, itemDef) -> itemDef.setCooldownGroup(ABILITY_RESET_CD_COOLDOWN_GROUP.toRawCode())
     )

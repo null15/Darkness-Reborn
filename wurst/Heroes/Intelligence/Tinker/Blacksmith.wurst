@@ -7,10 +7,11 @@ import MyUnitIds
 import LinkedList
 import Recipes
 
+let blacksmithThiefList = compiletime(new RecipeList())
 
-let blacksmithThiefList = new RecipeList()
+CallbackCounted countedTime
 
-CallbackSingle itemTimer
+texttag timerTextTag
 
 public function blacksmithThiefedUp()
     // Rings
@@ -77,33 +78,56 @@ public function blacksmithDoAfter()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
         let bs = GetTriggerUnit()
         if bs.getTypeId() == BUILDING_TINKER_BLACKSMITH
-            if itemTimer == null
+            if countedTime == null
                 let itemInBs = new LinkedList<item>()
-                for int i = 0  to 5
+                for int i = 0 to 5
                     itemInBs.add(bs.itemInSlot(i))
-                let atSpot = blacksmithThiefList.checkRecipePosition(itemInBs)
-                if atSpot > 0
+                itemInBs.forEach() (item t) ->
+                    if(t == null)
+                        itemInBs.remove(t)
+                var atSpot = blacksmithThiefList.checkRecipePosition(itemInBs)
+                if atSpot > -1
                     bs.setAnimation("Work")
-                    itemTimer = doAfter(20) ->
-                        itemTimer = null
-                        itemInBs.clear()
-                        for int i = 0  to 5
-                            let rightList = blacksmithThiefList.get(atSpot)
-                            let newite = rightList.completedItem
-                            for int j = 0 to rightList.items.size()
-                                bs.removeItemById(rightList.items.get(j))
-                            let newitecur = bs.addItemById(newite)
-                            newitecur.setPos(bs.getPos())
-                            printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed|r" + newitecur.getName(), 7)
-                            destroy rightList
-                        bs.setAnimation("Stand")
+                    let bsPos = bs.getPos()
+                    timerTextTag = createTTEx(vec3(bsPos.x, bsPos.y, 64),"20",12)
+                    timerTextTag.setColor(GetPlayerColor(bs.getOwner()).toColor().withAlpha(255))
+                    countedTime = doPeriodicallyCounted(1, 20) (CallbackCounted cb) ->
+                        if cb.isLast()
+                            countedTime = null
+                            itemInBs.clear()
+                            for int i = 0 to 5
+                                itemInBs.add(bs.itemInSlot(i))
+                            itemInBs.forEach() (item t) ->
+                                if(t == null)
+                                    itemInBs.remove(t)
+                            atSpot = blacksmithThiefList.checkRecipePosition(itemInBs)
+                            for int i = 0 to itemInBs.size() - 1
+                                let rightList = blacksmithThiefList.get(atSpot)
+                                let newite = rightList.completedItem
+                                for int j = 0 to rightList.items.size() - 1
+                                    bs.removeItemById(rightList.items.get(j))
+                                let newitecur = bs.addItemById(newite)
+                                newitecur.setPos(bs.getPos())
+                                printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed|r" + newitecur.getName(), 7)
+                                destroy rightList
+                            bs.setAnimation("Stand")
+                            timerTextTag.destr()
+                        else
+                            timerTextTag.setText((cb.getCount()-1).toString(), 12)
+
     EventListener.add(EVENT_PLAYER_UNIT_DROP_ITEM) -> 
         let bs = GetTriggerUnit()
         if bs.getTypeId() == BUILDING_TINKER_BLACKSMITH
             let itemInBs = new LinkedList<item>()
-            for int i = 0  to 5
+            for int i = 0 to 5
                 itemInBs.add(bs.itemInSlot(i))
-            if blacksmithThiefList.checkRecipePosition(itemInBs) == -1
+            itemInBs.forEach() (item t) ->
+                if(t == null or t == EventData.getManipulatedItem())
+                    itemInBs.remove(t)
+            let atSpot = blacksmithThiefList.checkRecipePosition(itemInBs)
+            if atSpot == -1
                 bs.setAnimation("Stand")
-                destroy itemTimer
-                itemTimer = null
+                countedTime.stop()
+                timerTextTag.destr()
+                destroy countedTime
+                countedTime = null

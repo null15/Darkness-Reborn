@@ -121,7 +121,7 @@ public function unit.questItemPickup()
         if EventData.getSoldItem().getTypeId() == ITEM_QUEST
             let questOwner = EventData.getBuyingUnit().getOwner()
             if questListsOwners.get(questOwner).questListFull()
-                let lvl = EventData.getBuyingUnit().getLevel()
+                let lvl = playerHero.get(questOwner).getLevel()
                 let templist = new HashSet<int>
                 let rarity = questRarity()
                 if lvl < 17

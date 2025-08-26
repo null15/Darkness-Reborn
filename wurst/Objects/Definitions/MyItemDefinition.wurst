@@ -282,10 +282,15 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
     override function getMaterialsDescription() returns string
         string materials = wordMaterials
         for comp in components
+
+            string shopName = getShopNameForItem(comp)
+            if (shopName == "null")
+                shopName = getShopNameForItem(getItemRecipeId(comp))
+
             // Exclude 'Recipe Item' from materials required, because materials required
             // list already shown in recipe item.
             if (comp != recipeItemId)
-                materials = materials + getItemName(comp) + " (" + getShopNameForItem(comp) + ")\n"
+                materials = materials + getItemName(comp) + " (" + shopName + ")\n"
         return materials
 
     override function register()

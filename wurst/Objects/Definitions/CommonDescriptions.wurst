@@ -85,6 +85,7 @@ public let wordBash               = "Bash: {0}% chance to do {1} bonus damage an
    
 public let wordHp                 = "HP"
 public let wordHpReg              = "HP/s"
+public let wordHpRegAura          = "+{0} in {1} range"
 public let wordRestoreHp          = "Restores {0} HP when used"
    
 public let wordArmor              = "Armor"

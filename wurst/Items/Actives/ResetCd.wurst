@@ -1,0 +1,11 @@
+package ResetCd
+
+import ClosureEvents
+import LinkedList
+
+public let resetCdAbilitiesList = compiletime(new LinkedList<int>())
+
+init
+    for abilityId in resetCdAbilitiesList
+        EventListener.onCast(abilityId) caster ->
+            caster.resetCooldown()

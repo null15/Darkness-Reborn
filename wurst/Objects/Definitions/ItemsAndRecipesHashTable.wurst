@@ -169,5 +169,8 @@ public function getItemRecipeId(int itemId) returns int
         case ITEM_FREEZE_WAND
             return ITEM_RECIPE_FREEZE_WAND
 
+        case ITEM_O3_CLOCK
+            return ITEM_RECIPE_O3_CLOCK
+
         default
             return -1

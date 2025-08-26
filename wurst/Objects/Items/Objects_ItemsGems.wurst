@@ -65,7 +65,7 @@ init
     ..setTintingColor3Blue(0)
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
-    ..addStats("[WIP] Passively restores 2% HP/s of every ally in 900 Range")
+    ..addStats(addHpRegAura(0.02, true, 900))
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
     ITEM_LIZARD_PENDANT)

@@ -5,7 +5,6 @@ import UnitIds
 import Buildings
 import ObjectIds
 import MyUnitIds
-import MyItemIds
 import Abilities
 import AbilityIds
 import MyAbilityIds
@@ -13,6 +12,7 @@ import Icons
 import Doodads
 import MyUpgradesIds
 import Units
+import MyBuildingsIds
 
 @compiletime function tinkerBuildings()
 
@@ -8590,7 +8590,7 @@ import Units
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
-    ..setResearchesAvailable(commaList(UPGRADE_12, UPGRADE_13, UPGRADE_14, UPGRADE_15, UPGRADE_16))
+    ..setResearchesAvailable(commaList(elementalSoulArmorUpgrade, elementalSoulHealthUpgrade, goblinBlasterArmorUpgrade, goblinBlasterDamageUpgrade, goblinBlasterAttackSpeedUpgrade))
     ..setUpgradesTo(commaList(""))
     ..setTooltipBasic("Laboratory")
     ..setTooltipExtended("Has several available researches")
@@ -8675,8 +8675,8 @@ import Units
     ..setManaInitialAmount(0)
     ..setManaMaximum(0)
     ..setLumberCost(0)
-    ..setResearchesAvailable(UPGRADE_11.toRawCode())
-    ..setUpgradesUsed(UPGRADE_11.toRawCode())
+    ..setResearchesAvailable(blacksmithInventoryUpgrade.toRawCode())
+    ..setUpgradesUsed(blacksmithInventoryUpgrade.toRawCode())
     ..setUpgradesTo(commaList(""))
     ..setTooltipBasic("Blacksmith")
     ..setTooltipExtended("May craft better gear and items.")
@@ -8763,7 +8763,7 @@ import Units
     ..setLumberCost(0)
     ..setUnitsSold("")
     ..setUnitsTrained("")
-    ..setResearchesAvailable(commaList(UPGRADE_0, UPGRADE_1, UPGRADE_2, UPGRADE_3, UPGRADE_4, UPGRADE_5, UPGRADE_6, UPGRADE_7, UPGRADE_8, UPGRADE_9, UPGRADE_10))
+    ..setResearchesAvailable(commaList(barrageUpgrade, cleaveAttackUpgrade, clusterRocketUpgrade, critStrikeFelOrcUpgrade, critStrikeFlyMachUpgrade, critStrikeFlyMarineUpgrade, flyMachineUpg, marineAuraUpgrade, felOrcAuraUpgrade, marineSummonUpgrade, felOrcSummonUpgrade))
     ..setUpgradesTo(commaList(""))
     ..setTooltipBasic("Library")
     ..setTooltipExtended("Contains important upgrades for your units.")
@@ -8773,7 +8773,7 @@ import Units
     new UnitDefinition(TINKERBUILDING_116, UnitIds.goblinsapper)// Goblin Boom (u01C)
     ..setRequirements("")
     ..setNormalAbilities(commaList('A0ZO'))
-    ..setUpgradesUsed(commaList(UPGRADE_14, UPGRADE_15, UPGRADE_16))
+    ..setUpgradesUsed(commaList(goblinBlasterArmorUpgrade, goblinBlasterDamageUpgrade, goblinBlasterAttackSpeedUpgrade))
     ..setScalingValue(4.00)
     ..setSelectionScale(3.00)
     ..setAttack1CooldownTime(0.10)
@@ -8853,7 +8853,7 @@ import Units
 
     new UnitDefinition(TINKERBUILDING_117, UnitIds.goblinblaster)// Goblin Blaster (n045)
     ..setNormalAbilities(commaList('A0QD'))
-    ..setUpgradesUsed(commaList(UPGRADE_14, UPGRADE_15, UPGRADE_16, UPGRADE_1))
+    ..setUpgradesUsed(commaList(goblinBlasterArmorUpgrade, goblinBlasterDamageUpgrade, goblinBlasterAttackSpeedUpgrade, cleaveAttackUpgrade))
     ..setScalingValue(3.25)
     ..setSelectionScale(6.00)
     ..setAttack1CooldownTime(4.50)
@@ -8933,7 +8933,7 @@ import Units
 
     new UnitDefinition(TINKERBUILDING_118, UnitIds.seaelemental)// Goblin Sea Elemental (n051)
     ..setNormalAbilities(commaList('A0NP', 'ACbh', 'Feru', 'wtex'))
-    ..setUpgradesUsed(commaList(UPGRADE_14, UPGRADE_15, UPGRADE_16))
+    ..setUpgradesUsed(commaList(goblinBlasterArmorUpgrade, goblinBlasterDamageUpgrade, goblinBlasterAttackSpeedUpgrade))
     ..setScalingValue(2.00)
     ..setSelectionScale(3.00)
     ..setFoodCost(0)
@@ -9013,7 +9013,7 @@ import Units
 
     new UnitDefinition(TINKERBUILDING_119, UnitIds.marine)// Marine (z001)
     ..setNormalAbilities(commaList('A10P', 'A10O', 'A10N'))
-    ..setUpgradesUsed(commaList(UPGRADE_7, UPGRADE_9, UPGRADE_5))
+    ..setUpgradesUsed(commaList(marineAuraUpgrade, marineSummonUpgrade, critStrikeFlyMarineUpgrade))
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
     ..setAttack1CooldownTime(0.50)
@@ -9093,7 +9093,7 @@ import Units
 
     new UnitDefinition(TINKERBUILDING_120, UnitIds.chaosspaceorc)// Space Fel Orc (z002)
     ..setNormalAbilities(commaList('A10Q', 'A10R', 'A10S'))
-    ..setUpgradesUsed(commaList(UPGRADE_10, UPGRADE_8, UPGRADE_3))
+    ..setUpgradesUsed(commaList(felOrcSummonUpgrade, felOrcAuraUpgrade, critStrikeFelOrcUpgrade))
     ..setScalingValue(1.80)
     ..setSelectionScale(2.00)
     ..setFoodCost(0)
@@ -9176,7 +9176,7 @@ import Units
 
     new UnitDefinition(TINKERBUILDING_121, UnitIds.flyingmachine)// Flying Machine (h04K)
     ..setNormalAbilities(commaList('A10T', 'A10U', 'A10V'))
-    ..setUpgradesUsed(commaList(UPGRADE_2, UPGRADE_4, UPGRADE_6))
+    ..setUpgradesUsed(commaList(clusterRocketUpgrade, critStrikeFlyMachUpgrade, flyMachineUpg))
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
     ..setAttack1CooldownTime(0.10)
@@ -9256,7 +9256,7 @@ import Units
 
     new UnitDefinition(TINKERBUILDING_122, UnitIds.siegeengine)// Siege Engine (h04I)
     ..setNormalAbilities(commaList('A10W'))
-    ..setUpgradesUsed(UPGRADE_0.toRawCode())
+    ..setUpgradesUsed(barrageUpgrade.toRawCode())
     ..setScalingValue(1.50)
     ..setSelectionScale(4.00)
     ..setAttack1CooldownTime(1.30)

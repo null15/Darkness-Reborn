@@ -20,7 +20,7 @@ public function initDebug()
 
     CreateUnit(p, BUILDING_TINKER_BLACKSMITH, posX, posY, 270.000)
     ..addPermanentAbility(AbilityIds.invulnerable)
-    SetPlayerTechResearched(p, UPGRADE_11, 6)
+    SetPlayerTechResearched(p, blacksmithInventoryUpgrade, 6)
     
     CreateUnit(p, BUILDING_TINKER_SHOP_RECIPES, posX, posY + 200, 270.000)
     ..addPermanentAbility(AbilityIds.invulnerable)

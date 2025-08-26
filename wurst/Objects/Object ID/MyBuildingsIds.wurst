@@ -5,6 +5,14 @@ import ObjectIdGenerator
 public constant BUILDING_TAVERN_STR = compiletime(UNIT_ID_GEN.next())
 public constant BUILDING_TAVERN_AGI = compiletime(UNIT_ID_GEN.next())
 public constant BUILDING_TAVERN_INT = compiletime(UNIT_ID_GEN.next())
+public constant BUILDING_TAVERN_DEFENDER = compiletime(UNIT_ID_GEN.next())
+public constant BUILDING_TAVERN_SUPPORT = compiletime(UNIT_ID_GEN.next())
+public constant BUILDING_TAVERN_PHYSICAL_DPS = compiletime(UNIT_ID_GEN.next())
+public constant BUILDING_TAVERN_MAGICAL_DPS = compiletime(UNIT_ID_GEN.next())
+public constant BUILDING_TAVERN_ASCENSION = compiletime(UNIT_ID_GEN.next())
+public constant BUILDING_TAVERN_BUILDER = compiletime(UNIT_ID_GEN.next())
+public constant BUILDING_TAVERN_CRAFTER = compiletime(UNIT_ID_GEN.next())
+public constant BUILDING_TAVERN_GATHERER = compiletime(UNIT_ID_GEN.next())
 
 public constant ELEMENTAL_SOUL = compiletime(UNIT_ID_GEN.next())
 

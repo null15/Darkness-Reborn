@@ -41,10 +41,10 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPhantom SKin.blp")
     ..setClassification("Charged")
     ..setActivelyUsed(true)
+    ..addStats(addAbilityAvatarMagicImmune(20, 10, 2000))
     ..addStats(addArmor(50))
     ..addStats(addHpReg(25))
     ..addStats(addHp(1000))
-    ..addStats(addAbilityAvatarMagicImmune(20, 10, 2000))
     ..addComponents(
     ITEM_LIGHT_ARMOR,
     ITEM_KHADGAR_PENDANT_OF_HEALTH,
@@ -79,8 +79,8 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")
     ..setClassification("Charged")
     ..setActivelyUsed(true)
-    ..addStats(addAllStats(20))
     ..addStats(addAbilityResetCd(220, 2000))
+    ..addStats(addAllStats(20))
     ..addComponents(
     ITEM_AMULET_OF_SPELL_SHIELD,
     ITEM_ARCANITE_SHIELD,

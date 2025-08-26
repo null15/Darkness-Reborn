@@ -16,7 +16,7 @@ public function learnULT()
             u.assa_quest()
             if (u.getUserData() != 1)
                 u.setUserData(1)
-                printTimedToPlayer("You can now type -Quests to check Quest Track", 20, u.getOwner())
+                printTimedToPlayer("You can now type -Quests to check your Assassin test progress\nNOTE: The assassin training quests count as quests, but, are always added even if the quest log is full.", 20, u.getOwner())
                 EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
                     let killer = GetKillingUnit()
                     if(killer == u and GetRandomInt(1, 100) <= 50)
