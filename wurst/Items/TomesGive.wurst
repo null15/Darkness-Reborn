@@ -27,7 +27,6 @@ enum tomeChoice
     Selfish
 
 init
-    tomeSold()
     ITEM_TOME_OF_FROSTY_AGILITY.tomeEnumerate(2999, tomeStats.Agility)
     ITEM_TOME_OF_FROSTY_STRENGTH.tomeEnumerate(2999, tomeStats.Strength)
     ITEM_TOME_OF_FROSTY_INTELLIGENCE.tomeEnumerate(2999, tomeStats.Intelligence)
@@ -64,8 +63,8 @@ function changeSelfishState()
 
         
 
-function tomeSold()
-    EventListener.add(EVENT_UNIT_SELL_ITEM) ->
+public function unit.tomeSold()
+    EventListener.add(this,EVENT_UNIT_SELL_ITEM) ->
         let p = EventData.getBuyingUnit().getOwner()
         let soldItem = EventData.getSoldItem()
         let soldItemID = soldItem.getTypeId()
