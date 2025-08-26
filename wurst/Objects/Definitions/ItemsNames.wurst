@@ -823,7 +823,7 @@ public function getItemName(int id) returns string
             return "Hover Ring"
         case ITEM_NOBLESSE_SHOULDER
             return "Noblesse Shoulder"
-        case ITEM_ODINS_NECKLE
+        case ITEM_ODIN_NECKLE
             return "Odin's Necklace"
         case ITEM_HOLY_GOLD_SHIELD
             return "Holy Gold Shield"
@@ -1421,7 +1421,7 @@ public function getItemName(int id) returns string
             return "Necklace of Royal"
         case ITEM_NECROPEDIA
             return "Necropedia"
-        case ITEM_LOKIS_NECKLACE
+        case ITEM_LOKI_NECKLACE
             return "Loki's Necklace"
         case ITEM_SOFT_SHOULDER
             return "Soft Shoulder"

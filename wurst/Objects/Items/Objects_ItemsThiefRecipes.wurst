@@ -3,6 +3,8 @@ package Objects_ItemsThiefRecipes
 import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
+import Jacksmith_Q
+import ObjectIds
 
 init
 
@@ -16,7 +18,7 @@ init
     ..register()
 
 //I0IR
-    new MyItemDefinition(ITEM_ARES)
+    new MyItemWithCraftInfoDefinition(ITEM_ARES, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif103.blp")    
     ..setClassification("Campaign")
     ..setGoldCost(300000)
@@ -26,6 +28,10 @@ init
     ..addStats(addAttackSpeed(2.2))
     ..addStats(addArmorPen(15))
     ..addStats(addCrit(20, 0.2))
+    ..addComponents(
+    ITEM_SLASH_SWORD_L5,
+    ITEM_GOD_SWORD,
+    ITEM_BLADE_OF_HELL)
     ..register()
     
 //I0IJ
@@ -51,7 +57,7 @@ init
     ..register()
     
 //I0IP
-    new MyItemDefinition(ITEM_AMULET_OF_LUCIFER)
+    new MyItemWithCraftInfoDefinition(ITEM_AMULET_OF_LUCIFER, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif101.blp")    
     ..setClassification("Campaign")
     ..setGoldCost(666666)
@@ -60,10 +66,14 @@ init
     ..addStats(addAllStats(1000))
     ..addStats(addDamage(10000))
     ..addStats(addArmorPen(5))
+    ..addComponents(
+    ITEM_MERCY,
+    ITEM_GOLDEN_HAMMER,
+    ITEM_RING_OF_LEGACY)
     ..register()
 
 //I0IQ
-    new MyItemDefinition(ITEM_VEJOVIS)
+    new MyItemWithCraftInfoDefinition(ITEM_VEJOVIS, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif102.blp")    
     ..setClassification("Campaign")
     ..setGoldCost(666666)
@@ -71,4 +81,59 @@ init
     ..setCanBeSoldToMerchants(true)
     ..addStats(addHp(100000))
     ..addStats(addMp(100000))
+    ..addComponents(
+    ITEM_CRYSTAL_MOON,
+    ITEM_FALLING_STAR,
+    ITEM_MATRIX_ORB)
+    ..register()
+    
+//I0IY
+    new MyItemWithCraftInfoDefinition(ITEM_HYDRAS_TREASURE_BIG, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHydra1.blp")
+    ..setAbilities(commaList('A0YD'))
+    ..setActivelyUsed(true)
+    ..setClassification("Permanent")
+    ..addStats("[WIP] Summon Hydra 1 level 2 for the user Recovery time skills of 120 seconds.")
+    ..addComponents(
+    ITEM_HALF_OF_ARKENSTONE,
+    ITEM_HYDRAS_TREASURE)
+    ..register()
+
+//I0J1
+    new MyItemWithCraftInfoDefinition(ITEM_SPIDERS_TREASURE_BIG, jackSmithRecipe, -1)
+    ..setAbilities(commaList('A0YG'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeb.blp")
+    ..setActivelyUsed(true)
+    ..setClassification("Permanent")
+    ..addStats("[WIP] Summon Spider 1 level 2 for the user recovery time skills 120 seconds.")
+    ..addComponents(
+    ITEM_HALF_OF_ARKENSTONE,
+    ITEM_SPIDERS_TREASURE)
+    ..register()
+
+//I0J4
+    new MyItemWithCraftInfoDefinition(ITEM_THUNDER_BOW_II, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNbow.blp")
+    ..setClassification("Permanent")
+    ..addStats(addAllStats(800))
+    ..addStats(addDamage(1000))
+    ..addStats(addAttackSpeed(3))
+    ..addStats(addChainLighting(0.5, 10000, 0.1, 10))
+    ..addComponents(
+    ITEM_THUNDER_BOW,
+    ITEM_CHIMAERAS_LIGHNING_POWER,
+    ITEM_ORB_OF_LIGHTNING)
+    ..register()
+
+//I0J5
+    new MyItemWithCraftInfoDefinition(ITEM_DARKNESS, jackSmithRecipe, -1)    
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLight.blp")
+    ..setGoldCost(15000)
+    ..addStats(addStr(320))
+    ..addStats(addHpReg(200))
+    ..addStats(addAbilityPhoenixFire(7000, 0.5, 2000))
+    ..addComponents(
+    ITEM_ABO_TREASURE,
+    ITEM_DARK_MATTER)
     ..register()

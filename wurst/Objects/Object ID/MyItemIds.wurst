@@ -393,7 +393,7 @@ public constant ITEM_ASTRAEUS_BELT = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_APOCALYPSE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_HOVER_RING = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_NOBLESSE_SHOULDER = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_ODINS_NECKLE = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_ODIN_NECKLE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_HOLY_GOLD_SHIELD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_BEASTMASTER_CARD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_WARDEN_CARD = compiletime(ITEM_ID_GEN.next())
@@ -692,7 +692,7 @@ public constant ITEM_PENDANT_OF_MUGEN = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_JEWELRY_OF_MOON = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_NECKLACE_OF_ROYAL = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_NECROPEDIA = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_LOKIS_NECKLACE = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_LOKI_NECKLACE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_SOFT_SHOULDER = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_HARD_SHOULDER = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_HEAVY_SHOULDER = compiletime(ITEM_ID_GEN.next())
@@ -986,7 +986,7 @@ function compileItems()
     ITEM_HOVER_RING,
     ITEM_NOBLESSE_SHOULDER,
     ITEM_SKULL_OF_MALGANIS,
-    ITEM_ODINS_NECKLE,
+    ITEM_ODIN_NECKLE,
     ITEM_HOLY_GOLD_SHIELD,
     ITEM_CROWN_OF_EVIL,
     ITEM_BEASTMASTER_CARD,

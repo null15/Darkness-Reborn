@@ -4,7 +4,7 @@ import ClosureEvents
 
 init
     frostWand()
-
+    
 function frostWand()
     EventListener.onTargetCast('A0YA') (unit caster, unit target) ->
         let dam = caster.getInt(true) * 15.00

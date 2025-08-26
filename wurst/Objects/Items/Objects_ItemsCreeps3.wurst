@@ -146,18 +146,6 @@ init
     ..setStockMaximum(99)
     ..register()
 
-//I07U
-    new MyItemDefinition(ITEM_CROWN_OF_EVIL)    
-    ..setCooldownGroup("A0GS")
-    ..setActivelyUsed(true)
-    ..setClassification("Artifact")
-    ..addStats(addArmor(220))
-    ..addStats(addAllStats(154))
-    ..addStats(addEvasion(0.3))
-    ..addStats("[WIP] Active: Fully Restore HP/MP. (cd 90 sec)")
-    ..setStockMaximum(99)
-    ..register()
-
 //I0BE
     new MyItemDefinition(ITEM_SOUL_BLAME)    
     ..setClassification("Artifact")

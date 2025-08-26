@@ -22,14 +22,6 @@ init
     ..addStats("Summon Hydra 1 level 1 for the user recovery time skills 80 seconds.")
     ..register()
 
-//I0IY
-    new MyItemDefinition(ITEM_HYDRAS_TREASURE_BIG)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHydra1.blp")
-    ..setAbilities(commaList('A0YD'))
-    ..setActivelyUsed(true)
-    ..setClassification("Permanent")
-    ..addStats("[WIP] Summon Hydra 1 level 2 for the user Recovery time skills of 120 seconds.")
-    ..register()
 
 //I0IZ
     new MyItemDefinition(ITEM_HYDRAS_TREASURE_PERFECT)
@@ -47,15 +39,6 @@ init
     ..setActivelyUsed(true)
     ..setClassification("Permanent")
     ..addStats("[WIP] Summon Spider 1 level 1 for the user recovery time skills 80 seconds")
-    ..register()
-
-//I0J1
-    new MyItemDefinition(ITEM_SPIDERS_TREASURE_BIG)
-    ..setAbilities(commaList('A0YG'))
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeb.blp")
-    ..setActivelyUsed(true)
-    ..setClassification("Permanent")
-    ..addStats("[WIP] Summon Spider 1 level 2 for the user recovery time skills 120 seconds.")
     ..register()
 
 //I0J2
@@ -77,34 +60,12 @@ init
     ..addStats(addChainLighting(0.2, 2500, 0.1, 5))
     ..register()
 
-//I0J4
-    new MyItemDefinition(ITEM_THUNDER_BOW_II)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNbow.blp")
-    ..setClassification("Permanent")
-    ..addStats(addAllStats(800))
-    ..addStats(addDamage(1000))
-    ..addStats(addAttackSpeed(3))
-    ..addStats(addChainLighting(0.5, 10000, 0.1, 10))
-    ..register()
-
 //I0J6
     new MyItemDefinition(ITEM_ABO_TREASURE)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\PASH6.BLP")
     ..setClassification("Permanent")
     ..addStats(addStr(30))
     ..addStats(addAbilityPhoenixFire(500, 1, 650))
-    ..register()
-
-//I0J5
-    new MyItemDefinition(ITEM_DARKNESS)    
-    ..setClassification("Artifact")
-    ..setGoldCost(15000)
-    ..setLevel(6)
-    ..setPriority(96)
-    ..setDescription("|c00FFFC01Effect:|r \n+ 320 Strength")
-    ..setName("|c00FFFC01Darkness|r")
-    ..setTooltipBasic("|c00FFFC01Darkness|r")
-    ..setTooltipExtended("|c00FFFC01Effect:|r \n+ 320 Strength")
     ..register()
     
 //I0JC

@@ -3,76 +3,91 @@ package Objects_ItemsJsStatsStr
 import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
+import Jacksmith_Q
 
 init
 
 @compiletime function createItems()
 
-//I0BV
-    new MyItemDefinition(ITEM_ASTRAEUS_BELT)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (4).blp")    
-    ..setClassification("Purchasable")
-    ..addStats(addStr(450))
-    ..register()
-    
 //I0I1
-    new MyItemDefinition(ITEM_MYSTERY_BRACER)
+    new MyItemWithCraftInfoDefinition(ITEM_MYSTERY_BRACER, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif37.blp")
     ..setClassification("Artifact")
     ..addStats(addStr(600))
     ..register()
 
 //I0BX
-    new MyItemDefinition(ITEM_BELT_OF_SLAYER)
+    new MyItemWithCraftInfoDefinition(ITEM_BELT_OF_SLAYER, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (3).blp")    
     ..setClassification("Purchasable")
     ..addStats(addStr(50))
+    ..addComponents(
+    ITEM_HORN_OF_CLOUDS,
+    ITEM_HEART_OF_SEARINOX)
     ..register()
 
 //I0BZ
-    new MyItemDefinition(ITEM_BELT_OF_GUARDIAN)
+    new MyItemWithCraftInfoDefinition(ITEM_BELT_OF_GUARDIAN, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (1).blp")    
     ..setClassification("Purchasable")
     ..addStats(addStr(120))
+    ..addComponents(
+    ITEM_BELT_OF_SLAYER,
+    ITEM_HELM_OF_VALOR)
     ..register()
 
 //I0BW
-    new MyItemDefinition(ITEM_BELT_OF_GLADIATOR)
+    new MyItemWithCraftInfoDefinition(ITEM_BELT_OF_GLADIATOR, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (2).blp")    
     ..setClassification("Purchasable")
     ..addStats(addStr(230))
+    ..addComponents(
+    ITEM_SCROLL_OF_UNHOLY_LEGION,
+    ITEM_BELT_OF_GUARDIAN)
     ..register()
 
-//I0BR
-    new MyItemDefinition(ITEM_APOLLOS_HELM)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (2).blp")    
-    ..setClassification("Campaign")
-    ..addStats(addStr(500))
-    ..addStats("[WIP] + 33% of likely against Damage by with Strength x 3")
+//I0BV
+    new MyItemWithCraftInfoDefinition(ITEM_ASTRAEUS_BELT, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (4).blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addStr(450))
+    ..addComponents(
+    ITEM_BELT_OF_GLADIATOR,
+    ITEM_BOOK_OF_EARTHQUAKE)
     ..register()
 
 //I0BU
-    new MyItemDefinition(ITEM_BELT_OF_OCEANUS)
+    new MyItemWithCraftInfoDefinition(ITEM_BELT_OF_OCEANUS, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (6).blp")
     ..setClassification("Purchasable")
     ..addStats(addStr(700))
     ..addStats(addHp(5000))
+    ..addComponents(
+    ITEM_ASTRAEUS_BELT,
+    ITEM_VOID_AXE,
+    ITEM_CROWN_OF_SOLDIER_L0)
     ..register()
 
 //I0BT
-    new MyItemDefinition(ITEM_HYPERION)
+    new MyItemWithCraftInfoDefinition(ITEM_HYPERION, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (7).blp")    
     ..setClassification("Campaign")
     ..addStats(addStr(1200))
     ..addStats(addHp(8000))
+    ..addComponents(
+    ITEM_BELT_OF_OCEANUS,
+    ITEM_TITANIUM)
     ..register()
 
 //I0BY
-    new MyItemDefinition(ITEM_ATHENA)
+    new MyItemWithCraftInfoDefinition(ITEM_ATHENA, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (5).blp")    
     ..setClassification("Campaign")
     ..addStats(addStr(2200))
     ..addStats(addHp(15000))
+    ..addComponents(
+    ITEM_HYPERION,
+    ITEM_PERFECT_RUBYSTONE)
     ..register()
     
 //I0IO
@@ -82,4 +97,15 @@ init
     ..setGoldCost(666666)
     ..addStats(addStr(5500))
     ..addStats(addHp(30000))
+    ..register()
+
+//I0BR
+    new MyItemWithCraftInfoDefinition(ITEM_APOLLOS_HELM, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (2).blp")    
+    ..setClassification("Campaign")
+    ..addStats(addStr(500))
+    ..addStats("[WIP] + 33% of likely against Damage by with Strength x 3")
+    ..addComponents(
+    ITEM_ASTRAEUS_BELT,
+    ITEM_HELM_HERMES)
     ..register()

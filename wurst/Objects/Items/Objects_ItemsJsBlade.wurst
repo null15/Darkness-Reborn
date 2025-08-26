@@ -3,6 +3,7 @@ package Objects_ItemsJsBlade
 import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
+import Jacksmith_Q
 
 init
 
@@ -41,52 +42,75 @@ init
     ..register()
     
 //I09T
-    new MyItemDefinition(ITEM_RAVEN_BLADE_L1)
+    new MyItemWithCraftInfoDefinition(ITEM_RAVEN_BLADE_L1, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPirateSword.blp")    
     ..setClassification("Purchasable")
     ..addStats(addDamage(50))
     ..addStats(addStr(12))
+    ..addComponents(
+    ITEM_FORGE_BLADE_L1,
+    ITEM_GAUNTLETS_OF_OGRE_STRENGTH,
+    ITEM_CLAWS_OF_ATTACK)
     ..register()
 
 //I09U
-    new MyItemDefinition(ITEM_RAVEN_BLADE_L2)
+    new MyItemWithCraftInfoDefinition(ITEM_RAVEN_BLADE_L2, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPirateSword.blp")    
     ..setClassification("Purchasable")
     ..addStats(addDamage(75))
     ..addStats(addStr(26))
+    ..addComponents(
+    ITEM_RAVEN_BLADE_L1,
+    ITEM_HORN_OF_CLOUDS)
     ..register()
 
 //I09V
-    new MyItemDefinition(ITEM_RAVEN_BLADE_L3)
+    new MyItemWithCraftInfoDefinition(ITEM_RAVEN_BLADE_L3, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPirateSword.blp")    
     ..setClassification("Purchasable")
     ..addStats(addDamage(155))
     ..addStats(addStr(60))
+    ..addComponents(
+    ITEM_RAVEN_BLADE_L2,
+    ITEM_HEART_OF_SEARINOX,
+    ITEM_FORGE_BLADE_L2)
     ..register()
 
 //I09X
-    new MyItemDefinition(ITEM_RAVEN_BLADE_L4)
+    new MyItemWithCraftInfoDefinition(ITEM_RAVEN_BLADE_L4, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPirateSword.blp")    
     ..setClassification("Purchasable")
     ..addStats(addDamage(300))
     ..addStats(addStr(120))
     ..addStats("[WIP] 12% of likely Damage to fold 2 times Strength")
+    ..addComponents(
+    ITEM_RAVEN_BLADE_L3,
+    ITEM_SCROLL_OF_UNHOLY_LEGION,
+    ITEM_FORGE_BLADE_L3)
     ..register()
 
 //I09Y
-    new MyItemDefinition(ITEM_RAVEN_BLADE_L5)
+    new MyItemWithCraftInfoDefinition(ITEM_RAVEN_BLADE_L5, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPirateSword.blp")    
     ..setClassification("Purchasable")
     ..addStats(addDamage(450))
     ..addStats(addStr(200))
     ..addStats("[WIP] 13% of likely Damage to fold 4 times Strength")
+    ..addComponents(
+    ITEM_RAVEN_BLADE_L4,
+    ITEM_HELM_OF_VALOR,
+    ITEM_FORGE_BLADE_L4)
     ..register()
 
 //I09W
-    new MyItemDefinition(ITEM_BERSERKERS_BLADE)
+    new MyItemWithCraftInfoDefinition(ITEM_BERSERKERS_BLADE, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRedQueen.blp")    
     ..setClassification("Campaign")
     ..addStats(addDamage(755))
     ..addStats(addStr(380))
     ..addStats("[WIP] 14% of likely Damage to fold 6 times Strength")
+    ..addComponents(
+    ITEM_RAVEN_BLADE_L5,
+    ITEM_VOID_AXE,
+    ITEM_BOOK_OF_EARTHQUAKE)
     ..register()

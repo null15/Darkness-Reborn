@@ -3,6 +3,7 @@ package Objects_ItemsJsArmor
 import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
+import Jacksmith_Q
 
 init
 
@@ -41,92 +42,127 @@ init
     ..register()
     
 //I07D
-    new MyItemDefinition(ITEM_ROYAL_ARMOR_L1)
+    new MyItemWithCraftInfoDefinition(ITEM_ROYAL_ARMOR_L1, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_MarineArmor1.blp")    
     ..setClassification("Purchasable")
     ..addStats(addArmor(25))
     ..addStats(addHp(800))
+    ..addComponents(
+    ITEM_FORGE_ARMOR_L1,
+    ITEM_LEATHER_ARMOR)
     ..register()
 
 //I082
-    new MyItemDefinition(ITEM_ROYAL_ARMOR_L2)
+    new MyItemWithCraftInfoDefinition(ITEM_ROYAL_ARMOR_L2, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_MarineArmor1.blp")    
     ..setClassification("Purchasable")
     ..addStats(addArmor(70))
     ..addStats(addHp(1900))
+    ..addComponents(
+    ITEM_ROYAL_ARMOR_L1,
+    ITEM_IRON_ARMOR)
     ..register()
 
 //I07E
-    new MyItemDefinition(ITEM_ROYAL_ARMOR_L3)
+    new MyItemWithCraftInfoDefinition(ITEM_ROYAL_ARMOR_L3, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_MarineArmor1.blp")    
     ..setClassification("Purchasable")
     ..addStats(addArmor(200))
     ..addStats(addHp(2600))
+    ..addComponents(
+    ITEM_ROYAL_ARMOR_L2,
+    ITEM_FORGE_ARMOR_L2)
     ..register()
 
 //I07F
-    new MyItemDefinition(ITEM_COMPOSITE_ARMOR_L1)
+    new MyItemWithCraftInfoDefinition(ITEM_COMPOSITE_ARMOR_L1, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmor2.blp")    
     ..setClassification("Purchasable")
     ..addStats(addArmor(100))
     ..addStats(addHp(2500))
     ..addStats(addHpReg(50))
+    ..addComponents(
+    ITEM_ROYAL_ARMOR_L2,
+    ITEM_BLADEBANE_ARMOR)
     ..register()
 
 //I063
-    new MyItemDefinition(ITEM_COMPOSITE_ARMOR_L2)
+    new MyItemWithCraftInfoDefinition(ITEM_COMPOSITE_ARMOR_L2, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmor2.blp")    
     ..setClassification("Purchasable")
     ..addStats(addArmor(200))
     ..addStats(addHp(3800))
     ..addStats(addHpReg(100))
+    ..addComponents(
+    ITEM_COMPOSITE_ARMOR_L1,
+    ITEM_SILVER_ARMOR)
     ..register()
 
 //I083
-    new MyItemDefinition(ITEM_COMPOSITE_ARMOR_L3)
+    new MyItemWithCraftInfoDefinition(ITEM_COMPOSITE_ARMOR_L3, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArmor2.blp")    
     ..setClassification("Purchasable")
     ..addStats(addArmor(300))
     ..addStats(addHp(6000))
     ..addStats(addHpReg(150))
+    ..addComponents(
+    ITEM_COMPOSITE_ARMOR_L2,
+    ITEM_LIGHT_ARMOR)
     ..register()
 
 //I07G
-    new MyItemDefinition(ITEM_ROYAL_ARMOR_L4)
+    new MyItemWithCraftInfoDefinition(ITEM_ROYAL_ARMOR_L4, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_MarineArmor1.blp")    
     ..setClassification("Purchasable")
     ..addStats(addArmor(290))
     ..addStats(addHp(3800))
+    ..addComponents(
+    ITEM_ROYAL_ARMOR_L3,
+    ITEM_FORGE_ARMOR_L3)
     ..register()
 
 //I07Y
-    new MyItemDefinition(ITEM_ROYAL_ARMOR_L5)
+    new MyItemWithCraftInfoDefinition(ITEM_ROYAL_ARMOR_L5, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_MarineArmor1.blp")    
     ..setClassification("Purchasable")
     ..addStats(addArmor(350))
     ..addStats(addHp(5000))
+    ..addComponents(
+    ITEM_ROYAL_ARMOR_L4,
+    ITEM_SILVER_ARMOR,
+    ITEM_LIGHT_ARMOR)
     ..register()
 
 //I07I
-    new MyItemDefinition(ITEM_LIMIT_ARMOR)
+    new MyItemWithCraftInfoDefinition(ITEM_LIMIT_ARMOR, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_MarineArmor2.blp")    
     ..setClassification("Purchasable")
-    ..addStats(addArmor(666))
-    ..addStats(addHp(9000))
+    ..addStats(addArmor(650))
+    ..addStats(addHp(10000))
+    ..addComponents(
+    ITEM_ROYAL_ARMOR_L5,
+    ITEM_COMPOSITE_ARMOR_L3)
     ..register()
 
 //I07J
-    new MyItemDefinition(ITEM_DRONE_ARMOR)
+    new MyItemWithCraftInfoDefinition(ITEM_DRONE_ARMOR, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_MarineArmor3.blp")    
     ..setClassification("Purchasable")
-    ..addStats(addArmor(777))
-    ..addStats(addHp(12000))
+    ..addStats(addArmor(800))
+    ..addStats(addHp(15000))
+    ..addComponents(
+    ITEM_LIMIT_ARMOR,
+    ITEM_LIGHT_ARMOR)
     ..register()
 
 //I07H
-    new MyItemDefinition(ITEM_BERSERKERS_ARMOR)
+    new MyItemWithCraftInfoDefinition(ITEM_BERSERKERS_ARMOR, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBerserkersArmor.blp")    
     ..setClassification("Campaign")
-    ..addStats(addArmor(888))
-    ..addStats(addHp(16000))
+    ..addStats(addArmor(900))
+    ..addStats(addHp(20000))
+    ..addComponents(
+    ITEM_DRONE_ARMOR,
+    ITEM_SHINY_ARMOR,
+    ITEM_FORGE_ARMOR_L4)
     ..register()

@@ -50,6 +50,20 @@ init
     ..addStats(addAgi(280))
     ..register()
 
+//I0HT
+    new MyItemDefinition(ITEM_HOVER_RING)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif6.blp")
+    ..setClassification("Permanent")
+    ..addStats(addAgi(380))
+    ..register()
+    
+//I0HU
+    new MyItemDefinition(ITEM_GOLDEN_RING)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif7.blp")   
+    ..setClassification("Artifact")
+    ..addStats(addAgi(600))
+    ..register()
+
 //I0HV
     new MyItemDefinition(ITEM_LEATHER_BRACER)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif31.blp")

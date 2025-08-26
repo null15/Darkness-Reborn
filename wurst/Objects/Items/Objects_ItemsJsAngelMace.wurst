@@ -3,7 +3,7 @@ package Objects_ItemsJsAngelMace
 import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
-import A0H3_Q
+import Jacksmith_Q
 
 init
 

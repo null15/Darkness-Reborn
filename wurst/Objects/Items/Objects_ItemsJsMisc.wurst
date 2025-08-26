@@ -3,39 +3,55 @@ package Objects_ItemsJsMisc
 import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
+import Jacksmith_Q
 
 init
 
 @compiletime function createItems()
 
-//I0F2
-    new MyItemDefinition(ITEM_FALLING_STAR)    
-    ..setClassification("Campaign")
-    ..addStats(addMp(50000))
-    ..register()
-
-//I0C3
-    new MyItemDefinition(ITEM_CRYSTAL_MOON)    
-    ..setClassification("Campaign")
-    ..addStats(addHp(50000))
-    ..register()
-
-
 //I0EI
-    new MyItemDefinition(ITEM_LANCELOT_SET)    
+    new MyItemWithCraftInfoDefinition(ITEM_LANCELOT_SET, jackSmithRecipe, -1)    
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
     ..addStats(addArmor(400))
     ..addStats(addHp(10000))
     ..addStats(addInt(300))
     ..addStats("[WIP] When attacked gets 50% to heal for 1000 HP and 30% to gain back 1xint Mana")
+    ..addComponents(
+    ITEM_LANCELOT_ARMOR,
+    ITEM_LANCELOT_HELM,
+    ITEM_LANCELOT_SHIELD)
     ..register()
-
+    
 //I0C2
-    new MyItemDefinition(ITEM_SPHERE_OF_CHAOS)    
+    new MyItemWithCraftInfoDefinition(ITEM_SPHERE_OF_CHAOS, jackSmithRecipe, -1)    
     ..setClassification("Artifact")
     ..addStats(addHp(15000))
     ..addStats(addHpReg(150))
     ..addStats(addMp(15000))
     ..addStats(addMpReg(5))
+    ..addComponents(
+    ITEM_PERFECT_ARKENSTONE,
+    ITEM_SPHERE_OF_FIRE,
+    ITEM_SPHERE_OF_WATER)
+    ..register()
+    
+//I0F2
+    new MyItemWithCraftInfoDefinition(ITEM_FALLING_STAR, jackSmithRecipe, -1)    
+    ..setClassification("Campaign")
+    ..addStats(addMp(50000))
+    ..addComponents(
+    ITEM_SPHERE_OF_CHAOS,
+    ITEM_SKULL_OF_MALGANIS,
+    ITEM_SPHERE_OF_WATER)
+    ..register()
+
+//I0C3
+    new MyItemWithCraftInfoDefinition(ITEM_CRYSTAL_MOON, jackSmithRecipe, -1)    
+    ..setClassification("Campaign")
+    ..addStats(addHp(50000))
+    ..addComponents(
+    ITEM_SPHERE_OF_CHAOS,
+    ITEM_SKULL_OF_MALGANIS,
+    ITEM_SPHERE_OF_FIRE)
     ..register()

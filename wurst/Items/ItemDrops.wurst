@@ -323,7 +323,7 @@ function restBossCreepEnumerate()
     guaranteedSingleDrophash.put(BOSS_CREEP[21], towerSevenTable)
     // Tower 8
     let towerEightTable = new ItemTable()
-    towerEightTable.populateTable(ITEM_ODINS_NECKLE)
+    towerEightTable.populateTable(ITEM_ODIN_NECKLE)
     guaranteedSingleDrophash.put(BOSS_CREEP[22], towerEightTable)
 
 function dropListEnumerate()
