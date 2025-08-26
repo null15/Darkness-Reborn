@@ -59,41 +59,6 @@ init
     ..setStockMaximum(99)
     ..register()
 
-//I045
-    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L0)    
-    ..setCooldownGroup("A0BX")
-    ..setActivelyUsed(true)
-    ..setClassification("Artifact")
-    ..addStats(addStr(38))
-    ..addStats(addAgi(38))
-    ..addStats(addInt(100))
-    ..addStats("[WIP] Active: Restore MP to full. (cd 240 sec)")
-    ..setStockMaximum(99)
-    ..register()
-
-//I044
-    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L0)    
-    ..setCooldownGroup("A0BW")
-    ..setActivelyUsed(true)
-    ..setClassification("Artifact")
-    ..addStats(addStr(100))
-    ..addStats(addAgi(38))
-    ..addStats(addInt(38))
-    ..addStats("[WIP] Active: Restore HP to full. (cd 240 sec)")
-    ..setStockMaximum(99)
-    ..register()
-
-//I043
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L0)    
-    ..setClassification("Artifact")
-    ..addStats(addArmor(120))
-    ..addStats(addStr(38))
-    ..addStats(addAgi(100))
-    ..addStats(addInt(38))
-    ..addStats(addEvasion(0.25))
-    ..setStockMaximum(99)
-    ..register()
-
 //I0BB
     new MyItemDefinition(ITEM_GLOVERSHIELD)    
     ..setClassification("Artifact")

@@ -1,0 +1,18 @@
+package AbilitiesList
+
+import ClosureEvents
+import LinkedList
+
+public class ItemAbility
+    OnUnitCast handler
+    int abilityId
+
+    construct(int abilityId, OnUnitCast handler)
+        this.handler = handler
+        this.abilityId = abilityId
+
+public let itemsAbilitiesList = compiletime(new LinkedList<ItemAbility>())
+
+init
+    for abilityInfo in itemsAbilitiesList
+        EventListener.onCast(abilityInfo.abilityId, abilityInfo.handler)
