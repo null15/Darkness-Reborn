@@ -133,23 +133,23 @@ import MyAbilityIds
 
 public function unit.heroCheck()
     switch this.getTypeId()
-        case PLAY_HERO_0//Mk
+        case HERO_MOUNTAIN_KING//Mk
             thunderClap()
             stormbolt()
             overPower()
-        case PLAY_HERO_1_INITIAL//Wolfman 1st
+        case HERO_WOLFMAN_INITIAL//Wolfman 1st
             manDog()
             punch()
-        case PLAY_HERO_1_INITIATE//wolfman 2nd
+        case HERO_WOLFMAN_INITIATE//wolfman 2nd
             dogDog()
             dogbite()
             doghowl()
-        case PLAY_HERO_1_FINAL//Wolfman 3rd
+        case HERO_WOLFMAN_FINAL//Wolfman 3rd
             manwolfDog()
             wolfhowl()
             frenzy()
             manbite()
-        case PLAY_HERO_2
+        case PLAY_HERO_2 // Tauren
             pulverize()
             warStomp()
             shockExplosion()
@@ -177,6 +177,8 @@ public function unit.heroCheck()
             metalStrength()
             radiantRing()
             forge()
+            blacksmithJackedUp()
+            initRecipes()
             forgeMaster()
         case PLAY_HERO_8//Uthar
             holyStorm()

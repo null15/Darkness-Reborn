@@ -6,7 +6,6 @@ import ClosureEvents
 import MyUnitIds
 import LinkedList
 import Recipes
-import Texttag
 
 
 let blacksmithThiefList = new RecipeList()
@@ -36,7 +35,6 @@ public function blacksmithThiefedUp()
     blacksmithThiefList.addRecipe(ITEM_SPIRIT_DAGGER,ITEM_SPIRIT_BLADE)
     blacksmithThiefList.addRecipe(ITEM_SPIRIT_BLADE,ITEM_SPIRIT_MIDDLE_BLADE)
     blacksmithThiefList.addRecipe(ITEM_SPIRIT_MIDDLE_BLADE,ITEM_SPIRIT_GIANT_BLADE)
-    blacksmithThiefList.addRecipe(ITEM_ASHRUNE,ITEM_GOLDEN_PHOENIX_SWORD)
     // Maces
     blacksmithThiefList.addRecipe(ITEM_ECHO_MACE,ITEM_MIDNIGHT_MACE)
     // Staffs
@@ -87,7 +85,7 @@ public function blacksmithDoAfter()
                 itemInBs.forEach() (item t) ->
                     if(t == null)
                         itemInBs.remove(t)
-                var atSpot = blacksmithThiefList.checkRecipePosition(itemInBs)
+                var atSpot = blacksmithThiefList.checkRecipePosition(itemInBs) // Check if at least 1 item is upgradeable
                 if atSpot > -1
                     bs.setAnimation("Work")
                     let bsPos = bs.getPos()
@@ -102,8 +100,11 @@ public function blacksmithDoAfter()
                             itemInBs.forEach() (item t) ->
                                 if(t == null)
                                     itemInBs.remove(t)
-                            atSpot = blacksmithThiefList.checkRecipePosition(itemInBs)
+                            
                             for int i = 0 to itemInBs.size() - 1
+                                let perItem = new LinkedList<item>()
+                                perItem.add(itemInBs.get(i))
+                                atSpot = blacksmithThiefList.checkRecipePosition(perItem)
                                 let rightList = blacksmithThiefList.get(atSpot)
                                 let newite = rightList.completedItem
                                 for int j = 0 to rightList.items.size() - 1
@@ -111,6 +112,7 @@ public function blacksmithDoAfter()
                                 let newitecur = bs.addItemById(newite)
                                 newitecur.setPos(bs.getPos())
                                 printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed|r" + newitecur.getName(), 7)
+                                destroy perItem
                                 destroy rightList
                             bs.setAnimation("Stand")
                             timerTextTag.destr()
@@ -119,7 +121,7 @@ public function blacksmithDoAfter()
 
     EventListener.add(EVENT_PLAYER_UNIT_DROP_ITEM) -> 
         let bs = GetTriggerUnit()
-        if bs.getTypeId() == TINKERBUILDING_114
+        if bs.getTypeId() == TINKERBUILDING_114 and countedTime != null
             let itemInBs = new LinkedList<item>()
             for int i = 0 to 5
                 itemInBs.add(bs.itemInSlot(i))

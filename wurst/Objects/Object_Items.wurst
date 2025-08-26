@@ -9755,7 +9755,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAnimalWarTraining.blp")
     ..setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
     ..setScalingValue(1)
-    ..setCooldownGroup("A0ZN§")
+    ..setCooldownGroup("A0ZN")
     ..setTintingColor1Red(255)
     ..setTintingColor2Green(255)
     ..setTintingColor3Blue(255)

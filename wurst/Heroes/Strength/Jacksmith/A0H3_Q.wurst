@@ -7,10 +7,8 @@ import Recipes
 let jackSmithRecipe = new RecipeList()
 
 
-init
-    initRecipes()
 
-function initRecipes()
+public function initRecipes()
     // Kain Sword
     jackSmithRecipe.addRecipe(ITEM_RUSTY_MINING_PICK, ITEM_FORGE_SWORD_L1, ITEM_KAIN_SWORD_L1)
     jackSmithRecipe.addRecipe(ITEM_KAIN_SWORD_L1, ITEM_SIMPLE_SWORD, ITEM_KAIN_SWORD_L2)
@@ -125,6 +123,8 @@ function initRecipes()
     jackSmithRecipe.addRecipe(ITEM_HEAVEN_STAFF_L2, ITEM_FORGE_STAFF_L4, ITEM_SCEPTER_OF_MASTERY, ITEM_HEAVEN_STAFF_L3)
     // Nerubian Staff
     jackSmithRecipe.addRecipe(ITEM_GOLDEN_STAFF_L3, ITEM_FORGE_STAFF_L3, ITEM_SCEPTER_OF_SEA, ITEM_NERUBIAN_STAFF_L1)
+    //Mystery Purple Staff
+    jackSmithRecipe.addRecipe(ITEM_DOOMS_GRAND_STAFF, ITEM_MYSTERY_BLUE_STAFF, ITEM_MYSTERY_PURPLE_STAFF)
     // Dead Eyes
     jackSmithRecipe.addRecipe(ITEM_NERUBIAN_STAFF_L1, ITEM_FORGE_STAFF_L4, ITEM_SEER_STAFF, ITEM_DEAD_EYES)
     // Berserker Staff

@@ -64,6 +64,8 @@ function onBuyHero(unit u)
             soldUnit.setPos(gg_rct_Base.getCenter())
             p.setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 0)
             GetBuyingUnit().remove()
+            soldUnit.setLevel(200, true)
+            p.addGold(2000000)
         else
             soldUnit.remove()
             printTimedToPlayer("Your hero was killed by the newly recruited one as it left.", 10, p)

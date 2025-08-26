@@ -43,7 +43,7 @@ import Units
     ..setTintingColorBlue(0)
     ..setTintingColorGreen(0)
     ..setTintingColorRed(255)
-    .setUnitsSold(commaList(PLAY_HERO_0, PLAY_HERO_1_INITIAL, PLAY_HERO_2, PLAY_HERO_3, PLAY_HERO_4, PLAY_HERO_5, PLAY_HERO_6, PLAY_HERO_7, PLAY_HERO_8, PLAY_HERO_18, PLAY_HERO_34))
+    .setUnitsSold(commaList(HERO_MOUNTAIN_KING, HERO_WOLFMAN_INITIAL, PLAY_HERO_2, PLAY_HERO_3, PLAY_HERO_4, PLAY_HERO_5, PLAY_HERO_6, PLAY_HERO_7, PLAY_HERO_8, PLAY_HERO_18, PLAY_HERO_34))
 
     new BuildingDefinition(BUILDING_TAVERN_AGI, UnitIds.cantina)// Tavern Build Agility Heroes (n00A)
     ..setName("Agility Heroes")
@@ -108,7 +108,7 @@ import Units
     ..setArmorType(ArmorType.Unarmored)
     ..setPathingMap("")
     ..setPlacementRequires("")
-    .setUnitsSold(commaList(PLAY_HERO_9, PLAY_HERO_10,PLAY_HERO_11,PLAY_HERO_13,PLAY_HERO_15,PLAY_HERO_17,PLAY_HERO_34))
+    .setUnitsSold(commaList(PLAY_HERO_9, PLAY_HERO_10,PLAY_HERO_11,PLAY_HERO_13,PLAY_HERO_15,PLAY_HERO_17,PLAY_HERO_34,PLAY_HERO_14))
 
     new BuildingDefinition(BUILDING_TAVERN_CRAFTER, UnitIds.cantina)
     ..setName("Crafter Heroes")
@@ -160,7 +160,7 @@ import Units
     ..setArmorType(ArmorType.Unarmored)
     ..setPathingMap("")
     ..setPlacementRequires("")
-    .setUnitsSold(commaList(PLAY_HERO_0,PLAY_HERO_2,PLAY_HERO_3,PLAY_HERO_4,PLAY_HERO_5,PLAY_HERO_6,PLAY_HERO_8,PLAY_HERO_21))
+    .setUnitsSold(commaList(HERO_MOUNTAIN_KING,PLAY_HERO_2,PLAY_HERO_3,PLAY_HERO_4,PLAY_HERO_5,PLAY_HERO_6,PLAY_HERO_8,PLAY_HERO_21))
 
     new BuildingDefinition(BUILDING_TAVERN_ASCENSION, UnitIds.cantina)
     ..setName("Ascension Heroes")
@@ -173,7 +173,7 @@ import Units
     ..setArmorType(ArmorType.Unarmored)
     ..setPathingMap("")
     ..setPlacementRequires("")
-    .setUnitsSold(commaList(PLAY_HERO_33, PLAY_HERO_1_INITIAL))
+    .setUnitsSold(commaList(PLAY_HERO_33, HERO_WOLFMAN_INITIAL))
 
 @compiletime function buildings()
 

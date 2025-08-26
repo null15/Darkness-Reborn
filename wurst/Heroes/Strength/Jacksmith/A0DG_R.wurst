@@ -44,6 +44,8 @@ public function blacksmithJackedUp()
     blacksmithJackedList.addRecipe(ITEM_HYDRAS_TREASURE_BIG,ITEM_PERFECT_ARKENSTONE,ITEM_HYDRAS_TREASURE_PERFECT)
     // Spider Perfect
     blacksmithJackedList.addRecipe(ITEM_SPIDERS_TREASURE_BIG,ITEM_PERFECT_ARKENSTONE,ITEM_SPIDERS_TREASURE_PERFECT)
+    // Golden phoenix sword
+    blacksmithJackedList.addRecipe(ITEM_ASHRUNE, ITEM_APOCALYPSE, ITEM_GOLDEN_PHOENIX_SWORD)
 
 public function metalStrength()
     EventListener.onTargetCast('A0DG') (unit caster, unit target) ->

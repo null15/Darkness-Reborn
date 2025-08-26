@@ -2,7 +2,8 @@
 projectName: Darkness Reborn
 dependencies:
 - https://github.com/wurstscript/wurstStdlib2
+- https://github.com/Frotty/wurst-table-layout.git
 buildMapData:
-  name: '|cFF990000Darkness |cFF99FF99Reborn|r v1.9.61'
-  fileName: Darkness Reborn v1.9.61
+  name: '|cFF990000Darkness |cFF99FF99Reborn|r v1.9.62'
+  fileName: Darkness Reborn v1.9.62
   author: ' Community'
