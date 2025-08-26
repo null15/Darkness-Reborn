@@ -100,6 +100,7 @@ init
 
 //I0CI
     new MyItemDefinition(ITEM_TOME_OF_FROSTY_INTELLIGENCE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTome.blp")
     ..setModelUsed("Objects\\InventoryItems\\tomeGreen\\tomeGreen.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
@@ -118,6 +119,7 @@ init
 
 //I0CF
     new MyItemDefinition(ITEM_TOME_OF_FROSTY_STRENGTH)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTome.blp")
     ..setModelUsed("Objects\\InventoryItems\\tomeGreen\\tomeGreen.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
@@ -136,6 +138,7 @@ init
 
 //I0CH
     new MyItemDefinition(ITEM_TOME_OF_FROSTY_AGILITY)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTome.blp")
     ..setModelUsed("Objects\\InventoryItems\\tomeGreen\\tomeGreen.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
