@@ -129,7 +129,6 @@ init
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setStockReplenishInterval(120)
     )
-    ..setCooldownGroup("A0CL")
     ..setActivelyUsed(true)
     ..setClassification("Miscellaneous")
     ..addStats(addAllStats(150))
@@ -149,7 +148,6 @@ init
     ..setStockReplenishInterval(120)
     ..setLumberCost(100)
     )
-    ..setCooldownGroup("A0CL")
     ..setActivelyUsed(true)
     ..setClassification("Miscellaneous")
     ..addStats(addAllStats(600))

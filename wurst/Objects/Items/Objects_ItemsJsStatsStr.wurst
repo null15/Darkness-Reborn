@@ -64,7 +64,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (7).blp")    
     ..setClassification("Campaign")
     ..addStats(addStr(1200))
-    ..addStats(addHp(8000)))
+    ..addStats(addHp(8000))
     ..register()
 
 //I0BY

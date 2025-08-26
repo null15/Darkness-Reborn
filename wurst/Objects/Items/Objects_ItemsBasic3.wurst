@@ -54,7 +54,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTalisman.blp")
     ..setClassification("PowerUp")
     ..setGoldCost(300)
-    ..addStats(addEvasion(15))
+    ..addStats(addEvasion(0.15))
     ..addHotKey()
     ..register()
     

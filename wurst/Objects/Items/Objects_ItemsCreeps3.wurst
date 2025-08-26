@@ -12,6 +12,7 @@ init
     new MyItemDefinition(ITEM_SPHERE_OF_FIRE)    
     ..setClassification("Artifact")
     ..addStats(addHp(6000))
+    ..setStockMaximum(99)
     ..register()
 
 
@@ -19,12 +20,14 @@ init
     new MyItemDefinition(ITEM_SPHERE_OF_WATER)    
     ..setClassification("Artifact")
     ..addStats(addMp(6000))
+    ..setStockMaximum(99)
     ..register()
 
 //I03P
     new MyItemDefinition(ITEM_ESSENCE_OF_ASZUNE)    
     ..setClassification("Artifact")
     ..addStats(addAllStats(80))
+    ..setStockMaximum(99)
     ..register()
 
 //I04B
@@ -34,6 +37,7 @@ init
     ..addStats(addAttackSpeed(1.2))
     ..addStats(addAllStats(12))
     ..addStats(addCrit(4, 0.12))
+    ..setStockMaximum(99)
     ..register()
 
 //I04C
@@ -43,6 +47,7 @@ init
     ..addStats(addAttackSpeed(1.2))
     ..addStats(addAllStats(20))
     ..addStats(addArmorOnHit(-65))
+    ..setStockMaximum(99)
     ..register()
 
 //I0AY
@@ -51,6 +56,7 @@ init
     ..addStats(addDamage(220))
     ..addStats(addAllStats(30))
     ..addStats(addLifeSteal(0.2))
+    ..setStockMaximum(99)
     ..register()
 
 //I045
@@ -62,6 +68,7 @@ init
     ..addStats(addAgi(38))
     ..addStats(addInt(100))
     ..addStats("[WIP] Active: Restore MP to full. (cd 240 sec)")
+    ..setStockMaximum(99)
     ..register()
 
 //I044
@@ -73,6 +80,7 @@ init
     ..addStats(addAgi(38))
     ..addStats(addInt(38))
     ..addStats("[WIP] Active: Restore HP to full. (cd 240 sec)")
+    ..setStockMaximum(99)
     ..register()
 
 //I043
@@ -83,6 +91,7 @@ init
     ..addStats(addAgi(100))
     ..addStats(addInt(38))
     ..addStats(addEvasion(0.25))
+    ..setStockMaximum(99)
     ..register()
 
 //I0BB
@@ -91,24 +100,28 @@ init
     ..addStats(addArmor(100))
     ..addStats(addMagicResist(30))
     ..addStats("[WIP] Has the Ability to resurrect. (cd 240 sec)")
+    ..setStockMaximum(99)
     ..register()
 
 //I048
     new MyItemDefinition(ITEM_BOOK_OF_WIND)    
     ..setClassification("Artifact")
     ..addStats(addAgi(220))
+    ..setStockMaximum(99)
     ..register()
 
 //I04A
     new MyItemDefinition(ITEM_BOOK_OF_RAIN)    
     ..setClassification("Artifact")
     ..addStats(addInt(280))
+    ..setStockMaximum(99)
     ..register()
 
 //I049
     new MyItemDefinition(ITEM_BOOK_OF_EARTHQUAKE)    
     ..setClassification("Artifact")
     ..addStats(addStr(250))
+    ..setStockMaximum(99)
     ..register()
 
 //I0BC
@@ -119,6 +132,7 @@ init
     ..addStats(addInt(80))
     ..addStats(addMp(2000))
     ..addStats("[WIP] Mana Shield that drains 1 Mana per 0.8 damage taken.")
+    ..setStockMaximum(99)
     ..register()
 
 //I06V
@@ -128,6 +142,7 @@ init
     ..addStats(addMagicResist(70))
     ..addStats(addHp(2500))
     ..addStats(addMovementSpeed(200))
+    ..setStockMaximum(99)
     ..register()
 
 //I07U
@@ -139,6 +154,7 @@ init
     ..addStats(addAllStats(154))
     ..addStats(addEvasion(0.3))
     ..addStats("[WIP] Active: Fully Restore HP/MP. (cd 90 sec)")
+    ..setStockMaximum(99)
     ..register()
 
 //I0BE
@@ -148,10 +164,12 @@ init
     ..addStats(addAttackSpeed(1.4))
     ..addStats(addHp(1000))
     ..addStats(addArmorOnHit(-120))
+    ..setStockMaximum(99)
     ..register()
 
 //I0BO
     new MyItemDefinition(ITEM_TITANIUM)    
     ..setClassification("Campaign")
     ..addStats(addEvasion(0.5))
+    ..setStockMaximum(99)
     ..register()

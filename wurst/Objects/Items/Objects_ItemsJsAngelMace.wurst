@@ -118,7 +118,7 @@ init
     ..register()
 
 //I0F1
-    new MyItemWithCraftInfoDefinition(ITEM_ANGEL_MACE, jackSmithRecipe, -1)
+    new MyItemWithCraftInfoDefinition(ITEM_ANGEL_MACE_L5, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_mace_82.blp")      
     ..setClassification("Campaign")
     ..setGoldCost(00000)

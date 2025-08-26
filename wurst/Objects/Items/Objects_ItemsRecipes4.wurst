@@ -78,6 +78,7 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")
     ..setClassification("Charged")
+    ..setActivelyUsed(true)
     ..addStats(addAllStats(20))
     ..addStats(addAbilityResetCd(220, 2000))
     ..addComponents(

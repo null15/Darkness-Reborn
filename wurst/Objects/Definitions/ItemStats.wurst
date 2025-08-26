@@ -6,6 +6,8 @@ import CommonDescriptions
 import codeDamageTypings
 import ObjectIds
 import Abilities
+import ClosureEvents
+import ItemObjEditing
 
 // ----------------------------------------------------------------------------
 
@@ -31,29 +33,29 @@ public class ItemStats
         this.abilityId = abilityId
         this.effects   = effects
 
-    function addCustomStats(int _itemId)
+    function addCustomStats(int _itemId, ItemDefinition _itemDef)
 
     function addToAbilityList() returns boolean
-        return true
+        return abilityId != -1
 
 // ----------------------------------------------------------------------------
 
 public interface InitItemsStatsFunc
-    function call(int itemId)
+    function call(int itemId, ItemDefinition itemDef)
 
 public class ItemStatsCustomFunc extends ItemStats
     InitItemsStatsFunc initFunc
 
     construct(string effects, InitItemsStatsFunc initFunc)
-        super(0, effects)
+        super(-1, effects)
         this.initFunc = initFunc
 
+    construct(int abilityId, string effects, InitItemsStatsFunc initFunc)
+        super(abilityId, effects)
+        this.initFunc = initFunc
 
-    override function addCustomStats(int itemId)
-        initFunc.call(itemId)
-
-    override function addToAbilityList() returns boolean
-        return false
+    override function addCustomStats(int itemId, ItemDefinition itemDef)
+        initFunc.call(itemId, itemDef)
 
 // ----------------------------------------------------------------------------
 
@@ -105,7 +107,7 @@ public function addArmorPen(real value) returns ItemStats
     let effects = realToString(value, 0) + " " + wordArmorOnHit
     
     return new ItemStatsCustomFunc(effects, 
-    (itemId) -> itemId.putInPhysPenItemHash(value))
+    (itemId, itemDef) -> itemId.putInPhysPenItemHash(value))
 
 // ----------------------------------------------------------------------------
 
@@ -285,7 +287,7 @@ public function addMagicResist(real value) returns ItemStats
     let effects = wordMagicResist.format(realToString(value, 0))
     
     return new ItemStatsCustomFunc(effects,
-    (itemId) -> itemId.putInMagicResItemHash(value))
+    (itemId, itemDef) -> itemId.putInMagicResItemHash(value))
 
 // ----------------------------------------------------------------------------
 
@@ -490,9 +492,13 @@ public function addAbilityAvatarMagicImmune(real duration, real cd, int manaCost
     ..setDurationNormal(1, cd)
     ..setManaCost(1, manaCost)
 
-    return new ItemStats(abilityId, effects)
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
 
 // ----------------------------------------------------------------------------
+
+let ABILITY_RESET_CD_COOLDOWN_GROUP = compiletime(ABIL_ID_GEN.next())
 
 public function addAbilityResetCd(real cd, int manaCost) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
@@ -504,7 +510,12 @@ public function addAbilityResetCd(real cd, int manaCost) returns ItemStats
     ..setCooldown(1, cd)
     ..setManaCost(1, manaCost)
 
-    return new ItemStats(abilityId, effects)
+    EventListener.onCast(abilityId) caster ->
+        caster.resetCooldown()
+        
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(ABILITY_RESET_CD_COOLDOWN_GROUP.toRawCode())
+    )
 
 // ----------------------------------------------------------------------------
 

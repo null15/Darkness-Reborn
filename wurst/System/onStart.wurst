@@ -80,7 +80,6 @@ function createSetup()
     for i = 0 to 9
         createUnit(players[i], HERO_PICKER, gg_rct_HeroPicker.getCenter())
         players[i]..addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)..addState(PLAYER_STATE_RESOURCE_GOLD, 800)
-        initDebug(players[i])
         
     var posX = GetRectCenterX(gg_rct_HeroPicker) - 384.
     var posY = GetRectCenterY(gg_rct_HeroPicker)
@@ -162,6 +161,8 @@ function createSetup()
     elementalSoul.onDefeat()
 
     teleportToMobs(easyGrounds, intermediateGrounds, eliteGrounds, endGamebosses)
+
+    initDebug()
 
 function dialogBoxClick()
     preWaveSetup()

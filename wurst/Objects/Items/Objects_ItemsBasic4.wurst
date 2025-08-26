@@ -57,7 +57,7 @@ init
 //I01P
     new MyItemDefinition(ITEM_PERIAPT_OF_VITALITY)
     ..setClassification("PowerUp")
-    ..setInterfaceIcon(Icons.dISBTNPeriapt)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPeriapt.blp")
     ..setGoldCost(1000)
     ..addStats(addHp(500))
     ..addHotKey()
@@ -66,7 +66,7 @@ init
 //I025
     new MyItemDefinition(ITEM_KHADGAR_PENDANT_OF_HEALTH)
     ..setClassification("PowerUp")
-    ..setInterfaceIcon(Icons.dISBTNPeriapt1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPeriapt1.blp")
     ..setGoldCost(1800)
     ..addStats(addHp(1000))
     ..addHotKey()
@@ -75,7 +75,7 @@ init
 //I00V
     new MyItemDefinition(ITEM_CLOAK_OF_SHADOWS, ItemIds.cloakofShadows)
     ..setClassification("PowerUp")
-    ..setInterfaceIcon(Icons.dISBTNCloak) 
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCloak.blp")
     ..setGoldCost(550)
     ..addStats("Allows the hero to turn invisible at night")
     ..addHotKey()
@@ -84,7 +84,7 @@ init
 //I05L
     new MyItemDefinition(ITEM_TOME_OF_RETRAINING, ItemIds.tomeofRetraining)
     ..setClassification("PowerUp")
-    ..setInterfaceIcon(Icons.dISBTNTomeOfRetraining)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTomeOfRetraining.blp")
     ..setActivelyUsed(true)
     ..setGoldCost(650)
     ..setNumberofCharges(1)

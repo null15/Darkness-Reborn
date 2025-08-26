@@ -12,12 +12,14 @@ init
     new MyItemDefinition(ITEM_STAFF_OF_PRESERVATION)
     ..addStats(addArmor(10))
     ..addStats(addInt(17))
+    ..setStockMaximum(99)
     ..register()
 
 //I03S
     new MyItemDefinition(ITEM_SPIKED_ARMOR)
     ..addStats(addArmor(10))
     ..addStats(addSpikes(0.2))
+    ..setStockMaximum(99)
     ..register()
 
 //I06A
@@ -25,6 +27,7 @@ init
     ..addStats(addDamage(50))
     ..addStats(addAttackSpeed(0.5))
     ..addStats(addHpReg(10))
+    ..setStockMaximum(99)
     ..register()
 
 //I03M
@@ -33,11 +36,13 @@ init
     ..addStats(addInt(30))
     ..addStats(addMpReg(1))
     ..addStats("[WIP] Active: Chain Lightning that deals 500 damage to up to 4 enemies (cd 15 sec)")
+    ..setStockMaximum(99)
     ..register()
 
 //I06C
     new MyItemDefinition(ITEM_GEM_OF_POISON)
     ..addStats(addDamage(50))
+    ..setStockMaximum(99)
     ..register()
 
 //I07B
@@ -45,6 +50,7 @@ init
     ..addStats(addArmor(10))
     ..addStats(addAllStats(10))
     ..addStats(addHp(500))
+    ..setStockMaximum(99)
     ..register()
 
 //I03R
@@ -53,6 +59,7 @@ init
     ..addStats(addAgi(20))
     ..addStats(addInt(30))
     ..addStats(addMpReg(1.5))
+    ..setStockMaximum(99)
     ..register()
 
 //I06R
@@ -60,26 +67,31 @@ init
     ..addStats(addDamage(30))
     ..addStats(addHp(400))
     ..addStats(addLifeSteal(0.17))
+    ..setStockMaximum(99)
     ..register()
 
 //I06O
     new MyItemDefinition(ITEM_MAGIC_POTION)
     ..addStats(addAllStats(19))
+    ..setStockMaximum(99)
     ..register()
 
 //I03C
     new MyItemDefinition(ITEM_LIONS_RING)
     ..addStats(addAgi(30))
+    ..setStockMaximum(99)
     ..register()
 
 //I03J
     new MyItemDefinition(ITEM_MINDSTAFF)
     ..addStats(addInt(35))
+    ..setStockMaximum(99)
     ..register()
 
 //I06W
     new MyItemDefinition(ITEM_DRUID_OF_CLAW_AMATEUR)
     ..addStats(addDamage(95))
+    ..setStockMaximum(99)
     ..register()
 
 //I03Q
@@ -87,22 +99,26 @@ init
     ..setActivelyUsed(true)
     ..addStats(addInt(50))
     ..addStats("[WIP] Active: Heal target ally for 800 HP or deal 400 HP to an enemy. (cd 25 sec)")
+    ..setStockMaximum(99)
     ..register()
 
 //I06K
     new MyItemDefinition(ITEM_ARCANE_SCROLL)
     ..addStats(addAgi(50))
+    ..setStockMaximum(99)
     ..register()
 
 //I03L
     new MyItemDefinition(ITEM_KEY_OF_THREE_MOONS)
     ..addStats(addAllStats(38))
+    ..setStockMaximum(99)
     ..register()
 
 //I034
     new MyItemDefinition(ITEM_GLOVES_OF_SPELL_MASTERY)
     ..addStats(addDamage(80))
     ..addStats(addAttackSpeed(0.8))
+    ..setStockMaximum(99)
     ..register()
 
 //I03U
@@ -111,22 +127,26 @@ init
     ..addStats(addInt(80))
     ..addStats(addMpReg(2))
     ..addStats("Active: Use Frost Nova on an enemy dealing 2000 damage to enemy and 1500 damage to creeps in a 500 aoe (cd 30 sec)")
+    ..setStockMaximum(99)
     ..register()
 
 //I06M
     new MyItemDefinition(ITEM_SCROLL_OF_MAGIC)
     ..addStats(addInt(50))
+    ..setStockMaximum(99)
     ..register()
 
 //I03N
     new MyItemDefinition(ITEM_SHAMANIC_TOTEM)
     ..addStats(addDamage(240))
     ..addStats(addArmorPen(1))
+    ..setStockMaximum(99)
     ..register()
 
 //I03K
     new MyItemDefinition(ITEM_HEART_OF_SEARINOX)
     ..addStats(addStr(30))
+    ..setStockMaximum(99)
     ..register()
 
 //I03T
@@ -135,26 +155,31 @@ init
     ..addStats(addInt(70))
     ..addStats(addMpReg(1.5))
     ..addStats("Active: Send out a Carrion Swarm dealing 680 damage to enemies hit. (cd 20 sec)")
+    ..setStockMaximum(99)
     ..register()
 
 //I03O
     new MyItemDefinition(ITEM_SACRED_RELIC)
     ..addStats(addDamage(150))
     ..addStats(addAttackSpeed(0.33))
+    ..setStockMaximum(99)
     ..register()
 
 //I06L
     new MyItemDefinition(ITEM_SCROLL_OF_UNHOLY_LEGION)
     ..addStats(addStr(5))
+    ..setStockMaximum(99)
     ..register()
 
 //I07K
     new MyItemDefinition(ITEM_DRUID_OF_CLAW_MASTER)
     ..addStats(addDamage(355))
     ..addStats(addArmorPen(2))
+    ..setStockMaximum(99)
     ..register()
 
 //I06P
     new MyItemDefinition(ITEM_CRYSTAL_SKULL)
     ..addStats(addAllStats(54))
+    ..setStockMaximum(99)
     ..register()

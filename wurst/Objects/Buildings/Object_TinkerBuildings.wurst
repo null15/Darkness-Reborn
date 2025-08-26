@@ -8597,10 +8597,10 @@ import Units
     ..setName("Laboratory")
     ..setManaRegeneration(0.00)
 
-    new BuildingDefinition(TINKERBUILDING_114, UnitIds.blacksmith)// Blacksmith (h04A)
+    new BuildingDefinition(BUILDING_TINKER_BLACKSMITH, UnitIds.blacksmith)// Blacksmith (h04A)
     ..setGroundTexture("")
     ..setRequirements(TINKERBUILDING_58.toRawCode())
-    ..setNormalAbilities(commaList('Abds', 'Aihn'))
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Abds', 'Aihn'))
     ..setScalingValue(1.00)
     ..setSelectionScale(4.00)
     ..setAttack1CooldownTime(0.00)

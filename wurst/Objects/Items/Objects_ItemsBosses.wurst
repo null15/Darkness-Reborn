@@ -17,6 +17,7 @@ init
     ..addStats(addAttackSpeed(1))
     ..addStats(addHpReg(100))
     ..addStats(addAbilityLifeStealAura(0.2, 900))
+    ..setStockMaximum(99)
     ..register()
 
 //I0C1
@@ -24,6 +25,7 @@ init
     ..setClassification("Artifact")
     ..setGoldCost(10000)
     ..addStats(addHp(30000))
+    ..setStockMaximum(99)
     ..register()
 
 //I05W
@@ -31,6 +33,7 @@ init
     ..setClassification("Campaign")
     ..setGoldCost(40000)
     ..addStats(addAllStats(600))
+    ..setStockMaximum(99)
     ..register()
 
 //I0AS
@@ -39,6 +42,7 @@ init
     ..setClassification("Purchasable")
     ..setGoldCost(10000)
     ..addTitle("Material to craft Dragon Wings (" + getShopNameForItem(ITEM_RECIPE_DRAGON_WINGS) + ")")
+    ..setStockMaximum(99)
     ..register()
 
 //I0AU
@@ -47,6 +51,7 @@ init
     ..setClassification("Purchasable")
     ..setGoldCost(10000)
     ..addTitle("Material to craft Dragon Wings (" + getShopNameForItem(ITEM_RECIPE_DRAGON_WINGS) + ")")
+    ..setStockMaximum(99)
     ..register()
 
 //I0AR
@@ -55,6 +60,7 @@ init
     ..setClassification("Purchasable")
     ..setGoldCost(10000)
     ..addTitle("Material to craft Dragon Wings (" + getShopNameForItem(ITEM_RECIPE_DRAGON_WINGS) + ")")
+    ..setStockMaximum(99)
     ..register()
 
 //I0AT
@@ -63,6 +69,7 @@ init
     ..setClassification("Purchasable")
     ..setGoldCost(10000)
     ..addTitle("Material to craft Dragon Wings (" + getShopNameForItem(ITEM_RECIPE_DRAGON_WINGS) + ")")
+    ..setStockMaximum(99)
     ..register()
 
 //I0JG
@@ -72,6 +79,7 @@ init
     ..setGoldCost(86000)
     ..addStats(addInt(1680))
     ..addStats(addHp(24000))
+    ..setStockMaximum(99)
     ..register()
 
 //I0JI
@@ -80,12 +88,14 @@ init
     ..setClassification("Artifact")
     ..setGoldCost(75000)
     ..addStats(addArmor(500))
+    ..setStockMaximum(99)
     ..register()
 
 //I0HD
     new MyItemDefinition(ITEM_FAIR_DROP)    
     ..setClassification("Charged")
     ..addStats(addMpReg(4.4))
+    ..setStockMaximum(99)
     ..register()
     
 //I0C4
@@ -96,6 +106,7 @@ init
     ..addStats(addHp(10000))
     ..addStats("[WIP] |c00FF0303When attacked you have a 50% Chance to restore 4000 HP.\n")
     ..addStats("[WIP] Infinite Revival with no Cooldown.|r")
+    ..setStockMaximum(99)
     ..register()
     
     new MyItemDefinition(ITEM_FROST_SHIELD)
@@ -104,4 +115,5 @@ init
     ..addStats(addStr(160))
     ..addStats(addAgi(160))
     ..addStats(addInt(420))
+    ..setStockMaximum(99)
     ..register()

@@ -37,8 +37,8 @@ function unit.swapPlayTech(int setTo)
     else if (conID == BUILDING_TINKER_SHOP_RECIPES)
         SetPlayerTechMaxAllowedSwap(BUILDING_TINKER_SHOP_RECIPES, setTo, this.getOwner())
 
-    else if (conID == TINKERBUILDING_114)
-        SetPlayerTechMaxAllowedSwap(TINKERBUILDING_114, setTo, this.getOwner())
+    else if (conID == BUILDING_TINKER_BLACKSMITH)
+        SetPlayerTechMaxAllowedSwap(BUILDING_TINKER_BLACKSMITH, setTo, this.getOwner())
 
     else if (conID == TINKERBUILDING_115)
         SetPlayerTechMaxAllowedSwap(TINKERBUILDING_115, setTo, this.getOwner())

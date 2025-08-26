@@ -52,7 +52,7 @@ public function metalStrength()
         ..origin(caster.getPos())
         ..castTarget(ABILITY_DUMMY_8, 1, OrderIds.innerfire, target)
         let bs = target
-        if bs.getTypeId() == TINKERBUILDING_114
+        if bs.getTypeId() == BUILDING_TINKER_BLACKSMITH
             let itemInBs = new LinkedList<item>()
             for int i = 0  to 5
                 itemInBs.add(bs.itemInSlot(i))

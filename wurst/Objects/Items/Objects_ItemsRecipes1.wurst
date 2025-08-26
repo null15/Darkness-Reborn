@@ -46,7 +46,7 @@ import RecipeItems
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(600)
     )
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\ITEM_BOOTS_OF_TELEPORTATION.blp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFire Boot.blp")
     ..setClassification("Permanent")
     ..addStats(addAllStats(24))
     ..addStats(addMovementSpeed(100))

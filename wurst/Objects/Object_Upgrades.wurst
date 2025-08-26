@@ -263,11 +263,11 @@ import Icons
     ..setButtonPositionX(0)
     ..setButtonPositionY(1)
     ..setRequirements(1, TINKERBUILDING_60.toRawCode())
-    ..setRequirements(2, TINKERBUILDING_114.toRawCode())
-    ..setRequirements(3, TINKERBUILDING_114.toRawCode())
-    ..setRequirements(4, TINKERBUILDING_114.toRawCode())
-    ..setRequirements(5, TINKERBUILDING_114.toRawCode())
-    ..setRequirements(6, TINKERBUILDING_114.toRawCode())
+    ..setRequirements(2, BUILDING_TINKER_BLACKSMITH.toRawCode())
+    ..setRequirements(3, BUILDING_TINKER_BLACKSMITH.toRawCode())
+    ..setRequirements(4, BUILDING_TINKER_BLACKSMITH.toRawCode())
+    ..setRequirements(5, BUILDING_TINKER_BLACKSMITH.toRawCode())
+    ..setRequirements(6, BUILDING_TINKER_BLACKSMITH.toRawCode())
 
     new UpgradeDefinition(UPGRADE_12, 20) // R00F
     ..setGoldCostBase(1000)

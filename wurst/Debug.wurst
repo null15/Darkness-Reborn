@@ -1,10 +1,24 @@
 package Debug
+import MyUnitIds
+import AbilityIds
+import MyUpgradesIds
 
 let DEBUG = true
 
-public function initDebug(player p)
+public function initDebug()
     if (not DEBUG)
         return
 
-    p.addGold(100000000)
-    p.addLumber(100000000)
+    let p = players[10]
+
+    for i = 0 to 9
+        players[i].addGold(100000000)
+        players[i].addLumber(100000000)
+
+    let posX = GetRectCenterX(gg_rct_DebugBlacksmith)
+    let posY = GetRectCenterY(gg_rct_DebugBlacksmith)
+
+    let blacksmith = CreateUnit(p, BUILDING_TINKER_BLACKSMITH, posX, posY, 270.000)
+    blacksmith.addPermanentAbility(AbilityIds.invulnerable)
+    SetPlayerTechResearched(p, UPGRADE_11, 6)
+    

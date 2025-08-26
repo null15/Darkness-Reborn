@@ -76,7 +76,7 @@ public function blacksmithThiefedUp()
 public function blacksmithDoAfter()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
         let bs = GetTriggerUnit()
-        if bs.getTypeId() == TINKERBUILDING_114
+        if bs.getTypeId() == BUILDING_TINKER_BLACKSMITH
             if itemTimer == null
                 let itemInBs = new LinkedList<item>()
                 for int i = 0  to 5
@@ -99,7 +99,7 @@ public function blacksmithDoAfter()
                         bs.setAnimation("Stand")
     EventListener.add(EVENT_PLAYER_UNIT_DROP_ITEM) -> 
         let bs = GetTriggerUnit()
-        if bs.getTypeId() == TINKERBUILDING_114
+        if bs.getTypeId() == BUILDING_TINKER_BLACKSMITH
             let itemInBs = new LinkedList<item>()
             for int i = 0  to 5
                 itemInBs.add(bs.itemInSlot(i))

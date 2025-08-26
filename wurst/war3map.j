@@ -79,6 +79,7 @@ globals
     camerasetup             gg_cam_CameraHeroPick      = null
     camerasetup             gg_cam_CameraHeroPicked    = null
     trigger                 gg_trg_GameSpeed           = null
+    rect                    gg_rct_DebugBlacksmith     = null
 endglobals
 
 function InitGlobals takes nothing returns nothing
@@ -159,6 +160,7 @@ function CreateRegions takes nothing returns nothing
     set gg_rct_BlockTinkerBuildings = Rect( -1728.0, -5728.0, -128.0, -2208.0 )
     set gg_rct_CleanItemsArea2 = Rect( -5376.0, -416.0, 3648.0, 5920.0 )
     set gg_rct_CleanItemsArea3 = Rect( -1728.0, -3584.0, -32.0, -384.0 )
+    set gg_rct_DebugBlacksmith = Rect( -1056.0, -4288.0, -800.0, -4032.0 )
 endfunction
 
 //***************************************************************************

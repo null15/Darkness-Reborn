@@ -1,4 +1,4 @@
-package Object_Lumber
+package Objects_Lumber
 
 import MyItemDefinition
 import ItemObjEditing

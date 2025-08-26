@@ -12,6 +12,7 @@ init
 
 //I0B5
     new MyGemDefinition(ITEM_PERFECT_GARNET)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Red2.blp")
     ..setModelUsed("Red Item.mdl")
     ..setClassification("Campaign")
     ..setCooldownGroup("A0LD")
@@ -25,10 +26,11 @@ init
 
 //I0AZ
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_CARNELIAN, itemRecipeList, ITEM_INFO_PERFECT_CARNELIAN)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelcrafting_gem_16.blp")
+    ..setModelUsed("Red Item.mdl")
     ..setTintingColor1Red(255)
     ..setTintingColor2Green(0)
     ..setTintingColor3Blue(0)
-    ..setModelUsed("Red Item.mdl")
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
     ..addStats("[WIP] +25% Life Steal")
@@ -41,6 +43,7 @@ init
 
 //I0BA
     new MyGemDefinition(ITEM_PERFECT_CITRINE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Yellow2.blp")
     ..setModelUsed("Red Item.mdl")
     ..setTintingColor1Red(255)
     ..setTintingColor2Green(255)
@@ -55,6 +58,7 @@ init
 
 //I0B1
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_TOPAZ, itemRecipeList, ITEM_INFO_PERFECT_TOPAZ)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Yellow.blp")
     ..setModelUsed("Red Item.mdl")
     ..setTintingColor1Red(150)
     ..setTintingColor2Green(150)
@@ -70,6 +74,7 @@ init
 
 //I0B8
     new MyGemDefinition(ITEM_PERFECT_OBSIDIAN)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe2.blp")
     ..setModelUsed("Red Item.mdl")
     ..setCooldownGroup("Infernal")
     ..setTintingColor1Red(255)
@@ -83,6 +88,7 @@ init
 
 //I0B2
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AQUAMARINE, itemRecipeList, ITEM_INFO_PERFECT_AQUAMARINE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe.blp")
     ..setModelUsed("Red Item.mdl")
     ..setClassification("Campaign")
     ..setTintingColor1Red(255)
@@ -99,6 +105,7 @@ init
 
 //I0B6
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_NEPHRITE, itemRecipeList, ITEM_INFO_PERFECT_NEPHRITE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green2.blp")
     ..setModelUsed("Green Item.mdl")
     ..setCooldownGroup("A0L8")
     ..setTintingColor1Red(0)
@@ -117,6 +124,7 @@ init
 
 //I0B4
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_EMERALD, itemRecipeList, ITEM_INFO_PERFECT_EMERALD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green.blp")
     ..setModelUsed("Green Item.mdl")
     ..setTintingColor1Red(0)
     ..setTintingColor2Green(255)
@@ -135,6 +143,7 @@ init
 
 //I0B7
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_PEARL, itemRecipeList, ITEM_INFO_PERFECT_PEARL)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Blue2.blp")
     ..setModelUsed("Red Item.mdl")
     ..setCooldownGroup("A0L9")
     ..setTintingColor1Red(0)
@@ -152,6 +161,7 @@ init
 
 //I0B0
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_HIPPOPUS, itemRecipeList, ITEM_INFO_PERFECT_HIPPOPUS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Blue.blp")
     ..setModelUsed("Red Item.mdl")
     ..setCooldownGroup("A0KY")
     ..setTintingColor1Red(0)
@@ -168,6 +178,7 @@ init
 
 //I0B9
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_SAPPHIRE, itemRecipeList, ITEM_INFO_PERFECT_SAPPHIRE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple2.blp")
     ..setModelUsed("Red Item.mdl")
     ..setCooldownGroup("A0LE")
     ..setTintingColor1Red(100)
@@ -185,6 +196,7 @@ init
 
 //I0B3
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AMETHYST, itemRecipeList, ITEM_INFO_PERFECT_AMETHYST)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple.blp")
     ..setModelUsed("Red Item.mdl")
     ..setTintingColor1Red(100)
     ..setTintingColor2Green(0)

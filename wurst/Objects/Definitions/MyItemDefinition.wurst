@@ -103,7 +103,7 @@ public class MyItemDefinition extends MyItemDefinitionBase
         this.title            = ""
 
     function addStats(ItemStats itemStats)
-        itemStats.addCustomStats(itemId)
+        itemStats.addCustomStats(itemId, this)
         effects = effects + itemStats.effects + "\n"
         
         if (itemStats.addToAbilityList())

@@ -140,5 +140,5 @@ init
     ..setClassification("Campaign")
     ..addStats(addArmor(600))
     ..addStats(addAllStats(600))
-    ..addStats(addMovementSpeed(1000)) // What maximum value? 522 is the old value.
+    ..addStats(addMovementSpeed(522))
     ..register()
