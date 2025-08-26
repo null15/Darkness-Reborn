@@ -1,0 +1,140 @@
+package Objects_ItemsJsCrowns
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import Jacksmith_Q
+
+init
+
+@compiletime function createItems()
+
+//I0F3
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L1)
+    ..setClassification("Artifact")
+    ..addStats(addArmor(130))
+    ..register()
+
+//I0F4
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L2)
+    ..setClassification("Artifact")
+    ..addStats(addArmor(160))
+    ..register()
+
+//I0F5
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L3)
+    ..setClassification("Artifact")
+    ..addStats(addArmor(220))
+    ..register()
+
+//I0F6
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L4)
+    ..setClassification("Artifact")
+    ..addStats(addArmor(300))
+    ..register()
+
+//I0F7
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L5)
+    ..setClassification("Artifact")
+    ..addStats(addArmor(500))
+    ..register()
+    
+//I0F8
+    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L1)
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(130))
+    ..register()
+
+//I0F9
+    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L2)
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(160))
+    ..register()
+
+//I0FA
+    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L3)    
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(220))
+    ..register()
+
+//I0FB
+    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L4)    
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(300))
+    ..register()
+
+//I0FC
+    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L5)    
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(500))
+    ..register()
+
+//I0FE
+    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L1)    
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(130))
+    ..register()
+
+//I0FD
+    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L2)    
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(160))
+    ..register()
+
+//I0FF
+    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L3)    
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(220))
+    ..register()
+
+//I0FG
+    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L4)    
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(300))
+    ..register()
+
+//I0FH
+    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L5)    
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(500))
+    ..register()
+
+//I07U
+    new MyItemWithCraftInfoDefinition(ITEM_CROWN_OF_EVIL, jackSmithRecipe, -1)    
+    ..setCooldownGroup("A0GS")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..addStats(addArmor(220))
+    ..addStats(addAllStats(154))
+    ..addStats(addEvasion(0.3))
+    ..addStats("[WIP] Active: Fully Restore HP/MP. (cd 90 sec)")
+    ..setStockMaximum(99)
+    ..addComponents(
+    ITEM_CROWN_OF_ASSASSIN_L0,
+    ITEM_CROWN_OF_SOLDIER_L0,
+    ITEM_CROWN_OF_WIZARD_L0)
+    ..register()
+
+//I0FI
+    new MyItemWithCraftInfoDefinition(ITEM_CROWN_OF_EVIL_L5, jackSmithRecipe, -1)    
+    ..setClassification("Campaign")
+    ..setActivelyUsed(true)
+    ..addStats(addArmor(600))
+    ..addStats(addAllStats(500))
+    ..addStats(addEvasion(0.5))
+    ..addStats("Active: Fully restores HP and MP to Full. Cooldown: 90 seconds")
+    ..addComponents(
+    ITEM_CROWN_OF_ASSASSIN_L5,
+    ITEM_CROWN_OF_SOLDIER_L5,
+    ITEM_CROWN_OF_WIZARD_L5)
+    ..register()

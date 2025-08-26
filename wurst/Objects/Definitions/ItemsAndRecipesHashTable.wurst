@@ -1,0 +1,176 @@
+package ItemsAndRecipesHashTable
+
+import MyItemIds
+
+public function getItemRecipeId(int itemId) returns int
+    switch (itemId)
+        // Recipes (1)
+        case ITEM_ICE_SWORD
+            return ITEM_RECIPE_ICE_SWORD
+        case ITEM_FIRE_SWORD
+            return ITEM_RECIPE_FIRE_SWORD
+        case ITEM_BOOTS_OF_TELEPORTATION
+            return ITEM_RECIPE_BOOTS_OF_TELEPORTATION
+        case ITEM_BOOTS_OF_INVISIBILITY
+            return ITEM_RECIPE_BOOTS_OF_INVISIBILITY
+
+        case ITEM_WINGED_BOOTS
+            return ITEM_RECIPE_WINGED_BOOTS
+        case ITEM_STEEL_AXE
+            return ITEM_RECIPE_STEEL_AXE
+        case ITEM_SILVER_HAMMER
+            return ITEM_RECIPE_SILVER_HAMMER
+        case ITEM_GLOVES_OF_SPEED
+            return ITEM_RECIPE_GLOVES_OF_SPEED
+
+        case ITEM_HALF_OF_ARKENSTONE
+            return ITEM_RECIPE_HALF_OF_ARKENSTONE
+        case ITEM_LIGHT_ARMOR
+            return ITEM_RECIPE_LIGHT_ARMOR
+        case ITEM_SCROLL_OF_FUSION
+            return ITEM_RECIPE_SCROLL_OF_FUSION
+        case ITEM_AMULET_OF_THE_WILD
+            return ITEM_RECIPE_AMULET_OF_THE_WILD
+        
+        // Recipes (2)
+
+        case ITEM_HELM_OF_VALOR
+            return ITEM_RECIPE_HELM_OF_VALOR
+        case ITEM_MEDALLION_OF_COURAGE
+            return ITEM_RECIPE_MEDALLION_OF_COURAGE
+        case ITEM_ALLERIA_FLUTE_OF_ACCURACY
+            return ITEM_RECIPE_ALLERIA_FLUTE_OF_ACCURACY
+        case ITEM_ANCIENT_JANGGO_OF_ENDURANCE
+            return ITEM_RECIPE_ANCIENT_JANGGO_OF_ENDURANCE
+
+        case ITEM_THE_LION_HORN_OF_STORMWIND
+            return ITEM_RECIPE_THE_LION_HORN_OF_STORMWIND
+        case ITEM_WARSONG_BATTLE_DRUMS
+            return ITEM_RECIPE_WARSONG_BATTLE_DRUMS
+        case ITEM_DRUMS_OF_FUTURE
+            return ITEM_RECIPE_DRUMS_OF_FUTURE
+        case ITEM_THE_GOLDEN_HORN
+            return ITEM_RECIPE_THE_GOLDEN_HORN
+
+        case ITEM_TRIBAL_DRUMS
+            return ITEM_RECIPE_TRIBAL_DRUMS
+        case ITEM_NATURE_FLUTE
+            return ITEM_RECIPE_NATURE_FLUTE
+        case ITEM_VOID_AXE
+            return ITEM_RECIPE_VOID_AXE
+        case ITEM_AINZ_SWORD
+            return ITEM_RECIPE_AINZ_SWORD
+        
+        // Recipes (3)
+
+        case ITEM_SEER_STAFF
+            return ITEM_RECIPE_SEER_STAFF
+        case ITEM_SCALE_AXE
+            return ITEM_RECIPE_SCALE_AXE
+        case ITEM_DALAN_AXE
+            return ITEM_RECIPE_DALAN_AXE
+        case ITEM_DURATION_AXE
+            return ITEM_RECIPE_DURATION_AXE
+
+        case ITEM_DWARVEN_AXE
+            return ITEM_RECIPE_DWARVEN_AXE
+        case ITEM_BLADE_OF_HELL
+            return ITEM_RECIPE_BLADE_OF_HELL
+        case ITEM_KRAKEN_DAGGER
+            return ITEM_RECIPE_KRAKEN_DAGGER
+        case ITEM_MIDNIGHT_BLADE
+            return ITEM_RECIPE_MIDNIGHT_BLADE
+
+        case ITEM_BLOOD_GORGED_BLADE
+            return ITEM_RECIPE_BLOOD_GORGED_BLADE
+        case ITEM_STEEL_SHIELD
+            return ITEM_RECIPE_STEEL_SHIELD
+        case ITEM_SACRED_SHIELD
+            return ITEM_RECIPE_SACRED_SHIELD
+        case ITEM_IRON_SHIELD
+            return ITEM_RECIPE_IRON_SHIELD
+
+        // Recipes (4)
+
+        case ITEM_SPLIT_ARMOR
+            return ITEM_RECIPE_SPLIT_ARMOR
+        case ITEM_AVATAR_ARMOR
+            return ITEM_RECIPE_AVATAR_ARMOR
+        case ITEM_CHAOS_BLADE
+            return ITEM_RECIPE_CHAOS_BLADE
+        case ITEM_O_CLOCK
+            return ITEM_RECIPE_O_CLOCK
+
+        case ITEM_THUNDER_BOW
+            return ITEM_RECIPE_THUNDER_BOW
+        case ITEM_SOUL_OF_KILJEADEN
+            return ITEM_RECIPE_SOUL_OF_KILJEADEN
+        case ITEM_LIZARD_PENDANT
+            return ITEM_RECIPE_LIZARD_PENDANT
+        case ITEM_HELM_HERMES
+            return ITEM_RECIPE_HELM_HERMES
+
+        case ITEM_DARK_SPHERE
+            return ITEM_RECIPE_DARK_SPHERE
+        case ITEM_MYSTERY_GREEN_STAFF
+            return ITEM_RECIPE_MYSTERY_GREEN_STAFF
+        case ITEM_ICE_WAND
+            return ITEM_RECIPE_ICE_WAND
+        case ITEM_WAR_ENERGY
+            return ITEM_RECIPE_WAR_ENERGY
+
+        // Late Game (1)
+
+        case ITEM_ICE_AND_FIRE_SWORD
+            return ITEM_RECIPE_ICE_AND_FIRE_SWORD
+        case ITEM_BOOTS_OF_CRYSTAL_GOLD
+            return ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD
+        case ITEM_DESTROY_SWORD
+            return ITEM_RECIPE_DESTROY_SWORD
+        case ITEM_PLATINUM_HAMMER
+            return ITEM_RECIPE_PLATINUM_HAMMER
+
+        case ITEM_GLOVES_OF_FLASH
+            return ITEM_RECIPE_GLOVES_OF_FLASH
+        case ITEM_DARK_STEEL_SWORD
+            return ITEM_RECIPE_DARK_STEEL_SWORD
+        case ITEM_PERFECT_ARKENSTONE
+            return ITEM_RECIPE_PERFECT_ARKENSTONE
+        case ITEM_SHINY_ARMOR
+            return ITEM_RECIPE_SHINY_ARMOR
+
+        case ITEM_REACTIVE_ARMOR
+            return ITEM_RECIPE_REACTIVE_ARMOR
+        case ITEM_HOLY_ARMOR
+            return ITEM_RECIPE_HOLY_ARMOR
+        case ITEM_GOLD_AXE
+            return ITEM_RECIPE_GOLD_AXE
+
+        // Late Game (2)
+
+        case ITEM_DARK_MATTER
+            return ITEM_RECIPE_DARK_MATTER
+        case ITEM_RAIN_SWORD
+            return ITEM_RECIPE_RAIN_SWORD
+        case ITEM_CORROSIVE_HAMMER
+            return ITEM_RECIPE_CORROSIVE_HAMMER
+        case ITEM_VAMPIRELLA
+            return ITEM_RECIPE_VAMPIRELLA
+
+        case ITEM_LANCELOT_SHIELD
+            return ITEM_RECIPE_LANCELOT_SHIELD
+        case ITEM_LANCELOT_ARMOR
+            return ITEM_RECIPE_LANCELOT_ARMOR
+        case ITEM_LANCELOT_HELM
+            return ITEM_RECIPE_LANCELOT_HELM
+        case ITEM_MYSTERY_BLUE_STAFF
+            return ITEM_RECIPE_MYSTERY_BLUE_STAFF
+
+        case ITEM_FREEZE_WAND
+            return ITEM_RECIPE_FREEZE_WAND
+
+        case ITEM_O3_CLOCK
+            return ITEM_RECIPE_O3_CLOCK
+
+        default
+            return -1

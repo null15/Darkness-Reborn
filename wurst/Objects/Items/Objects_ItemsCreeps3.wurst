@@ -1,0 +1,164 @@
+package Objects_ItemsCreeps3
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+
+init
+
+@compiletime function createItems()
+
+//I047
+    new MyItemDefinition(ITEM_SPHERE_OF_FIRE)    
+    ..setClassification("Artifact")
+    ..addStats(addHp(6000))
+    ..setStockMaximum(99)
+    ..register()
+
+
+//I046
+    new MyItemDefinition(ITEM_SPHERE_OF_WATER)    
+    ..setClassification("Artifact")
+    ..addStats(addMp(6000))
+    ..setStockMaximum(99)
+    ..register()
+
+//I03P
+    new MyItemDefinition(ITEM_ESSENCE_OF_ASZUNE)    
+    ..setClassification("Artifact")
+    ..addStats(addAllStats(80))
+    ..setStockMaximum(99)
+    ..register()
+
+//I04B
+    new MyItemDefinition(ITEM_DREAM_SWORD)    
+    ..setClassification("Artifact")
+    ..addStats(addDamage(220))
+    ..addStats(addAttackSpeed(1.2))
+    ..addStats(addAllStats(12))
+    ..addStats(addCrit(4, 0.12))
+    ..setStockMaximum(99)
+    ..register()
+
+//I04C
+    new MyItemDefinition(ITEM_CRYSTAL_SWORD)    
+    ..setClassification("Artifact")
+    ..addStats(addDamage(240))
+    ..addStats(addAttackSpeed(1.2))
+    ..addStats(addAllStats(20))
+    ..addStats(addArmorOnHit(-65))
+    ..setStockMaximum(99)
+    ..register()
+
+//I0AY
+    new MyItemDefinition(ITEM_BLOODY_DAGGER)    
+    ..setClassification("Artifact")
+    ..addStats(addDamage(220))
+    ..addStats(addAllStats(30))
+    ..addStats(addLifeSteal(0.2))
+    ..setStockMaximum(99)
+    ..register()
+
+//I045
+    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L0)    
+    ..setCooldownGroup("A0BX")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..addStats(addStr(38))
+    ..addStats(addAgi(38))
+    ..addStats(addInt(100))
+    ..addStats("[WIP] Active: Restore MP to full. (cd 240 sec)")
+    ..setStockMaximum(99)
+    ..register()
+
+//I044
+    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L0)    
+    ..setCooldownGroup("A0BW")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..addStats(addStr(100))
+    ..addStats(addAgi(38))
+    ..addStats(addInt(38))
+    ..addStats("[WIP] Active: Restore HP to full. (cd 240 sec)")
+    ..setStockMaximum(99)
+    ..register()
+
+//I043
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L0)    
+    ..setClassification("Artifact")
+    ..addStats(addArmor(120))
+    ..addStats(addStr(38))
+    ..addStats(addAgi(100))
+    ..addStats(addInt(38))
+    ..addStats(addEvasion(0.25))
+    ..setStockMaximum(99)
+    ..register()
+
+//I0BB
+    new MyItemDefinition(ITEM_GLOVERSHIELD)    
+    ..setClassification("Artifact")
+    ..addStats(addArmor(100))
+    ..addStats(addMagicResist(30))
+    ..addStats("[WIP] Has the Ability to resurrect. (cd 240 sec)")
+    ..setStockMaximum(99)
+    ..register()
+
+//I048
+    new MyItemDefinition(ITEM_BOOK_OF_WIND)    
+    ..setClassification("Artifact")
+    ..addStats(addAgi(220))
+    ..setStockMaximum(99)
+    ..register()
+
+//I04A
+    new MyItemDefinition(ITEM_BOOK_OF_RAIN)    
+    ..setClassification("Artifact")
+    ..addStats(addInt(280))
+    ..setStockMaximum(99)
+    ..register()
+
+//I049
+    new MyItemDefinition(ITEM_BOOK_OF_EARTHQUAKE)    
+    ..setClassification("Artifact")
+    ..addStats(addStr(250))
+    ..addStats(addArmorPen(1))
+    ..setStockMaximum(99)
+    ..register()
+
+//I0BC
+    new MyItemDefinition(ITEM_LAZARUS_BELT)    
+    ..setActivelyUsed(true)
+    ..setClassification("Miscellaneous")
+    ..addStats(addArmor(100))
+    ..addStats(addInt(80))
+    ..addStats(addMp(2000))
+    ..addStats("[WIP] Mana Shield that drains 1 Mana per 0.8 damage taken.")
+    ..setStockMaximum(99)
+    ..register()
+
+//I06V
+    new MyItemDefinition(ITEM_MENELAUS)    
+    ..setClassification("Artifact")
+    ..addStats(addArmor(240))
+    ..addStats(addMagicResist(70))
+    ..addStats(addHp(2500))
+    ..addStats(addMovementSpeed(200))
+    ..setStockMaximum(99)
+    ..register()
+
+//I0BE
+    new MyItemDefinition(ITEM_SOUL_BLAME)    
+    ..setClassification("Artifact")
+    ..addStats(addDamage(700))
+    ..addStats(addAttackSpeed(1.4))
+    ..addStats(addHp(1000))
+    ..addStats(addArmorOnHit(-120))
+    ..setStockMaximum(99)
+    ..register()
+
+//I0BO
+    new MyItemDefinition(ITEM_TITANIUM)    
+    ..setClassification("Campaign")
+    ..addStats(addEvasion(0.5))
+    ..setStockMaximum(99)
+    ..register()

@@ -1,0 +1,137 @@
+package Objects_ItemsJsStatsAll
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import Jacksmith_Q
+
+init
+
+@compiletime function createItems()
+
+//I0AC
+    new MyItemWithCraftInfoDefinition(ITEM_NECKLACE_OF_SPELL_IMMUNITY, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNNecklace.blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAllStats(3))
+    ..addComponents(
+    ITEM_SLIPPERS_OF_AGILITY,
+    ITEM_MANTLE_OF_INTELLIGENCE,
+    ITEM_GAUNTLETS_OF_OGRE_STRENGTH)
+    ..register()
+
+//I0AD
+    new MyItemWithCraftInfoDefinition(ITEM_NECKLACE_OF_WOLFMAN, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelry_necklace_09.blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAllStats(6))
+    ..addComponents(
+    ITEM_ROBE_OF_MAGI,
+    ITEM_BOOTS_OF_QUELTHALAS,
+    ITEM_BELT_OF_GIANT_STRENGTH)
+    ..register()
+
+//I0AE
+    new MyItemWithCraftInfoDefinition(ITEM_JEWELRY_OF_HERMES, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelry_necklace_02.blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAllStats(15))
+    ..addComponents(
+    ITEM_ANCESTRAL_STAFF,
+    ITEM_HORN_OF_CLOUDS,
+    ITEM_KILLMAIM)
+    ..register()
+
+//I0AB
+    new MyItemWithCraftInfoDefinition(ITEM_JEWELRY_OF_DIARES, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelry_necklace_03.blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAllStats(40))
+    ..addComponents(
+    ITEM_NECKLACE_OF_SPELL_IMMUNITY,
+    ITEM_NECKLACE_OF_WOLFMAN,
+    ITEM_JEWELRY_OF_HERMES)
+    ..register()
+
+//I0AG
+    new MyItemWithCraftInfoDefinition(ITEM_JEWELRY_OF_ISSABELLA, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelry_necklace_04.blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAllStats(70))
+    ..addComponents(
+    ITEM_CRYSTAL_BALL,
+    ITEM_MAGIC_POTION,
+    ITEM_JEWELRY_OF_DIARES)
+    ..register()
+
+//I0AF
+    new MyItemWithCraftInfoDefinition(ITEM_LIGHT_OF_MOON, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelry_necklace_07.blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAllStats(130))
+    ..addComponents(
+    ITEM_JEWELRY_OF_ISSABELLA,
+    ITEM_KEY_OF_THREE_MOONS)
+    ..register()
+
+//I0AL
+    new MyItemWithCraftInfoDefinition(ITEM_PENDANT_OF_MUGEN, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelry_necklace_13.blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAllStats(30))
+    ..addComponents(
+    ITEM_MINDSTAFF,
+    ITEM_LIONS_RING,
+    ITEM_HEART_OF_SEARINOX)
+    ..register()
+
+//I0AH
+    new MyItemWithCraftInfoDefinition(ITEM_JEWELRY_OF_MOON, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelry_necklace_11.blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAllStats(220))
+    ..addComponents(
+    ITEM_LIGHT_OF_MOON,
+    ITEM_PENDANT_OF_MUGEN)
+    ..register()
+
+//I0AI
+    new MyItemWithCraftInfoDefinition(ITEM_NECKLACE_OF_ROYAL, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelry_necklace_12.blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAllStats(380))
+    ..addComponents(
+    ITEM_JEWELRY_OF_MOON,
+    ITEM_ESSENCE_OF_ASZUNE)
+    ..register()
+
+//I07V
+    new MyItemWithCraftInfoDefinition(ITEM_NECROPEDIA, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNNecropedia.blp")
+    ..setClassification("Artifact")
+    ..addStats(addAllStats(333))
+    ..addComponents(
+    ITEM_BOOK_OF_EARTHQUAKE,
+    ITEM_BOOK_OF_RAIN,
+    ITEM_BOOK_OF_WIND)
+    ..register()
+
+//I0AJ
+    new MyItemWithCraftInfoDefinition(ITEM_LOKI_NECKLACE, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelry_necklace_31.blp")    
+    ..setClassification("Purchasable")
+    ..addStats(addAllStats(720))
+    ..addComponents(
+    ITEM_NECKLACE_OF_ROYAL,
+    ITEM_NECROPEDIA)
+    ..register()
+    
+//I0AK
+    new MyItemWithCraftInfoDefinition(ITEM_ODIN_NECKLE, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelry_necklace_32.blp")    
+    ..setClassification("Campaign")
+    ..addStats(addAllStats(1500))
+    ..addComponents(
+    ITEM_LOKI_NECKLACE,
+    ITEM_SCARYS_POTION)
+    ..register()

@@ -8,8 +8,8 @@ let magicResistMap = new HashMap<integer, real>
 let physicalPenetrationMap = new HashMap<integer, real>
 let basePhysPenMap = new HashMap<integer, real>
 let baseMagicResMap = new HashMap<integer, real>
-let physPenItemHash = new HashMap<int, real>
-let magicResItemHash = new HashMap<int, real>
+let physPenItemHash = compiletime(new HashMap<int, real>)
+let magicResItemHash = compiletime(new HashMap<int, real>)
 real physPen
 real magicRes
 
@@ -72,7 +72,7 @@ public function unit.magicResSub(item dropped)
                 magicRes = (1-currentMagic*magicAdd)
     this.enumerateMagicResistance(magicRes * 100)
 
-public function int.putInItemHash(real input)
+public function int.putInPhysPenItemHash(real input)
     physPenItemHash.put(this, input)
 
 public function int.putInMagicResItemHash(real input)

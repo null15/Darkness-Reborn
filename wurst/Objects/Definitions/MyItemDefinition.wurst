@@ -1,0 +1,370 @@
+package MyItemDefinition
+
+import CommonDescriptions
+import ItemIds
+import Recipes
+import Object_Shops
+import ItemsNames
+import ItemObjEditing
+import LinkedList
+import ObjectIds
+import public ItemStats
+import ObjectIdGenerator
+import ItemsAndRecipesHashTable
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public class MyItemDefinitionBase extends ItemDefinition
+    // The item's ID. Example: Scroll of Fusion.
+    int itemId
+    
+    construct(int newId)
+        super(newId, ItemIds.orbofDarkness)
+        initBase(newId)
+
+    construct(int newId, int oldId)
+        super(newId, oldId)
+        initBase(newId)
+
+    private function initBase(int itemId)
+        this.itemId = itemId
+
+        setActivelyUsed(false)
+        setUseAutomaticallyWhenAcquired(false)
+        setAbilities("")
+
+        setGoldCost(0)
+        setLumberCost(0)
+
+        setStockMaximum(1)
+        setStockReplenishInterval(0)
+        setStockStartDelay(0)
+
+        setPerishable(false)
+        setNumberofCharges(0)
+
+        setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
+
+        setScalingValue(1)
+        setTintingColor1Red(255)
+        setTintingColor2Green(255)
+        setTintingColor3Blue(255)
+        
+        setCanBeSold(true)
+
+        setCanBeDropped(true)
+        setDroppedWhenCarrierDies(false)
+
+        setIgnoreCooldown(false)
+        setIncludeAsRandomChoice(true)
+        setValidTargetForTransformation(false)
+
+        setPriority(1)
+        setLevel(1)
+        // So any 1 lvl hero can destroy item in creeps room.
+        setHitPoints(10)
+
+        setRequirements("")
+        setRequirementsLevels("")
+        setClassification("PowerUp")
+
+    function setCanBeSold(boolean value)
+        setCanBeSoldByMerchants(value)
+        setCanBeSoldToMerchants(value)
+
+    function register()
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public interface ItemAbilityFunc
+    function run(int abilityId)
+
+// To define simple items: ring of protection, simple sword.
+public class MyItemDefinition extends MyItemDefinitionBase
+    string abilityList
+    string effects
+    string title
+    string extraDescription
+
+    construct(int newId, int oldId)
+        super(newId, oldId)
+        initThis()
+    
+    construct(int newId)
+        super(newId)
+        initThis()
+
+    private function initThis()
+        this.abilityList      = ""
+        this.effects          = ""
+        this.extraDescription = ""
+        this.title            = ""
+
+    function addStats(ItemStats itemStats)
+        itemStats.addCustomStats(itemId, this)
+        effects = effects + itemStats.effects + "\n"
+        
+        if (itemStats.addToAbilityList())
+            abilityList = abilityList + itemStats.abilityId.toRawCode() + ","
+
+    function addStats(int abilityId, string effects)
+        this.effects = this.effects + effects + "\n"
+        abilityList = abilityList + abilityId.toRawCode() + ","
+    
+    function addStats(ItemAbilityFunc initFunc, string effects)
+        let abilityId = ABIL_ID_GEN.next()
+        initFunc.run(abilityId)
+
+        this.effects = this.effects + effects + "\n"
+        abilityList = abilityList + abilityId.toRawCode() + ","
+    
+    function addStats(string effects)
+        this.effects = this.effects + effects + "\n"
+
+    function addExtraDescription(string extraDescription)
+        this.extraDescription = extraDescription
+
+    function addTitle(string title)
+        this.title = title
+
+    protected function applyStats()
+        if (abilityList.length() > 0)
+            abilityList = abilityList.substring(0, abilityList.length() - 1)
+            setAbilities(abilityList)
+
+    protected function getEffectsDescription() returns string
+        string result = ""
+        if (title != "")
+            result = title
+        if (effects != "")
+            result = result + wordEffects + effects
+        if (extraDescription != "")
+            result = result + extraDescription + wordEffects
+        return result
+
+    protected function basicEffectsDescr()
+        let itemName = getItemName(itemId)
+        let descrEffects = getEffectsDescription()
+
+        // The item name
+        setName(itemName)
+        // The chest item description
+        setDescription(descrEffects)
+        // The shop name
+        setTooltipBasic("Purchase " + itemName)
+        // The shop and inventory text
+        setTooltipExtended(descrEffects)
+        
+    function addHotKey()
+        setHotkey(getHotKey(itemId))
+
+    override function register()
+        applyStats()
+        basicEffectsDescr()
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+// To define 'hidden' recipes (jacksmith, thief, arkenstone, angel mace).
+// Such recipes have no recipe-item. But info-recipe-item can be added to help
+// players.
+public class MyItemWithCraftInfoDefinition extends MyItemDefinition
+    // Item and recipe-item icon.
+    string icon
+
+    // Link to list with recipes.
+    RecipeList recipeList
+    // List of components.
+    LinkedList<int> components
+    
+    // ID of the recipe-item for this item.
+    // -1 to not add.
+    int recipeItemId
+    
+    construct(int newId, RecipeList recipeList, int recipeItemId)
+        super(newId)
+
+        this.recipeList       = recipeList
+        this.recipeItemId     = recipeItemId
+
+        this.icon             = ""
+        this.components       = null
+        
+    protected function getMaterialsDescription() returns string
+        if (components == null)
+            return ""
+
+        string materials = wordMaterials
+        for comp in components
+            string shopName = getShopNameForItem(comp)
+            if (shopName == "null")
+                shopName = getShopNameForItem(getItemRecipeId(comp))
+
+            materials = materials + getItemName(comp) + " (" + shopName + ")\n"
+        return materials
+
+    protected function getRecipeDescription() returns string
+        return getEffectsDescription() + getMaterialsDescription()
+
+    override function register()
+        applyStats()
+        basicEffectsDescr()
+
+        let itemName = getItemName(itemId)
+        let descrRecipe  = getRecipeDescription()
+
+        if (recipeItemId != -1)
+            new MyItemDefinitionBase(recipeItemId)
+            ..setInterfaceIcon(icon)
+            ..setName("Craft Info " + itemName)
+            ..setTooltipBasic("Craft Info " + itemName)
+            ..setTooltipExtended(descrRecipe)
+            ..setStockMaximum(0)
+
+    override function setInterfaceIcon(string data)
+        super.setInterfaceIcon(data)
+        icon = data
+
+    function addComponents(int item1)
+        this.recipeList.addRecipe(item1, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1)
+
+    function addComponents(int item1, int item2)
+        this.recipeList.addRecipe(item1, item2, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2)
+
+    function addComponents(int item1, int item2, int item3)
+        this.recipeList.addRecipe(item1, item2, item3, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3)
+
+    function addComponents(int item1, int item2, int item3, int item4)
+        this.recipeList.addRecipe(item1, item2, item3, item4, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4)
+
+    function addComponents(int item1, int item2, int item3, int item4, int item5)
+        this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4, item5)
+
+    function addComponents(int item1, int item2, int item3, int item4, int item5, int item6)
+        this.recipeList.addRecipe(item1, item2, item3, item4, item5, item6, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4, item5, item6)
+        
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+// Set properties to the recipe-item.
+// Example: 
+// setGoldCost(400)
+// setStockReplenishInterval(3)   
+// setStockStartDelay(3) 
+public interface InitItem
+    function call(MyItemDefinitionBase itemDef)
+
+// To define item with recipe-item.
+// Example: scroll of fusion = ring of protection + ring of regeneration + circlet of nobility + Recipe scroll of fusion.
+// The item 'scroll of fusion' has the recipe-item 'Recipe scroll of fusion'.
+public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
+    // Example: itemRecipeList, jackSmithRecipe. 
+    InitItem initRecipe
+
+    construct(int itemId, RecipeList recipeList, int recipeItemId, InitItem initRecipe)
+        super(itemId, recipeList, recipeItemId)
+        this.initRecipe = initRecipe
+
+    override function getMaterialsDescription() returns string
+        if (components == null)
+            return ""
+        
+        string materials = wordMaterials
+        for comp in components
+
+            string shopName = getShopNameForItem(comp)
+            if (shopName == "null")
+                shopName = getShopNameForItem(getItemRecipeId(comp))
+
+            // Exclude 'Recipe Item' from materials required, because materials required
+            // list already shown in recipe item.
+            if (comp != recipeItemId)
+                materials = materials + getItemName(comp) + " (" + shopName + ")\n"
+        return materials
+
+    override function register()
+        applyStats()
+        basicEffectsDescr()
+        
+        let itemName = getItemName(itemId)
+        let descrRecipe  = getRecipeDescription()
+
+        let recipeItemDef = new MyItemDefinitionBase(recipeItemId)
+        ..setInterfaceIcon(icon)
+        ..setName("Recipe " + itemName)
+        ..setClassification("Charged")
+        ..setDescription(descrRecipe)
+        ..setTooltipBasic("Purchase Recipe " + itemName)
+        ..setTooltipExtended(descrRecipe)
+        ..setHotkey(getHotKey(recipeItemId))
+        ..setStockReplenishInterval(3)
+        ..setStockStartDelay(3)
+
+        initRecipe.call(recipeItemDef)
+
+    override function addComponents(int item1)
+        this.recipeList.addRecipe(item1, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, this.recipeItemId)
+
+    override function addComponents(int item1, int item2)
+        this.recipeList.addRecipe(item1, item2, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, this.recipeItemId)
+
+    override function addComponents(int item1, int item2, int item3)
+        this.recipeList.addRecipe(item1, item2, item3, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, this.recipeItemId)
+
+    override function addComponents(int item1, int item2, int item3, int item4)
+        this.recipeList.addRecipe(item1, item2, item3, item4, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4, this.recipeItemId)
+
+    override function addComponents(int item1, int item2, int item3, int item4, int item5)
+        this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4, item5, this.recipeItemId)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public class MyGemDefinition extends MyItemDefinition
+    construct(int newId)
+        super(newId)
+        setActivelyUsed(true)
+        setCanBeSold(false)
+        setGoldCost(149000)
+
+        setStockReplenishInterval(600)
+        setStockStartDelay(100)
+
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+// TODO. Will be used to list items dropped by creeps in info shops
+public class MyCreepTpDefinition extends MyItemDefinitionBase
+    construct(int newId)
+        super(newId)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------

@@ -1,7 +1,15 @@
-package A0DE_E
+package Jacksmith_E
 
 import ClosureEvents
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+import Recipes
+import LinkedList
+import MyUnitIds
 import MyItemIds
+
+public let jacksmithBullionsList = compiletime(new RecipeList())
 
 public function forgeSmart()
     EventListener.onCast('A0DE') (unit caster) ->

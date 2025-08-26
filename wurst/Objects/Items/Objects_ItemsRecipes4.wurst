@@ -1,0 +1,223 @@
+package Objects_ItemsRecipes4
+
+import CommonDescriptions
+import MyItemDefinition
+import ItemObjEditing
+import AbilityObjEditing
+import ItemIds
+import MyItemIds
+import ObjectIds
+import MyAbilityIds
+import Icons
+import Abilities
+import RecipeItems
+
+init
+
+@compiletime function createItems()
+
+//I05I
+    new MyItemWithRecipeDefinition(ITEM_SPLIT_ARMOR, itemRecipeList, ITEM_RECIPE_SPLIT_ARMOR,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(1600)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBanditsLeather.blp")
+    ..setClassification("Charged")
+    ..addStats(addArmor(100))
+    ..addStats(addHpReg(50))
+    ..addStats(addSpikes(0.2))
+    ..addComponents(
+    ITEM_LIGHT_ARMOR,
+    ITEM_IRON_ARMOR,
+    ITEM_SPIKED_ARMOR)
+    ..addHotKey()
+    ..register()
+
+//I05N
+    new MyItemWithRecipeDefinition(ITEM_AVATAR_ARMOR, itemRecipeList, ITEM_RECIPE_AVATAR_ARMOR,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(2000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPhantom SKin.blp")
+    ..setClassification("Charged")
+    ..setActivelyUsed(true)
+    ..addStats(addAbilityAvatarMagicImmune(20, 10, 2000))
+    ..addStats(addArmor(50))
+    ..addStats(addHpReg(25))
+    ..addStats(addHp(1000))
+    ..addComponents(
+    ITEM_LIGHT_ARMOR,
+    ITEM_KHADGAR_PENDANT_OF_HEALTH,
+    ITEM_RING_OF_REGENERATION)
+    ..addHotKey()
+    ..register()
+
+//I05Q
+    new MyItemWithRecipeDefinition(ITEM_CHAOS_BLADE, itemRecipeList, ITEM_RECIPE_CHAOS_BLADE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(2000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNChaosCrime.blp")
+    ..setClassification("Charged")
+    ..addStats(addDamage(400))
+    ..addStats(addAttackSpeed(1.5))
+    ..addStats(addStr(70))
+    ..addStats(addAgi(200))
+    ..addStats(addInt(70))
+    ..addComponents(
+    ITEM_KRAKEN_DAGGER,
+    ITEM_SCROLL_OF_FUSION,
+    ITEM_SIMPLE_SWORD)
+    ..addHotKey()
+    ..register()
+
+//I05S
+    new MyItemWithRecipeDefinition(ITEM_O_CLOCK, itemRecipeList, ITEM_RECIPE_O_CLOCK,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(12000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")
+    ..setClassification("Charged")
+    ..setActivelyUsed(true)
+    ..addStats(addAbilityResetCd(220, 2000))
+    ..addStats(addAllStats(20))
+    ..addComponents(
+    ITEM_AMULET_OF_SPELL_SHIELD,
+    ITEM_ARCANITE_SHIELD,
+    ITEM_TOME_OF_RETRAINING)
+    ..addHotKey()
+    ..register()
+
+//I07M
+    new MyItemWithRecipeDefinition(ITEM_THUNDER_BOW, itemRecipeList, ITEM_RECIPE_THUNDER_BOW,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(4000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNbow.blp")
+    ..setClassification("Charged")
+    ..addStats(addAllStats(100))
+    ..addStats(addDamage(300))
+    ..addStats(addAttackSpeed(2))
+    ..addStats(addChainLighting(0.4, 3000, 0.1, 5))
+    ..addComponents(
+    ITEM_MEDALLION_OF_COURAGE,
+    ITEM_AMULET_OF_THE_WILD,
+    ITEM_ORB_OF_LIGHTNING)
+    ..addHotKey()
+    ..register()
+
+//I07Q
+    new MyItemWithRecipeDefinition(ITEM_SOUL_OF_KILJEADEN, itemRecipeList, ITEM_RECIPE_SOUL_OF_KILJEADEN,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(6000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSoulGem.blp")
+    ..setClassification("Charged")
+    ..addStats(addDamage(200))
+    ..addStats(addMp(3000))
+    ..addStats(addMpReg(1.5))
+    ..addStats(addMpOnHit(0.1))
+    ..addComponents(
+    ITEM_MEDALLION_OF_COURAGE,
+    ITEM_PENDANT_OF_MANA,
+    ITEM_ORB_OF_KILJAEDAN)
+    ..addHotKey()
+    ..register()
+
+//I0BF
+    new MyItemWithRecipeDefinition(ITEM_LIZARD_PENDANT, itemRecipeList, ITEM_RECIPE_LIZARD_PENDANT,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(5600)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (2).blp")
+    ..setClassification("Charged")
+    ..addStats(addArmor(40))
+    ..addStats(addStr(150))
+    ..addStats(addHp(3000))
+    ..addStats(addHpRegRel(0.01))
+    ..addComponents(
+    ITEM_HELM_OF_VALOR,
+    ITEM_LIGHT_ARMOR)
+    ..addHotKey()
+    ..register()
+
+//I0BS
+    new MyItemWithRecipeDefinition(ITEM_HELM_HERMES, itemRecipeList, ITEM_RECIPE_HELM_HERMES,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(7000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (3).blp")
+    ..setClassification("Charged")
+    ..addStats(addStr(100))
+    ..addStats(addHp(3000))
+    ..addStats("100% to return 0.5xstr damage\n")
+    ..addComponents(
+    ITEM_HELM_HERMES,
+    ITEM_SPLIT_ARMOR)
+    ..addHotKey()
+    ..register()
+
+//I0CN
+    new MyItemWithRecipeDefinition(ITEM_DARK_SPHERE, itemRecipeList, ITEM_RECIPE_DARK_SPHERE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(2800)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDarkSphere.blp")
+    ..setClassification("Charged")
+    ..addStats(addStr(50))
+    ..addStats(addHpReg(10))
+    ..addStats(addAbilityPhoenixFire(700, 1, 650))
+    ..addComponents(
+    ITEM_ORB_OF_DARKNESS,
+    ITEM_HELM_OF_VALOR)
+    ..addHotKey()
+    ..register()
+
+//I0IK
+    new MyItemWithRecipeDefinition(ITEM_MYSTERY_GREEN_STAFF, itemRecipeList, ITEM_RECIPE_MYSTERY_GREEN_STAFF,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(4800)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff1.blp")
+    ..setCooldownGroup("A0XN")
+    ..setActivelyUsed(true)
+    ..addStats(addInt(180))
+    ..addStats(addAttackSpeed(1.8))
+    ..addStats(addMpReg(1))
+    ..addStats("[WIP] Active: Deals 7800 Damage to the target enemy. Cooldown: 30 seconds")
+    ..addComponents(
+    ITEM_SEER_STAFF,
+    ITEM_RING_OF_ARCHMAGI,
+    ITEM_THUNDERLIZARD_DIAMOND)
+    ..addHotKey()
+    ..register()
+
+//I0IV
+    new MyItemWithRecipeDefinition(ITEM_ICE_WAND, itemRecipeList, ITEM_RECIPE_ICE_WAND,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(5700)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC1.blp")
+    ..addStats(addInt(180))
+    ..addStats(addHp(3200))
+    ..addStats("[WIP] Active: Sends a Frost Nova on the target")
+    ..addComponents(
+    ITEM_SEER_STAFF,
+    ITEM_ORB_OF_FROST,
+    ITEM_SCEPTER_OF_MASTERY)
+    ..addHotKey()
+    ..register()
+
+//I0JK
+    new MyItemWithRecipeDefinition(ITEM_WAR_ENERGY, itemRecipeList, ITEM_RECIPE_WAR_ENERGY,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(7600)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAnimalWarTraining.blp")
+    ..setClassification("Charged")
+    ..addStats(addMp(7000))
+    ..addComponents(
+    ITEM_SOUL_OF_KILJEADEN,
+    ITEM_ARKENSTONE_FRAGMENT)
+    ..addHotKey()
+    ..register()

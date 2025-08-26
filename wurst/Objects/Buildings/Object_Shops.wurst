@@ -1,0 +1,949 @@
+package Object_Shops
+
+import CommonDescriptions
+import UnitObjEditing
+import UnitIds
+import Buildings
+import ObjectIds
+import MyBuildingsIds
+import MyUnitIds
+import MyItemIds
+import MyAbilityIds
+import Icons
+import LinkedList
+import HashMap
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public class ShopInfo
+    int shopId
+    string shopName
+    LinkedList<int> itemsMade
+    LinkedList<int> itemsSold
+
+    construct(int shopId, string shopName, LinkedList<int> itemsMade, LinkedList<int> itemsSold)
+        this.shopId    = shopId
+        this.shopName  = shopName
+        this.itemsMade = itemsMade
+        this.itemsSold = itemsSold
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+let shopsInfo = new LinkedList<ShopInfo>()
+// key = itemId, value = shopId
+let itemsShopsMap = new HashMap<int, int>()
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+@compiletime
+function initLists()
+    shopsInfo.add(
+        new ShopInfo(
+            BUILDING_SHOP_BASIC_ITEMS1,
+            shopNameBasicItems1,
+            asList(
+            ITEM_GLOVES_OF_HASTE, ITEM_GLOVES_OF_HADES, ITEM_GLOVES_OF_WIND, ITEM_LIFE_STEAL,
+            ITEM_LEATHER_ARMOR, ITEM_IRON_ARMOR, ITEM_SILVER_ARMOR, ITEM_SIMPLE_SWORD,
+            ITEM_CLAWS_OF_ATTACK, ITEM_STURDY_WAR_AXE, ITEM_MAUL_OF_STRENGTH
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_SHOP_BASIC_ITEMS2,
+            shopNameBasicItems2,
+            asList(
+            ITEM_BOOTS_OF_SPEED, ITEM_JADE_RING, ITEM_SOUL_RING, ITEM_RING_OF_ARCHMAGI,
+            ITEM_RING_OF_REGENERATION, ITEM_RING_OF_PROTECTION, ITEM_ROBE_OF_MAGI, ITEM_BOOTS_OF_QUELTHALAS,
+            ITEM_BELT_OF_GIANT_STRENGTH, ITEM_CIRCLET_OF_NOBILITY, ITEM_CRYSTAL_BALL
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_SHOP_BASIC_ITEMS3,
+            shopNameBasicItems3,
+            asList(
+            ITEM_ORB_OF_CORRUPTION, ITEM_ORB_OF_DARKNESS, ITEM_ORB_OF_LIGHTNING, ITEM_AMULET_OF_SPELL_SHIELD,
+            ITEM_ORB_OF_FROST, ITEM_ORB_OF_KILJAEDAN, ITEM_ORB_OF_FIRE, ITEM_TALISMAN_OF_EVASION,
+            ITEM_ENCHANTED_SHIELD, ITEM_ARCANITE_SHIELD, ITEM_SHIELD_OF_HONOR
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_SHOP_BASIC_ITEMS4,
+            shopNameBasicItems4,
+            asList(
+            ITEM_POTION_OF_GREATER_HEALING, ITEM_POTION_OF_GREATER_MANA, ITEM_PENDANT_OF_ENERGY, ITEM_PENDANT_OF_MANA, ITEM_PERIAPT_OF_VITALITY, ITEM_KHADGAR_PENDANT_OF_HEALTH, ITEM_CLOAK_OF_SHADOWS
+            ),
+            asList(
+            ITEM_TOME_OF_RETRAINING
+            )
+        ),
+
+        new ShopInfo(
+            BUILDING_SHOP_RECIPES1,
+            shopNameRecipes1,
+            asList(
+            ITEM_RECIPE_ICE_SWORD, ITEM_RECIPE_FIRE_SWORD, ITEM_RECIPE_BOOTS_OF_TELEPORTATION, ITEM_RECIPE_BOOTS_OF_INVISIBILITY,
+            ITEM_RECIPE_WINGED_BOOTS, ITEM_RECIPE_STEEL_AXE, ITEM_RECIPE_SILVER_HAMMER, ITEM_RECIPE_GLOVES_OF_SPEED,
+            ITEM_RECIPE_HALF_OF_ARKENSTONE, ITEM_RECIPE_LIGHT_ARMOR, ITEM_RECIPE_SCROLL_OF_FUSION, ITEM_RECIPE_AMULET_OF_THE_WILD
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_SHOP_RECIPES2,
+            shopNameRecipes2,
+            asList(
+            ITEM_RECIPE_HELM_OF_VALOR, ITEM_RECIPE_MEDALLION_OF_COURAGE, ITEM_RECIPE_ALLERIA_FLUTE_OF_ACCURACY, ITEM_RECIPE_ANCIENT_JANGGO_OF_ENDURANCE,
+            ITEM_RECIPE_THE_LION_HORN_OF_STORMWIND, ITEM_RECIPE_WARSONG_BATTLE_DRUMS, ITEM_RECIPE_DRUMS_OF_FUTURE, ITEM_RECIPE_THE_GOLDEN_HORN,
+            ITEM_RECIPE_TRIBAL_DRUMS, ITEM_RECIPE_NATURE_FLUTE, ITEM_RECIPE_VOID_AXE, ITEM_RECIPE_AINZ_SWORD
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_SHOP_RECIPES3,
+            shopNameRecipes3,
+            asList(
+            ITEM_RECIPE_SEER_STAFF, ITEM_RECIPE_SCALE_AXE, ITEM_RECIPE_DALAN_AXE, ITEM_RECIPE_DURATION_AXE,
+            ITEM_RECIPE_DWARVEN_AXE, ITEM_RECIPE_BLADE_OF_HELL, ITEM_RECIPE_KRAKEN_DAGGER, ITEM_RECIPE_MIDNIGHT_BLADE,
+            ITEM_RECIPE_BLOOD_GORGED_BLADE, ITEM_RECIPE_STEEL_SHIELD, ITEM_RECIPE_SACRED_SHIELD, ITEM_RECIPE_IRON_SHIELD
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_SHOP_RECIPES4,
+            shopNameRecipes4,
+            asList(
+            ITEM_RECIPE_SPLIT_ARMOR, ITEM_RECIPE_AVATAR_ARMOR, ITEM_RECIPE_CHAOS_BLADE, ITEM_RECIPE_O_CLOCK,
+            ITEM_RECIPE_THUNDER_BOW, ITEM_RECIPE_SOUL_OF_KILJEADEN, ITEM_RECIPE_LIZARD_PENDANT, ITEM_RECIPE_HELM_HERMES,
+            ITEM_RECIPE_DARK_SPHERE, ITEM_RECIPE_MYSTERY_GREEN_STAFF, ITEM_RECIPE_ICE_WAND, ITEM_RECIPE_WAR_ENERGY
+            ),
+            new LinkedList<int>()
+        ),
+
+        new ShopInfo(
+            BUILDING_SHOP_LATE_GAME_ITEMS1,
+            shopNameLateGameItems1,
+            asList(
+            ITEM_RECIPE_ICE_AND_FIRE_SWORD, ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD, ITEM_RECIPE_DESTROY_SWORD, ITEM_RECIPE_PLATINUM_HAMMER,
+            ITEM_RECIPE_GLOVES_OF_FLASH, ITEM_RECIPE_DARK_STEEL_SWORD, ITEM_RECIPE_PERFECT_ARKENSTONE, ITEM_RECIPE_SHINY_ARMOR,
+            ITEM_RECIPE_REACTIVE_ARMOR, ITEM_RECIPE_HOLY_ARMOR, ITEM_RECIPE_GOLD_AXE
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_SHOP_LATE_GAME_ITEMS2,
+            shopNameLateGameItems2,
+            asList(
+            ITEM_RECIPE_DARK_MATTER, ITEM_RECIPE_RAIN_SWORD, ITEM_RECIPE_CORROSIVE_HAMMER, ITEM_RECIPE_VAMPIRELLA,
+            ITEM_RECIPE_LANCELOT_SHIELD, ITEM_RECIPE_LANCELOT_ARMOR, ITEM_RECIPE_LANCELOT_HELM, ITEM_RECIPE_MYSTERY_BLUE_STAFF,
+            ITEM_RECIPE_FREEZE_WAND
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_SHOP_GEMS,
+            shopNameGems,
+            asList(
+            ITEM_PERFECT_GARNET, ITEM_PERFECT_CARNELIAN, ITEM_PERFECT_CITRINE, ITEM_PERFECT_TOPAZ,
+            ITEM_PERFECT_OBSIDIAN, ITEM_PERFECT_AQUAMARINE, ITEM_PERFECT_NEPHRITE, ITEM_PERFECT_EMERALD,
+            ITEM_PERFECT_PEARL, ITEM_PERFECT_HIPPOPUS, ITEM_PERFECT_SAPPHIRE, ITEM_PERFECT_AMETHYST
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_SHOP_LATE_GAME_ITEMS4,
+            shopNameLateGameItems4,
+            asList(
+            ITEM_BULION, ITEM_CRYSTAL_ARMOR, ITEM_CRYSTAL_DUAL_SWORD, ITEM_CRYSTAL_KNIFE,
+            ITEM_CRYSTAL_SPEAR, ITEM_RECIPE_DRAGON_WINGS
+            ),
+            asList(
+            ITEM_TOME_OF_FROSTY_INTELLIGENCE, ITEM_TOME_OF_FROSTY_STRENGTH,
+            ITEM_TOME_OF_FROSTY_AGILITY
+            )
+        ),
+
+        new ShopInfo(
+            BUILDING_TINKER_SHOP_TOMES,
+            shopNameTinkerTomes,
+            asList(
+            ITEM_TOME_OF_FROSTY_AGILITY, ITEM_TOME_OF_FROSTY_STRENGTH, ITEM_TOME_OF_FROSTY_INTELLIGENCE, ITEM_TOME_OF_FROSTY_ALL_STATS,
+            ITEM_TOME_OF_AGILITY_10, ITEM_TOME_OF_STRENGTH_10, ITEM_TOME_OF_INTELLIGENCE_10
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_TINKER_SHOP_LUMBER,
+            shopNameTinkerLumber,
+            asList(
+            ITEM_GOLD_TO_LUMBER1, ITEM_GOLD_TO_LUMBER9, ITEM_GOLD_TO_LUMBER90, ITEM_GOLD_TO_LUMBER900,
+            ITEM_LUMBER1_TO_GOLD, ITEM_LUMBER10_TO_GOLD, ITEM_LUMBER100_TO_GOLD, ITEM_LUMBER1000_TO_GOLD
+            ),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_TINKER_SHOP_RECIPES,
+            shopNameTinkerRecipes,
+            asList(
+            ITEM_RECIPE_ICE_AND_FIRE_SWORD_II, ITEM_RECIPE_DARK_STEEL_SWORD_II, ITEM_RECIPE_DESTROY_SWORD_II, ITEM_RECIPE_PLATINUM_HAMMER_II,
+            ITEM_RECIPE_GOLD_AXE_II, ITEM_RECIPE_REACTIVE_ARMOR_II, ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD_II, ITEM_RECIPE_O3_CLOCK, ITEM_RECIPE_O9_CLOCK
+            ),
+            new LinkedList<int>()
+        ),
+
+        new ShopInfo(
+            BUILDING_CREEPS_TP1,
+            shopNameCreepsTp1,
+            new LinkedList<int>(),
+            asList(
+            CREEP_TP_SPIDER, CREEP_TP_MUD_GOLEM, CREEP_TP_MURLOC_TIDERUNNER, CREEP_TP_TIMBER_WOLF,
+            CREEP_TP_CRAB_SHORECRAWLER, CREEP_TP_FACELESS_ONE_TRICKSTER, CREEP_TP_SPITTING_SPIDER, CREEP_TP_ROCK_GOLEM,
+            CREEP_TP_MURGUL_SHADOWCASTER, CREEP_TP_POLAR_FURBOLG, CREEP_TP_GHOST, CREEP_TP_FACELESS_ONE_DEATHBRINGER
+            )
+        ),
+        new ShopInfo(
+            BUILDING_CREEPS_TP2,
+            shopNameCreepsTp2,
+            new LinkedList<int>(),
+            asList(
+            CREEP_TP_BROOD_MOTHER, CREEP_TP_GRANITE_GOLEM, CREEP_TP_TURTLE, CREEP_TP_GIANT_POLAR_BEAR,
+            CREEP_TP_STORM_WYRM, CREEP_TP_SKELETON_WARRIOR, CREEP_TP_FOREST_TROLL_WARLOCK, CREEP_TP_DIRE_MAMMOTH,
+            CREEP_TP_FEL_RAVAGER, CREEP_TP_DALARAN_REJECT, CREEP_TP_VILE_TORMENTOR, CREEP_TP_ELDER_VOIDWALKER
+            )
+        ),
+        new ShopInfo(
+            BUILDING_CREEPS_TP3,
+            shopNameCreepsTp3,
+            new LinkedList<int>(),
+            asList(
+            CREEP_TP_NERUBIAN_QUEEN, CREEP_TP_HYDRALISK, CREEP_TP_FLESH_GOLEM, CREEP_TP_FURBOLG_GIANT,
+            CREEP_TP_DOOM_GUARD, CREEP_TP_SCARY_SCREAM, CREEP_TP_FROSTY_SNOWMAN, CREEP_TP_ICE_REVENANT,
+            CREEP_TP_OVERLORD, CREEP_TP_DRYAD, CREEP_TP_FOOTMAN, CREEP_TP_CAPTIAN
+            )
+        ),
+        new ShopInfo(
+            BUILDING_CREEPS_TP4,
+            shopNameCreepsTp4,
+            new LinkedList<int>(),
+            asList(
+            CREEP_TP_DRAGONS, CREEP_TP_TOWER, CREEP_TP_DREADLORD, CREEP_TP_WATER
+            )
+        )
+    )
+
+    for shopInfo in shopsInfo
+        //println("ShopInfo.\n\tshopId = {0}\n\tshopName = {1}".format(shopInfo.shopId.toString(), shopInfo.shopName))
+
+        //println("\n\titemsMade:")
+        for itemId in shopInfo.itemsMade
+            itemsShopsMap.put(itemId, shopInfo.shopId)
+            //println("\t\titemId = {0}".format(itemId.toString()))
+
+        //println("\n\titemsSold:")
+        for itemId in shopInfo.itemsSold
+            itemsShopsMap.put(itemId, shopInfo.shopId)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public function getShopIdForItem(int itemId) returns int
+    if (itemId == -1)
+        return -1
+
+    if (itemsShopsMap.has(itemId))
+        return itemsShopsMap.get(itemId)
+    return -1
+
+public function getShopInfoById(int shopId) returns ShopInfo
+    if (shopId == -1)
+        return null
+
+    for shopInfo in shopsInfo
+        if (shopInfo.shopId == shopId)
+            return shopInfo
+    return null
+
+public function getShopInfoForItem(int itemId) returns ShopInfo
+    if (itemId == -1)
+        return null
+
+    let shopId = getShopIdForItem(itemId)
+    if (shopId == -1)
+        return null
+
+    return getShopInfoById(shopId)
+
+public function getShopNameForItem(int itemId) returns string
+    if (itemId == -1)
+        return "null"
+
+    let shopInfo = getShopInfoForItem(itemId)
+    if (shopInfo == null)
+        return "null"
+
+    if (shopInfo.itemsMade.indexOf(itemId) != -1)
+        return shopInfo.shopName
+    return "null"
+
+public function getShopItemsListForItem(int itemId) returns LinkedList<int>
+    if (itemId == -1)
+        return null
+
+    let shopInfo = getShopInfoForItem(itemId)
+    if (shopInfo == null)
+        return null
+
+    if (shopInfo.itemsMade.indexOf(itemId) != -1)
+        return shopInfo.itemsMade
+    return null
+
+public function getShopName(int shopId) returns string
+    if (shopId == -1)
+        return "null"
+
+    let shopInfo = getShopInfoById(shopId)
+    if (shopInfo == null)
+        return "null"
+
+    return shopInfo.shopName
+
+public function getShopItemsListMade(int shopId) returns string
+    if (shopId == -1)
+        return "null"
+
+    let shopInfo = getShopInfoById(shopId)
+    if (shopInfo == null or
+        shopInfo.itemsMade.size() == 0)
+        return ""
+
+    string result = ""
+    for itemId in shopInfo.itemsMade
+        result = result + itemId.toRawCode() + ","
+
+    return result.substring(0, result.length() - 1)
+
+public function getShopItemsListSold(int shopId) returns string
+    if (shopId == -1)
+        return "null"
+
+    let shopInfo = getShopInfoById(shopId)
+    if (shopInfo == null or
+        shopInfo.itemsSold.size() == 0)
+        return ""
+
+    string result = ""
+    for itemId in shopInfo.itemsSold
+        result = result + itemId.toRawCode() + ","
+
+    return result.substring(0, result.length() - 1)
+
+public function getHotKey(int itemId) returns string
+    if (itemId == -1)
+        return ""
+
+    let hotKeys = [
+        "Q", "W", "E", "R",
+        "A", "S", "D", "F",
+        "Z", "X", "C", "V"
+    ]
+
+    let itemsList = getShopItemsListForItem(itemId)
+    if (itemsList == null)
+        return ""
+
+    int idx = 0
+    for entry in itemsList
+        if (idx >= 12)
+            return ""
+        if (entry == itemId)
+            return hotKeys[idx]
+        idx++
+    
+    return ""
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+@compiletime function shops()
+    // Basic Items Shops
+
+    new BuildingDefinition(BUILDING_SHOP_BASIC_ITEMS1, UnitIds.goblinmerchant)
+    ..setName(shopNameBasicItems1)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(0)
+    ..setTintingColorGreen(200)
+    ..setTintingColorBlue(0)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_BASIC_ITEMS1))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_BASIC_ITEMS1))
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(BUILDING_SHOP_BASIC_ITEMS2, UnitIds.goblinmerchant)
+    ..setName(shopNameBasicItems2)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(0)
+    ..setTintingColorGreen(200)
+    ..setTintingColorBlue(0)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_BASIC_ITEMS2))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_BASIC_ITEMS2))
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(BUILDING_SHOP_BASIC_ITEMS3, UnitIds.goblinmerchant)
+    ..setName(shopNameBasicItems3)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(0)
+    ..setTintingColorGreen(200)
+    ..setTintingColorBlue(0)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_BASIC_ITEMS3))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_BASIC_ITEMS3))
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(BUILDING_SHOP_BASIC_ITEMS4, UnitIds.goblinmerchant)
+    ..setName(shopNameBasicItems4)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(0)
+    ..setTintingColorGreen(200)
+    ..setTintingColorBlue(0)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_BASIC_ITEMS4))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_BASIC_ITEMS4))
+    ..setHideMinimapDisplay(true)
+
+    // Recipes Shops
+
+    new BuildingDefinition(BUILDING_SHOP_RECIPES1, UnitIds.goblinmerchant)
+    ..setName(shopNameRecipes1)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(0)
+    ..setTintingColorGreen(0)
+    ..setTintingColorBlue(200)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_RECIPES1))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_RECIPES1))
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(BUILDING_SHOP_RECIPES2, UnitIds.goblinmerchant)
+    ..setName(shopNameRecipes2)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(0)
+    ..setTintingColorGreen(0)
+    ..setTintingColorBlue(200)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_RECIPES2))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_RECIPES2))
+    ..setHideMinimapDisplay(false)
+
+    new BuildingDefinition(BUILDING_SHOP_RECIPES3, UnitIds.goblinmerchant)
+    ..setName(shopNameRecipes3)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(0)
+    ..setTintingColorGreen(0)
+    ..setTintingColorBlue(200)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_RECIPES3))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_RECIPES3))
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(BUILDING_SHOP_RECIPES4, UnitIds.goblinmerchant)
+    ..setName(shopNameRecipes4)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(0)
+    ..setTintingColorGreen(0)
+    ..setTintingColorBlue(200)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_RECIPES4))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_RECIPES4))
+    ..setHideMinimapDisplay(true)
+
+    // Late Game Shops
+
+    new BuildingDefinition(BUILDING_SHOP_LATE_GAME_ITEMS1, UnitIds.goblinmerchant)
+    ..setName(shopNameLateGameItems1)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(200)
+    ..setTintingColorGreen(0)
+    ..setTintingColorBlue(0)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_LATE_GAME_ITEMS1))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_LATE_GAME_ITEMS1))
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(BUILDING_SHOP_LATE_GAME_ITEMS2, UnitIds.goblinmerchant)
+    ..setName(shopNameLateGameItems2)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(200)
+    ..setTintingColorGreen(0)
+    ..setTintingColorBlue(0)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_LATE_GAME_ITEMS2))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_LATE_GAME_ITEMS2))
+    ..setHideMinimapDisplay(false)
+
+    new BuildingDefinition(BUILDING_SHOP_GEMS, UnitIds.goblinmerchant)
+    ..setName(shopNameGems)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(75)
+    ..setTintingColorGreen(150)
+    ..setTintingColorBlue(225)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_GEMS))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_GEMS))
+    ..setStockReplenishInterval(300)
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(BUILDING_SHOP_LATE_GAME_ITEMS4, UnitIds.goblinmerchant)
+    ..setName(shopNameLateGameItems4)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Abds', 'Apit'))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorRed(75)
+    ..setTintingColorGreen(150)
+    ..setTintingColorBlue(225)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setModelFile(Buildings.arcaneVault1)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsSold(getShopItemsListSold(BUILDING_SHOP_LATE_GAME_ITEMS4))
+    ..setItemsMade(getShopItemsListMade(BUILDING_SHOP_LATE_GAME_ITEMS4))
+    ..setStockReplenishInterval(120)
+    ..setHideMinimapDisplay(true)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+@compiletime function creeps_rooms_tp()
+    new BuildingDefinition(BUILDING_CREEPS_TP1, UnitIds.goblinmerchant)
+    ..setName(shopNameCreepsTp1)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList('A0CK', 'Avul', SHOP_SHARE))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorBlue(80)
+    ..setTintingColorGreen(80)
+    ..setTintingColorRed(80)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsMade(getShopItemsListMade(BUILDING_CREEPS_TP1))
+    ..setItemsSold(getShopItemsListSold(BUILDING_CREEPS_TP1))
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(BUILDING_CREEPS_TP2, UnitIds.goblinmerchant)
+    ..setName(shopNameCreepsTp2)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList('A0CK', 'Avul', SHOP_SHARE))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorBlue(80)
+    ..setTintingColorGreen(80)
+    ..setTintingColorRed(80)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsMade(getShopItemsListMade(BUILDING_CREEPS_TP2))
+    ..setItemsSold(getShopItemsListSold(BUILDING_CREEPS_TP2))
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(BUILDING_CREEPS_TP3, UnitIds.goblinmerchant)
+    ..setName(shopNameCreepsTp3)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList('A0CK', 'Avul', SHOP_SHARE))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorBlue(80)
+    ..setTintingColorGreen(80)
+    ..setTintingColorRed(80)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsMade(getShopItemsListMade(BUILDING_CREEPS_TP3))
+    ..setItemsSold(getShopItemsListSold(BUILDING_CREEPS_TP3))
+    ..setHideMinimapDisplay(true)
+
+    new BuildingDefinition(BUILDING_CREEPS_TP4, UnitIds.goblinmerchant)
+    ..setName(shopNameCreepsTp4)
+    ..setGroundTexture("")
+    ..setNormalAbilities(commaList('A0CK', 'Avul', SHOP_SHARE))
+    ..setScalingValue(0.5)
+    ..setSelectionScale(0.5)
+    ..setShadowTextureBuilding("")
+    ..setTintingColorBlue(80)
+    ..setTintingColorGreen(80)
+    ..setTintingColorRed(80)
+    ..setArmorType(ArmorType.Unarmored)
+    ..setPathingMap("")
+    ..setPlacementRequires("")
+    ..setItemsMade(getShopItemsListMade(BUILDING_CREEPS_TP4))
+    ..setItemsSold(getShopItemsListSold(BUILDING_CREEPS_TP4))
+    ..setHideMinimapDisplay(true)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+@compiletime function tinkerShops()
+
+    new BuildingDefinition(BUILDING_TINKER_SHOP_TOMES, UnitIds.arcanevault)// Goblin Merchant (n02U)
+    ..setGroundTexture("")
+    ..setRequirements(TINKERBUILDING_60.toRawCode())
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Apit'))
+    ..setSelectionScale(4.50)
+    ..setAttack1CooldownTime(0.00)
+    ..setAttack1DamageBase(0)
+    ..setAttack1DamageNumberofDice(1)
+    ..setAttack1DamageSidesperDie(1)
+    ..setAttack1Range(0)
+    ..setAcquisitionRange(500.00)
+    ..setAttack1ProjectileArc(0.00)
+    ..setAttack1ProjectileArt("None")
+    ..setAttack1ProjectileHomingEnabled(false)
+    ..setAttack1WeaponType(WeaponType.None)
+    ..setAttack1DamageSpillDistance(0.00)
+    ..setAttack1DamageSpillRadius(0.00)
+    ..setAttack1MaximumNumberofTargets(1)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
+    ..setPlacementRequires("Ground-pathable")
+    ..setAttack1AnimationBackswingPoint(0.000)
+    ..setAttack1AnimationDamagePoint(0.000)
+    ..setAttack1AttackType(AttackType.Normal)
+    ..setAttack1TargetsAllowed(commaList("_"))
+    ..setAttack1AreaofEffectTargets(commaList("_"))
+    ..setAttack2CooldownTime(0.00)
+    ..setAttack2DamageBase(0)
+    ..setAttack2DamageNumberofDice(0)
+    ..setAttack2DamageSidesperDie(0)
+    ..setAttack2Range(0)
+    ..setAttack2ProjectileArc(0.00)
+    ..setAttack2ProjectileArt("None")
+    ..setAttack2ProjectileHomingEnabled(false)
+    ..setAttack2WeaponType(WeaponType.None)
+    ..setAttack2DamageSpillDistance(0.00)
+    ..setAttack2DamageSpillRadius(0.00)
+    ..setAttack2MaximumNumberofTargets(1)
+    ..setAttack2AreaofEffectFullDamage(0)
+    ..setAttack2AreaofEffectMediumDamage(0)
+    ..setAttack2AreaofEffectSmallDamage(0)
+    ..setAttack2AnimationBackswingPoint(0.000)
+    ..setAttack2AnimationDamagePoint(0.000)
+    ..setAttack2AttackType(AttackType.Normal)
+    ..setAttack2TargetsAllowed(commaList("_"))
+    ..setAttack2AreaofEffectTargets(commaList("_"))
+    ..setTargetedAs(commaList("structure"))
+    ..setAttacksEnabled(0)
+    ..setMinimumAttackRange(0)
+    ..setCanDropItemsOnDeath(true)
+    ..setSpeedBase(0)
+    ..setMovementHeight(0.00)
+    ..setMovementHeightMinimum(0.00)
+    ..setSpeedMaximum(0)
+    ..setSpeedMinimum(0)
+    ..setTurnRate(0.00)
+    ..setMovementType(MovementType.None)
+    ..setFoodCost(0)
+    ..setCanFlee(true)
+    ..setGoldCost(50)
+    ..setSightRadiusDay(500)
+    ..setSightRadiusNight(500)
+    ..setSleeps(false)
+    ..setCollisionSize(50.00)
+    ..setHitPointsRegenerationType("none")
+    ..setDefenseBase(0)
+    ..setArmorType(ArmorType.Fortified)
+    ..setDefenseUpgradeBonus(5)
+    ..setGoldBountyAwardedBase(0)
+    ..setGoldBountyAwardedNumberofDice(0)
+    ..setGoldBountyAwardedSidesperDie(0)
+    ..setHitPointsMaximumBase(15000)
+    ..setHitPointsRegenerationRate(0.00)
+    ..setManaInitialAmount(0)
+    ..setManaMaximum(0)
+    ..setLumberCost(0)
+    ..setItemsMade("")
+    ..setScalingValue(1)
+    ..setTintingColorRed(107)
+    ..setTintingColorGreen(241)
+    ..setTintingColorBlue(246)
+    ..setItemsSold(getShopItemsListSold(BUILDING_TINKER_SHOP_TOMES))
+    ..setItemsMade(getShopItemsListMade(BUILDING_TINKER_SHOP_TOMES))
+    ..setUpgradesTo("")
+    ..setTooltipBasic(shopNameTinkerTomes)
+    ..setTooltipExtended("Sells Tomes to increase stats.")
+    ..setName(shopNameTinkerTomes)
+    ..setManaRegeneration(0.00)
+    
+    new BuildingDefinition(BUILDING_TINKER_SHOP_LUMBER, UnitIds.arcanevault)// Goblin Magic Vault (n053)
+    ..setGroundTexture("")
+    ..setRequirements("")
+    ..setNormalAbilities(commaList('Aneu', 'Avul', 'Apit'))
+    ..setScalingValue(1.00)
+    ..setSelectionScale(3.30)
+    ..setAttack1CooldownTime(0.00)
+    ..setModelFile(Buildings.ancientofWar)
+    ..setIconGameInterface("ReplaceableTextures\\CommandButtons\\BTNAncientOfTheEarth.blp")
+    ..setAttack1DamageBase(0)
+    ..setAttack1DamageNumberofDice(1)
+    ..setAttack1DamageSidesperDie(1)
+    ..setAttack1Range(0)
+    ..setAcquisitionRange(0.00)
+    ..setAttack1ProjectileArc(0.00)
+    ..setPlacementRequires("Ground-pathable")
+    ..setAttack1ProjectileArt("None")
+    ..setAttack1ProjectileHomingEnabled(false)
+    ..setAttack1WeaponType(WeaponType.None)
+    ..setAttack1DamageSpillDistance(0.00)
+    ..setAttack1DamageSpillRadius(0.00)
+    ..setAttack1MaximumNumberofTargets(1)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
+    ..setAttack1AnimationBackswingPoint(0.000)
+    ..setAttack1AnimationDamagePoint(0.000)
+    ..setAttack1AttackType(AttackType.Normal)
+    ..setAttack1TargetsAllowed(commaList("_"))
+    ..setAttack1AreaofEffectTargets(commaList("_"))
+    ..setAttack2CooldownTime(0.00)
+    ..setAttack2DamageBase(0)
+    ..setAttack2DamageNumberofDice(0)
+    ..setAttack2DamageSidesperDie(0)
+    ..setAttack2Range(0)
+    ..setAttack2ProjectileArc(0.00)
+    ..setAttack2ProjectileArt("None")
+    ..setAttack2ProjectileHomingEnabled(false)
+    ..setAttack2WeaponType(WeaponType.None)
+    ..setAttack2DamageSpillDistance(0.00)
+    ..setAttack2DamageSpillRadius(0.00)
+    ..setAttack2MaximumNumberofTargets(1)
+    ..setAttack2AreaofEffectFullDamage(0)
+    ..setAttack2AreaofEffectMediumDamage(0)
+    ..setAttack2AreaofEffectSmallDamage(0)
+    ..setAttack2AnimationBackswingPoint(0.000)
+    ..setAttack2AnimationDamagePoint(0.000)
+    ..setAttack2AttackType(AttackType.Normal)
+    ..setAttack2TargetsAllowed(commaList("_"))
+    ..setAttack2AreaofEffectTargets(commaList("_"))
+    ..setTargetedAs(commaList("structure"))
+    ..setAttacksEnabled(0)
+    ..setMinimumAttackRange(0)
+    ..setCanDropItemsOnDeath(true)
+    ..setSpeedBase(0)
+    ..setMovementHeight(0.00)
+    ..setMovementHeightMinimum(0.00)
+    ..setSpeedMaximum(0)
+    ..setSpeedMinimum(0)
+    ..setTurnRate(0.00)
+    ..setMovementType(MovementType.None)
+    ..setFoodCost(0)
+    ..setCanFlee(true)
+    ..setGoldCost(2255)
+    ..setSightRadiusDay(900)
+    ..setSightRadiusNight(800)
+    ..setSleeps(false)
+    ..setCollisionSize(50.00)
+    ..setHitPointsRegenerationType("none")
+    ..setDefenseBase(0)
+    ..setArmorType(ArmorType.Fortified)
+    ..setDefenseUpgradeBonus(2)
+    ..setGoldBountyAwardedBase(0)
+    ..setGoldBountyAwardedNumberofDice(0)
+    ..setGoldBountyAwardedSidesperDie(0)
+    ..setHitPointsMaximumBase(500)
+    ..setHitPointsRegenerationRate(0.00)
+    ..setManaInitialAmount(0)
+    ..setManaMaximum(0)
+    ..setLumberCost(0)
+    ..setItemsMade("")
+    ..setScalingValue(1)
+    ..setTintingColorRed(95)
+    ..setTintingColorGreen(164)
+    ..setTintingColorBlue(18)
+    ..setItemsSold(getShopItemsListSold(BUILDING_TINKER_SHOP_LUMBER))
+    ..setItemsMade(getShopItemsListMade(BUILDING_TINKER_SHOP_LUMBER))
+    ..setUpgradesTo("")
+    ..setTooltipBasic(shopNameTinkerLumber)
+    ..setTooltipExtended("Convert Gold to Wood or vice versa.")
+    ..setName(shopNameTinkerLumber)
+    ..setManaRegeneration(0.00)
+
+    new BuildingDefinition(BUILDING_TINKER_SHOP_RECIPES, UnitIds.arcanevault)// Goblin Fruit Stand (n055)
+    ..setGroundTexture("")
+    ..setRequirements("")
+    ..setNormalAbilities(commaList('Aneu', 'Avul', 'Apit'))
+    ..setScalingValue(1.00)
+    ..setSelectionScale(4.00)
+    ..setAttack1CooldownTime(0.00)
+    ..setAttack1DamageBase(0)
+    ..setAttack1DamageNumberofDice(1)
+    ..setAttack1DamageSidesperDie(1)
+    ..setAttack1Range(0)
+    ..setModelFile(Buildings.fruitStand1)
+    ..setIconGameInterface(Icons.bTNMarketPlace)
+    ..setAcquisitionRange(0.00)
+    ..setAttack1ProjectileArc(0.00)
+    ..setAttack1ProjectileArt("None")
+    ..setAttack1ProjectileHomingEnabled(false)
+    ..setAttack1WeaponType(WeaponType.None)
+    ..setAttack1DamageSpillDistance(0.00)
+    ..setPlacementRequires("Ground-pathable")
+    ..setAttack1DamageSpillRadius(0.00)
+    ..setAttack1MaximumNumberofTargets(1)
+    ..setAttack1AreaofEffectFullDamage(0)
+    ..setAttack1AreaofEffectMediumDamage(0)
+    ..setAttack1AreaofEffectSmallDamage(0)
+    ..setAttack1AnimationBackswingPoint(0.000)
+    ..setAttack1AnimationDamagePoint(0.000)
+    ..setAttack1AttackType(AttackType.Normal)
+    ..setAttack1TargetsAllowed(commaList("_"))
+    ..setAttack1AreaofEffectTargets(commaList("_"))
+    ..setAttack2CooldownTime(0.00)
+    ..setAttack2DamageBase(0)
+    ..setAttack2DamageNumberofDice(0)
+    ..setAttack2DamageSidesperDie(0)
+    ..setAttack2Range(0)
+    ..setAttack2ProjectileArc(0.00)
+    ..setAttack2ProjectileArt("None")
+    ..setAttack2ProjectileHomingEnabled(false)
+    ..setAttack2WeaponType(WeaponType.None)
+    ..setAttack2DamageSpillDistance(0.00)
+    ..setAttack2DamageSpillRadius(0.00)
+    ..setAttack2MaximumNumberofTargets(1)
+    ..setAttack2AreaofEffectFullDamage(0)
+    ..setAttack2AreaofEffectMediumDamage(0)
+    ..setAttack2AreaofEffectSmallDamage(0)
+    ..setAttack2AnimationBackswingPoint(0.000)
+    ..setAttack2AnimationDamagePoint(0.000)
+    ..setAttack2AttackType(AttackType.Normal)
+    ..setAttack2TargetsAllowed(commaList("_"))
+    ..setAttack2AreaofEffectTargets(commaList("_"))
+    ..setTargetedAs(commaList("structure"))
+    ..setAttacksEnabled(0)
+    ..setMinimumAttackRange(0)
+    ..setCanDropItemsOnDeath(true)
+    ..setSpeedBase(0)
+    ..setMovementHeight(0.00)
+    ..setMovementHeightMinimum(0.00)
+    ..setSpeedMaximum(0)
+    ..setSpeedMinimum(0)
+    ..setTurnRate(0.00)
+    ..setMovementType(MovementType.None)
+    ..setFoodCost(0)
+    ..setCanFlee(true)
+    ..setGoldCost(3800)
+    ..setSightRadiusDay(900)
+    ..setSightRadiusNight(800)
+    ..setSleeps(false)
+    ..setCollisionSize(50.00)
+    ..setHitPointsRegenerationType("none")
+    ..setDefenseBase(0)
+    ..setArmorType(ArmorType.Fortified)
+    ..setDefenseUpgradeBonus(2)
+    ..setGoldBountyAwardedBase(0)
+    ..setGoldBountyAwardedNumberofDice(0)
+    ..setGoldBountyAwardedSidesperDie(0)
+    ..setHitPointsMaximumBase(1200)
+    ..setHitPointsRegenerationRate(0.00)
+    ..setManaInitialAmount(0)
+    ..setManaMaximum(0)
+    ..setLumberCost(0)
+    ..setUpgradesTo(commaList(""))
+    ..setItemsMade("")
+    ..setScalingValue(1)
+    ..setTintingColorRed(175)
+    ..setTintingColorGreen(59)
+    ..setTintingColorBlue(217)
+    ..setItemsSold(getShopItemsListSold(BUILDING_TINKER_SHOP_RECIPES))
+    ..setItemsMade(getShopItemsListMade(BUILDING_TINKER_SHOP_RECIPES))
+    ..setUpgradesTo("")
+    ..setTooltipBasic(shopNameTinkerRecipes)
+    ..setTooltipExtended("Sells advanced items' recipes.")
+    ..setName(shopNameTinkerRecipes)
+    ..setManaRegeneration(0.00)
+
+// ----------------------------------------------------------------------------

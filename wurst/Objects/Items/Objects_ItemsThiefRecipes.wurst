@@ -1,0 +1,323 @@
+package Objects_ItemsThiefRecipes
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import Jacksmith_Q
+import ObjectIds
+import Jacksmith_R
+import Blacksmith
+
+init
+
+@compiletime function createItems()
+
+//I0HU
+    new MyItemWithCraftInfoDefinition(ITEM_GOLDEN_RING, blacksmithJackedList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif7.blp")   
+    ..setClassification("Artifact")
+    ..addStats(addAgi(600))
+    ..addComponents(
+    ITEM_BASIC_GOLD_RING,
+    ITEM_RING_OF_SUN,
+    ITEM_HOVER_RING)
+    ..register()
+    
+//I0I1
+    new MyItemWithCraftInfoDefinition(ITEM_MYSTERY_BRACER, blacksmithJackedList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif37.blp")
+    ..setClassification("Artifact")
+    ..addStats(addStr(600))
+    ..addComponents(
+    ITEM_WOOD_BRACER,
+    ITEM_GOLDEN_BRACER,
+    ITEM_MAGIC_POTION)
+    ..register()
+
+//I0IB
+    new MyItemWithCraftInfoDefinition(ITEM_GOD_SWORD, blacksmithJackedList, -1)    
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif17.blp")
+    ..addStats(addCrit(12, 0.2))
+    ..addComponents(
+    ITEM_KNIFE_OF_HUNTER,
+    ITEM_STEEL_SWORD,
+    ITEM_SWORD_FANG,
+    ITEM_SWORD_OF_DRUIDMASTER)
+    ..register()
+
+//I0HN
+    new MyItemWithCraftInfoDefinition(ITEM_GOLDEN_PHOENIX_SWORD, blacksmithJackedList, -1)    
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif28.blp")
+    ..addStats("[WIP] +150% Damage to all the team around")
+    ..addComponents(
+    ITEM_ASHRUNE,
+    ITEM_APOCALYPSE)
+    ..register()
+
+//I0GF
+    new MyItemWithCraftInfoDefinition(ITEM_MERCY, blacksmithJackedList, -1)    
+    ..setClassification("Campaign")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif48.blp")
+    ..addStats(addDamage(700))
+    ..addStats(addInt(700))
+    ..addComponents(
+    ITEM_MIDNIGHT_MACE,
+    ITEM_DOOMS_GRAND_STAFF,
+    ITEM_VENGEANCE_WAR_STAFF,
+    ITEM_FIERCE_GREATSTAFF)
+    ..register()
+    
+//I0IC
+    new MyItemWithCraftInfoDefinition(ITEM_FROZEN_CLOTH_GREATCLOAK, blacksmithJackedList, -1)
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif00x.blp")
+    ..addStats(addEvasion(0.5))
+    ..addStats(addCrit(10, 0.5))
+    ..addComponents(
+    ITEM_CAPE_OF_CURSED,
+    ITEM_FUSION_HIDE_DRAPE,
+    ITEM_BLOODIED_WOOL_CLOAK)
+    ..register()
+    
+//I0FX
+    new MyItemWithCraftInfoDefinition(ITEM_RING_OF_LEGACY, blacksmithJackedList, -1)
+    ..setClassification("Campaign")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif09.blp")
+    ..addStats(addDamage(700))
+    ..addStats(addAgi(700))
+    ..addComponents(
+    ITEM_OLD_RING,
+    ITEM_RING_OF_MYSTERY,
+    ITEM_GOLD_SIMPLE_RING,
+    ITEM_RING_OF_FAKE_SUN)
+    ..register()
+    
+//I0G6
+    new MyItemWithCraftInfoDefinition(ITEM_GOLDEN_HAMMER, blacksmithJackedList, -1)    
+    ..setClassification("Campaign")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif96.blp")
+    ..addStats(addDamage(700))
+    ..addStats(addStr(700))
+    ..addComponents(
+    ITEM_SIMPLE_HAMMER,
+    ITEM_WARRIOR_HAMMER,
+    ITEM_FUSION_HAMMER,
+    ITEM_THUNDERCHAOS_HAMMER)
+    ..register()
+
+//I0ID
+    new MyItemWithCraftInfoDefinition(ITEM_INHERITED_ARMOR, blacksmithJackedList, -1)
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif6x.blp")
+    ..addStats(addArmor(350))
+    ..addStats(addHpReg(350))
+    ..addComponents(
+    ITEM_ARMOR_OF_HELL,
+    ITEM_SILVER_GIANT_ARMOR,
+    ITEM_DESTROYER_ARMOR)
+    ..register()
+
+//I0IE
+    new MyItemWithCraftInfoDefinition(ITEM_MATRIX_ORB, blacksmithJackedList, -1)
+    ..setClassification("Campaign")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif88.blp")
+    ..addStats(addHp(24000))
+    ..addStats(addMp(24000))
+    ..addComponents(
+    ITEM_BLOOD_ORB,
+    ITEM_GOLD_CRYSTAL_ORB,
+    ITEM_CHAOS_ORB,
+    ITEM_GOLDEN_ORB)
+    ..register()
+
+//I0H6
+    new MyItemWithCraftInfoDefinition(ITEM_FIRESOUL_WOOL_BOOTS, blacksmithJackedList, -1)    
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif57.blp")
+    ..addStats(addMovementSpeed(230))
+    ..addStats(addAttackSpeed(2.3))
+    ..addComponents(
+    ITEM_LEATHER_BOOTS,
+    ITEM_HEAVY_BOOTS,
+    ITEM_BLOOD_INFUSED_LINEN_BOOTS)
+    ..register()
+
+//I0IF
+    new MyItemWithCraftInfoDefinition(ITEM_SONG_BROOCH, blacksmithJackedList, -1)
+    ..setClassification("Campaign")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif7x.blp")
+    ..addStats(addMpReg(8))
+    ..addComponents(
+    ITEM_FREE_PLEDGE_RING,
+    ITEM_AGED_IMAGE,
+    ITEM_SUN_NECKLACE,
+    ITEM_FAINT_TRINKET_NECKLACE)
+    ..register()
+
+    new MyItemWithCraftInfoDefinition(ITEM_MYSTERY_PURPLE_STAFF, jackSmithRecipe, -1)
+    ..setActivelyUsed(true)
+    ..setClassification("Campaign")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff3.blp")
+    ..addStats(addInt(400))
+    ..addStats(addAttackSpeed(3))
+    ..addStats(addMpReg(3.5))
+    ..addStats("[WIP] Active: Deals 24500 Damage to the target enemy. Cooldown: 30 seconds")
+    ..addComponents(
+    ITEM_MYSTERY_BLUE_STAFF,
+    ITEM_DOOMS_GRAND_STAFF)
+    ..register()
+
+//I0IJ
+    new MyItemWithCraftInfoDefinition(ITEM_MYSTERY_RED_STAFF, blacksmithJackedList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff4.blp")
+    ..setActivelyUsed(true)
+    ..setClassification("Campaign")
+    ..addStats(addInt(1350))
+    ..addStats(addAttackSpeed(5))
+    ..addStats(addMpReg(4.5))
+    ..addStats("Active: Deals 30.000 + 89x Intelligence Damage to the target enemy. Cooldown: 30 seconds")
+    ..addComponents(
+    ITEM_VAMPIRELLA,
+    ITEM_MYSTERY_PURPLE_STAFF,
+    ITEM_PERFECT_SAPPHIRE)
+    ..register()
+
+//I0IU
+    new MyItemWithCraftInfoDefinition(ITEM_FROZEN_STAFF, blacksmithJackedList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC3.blp")
+    ..setCooldownGroup("A0YB")
+    ..setActivelyUsed(true)
+    ..setClassification("Campaign")
+    ..addStats(addInt(440))
+    ..addStats(addHp(9000))
+    ..addStats("[WIP] Active: Sends a Frost Nova on the target")
+    ..addComponents(
+    ITEM_FORGE_STAFF_L4,
+    ITEM_FREEZE_WAND,
+    ITEM_FIERCE_GREATSTAFF)
+    ..register()
+
+//I0IZ
+    new MyItemWithCraftInfoDefinition(ITEM_HYDRAS_TREASURE_PERFECT, blacksmithJackedList, -1)
+    ..setAbilities(commaList('A0YD'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHydra1.blp")
+    ..setActivelyUsed(true)
+    ..setClassification("Permanent")
+    ..addStats("[WIP] Summon Hydra 1 level 3 for users Recovery time skills 200 seconds")
+    ..addComponents(
+    ITEM_HYDRAS_TREASURE_BIG,
+    ITEM_PERFECT_ARKENSTONE)
+    ..register()
+
+//I0J2
+    new MyItemWithCraftInfoDefinition(ITEM_SPIDERS_TREASURE_PERFECT, blacksmithJackedList, -1)
+    ..setAbilities(commaList('A0YH'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeb.blp")
+    ..setActivelyUsed(true)
+    ..setClassification("Permanent")
+    ..addStats("[WIP] Summon 1 BroodMother for users recovery time skills 200 seconds.")
+    ..addComponents(
+    ITEM_SPIDERS_TREASURE_BIG,
+    ITEM_PERFECT_ARKENSTONE)
+    ..register()
+
+//I0IR
+    new MyItemWithCraftInfoDefinition(ITEM_ARES, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif103.blp")    
+    ..setClassification("Campaign")
+    ..setGoldCost(300000)
+    ..setCanBeSoldToMerchants(true)
+    ..addStats(addDamage(2500))
+    ..addStats(addAllStats(333))
+    ..addStats(addAttackSpeed(2.2))
+    ..addStats(addArmorPen(15))
+    ..addStats(addCrit(20, 0.2))
+    ..addComponents(
+    ITEM_SLASH_SWORD_L5,
+    ITEM_GOD_SWORD,
+    ITEM_BLADE_OF_HELL)
+    ..register()
+    
+//I0IP
+    new MyItemWithCraftInfoDefinition(ITEM_AMULET_OF_LUCIFER, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif101.blp")    
+    ..setClassification("Campaign")
+    ..setGoldCost(666666)
+    ..setLumberCost(666)
+    ..setCanBeSoldToMerchants(true)
+    ..addStats(addAllStats(1000))
+    ..addStats(addDamage(10000))
+    ..addStats(addArmorPen(5))
+    ..addComponents(
+    ITEM_MERCY,
+    ITEM_GOLDEN_HAMMER,
+    ITEM_RING_OF_LEGACY)
+    ..register()
+
+//I0IQ
+    new MyItemWithCraftInfoDefinition(ITEM_VEJOVIS, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif102.blp")    
+    ..setClassification("Campaign")
+    ..setGoldCost(666666)
+    ..setLumberCost(666)
+    ..setCanBeSoldToMerchants(true)
+    ..addStats(addHp(100000))
+    ..addStats(addMp(100000))
+    ..addComponents(
+    ITEM_CRYSTAL_MOON,
+    ITEM_FALLING_STAR,
+    ITEM_MATRIX_ORB)
+    ..register()
+    
+//I0IY
+    new MyItemWithCraftInfoDefinition(ITEM_HYDRAS_TREASURE_BIG, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHydra1.blp")
+    ..setAbilities(commaList('A0YD'))
+    ..setActivelyUsed(true)
+    ..setClassification("Permanent")
+    ..addStats("[WIP] Summon Hydra 1 level 2 for the user Recovery time skills of 120 seconds.")
+    ..addComponents(
+    ITEM_HALF_OF_ARKENSTONE,
+    ITEM_HYDRAS_TREASURE)
+    ..register()
+
+//I0J1
+    new MyItemWithCraftInfoDefinition(ITEM_SPIDERS_TREASURE_BIG, jackSmithRecipe, -1)
+    ..setAbilities(commaList('A0YG'))
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeb.blp")
+    ..setActivelyUsed(true)
+    ..setClassification("Permanent")
+    ..addStats("[WIP] Summon Spider 1 level 2 for the user recovery time skills 120 seconds.")
+    ..addComponents(
+    ITEM_HALF_OF_ARKENSTONE,
+    ITEM_SPIDERS_TREASURE)
+    ..register()
+
+//I0J4
+    new MyItemWithCraftInfoDefinition(ITEM_THUNDER_BOW_II, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNbow.blp")
+    ..setClassification("Permanent")
+    ..addStats(addAllStats(800))
+    ..addStats(addDamage(1000))
+    ..addStats(addAttackSpeed(3))
+    ..addStats(addChainLighting(0.5, 10000, 0.1, 10))
+    ..addComponents(
+    ITEM_THUNDER_BOW,
+    ITEM_CHIMAERAS_LIGHNING_POWER,
+    ITEM_ORB_OF_LIGHTNING)
+    ..register()
+
+//I0J5
+    new MyItemWithCraftInfoDefinition(ITEM_DARKNESS, jackSmithRecipe, -1)    
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLight.blp")
+    ..setGoldCost(15000)
+    ..addStats(addStr(320))
+    ..addStats(addHpReg(200))
+    ..addStats(addAbilityPhoenixFire(7000, 0.5, 2000))
+    ..addComponents(
+    ITEM_ABO_TREASURE,
+    ITEM_DARK_MATTER)
+    ..register()

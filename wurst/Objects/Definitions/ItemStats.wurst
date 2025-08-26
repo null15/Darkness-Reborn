@@ -1,0 +1,572 @@
+package ItemStats
+
+import ObjectIdGenerator
+import AbilityObjEditing
+import CommonDescriptions
+import codeDamageTypings
+import ObjectIds
+import Abilities
+import ClosureEvents
+import ItemObjEditing
+import ResetCd
+
+// ----------------------------------------------------------------------------
+
+function intToString(int value) returns string
+    if (value > 0)
+        return "+" + value.toString()
+    else
+        return value.toString()
+
+function realToString(real value, int precision) returns string
+    if (value > 0)
+        return "+" + value.toString(precision)
+    else
+        return value.toString(precision)
+
+// ----------------------------------------------------------------------------
+
+public class ItemStats
+    int abilityId
+    string effects
+
+    construct(int abilityId, string effects)
+        this.abilityId = abilityId
+        this.effects   = effects
+
+    function addCustomStats(int _itemId, ItemDefinition _itemDef)
+
+    function addToAbilityList() returns boolean
+        return abilityId != -1
+
+// ----------------------------------------------------------------------------
+
+public interface InitItemsStatsFunc
+    function call(int itemId, ItemDefinition itemDef)
+
+public class ItemStatsCustomFunc extends ItemStats
+    InitItemsStatsFunc initFunc
+
+    construct(string effects, InitItemsStatsFunc initFunc)
+        super(-1, effects)
+        this.initFunc = initFunc
+
+    construct(int abilityId, string effects, InitItemsStatsFunc initFunc)
+        super(abilityId, effects)
+        this.initFunc = initFunc
+
+    override function addCustomStats(int itemId, ItemDefinition itemDef)
+        initFunc.call(itemId, itemDef)
+
+// ----------------------------------------------------------------------------
+
+public function addAttackSpeed(real value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = realToString(100 * value, 0) + "% " + wordAttackSpeed
+
+    new AbilityDefinitionAttackSpeedIncrease(abilityId)
+    ..setAttackSpeedIncrease(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addDamage(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordDamage
+
+    new AbilityDefinitionAttackBonus(abilityId)
+    ..setAttackBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addLifeSteal(real value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = realToString(100 * value, 0) + "% " + wordLifeSteal
+
+    new AbilityDefinitionVampiricattack(abilityId)
+    ..setLifeStolenPerAttack(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addArmorOnHit(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordArmorOnHit
+
+    new AbilityDefinitionOrbofCorruption(abilityId)
+    ..setArmorPenalty(1, -value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addArmorPen(real value) returns ItemStats
+    let effects = realToString(value, 0) + " " + wordArmorOnHit
+    
+    return new ItemStatsCustomFunc(effects, 
+    (itemId, itemDef) -> itemId.putInPhysPenItemHash(value))
+
+// ----------------------------------------------------------------------------
+
+public function addMpOnHit(real percentOfMaxMp) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordMpOnHit.format((100*percentOfMaxMp).toString(0))
+
+    new AbilityDefinitionSiphonManaCreep(abilityId)
+    ..setManaTransferredPerSecond(1, percentOfMaxMp)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addFrost(real durationNormal, real durationHero) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+
+    string effects
+    if (durationHero == durationHero)
+        effects = wordFrost2.format(durationNormal.toString(1), durationHero.toString(1))
+    else
+        effects = wordFrost1.format(durationHero.toString(1))
+
+    new AbilityDefinitionFrostDamageBonus(abilityId)
+    ..setDurationHero(1, durationHero)
+    ..setDurationNormal(1, durationNormal)
+    
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addChainLighting(real chance, real damage, real damageReductionPerTarget, int numberOfTargets) returns ItemStats
+    let abilityId1 = ABIL_ID_GEN.next()
+    let abilityId2 = ABIL_ID_GEN.next()
+
+    let effects = wordLightning.format((100*chance).toString(), damage.toString(), numberOfTargets.toString(), damageReductionPerTarget.toString())
+
+    new AbilityDefinitionFarseerChainLightning(abilityId1)
+    ..setDamageperTarget(1, damage)
+    ..setNumberofTargetsHit(1, numberOfTargets)
+    ..setDamageReductionperTarget(1, damageReductionPerTarget)
+    
+    new AbilityDefinitionOrbofLightning(abilityId2)
+    ..setChanceToHitUnits(1, chance)
+    ..setChanceToHitSummons(1, chance)
+    ..setChanceToHitHeros(1, chance)
+    ..setEffectAbility(1, abilityId1.toRawCode())
+    
+    return new ItemStats(abilityId2, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addCleave(real factor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordCleave.format(factor.toString(1), range.toString(0))
+
+    new AbilityDefinitionPitLordCleavingAttack(abilityId)
+    ..setDistributedDamageFactor(1, factor)
+    ..setCastRange(1, range)
+    
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addCrit(real factor, real chance) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordCrit.format((100*chance).toString(0), factor.toString(1))
+
+    new AbilityDefinitionCriticalStrikecreep(abilityId)
+    ..setDamageMultiplier(1, factor)
+    ..setChancetoCriticalStrike(1, chance)
+    
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addBash(real chance, real damage, real stunDuration, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordBash.format((100*chance).toString(0), damage.toString(), stunDuration.toString(), cd.toString())
+
+    new AbilityDefinitionMountainKingBash(abilityId)
+    ..setChancetoBash(1, chance)
+    ..setDamageBonus(1, damage)
+    ..setDurationHero(1, stunDuration)
+    ..setDurationHero(1, stunDuration)
+    ..setCooldown(1, cd)
+    
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public function addHp(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordHp
+
+    new AbilityDefinitionMaxLifeBonusGreater(abilityId)
+    ..setMaxLifeGained(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addHpReg(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordHpReg
+
+    new AbilityDefinitionRegenLife(abilityId)
+    ..setHitPointsRegeneratedPerSecond(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addHpRegRel(real percentOfMaxHp) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = realToString(100*percentOfMaxHp, 0) + "% " + wordHpReg
+
+    new AbilityDefinitionNeutralRegenhealthonly(abilityId)
+    ..setPercentage(1, true)
+    ..setAmountofHitPointsRegenerated(1, percentOfMaxHp)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.self))
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addHpRegAura(real amount, bool percentage, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+
+    string effects = ""
+    if (percentage)
+        effects = wordHpRegAura.format((100*amount).toString() + "% of max HP", range.toString())
+    else
+        effects = wordHpRegAura.format(amount.toString() + " HP/s", range.toString())
+
+    new AbilityDefinitionNeutralRegenhealthonly(abilityId)
+    ..setAreaofEffect(1, range)
+    ..setPercentage(1, percentage)
+    ..setAmountofHitPointsRegenerated(1, amount)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.ground, TargetsAllowed.air, TargetsAllowed.friend))
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addRestoreHpOnUse(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects   = wordRestoreHp.format(value.toString())
+
+    new AbilityDefinitionItemHealGreater(abilityId)
+    ..setHitPointsGained(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addArmor(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordArmor
+
+    new AbilityDefinitionDefenseBonusPlus1(abilityId)
+    ..setDefenseBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addDamageBlock(real chance, real ignoreValue) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordDamageBlock.format(chance.toString(1), ignoreValue.toString(0))
+
+    new AbilityDefinitionHardenedSkin(abilityId)
+    ..setLevels(1)
+    ..setChancetoReduceDamage(1, chance)
+    ..setMinimumDamage(1, 0)
+    ..setIgnoredDamage(1, ignoreValue)
+    ..setIncludeMeleeDamage(1, true)
+    ..setIncludeRangedDamage(1, true)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addEvasion(real chance) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = (chance * 100).toString(0) + "% " + wordEvasion
+
+    new AbilityDefinitionEvasion(abilityId)
+    ..setChancetoEvade(1, chance)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addMagicResist(real value) returns ItemStats
+    let effects = wordMagicResist.format(realToString(value, 0))
+    
+    return new ItemStatsCustomFunc(effects,
+    (itemId, itemDef) -> itemId.putInMagicResItemHash(value))
+
+// ----------------------------------------------------------------------------
+
+public function addSpikes(real factor) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordSpikes.format((100*factor).toString())
+
+    new AbilityDefinitionCryptLordSpikedCarapace(abilityId)
+    ..setReturnedDamageFactor(1, factor)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public class AbilityDefinitionAmuletOfSpellShield extends AbilityDefinition
+    construct(int abilityId)
+        super(abilityId, 'ANss')
+
+public function addSpellShield(real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordSpellShield.format(cd.toString())
+
+    new AbilityDefinitionAmuletOfSpellShield(abilityId)
+    ..setCooldown(1, 40)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addMovementSpeed(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordMovementSpeed
+
+    new AbilityDefinitionMoveSpeedBonus(abilityId)
+    ..setMovementSpeedBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addTp(real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordTp.format(cd.toString())
+
+    new AbilityDefinitionStaffoTeleportation(abilityId)
+    ..setCooldown(1, cd)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addMp(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordMp
+
+    new AbilityDefinitionMaxManaBonusMost(abilityId)
+    ..setMaxManaGained(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addMpReg(real value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects   = realToString(100*value,0) + "% " + wordMpReg
+
+    new AbilityDefinitionItemRegenMana(abilityId)
+    ..setManaRegenerationBonusasfractionofnormal(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addRestoreMpOnUse(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordRestoreMp.format(value.toString())
+
+    new AbilityDefinitionItemManaRestoreGreater(abilityId)
+    ..setManaPointsGained(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public function addAgi(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordAgi
+
+    new AbilityDefinitionAllPlus1(abilityId)
+    ..setAgilityBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addStr(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordStr
+
+    new AbilityDefinitionAllPlus1(abilityId)
+    ..setStrengthBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addInt(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordInt
+
+    new AbilityDefinitionAllPlus1(abilityId)
+    ..setIntelligenceBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addAllStats(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordAllStats
+
+    new AbilityDefinitionAllPlus1(abilityId)
+    ..setAgilityBonus(1, value)
+    ..setStrengthBonus(1, value)
+    ..setIntelligenceBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public function addAuraTrueshot(real factor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAuraTrueshot.format(realToString(100*factor, 0), range.toString())
+
+    new AbilityDefinitionMoonPriestessTrueshotAura(abilityId)
+    ..setDamageBonus(1, factor)
+    ..setAreaofEffect(1, range)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addAuraEndurance(real moveSpeed, real attackSpeed, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAuraEndurance.format(realToString(100*moveSpeed, 0), realToString(100*attackSpeed, 0), range.toString())
+
+    new AbilityDefinitionTaurenChieftainEnduranceAura(abilityId)
+    ..setMovementSpeedIncrease(1, moveSpeed)
+    ..setAttackSpeedIncrease(1, attackSpeed)
+    ..setAreaofEffect(1, range)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addAuraDevotionFlat(real armor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAuraDevotionFlat.format(realToString(armor, 0), range.toString())
+
+    new AbilityDefinitionPaladinDevotionAura(abilityId)
+    ..setPercentBonus(1, false)
+    ..setArmorBonus(1, armor)
+    ..setAreaofEffect(1, range)
+
+    return new ItemStats(abilityId, effects)
+
+public function addAuraDevotionRel(real factor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAuraDevotionFlat.format(realToString(100*factor, 0), range.toString())
+
+    new AbilityDefinitionPaladinDevotionAura(abilityId)
+    ..setPercentBonus(1, true)
+    ..setArmorBonus(1, factor)
+    ..setAreaofEffect(1, range)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addAuraCommandRel(real factor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAuraDevotionFlat.format(realToString(100*factor, 0), range.toString())
+
+    new AbilityDefinitionAuraCommandCreep(abilityId)
+    ..setAttackDamageIncrease(1, factor)
+    ..setAreaofEffect(1, range)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public function addAbilityAvatarMagicImmune(real duration, real cd, int manaCost) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAvatar.format(duration.toString(), cd.toString())
+
+    new AbilityDefinitionMountainKingAvatar(abilityId)
+    ..setCooldown(1, cd)
+    ..setDurationHero(1, cd)
+    ..setDurationNormal(1, cd)
+    ..setManaCost(1, manaCost)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+let ABILITY_RESET_CD_COOLDOWN_GROUP = compiletime(ABIL_ID_GEN.next())
+
+public function addAbilityResetCd(real cd, int manaCost) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordResetSpellCd.format(cd.toString())
+
+    new AbilityDefinitionBerserk(abilityId)
+    ..setLevels(1)
+    ..setDurationHero(1, 0.01)
+    ..setDurationNormal(1, 0.01)
+    ..setCooldown(1, cd)
+    ..setManaCost(1, manaCost)
+    ..setAttackSpeedIncrease(1, 0)
+    ..setMovementSpeedIncrease(1, 0)
+    ..setDamageTakenIncrease(1, 0)
+    ..setBuffs(1, "")
+
+    resetCdAbilitiesList.add(abilityId)
+    
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(ABILITY_RESET_CD_COOLDOWN_GROUP.toRawCode())
+    )
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityPhoenixFire(real damage, real attackCd, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordPhoenixFire.format(attackCd.toString(), damage.toString(), range.toString())
+
+    new AbilityDefinitionPhoenixFire(abilityId)
+    ..setDamagePerSecond(1, 0)
+    ..setInitialDamage(1, damage)
+    ..setDurationHero(1, 0.1)
+    ..setDurationNormal(1, 0.1)
+    ..setCooldown(1, attackCd)
+    ..setCastRange(1, range)
+    ..setMissileArt(Abilities.avengerMissile)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityLifeStealAura(real factor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordVampiricAura.format((100*factor).toString(), range.toString())
+
+    new AbilityDefinitionDreadlordVampiricAura(abilityId)
+    ..setAttackDamageStolen(1, factor)
+    ..setCastRange(1, range)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
