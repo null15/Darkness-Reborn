@@ -96,56 +96,56 @@ init
     new MyItemDefinition(ITEM_KNIFE)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif11.blp")
-    ..addStats("[WIP] +5% the opportunity cause Damage  x 3.")
+    ..addStats(addCrit(3, 0.05))
     ..register()
 
 //I0I3
     new MyItemDefinition(ITEM_KNIFE_OF_HUNTER)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif19.blp")
-    ..addStats("[WIP] +7% the opportunity cause Damage  x4.")
+    ..addStats(addCrit(4, 0.07))
     ..register()
 
 //I0I4
     new MyItemDefinition(ITEM_KNIFE_OF_BAHAMUT)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif12.blp")
-    ..addStats("[WIP] +9% the opportunity cause Damage x 5.")
+    ..addStats(addCrit(5, 0.09))
     ..register()
 
 //I0I5
     new MyItemDefinition(ITEM_STEEL_SWORD)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif12.blp")
-    ..addStats("[WIP] +11% the opportunity cause Damage x 6.")
+    ..addStats(addCrit(6, 0.11))
     ..register()
 
 //I0I6
     new MyItemDefinition(ITEM_SWORD_OF_HUNTER)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif14.blp")
-    ..addStats("[WIP] +13% the opportunity cause Damage x 7.")
     ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif14.blp")
+    ..addStats(addCrit(7, 0.13))
     ..register()
 
 //I0I7
     new MyItemDefinition(ITEM_SWORD_FANG)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif15.blp")
-    ..addStats("[WIP] +15% the opportunity cause Damage x 8.")
     ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif15.blp")
+    ..addStats(addCrit(8, 0.15))
     ..register()
 
 //I0I8
     new MyItemDefinition(ITEM_SWORD_ROAR)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif16.blp")
-    ..addStats("[WIP] +17% the opportunity cause Damage x 9.")
     ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif16.blp")
+    ..addStats(addCrit(9, 0.17))
     ..register()
 
 //I0I9
     new MyItemDefinition(ITEM_SWORD_OF_DRUIDMASTER)
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif16.blp")
-    ..addStats("[WIP] +19% the opportunity cause Damage x 10.")
     ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif16.blp")
+    ..addStats(addCrit(10, 0.19))
     ..register()
 
 //I0HF
@@ -281,7 +281,7 @@ init
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif001.blp")
     ..addStats(addEvasion(0.8))
-    ..addStats("[WIP] +8% the opportunity cause Damage x 2")
+    ..addStats(addCrit(2, 0.08))
     ..register()
 
 //I0GH
@@ -289,7 +289,7 @@ init
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif002.blp")
     ..addStats(addEvasion(0.12))
-    ..addStats("[WIP] +12% the opportunity cause Damage x 3")
+    ..addStats(addCrit(3, 0.12))
     ..register()
 
 //I0GI
@@ -297,7 +297,7 @@ init
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif003.blp")
     ..addStats(addEvasion(0.18))
-    ..addStats("[WIP] +18% the opportunity cause Damage x 4")
+    ..addStats(addCrit(4, 0.18))
     ..register()
 
 //I0GJ
@@ -305,7 +305,7 @@ init
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif004.blp")
     ..addStats(addEvasion(0.24))
-    ..addStats("[WIP] +24% the opportunity cause Damage x 5")
+    ..addStats(addCrit(5, 0.24))
     ..register()
 
 //I0GK
@@ -313,7 +313,7 @@ init
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif005.blp")
     ..addStats(addEvasion(0.32))
-    ..addStats("[WIP] +32% the opportunity cause Damage x 6")
+    ..addStats(addCrit(6, 0.32))
     ..register()
 
 //I0GL
@@ -321,7 +321,7 @@ init
     ..setClassification("Permanent")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif006.blp")
     ..addStats(addEvasion(0.46))
-    ..addStats("[WIP] +46% the opportunity cause Damage x 7")
+    ..addStats(addCrit(7, 0.46))
     ..register()
 
 //I0FP
@@ -700,7 +700,7 @@ init
     ..setClassification("Artifact")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif00x.blp")
     ..addStats(addEvasion(0.5))
-    ..addStats("[WIP] +50% the opportunity cause Damage x 10")
+    ..addStats(addCrit(10, 0.5))
     ..register()
 
 //I0ID

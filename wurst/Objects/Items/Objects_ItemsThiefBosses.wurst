@@ -44,7 +44,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeb.blp")
     ..setActivelyUsed(true)
     ..setClassification("Permanent")
-    ..addStats("Summon Spider 1 level 1 for the user recovery time skills 80 seconds")
+    ..addStats("[WIP] Summon Spider 1 level 1 for the user recovery time skills 80 seconds")
     ..register()
 
 //I0J1
@@ -53,7 +53,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeb.blp")
     ..setActivelyUsed(true)
     ..setClassification("Permanent")
-    ..addStats("Summon Spider 1 level 2 for the user recovery time skills 120 seconds.")
+    ..addStats("[WIP] Summon Spider 1 level 2 for the user recovery time skills 120 seconds.")
     ..register()
 
 //I0J2
@@ -62,7 +62,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeb.blp")
     ..setActivelyUsed(true)
     ..setClassification("Permanent")
-    ..addStats("Summon 1 BroodMother for users recovery time skills 200 seconds.")
+    ..addStats("[WIP] Summon 1 BroodMother for users recovery time skills 200 seconds.")
     ..register()
 
 //I0J3
@@ -163,5 +163,5 @@ init
     new MyItemDefinition(ITEM_SCORPION_POTION)
     ..setInterfaceIcon(Icons.bTNRejuvPotion)
     ..addStats(addAllStats(200))
-    ..addStats("Can activate the toxins up ourselves. immediately increase 10,000 damage in 15 seconds, and has the ability to convert 10% of damage into HP itself,cooldown 30 seconds.")
+    ..addStats("[WIP] Can activate the toxins up ourselves. immediately increase 10,000 damage in 15 seconds, and has the ability to convert 10% of damage into HP itself,cooldown 30 seconds.")
     ..register()
