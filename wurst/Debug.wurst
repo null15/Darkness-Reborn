@@ -18,7 +18,10 @@ public function initDebug()
     let posX = GetRectCenterX(gg_rct_DebugBlacksmith)
     let posY = GetRectCenterY(gg_rct_DebugBlacksmith)
 
-    let blacksmith = CreateUnit(p, BUILDING_TINKER_BLACKSMITH, posX, posY, 270.000)
-    blacksmith.addPermanentAbility(AbilityIds.invulnerable)
+    CreateUnit(p, BUILDING_TINKER_BLACKSMITH, posX, posY, 270.000)
+    ..addPermanentAbility(AbilityIds.invulnerable)
     SetPlayerTechResearched(p, UPGRADE_11, 6)
+    
+    CreateUnit(p, BUILDING_TINKER_SHOP_RECIPES, posX, posY + 200, 270.000)
+    ..addPermanentAbility(AbilityIds.invulnerable)
     
