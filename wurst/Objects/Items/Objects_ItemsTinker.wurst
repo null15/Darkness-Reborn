@@ -87,6 +87,7 @@ init
     ..setClassification("Artifact")
     ..addStats(addDamage(7000))
     ..addStats(addCrit(5, 0.7))
+    ..addStats(addArmorPen(10))
     ..addComponents(
     ITEM_GOLD_AXE,
     ITEM_RECIPE_GOLD_AXE_II,

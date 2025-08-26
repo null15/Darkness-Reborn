@@ -8,8 +8,8 @@ let magicResistMap = new HashMap<integer, real>
 let physicalPenetrationMap = new HashMap<integer, real>
 let basePhysPenMap = new HashMap<integer, real>
 let baseMagicResMap = new HashMap<integer, real>
-let physPenItemHash = new HashMap<int, real>
-let magicResItemHash = new HashMap<int, real>
+let physPenItemHash = compiletime(new HashMap<int, real>)
+let magicResItemHash = compiletime(new HashMap<int, real>)
 real physPen
 real magicRes
 

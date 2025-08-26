@@ -85,7 +85,7 @@ init
     ..setClassification("Artifact")
     ..addStats(addDamage(200))
     ..addStats(addAttackSpeed(1.8))
-    ..addStats(addArmorPen(0.1))
+    ..addStats(addArmorPen(10))
     ..addComponents(
     ITEM_GLOVES_OF_SPEED,
     ITEM_CLAWS_OF_ATTACK)

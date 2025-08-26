@@ -121,6 +121,7 @@ init
     new MyItemDefinition(ITEM_BOOK_OF_EARTHQUAKE)    
     ..setClassification("Artifact")
     ..addStats(addStr(250))
+    ..addStats(addArmorPen(1))
     ..setStockMaximum(99)
     ..register()
 
