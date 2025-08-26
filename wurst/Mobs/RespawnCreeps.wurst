@@ -69,12 +69,13 @@ function creepRespawner()
             else
                 if creepRespawns.has(uid)
                     u.dropItems()
-                    if uid == ELITE_CREEP[9]
+                    if uid == ELITE_CREEP[9] and frostyCounter < 2
                         frostyCounter++
-                    doAfter(creepRespawns.get(uid)) ->
-                        let u2 = createUnit(hostile, uid, pos, rot)
-                        u2..setArmor(u2.getArmor() * armorDifficultyModifier[gameMode])
-                        u2..setMaxHP((u2.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u2.getMaxHP())
+                    else
+                        doAfter(creepRespawns.get(uid)) ->
+                            let u2 = createUnit(hostile, uid, pos, rot)
+                            u2..setArmor(u2.getArmor() * armorDifficultyModifier[gameMode])
+                            u2..setMaxHP((u2.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u2.getMaxHP())
         
 public function eliteSideCreepsSetup()
     for int i = 1 to 24

@@ -83,7 +83,7 @@ public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
         soldItem.remove()
 
     EventListener.add(u3, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
-        let buyer = EventData.getBuyingUnit()
+        let buyer = playerHero.get(EventData.getBuyingUnit().getOwner())
         if EventData.getSoldItem().getTypeId() == CREEP_TP_NERUBIAN_QUEEN
             buyer.setPos(gg_rct_EliteTP1.getCenter())
         else if EventData.getSoldItem().getTypeId() == CREEP_TP_HYDRALISK
@@ -110,7 +110,7 @@ public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
             buyer.setPos(gg_rct_EliteTP7.getCenter())
 
     EventListener.add(u4, EVENT_PLAYER_UNIT_SELL_ITEM) -> 
-        let buyer = EventData.getBuyingUnit()
+        let buyer = playerHero.get(EventData.getBuyingUnit().getOwner())
         if EventData.getSoldItem().getTypeId() == CREEP_TP_DRAGONS
             buyer.setPos(gg_rct_DragonTP.getCenter())
         else if EventData.getSoldItem().getTypeId() == CREEP_TP_TOWER

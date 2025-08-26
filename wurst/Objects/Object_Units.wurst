@@ -364,7 +364,7 @@ init
     ..setShadowImageUnit("")
     ..setShadowTextureBuilding("")
 
-    new HeroDefinition(PLAY_HERO_0, UnitIds.mountainking)// Mountain King (H003)
+    new HeroDefinition(HERO_MOUNTAIN_KING, UnitIds.mountainking)// Mountain King (H003)
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList(ABILITY_9, 'A0DV', 'A0DW', 'A0DX', 'A0DZ'))
     ..setNormalAbilities(commaList('A007', 'AInv'))
@@ -472,7 +472,7 @@ init
     + "Difficulty: 1/5\n")
     ..setManaRegeneration(0.01)
 
-    new HeroDefinition(PLAY_HERO_1_INITIAL, UnitIds.blademaster)// Wolfman (O007)
+    new HeroDefinition(HERO_WOLFMAN_INITIAL, UnitIds.blademaster)// Wolfman (O007)
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList(MAN_ABIL_1,MAN_ABIL_2,MAN_ABIL_3))
     ..setNormalAbilities(commaList('A007', 'AInv'))
@@ -582,7 +582,7 @@ init
     + "Difficulty: 2/5\n")
     ..setManaRegeneration(0.01)
 
-    new HeroDefinition(PLAY_HERO_1_INITIATE, UnitIds.blademaster)// Wolfman (O007)
+    new HeroDefinition(HERO_WOLFMAN_INITIATE, UnitIds.blademaster)// Wolfman (O007)
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList(WOLF_INITIATE_ABIL_1,WOLF_INITIATE_ABIL_2,WOLF_INITIATE_ABIL_3,WOLF_INITIATE_ABIL_4))
     ..setNormalAbilities(commaList('A007', 'AInv'))
@@ -692,7 +692,7 @@ init
     + "Difficulty: 2/5\n")
     ..setManaRegeneration(0.01)
 
-    new HeroDefinition(PLAY_HERO_1_FINAL, UnitIds.blademaster)// Wolfman (O007)
+    new HeroDefinition(HERO_WOLFMAN_FINAL, UnitIds.blademaster)// Wolfman (O007)
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList(WOLF_FINAL_ABIL_1,WOLF_FINAL_ABIL_2,WOLF_FINAL_ABIL_3,WOLF_FINAL_ABIL_4,WOLF_FINAL_ABIL_5))
     ..setNormalAbilities(commaList('A007', 'AInv'))
@@ -10737,8 +10737,8 @@ init
     ..setGoldBountyAwardedSidesperDie(7)
     ..setHitPointsMaximumBase(18700)
     ..setHitPointsRegenerationRate(18.70)
-    ..setManaInitialAmount(50)
-    ..setManaMaximum(50)
+    ..setManaInitialAmount(150)
+    ..setManaMaximum(150)
     ..setName("Naga Royal Guard")
     ..setManaRegeneration(1.25)
     ..setLevel(18)

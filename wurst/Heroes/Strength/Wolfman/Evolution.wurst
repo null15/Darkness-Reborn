@@ -47,12 +47,12 @@ function newHero(unit replaced,int unitType)
 function evolution()
     EventListener.add(EVENT_PLAYER_HERO_LEVEL) -> 
         let u = GetLevelingUnit()
-        if u.getTypeId() == PLAY_HERO_1_INITIAL
+        if u.getTypeId() == HERO_WOLFMAN_INITIAL
             if u.getLevel() == 12
-                newHero(u, PLAY_HERO_1_INITIATE)
-        else if u.getTypeId() == PLAY_HERO_1_INITIATE
+                newHero(u, HERO_WOLFMAN_INITIATE)
+        else if u.getTypeId() == HERO_WOLFMAN_INITIATE
             if u.getLevel() == 28
-                newHero(u, PLAY_HERO_1_FINAL)
+                newHero(u, HERO_WOLFMAN_FINAL)
 
 init 
     evolution()

@@ -67,6 +67,27 @@ public class QuestList
 
     function addQuest(QuestIntKillLowestLevelInstant newQuest)
         instantIntKillLevelLowestList.add(newQuest)
+        
+    function getQuestHashList() returns HashList<string>
+        let quests = new HashList<string>()
+
+        instantIntKillAnyList.forEach() (QuestIntKillAnyInstant t) ->
+            quests.add(t.getTitle() + " |cffc2b30arequired kills |r" + I2S(t.getRequired()) + 
+                    " |cff921313kills left " + I2S(t.getRequired() - t.getResource()) + "|r")
+
+        instantIntKillTargetList.forEach() (QuestIntKillTargetInstant t) ->
+            quests.add(t.getTitle() + " |cffc2b30arequired kills |r" + I2S(t.getRequired()) + 
+                    " |cff921313kills left " + I2S(t.getRequired() - t.getResource()) + "|r")
+
+        instantIntKillLevelRangeList.forEach() (QuestIntKillLevelRangeInstant t) ->
+            quests.add(t.getTitle() + " |cffc2b30arequired kills |r" + I2S(t.getRequired()) + 
+                    " |cff921313kills left " + I2S(t.getRequired() - t.getResource()) + "|r")
+
+        instantIntKillLevelLowestList.forEach() (QuestIntKillLowestLevelInstant t) ->
+            quests.add(t.getTitle() + " |cffc2b30arequired kills |r" + I2S(t.getRequired()) + 
+                    " |cff921313kills left " + I2S(t.getRequired() - t.getResource()) + "|r")
+
+        return quests
 
 public let questListsOwners = new HashMap<player, QuestList>
 

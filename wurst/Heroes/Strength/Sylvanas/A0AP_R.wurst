@@ -4,9 +4,8 @@ import ClosureEvents
 public function longRange()
     EventListener.add(EVENT_PLAYER_HERO_SKILL) ->
         let abi = GetLearnedSkill()
-        if abi == 'a0AP'
+        if abi == 'A0AP'
             let u = GetTriggerUnit()
             let lvl = u.getAbilityLevel(abi)
-            let p = u.getOwner().getId()
-            u.setFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 0, u.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1) + 75)
-            SetPlayerTechResearched(Player(p), 'R001', lvl)
+            let p = u.getOwner()
+            SetPlayerTechResearched(p, 'R001', lvl)

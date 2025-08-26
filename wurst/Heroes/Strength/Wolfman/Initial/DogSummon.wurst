@@ -6,7 +6,7 @@ import MyAbilityIds
 public function manDog()
     EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
         let summoner = GetSummoningUnit()
-        if(summoner.getTypeId() == PLAY_HERO_1_INITIAL)
+        if(summoner.getTypeId() == HERO_WOLFMAN_INITIAL)
             let summon = GetSummonedUnit()
             let str = summoner.getStr(true)
             

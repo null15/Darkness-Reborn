@@ -15,7 +15,7 @@ public function juxtapose()
             let damtyp = DamageEvent.getDamageType()
             if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
                 let lvl = src.getAbilityLevel('A0S8')
-                if GetRandomInt(1, 100) < lvl
+                if GetRandomInt(1, 100) <= lvl
                     if playerHero.has(src.getOwner())
                         if(limit < lvl * 0.25)
                             limit++
@@ -27,6 +27,7 @@ public function juxtapose()
                             src.setBaseDamage(bonusAttack + src.getBaseDamage(0), 0)
                             doAfter(6) -> 
                                 src.setBaseDamage(src.getBaseDamage(0) - bonusAttack, 0)
+                                limit--
 
 
 // Illidan (Juxtapose) E

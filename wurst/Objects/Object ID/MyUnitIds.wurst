@@ -190,10 +190,10 @@ public constant QUILBEAST = compiletime(UNIT_ID_GEN.next())
 public constant MISHABEAR = compiletime(UNIT_ID_GEN.next())
 public constant HAWK = compiletime(UNIT_ID_GEN.next())
 
-public constant PLAY_HERO_0 = compiletime(HERO_ID_GEN.next())
-public constant PLAY_HERO_1_INITIAL = compiletime(HERO_ID_GEN.next())
-public constant PLAY_HERO_1_INITIATE = compiletime(HERO_ID_GEN.next())
-public constant PLAY_HERO_1_FINAL = compiletime(HERO_ID_GEN.next())
+public constant HERO_MOUNTAIN_KING = compiletime(HERO_ID_GEN.next())
+public constant HERO_WOLFMAN_INITIAL = compiletime(HERO_ID_GEN.next())
+public constant HERO_WOLFMAN_INITIATE = compiletime(HERO_ID_GEN.next())
+public constant HERO_WOLFMAN_FINAL = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_2 = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_3 = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_4 = compiletime(HERO_ID_GEN.next())
@@ -469,8 +469,8 @@ public int array WAVE_MOB = []
 
 init
 
-    PLAY_HERO[1] = PLAY_HERO_0
-    PLAY_HERO[2] = PLAY_HERO_1_INITIAL
+    PLAY_HERO[1] = HERO_MOUNTAIN_KING
+    PLAY_HERO[2] = HERO_WOLFMAN_INITIAL
     PLAY_HERO[3] = PLAY_HERO_2
     PLAY_HERO[4] = PLAY_HERO_3
     PLAY_HERO[5] = PLAY_HERO_4

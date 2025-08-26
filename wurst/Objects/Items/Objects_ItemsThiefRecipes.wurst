@@ -53,7 +53,7 @@ init
     ..addStats("[WIP] +150% Damage to all the team around")
     ..addComponents(
     ITEM_ASHRUNE,
-    ITEM_SPIRIT_GIANT_BLADE)
+    ITEM_APOCALYPSE)
     ..register()
 
 //I0GF
