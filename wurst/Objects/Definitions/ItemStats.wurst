@@ -6,7 +6,6 @@ import CommonDescriptions
 import codeDamageTypings
 import ObjectIds
 import Abilities
-import ClosureEvents
 import ItemObjEditing
 import ResetCd
 import AbilitiesList
