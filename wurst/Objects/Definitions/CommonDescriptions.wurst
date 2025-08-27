@@ -127,3 +127,8 @@ public let wordAbilityRestoreMp   = "Active: fully restores MP (cd {0} sec)"
 public let wordAbilityRestoreHpMp = "Active: fully restores HP and MP (cd {0} sec)"
 
 public let wordAbilityHolyLight   = "Active: heal friendly target for {0} + {1}x int amount or deal {2}% damage to enemy (cd {3} sec)"
+
+public let tomeAgiGive            = "Active: Give yourself {0} agility on use"
+public let tomeStrGive            = "Active: Give yourself {0} strength on use"
+public let tomeIntGive            = "Active: Give yourself {0} intelligence on use"
+public let tomeAllGive            = "Active: Give yourself {0} all stats on use"

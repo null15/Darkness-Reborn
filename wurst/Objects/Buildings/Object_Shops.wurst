@@ -158,12 +158,10 @@ function initLists()
             shopNameLateGameItems4,
             asList(
             ITEM_BULION, ITEM_CRYSTAL_ARMOR, ITEM_CRYSTAL_DUAL_SWORD, ITEM_CRYSTAL_KNIFE,
-            ITEM_CRYSTAL_SPEAR, ITEM_RECIPE_DRAGON_WINGS
-            ),
-            asList(
-            ITEM_TOME_OF_FROSTY_INTELLIGENCE, ITEM_TOME_OF_FROSTY_STRENGTH,
+            ITEM_CRYSTAL_SPEAR, ITEM_RECIPE_DRAGON_WINGS, ITEM_TOME_OF_FROSTY_INTELLIGENCE, ITEM_TOME_OF_FROSTY_STRENGTH,
             ITEM_TOME_OF_FROSTY_AGILITY
-            )
+            ),
+            new LinkedList<int>()
         ),
 
         new ShopInfo(

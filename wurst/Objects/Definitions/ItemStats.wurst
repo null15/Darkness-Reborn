@@ -6,13 +6,13 @@ import CommonDescriptions
 import codeDamageTypings
 import ObjectIds
 import Abilities
+import TomeGive
 import ItemObjEditing
 import ResetCd
 import AbilitiesList
 import DummyCaster
 import MyAbilityIds
 import Orders
-import ClosureEvents
 
 // ----------------------------------------------------------------------------
 
@@ -729,3 +729,27 @@ public function addAbilityLightingBoltStun(real damage, real intFactor, real stu
     return new ItemStats(abilityId, effects)
 
 // ----------------------------------------------------------------------------
+
+public function addTomeStatGiving(int amount, int tomeID, statTome tomeType) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = tomeAgiGive.format(amount.toString())
+    
+    let abilDef = new AbilityDefinitionRoar(abilityId)
+    ..setDurationHero(1, 0.01)
+    ..setDurationNormal(1, 0.01)
+    ..setManaCost(1, 0)
+
+    tomesList.add(new Tome(amount, tomeType, abilityId))
+    
+    switch tomeType
+        case statTome.AGILITY
+            abilDef.setArtCaster(Abilities.aIamTarget)
+        case statTome.STRENGTH
+            abilDef.setArtCaster(Abilities.aIsmTarget)
+        case statTome.INTELLIGENCE
+            abilDef.setArtCaster(Abilities.aIimTarget)
+        case statTome.ALLSTATS
+            abilDef.setArtCaster(Abilities.aIilTarget)
+
+    return new ItemStats(abilityId, effects)
+

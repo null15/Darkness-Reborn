@@ -1,0 +1,46 @@
+package TomeGive
+import ClosureEvents
+import LinkedList
+import Global_Variables
+
+public let tomesList = compiletime(new LinkedList<Tome>())
+
+init
+    tomesList.forEach() (Tome t) ->
+        tomeStatGiving(t.abilId, t.tomeType, t.amount)
+        destroy t
+    tomesList.clear()
+    destroy tomesList
+    
+public class Tome
+    int amount
+    statTome tomeType
+    int abilId
+
+    construct(int amount, statTome tomeType, int abilId)
+        this.amount = amount
+        this.tomeType = tomeType
+        this.abilId = abilId
+
+public enum statTome
+    STRENGTH
+    INTELLIGENCE
+    AGILITY
+    ALLSTATS
+
+public function tomeStatGiving(int abilId, statTome statToGive, int amountToGive)
+    EventListener.onCast(abilId) (unit caster) ->
+        print(amountToGive.toString())
+        let hero = playerHero.get(caster.getOwner())
+        switch statToGive
+            case statTome.STRENGTH
+                hero.addStr(amountToGive)
+            case statTome.AGILITY
+                print(amountToGive.toString())
+                hero.addAgi(amountToGive)
+            case statTome.INTELLIGENCE
+                hero.addInt(amountToGive)
+            case statTome.ALLSTATS
+                hero.addStr(amountToGive)
+                hero.addAgi(amountToGive)
+                hero.addInt(amountToGive)

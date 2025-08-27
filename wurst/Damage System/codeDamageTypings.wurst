@@ -283,24 +283,23 @@ public function unit.enumeratePhysicalPenetration(real physicalPenetration)
 
 // DAMAGE
 
-public function unit.damageTargetCode(real amount, unit target, DamageElement element, integer id, damageType damType)
-    if compiletime
-        skip
-    else
-        DamageEvent.setNextDamageElement(element)
-        DamageEvent.setNextDamageFromCode()
-        if(id > -1)
-            DamageEvent.setNextDamageId(id)
+public function unit.damageTargetCode(real amount, unit target, DamageElement element, integer id, damageType damType) returns bool
+    DamageEvent.setNextDamageElement(element)
+    DamageEvent.setNextDamageFromCode()
+    if(id > -1)
+        DamageEvent.setNextDamageId(id)
 
-        switch damType
-            case damageType.PURE
-                this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-            case damageType.PHYSICALMELEE
-                this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
-            case damageType.PHYSICALRANGED
-                this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-            case damageType.MAGICAL
-                this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    switch damType
+        case damageType.PURE
+            this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+        case damageType.PHYSICALMELEE
+            this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+        case damageType.PHYSICALRANGED
+            this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+        case damageType.MAGICAL
+            this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
+    return true
+        
 
 function statscheck()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) ->

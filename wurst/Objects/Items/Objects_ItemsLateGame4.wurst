@@ -5,7 +5,10 @@ import ItemObjEditing
 import MyItemIds
 import ObjectIds
 import MyAbilityIds
+import AbilityObjEditing
 import RecipeItems
+import TomeGive
+import Icons
 
 init
 
@@ -99,21 +102,23 @@ init
     ..register()
 
 //I0CI
+    
     new MyItemDefinition(ITEM_TOME_OF_FROSTY_INTELLIGENCE)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTome.blp")
     ..setModelUsed("Objects\\InventoryItems\\tomeGreen\\tomeGreen.mdl")
     ..setActivelyUsed(true)
-    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldByMerchants(true)
     ..setCanBeSoldToMerchants(true)
     ..setGoldCost(50000)
     ..setLumberCost(1500)
     ..setNumberofCharges(1)
     ..setPerishable(true)
     ..setPriority(200)
-    ..setStockReplenishInterval(900)
+    ..setStockReplenishInterval(1500)
     ..setStockStartDelay(3000)
-    ..setUseAutomaticallyWhenAcquired(true)
-    ..addStats("+2999 Int on use")
+    ..setUseAutomaticallyWhenAcquired(false)
+    ..addStats(addTomeStatGiving(1999, ITEM_TOME_OF_FROSTY_INTELLIGENCE, statTome.INTELLIGENCE))
+    ..setInterfaceIcon(Icons.bTNSpellBookBLS)
     ..addHotKey()
     ..register()
 
@@ -122,17 +127,18 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTome.blp")
     ..setModelUsed("Objects\\InventoryItems\\tomeGreen\\tomeGreen.mdl")
     ..setActivelyUsed(true)
-    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldByMerchants(true)
     ..setCanBeSoldToMerchants(true)
     ..setGoldCost(50000)
     ..setLumberCost(1500)
     ..setNumberofCharges(1)
     ..setPerishable(true)
     ..setPriority(200)
-    ..setStockReplenishInterval(900)
+    ..setStockReplenishInterval(1500)
     ..setStockStartDelay(3000)
-    ..setUseAutomaticallyWhenAcquired(true)
-    ..addStats("+2999 Str on use")
+    ..setInterfaceIcon(Icons.bTNSpellBookBLS)
+    ..setUseAutomaticallyWhenAcquired(false)
+    ..addStats(addTomeStatGiving(1999, ITEM_TOME_OF_FROSTY_STRENGTH, statTome.STRENGTH))
     ..addHotKey()
     ..register()
 
@@ -141,16 +147,17 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTome.blp")
     ..setModelUsed("Objects\\InventoryItems\\tomeGreen\\tomeGreen.mdl")
     ..setActivelyUsed(true)
-    ..setCanBeSoldByMerchants(false)
+    ..setCanBeSoldByMerchants(true)
     ..setCanBeSoldToMerchants(true)
     ..setGoldCost(50000)
     ..setLumberCost(1500)
     ..setNumberofCharges(1)
     ..setPerishable(true)
     ..setPriority(200)
-    ..setStockReplenishInterval(900)
-    ..setStockStartDelay(3000)
-    ..setUseAutomaticallyWhenAcquired(true)
-    ..addStats("+2999 Agi on use")
+    ..setStockReplenishInterval(1500)
+    ..setStockStartDelay(1)
+    ..setInterfaceIcon(Icons.bTNSpellBookBLS)
+    ..setUseAutomaticallyWhenAcquired(false)
+    ..addStats(addTomeStatGiving(1999, ITEM_TOME_OF_FROSTY_AGILITY, statTome.AGILITY))
     ..addHotKey()
     ..register()
