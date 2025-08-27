@@ -20,3 +20,8 @@ init
     for abilityInfo in itemsAbilitiesList
         EventListener.onTargetCast(abilityInfo.abilityId) (unit caster, unit target) ->
             abilityInfo.handler.run(caster, target)
+    
+    for abilityInfo in itemsAbilitiesList
+        destroy abilityInfo
+    itemsAbilitiesList.clear()
+    destroy itemsAbilitiesList

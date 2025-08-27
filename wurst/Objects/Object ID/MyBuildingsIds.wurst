@@ -20,7 +20,7 @@ public constant TEST_TURRET = compiletime(UNIT_ID_GEN.next())
 
 public constant DROPSITE = compiletime(UNIT_ID_GEN.next())
 
-public constant BUILDING_0 = compiletime(UNIT_ID_GEN.next())
+public constant BUILDING_FOUNTAIN = compiletime(UNIT_ID_GEN.next())
 public constant BUILDING_SHOP_BASIC_ITEMS1 = compiletime(UNIT_ID_GEN.next())
 public constant BUILDING_SHOP_BASIC_ITEMS2 = compiletime(UNIT_ID_GEN.next())
 public constant BUILDING_SHOP_BASIC_ITEMS3 = compiletime(UNIT_ID_GEN.next())
@@ -43,7 +43,7 @@ public int array BUILDING = []
 
 init
 
-    BUILDING[1] = BUILDING_0
+    BUILDING[1] = BUILDING_FOUNTAIN
     BUILDING[2] = BUILDING_SHOP_BASIC_ITEMS1
     BUILDING[3] = BUILDING_SHOP_BASIC_ITEMS2
     BUILDING[4] = BUILDING_SHOP_BASIC_ITEMS3

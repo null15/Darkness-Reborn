@@ -12,6 +12,7 @@ import MyAbilityIds
 import Icons
 import LinkedList
 import HashMap
+import Debug
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -37,6 +38,22 @@ let itemsShopsMap = new HashMap<int, int>()
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
+
+function initCreepTpShop(int shopId, string shopName, LinkedList<int> creeps) returns ShopInfo
+    if (DEBUG)
+        return new ShopInfo(
+            shopId,
+            shopName,
+            creeps,
+            new LinkedList<int>()
+        )
+    else
+        return new ShopInfo(
+            shopId,
+            shopName,
+            new LinkedList<int>(),
+            creeps
+        )
 
 @compiletime
 function initLists()
@@ -168,7 +185,7 @@ function initLists()
             BUILDING_TINKER_SHOP_TOMES,
             shopNameTinkerTomes,
             asList(
-            ITEM_TOME_OF_FROSTY_AGILITY, ITEM_TOME_OF_FROSTY_STRENGTH, ITEM_TOME_OF_FROSTY_INTELLIGENCE, ITEM_TOME_OF_FROSTY_ALL_STATS,
+            ITEM_TOME_OF_FROSTY_ALL_STATS,
             ITEM_TOME_OF_AGILITY_10, ITEM_TOME_OF_STRENGTH_10, ITEM_TOME_OF_INTELLIGENCE_10
             ),
             new LinkedList<int>()
@@ -192,40 +209,36 @@ function initLists()
             new LinkedList<int>()
         ),
 
-        new ShopInfo(
+        initCreepTpShop(
             BUILDING_CREEPS_TP1,
             shopNameCreepsTp1,
-            new LinkedList<int>(),
             asList(
             CREEP_TP_SPIDER, CREEP_TP_MUD_GOLEM, CREEP_TP_MURLOC_TIDERUNNER, CREEP_TP_TIMBER_WOLF,
             CREEP_TP_CRAB_SHORECRAWLER, CREEP_TP_FACELESS_ONE_TRICKSTER, CREEP_TP_SPITTING_SPIDER, CREEP_TP_ROCK_GOLEM,
             CREEP_TP_MURGUL_SHADOWCASTER, CREEP_TP_POLAR_FURBOLG, CREEP_TP_GHOST, CREEP_TP_FACELESS_ONE_DEATHBRINGER
             )
         ),
-        new ShopInfo(
+        initCreepTpShop(
             BUILDING_CREEPS_TP2,
             shopNameCreepsTp2,
-            new LinkedList<int>(),
             asList(
             CREEP_TP_BROOD_MOTHER, CREEP_TP_GRANITE_GOLEM, CREEP_TP_TURTLE, CREEP_TP_GIANT_POLAR_BEAR,
             CREEP_TP_STORM_WYRM, CREEP_TP_SKELETON_WARRIOR, CREEP_TP_FOREST_TROLL_WARLOCK, CREEP_TP_DIRE_MAMMOTH,
             CREEP_TP_FEL_RAVAGER, CREEP_TP_DALARAN_REJECT, CREEP_TP_VILE_TORMENTOR, CREEP_TP_ELDER_VOIDWALKER
             )
         ),
-        new ShopInfo(
+        initCreepTpShop(
             BUILDING_CREEPS_TP3,
             shopNameCreepsTp3,
-            new LinkedList<int>(),
             asList(
             CREEP_TP_NERUBIAN_QUEEN, CREEP_TP_HYDRALISK, CREEP_TP_FLESH_GOLEM, CREEP_TP_FURBOLG_GIANT,
             CREEP_TP_DOOM_GUARD, CREEP_TP_SCARY_SCREAM, CREEP_TP_FROSTY_SNOWMAN, CREEP_TP_ICE_REVENANT,
             CREEP_TP_OVERLORD, CREEP_TP_DRYAD, CREEP_TP_FOOTMAN, CREEP_TP_CAPTIAN
             )
         ),
-        new ShopInfo(
+        initCreepTpShop(
             BUILDING_CREEPS_TP4,
             shopNameCreepsTp4,
-            new LinkedList<int>(),
             asList(
             CREEP_TP_DRAGONS, CREEP_TP_TOWER, CREEP_TP_DREADLORD, CREEP_TP_WATER
             )

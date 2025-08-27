@@ -41,7 +41,7 @@ import MyAbilityIds
     ..setItemsSold(commaList(""))
     ..setItemsMade("")
 
-    new BuildingDefinition(BUILDING_0, UnitIds.fountainofhealth)
+    new BuildingDefinition(BUILDING_FOUNTAIN, UnitIds.fountainofhealth)
     ..setName("Provides healing")
     ..setGroundTexture("")
     ..setModelFile(Buildings.fountainOfLifeDefiled1)

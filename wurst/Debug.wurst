@@ -2,8 +2,9 @@ package Debug
 import MyUnitIds
 import AbilityIds
 import MyUpgradesIds
+import MyItemIds
 
-let DEBUG = true
+public let DEBUG = true
 
 public function initDebug()
     if (not DEBUG)
@@ -14,9 +15,10 @@ public function initDebug()
     for i = 0 to 9
         players[i].addGold(100000000)
         players[i].addLumber(100000000)
+        players[i].setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 50)
 
-    let posX = GetRectCenterX(gg_rct_DebugBlacksmith)
-    let posY = GetRectCenterY(gg_rct_DebugBlacksmith)
+    var posX = GetRectCenterX(gg_rct_DebugBlacksmith)
+    var posY = GetRectCenterY(gg_rct_DebugBlacksmith)
 
     CreateUnit(p, BUILDING_TINKER_BLACKSMITH, posX, posY, 270.000)
     ..addPermanentAbility(AbilityIds.invulnerable)
@@ -25,3 +27,19 @@ public function initDebug()
     CreateUnit(p, BUILDING_TINKER_SHOP_RECIPES, posX, posY + 200, 270.000)
     ..addPermanentAbility(AbilityIds.invulnerable)
     
+    
+    posX = GetRectCenterX(gg_rct_AllSpawnMove1)
+    posY = GetRectCenterY(gg_rct_AllSpawnMove1)
+
+    CreateUnit(players[0], WAVE_HERO_24, posX, posY - 1000, 270.000)
+    ..setStr(100000)
+    ..setAgi(200000)
+    ..setInt(120000)
+    ..setLevel(150, false)
+    ..setScale(1.5)
+    ..addItemToSlot(ITEM_BERSERKERS_STAFF, 0)
+    ..addItemToSlot(ITEM_BERSERKERS_HELM, 1)
+    ..addItemToSlot(ITEM_BERSERKERS_ARMOR, 2)
+    ..addItemToSlot(ITEM_LANCELOT_SET, 3)
+    ..addItemToSlot(ITEM_PERFECT_EMERALD, 4)
+    ..addItemToSlot(ITEM_VAMPIRELLA_L5, 5)

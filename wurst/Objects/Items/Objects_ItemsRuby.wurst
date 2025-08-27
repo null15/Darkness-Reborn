@@ -22,6 +22,7 @@ init
     ..setTooltipBasic("Purchase Empty Vial")
     ..setTooltipExtended("An empty vial that allows upgrading Ruby Fragment +1 to Ruby Fragments +2")
     ..setDescription("An empty vial that allows upgrading Ruby Fragment +1 to Ruby Fragments +2")
+    ..addHotKey()
     ..register()
     
 //I02G

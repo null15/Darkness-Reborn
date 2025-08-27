@@ -93,7 +93,8 @@ init
     ..setName("Lumber Tinker 100")
     ..setTooltipBasic("Purchase Bundle of Lumber")
     ..setTooltipExtended("Convert 90")
-    ..setHotkey("")
+    ..addHotKey()
+    ..register()
 
 //I0JN
     new MyItemDefinition(ITEM_GOLD_TO_LUMBER900)
@@ -184,7 +185,8 @@ init
     ..setName("Gold Tinker 100")
     ..setTooltipBasic("Gold")
     ..setTooltipExtended("Convert 100 Lumber into 90.000 Gold.")
-    ..setHotkey("")
+    ..addHotKey()
+    ..register()
 
 //I0JS
     new MyItemDefinition(ITEM_LUMBER1000_TO_GOLD)

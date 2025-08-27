@@ -40,7 +40,7 @@ init
     ..setButtonPositionX(0)
     ..setButtonPositionY(2)
     
-    new ItemDefinition(ITEM_QUEST, ItemIds.tomeofAgility)
+    new MyItemDefinition(ITEM_QUEST, ItemIds.tomeofAgility)
     ..setTooltipBasic("Acquire Quest")
     ..setTooltipExtended("Grab this to Acquire Quest")
     ..setDescription("Buy this to start a random quest based on your level.")
@@ -48,6 +48,8 @@ init
     ..setStockReplenishInterval(1)
     ..setStockMaximum(20)
     ..setGoldCost(0)
+    ..addHotKey()
+    ..register()
     
     new ItemDefinition(UPGRADE_BASE_ARMOR, ItemIds.tomeofPower)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcaniteArchitecture.blp")
@@ -60,10 +62,10 @@ init
     ..setStockReplenishInterval(1)
     ..setStockStartDelay(1)
     ..setMaxStack(1)
-    ..setHotkey("O")
     ..setName("Upgrade Armor")
     ..setTooltipBasic("Upgrade Armor")
     ..setTooltipExtended("Upgrade armor by 5 each time")
+    ..setHotkey("Q")
 
     new ItemDefinition(UPGRADE_BASE_HEALTH, ItemIds.tomeofPower)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcaniteArchitecture.blp")
@@ -79,3 +81,4 @@ init
     ..setName("Upgrade Health")
     ..setTooltipBasic("Upgrade Health")
     ..setTooltipExtended("Upgrade Health by 500 each time")
+    ..setHotkey("W")
