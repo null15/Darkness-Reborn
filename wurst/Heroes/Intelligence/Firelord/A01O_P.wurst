@@ -8,5 +8,5 @@ public function blaze(unit source, unit target)
         var damage = 100.
         if(IsUnitType(target, UNIT_TYPE_HERO))
             damage = damage + target.getMaxHP() * 0.02
-            source.pureDamageCode(source.getInt(true).toReal(), target)
-        source.magicalDamageCode(damage, target)
+            source.damageTargetCode(source.getInt(true).toReal(), target, null, -1, damageType.PURE)
+        source.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)

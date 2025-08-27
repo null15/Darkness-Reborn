@@ -27,6 +27,6 @@ public function shadowRaze()
                 caster.setPos(caster.getPos().polarOffset(angle,100))
                 forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
                     if caster.isEnemyOf(u)
-                        caster.physicalDamageCode(dmg, u, false)
+                        caster.damageTargetCode(dmg, u, null, -1, damageType.PHYSICALMELEE)
                 if cb.isLast()
                     shadowRazeEnd(caster)

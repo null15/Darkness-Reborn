@@ -15,7 +15,7 @@ public function platinum2Stun(unit src,unit targ)
     else
         let pid = src.getOwner().getId()
         plat2StunGroup.put(pid, targ.getHandleId())
-        src.physicalDamageCode(4500, targ, false)
+        src.damageTargetCode(4500, targ, null, -1, damageType.PHYSICALMELEE)
         new DummyCaster()
         ..owner(src.getOwner())
         ..origin(src.getPos())

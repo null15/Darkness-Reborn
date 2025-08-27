@@ -30,7 +30,7 @@ function chronoSphereActive(unit caster)
     doPeriodicallyTimed(0.05, 5) (CallbackCounted cb) ->
         forUnitsInRange(sfx.getPos(), 700) (unit u) ->
             if caster.isEnemyOf(u)
-                caster.magicalDamageCode(dmg, u)
+                caster.damageTargetCode(dmg, u, null, -1, damageType.MAGICAL)
                 u.pauseIndef()
             if cb.isLast()
                 sfx.destr()

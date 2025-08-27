@@ -8,4 +8,4 @@ init
 function masteryBlueStaff()
     EventListener.onTargetCast('A0XO') (unit caster, unit target) ->
         let dam = 14800.
-        caster.magicalDamageCode(dam, target)
+        caster.damageTargetCode(dam, target, null, -1, damageType.MAGICAL)

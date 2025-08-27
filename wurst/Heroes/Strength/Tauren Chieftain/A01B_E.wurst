@@ -24,7 +24,7 @@ public function pulverize()
                         let angle = casterPos.angleTo(targetPos)
                         let sfx = addEffect(Objects.impaleTargetDust, targetPos)
                         let pathable = addEffect(".mdl", targetPos)
-                        caster.physicalDamageCode(dmg, target, false)
+                        caster.damageTargetCode(dmg, target, null, -1, damageType.PHYSICALMELEE)
                         doPeriodicallyTimed(0.03, 0.5) (CallbackCounted cb) ->
                             if pathable.getPos().isTerrainWalkable()
                                 distance = distance + 15

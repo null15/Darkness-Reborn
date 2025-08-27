@@ -26,4 +26,4 @@ function neltharionBeam(unit caster)
         forUnitsInRange(caster.getPos(), 2500) (unit u) ->
             if(u.isEnemyOf(caster) and u.isType(UNIT_TYPE_STRUCTURE) == false)
                 flashEffect("Units\\Mobs\\Soul Beam Red.mdx", u.getPos())
-                caster.magicalDamageCode(3500, u)
+                caster.damageTargetCode(3500, u, null, -1, damageType.MAGICAL)

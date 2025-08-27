@@ -6,7 +6,7 @@ import DamageEvent
 function eternalFlameDamage(unit src, unit target)
     let fireMage = playerHero.get(src.getOwner())
     let amount = (fireMage.getAbilityLevel('A004')*0.1 + fireMage.getAbilityLevel('A901')*0.4 + 0.1) * fireMage.getInt(true) 
-    src.magicalDamageCode(amount, target)
+    src.damageTargetCode(amount, target, null, -1, damageType.MAGICAL)
 
 public function eternalFlame()
     DamageEvent.addListener(2) -> 

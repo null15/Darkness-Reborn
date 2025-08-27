@@ -25,5 +25,5 @@ public function stormbolt()
             flashEffect(Abilities.fireLordDeathExplode, target.getPos())
             forUnitsInRange(target.getPos(), 300) (unit u) ->
                 if u != target and u.isEnemyOf(caster) and u.isAlive()
-                    caster.physicalDamageCode(semi, u, true)
-            caster.physicalDamageCode(final, target, false)
+                    caster.damageTargetCode(semi, u, null, -1, damageType.PHYSICALRANGED)
+            caster.damageTargetCode(final, target, null, -1, damageType.PHYSICALMELEE)

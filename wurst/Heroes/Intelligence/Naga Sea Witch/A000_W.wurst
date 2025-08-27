@@ -37,4 +37,4 @@ public function frostArrowToggle() //For some reason orderID is not getting upda
                         let dmg = src.getMaxMana()*(0.04*lvl)
                         if(src.getMana() < BlzGetAbilityIntegerLevelField(src.getAbility(NAGAWITCH_ABIL_2), ABILITY_ILF_MANA_COST, lvl))
                             src.issueImmediateOrderById(OrderIds.coldarrows + 1)
-                        src.magicalDamageCode(dmg, targ)
+                        src.damageTargetCode(dmg, targ, null, -1, damageType.MAGICAL)

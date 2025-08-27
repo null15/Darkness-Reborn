@@ -7,4 +7,4 @@ import MyAbilityIds
 public function punch()
     EventListener.onTargetCast(MAN_ABIL_1) (unit caster, unit target) ->
         let amount = caster.getStr(true) * 2. * caster.getAbilityLevel(MAN_ABIL_1)
-        caster.physicalDamageCode(amount, target, false)
+        caster.damageTargetCode(amount, target, null, -1, damageType.PHYSICALMELEE)

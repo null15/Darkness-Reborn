@@ -23,7 +23,7 @@ public function imageArrow()
             let proj = new Projectile(target, sfx, 2)
             proj.moveForward(false) (effect detectionUnit, unit target) ->
                 let damage = caster.getAgi(true) * 0.6 * lvl
-                caster.magicalDamageCode(damage, target)
+                caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
 
         for int i = 1 to 3
             let polarProj = caster.getPos().polarOffset(angle.op_minus(225.0.asAngleRadians()), -200.*i)
@@ -37,4 +37,4 @@ public function imageArrow()
             let proj = new Projectile(target, sfx, 2)
             proj.moveForward(false) (effect detectionUnit, unit target) ->
                 let damage = caster.getAgi(true) * 0.6 * lvl
-                caster.magicalDamageCode(damage, target)
+                caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)

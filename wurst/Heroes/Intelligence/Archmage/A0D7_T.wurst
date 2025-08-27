@@ -9,6 +9,6 @@ public function lightRemoval()
         flashEffect("Effects\\Archmage\\ShadowSlam(Normal Size).mdl", target, "chest")
         let buffs = UnitCountBuffsEx(target, false, false, true, false, false, false, false).toReal()
         if buffs > 0
-            caster.magicalDamageCode(dmg * Pow(2, buffs), target)
+            caster.damageTargetCode(dmg * Pow(2, buffs), target, null, -1, damageType.MAGICAL)
         else
-            caster..magicalDamageCode(dmg, target)
+            caster.damageTargetCode(dmg, target, null, -1, damageType.MAGICAL)

@@ -14,4 +14,4 @@ public function windwalk()
         let agi = caster.getAgi(true)
         forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
             if(u.isEnemyOf(caster))
-                caster.physicalDamageCode((agi * lvl).toReal(), u, false)
+                caster.damageTargetCode((agi * lvl).toReal(), u, null, -1, damageType.PHYSICALMELEE)

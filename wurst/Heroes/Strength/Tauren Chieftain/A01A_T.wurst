@@ -17,7 +17,7 @@ public function warStomp()
         doAfter(0.25) -> 
             forUnitsAll() (unit u) ->
                 if caster.isEnemyOf(u)
-                    caster.pureDamageCode(dmg, u)
+                    caster.damageTargetCode(dmg, u, null, -1, damageType.PURE)
                     u.pause()
                     doAfter(10) -> 
                         u.unpause()

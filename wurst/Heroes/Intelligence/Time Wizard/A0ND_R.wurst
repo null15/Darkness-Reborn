@@ -30,7 +30,7 @@ public function hourglass()
         caster..removeAbility('A0NG')..addAbility('A007')
         forUnitsInRange(caster.getPos(), 99999, true) (unit u) ->
             if caster.isEnemyOf(u)
-                caster.magicalDamageCode(dmg, u)
+                caster.damageTargetCode(dmg, u, null, -1, damageType.MAGICAL)
             else
                 if u.getOwner() != Player(10)
                     if(u.getHP() + dmg < u.getMaxHP())

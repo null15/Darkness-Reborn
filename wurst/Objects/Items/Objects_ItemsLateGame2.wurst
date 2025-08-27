@@ -163,7 +163,7 @@ let ITEM_FREEZE_WAND_ABI1 = compiletime(ABIL_ID_GEN.next())
 init
     EventListener.onTargetCast(ITEM_FREEZE_WAND_ABI1) (unit caster, unit target) ->
         let dam = caster.getInt(true) * 15.00
-        caster.magicalDamageCode(dam, target)
+        caster.damageTargetCode(dam, target, null, -1, damageType.MAGICAL)
 
 @compiletime function createItems_freeze_wand()
     new MyItemWithRecipeDefinition(ITEM_FREEZE_WAND, itemRecipeList, ITEM_RECIPE_FREEZE_WAND,

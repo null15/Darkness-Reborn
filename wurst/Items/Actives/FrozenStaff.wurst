@@ -8,4 +8,4 @@ init
 function frozenStaff()
     EventListener.onTargetCast('A0YB') (unit caster, unit target) ->
         let dam = caster.getInt(true) * 45.00
-        caster.magicalDamageCode(dam, target)
+        caster.damageTargetCode(dam, target, null, -1, damageType.MAGICAL)

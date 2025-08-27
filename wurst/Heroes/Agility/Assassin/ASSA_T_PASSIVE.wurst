@@ -51,7 +51,7 @@ function unit.assa_quest()
             quest2 = false
             startExclusiveKillingLowestLevelQuest(100, this.getOwner(), 21, "Assassin Test") (player questOwner) ->
                 this.setName("Assassin")
-                this.basePhysPenAdd(5)
+                unitStatMap.get(this.getTypeId()).addBasePen(penetrationType.PHYSICAL, 0.05)
                 printTimedToPlayer("Second quest complete! You gain 5% armor penetration", 10, this.getOwner())
 
     if GetUnitAbilityLevel(this, ASSASSIN_ABIL_5) == 3
@@ -75,5 +75,5 @@ function unit.assa_quest()
             quest4 = false
             startExclusiveKillingLowestLevelQuest(1, this.getOwner(), 90, "Master Assassin Qualification Test") (player questOwner) ->
                 this.setName("Master Assassin")
-                this.basePhysPenAdd(10)
+                unitStatMap.get(this.getTypeId()).addBasePen(penetrationType.PHYSICAL, 0.1)
                 printTimedToPlayer("Fourth quest complete! You gain 10% armor penetration", 10, this.getOwner())

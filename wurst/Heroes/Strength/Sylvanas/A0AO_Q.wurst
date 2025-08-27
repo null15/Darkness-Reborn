@@ -32,7 +32,7 @@ function goldenArrowShoot(unit caster, vec2 target)
 
             forUnitsInRange(pos, 300, true) (unit u) ->
                 if u.isEnemyOf(caster)
-                    caster.magicalDamageCode(amount, u)
+                    caster.damageTargetCode(amount, u, null, -1, damageType.MAGICAL)
                     if sfx.getPos().isTerrainWalkable()
                         u.setPos(sfx.getPos())
 

@@ -12,7 +12,7 @@ function staticChargeDamage()
     let targ = DamageEvent.getTarget()
     let intellect = src.getInt(true)
     let dmg = intellect * (lvl * 2.00)
-    src.magicalDamageCodeId(dmg, targ, 'MRIP')
+    src.damageTargetCode(dmg, targ, null, 'MRIP', damageType.MAGICAL)
     let temp = addEffect("Abilities\\Spells\\Orc\\Purge\\PurgeBuffTarget.mdl", targ.getPos())
     doAfter(0.4) -> 
         temp.destr()

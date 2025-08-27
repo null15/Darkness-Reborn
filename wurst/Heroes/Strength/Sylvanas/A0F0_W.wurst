@@ -42,4 +42,4 @@ public function phantomArrow()
                         let dmg = (lvl*0.04)*hp
                         if(src.getMana() < BlzGetAbilityIntegerLevelField(src.getAbility('A0F0'), ABILITY_ILF_MANA_COST, lvl))
                             src.issueImmediateOrderById(OrderIds.poisonarrows + 1)
-                        src.magicalDamageCode(dmg, targ)
+                        src.damageTargetCode(dmg, targ, null, -1, damageType.MAGICAL)

@@ -20,7 +20,9 @@ function itemPickup()
             u.setField(UNIT_IF_DEFENSE_TYPE, 5)
         else if u.hasItemById(ITEM_CHAOS) and defenseType == 5 and defenseType != 6
             u.setField(UNIT_IF_DEFENSE_TYPE, 6)
-        u..physPenAdd().magicResAdd()
+        UnitStats.enumerateAllResistances(u)
+        UnitStats.enumerateAllPens(u)
     EventListener.add(EVENT_PLAYER_UNIT_DROP_ITEM) -> 
-        let ite = EventData.getManipulatedItem()
-        EventData.getTriggerUnit()..physpenSub(ite).magicResSub(ite)
+        let u = EventData.getTriggerUnit()
+        UnitStats.enumerateAllResistances(u)
+        UnitStats.enumerateAllPens(u)
