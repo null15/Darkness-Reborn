@@ -2,6 +2,7 @@ package Objects_ItemsTomes
 
 import MyItemDefinition
 import ItemObjEditing
+import TomeGive
 import MyItemIds
 
 init
@@ -150,11 +151,11 @@ init
     ..setNumberofCharges(1)
     ..setPerishable(true)
     ..setPriority(200)
-    ..setStockReplenishInterval(900)
+    ..setStockReplenishInterval(1500)
     ..setStockStartDelay(3000)
-    ..setUseAutomaticallyWhenAcquired(true)
+    ..setUseAutomaticallyWhenAcquired(false)
     ..setDescription("")
     ..setName("|c000050FFTome of Frosty All Statst|r")
     ..setTooltipBasic("|c000050FFTome of Frosty All Statst|r")
-    ..setTooltipExtended("|c000050FF+1999 all attributes.|r")
+    ..addStats(addTomeStatGiving(1999, ITEM_TOME_OF_FROSTY_ALL_STATS, statTome.ALLSTATS))
     ..setHotkey("")

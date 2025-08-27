@@ -116,3 +116,8 @@ public let wordAvatar             = "Active: activate Avatar for {0} sec (cd {1}
 public let wordResetSpellCd       = "Active: Reset all of your Skill Cooldowns (cd {0} sec)"
 public let wordPhoenixFire        = "Every {0} second deal {1} Damage to a nearby enemy within {2} Range"
 public let wordVampiricAura       = "Life Steal Aura: converts {0} damage into hp, {1} range"
+
+public let tomeAgiGive            = "Active: Give yourself {0} agility on use"
+public let tomeStrGive            = "Active: Give yourself {0} strength on use"
+public let tomeIntGive            = "Active: Give yourself {0} intelligence on use"
+public let tomeAllGive            = "Active: Give yourself {0} all stats on use"

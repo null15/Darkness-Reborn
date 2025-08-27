@@ -7,6 +7,7 @@ import codeDamageTypings
 import ObjectIds
 import Abilities
 import ClosureEvents
+import TomeGive
 import ItemObjEditing
 import ResetCd
 
@@ -570,3 +571,26 @@ public function addAbilityLifeStealAura(real factor, real range) returns ItemSta
     return new ItemStats(abilityId, effects)
 
 // ----------------------------------------------------------------------------
+
+public function addTomeStatGiving(int amount, int tomeID, statTome tomeType) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = tomeAgiGive.format(amount.toString())
+    
+    let abilDef = new AbilityDefinitionRoar(abilityId)
+    ..setDurationHero(1, 0.01)
+    ..setDurationNormal(1, 0.01)
+    ..setManaCost(1, 0)
+
+    tomesList.add(new Tome(amount, tomeType, abilityId))
+    
+    switch tomeType
+        case statTome.AGILITY
+            abilDef.setArtCaster(Abilities.aIamTarget)
+        case statTome.STRENGTH
+            abilDef.setArtCaster(Abilities.aIsmTarget)
+        case statTome.INTELLIGENCE
+            abilDef.setArtCaster(Abilities.aIimTarget)
+        case statTome.ALLSTATS
+            abilDef.setArtCaster(Abilities.aIilTarget)
+
+    return new ItemStats(abilityId, effects)
