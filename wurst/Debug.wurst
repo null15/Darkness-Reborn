@@ -3,7 +3,7 @@ import MyUnitIds
 import AbilityIds
 import MyUpgradesIds
 
-let DEBUG = false
+let DEBUG = true
 
 public function initDebug()
     if (not DEBUG)

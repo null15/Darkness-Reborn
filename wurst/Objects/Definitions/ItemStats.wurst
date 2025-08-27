@@ -12,6 +12,7 @@ import AbilitiesList
 import DummyCaster
 import MyAbilityIds
 import Orders
+import ClosureEvents
 
 // ----------------------------------------------------------------------------
 
@@ -632,7 +633,7 @@ public function addAbilityDealMagicDamageInt2(real damage, real intFactor, int m
     itemsAbilitiesList.add(new ItemAbility(abilityId,
     (unit caster, unit target) -> begin
         let damageSum = damage + caster.getInt(true) * intFactor
-        caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
+        caster.damageTargetCode(damageSum, target, null, -1, damageType.MAGICAL)
     end))
 
     return constructManaCdAbility(abilityId, effects, manaCost, cd)
