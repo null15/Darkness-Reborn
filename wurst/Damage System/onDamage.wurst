@@ -62,7 +62,7 @@ init
             DamageEvent.setAmount(DamageEvent.getAmount() * difficultyDamageIncrease[gameMode])
         switch DamageEvent.getType()
             case ATTACK
-                if(returnReducedDamage() > 0)
+                if(returnReducedDamage() > 0 and unitStatMap.has(src.getTypeId()))
                     DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
                 if src.isType(UNIT_TYPE_RANGED_ATTACKER)
                     physicalDamageChecks(0, src, targ, WEAPON_TYPE_AXE_MEDIUM_CHOP)
@@ -79,7 +79,7 @@ init
                 let damId = DamageEvent.getId()
                 DamageEvent.setAmount(DamageEvent.getAmount() * 1.111111111)
                 if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
-                    if(returnReducedDamage() > 0)
+                    if(returnReducedDamage() > 0 and unitStatMap.has(src.getTypeId()))
                         DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
                     physicalDamageChecks(damId, src, targ, DamageEvent.getWeaponType())
                 else if (DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)
