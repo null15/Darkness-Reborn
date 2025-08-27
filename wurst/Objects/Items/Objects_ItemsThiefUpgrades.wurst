@@ -92,32 +92,32 @@ init
 //I0HG
     new MyItemWithCraftInfoDefinition(ITEM_SPIRIT_SWORD_L2, blacksmithThiefList, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif21.blp")
-    ..addStats("[WIP] +10% Damage to all the team around")
     ..setClassification("PowerUp")
+    ..addStats(addAuraCommandRel2(0.1, 900))
     ..addComponents(ITEM_SPIRIT_SWORD_L1)
     ..register()
     
 //I0HH
     new MyItemWithCraftInfoDefinition(ITEM_SPIRIT_DAGGER, blacksmithThiefList, -1)    
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif22.blp")
-    ..addStats("[WIP] +15% Damage to all the team around")
     ..setClassification("PowerUp")
+    ..addStats(addAuraCommandRel2(0.15, 900))
     ..addComponents(ITEM_SPIRIT_SWORD_L2)
     ..register()
     
 //I0HI
     new MyItemWithCraftInfoDefinition(ITEM_SPIRIT_BLADE, blacksmithThiefList, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif23.blp")
-    ..addStats("[WIP] +30% Damage to all the team around")
     ..setClassification("PowerUp")
+    ..addStats(addAuraCommandRel2(0.3, 900))
     ..addComponents(ITEM_SPIRIT_DAGGER)
     ..register()
 
 //I0HJ
     new MyItemWithCraftInfoDefinition(ITEM_SPIRIT_MIDDLE_BLADE, blacksmithThiefList, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif24.blp")
-    ..addStats("[WIP] +45% Damage to all the team around")
     ..setClassification("PowerUp")
+    ..addStats(addAuraCommandRel2(0.45, 900))
     ..addComponents(ITEM_SPIRIT_BLADE)
     ..register()
 
@@ -125,7 +125,7 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_SPIRIT_GIANT_BLADE, blacksmithThiefList, -1)    
     ..setClassification("Permanent")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif25.blp")
-    ..addStats("[WIP] +60% Damage to all the team around")
+    ..addStats(addAuraCommandRel2(0.5, 900))
     ..addComponents(ITEM_SPIRIT_MIDDLE_BLADE)
     ..register()
     

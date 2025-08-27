@@ -9,7 +9,8 @@ init
 @compiletime function createItems()
 
 //I047
-    new MyItemDefinition(ITEM_SPHERE_OF_FIRE)    
+    new MyItemDefinition(ITEM_SPHERE_OF_FIRE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSphereOfFire.blp") 
     ..setClassification("Artifact")
     ..addStats(addHp(6000))
     ..setStockMaximum(99)
@@ -17,21 +18,24 @@ init
 
 
 //I046
-    new MyItemDefinition(ITEM_SPHERE_OF_WATER)    
+    new MyItemDefinition(ITEM_SPHERE_OF_WATER)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSphereOfWater.blp")
     ..setClassification("Artifact")
     ..addStats(addMp(6000))
     ..setStockMaximum(99)
     ..register()
 
 //I03P
-    new MyItemDefinition(ITEM_ESSENCE_OF_ASZUNE)    
+    new MyItemDefinition(ITEM_ESSENCE_OF_ASZUNE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHeartOfAszune.blp") 
     ..setClassification("Artifact")
     ..addStats(addAllStats(80))
     ..setStockMaximum(99)
     ..register()
 
 //I04B
-    new MyItemDefinition(ITEM_DREAM_SWORD)    
+    new MyItemDefinition(ITEM_DREAM_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFairyDreamSword.blp") 
     ..setClassification("Artifact")
     ..addStats(addDamage(220))
     ..addStats(addAttackSpeed(1.2))
@@ -41,7 +45,8 @@ init
     ..register()
 
 //I04C
-    new MyItemDefinition(ITEM_CRYSTAL_SWORD)    
+    new MyItemDefinition(ITEM_CRYSTAL_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNredsword4.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(240))
     ..addStats(addAttackSpeed(1.2))
@@ -51,7 +56,8 @@ init
     ..register()
 
 //I0AY
-    new MyItemDefinition(ITEM_BLOODY_DAGGER)    
+    new MyItemDefinition(ITEM_BLOODY_DAGGER)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (3).blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(220))
     ..addStats(addAllStats(30))
@@ -59,43 +65,9 @@ init
     ..setStockMaximum(99)
     ..register()
 
-//I045
-    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L0)    
-    ..setCooldownGroup("A0BX")
-    ..setActivelyUsed(true)
-    ..setClassification("Artifact")
-    ..addStats(addStr(38))
-    ..addStats(addAgi(38))
-    ..addStats(addInt(100))
-    ..addStats("[WIP] Active: Restore MP to full. (cd 240 sec)")
-    ..setStockMaximum(99)
-    ..register()
-
-//I044
-    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L0)    
-    ..setCooldownGroup("A0BW")
-    ..setActivelyUsed(true)
-    ..setClassification("Artifact")
-    ..addStats(addStr(100))
-    ..addStats(addAgi(38))
-    ..addStats(addInt(38))
-    ..addStats("[WIP] Active: Restore HP to full. (cd 240 sec)")
-    ..setStockMaximum(99)
-    ..register()
-
-//I043
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L0)    
-    ..setClassification("Artifact")
-    ..addStats(addArmor(120))
-    ..addStats(addStr(38))
-    ..addStats(addAgi(100))
-    ..addStats(addInt(38))
-    ..addStats(addEvasion(0.25))
-    ..setStockMaximum(99)
-    ..register()
-
 //I0BB
-    new MyItemDefinition(ITEM_GLOVERSHIELD)    
+    new MyItemDefinition(ITEM_GLOVERSHIELD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (5).blp") 
     ..setClassification("Artifact")
     ..addStats(addArmor(100))
     ..addStats(addMagicResist(30))
@@ -104,21 +76,24 @@ init
     ..register()
 
 //I048
-    new MyItemDefinition(ITEM_BOOK_OF_WIND)    
+    new MyItemDefinition(ITEM_BOOK_OF_WIND)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeaver 02.blp")
     ..setClassification("Artifact")
     ..addStats(addAgi(220))
     ..setStockMaximum(99)
     ..register()
 
 //I04A
-    new MyItemDefinition(ITEM_BOOK_OF_RAIN)    
+    new MyItemDefinition(ITEM_BOOK_OF_RAIN)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeaver.blp")
     ..setClassification("Artifact")
     ..addStats(addInt(280))
     ..setStockMaximum(99)
     ..register()
 
 //I049
-    new MyItemDefinition(ITEM_BOOK_OF_EARTHQUAKE)    
+    new MyItemDefinition(ITEM_BOOK_OF_EARTHQUAKE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeaver 03.blp")
     ..setClassification("Artifact")
     ..addStats(addStr(250))
     ..addStats(addArmorPen(1))
@@ -126,7 +101,8 @@ init
     ..register()
 
 //I0BC
-    new MyItemDefinition(ITEM_LAZARUS_BELT)    
+    new MyItemDefinition(ITEM_LAZARUS_BELT)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (1).blp")
     ..setActivelyUsed(true)
     ..setClassification("Miscellaneous")
     ..addStats(addArmor(100))
@@ -137,7 +113,8 @@ init
     ..register()
 
 //I06V
-    new MyItemDefinition(ITEM_MENELAUS)    
+    new MyItemDefinition(ITEM_MENELAUS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInjusticePlate.blp")
     ..setClassification("Artifact")
     ..addStats(addArmor(240))
     ..addStats(addMagicResist(70))
@@ -147,7 +124,8 @@ init
     ..register()
 
 //I0BE
-    new MyItemDefinition(ITEM_SOUL_BLAME)    
+    new MyItemDefinition(ITEM_SOUL_BLAME)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (4).blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(700))
     ..addStats(addAttackSpeed(1.4))
@@ -157,7 +135,8 @@ init
     ..register()
 
 //I0BO
-    new MyItemDefinition(ITEM_TITANIUM)    
+    new MyItemDefinition(ITEM_TITANIUM)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (4).blp")
     ..setClassification("Campaign")
     ..addStats(addEvasion(0.5))
     ..setStockMaximum(99)

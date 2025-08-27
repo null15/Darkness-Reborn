@@ -122,7 +122,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_mace_82.blp")      
     ..setClassification("Campaign")
     ..setGoldCost(00000)
-    ..addStats(addAllStats(2500))
+    ..addStats(addAllStats(3500))
     ..addStats(addDamage(10000))
     ..addStats(addHpReg(500))
     ..addStats(addArmor(800))

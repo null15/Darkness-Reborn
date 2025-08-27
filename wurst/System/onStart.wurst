@@ -158,7 +158,7 @@ function createSetup()
     posX = GetRectCenterX(gg_rct_Base)
     posY = GetRectCenterY(gg_rct_Base) + 200
 
-    CreateUnit(players[10], BUILDING_0, posX, posY, 270.000).questItemPickup() // Fountain of Healing (at base)
+    CreateUnit(players[10], BUILDING_FOUNTAIN, posX, posY, 270.000).questItemPickup() // Fountain of Healing (at base)
 
     dropSite = CreateUnit(players[10], DROPSITE, posX, posY - 800, 270.)//Dropsite
     updateDropSite() 

@@ -1,15 +1,8 @@
 package Objects_ItemsRecipes4
 
-import CommonDescriptions
 import MyItemDefinition
 import ItemObjEditing
-import AbilityObjEditing
-import ItemIds
 import MyItemIds
-import ObjectIds
-import MyAbilityIds
-import Icons
-import Abilities
 import RecipeItems
 
 init
@@ -181,10 +174,10 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff1.blp")
     ..setCooldownGroup("A0XN")
     ..setActivelyUsed(true)
+    ..addStats(addAbilityDealMagicDamage(8000, 2000, 20))
     ..addStats(addInt(180))
     ..addStats(addAttackSpeed(1.8))
     ..addStats(addMpReg(1))
-    ..addStats("[WIP] Active: Deals 7800 Damage to the target enemy. Cooldown: 30 seconds")
     ..addComponents(
     ITEM_SEER_STAFF,
     ITEM_RING_OF_ARCHMAGI,
@@ -198,9 +191,11 @@ init
     ..setGoldCost(5700)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC1.blp")
+    ..setActivelyUsed(true)
+    ..addStats(addAbilityDealMagicDamageInt(10, 1500, 20))
     ..addStats(addInt(180))
     ..addStats(addHp(3200))
-    ..addStats("[WIP] Active: Sends a Frost Nova on the target")
+    ..addStats(addMp(3200))
     ..addComponents(
     ITEM_SEER_STAFF,
     ITEM_ORB_OF_FROST,

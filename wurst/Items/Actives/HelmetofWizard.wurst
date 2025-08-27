@@ -1,9 +1,0 @@
-package HelmetofWizard
-
-import ClosureEvents
-init
-    helmetofWizard()
-
-function helmetofWizard()
-    EventListener.onCast('A0BX') caster ->
-        caster.setMana(caster.getMaxMana())

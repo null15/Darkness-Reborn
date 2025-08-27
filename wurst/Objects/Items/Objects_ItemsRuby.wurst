@@ -14,6 +14,7 @@ init
 
 //I0IM
     new MyItemDefinition(ITEM_EMPTY_VIAL)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVialEmpty.blp")
     ..setGoldCost(200)
     ..setStockMaximum(3)
     ..setStockReplenishInterval(120)
@@ -21,6 +22,7 @@ init
     ..setTooltipBasic("Purchase Empty Vial")
     ..setTooltipExtended("An empty vial that allows upgrading Ruby Fragment +1 to Ruby Fragments +2")
     ..setDescription("An empty vial that allows upgrading Ruby Fragment +1 to Ruby Fragments +2")
+    ..addHotKey()
     ..register()
     
 //I02G

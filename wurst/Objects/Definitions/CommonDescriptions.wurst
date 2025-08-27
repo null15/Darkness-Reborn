@@ -110,12 +110,23 @@ public let wordAuraTrueshot       = "Trueshot Aura: {0}% ranged damage in {1} ra
 public let wordAuraEndurance      = "Endurance Aura: {0}% movement speed, {1}% attack speed in {2} range"
 public let wordAuraDevotionFlat   = "Devotion Aura: {0} armor in {1} range"
 public let wordAuraDevotionRel    = "Devotion Aura: {0}% armor in {1} range"
-public let wordAuraCommandRel     = "Command Aura: {0}% damage in {1} range"
+public let wordAuraCommandRel     = "Command Aura: {0}% damage in {1} range (stacks with damage aura)"
+public let wordAuraDamageRel      = "Damage Aura: {0}% damage in {1} range (stacks with command aura)"
 
 public let wordAvatar             = "Active: activate Avatar for {0} sec (cd {1} sec)"
 public let wordResetSpellCd       = "Active: Reset all of your Skill Cooldowns (cd {0} sec)"
 public let wordPhoenixFire        = "Every {0} second deal {1} Damage to a nearby enemy within {2} Range"
 public let wordVampiricAura       = "Life Steal Aura: converts {0} damage into hp, {1} range"
+
+public let wordAbilityMagicDamage     = "Active: deals {0} magical damage to target (cd {1} sec)"
+public let wordAbilityMagicDamageInt  = "Active: deals {0}x int magical damage to target (cd {1} sec)"
+public let wordAbilityMagicDamageInt2 = "Active: deals {0} + {1}x int magical damage to target (cd {2} sec)"
+
+public let wordAbilityRestoreHp   = "Active: fully restores HP (cd {0} sec)"
+public let wordAbilityRestoreMp   = "Active: fully restores MP (cd {0} sec)"
+public let wordAbilityRestoreHpMp = "Active: fully restores HP and MP (cd {0} sec)"
+
+public let wordAbilityHolyLight   = "Active: heal friendly target for {0} + {1}x int amount or deal {2}% damage to enemy (cd {3} sec)"
 
 public let tomeAgiGive            = "Active: Give yourself {0} agility on use"
 public let tomeStrGive            = "Active: Give yourself {0} strength on use"

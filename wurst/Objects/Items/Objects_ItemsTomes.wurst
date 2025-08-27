@@ -4,11 +4,76 @@ import MyItemDefinition
 import ItemObjEditing
 import TomeGive
 import MyItemIds
+import Icons
+import CommonDescriptions
 
 init
 
 @compiletime function createItems()
 
+//I0CI
+    
+    new MyItemDefinition(ITEM_TOME_OF_FROSTY_INTELLIGENCE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTome.blp")
+    ..setModelUsed("Objects\\InventoryItems\\tomeGreen\\tomeGreen.mdl")
+    ..setActivelyUsed(true)
+    ..setCanBeSoldByMerchants(true)
+    ..setCanBeSoldToMerchants(true)
+    ..setGoldCost(50000)
+    ..setLumberCost(1500)
+    ..setNumberofCharges(1)
+    ..setPerishable(true)
+    ..setPriority(200)
+    ..setStockReplenishInterval(1500)
+    ..setStockStartDelay(3000)
+    ..setUseAutomaticallyWhenAcquired(false)
+    ..addStats(addTomeStatGiving(1999, ITEM_TOME_OF_FROSTY_INTELLIGENCE, statTome.INTELLIGENCE))
+    ..addExtraDescription(wordNote + "You can use tome in horse to give stats to the hero.")
+    ..setInterfaceIcon(Icons.bTNSpellBookBLS)
+    ..addHotKey()
+    ..register()
+
+//I0CF
+    new MyItemDefinition(ITEM_TOME_OF_FROSTY_STRENGTH)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTome.blp")
+    ..setModelUsed("Objects\\InventoryItems\\tomeGreen\\tomeGreen.mdl")
+    ..setActivelyUsed(true)
+    ..setCanBeSoldByMerchants(true)
+    ..setCanBeSoldToMerchants(true)
+    ..setGoldCost(50000)
+    ..setLumberCost(1500)
+    ..setNumberofCharges(1)
+    ..setPerishable(true)
+    ..setPriority(200)
+    ..setStockReplenishInterval(1500)
+    ..setStockStartDelay(3000)
+    ..setInterfaceIcon(Icons.bTNSpellBookBLS)
+    ..setUseAutomaticallyWhenAcquired(false)
+    ..addStats(addTomeStatGiving(1999, ITEM_TOME_OF_FROSTY_STRENGTH, statTome.STRENGTH))
+    ..addExtraDescription(wordNote + "You can use tome in horse to give stats to the hero.")
+    ..addHotKey()
+    ..register()
+
+//I0CH
+    new MyItemDefinition(ITEM_TOME_OF_FROSTY_AGILITY)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTome.blp")
+    ..setModelUsed("Objects\\InventoryItems\\tomeGreen\\tomeGreen.mdl")
+    ..setActivelyUsed(true)
+    ..setCanBeSoldByMerchants(true)
+    ..setCanBeSoldToMerchants(true)
+    ..setGoldCost(50000)
+    ..setLumberCost(1500)
+    ..setNumberofCharges(1)
+    ..setPerishable(true)
+    ..setPriority(200)
+    ..setStockReplenishInterval(1500)
+    ..setStockStartDelay(1)
+    ..setInterfaceIcon(Icons.bTNSpellBookBLS)
+    ..setUseAutomaticallyWhenAcquired(false)
+    ..addStats(addTomeStatGiving(1999, ITEM_TOME_OF_FROSTY_AGILITY, statTome.AGILITY))
+    ..addExtraDescription(wordNote + "You can use tome in horse to give stats to the hero.")
+    ..addHotKey()
+    ..register()
 
 //I0C8
     new MyItemDefinition(ITEM_MANUAL_OF_HEALTH_50)
