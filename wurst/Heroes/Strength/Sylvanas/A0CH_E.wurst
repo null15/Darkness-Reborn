@@ -12,5 +12,5 @@ public function poisonArrow()
         doAfter(0.5) -> 
             forUnitsInRange(target, 400, true) (unit u) ->
                 if caster.isEnemyOf(u)
-                    caster.magicalDamageCode(amount, u)
+                    caster.damageTargetCode(amount, u, null, -1, damageType.MAGICAL)
                     flashEffect(Abilities.manaBurnTarget, target)

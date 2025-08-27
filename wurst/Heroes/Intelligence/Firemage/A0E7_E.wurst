@@ -11,4 +11,4 @@ public function fireShield()
                 if targ.getAbilityLevel('B900') > 0
                     let dmg = targ.getInt(true)*0.25
                     let src = DamageEvent.getSource()
-                    targ.magicalDamageCodeId(dmg, src, 'phoe')
+                    targ.damageTargetCode(dmg, src, null, 'phoe', damageType.MAGICAL)

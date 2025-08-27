@@ -27,4 +27,4 @@ public function superKingOfloasE()
                                 ..origin(src.getPos())
                                 ..castTarget(ABILITY_49, 1, OrderIds.forkedlightning, u)
                                 doAfter(0.05) -> 
-                                    src.magicalDamageCode(dmg, u)
+                                    src.damageTargetCode(dmg, u, null, -1, damageType.MAGICAL)

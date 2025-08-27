@@ -174,7 +174,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff1.blp")
     ..setCooldownGroup("A0XN")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityDealMagicDamage(8000, 1500, 20))
+    ..addStats(addAbilityDealMagicDamage(8000, 2000, 20))
     ..addStats(addInt(180))
     ..addStats(addAttackSpeed(1.8))
     ..addStats(addMpReg(1))

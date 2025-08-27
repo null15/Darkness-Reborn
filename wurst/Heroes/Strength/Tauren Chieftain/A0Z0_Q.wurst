@@ -34,4 +34,4 @@ public function shockExplosion()
                         flashEffect("NewMassiveEX.mdl", target, 3)
                         forUnitsInRange(target, 500, true) (unit u) ->
                             if caster.isEnemyOf(u)
-                                caster.physicalDamageCode(dmg, u, true)
+                                caster.damageTargetCode(dmg, u, null, -1, damageType.PHYSICALRANGED)

@@ -1,0 +1,10 @@
+package IceWand
+import ClosureEvents
+import codeDamageTypings
+init
+    iceWand()
+
+function iceWand()
+    EventListener.onTargetCast('A0Y9') (unit caster, unit target) ->
+        let dam = caster.getInt(true) * 5.00
+        caster.damageTargetCode(dam, target, null, -1, damageType.MAGICAL)

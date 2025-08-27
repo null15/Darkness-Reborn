@@ -17,7 +17,7 @@ public function shadowWalk()
             caster.setPos(caster.getPos().polarOffset(angle,20))
             forUnitsInRange(caster.getPos(), 175, true) (unit u) ->
                 if caster.isEnemyOf(u)
-                    caster.physicalDamageCode(dmg, u, true)
+                    caster.damageTargetCode(dmg, u, null, -1, damageType.PHYSICALRANGED)
             if cb.isLast()
                 caster
                 ..setVertexColor(color(255, 255, 255))

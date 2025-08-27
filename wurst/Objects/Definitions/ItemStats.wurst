@@ -603,8 +603,9 @@ public function addAbilityDealMagicDamage(real damage, int manaCost, real cd) re
     let effects = wordAbilityMagicDamage.format(damage.toString(), cd.toString())
 
     itemsAbilitiesList.add(new ItemAbility(abilityId,
-    (unit caster, unit target) -> caster.magicalDamageCode(damage, target)
-    ))
+    (unit caster, unit target) -> begin
+        caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
+    end))
 
     return constructManaCdAbility(abilityId, effects, manaCost, cd)
 
@@ -617,7 +618,7 @@ public function addAbilityDealMagicDamageInt(real intFactor, int manaCost, real 
     itemsAbilitiesList.add(new ItemAbility(abilityId,
     (unit caster, unit target) -> begin
         let damage = caster.getInt(true) * intFactor
-        caster.magicalDamageCode(damage, target)
+        caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
     end))
 
     return constructManaCdAbility(abilityId, effects, manaCost, cd)
@@ -631,7 +632,7 @@ public function addAbilityDealMagicDamageInt2(real damage, real intFactor, int m
     itemsAbilitiesList.add(new ItemAbility(abilityId,
     (unit caster, unit target) -> begin
         let damageSum = damage + caster.getInt(true) * intFactor
-        caster.magicalDamageCode(damageSum, target)
+        caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
     end))
 
     return constructManaCdAbility(abilityId, effects, manaCost, cd)
@@ -682,7 +683,8 @@ public function addAbilityHolyLight(real healIntFactor, real healAmount, real da
         let heal = healIntFactor * caster.getInt(true) + healAmount
 
         if (target.isEnemyOf(caster))
-            caster.magicalDamageCode(heal * damageFactor, target)
+            let damage = heal * damageFactor
+            caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
             
             flashEffect(Abilities.holyBoltSpecialArt, target.getPos())
         else
@@ -709,7 +711,7 @@ public function addAbilityLightingBoltStun(real damage, real intFactor, real stu
     itemsAbilitiesList.add(new ItemAbility(abilityId,
     (unit caster, unit target) -> begin
         let damageSum = caster.getInt(true) * intFactor + damage
-        caster.magicalDamageCode(damageSum, target)
+        caster.damageTargetCode(damageSum, target, null, -1, damageType.MAGICAL)
         
         new DummyCaster()
         ..owner(caster.getOwner())

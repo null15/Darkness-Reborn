@@ -30,7 +30,7 @@ public function embodimentOfGral()
                         ..owner(targ.getOwner())
                         ..castTarget(ABILITY_55, 1, OrderIds.innerfire, targ)
                         doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
-                            targ.physicalDamageCode(targ.getInt(true) * 1., targ, true)
+                            src.damageTargetCode(src.getInt(true) * 1., targ, null, -1, damageType.PHYSICALRANGED)
                         doAfter(0.01) ->
                             shark.setAnimation(0)
                             gralBite.playOnPoint(targ.getPos3Real())

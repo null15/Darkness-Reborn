@@ -21,7 +21,7 @@ public function judgement()
                 amount = amount * 2
             forUnitsInRange(target, 400) (unit u) ->
                 if u.isEnemyOf(caster)
-                    caster.magicalDamageCode(amount.toReal(), u)
+                    caster.damageTargetCode(amount.toReal(), u, null, -1, damageType.MAGICAL)
                     new DummyCaster()
                     ..origin(target)
                     ..owner(caster.getOwner())

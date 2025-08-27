@@ -1,0 +1,11 @@
+package FrozenStaff
+
+import ClosureEvents
+import codeDamageTypings
+init
+    frozenStaff()
+
+function frozenStaff()
+    EventListener.onTargetCast('A0YB') (unit caster, unit target) ->
+        let dam = caster.getInt(true) * 45.00
+        caster.damageTargetCode(dam, target, null, -1, damageType.MAGICAL)

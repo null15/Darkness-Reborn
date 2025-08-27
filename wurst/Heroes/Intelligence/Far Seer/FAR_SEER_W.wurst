@@ -15,7 +15,7 @@ public function lightningNova()
             let pos = caster.getPos()
             forUnitsInRange(pos, 600 - (100.* cb.getCount()), true) (unit u) ->
                 if (caster.isEnemyOf(u) and temp.has(u) == false)
-                    caster.magicalDamageCodeId(dmg, u, 'HEAB')
+                    caster.damageTargetCode(dmg, u, null, 'HEAB', damageType.MAGICAL)
                     temp.add(u)
             if cb.isLast()
                 temp.clear()

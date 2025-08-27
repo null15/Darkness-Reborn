@@ -7,7 +7,8 @@ constant punishMap = new IterableMap<unit,int>
 public function punishTimeAct(unit u)
 	EventListener.add(u, EVENT_PLAYER_UNIT_DEATH) ->
 		punishMap.forEach() (unit key, integer value) ->
-			u.pureDamageCode(7000.*value, key)
+			u.damageTargetCode(7000. * value, key, null, -1, damageType.PURE)
+			
 public function punishTimeInit()
 	EventListener.onTargetCast('A0NC') (unit caster, unit target) ->
 		target

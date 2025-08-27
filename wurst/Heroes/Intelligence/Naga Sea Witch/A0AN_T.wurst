@@ -20,7 +20,7 @@ public function tornado()
             if inTransit
                 forUnitsInRange(target, 300, true) (unit u) ->
                     if u.isEnemyOf(caster)
-                        caster.magicalDamageCode(dmg, u)
+                        caster.damageTargetCode(dmg, u, null, -1, damageType.MAGICAL)
                         if sfx.getPos().isTerrainWalkable()
                             u.setPos(sfx.getPos())
             else
@@ -28,6 +28,6 @@ public function tornado()
                 flashEffect("Effects\\Vashj\\WaterBlast.mdl", sfx.getPos(), 8)
                 forUnitsInRange(sfx.getPos(), 300, true) (unit u) ->
                     if u.isEnemyOf(caster)
-                        caster.magicalDamageCode(dmg, u)
+                        caster.damageTargetCode(dmg, u, null, -1, damageType.MAGICAL)
                         if sfx.getPos().isTerrainWalkable()
                             u.setPos(sfx.getPos())

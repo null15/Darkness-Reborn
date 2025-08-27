@@ -2,7 +2,6 @@ package TomesGive
 import ClosureEvents
 import MyItemIds
 import LinkedList
-import Player
 import ClosureTimers
 import HashMap
 import Global_Variables
@@ -39,7 +38,7 @@ public function int.tomeEnumerate(int amount, tomeStats statType)
     tomeHash.put(this, statType)
     tomeAmount.put(this, amount)
 
-function unit.AddStats(tomeStats tomeStat, int amount)
+function unit.addStats(tomeStats tomeStat, int amount)
     switch tomeStat
         case tomeStats.Agility
             this.addAgi(amount)
@@ -71,9 +70,9 @@ public function unit.tomeSold()
         if tomes.has(soldItemID)
             soldItem.remove()
             if playerSelfishTome.get(p) == true
-                playerHero.get(p).AddStats(tomeHash.get(soldItemID), tomeAmount.get(soldItemID))
+                playerHero.get(p).addStats(tomeHash.get(soldItemID), tomeAmount.get(soldItemID))
             else
                 doPeriodicallyCounted(1, 10) (CallbackCounted cb) ->
                     if cb.isLast() or playerTomeChoice.get(p) == tomeChoice.Selfish
-                        playerHero.get(p).AddStats(tomeHash.get(soldItemID), tomeAmount.get(soldItemID))
+                        playerHero.get(p).addStats(tomeHash.get(soldItemID), tomeAmount.get(soldItemID))
                     else

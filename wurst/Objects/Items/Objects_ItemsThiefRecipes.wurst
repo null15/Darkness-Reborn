@@ -189,7 +189,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC3.blp")
     ..setClassification("Campaign")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityDealMagicDamageInt(50, 6000, 5))
+    ..addStats(addAbilityDealMagicDamageInt2(20000, 60, 12000, 5))
     ..addStats(addInt(600))
     ..addStats(addHp(15000))
     ..addStats(addMp(15000))

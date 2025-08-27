@@ -20,4 +20,4 @@ public function thunderRage()
                     let templight2 = addLightning("CLSB", true, upos, u2.getPos())
                     doAfter(1.5) -> 
                         templight2.destr()
-                caster.magicalDamageCodeId(dmg, u, 'HTIM')
+                caster.damageTargetCode(dmg, target, null, 'HTIM', damageType.MAGICAL)

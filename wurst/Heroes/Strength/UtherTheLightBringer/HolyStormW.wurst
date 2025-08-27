@@ -19,7 +19,7 @@ public function holyStorm()
             doPeriodicallyTimed(0.03, 3. * lvl) (CallbackCounted cb) ->
                 forUnitsInRange(caster.getPos(), 300) (unit u) ->
                     if u.isEnemyOf(caster)
-                        caster.magicalDamageCode(dam, u)
+                        caster.damageTargetCode(dam, u, null, -1, damageType.MAGICAL)
                 if cb.isLast()
                     sfx.destr()
         else
@@ -28,7 +28,7 @@ public function holyStorm()
             doPeriodicallyTimed(0.03, 1.5 * lvl) (CallbackCounted cb) ->
                 forUnitsInRange(caster.getPos(), 300) (unit u) ->
                     if u.isEnemyOf(caster)
-                        caster.magicalDamageCode(dam, u)
+                        caster.damageTargetCode(dam, u, null, -1, damageType.MAGICAL)
 
                 if cb.isLast()
                     sfx.destr()

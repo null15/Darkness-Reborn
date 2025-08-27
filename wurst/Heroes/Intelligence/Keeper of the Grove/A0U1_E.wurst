@@ -28,7 +28,7 @@ public function hawkeyeSplit()
                     let proj = new Projectile(u, sfx, 4)
                     proj.moveForward(false) (effect detectionUnit, unit target) ->
                         let output = (caster.getInt(true) * 0.25 + 5.) * lvl
-                        caster.magicalDamageCode(output, u)
+                        caster.damageTargetCode(output, u, null, -1, damageType.MAGICAL)
                         
             if(cb.isLast())
                 owl.destr()

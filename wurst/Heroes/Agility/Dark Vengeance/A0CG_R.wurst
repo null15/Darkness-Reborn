@@ -14,4 +14,4 @@ public function gravitone()
                 if GetRandomInt(1, 100) < lvl*2
                     let targ = DamageEvent.getTarget()
                     let missingHp = src.getMissingHP()
-                    src.magicalDamageCode(missingHp + 175 * lvl, targ)
+                    src.damageTargetCode(missingHp + 175 * lvl, targ, null, -1, damageType.MAGICAL)

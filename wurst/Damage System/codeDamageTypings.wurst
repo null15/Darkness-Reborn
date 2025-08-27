@@ -3,15 +3,219 @@ import HashMap
 import DamageEvent
 import Global_Variables
 import ClosureEvents
+import LinkedList
 
-let magicResistMap = new HashMap<integer, real>
-let physicalPenetrationMap = new HashMap<integer, real>
-let basePhysPenMap = new HashMap<integer, real>
-let baseMagicResMap = new HashMap<integer, real>
+public let unitStatMap = new HashMap<integer, UnitStats>
 let physPenItemHash = compiletime(new HashMap<int, real>)
 let magicResItemHash = compiletime(new HashMap<int, real>)
-real physPen
-real magicRes
+
+public enum damageType
+    PURE
+    PHYSICALMELEE
+    PHYSICALRANGED
+    MAGICAL
+
+public enum penetrationType
+    UNIVERSAL
+    MAGICAL
+    PHYSICAL
+
+public enum resistanceType
+    UNIVERSAL
+    PHYSICAL
+    MAGICAL
+
+public class UnitStats
+    // Base pen, this penetration comes from hero skills temporary or permanent
+    private real basePhysPen = 0
+    private real baseMagicPen = 0
+    private real baseUniversalPen = 0
+    // Additive pen, this comes from items or other buff sources
+    private real additivePhysPen = 0
+    private real additiveMagicPen = 0
+    private real additiveUniversalPen = 0
+    // Resistances, comes from items or hero sources
+    private real magicRes = 0
+    private real physRes = 0
+    private real universalRes = 0
+
+    function addAdditivePen(penetrationType penType, real amount)
+        switch penType
+            case penetrationType.MAGICAL
+                additiveMagicPen += amount
+            case penetrationType.PHYSICAL
+                additivePhysPen += amount
+            case penetrationType.UNIVERSAL
+                additiveUniversalPen += amount
+
+    function subAdditivePen(penetrationType penType, real amount)
+        switch penType
+            case penetrationType.MAGICAL
+                additiveMagicPen -= amount
+            case penetrationType.PHYSICAL
+                additivePhysPen -= amount
+            case penetrationType.UNIVERSAL
+                additiveUniversalPen -= amount
+
+    function setAdditivePen(penetrationType penType, real amount)
+        switch penType
+            case penetrationType.MAGICAL
+                additiveMagicPen = amount
+            case penetrationType.PHYSICAL
+                additivePhysPen = amount
+            case penetrationType.UNIVERSAL
+                additiveUniversalPen = amount
+
+    function getAdditivePen(penetrationType penType) returns real
+        switch penType
+            case penetrationType.MAGICAL
+                return additiveMagicPen
+            case penetrationType.PHYSICAL
+                return additivePhysPen
+            case penetrationType.UNIVERSAL
+                return additiveUniversalPen
+
+    function addBasePen(penetrationType penType, real amount)
+        switch penType
+            case penetrationType.MAGICAL
+                baseMagicPen += amount
+            case penetrationType.PHYSICAL
+                basePhysPen += amount
+            case penetrationType.UNIVERSAL
+                baseUniversalPen += amount
+
+    function subBasePen(penetrationType penType, real amount)
+        switch penType
+            case penetrationType.MAGICAL
+                baseMagicPen -= amount
+            case penetrationType.PHYSICAL
+                basePhysPen -= amount
+            case penetrationType.UNIVERSAL
+                baseUniversalPen -= amount
+
+    function setBasePen(penetrationType penType, real amount)
+        switch penType
+            case penetrationType.MAGICAL
+                baseMagicPen = amount
+            case penetrationType.PHYSICAL
+                basePhysPen = amount
+            case penetrationType.UNIVERSAL
+                baseUniversalPen = amount
+
+    function getBasePen(penetrationType penType) returns real
+        switch penType
+            case penetrationType.MAGICAL
+                return baseMagicPen
+            case penetrationType.PHYSICAL
+                return basePhysPen
+            case penetrationType.UNIVERSAL
+                return baseUniversalPen
+
+    function getCombinedPen(penetrationType penType) returns real
+        switch penType
+            case penetrationType.MAGICAL
+                return baseMagicPen + additiveMagicPen
+            case penetrationType.PHYSICAL
+                return basePhysPen + additivePhysPen
+            case penetrationType.UNIVERSAL
+                return baseUniversalPen + additiveUniversalPen
+
+    function addResistance(resistanceType resType, real amount)
+        switch resType
+            case resistanceType.MAGICAL
+                magicRes += amount
+            case resistanceType.PHYSICAL
+                physRes += amount
+            case resistanceType.UNIVERSAL
+                universalRes += amount
+
+    function subResistance(resistanceType resType, real amount)
+        switch resType
+            case resistanceType.MAGICAL
+                magicRes -= amount
+            case resistanceType.PHYSICAL
+                physRes -= amount
+            case resistanceType.UNIVERSAL
+                universalRes -= amount
+
+    function setResistance(resistanceType resType, real amount)
+        switch resType
+            case resistanceType.MAGICAL
+                magicRes = amount
+            case resistanceType.PHYSICAL
+                physRes = amount
+            case resistanceType.UNIVERSAL
+                universalRes = amount
+    
+    function getResistance(resistanceType resType) returns real
+        switch resType
+            case resistanceType.MAGICAL
+                return magicRes
+            case resistanceType.PHYSICAL
+                return physRes
+            case resistanceType.UNIVERSAL
+                return universalRes
+
+    private static function enumerateResistances(unit toEnumerate, resistanceType resType)
+        let itemInUnit = new LinkedList<item>()
+        for int i = 0 to 5
+            itemInUnit.add(toEnumerate.itemInSlot(i))
+        itemInUnit.forEach() (item t) ->
+            if(t == null)
+                itemInUnit.remove(t)
+        var resistances = 0.
+        switch resType
+            case resistanceType.MAGICAL
+                itemInUnit.forEach() (item t) ->
+                    resistances += magicResItemHash.get(t.getTypeId())
+                    unitStatMap.get(toEnumerate.getTypeId()).setResistance(resType, resistances)
+            case resistanceType.PHYSICAL
+                itemInUnit.forEach() (item t) ->
+                    resistances += magicResItemHash.get(t.getTypeId())
+                    unitStatMap.get(toEnumerate.getTypeId()).setResistance(resType, resistances)
+            case resistanceType.UNIVERSAL
+                itemInUnit.forEach() (item t) ->
+                    resistances += magicResItemHash.get(t.getTypeId())
+                    unitStatMap.get(toEnumerate.getTypeId()).setResistance(resType, resistances)
+
+    static function enumerateAllResistances(unit toEnumerate)
+        if(unitStatMap.has(toEnumerate.getTypeId()))
+            enumerateResistances(toEnumerate, resistanceType.MAGICAL)
+            enumerateResistances(toEnumerate, resistanceType.PHYSICAL)
+            enumerateResistances(toEnumerate, resistanceType.UNIVERSAL)
+        else
+            let newStats = new UnitStats()
+            unitStatMap.put(toEnumerate.getTypeId(), newStats)
+            enumerateResistances(toEnumerate, resistanceType.MAGICAL)
+            enumerateResistances(toEnumerate, resistanceType.PHYSICAL)
+            enumerateResistances(toEnumerate, resistanceType.UNIVERSAL)
+
+    private static function enumeratePens(unit toEnumerate, penetrationType penType)
+        let itemInUnit = new LinkedList<item>()
+        for int i = 0 to 5
+            itemInUnit.add(toEnumerate.itemInSlot(i))
+        itemInUnit.forEach() (item t) ->
+            if(t == null)
+                itemInUnit.remove(t)
+        var resistances = 0.
+        switch penType
+            case penetrationType.MAGICAL
+                itemInUnit.forEach() (item t) ->
+                    resistances += magicResItemHash.get(t.getTypeId())
+                    unitStatMap.get(toEnumerate.getTypeId()).setAdditivePen(penType, resistances)
+            case penetrationType.PHYSICAL
+                itemInUnit.forEach() (item t) ->
+                    resistances += magicResItemHash.get(t.getTypeId())
+                    unitStatMap.get(toEnumerate.getTypeId()).setAdditivePen(penType, resistances)
+            case penetrationType.UNIVERSAL
+                itemInUnit.forEach() (item t) ->
+                    resistances += magicResItemHash.get(t.getTypeId())
+                    unitStatMap.get(toEnumerate.getTypeId()).setAdditivePen(penType, resistances)
+
+    static function enumerateAllPens(unit toEnumerate)
+        enumeratePens(toEnumerate, penetrationType.MAGICAL)
+        enumeratePens(toEnumerate, penetrationType.PHYSICAL)
+        enumeratePens(toEnumerate, penetrationType.UNIVERSAL)
 
 init
     statscheck()
@@ -20,185 +224,83 @@ function unit.getItemBySlot(int slot) returns item
     return UnitItemInSlot(this, slot)
 
 public function integer.getPhysPenetration() returns real
-    return physicalPenetrationMap.get(this)
+    return unitStatMap.get(this).getCombinedPen(penetrationType.PHYSICAL)
 
 public function unit.getPhysPenetration() returns real
-    return physicalPenetrationMap.get(this.getTypeId())
+    return unitStatMap.get(this.getTypeId()).getCombinedPen(penetrationType.PHYSICAL)
 
 public function unit.getMagicResist() returns real
-    return magicResistMap.get(this.getTypeId())
+    return unitStatMap.get(this.getTypeId()).getResistance(resistanceType.MAGICAL)
 
 public function integer.getMagicResist() returns real
-    return magicResistMap.get(this)
-
-public function unit.physPenAdd()
-    physPen = basePhysPenMap.has(this.getTypeId()) ? basePhysPenMap.get(this.getTypeId()) : 0
-    for int i = 0 to 5
-        let ite = this.getItemBySlot(i)
-        let hashValue = ite.getTypeId()
-        if(physPenItemHash.has(hashValue))
-            physPen = physPen + physPenItemHash.get(hashValue)
-    this.enumeratePhysicalPenetration(physPen)
-
-public function unit.physpenSub(item dropped)
-    physPen = basePhysPenMap.has(this.getTypeId()) ? basePhysPenMap.get(this.getTypeId()) : 0
-    for int i = 0 to 5
-        let ite = this.getItemBySlot(i)
-        if(ite != dropped)
-            let hashValue = ite.getTypeId()
-            if(physPenItemHash.has(hashValue))
-                physPen = physPen + physPenItemHash.get(hashValue)
-    this.enumeratePhysicalPenetration(physPen)
-
-public function unit.magicResAdd()
-    magicRes = baseMagicResMap.has(this.getTypeId()) ? baseMagicResMap.get(this.getTypeId()) : 0
-    for int i = 0 to 5
-        let hashValue = this.getItemBySlot(i).getTypeId()
-        if(magicResItemHash.has(hashValue))
-            let magicAdd = 1 - magicResItemHash.get(hashValue) * 0.01
-            let currentMagic = 1 - magicRes
-            magicRes = (1-currentMagic*magicAdd)
-    this.enumerateMagicResistance(magicRes * 100)
-
-public function unit.magicResSub(item dropped)
-    magicRes = baseMagicResMap.has(this.getTypeId()) ? baseMagicResMap.get(this.getTypeId()) : 0
-    for int i = 0 to 5
-        let ite = this.getItemBySlot(i)
-        if(ite != dropped)
-            let hashValue = ite.getTypeId()
-            if(magicResItemHash.has(hashValue))
-                let magicAdd = 1 - magicResItemHash.get(hashValue) * 0.01
-                let currentMagic = 1 - magicRes
-                magicRes = (1-currentMagic*magicAdd)
-    this.enumerateMagicResistance(magicRes * 100)
+    return unitStatMap.get(this).getResistance(resistanceType.MAGICAL)
 
 public function int.putInPhysPenItemHash(real input)
-    physPenItemHash.put(this, input)
+    physPenItemHash.put(this, input * 0.01)
 
 public function int.putInMagicResItemHash(real input)
-    magicResItemHash.put(this, input)
+    magicResItemHash.put(this, input * 0.01)
 
-public function int.basePhysPenAdd(real penValue)
-    physPen = basePhysPenMap.has(this) ? basePhysPenMap.get(this) : 0
-    basePhysPenMap.put(this, physPen + penValue)
+public function int.getPhysPenItemHash() returns real
+    return physPenItemHash.get(this)
 
-public function int.basePhysPenSub(real penValue)
-    physPen = basePhysPenMap.has(this) ? basePhysPenMap.get(this) : 0
-    basePhysPenMap.put(this, physPen - penValue)
+public function int.getMagicResItemHash() returns real
+    return magicResItemHash.get(this)
 
-public function unit.basePhysPenAdd(real penValue)
-    physPen = basePhysPenMap.has(this.getTypeId()) ? basePhysPenMap.get(this.getTypeId()) : 0
-    basePhysPenMap.put(this.getTypeId(), physPen + penValue)
+public function item.getPhysPenItemHash() returns real
+    return physPenItemHash.get(this.getTypeId())
 
-public function unit.basePhysPenSub(real penValue)
-    physPen = basePhysPenMap.has(this.getTypeId()) ? basePhysPenMap.get(this.getTypeId()) : 0
-    basePhysPenMap.put(this.getTypeId(), physPen - penValue)
+public function item.getMagicResItemHash() returns real
+    return magicResItemHash.get(this.getTypeId())
 
-public function int.baseMagicResAdd(real resValue)
-    magicRes = baseMagicResMap.has(this) ? baseMagicResMap.get(this) : 0
-    baseMagicResMap.put(this, physPen + resValue)
-
-public function int.baseMagicResSub(real resValue)
-    magicRes = baseMagicResMap.has(this) ? baseMagicResMap.get(this) : 0
-    baseMagicResMap.put(this, physPen - resValue)
-
-public function unit.baseMagicResAdd(real resValue)
-    magicRes = baseMagicResMap.has(this.getTypeId()) ? baseMagicResMap.get(this.getTypeId()) : 0
-    baseMagicResMap.put(this.getTypeId(), physPen + resValue)
-
-public function unit.baseMagicResSub(real resValue)
-    magicRes = baseMagicResMap.has(this.getTypeId()) ? baseMagicResMap.get(this.getTypeId()) : 0
-    baseMagicResMap.put(this.getTypeId(), physPen - resValue)
+function enumerateMagicRes(integer unitID, real magicRes)
+    if unitStatMap.get(unitID) != null
+        unitStatMap.get(unitID).setResistance(resistanceType.MAGICAL, magicRes * 0.01)
+    else
+        let newStats = new UnitStats()
+        newStats.setResistance(resistanceType.MAGICAL, magicRes * 0.01)
+        unitStatMap.put(unitID, newStats)
+        
+public function integer.enumerateMagicResistance(real magicResistance)
+    enumerateMagicRes(this, magicResistance)
 
 public function unit.enumerateMagicResistance(real magicResistance)
-    magicResistMap.put(this.getTypeId(), magicResistance /100)
+    enumerateMagicRes(this.getTypeId(), magicResistance)
 
-public function integer.enumerateMagicResistanceId(real magicResistance)
-    magicResistMap.put(this, magicResistance /100)
+function enumeratePhysPen(integer unitID, real physPen)
+    if unitStatMap.has(unitID)
+        unitStatMap.get(unitID).setBasePen(penetrationType.PHYSICAL, physPen * 0.01)
+    else
+        let newStats = new UnitStats()
+        newStats.setBasePen(penetrationType.PHYSICAL, physPen * 0.01)
+        unitStatMap.put(unitID, newStats)
+
+public function integer.enumeratePhysicalPenetration(real physicalPenetration)
+    enumeratePhysPen(this, physicalPenetration)
 
 public function unit.enumeratePhysicalPenetration(real physicalPenetration)
-    physicalPenetrationMap.put(this.getTypeId(), physicalPenetration /100)
+    enumeratePhysPen(this.getTypeId(), physicalPenetration)
 
-public function integer.enumeratePhysicalPenetrationId(real physicalPenetration)
-    physicalPenetrationMap.put(this, physicalPenetration /100)
+// DAMAGE
 
-//########## Magical DAMAGE ############//
-
-public function unit.magicalDamageCodeElementId(real amount, unit target, DamageElement element, integer id)
-    DamageEvent.setNextDamageElement(element)
-    DamageEvent.setNextDamageFromCode()
-    DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
-
-public function unit.magicalDamageCodeElement(real amount, unit target, DamageElement element)
-    DamageEvent.setNextDamageElement(element)
-    DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
-
-public function unit.magicalDamageCodeId(real amount, unit target, integer id)
-    DamageEvent.setNextDamageFromCode()
-    DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
-
-public function unit.magicalDamageCode(real amount, unit target)
-    DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
-
-//########## PHYSICAL DAMAGE ############//
-
-public function unit.physicalDamageCodeElementId(real amount, unit target, DamageElement element, integer id, bool ranged)
-    DamageEvent.setNextDamageElement(element)
-    DamageEvent.setNextDamageFromCode()
-    DamageEvent.setNextDamageId(id)
-    if(ranged)
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+public function unit.damageTargetCode(real amount, unit target, DamageElement element, integer id, damageType damType)
+    if compiletime
+        skip
     else
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+        DamageEvent.setNextDamageElement(element)
+        DamageEvent.setNextDamageFromCode()
+        if(id > -1)
+            DamageEvent.setNextDamageId(id)
 
-public function unit.physicalDamageCodeId(real amount, unit target, integer id, bool ranged)
-    DamageEvent.setNextDamageFromCode()
-    DamageEvent.setNextDamageId(id)
-    if(ranged)
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
-    else
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-
-public function unit.physicalDamageCodeElement(real amount, unit target, DamageElement element, bool ranged)
-    DamageEvent.setNextDamageElement(element)
-    DamageEvent.setNextDamageFromCode()
-    if(ranged)
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
-    else
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-
-public function unit.physicalDamageCode(real amount, unit target, bool ranged)
-    DamageEvent.setNextDamageFromCode()
-    if(ranged)
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
-    else
-        this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
-
-//########## PURE DAMAGE ############//
-
-public function unit.pureDamageCodeElementId(real amount, unit target, DamageElement element, integer id)
-    DamageEvent.setNextDamageElement(element)
-    DamageEvent.setNextDamageFromCode()
-    DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-
-public function unit.pureDamageCodeId(real amount, unit target, integer id)
-    DamageEvent.setNextDamageFromCode()
-    DamageEvent.setNextDamageId(id)
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-
-public function unit.pureDamageCodeElement(real amount, unit target, DamageElement element)
-    DamageEvent.setNextDamageElement(element)
-    DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
-
-public function unit.pureDamageCode(real amount, unit target)
-    DamageEvent.setNextDamageFromCode()
-    this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+        switch damType
+            case damageType.PURE
+                this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_UNIVERSAL, WEAPON_TYPE_WHOKNOWS)
+            case damageType.PHYSICALMELEE
+                this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_CLAW_MEDIUM_SLICE)
+            case damageType.PHYSICALRANGED
+                this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_NORMAL, WEAPON_TYPE_WHOKNOWS)
+            case damageType.MAGICAL
+                this.damageTarget(target, amount, false, false, ATTACK_TYPE_MELEE, DAMAGE_TYPE_MAGIC, WEAPON_TYPE_WHOKNOWS)
 
 function statscheck()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) ->

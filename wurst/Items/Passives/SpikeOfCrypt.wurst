@@ -2,4 +2,4 @@ package SpikeOfCrypt
 
 import codeDamageTypings
 public function spikeofCrypt(unit holder, unit attacker, real dam)
-    holder.physicalDamageCode(dam * 5, attacker, true)
+    holder.damageTargetCode(dam * 5, attacker, null, -1, damageType.PHYSICALRANGED)

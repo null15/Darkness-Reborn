@@ -13,7 +13,7 @@ public function lightsWrath()
         let amount = caster.getStr(true) * holyPower * lvl * 0.25
         setHolyPower(0)
         flashEffect("Units\\Uther\\Sacred Storm\\Sacred Storm.mdx", target.getPos())
-        caster.magicalDamageCode(amount, target)
+        caster.damageTargetCode(amount, target, null, -1, damageType.MAGICAL)
         forUnitsInRange(caster.getPos(), 600) (unit u) ->
             if u.isAllyOf(caster)
                 u.addHP(amount / 2)

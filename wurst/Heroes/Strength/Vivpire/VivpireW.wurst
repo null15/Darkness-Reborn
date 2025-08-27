@@ -19,7 +19,7 @@ public function bloodHunter()
                     if(currentDmg > limit[lvl-1])
                         currentDmg = limit[lvl-1].toReal()
                     let amount = currentDmg * src.getStr(true)
-                    src.physicalDamageCode(amount, targ, false)
+                    src.damageTargetCode(amount, targ, null, -1, damageType.PHYSICALMELEE)
                     attacked.start(5, function clearAttacked)
 
 function clearAttacked()

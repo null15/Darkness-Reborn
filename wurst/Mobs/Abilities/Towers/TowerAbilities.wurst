@@ -6,20 +6,20 @@ import RotationProjectile
 
 public function unit.startTidal()
     startWave(this, Abilities.crushingWaveMissile, 1.5, 3, 2, 0.5, 125) (unit hit) ->
-        this.magicalDamageCode(500, hit)
+        this.damageTargetCode(500, hit, null, -1, damageType.MAGICAL)
 
 public function unit.startTreant1()
     let rotation = new RotationProjectile()
     rotation.rotationCreation(this, Abilities.rockBoltMissile, 0.2, 1, 8, 1000, 0.44, 0.78, 2.3) (unit hitUnit) ->
-        this.magicalDamageCode(600, hitUnit)       
+        this.damageTargetCode(600, hitUnit, null, -1, damageType.MAGICAL)       
 
 public function unit.startTreant2()
     let rotation = new RotationProjectile()
     rotation.rotationCreation(this, Abilities.rockBoltMissile, 0.2, 2, 8, 1000, 0.44, 0.78, 2.3) (unit hitUnit) ->
-        this.magicalDamageCode(1200, hitUnit)
+        this.damageTargetCode(1200, hitUnit, null, -1, damageType.MAGICAL)
         
 
 public function unit.startTreant3()
     let rotation = new RotationProjectile()
     rotation.rotationCreation(this, Abilities.rockBoltMissile, 0.2, 4, 8, 1000, 0.44, 0.78, 2.3) (unit hitUnit) ->
-        this.magicalDamageCode(1750, hitUnit)
+        this.damageTargetCode(1750, hitUnit, null, -1, damageType.MAGICAL)

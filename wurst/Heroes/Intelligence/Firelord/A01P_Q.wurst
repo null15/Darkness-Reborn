@@ -23,7 +23,7 @@ public function sear()
         pointProjectile.moveForward(velocity) (effect detectionUnit, vec2 target) ->
             forUnitsInRange(sfx.getPos(), 200, true) (unit u) ->
                 if caster.isEnemyOf(u) and u.isAlive()
-                    caster.magicalDamageCodeElementId(dmg, u, DAMAGE_ELEMENT_FIRE, 'blaz')
+                    caster.damageTargetCode(dmg, u, DAMAGE_ELEMENT_FIRE, 'blaz', damageType.MAGICAL)
                     blaze(caster, u)
                     if u.hasAbility(BUFF_12)
                         new DummyCaster()
