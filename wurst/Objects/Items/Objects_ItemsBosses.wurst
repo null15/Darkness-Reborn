@@ -10,7 +10,8 @@ init
 @compiletime function createItems()
 
 //I0C0
-    new MyItemDefinition(ITEM_SCOURGE_BONE_CHIMES)    
+    new MyItemDefinition(ITEM_SCOURGE_BONE_CHIMES)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBoneChimes.blp")    
     ..setClassification("Artifact")
     ..setGoldCost(10000)
     ..addStats(addStr(450))
@@ -21,7 +22,8 @@ init
     ..register()
 
 //I0C1
-    new MyItemDefinition(ITEM_SKULL_OF_MALGANIS)    
+    new MyItemDefinition(ITEM_SKULL_OF_MALGANIS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGuldanSkull.blp") 
     ..setClassification("Artifact")
     ..setGoldCost(10000)
     ..addStats(addHp(30000))
@@ -29,7 +31,8 @@ init
     ..register()
 
 //I05W
-    new MyItemDefinition(ITEM_SCARYS_POTION)    
+    new MyItemDefinition(ITEM_SCARYS_POTION)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNEarth Potion.blp")
     ..setClassification("Campaign")
     ..setGoldCost(40000)
     ..addStats(addAllStats(600))
@@ -73,7 +76,8 @@ init
     ..register()
 
 //I0JG
-    new MyItemDefinition(ITEM_WATER_SCROLL)    
+    new MyItemDefinition(ITEM_WATER_SCROLL)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (8).blp")
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
     ..setGoldCost(86000)
@@ -83,7 +87,8 @@ init
     ..register()
 
 //I0JI
-    new MyItemDefinition(ITEM_CRONUS_HAND)    
+    new MyItemDefinition(ITEM_CRONUS_HAND)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRegenerate.blp")
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
     ..setGoldCost(75000)
@@ -92,14 +97,16 @@ init
     ..register()
 
 //I0HD
-    new MyItemDefinition(ITEM_FAIR_DROP)    
+    new MyItemDefinition(ITEM_FAIR_DROP)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif76.blp")
     ..setClassification("Charged")
     ..addStats(addMpReg(4.4))
     ..setStockMaximum(99)
     ..register()
     
 //I0C4
-    new MyItemDefinition(ITEM_HOLY_GOLD_SHIELD)    
+    new MyItemDefinition(ITEM_HOLY_GOLD_SHIELD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSHIELD 1.blp")
     ..setClassification("Campaign")
     ..setGoldCost(200000)
     ..addStats(addArmor(250))
@@ -110,6 +117,7 @@ init
     ..register()
     
     new MyItemDefinition(ITEM_FROST_SHIELD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFrostShield.blp")
     ..setClassification("Artifact")
     ..addStats(addArmor(500))
     ..addStats(addStr(160))
