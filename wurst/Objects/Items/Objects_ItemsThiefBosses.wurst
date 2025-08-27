@@ -45,8 +45,9 @@ init
     new MyItemDefinition(ITEM_ABO_TREASURE)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\PASH6.BLP")
     ..setClassification("Permanent")
-    ..addStats(addStr(30))
-    ..addStats(addAbilityPhoenixFire(500, 1, 650))
+    ..addStats(addStr(100))
+    ..addStats(addHpReg(60))
+    ..addStats(addAbilityPhoenixFire(1500, 1, 650))
     ..register()
     
 //I0JC

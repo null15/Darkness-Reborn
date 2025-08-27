@@ -6,10 +6,13 @@ import CommonDescriptions
 import codeDamageTypings
 import ObjectIds
 import Abilities
-import ClosureEvents
 import TomeGive
 import ItemObjEditing
 import ResetCd
+import AbilitiesList
+import DummyCaster
+import MyAbilityIds
+import Orders
 
 // ----------------------------------------------------------------------------
 
@@ -58,6 +61,34 @@ public class ItemStatsCustomFunc extends ItemStats
 
     override function addCustomStats(int itemId, ItemDefinition itemDef)
         initFunc.call(itemId, itemDef)
+
+// ----------------------------------------------------------------------------
+
+public interface GetMagicDamageFunc
+    function call(unit caster, unit target) returns real
+
+function constructManaCdAbility(int abilityId, string effects, int manaCost, real cd)  returns ItemStats
+    new AbilityDefinitionBerserk(abilityId)
+    ..setLevels(1)
+    ..setDurationHero(1, 0.01)
+    ..setDurationNormal(1, 0.01)
+    ..setCooldown(1, cd)
+    ..setManaCost(1, manaCost)
+
+    return new ItemStats(abilityId, effects)
+
+function constructManaCdTargetAbility(int abilityId, string effects, int manaCost, real cd)  returns ItemStats
+    new AbilityDefinitionFrostBolt(abilityId)
+    ..setLevels(1)
+    ..setDamage(1, 0)
+    ..setDurationHero(1, 0)
+    ..setDurationNormal(1, 0)
+    ..setCastRange(1, 900)
+    ..setCooldown(1, cd)
+    ..setBuffs(1, "")
+    ..setManaCost(1, manaCost)
+
+    return new ItemStats(abilityId, effects)
 
 // ----------------------------------------------------------------------------
 
@@ -493,13 +524,26 @@ public function addAuraDevotionRel(real factor, real range) returns ItemStats
 
 public function addAuraCommandRel(real factor, real range) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
-    let effects = wordAuraDevotionFlat.format(realToString(100*factor, 0), range.toString())
+    let effects = wordAuraCommandRel.format(realToString(100*factor, 0), range.toString())
 
     new AbilityDefinitionAuraCommandCreep(abilityId)
     ..setAttackDamageIncrease(1, factor)
     ..setAreaofEffect(1, range)
 
     return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addAuraCommandRel2(real factor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAuraDevotionFlat.format(realToString(100*factor, 0), range.toString())
+
+    new AbilityDefinitionAuraWarDrumsKodobeast(abilityId)
+    ..setAttackDamageIncrease(1, factor)
+    ..setAreaofEffect(1, range)
+
+    return new ItemStats(abilityId, effects)
+
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -530,10 +574,6 @@ public function addAbilityResetCd(real cd, int manaCost) returns ItemStats
     ..setDurationNormal(1, 0.01)
     ..setCooldown(1, cd)
     ..setManaCost(1, manaCost)
-    ..setAttackSpeedIncrease(1, 0)
-    ..setMovementSpeedIncrease(1, 0)
-    ..setDamageTakenIncrease(1, 0)
-    ..setBuffs(1, "")
 
     resetCdAbilitiesList.add(abilityId)
     
@@ -572,6 +612,130 @@ public function addAbilityLifeStealAura(real factor, real range) returns ItemSta
 
 // ----------------------------------------------------------------------------
 
+public function addAbilityDealMagicDamage(real damage, int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityMagicDamage.format(damage.toString(), cd.toString())
+
+    itemsAbilitiesList.add(new ItemAbility(abilityId,
+    (unit caster, unit target) -> begin
+        caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
+    end))
+
+    return constructManaCdTargetAbility(abilityId, effects, manaCost, cd)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityDealMagicDamageInt(real intFactor, int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityMagicDamageInt.format(intFactor.toString(), cd.toString())
+
+    itemsAbilitiesList.add(new ItemAbility(abilityId,
+    (unit caster, unit target) -> begin
+        let damage = caster.getInt(true) * intFactor
+        caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
+    end))
+
+    return constructManaCdTargetAbility(abilityId, effects, manaCost, cd)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityDealMagicDamageInt2(real damage, real intFactor, int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityMagicDamageInt2.format(damage.toString(), intFactor.toString(), cd.toString())
+
+    itemsAbilitiesList.add(new ItemAbility(abilityId,
+    (unit caster, unit target) -> begin
+        let damageSum = damage + caster.getInt(true) * intFactor
+        caster.damageTargetCode(damageSum, target, null, -1, damageType.MAGICAL)
+    end))
+
+    return constructManaCdTargetAbility(abilityId, effects, manaCost, cd)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityRestoreHp(int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityRestoreHp.format(cd.toString())
+
+    itemsAbilitiesList.add(new ItemAbility(abilityId,
+    (unit caster, unit target) -> caster.setHP(caster.getMaxHP()) ))
+
+    return constructManaCdAbility(abilityId, effects, manaCost, cd)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityRestoreMp(int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityRestoreMp.format(cd.toString())
+
+    itemsAbilitiesList.add(new ItemAbility(abilityId,
+    (unit caster, unit target) -> caster.setMana(caster.getMaxMana()) ))
+
+    return constructManaCdAbility(abilityId, effects, manaCost, cd)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityRestoreHpMp(int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityRestoreHpMp.format(cd.toString())
+
+    itemsAbilitiesList.add(new ItemAbility(abilityId,
+    (unit caster, unit target) -> begin
+        caster..setMana(caster.getMaxMana()).setHP(caster.getMaxHP())
+    end))
+
+    return constructManaCdAbility(abilityId, effects, manaCost, cd)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityHolyLight(real healIntFactor, real healAmount, real damageFactor, int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityHolyLight.format(healAmount.toString(), healIntFactor.toString(), (100*damageFactor).toString(), cd.toString())
+
+    itemsAbilitiesList.add(new ItemAbility(abilityId,
+    (unit caster, unit target) -> begin
+        let heal = healIntFactor * caster.getInt(true) + healAmount
+
+        if (target.isEnemyOf(caster))
+            let damage = heal * damageFactor
+            caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
+            
+            flashEffect(Abilities.holyBoltSpecialArt, target.getPos())
+        else
+            let newHp = (target.getMaxHP() + heal)
+            let maxHp = target.getMaxHP()
+            target.setHP(newHp > maxHp ? maxHp : newHp)
+
+            flashEffect(Abilities.healTarget, target.getPos())
+    end))
+
+    return constructManaCdTargetAbility(abilityId, effects, manaCost, cd)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityLightingBoltStun(real damage, real intFactor, real stunDuration, int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityMagicDamageInt2.format(damage.toString(), intFactor.toString(), cd.toString())
+
+    new AbilityDefinitionFrostBolt(abilityId)
+    ..setDurationNormal(1, stunDuration)
+    ..setDurationHero(1, stunDuration)
+    ..setLevels(1)
+    ..setDamage(1, 0)
+    ..setCooldown(1, cd)
+    ..setBuffs(1, "")
+    ..setManaCost(1, manaCost)
+
+    itemsAbilitiesList.add(new ItemAbility(abilityId,
+    (unit caster, unit target) -> begin
+        let damageSum = caster.getInt(true) * intFactor + damage
+        caster.damageTargetCode(damageSum, target, null, -1, damageType.MAGICAL)
+    end))
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
 public function addTomeStatGiving(int amount, int tomeID, statTome tomeType) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
     let effects = tomeAgiGive.format(amount.toString())
@@ -594,3 +758,4 @@ public function addTomeStatGiving(int amount, int tomeID, statTome tomeType) ret
             abilDef.setArtCaster(Abilities.aIilTarget)
 
     return new ItemStats(abilityId, effects)
+

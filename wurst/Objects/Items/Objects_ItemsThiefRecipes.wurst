@@ -157,13 +157,13 @@ init
     ..register()
 
     new MyItemWithCraftInfoDefinition(ITEM_MYSTERY_PURPLE_STAFF, jackSmithRecipe, -1)
-    ..setActivelyUsed(true)
-    ..setClassification("Campaign")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff3.blp")
+    ..setClassification("Campaign")
+    ..setActivelyUsed(true)
+    ..addStats(addAbilityDealMagicDamage(30000, 6000, 10))
     ..addStats(addInt(400))
     ..addStats(addAttackSpeed(3))
     ..addStats(addMpReg(3.5))
-    ..addStats("[WIP] Active: Deals 24500 Damage to the target enemy. Cooldown: 30 seconds")
     ..addComponents(
     ITEM_MYSTERY_BLUE_STAFF,
     ITEM_DOOMS_GRAND_STAFF)
@@ -172,12 +172,12 @@ init
 //I0IJ
     new MyItemWithCraftInfoDefinition(ITEM_MYSTERY_RED_STAFF, blacksmithJackedList, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff4.blp")
-    ..setActivelyUsed(true)
     ..setClassification("Campaign")
-    ..addStats(addInt(1350))
-    ..addStats(addAttackSpeed(5))
+    ..setActivelyUsed(true)
+    ..addStats(addAbilityDealMagicDamageInt2(100000, 90, 20000, 10))
+    ..addStats(addInt(1800))
+    ..addStats(addAttackSpeed(6))
     ..addStats(addMpReg(4.5))
-    ..addStats("Active: Deals 30.000 + 89x Intelligence Damage to the target enemy. Cooldown: 30 seconds")
     ..addComponents(
     ITEM_VAMPIRELLA,
     ITEM_MYSTERY_PURPLE_STAFF,
@@ -187,12 +187,12 @@ init
 //I0IU
     new MyItemWithCraftInfoDefinition(ITEM_FROZEN_STAFF, blacksmithJackedList, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC3.blp")
-    ..setCooldownGroup("A0YB")
-    ..setActivelyUsed(true)
     ..setClassification("Campaign")
-    ..addStats(addInt(440))
-    ..addStats(addHp(9000))
-    ..addStats("[WIP] Active: Sends a Frost Nova on the target")
+    ..setActivelyUsed(true)
+    ..addStats(addAbilityDealMagicDamageInt2(20000, 60, 12000, 5))
+    ..addStats(addInt(600))
+    ..addStats(addHp(15000))
+    ..addStats(addMp(15000))
     ..addComponents(
     ITEM_FORGE_STAFF_L4,
     ITEM_FREEZE_WAND,

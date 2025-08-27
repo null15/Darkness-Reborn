@@ -32,8 +32,8 @@ init
     ..setTintingColor2Green(0)
     ..setTintingColor3Blue(0)
     ..setClassification("Campaign")
+    ..addStats(addAbilityLifeStealAura(0.3, 900))
     ..addStats(addAllStats(300))
-    ..addStats("[WIP] +25% Life Steal")
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
     ITEM_BLOODY_DAGGER)
@@ -48,11 +48,9 @@ init
     ..setTintingColor1Red(255)
     ..setTintingColor2Green(255)
     ..setTintingColor3Blue(0)
-    ..setCooldownGroup("A0LC")
-    ..setCooldownGroup("A0LC")
     ..setClassification("Campaign")
+    ..addStats(addAbilityHolyLight(30, 20000, 1, 8000, 10))
     ..addStats(addAllStats(300))
-    ..addStats("[WIP] Can use Holy Light on someone")
     ..addHotKey()
     ..register()
 
@@ -64,8 +62,8 @@ init
     ..setTintingColor2Green(150)
     ..setTintingColor3Blue(0)
     ..setClassification("Campaign")
-    ..addStats(addAllStats(300))
     ..addStats(addHpRegAura(0.02, true, 900))
+    ..addStats(addAllStats(300))
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
     ITEM_LIZARD_PENDANT)
@@ -82,7 +80,7 @@ init
     ..setTintingColor3Blue(0)
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
-    ..addStats("Creates a Golem Infernal")
+    ..addStats("[WIP] Creates a Golem Infernal")
     ..addHotKey()
     ..register()
 
@@ -131,7 +129,12 @@ init
     ..setTintingColor3Blue(0)
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
-    ..addStats("[WIP] Increases Attack Speed by 180%")
+    
+    ..addStats(addAuraTrueshot(2, 900))
+    ..addStats(addAuraCommandRel(1.5, 900))
+    ..addStats(addAuraDevotionFlat(200, 900))
+    ..addStats(addAuraEndurance(2, 2, 900))
+
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE, 
     ITEM_DRUMS_OF_FUTURE,
@@ -151,7 +154,7 @@ init
     ..setTintingColor3Blue(200)
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
-    ..addStats("Create 2 copies with all the stats and Armor")
+    ..addStats("[WIP] Create 2 copies with all the stats and Armor")
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
     ITEM_ICE_SWORD,
@@ -169,7 +172,7 @@ init
     ..setTintingColor3Blue(255)
     ..setClassification("Campaign")
     ..addStats(addAllStats(300))
-    ..addStats("Activates a Mana Shield that drains 1 Mana per 1.5 damage taken")
+    ..addStats("[WIP] Activates a Mana Shield that drains 1 Mana per 1.5 damage taken")
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
     ITEM_LAZARUS_BELT)
@@ -185,8 +188,8 @@ init
     ..setTintingColor2Green(0)
     ..setTintingColor3Blue(255)
     ..setClassification("Campaign")
+    ..addStats(addAbilityLightingBoltStun(10000, 20, 10, 8000, 30))
     ..addStats(addAllStats(300))
-    ..addStats("Calls down a Lightning Bolt on a target")
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
     ITEM_MYSTERY_BLUE_STAFF,

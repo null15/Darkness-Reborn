@@ -88,7 +88,7 @@ function player.epicQuestDrops(HashSet<int> targetUnitType)
     playerHero.get(this).giveDropItem(targetUnitType.get(0))
 
 function fountainQuestNormalReward(int rarity, player questOwner, HashSet<int> targetUnitType)
-    let goldGained = 750 * rarity
+    let goldGained = 750 * rarity + 100
     let xpGained = 350 * (rarity + 1)
     
     playerHero.get(questOwner).addXp(xpGained, true)
@@ -98,7 +98,7 @@ function fountainQuestNormalReward(int rarity, player questOwner, HashSet<int> t
         playerHero.get(questOwner).giveDropItem(targetUnitType.get(0))
 
 function fountainQuestEliteReward(int rarity, player questOwner, HashSet<int> targetUnitType)
-    let goldGained = 750 * rarity
+    let goldGained = 750 * rarity + 100
     let xpGained = 350 * (rarity + 1)
     let lumberGain = 10*(rarity-1)
     playerHero.get(questOwner).addXp(xpGained, true)

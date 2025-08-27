@@ -149,32 +149,28 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff2.blp")
     ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addAbilityDealMagicDamage(20000, 6000, 10))
     ..addStats(addInt(280))
     ..addStats(addAttackSpeed(2.4))
     ..addStats(addMpReg(2))
-    ..addStats("[WIP] Active: Deals 14800 Damage to the target enemy. Cooldown: 30 seconds")
     ..addComponents(
     ITEM_MYSTERY_GREEN_STAFF,
     ITEM_THUNDERLIZARD_DIAMOND)
     ..addHotKey()
     ..register()
 
-let ITEM_FREEZE_WAND_ABI1 = compiletime(ABIL_ID_GEN.next())
-init
-    EventListener.onTargetCast(ITEM_FREEZE_WAND_ABI1) (unit caster, unit target) ->
-        let dam = caster.getInt(true) * 15.00
-        caster.damageTargetCode(dam, target, null, -1, damageType.MAGICAL)
-
-@compiletime function createItems_freeze_wand()
     new MyItemWithRecipeDefinition(ITEM_FREEZE_WAND, itemRecipeList, ITEM_RECIPE_FREEZE_WAND,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(15500)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC2.blp")
     ..setClassification("Artifact")
-    ..addStats(ITEM_FREEZE_WAND_ABI1, "Active: Sends a Frost Nova on the target dealing 15x int damage")
+    ..setActivelyUsed(true)
+    ..addStats(addAbilityDealMagicDamageInt2(5000, 25, 6000, 10))
     ..addStats(addInt(280))
     ..addStats(addHp(6000))
+    ..addStats(addMp(6000))
     ..addComponents(
     ITEM_ICE_WAND,
     ITEM_ICE_SWORD,

@@ -10,6 +10,7 @@ init
 
 //I0EK
     new MyItemDefinition(ITEM_LUMBER_100)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBundleOfLumber.blp")
     ..setModelUsed("Objects\\InventoryItems\\BundleofLumber\\BundleofLumber.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
@@ -30,6 +31,7 @@ init
     
 //I0JL
     new MyItemDefinition(ITEM_GOLD_TO_LUMBER1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBundleOfLumber.blp")
     ..setModelUsed("Objects\\InventoryItems\\BundleofLumber\\BundleofLumber.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
@@ -51,6 +53,7 @@ init
 
 //I0JM
     new MyItemDefinition(ITEM_GOLD_TO_LUMBER9)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBundleOfLumber.blp")
     ..setModelUsed("Objects\\InventoryItems\\BundleofLumber\\BundleofLumber.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
@@ -72,6 +75,7 @@ init
 
 //I0JO
     new MyItemDefinition(ITEM_GOLD_TO_LUMBER90)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBundleOfLumber.blp")
     ..setModelUsed("Objects\\InventoryItems\\BundleofLumber\\BundleofLumber.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
@@ -89,10 +93,12 @@ init
     ..setName("Lumber Tinker 100")
     ..setTooltipBasic("Purchase Bundle of Lumber")
     ..setTooltipExtended("Convert 90")
-    ..setHotkey("")
+    ..addHotKey()
+    ..register()
 
 //I0JN
     new MyItemDefinition(ITEM_GOLD_TO_LUMBER900)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBundleOfLumber.blp")
     ..setModelUsed("Objects\\InventoryItems\\BundleofLumber\\BundleofLumber.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
@@ -114,6 +120,7 @@ init
 
 //I0JP
     new MyItemDefinition(ITEM_LUMBER1_TO_GOLD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp")
     ..setModelUsed("Objects\\InventoryItems\\PotofGold\\PotofGold.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
@@ -136,6 +143,7 @@ init
 
 //I0JQ
     new MyItemDefinition(ITEM_LUMBER10_TO_GOLD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp")
     ..setModelUsed("Objects\\InventoryItems\\PotofGold\\PotofGold.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
@@ -158,6 +166,7 @@ init
 
 //I0JR
     new MyItemDefinition(ITEM_LUMBER100_TO_GOLD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp")
     ..setModelUsed("Objects\\InventoryItems\\PotofGold\\PotofGold.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)
@@ -176,10 +185,12 @@ init
     ..setName("Gold Tinker 100")
     ..setTooltipBasic("Gold")
     ..setTooltipExtended("Convert 100 Lumber into 90.000 Gold.")
-    ..setHotkey("")
+    ..addHotKey()
+    ..register()
 
 //I0JS
     new MyItemDefinition(ITEM_LUMBER1000_TO_GOLD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp")
     ..setModelUsed("Objects\\InventoryItems\\PotofGold\\PotofGold.mdl")
     ..setActivelyUsed(true)
     ..setCanBeSoldByMerchants(false)

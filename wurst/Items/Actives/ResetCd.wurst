@@ -9,3 +9,6 @@ init
     for abilityId in resetCdAbilitiesList
         EventListener.onCast(abilityId) caster ->
             caster.resetCooldown()
+
+    resetCdAbilitiesList.clear()
+    destroy resetCdAbilitiesList
