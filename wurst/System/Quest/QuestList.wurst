@@ -9,23 +9,19 @@ import LinkedList
 public class QuestList
 
     private let quests = new LinkedList<Quest>()
-    private let instantIntKillAnyList = new LinkedList<QuestIntKillAnyInstant>
-    private let instantIntKillTargetList = new LinkedList<QuestIntKillTargetInstant>
-    private let instantIntKillLevelRangeList = new LinkedList<QuestIntKillLevelRangeInstant>
-    private let instantIntKillLevelLowestList = new LinkedList<QuestIntKillLowestLevelInstant>
     player listOwner
     
     construct(player listOwner)
         this.listOwner = listOwner
  
     private function questListLimit() returns bool
-        if (instantIntKillAnyList.size() + instantIntKillTargetList.size() + instantIntKillLevelRangeList.size() + instantIntKillLevelLowestList.size()) > 2
+        if (quests.size()) > 2
             return true
         else
             return false
 
     function questListEmpty() returns bool
-        if (instantIntKillAnyList.size() + instantIntKillTargetList.size() + instantIntKillLevelRangeList.size() + instantIntKillLevelLowestList.size()) == 0
+        if (quests.size()) == 0
             return true
         else
             return false
