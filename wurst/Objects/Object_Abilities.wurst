@@ -1117,17 +1117,6 @@ import OrderIds
     ..setCooldown(1, 0)
     ..setNumberofTargetsHit(1, 8)
 
-    new AbilityDefinitionInferno(ABILITY_14)
-    ..setLevels(1)
-    ..setDamage(1, 3000)
-    ..setDuration(1, 160)
-    ..setSummonedUnit(1, ABILITYUNIT_0.toRawCode())
-    ..setAreaofEffect(1, 400)
-    ..setHeroAbility(false)
-    ..setItemAbility(true)
-    ..setManaCost(1, 999)
-    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris, TargetsAllowed.enemies))
-
     new AbilityDefinitionMountainKingBash(ABILITY_26)
     ..setLevels(1)
     ..setDurationNormal(1, 1)
@@ -3443,12 +3432,6 @@ import OrderIds
     ..setHeroAbility(false)
     ..setItemAbility(false)
 
-    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_14) //A0QB
-    ..setLevels(1)
-    ..setChancetoEvade(1, 15)
-    ..setHeroAbility(false)
-    ..setItemAbility(false)
-
     new AbilityDefinitionEvasioncreep(CREEP_ABILITY_15) //A0TD
     ..setLevels(1)
     ..setChancetoEvade(1, 18)
@@ -3511,7 +3494,7 @@ import OrderIds
     ..setAreaofEffect(1, 400)
     ..setCooldown(1, 15)
     ..setDurationHero(1, 7)
-    ..setSummonedUnit(1, ABILITYUNIT_0.toRawCode())
+    ..setSummonedUnit(1, UNIT_INFERNAL.toRawCode())
     ..setDurationNormal(1, 7)
 
     new AbilityDefinitionBerserk(CREEP_ABILITY_25) //A0A5

@@ -40,20 +40,22 @@ let itemsShopsMap = new HashMap<int, int>()
 // ----------------------------------------------------------------------------
 
 function initCreepTpShop(int shopId, string shopName, LinkedList<int> creeps) returns ShopInfo
-    if (DEBUG)
-        return new ShopInfo(
-            shopId,
-            shopName,
-            creeps,
-            new LinkedList<int>()
-        )
-    else
-        return new ShopInfo(
-            shopId,
-            shopName,
-            new LinkedList<int>(),
-            creeps
-        )
+    if compiletime
+        if (DEBUG)
+            return new ShopInfo(
+                shopId,
+                shopName,
+                creeps,
+                new LinkedList<int>()
+            )
+        else
+            return new ShopInfo(
+                shopId,
+                shopName,
+                new LinkedList<int>(),
+                creeps
+            )
+    return null
 
 @compiletime
 function initLists()
@@ -261,118 +263,130 @@ function initLists()
 // ----------------------------------------------------------------------------
 
 public function getShopIdForItem(int itemId) returns int
-    if (itemId == -1)
-        return -1
+    if compiletime
+        if (itemId == -1)
+            return -1
 
-    if (itemsShopsMap.has(itemId))
-        return itemsShopsMap.get(itemId)
+        if (itemsShopsMap.has(itemId))
+            return itemsShopsMap.get(itemId)
     return -1
 
 public function getShopInfoById(int shopId) returns ShopInfo
-    if (shopId == -1)
-        return null
+    if compiletime
+        if (shopId == -1)
+            return null
 
-    for shopInfo in shopsInfo
-        if (shopInfo.shopId == shopId)
-            return shopInfo
+        for shopInfo in shopsInfo
+            if (shopInfo.shopId == shopId)
+                return shopInfo
     return null
 
 public function getShopInfoForItem(int itemId) returns ShopInfo
-    if (itemId == -1)
-        return null
+    if compiletime
+        if (itemId == -1)
+            return null
 
-    let shopId = getShopIdForItem(itemId)
-    if (shopId == -1)
-        return null
+        let shopId = getShopIdForItem(itemId)
+        if (shopId == -1)
+            return null
 
-    return getShopInfoById(shopId)
+        return getShopInfoById(shopId)
+    return null
 
 public function getShopNameForItem(int itemId) returns string
-    if (itemId == -1)
-        return "null"
+    if compiletime
+        if (itemId == -1)
+            return "null"
 
-    let shopInfo = getShopInfoForItem(itemId)
-    if (shopInfo == null)
-        return "null"
+        let shopInfo = getShopInfoForItem(itemId)
+        if (shopInfo == null)
+            return "null"
 
-    if (shopInfo.itemsMade.indexOf(itemId) != -1)
-        return shopInfo.shopName
-    return "null"
+        if (shopInfo.itemsMade.indexOf(itemId) != -1)
+            return shopInfo.shopName
+    return ""
 
 public function getShopItemsListForItem(int itemId) returns LinkedList<int>
-    if (itemId == -1)
-        return null
+    if compiletime
+        if (itemId == -1)
+            return null
 
-    let shopInfo = getShopInfoForItem(itemId)
-    if (shopInfo == null)
-        return null
+        let shopInfo = getShopInfoForItem(itemId)
+        if (shopInfo == null)
+            return null
 
-    if (shopInfo.itemsMade.indexOf(itemId) != -1)
-        return shopInfo.itemsMade
+        if (shopInfo.itemsMade.indexOf(itemId) != -1)
+            return shopInfo.itemsMade
     return null
 
 public function getShopName(int shopId) returns string
-    if (shopId == -1)
-        return "null"
+    if compiletime
+        if (shopId == -1)
+            return "null"
 
-    let shopInfo = getShopInfoById(shopId)
-    if (shopInfo == null)
-        return "null"
+        let shopInfo = getShopInfoById(shopId)
+        if (shopInfo == null)
+            return "null"
 
-    return shopInfo.shopName
+        return shopInfo.shopName
+    return ""
 
 public function getShopItemsListMade(int shopId) returns string
-    if (shopId == -1)
-        return "null"
+    if compiletime
+        if (shopId == -1)
+            return "null"
 
-    let shopInfo = getShopInfoById(shopId)
-    if (shopInfo == null or
-        shopInfo.itemsMade.size() == 0)
-        return ""
+        let shopInfo = getShopInfoById(shopId)
+        if (shopInfo == null or
+            shopInfo.itemsMade.size() == 0)
+            return ""
 
-    string result = ""
-    for itemId in shopInfo.itemsMade
-        result = result + itemId.toRawCode() + ","
+        string result = ""
+        for itemId in shopInfo.itemsMade
+            result = result + itemId.toRawCode() + ","
 
-    return result.substring(0, result.length() - 1)
+        return result.substring(0, result.length() - 1)
+    return ""
 
 public function getShopItemsListSold(int shopId) returns string
-    if (shopId == -1)
-        return "null"
+    if compiletime
+        if (shopId == -1)
+            return "null"
 
-    let shopInfo = getShopInfoById(shopId)
-    if (shopInfo == null or
-        shopInfo.itemsSold.size() == 0)
-        return ""
+        let shopInfo = getShopInfoById(shopId)
+        if (shopInfo == null or
+            shopInfo.itemsSold.size() == 0)
+            return ""
 
-    string result = ""
-    for itemId in shopInfo.itemsSold
-        result = result + itemId.toRawCode() + ","
+        string result = ""
+        for itemId in shopInfo.itemsSold
+            result = result + itemId.toRawCode() + ","
 
-    return result.substring(0, result.length() - 1)
+        return result.substring(0, result.length() - 1)
+    return ""
 
 public function getHotKey(int itemId) returns string
-    if (itemId == -1)
-        return ""
-
-    let hotKeys = [
-        "Q", "W", "E", "R",
-        "A", "S", "D", "F",
-        "Z", "X", "C", "V"
-    ]
-
-    let itemsList = getShopItemsListForItem(itemId)
-    if (itemsList == null)
-        return ""
-
-    int idx = 0
-    for entry in itemsList
-        if (idx >= 12)
+    if compiletime
+        if (itemId == -1)
             return ""
-        if (entry == itemId)
-            return hotKeys[idx]
-        idx++
-    
+
+        let hotKeys = [
+            "Q", "W", "E", "R",
+            "A", "S", "D", "F",
+            "Z", "X", "C", "V"
+        ]
+
+        let itemsList = getShopItemsListForItem(itemId)
+        if (itemsList == null)
+            return ""
+
+        int idx = 0
+        for entry in itemsList
+            if (idx >= 12)
+                return ""
+            if (entry == itemId)
+                return hotKeys[idx]
+            idx++
     return ""
 
 // ----------------------------------------------------------------------------

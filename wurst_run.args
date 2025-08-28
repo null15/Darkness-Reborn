@@ -9,12 +9,10 @@ Following are the default enabled arguments:
 stacktraces
 lua
 measure
--localOptimizations
--inline
 
 Optimization arguments (default disabled):
 
-inline
+-inline
 -opt
 -localOptimizations
 

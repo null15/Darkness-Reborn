@@ -4,6 +4,10 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import RecipeItems
+import ObjectIdGenerator
+import AbilityObjEditing
+import ObjectIds
+import UnitIds
 
 init
 
@@ -20,8 +24,8 @@ init
     ..setTintingColor1Red(255)
     ..setTintingColor2Green(0)
     ..setTintingColor3Blue(0)
+    ..addStats(addAbilityArmorDamageHpRegBuff(3000, 9999, 300, 20, 5000, 10))
     ..addStats(addAllStats(300))
-    ..addStats("[WIP] Increases Armor by 9999 and HP/s by 700 for 30 seconds. Cooldown: 60 seconds.")
     ..addHotKey()
     ..register()
 
@@ -73,6 +77,39 @@ init
     ITEM_LIZARD_PENDANT)
     ..addHotKey()
     ..register()
+
+    let ABILITY_SUMMON_INFERNAL = compiletime(ABIL_ID_GEN.next())
+    let UNIT_FRIEND_INFERNAL = compiletime(UNIT_ID_GEN.next())
+    
+    new UnitDefinition(UNIT_FRIEND_INFERNAL, UnitIds.infernal)
+    ..setNormalAbilities(commaList("A0A5", "ACmi", "A081", "ACrk"))
+    ..setScalingValue(2)
+    ..setSelectionScale(3)
+    ..setAcquisitionRange(800)
+    ..setAttack1CooldownTime(0.7)
+    ..setAttack1DamageBase(1600)
+    ..setAttack1DamageNumberofDice(9)
+    ..setAttack1ProjectileArt("")
+    ..setAttack1TargetsAllowed(commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris))
+    ..setDefenseBase(111)
+    ..setDefenseUpgradeBonus(25)
+    ..setSpeedBase(350)
+    ..setTurnRate(0.4)
+    ..setHitPointsMaximumBase(100000)
+    ..setHitPointsRegenerationRate(700)
+    ..setLevel(45)
+    ..setName("Burning Infernal")
+
+    new AbilityDefinitionInferno(ABILITY_SUMMON_INFERNAL)
+    ..setLevels(1)
+    ..setDamage(1, 3000)
+    ..setDuration(1, 160)
+    ..setSummonedUnit(1, UNIT_FRIEND_INFERNAL.toRawCode())
+    ..setAreaofEffect(1, 400)
+    ..setHeroAbility(false)
+    ..setItemAbility(true)
+    ..setManaCost(1, 999)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris, TargetsAllowed.enemies))
 
 //I0B8
     new MyGemDefinition(ITEM_PERFECT_OBSIDIAN)
