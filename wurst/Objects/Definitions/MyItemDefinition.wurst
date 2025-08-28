@@ -28,52 +28,64 @@ public class MyItemDefinitionBase extends ItemDefinition
         initBase(newId)
 
     private function initBase(int itemId)
-        if compiletime
-            this.itemId = itemId
+        this.itemId = itemId
 
-            setActivelyUsed(false)
-            setUseAutomaticallyWhenAcquired(false)
-            setAbilities("")
+        setActivelyUsed(false)
+        setUseAutomaticallyWhenAcquired(false)
+        setAbilities("")
 
-            setGoldCost(0)
-            setLumberCost(0)
+        setGoldCost(0)
+        setLumberCost(0)
 
-            setStockMaximum(1)
-            setStockReplenishInterval(0)
-            setStockStartDelay(0)
+        setStockMaximum(1)
+        setStockReplenishInterval(0)
+        setStockStartDelay(0)
 
-            setPerishable(false)
-            setNumberofCharges(0)
+        setPerishable(false)
+        setNumberofCharges(0)
 
-            setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
+        setModelUsed("Objects\\InventoryItems\\TreasureChest\\treasurechest.mdl")
 
-            setScalingValue(1)
-            setTintingColor1Red(255)
-            setTintingColor2Green(255)
-            setTintingColor3Blue(255)
-            
-            setCanBeSold(true)
+        setScalingValue(1)
+        setTintingColor1Red(255)
+        setTintingColor2Green(255)
+        setTintingColor3Blue(255)
+        
+        setCanBeSold(true)
 
-            setCanBeDropped(true)
-            setDroppedWhenCarrierDies(false)
+        setCanBeDropped(true)
+        setDroppedWhenCarrierDies(false)
 
-            setIgnoreCooldown(false)
-            setIncludeAsRandomChoice(true)
-            setValidTargetForTransformation(false)
+        setIgnoreCooldown(false)
+        setIncludeAsRandomChoice(true)
+        setValidTargetForTransformation(false)
 
-            setPriority(1)
-            setLevel(1)
-            // So any 1 lvl hero can destroy item in creeps room.
-            setHitPoints(10)
+        setPriority(1)
+        setLevel(1)
+        // So any 1 lvl hero can destroy item in creeps room.
+        setHitPoints(10)
 
-            setRequirements("")
-            setRequirementsLevels("")
-            setClassification("PowerUp")
+        setRequirements("")
+        setRequirementsLevels("")
+        setClassification("PowerUp")
+
+    function initGem(int R, int G, int B, string modelUsed)
+        setModelUsed(modelUsed)
+        setTintingColor1Red(R)
+        setTintingColor2Green(G)
+        setTintingColor3Blue(B)
+        
+        setClassification("Campaign")
+        
+        setCanBeSold(false)
+        setGoldCost(149000)
+
+        setStockReplenishInterval(600)
+        setStockStartDelay(100)
 
     function setCanBeSold(boolean value)
-        if compiletime
-            setCanBeSoldByMerchants(value)
-            setCanBeSoldToMerchants(value)
+        setCanBeSoldByMerchants(value)
+        setCanBeSoldToMerchants(value)
 
     function register()
 
@@ -99,85 +111,72 @@ public class MyItemDefinition extends MyItemDefinitionBase
         initThis()
 
     private function initThis()
-        if compiletime
-            this.abilityList      = ""
-            this.effects          = ""
-            this.extraDescription = ""
-            this.title            = ""
+        this.abilityList      = ""
+        this.effects          = ""
+        this.extraDescription = ""
+        this.title            = ""
 
     function addStats(ItemStats itemStats)
-        if compiletime
-            itemStats.addCustomStats(itemId, this)
-            effects = effects + itemStats.effects + "\n"
-            
-            if (itemStats.addToAbilityList())
-                abilityList = abilityList + itemStats.abilityId.toRawCode() + ","
+        itemStats.addCustomStats(itemId, this)
+        effects = effects + itemStats.effects + "\n"
+        
+        if (itemStats.addToAbilityList())
+            abilityList = abilityList + itemStats.abilityId.toRawCode() + ","
 
     function addStats(int abilityId, string effects)
-        if compiletime
-            this.effects = this.effects + effects + "\n"
-            abilityList = abilityList + abilityId.toRawCode() + ","
+        this.effects = this.effects + effects + "\n"
+        abilityList = abilityList + abilityId.toRawCode() + ","
     
     function addStats(ItemAbilityFunc initFunc, string effects)
-        if compiletime
-            let abilityId = ABIL_ID_GEN.next()
-            initFunc.run(abilityId)
+        let abilityId = ABIL_ID_GEN.next()
+        initFunc.run(abilityId)
 
-            this.effects = this.effects + effects + "\n"
-            abilityList = abilityList + abilityId.toRawCode() + ","
+        this.effects = this.effects + effects + "\n"
+        abilityList = abilityList + abilityId.toRawCode() + ","
     
     function addStats(string effects)
-        if compiletime
-            this.effects = this.effects + effects + "\n"
+        this.effects = this.effects + effects + "\n"
 
     function addExtraDescription(string extraDescription)
-        if compiletime
-            this.extraDescription = extraDescription
+        this.extraDescription = extraDescription
 
     function addTitle(string title)
-        if compiletime
-            this.title = title
+        this.title = title
 
     protected function applyStats()
-        if compiletime
-            if (abilityList.length() > 0)
-                abilityList = abilityList.substring(0, abilityList.length() - 1)
-                setAbilities(abilityList)
+        if (abilityList.length() > 0)
+            abilityList = abilityList.substring(0, abilityList.length() - 1)
+            setAbilities(abilityList)
 
     protected function getEffectsDescription() returns string
-        if compiletime
-            string result = ""
-            if (title != "")
-                result = title
-            if (effects != "")
-                result = result + wordEffects + effects
-            if (extraDescription != "")
-                result = result + extraDescription + wordEffects
-            return result
-        return ""
+        string result = ""
+        if (title != "")
+            result = title + "\n"
+        if (effects != "")
+            result = result + wordEffects + effects
+        if (extraDescription != "")
+            result = result + "\n" + extraDescription + wordEffects
+        return result
 
     protected function basicEffectsDescr()
-        if compiletime
-            let itemName = getItemName(itemId)
-            let descrEffects = getEffectsDescription()
+        let itemName = getItemName(itemId)
+        let descrEffects = getEffectsDescription()
 
-            // The item name
-            setName(itemName)
-            // The chest item description
-            setDescription(descrEffects)
-            // The shop name
-            setTooltipBasic("Purchase " + itemName)
-            // The shop and inventory text
-            setTooltipExtended(descrEffects)
+        // The item name
+        setName(itemName)
+        // The chest item description
+        setDescription(descrEffects)
+        // The shop name
+        setTooltipBasic("Purchase " + itemName)
+        // The shop and inventory text
+        setTooltipExtended(descrEffects)
         
     function addHotKey()
-        if compiletime
-            setHotkey(getHotKey(itemId))
+        setHotkey(getHotKey(itemId))
 
     override function register()
-        if compiletime
-            applyStats()
-            basicEffectsDescr()
+        applyStats()
+        basicEffectsDescr()
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -201,89 +200,76 @@ public class MyItemWithCraftInfoDefinition extends MyItemDefinition
     construct(int newId, RecipeList recipeList, int recipeItemId)
         super(newId)
 
-        if compiletime
-            this.recipeList       = recipeList
-            this.recipeItemId     = recipeItemId
+        this.recipeList       = recipeList
+        this.recipeItemId     = recipeItemId
 
-            this.icon             = ""
-            this.components       = null
+        this.icon             = ""
+        this.components       = null
         
     protected function getMaterialsDescription() returns string
-        if compiletime
-            if (components == null)
-                return ""
+        if (components == null)
+            return ""
 
-            string materials = wordMaterials
-            for comp in components
-                string shopName = getShopNameForItem(comp)
-                if (shopName == "null")
-                    shopName = getShopNameForItem(getItemRecipeId(comp))
+        string materials = wordMaterials
+        for comp in components
+            string shopName = getShopNameForItem(comp)
+            if (shopName == "null")
+                shopName = getShopNameForItem(getItemRecipeId(comp))
 
-                materials = materials + getItemName(comp) + " (" + shopName + ")\n"
-            return materials
-        return ""
+            materials = materials + getItemName(comp) + " (" + shopName + ")\n"
+        return materials
 
     protected function getRecipeDescription() returns string
-        if compiletime
-            return getEffectsDescription() + getMaterialsDescription()
-        return ""
+        return getEffectsDescription() + getMaterialsDescription()
 
     override function register()
-        if compiletime
-            applyStats()
-            basicEffectsDescr()
+        applyStats()
+        basicEffectsDescr()
 
-            let itemName = getItemName(itemId)
-            let descrRecipe  = getRecipeDescription()
+        let itemName = getItemName(itemId)
+        let descrRecipe  = getRecipeDescription()
 
-            if (recipeItemId != -1)
-                new MyItemDefinitionBase(recipeItemId)
-                ..setInterfaceIcon(icon)
-                ..setName("Craft Info " + itemName)
-                ..setTooltipBasic("Craft Info " + itemName)
-                ..setTooltipExtended(descrRecipe)
-                ..setStockMaximum(0)
+        if (recipeItemId != -1)
+            new MyItemDefinitionBase(recipeItemId)
+            ..setInterfaceIcon(icon)
+            ..setName("Craft Info " + itemName)
+            ..setTooltipBasic("Craft Info " + itemName)
+            ..setTooltipExtended(descrRecipe)
+            ..setStockMaximum(0)
 
     override function setInterfaceIcon(string data)
-        if compiletime
-            super.setInterfaceIcon(data)
-            icon = data
+        super.setInterfaceIcon(data)
+        icon = data
 
     function addComponents(int item1)
-        if compiletime
-            this.recipeList.addRecipe(item1, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1)
+        this.recipeList.addRecipe(item1, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1)
 
     function addComponents(int item1, int item2)
-        if compiletime
-            this.recipeList.addRecipe(item1, item2, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1, item2)
+        this.recipeList.addRecipe(item1, item2, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2)
 
     function addComponents(int item1, int item2, int item3)
-        if compiletime
-            this.recipeList.addRecipe(item1, item2, item3, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1, item2, item3)
+        this.recipeList.addRecipe(item1, item2, item3, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3)
 
     function addComponents(int item1, int item2, int item3, int item4)
-        if compiletime
-            this.recipeList.addRecipe(item1, item2, item3, item4, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1, item2, item3, item4)
+        this.recipeList.addRecipe(item1, item2, item3, item4, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4)
 
     function addComponents(int item1, int item2, int item3, int item4, int item5)
-        if compiletime
-            this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1, item2, item3, item4, item5)
+        this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4, item5)
 
     function addComponents(int item1, int item2, int item3, int item4, int item5, int item6)
-        if compiletime
-            this.recipeList.addRecipe(item1, item2, item3, item4, item5, item6, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1, item2, item3, item4, item5, item6)
+        this.recipeList.addRecipe(item1, item2, item3, item4, item5, item6, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4, item5, item6)
         
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -311,89 +297,66 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
         this.initRecipe = initRecipe
 
     override function getMaterialsDescription() returns string
-        if compiletime
-            if (components == null)
-                return ""
-            
-            string materials = wordMaterials
-            for comp in components
+        if (components == null)
+            return ""
+        
+        string materials = wordMaterials
+        for comp in components
 
-                string shopName = getShopNameForItem(comp)
-                if (shopName == "null")
-                    shopName = getShopNameForItem(getItemRecipeId(comp))
+            string shopName = getShopNameForItem(comp)
+            if (shopName == "null")
+                shopName = getShopNameForItem(getItemRecipeId(comp))
 
-                // Exclude 'Recipe Item' from materials required, because materials required
-                // list already shown in recipe item.
-                if (comp != recipeItemId)
-                    materials = materials + getItemName(comp) + " (" + shopName + ")\n"
-            return materials
-        return ""
+            // Exclude 'Recipe Item' from materials required, because materials required
+            // list already shown in recipe item.
+            if (comp != recipeItemId)
+                materials = materials + getItemName(comp) + " (" + shopName + ")\n"
+        return materials
 
     override function register()
-        if compiletime
-            applyStats()
-            basicEffectsDescr()
-            
-            let itemName = getItemName(itemId)
-            let descrRecipe  = getRecipeDescription()
+        applyStats()
+        basicEffectsDescr()
+        
+        let itemName = getItemName(itemId)
+        let descrRecipe  = getRecipeDescription()
 
-            let recipeItemDef = new MyItemDefinitionBase(recipeItemId)
-            ..setInterfaceIcon(icon)
-            ..setName("Recipe " + itemName)
-            ..setClassification("Charged")
-            ..setDescription(descrRecipe)
-            ..setTooltipBasic("Purchase Recipe " + itemName)
-            ..setTooltipExtended(descrRecipe)
-            ..setHotkey(getHotKey(recipeItemId))
-            ..setStockReplenishInterval(3)
-            ..setStockStartDelay(3)
+        let recipeItemDef = new MyItemDefinitionBase(recipeItemId)
+        ..setInterfaceIcon(icon)
+        ..setName("Recipe " + itemName)
+        ..setClassification("Charged")
+        ..setDescription(descrRecipe)
+        ..setTooltipBasic("Purchase Recipe " + itemName)
+        ..setTooltipExtended(descrRecipe)
+        ..setHotkey(getHotKey(recipeItemId))
+        ..setStockReplenishInterval(3)
+        ..setStockStartDelay(3)
 
-            initRecipe.call(recipeItemDef)
+        initRecipe.call(recipeItemDef)
 
     override function addComponents(int item1)
-        if compiletime
-            this.recipeList.addRecipe(item1, this.recipeItemId, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1, this.recipeItemId)
+        this.recipeList.addRecipe(item1, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, this.recipeItemId)
 
     override function addComponents(int item1, int item2)
-        if compiletime
-            this.recipeList.addRecipe(item1, item2, this.recipeItemId, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1, item2, this.recipeItemId)
+        this.recipeList.addRecipe(item1, item2, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, this.recipeItemId)
 
     override function addComponents(int item1, int item2, int item3)
-        if compiletime
-            this.recipeList.addRecipe(item1, item2, item3, this.recipeItemId, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1, item2, item3, this.recipeItemId)
+        this.recipeList.addRecipe(item1, item2, item3, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, this.recipeItemId)
 
     override function addComponents(int item1, int item2, int item3, int item4)
-        if compiletime
-            this.recipeList.addRecipe(item1, item2, item3, item4, this.recipeItemId, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1, item2, item3, item4, this.recipeItemId)
+        this.recipeList.addRecipe(item1, item2, item3, item4, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4, this.recipeItemId)
 
     override function addComponents(int item1, int item2, int item3, int item4, int item5)
-        if compiletime
-            this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.recipeItemId, this.itemId)
-            this.components = new LinkedList<int>()
-            this.components.add(item1, item2, item3, item4, item5, this.recipeItemId)
-
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-
-public class MyGemDefinition extends MyItemDefinition
-    construct(int newId)
-        super(newId)
-        if compiletime
-            setActivelyUsed(true)
-            setCanBeSold(false)
-            setGoldCost(149000)
-
-            setStockReplenishInterval(600)
-            setStockStartDelay(100)
-
+        this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.recipeItemId, this.itemId)
+        this.components = new LinkedList<int>()
+        this.components.add(item1, item2, item3, item4, item5, this.recipeItemId)
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------

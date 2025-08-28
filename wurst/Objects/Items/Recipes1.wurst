@@ -1,0 +1,215 @@
+package Recipes1
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import RecipeItems
+
+@compiletime function createItems()
+
+//I01A    
+    new MyItemWithRecipeDefinition(ITEM_ICE_SWORD, itemRecipeList, ITEM_RECIPE_ICE_SWORD,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(800)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFrostSword.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(80))
+    ..addStats(addAttackSpeed(0.5))
+    ..addComponents(
+    ITEM_SIMPLE_SWORD,
+    ITEM_CLAWS_OF_ATTACK,
+    ITEM_ORB_OF_FROST)
+    ..addHotKey()
+    ..register()
+
+//I011
+    new MyItemWithRecipeDefinition(ITEM_FIRE_SWORD, itemRecipeList, ITEM_RECIPE_FIRE_SWORD,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(800)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFireSword.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(80))
+    ..addStats(addAttackSpeed(0.5))
+    ..addStats(addCrit(2, 0.15))
+    ..addComponents(
+    ITEM_SIMPLE_SWORD,
+    ITEM_CLAWS_OF_ATTACK,
+    ITEM_ORB_OF_FIRE,
+    ITEM_STURDY_WAR_AXE)
+    ..addHotKey()
+    ..register()
+
+//I01V
+    new MyItemWithRecipeDefinition(ITEM_BOOTS_OF_TELEPORTATION, itemRecipeList, ITEM_RECIPE_BOOTS_OF_TELEPORTATION,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(600)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFire Boot.blp")
+    ..setClassification("Permanent")
+    ..addStats(addAllStats(24))
+    ..addStats(addMovementSpeed(100))
+    ..addStats(addTp(20))
+    ..addComponents(
+    ITEM_BOOTS_OF_SPEED,
+    ITEM_CRYSTAL_BALL,
+    ITEM_CIRCLET_OF_NOBILITY)
+    ..addHotKey()
+    ..register()
+
+//I01W
+    new MyItemWithRecipeDefinition(ITEM_BOOTS_OF_INVISIBILITY, itemRecipeList, ITEM_RECIPE_BOOTS_OF_INVISIBILITY,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(670)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Sandals.blp")
+    ..setClassification("Permanent")
+    ..addStats(addAllStats(24))    
+    ..addStats(addMovementSpeed(120))
+    // TODO. Previously here was invis 30 sec, cd 30 sec.
+    ..addComponents(
+    ITEM_BOOTS_OF_SPEED,
+    ITEM_CRYSTAL_BALL,
+    ITEM_CLOAK_OF_SHADOWS)
+    ..addHotKey()
+    ..register()
+
+//I01X
+    new MyItemWithRecipeDefinition(ITEM_WINGED_BOOTS, itemRecipeList, ITEM_RECIPE_WINGED_BOOTS,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(800)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNwind boots.blp")
+    ..setClassification("Permanent")
+    ..addStats(addAllStats(24))
+    ..addStats(addAttackSpeed(0.6))
+    ..addStats(addMovementSpeed(140))
+    ..addComponents(
+    ITEM_BOOTS_OF_SPEED,
+    ITEM_CRYSTAL_BALL,
+    ITEM_GLOVES_OF_HASTE)
+    ..addHotKey()
+    ..register()
+
+//I01Z
+    new MyItemWithRecipeDefinition(ITEM_STEEL_AXE, itemRecipeList, ITEM_RECIPE_STEEL_AXE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(3000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_AxeSteel.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(400))
+    ..addComponents(
+    ITEM_MAUL_OF_STRENGTH,
+    ITEM_STURDY_WAR_AXE,
+    ITEM_CLAWS_OF_ATTACK)
+    ..addHotKey()
+    ..register()
+
+//I020
+    new MyItemWithRecipeDefinition(ITEM_SILVER_HAMMER, itemRecipeList, ITEM_RECIPE_SILVER_HAMMER,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(2550)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStoneHammer.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(90))
+    ..addStats(addBash(0.1, 200, 0.1, 0))
+    ..addComponents(
+    ITEM_MAUL_OF_STRENGTH,
+    ITEM_BELT_OF_GIANT_STRENGTH)
+    ..addHotKey()
+    ..register()
+
+//I022
+    new MyItemWithRecipeDefinition(ITEM_GLOVES_OF_SPEED, itemRecipeList, ITEM_RECIPE_GLOVES_OF_SPEED,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(1750)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPlated Gauntlet2.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(80))
+    ..addStats(addAttackSpeed(0.8))
+    ..addComponents(
+    ITEM_GLOVES_OF_HASTE,
+    ITEM_GLOVES_OF_HADES,
+    ITEM_GLOVES_OF_WIND)
+    ..addHotKey()
+    ..register()
+
+//I02E
+    new MyItemWithRecipeDefinition(ITEM_HALF_OF_ARKENSTONE, itemRecipeList, ITEM_RECIPE_HALF_OF_ARKENSTONE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(100)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Misc_Gem_Opal_02.blp")
+    ..setClassification("Permanent")
+    ..addStats(addHp(5000))
+    ..addStats(addHpReg(50))
+    ..addStats(addMp(5000))
+    ..addStats(addMpReg(3))
+    ..addComponents(
+    ITEM_ARKENSTONE_FRAGMENT,
+    ITEM_LANCELOT_RING,
+    ITEM_GUINEVERES_RING)
+    ..addHotKey()
+    ..register()
+
+//I035
+    new MyItemWithRecipeDefinition(ITEM_LIGHT_ARMOR, itemRecipeList, ITEM_RECIPE_LIGHT_ARMOR,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(1200)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Composite Armor.blp")
+    ..setClassification("Permanent")
+    ..addStats(addArmor(50))
+    ..addStats(addAllStats(20))
+    ..addStats(addHpReg(10))
+    ..addStats(addMpReg(1))
+    ..addComponents(
+    ITEM_LEATHER_ARMOR,
+    ITEM_IRON_ARMOR,
+    ITEM_CRYSTAL_BALL)
+    ..addHotKey()
+    ..register()
+
+//I040
+    new MyItemWithRecipeDefinition(ITEM_SCROLL_OF_FUSION, itemRecipeList, ITEM_RECIPE_SCROLL_OF_FUSION,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(400)
+    ..setStockReplenishInterval(3)   
+    ..setStockStartDelay(3) 
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSnazzyScrollPurple.blp")
+    ..setClassification("Permanent")
+    ..addStats(addAllStats(12))
+    ..addStats(addHp(300))
+    ..addStats(addArmor(10))
+    ..addStats(addHpReg(5))
+    ..addComponents(
+    ITEM_RING_OF_REGENERATION,
+    ITEM_RING_OF_PROTECTION,
+    ITEM_CIRCLET_OF_NOBILITY)
+    ..addHotKey()
+    ..register()
+
+//I03Z
+    new MyItemWithRecipeDefinition(ITEM_AMULET_OF_THE_WILD, itemRecipeList, ITEM_RECIPE_AMULET_OF_THE_WILD,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(1100)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAmuletOftheWild.blp")
+    ..setClassification("Permanent")
+    ..addStats(addStr(12))
+    ..addStats(addAgi(40))
+    ..addStats(addInt(12))
+    ..addStats(addHp(500))
+    ..addStats(addHpReg(7))
+    ..addStats(addArmor(15))
+    ..addComponents(
+    ITEM_SCROLL_OF_FUSION,
+    ITEM_JADE_RING,
+    ITEM_BOOTS_OF_QUELTHALAS)
+    ..addHotKey()
+    ..register()

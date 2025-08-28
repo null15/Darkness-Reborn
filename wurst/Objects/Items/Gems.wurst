@@ -1,0 +1,205 @@
+package Gems
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import RecipeItems
+import MyUnitIds
+
+init
+
+@compiletime function createItems()
+
+
+//I0B5
+    new MyItemDefinition(ITEM_PERFECT_GARNET)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Red2.blp")
+    ..setActivelyUsed(true)
+    
+    ..addStats(addAbilityArmorDamageHpRegBuff(0.2, 9999, 300, 8, 5000, 15))
+
+    ..addStats(addAllStats(300))
+
+    ..addHotKey()
+    ..initGem(255, 0, 0, "Red Item.mdl")
+    ..register()
+
+//I0AZ
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_CARNELIAN, itemRecipeList, ITEM_INFO_PERFECT_CARNELIAN)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelcrafting_gem_16.blp")
+
+    ..addStats(addAbilityLifeStealAura(0.3, 900))
+
+    ..addStats(addAllStats(300))
+
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_BLOODY_DAGGER)
+    ..addHotKey()
+    ..initGem(255, 0, 0, "Red Item.mdl")
+    ..register()
+
+
+//I0BA
+    new MyItemDefinition(ITEM_PERFECT_CITRINE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Yellow2.blp")
+    ..setActivelyUsed(true)
+
+    ..addStats(addAbilityHolyLight(30, 20000, 1, 8000, 10))
+
+    ..addStats(addAllStats(900))
+
+    ..addHotKey()
+    ..initGem(255, 255, 0, "Red Item.mdl")
+    ..register()
+
+//I0B1
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_TOPAZ, itemRecipeList, ITEM_INFO_PERFECT_TOPAZ)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Yellow.blp")
+
+    ..addStats(addHpRegAura(0.02, true, 900))
+
+    ..addStats(addAllStats(300))
+
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_LIZARD_PENDANT)
+    ..addHotKey()
+    ..initGem(150, 150, 0, "Red Item.mdl")
+    ..register()
+
+//I0B8
+    new MyItemDefinition(ITEM_PERFECT_OBSIDIAN)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe2.blp")
+    ..setActivelyUsed(true)
+
+    ..addStats(addAbilitySummonInfernoUnit(15000, 600, UNIT_SUMMON_INFERNAL, "Summon infernal", 120, 5000, 140))
+
+    ..addStats(addAllStats(300))
+
+    ..addHotKey()
+    ..initGem(255, 255, 0, "Red Item.mdl")
+    ..register()
+
+//I0B2
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AQUAMARINE, itemRecipeList, ITEM_INFO_PERFECT_AQUAMARINE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe.blp")
+
+    ..addStats(addSpikes(1.5))
+
+    ..addStats(addAllStats(600))
+    ..addStats(addArmor(300))
+
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_REACTIVE_ARMOR)
+    ..addHotKey()
+    ..initGem(255, 255, 0, "Red Item.mdl")
+    ..register()
+
+//I0B6
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_NEPHRITE, itemRecipeList, ITEM_INFO_PERFECT_NEPHRITE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green2.blp")
+    ..setModelUsed("Green Item.mdl")
+
+    ..addStats(addRevive(8, 30))
+
+    ..addStats(addAllStats(600))
+    ..addStats(addArmor(240))
+    ..addStats(addMagicResist(50))
+
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_GLOVERSHIELD)
+    ..addHotKey()
+    ..initGem(0, 255, 0, "Red Item.mdl")
+    ..register()
+
+//I0B4
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_EMERALD, itemRecipeList, ITEM_INFO_PERFECT_EMERALD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green.blp")
+    
+    ..addStats(addAuraTrueshot(2, 900))
+    ..addStats(addAuraCommandRel(1.5, 900))
+    ..addStats(addAuraArmorFlat(200, 900))
+    ..addStats(addAuraEndurance(2, 2, 900))
+    
+    ..addStats(addAllStats(300))
+
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE, 
+    ITEM_DRUMS_OF_FUTURE,
+    ITEM_THE_GOLDEN_HORN,
+    ITEM_TRIBAL_DRUMS,
+    ITEM_NATURE_FLUTE)
+    ..addHotKey()
+    ..initGem(0, 255, 0, "Green Item.mdl")
+    ..register()
+
+//I0B7
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_PEARL, itemRecipeList, ITEM_INFO_PERFECT_PEARL)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Blue2.blp")
+    ..setActivelyUsed(true)
+
+    ..addStats(addAbilityIllusions(2, 0.7, 1.5, 3000, 60, 60))
+
+    ..addStats(addAllStats(300))
+
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_ICE_SWORD,
+    ITEM_FIRE_SWORD)
+    ..addHotKey()
+    ..initGem(0, 100, 200, "Red Item.mdl")
+    ..register()
+
+//I0B0
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_HIPPOPUS, itemRecipeList, ITEM_INFO_PERFECT_HIPPOPUS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Blue.blp")
+    ..setActivelyUsed(true)
+
+    ..addStats(addAbilityManaShield(6))
+
+    ..addStats(addAllStats(900))
+    ..addStats(addMpReg(3))
+
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_LAZARUS_BELT)
+    ..addHotKey()
+    ..initGem(0, 0, 255, "Red Item.mdl")
+    ..register()
+
+//I0B9
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_SAPPHIRE, itemRecipeList, ITEM_INFO_PERFECT_SAPPHIRE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple2.blp")
+    ..setActivelyUsed(true)
+
+    ..addStats(addAbilityLightingBoltStun(5000, 15, 10, 8000, 30))
+
+    ..addStats(addAllStats(300))
+
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_MYSTERY_BLUE_STAFF,
+    ITEM_ORB_OF_LIGHTNING)
+    ..addHotKey()
+    ..initGem(100, 0, 255, "Red Item.mdl")
+    ..register()
+
+//I0B3
+    new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AMETHYST, itemRecipeList, ITEM_INFO_PERFECT_AMETHYST)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple.blp")
+
+    ..addStats(addAuraMinusArmorFlat(-86, 900)) // -70
+    //..addStats(addAuraMinusArmorRel(-0.05, 900))
+
+    ..addStats(addAllStats(300))
+
+    ..addComponents(
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_DARK_STEEL_SWORD,
+    ITEM_ORB_OF_CORRUPTION)
+    ..addHotKey()
+    ..initGem(100, 0, 255, "Red Item.mdl")
+    ..register()

@@ -27,6 +27,9 @@ public constant SUMMONED_UNIT_6 = compiletime(UNIT_ID_GEN.next())
 public constant SUMMONED_UNIT_7 = compiletime(UNIT_ID_GEN.next())
 public constant SUMMONED_UNIT_8 = compiletime(UNIT_ID_GEN.next())
 
+public constant UNIT_SUMMON_INFERNAL = compiletime(UNIT_ID_GEN.next())
+public constant UNIT_SUMMON_HYDRA = compiletime(UNIT_ID_GEN.next())
+
 public constant DUMMY_BLACKSMITH_WISP = compiletime(UNIT_ID_GEN.next())
 
 public constant HERO_PICKER = compiletime(UNIT_ID_GEN.next())

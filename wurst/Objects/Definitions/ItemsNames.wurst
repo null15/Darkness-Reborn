@@ -3,1509 +3,1506 @@ package ItemsNames
 import MyItemIds
 
 public function getItemName(int id) returns string
-    if compiletime
-        switch (id)
-            // Basic Items (1)
-            case ITEM_GLOVES_OF_HASTE
-                return "Gloves of Haste"
-            case ITEM_GLOVES_OF_HADES
-                return "Gloves of Hades"
-            case ITEM_GLOVES_OF_WIND
-                return "Gloves of Wind"
-            case ITEM_LIFE_STEAL
-                return "Mask of Death"
+    switch (id)
+        // Basic Items (1)
+        case ITEM_GLOVES_OF_HASTE
+            return "Gloves of Haste"
+        case ITEM_GLOVES_OF_HADES
+            return "Gloves of Hades"
+        case ITEM_GLOVES_OF_WIND
+            return "Gloves of Wind"
+        case ITEM_LIFE_STEAL
+            return "Mask of Death"
 
-            case ITEM_LEATHER_ARMOR
-                return "Leather Armor"
-            case ITEM_IRON_ARMOR
-                return "Iron Armor"
-            case ITEM_SILVER_ARMOR
-                return "Silver Armor"
-            case ITEM_SIMPLE_SWORD
-                return "Simple Sword"
+        case ITEM_LEATHER_ARMOR
+            return "Leather Armor"
+        case ITEM_IRON_ARMOR
+            return "Iron Armor"
+        case ITEM_SILVER_ARMOR
+            return "Silver Armor"
+        case ITEM_SIMPLE_SWORD
+            return "Simple Sword"
 
-            case ITEM_CLAWS_OF_ATTACK
-                return "Claws of Attack"
-            case ITEM_STURDY_WAR_AXE
-                return "Sturdy War Axe"
-            case ITEM_MAUL_OF_STRENGTH
-                return "Maul of Strength"
+        case ITEM_CLAWS_OF_ATTACK
+            return "Claws of Attack"
+        case ITEM_STURDY_WAR_AXE
+            return "Sturdy War Axe"
+        case ITEM_MAUL_OF_STRENGTH
+            return "Maul of Strength"
 
-            // Basic Items (2)
-            case ITEM_BOOTS_OF_SPEED
-                return "Boots of Speed"
-            case ITEM_JADE_RING
-                return "Jade Ring"
-            case ITEM_SOUL_RING
-                return "Soul Ring"
-            case ITEM_RING_OF_ARCHMAGI
-                return "Ring of the Archmagi"
+        // Basic Items (2)
+        case ITEM_BOOTS_OF_SPEED
+            return "Boots of Speed"
+        case ITEM_JADE_RING
+            return "Jade Ring"
+        case ITEM_SOUL_RING
+            return "Soul Ring"
+        case ITEM_RING_OF_ARCHMAGI
+            return "Ring of the Archmagi"
 
-            case ITEM_RING_OF_REGENERATION
-                return "Ring of Regeneration"
-            case ITEM_RING_OF_PROTECTION
-                return "Ring of Protection"
-            case ITEM_ROBE_OF_MAGI
-                return "Robe of the Magi"
-            case ITEM_BOOTS_OF_QUELTHALAS
-                return "Boots of Quel'Thalas"
+        case ITEM_RING_OF_REGENERATION
+            return "Ring of Regeneration"
+        case ITEM_RING_OF_PROTECTION
+            return "Ring of Protection"
+        case ITEM_ROBE_OF_MAGI
+            return "Robe of the Magi"
+        case ITEM_BOOTS_OF_QUELTHALAS
+            return "Boots of Quel'Thalas"
 
-            case ITEM_BELT_OF_GIANT_STRENGTH
-                return "Belt of Giant Strength"
-            case ITEM_CIRCLET_OF_NOBILITY
-                return "Circlet of Nobility"
-            case ITEM_CRYSTAL_BALL
-                return "Crystal Ball"
+        case ITEM_BELT_OF_GIANT_STRENGTH
+            return "Belt of Giant Strength"
+        case ITEM_CIRCLET_OF_NOBILITY
+            return "Circlet of Nobility"
+        case ITEM_CRYSTAL_BALL
+            return "Crystal Ball"
 
-            // Basic Items (3)
-            case ITEM_ORB_OF_DARKNESS
-                return "Orb of Darkness"
-            case ITEM_ORB_OF_FROST
-                return "Orb of Frost"
-            case ITEM_ORB_OF_KILJAEDAN
-                return "Orb of Kil'jaeden"
-            case ITEM_AMULET_OF_SPELL_SHIELD
-                return "Amulet of Spell Shield"
+        // Basic Items (3)
+        case ITEM_ORB_OF_DARKNESS
+            return "Orb of Darkness"
+        case ITEM_ORB_OF_FROST
+            return "Orb of Frost"
+        case ITEM_ORB_OF_KILJAEDAN
+            return "Orb of Kil'jaeden"
+        case ITEM_AMULET_OF_SPELL_SHIELD
+            return "Amulet of Spell Shield"
 
-            case ITEM_TALISMAN_OF_EVASION
-                return "Talisman of Evasion"
-            case ITEM_ENCHANTED_SHIELD
-                return "Enchanted Shield"
-            case ITEM_ARCANITE_SHIELD
-                return "Arcanite Shield"
-            case ITEM_SHIELD_OF_HONOR
-                return "Shield of Honor"
+        case ITEM_TALISMAN_OF_EVASION
+            return "Talisman of Evasion"
+        case ITEM_ENCHANTED_SHIELD
+            return "Enchanted Shield"
+        case ITEM_ARCANITE_SHIELD
+            return "Arcanite Shield"
+        case ITEM_SHIELD_OF_HONOR
+            return "Shield of Honor"
 
-            case ITEM_ORB_OF_CORRUPTION
-                return "Orb of Corruption"
-            case ITEM_ORB_OF_FIRE
-                return "Orb of Fire"
-            case ITEM_ORB_OF_LIGHTNING
-                return "Orb of Lightning"
-            
-            // Basic Items (4)
+        case ITEM_ORB_OF_CORRUPTION
+            return "Orb of Corruption"
+        case ITEM_ORB_OF_FIRE
+            return "Orb of Fire"
+        case ITEM_ORB_OF_LIGHTNING
+            return "Orb of Lightning"
+        
+        // Basic Items (4)
 
-            case ITEM_POTION_OF_GREATER_HEALING
-                return "Potion of Greater Healing"
-            case ITEM_POTION_OF_GREATER_MANA
-                return "Potion of Greater Mana"
-            case ITEM_PENDANT_OF_ENERGY
-                return "Pendant of Energy"
-            case ITEM_PENDANT_OF_MANA
-                return "Pendant of Mana"
+        case ITEM_POTION_OF_GREATER_HEALING
+            return "Potion of Greater Healing"
+        case ITEM_POTION_OF_GREATER_MANA
+            return "Potion of Greater Mana"
+        case ITEM_PENDANT_OF_ENERGY
+            return "Pendant of Energy"
+        case ITEM_PENDANT_OF_MANA
+            return "Pendant of Mana"
 
-            case ITEM_PERIAPT_OF_VITALITY
-                return "Periapt of Vitality"
-            case ITEM_KHADGAR_PENDANT_OF_HEALTH
-                return "Khadgar's Pendant of Health"
-            case ITEM_CLOAK_OF_SHADOWS
-                return "Cloak of Shadows"
+        case ITEM_PERIAPT_OF_VITALITY
+            return "Periapt of Vitality"
+        case ITEM_KHADGAR_PENDANT_OF_HEALTH
+            return "Khadgar's Pendant of Health"
+        case ITEM_CLOAK_OF_SHADOWS
+            return "Cloak of Shadows"
 
-            case ITEM_TOME_OF_RETRAINING
-                return "Tome of Retraining"
+        case ITEM_TOME_OF_RETRAINING
+            return "Tome of Retraining"
 
-            // Recipes (1)
+        // Recipes (1)
 
-            case ITEM_RECIPE_ICE_SWORD
-                return "Recipe " + compiletime(getItemName(ITEM_ICE_SWORD))
-            case ITEM_RECIPE_FIRE_SWORD
-                return "Recipe " + compiletime(getItemName(ITEM_FIRE_SWORD))
-            case ITEM_RECIPE_BOOTS_OF_TELEPORTATION
-                return "Recipe " + compiletime(getItemName(ITEM_BOOTS_OF_TELEPORTATION))
-            case ITEM_RECIPE_BOOTS_OF_INVISIBILITY
-                return "Recipe " + compiletime(getItemName(ITEM_BOOTS_OF_INVISIBILITY))
+        case ITEM_RECIPE_ICE_SWORD
+            return "Recipe " + compiletime(getItemName(ITEM_ICE_SWORD))
+        case ITEM_RECIPE_FIRE_SWORD
+            return "Recipe " + compiletime(getItemName(ITEM_FIRE_SWORD))
+        case ITEM_RECIPE_BOOTS_OF_TELEPORTATION
+            return "Recipe " + compiletime(getItemName(ITEM_BOOTS_OF_TELEPORTATION))
+        case ITEM_RECIPE_BOOTS_OF_INVISIBILITY
+            return "Recipe " + compiletime(getItemName(ITEM_BOOTS_OF_INVISIBILITY))
 
-            case ITEM_RECIPE_WINGED_BOOTS
-                return "Recipe " + compiletime(getItemName(ITEM_WINGED_BOOTS))
-            case ITEM_RECIPE_STEEL_AXE
-                return "Recipe " + compiletime(getItemName(ITEM_STEEL_AXE))
-            case ITEM_RECIPE_SILVER_HAMMER
-                return "Recipe " + compiletime(getItemName(ITEM_SILVER_HAMMER))
-            case ITEM_RECIPE_GLOVES_OF_SPEED
-                return "Recipe " + compiletime(getItemName(ITEM_GLOVES_OF_SPEED))
+        case ITEM_RECIPE_WINGED_BOOTS
+            return "Recipe " + compiletime(getItemName(ITEM_WINGED_BOOTS))
+        case ITEM_RECIPE_STEEL_AXE
+            return "Recipe " + compiletime(getItemName(ITEM_STEEL_AXE))
+        case ITEM_RECIPE_SILVER_HAMMER
+            return "Recipe " + compiletime(getItemName(ITEM_SILVER_HAMMER))
+        case ITEM_RECIPE_GLOVES_OF_SPEED
+            return "Recipe " + compiletime(getItemName(ITEM_GLOVES_OF_SPEED))
 
-            case ITEM_RECIPE_HALF_OF_ARKENSTONE
-                return "Recipe " + compiletime(getItemName(ITEM_HALF_OF_ARKENSTONE))
-            case ITEM_RECIPE_LIGHT_ARMOR
-                return "Recipe " + compiletime(getItemName(ITEM_LIGHT_ARMOR))
-            case ITEM_RECIPE_SCROLL_OF_FUSION
-                return "Recipe " + compiletime(getItemName(ITEM_SCROLL_OF_FUSION))
-            case ITEM_RECIPE_AMULET_OF_THE_WILD
-                return "Recipe " + compiletime(getItemName(ITEM_AMULET_OF_THE_WILD))
-            
-            // Recipes (2)
+        case ITEM_RECIPE_HALF_OF_ARKENSTONE
+            return "Recipe " + compiletime(getItemName(ITEM_HALF_OF_ARKENSTONE))
+        case ITEM_RECIPE_LIGHT_ARMOR
+            return "Recipe " + compiletime(getItemName(ITEM_LIGHT_ARMOR))
+        case ITEM_RECIPE_SCROLL_OF_FUSION
+            return "Recipe " + compiletime(getItemName(ITEM_SCROLL_OF_FUSION))
+        case ITEM_RECIPE_AMULET_OF_THE_WILD
+            return "Recipe " + compiletime(getItemName(ITEM_AMULET_OF_THE_WILD))
+        
+        // Recipes (2)
 
-            case ITEM_RECIPE_HELM_OF_VALOR
-                return "Recipe " + compiletime(getItemName(ITEM_HELM_OF_VALOR))
-            case ITEM_RECIPE_MEDALLION_OF_COURAGE
-                return "Recipe " + compiletime(getItemName(ITEM_MEDALLION_OF_COURAGE))
-            case ITEM_RECIPE_ALLERIA_FLUTE_OF_ACCURACY
-                return "Recipe " + compiletime(getItemName(ITEM_ALLERIA_FLUTE_OF_ACCURACY))
-            case ITEM_RECIPE_ANCIENT_JANGGO_OF_ENDURANCE
-                return "Recipe " + compiletime(getItemName(ITEM_ANCIENT_JANGGO_OF_ENDURANCE))
+        case ITEM_RECIPE_HELM_OF_VALOR
+            return "Recipe " + compiletime(getItemName(ITEM_HELM_OF_VALOR))
+        case ITEM_RECIPE_MEDALLION_OF_COURAGE
+            return "Recipe " + compiletime(getItemName(ITEM_MEDALLION_OF_COURAGE))
+        case ITEM_RECIPE_ALLERIA_FLUTE_OF_ACCURACY
+            return "Recipe " + compiletime(getItemName(ITEM_ALLERIA_FLUTE_OF_ACCURACY))
+        case ITEM_RECIPE_ANCIENT_JANGGO_OF_ENDURANCE
+            return "Recipe " + compiletime(getItemName(ITEM_ANCIENT_JANGGO_OF_ENDURANCE))
 
-            case ITEM_RECIPE_THE_LION_HORN_OF_STORMWIND
-                return "Recipe " + compiletime(getItemName(ITEM_THE_LION_HORN_OF_STORMWIND))
-            case ITEM_RECIPE_WARSONG_BATTLE_DRUMS
-                return "Recipe " + compiletime(getItemName(ITEM_WARSONG_BATTLE_DRUMS))
-            case ITEM_RECIPE_DRUMS_OF_FUTURE
-                return "Recipe " + compiletime(getItemName(ITEM_DRUMS_OF_FUTURE))
-            case ITEM_RECIPE_THE_GOLDEN_HORN
-                return "Recipe " + compiletime(getItemName(ITEM_THE_GOLDEN_HORN))
+        case ITEM_RECIPE_THE_LION_HORN_OF_STORMWIND
+            return "Recipe " + compiletime(getItemName(ITEM_THE_LION_HORN_OF_STORMWIND))
+        case ITEM_RECIPE_WARSONG_BATTLE_DRUMS
+            return "Recipe " + compiletime(getItemName(ITEM_WARSONG_BATTLE_DRUMS))
+        case ITEM_RECIPE_DRUMS_OF_FUTURE
+            return "Recipe " + compiletime(getItemName(ITEM_DRUMS_OF_FUTURE))
+        case ITEM_RECIPE_THE_GOLDEN_HORN
+            return "Recipe " + compiletime(getItemName(ITEM_THE_GOLDEN_HORN))
 
-            case ITEM_RECIPE_TRIBAL_DRUMS
-                return "Recipe " + compiletime(getItemName(ITEM_TRIBAL_DRUMS))
-            case ITEM_RECIPE_NATURE_FLUTE
-                return "Recipe " + compiletime(getItemName(ITEM_NATURE_FLUTE))
-            case ITEM_RECIPE_VOID_AXE
-                return "Recipe " + compiletime(getItemName(ITEM_VOID_AXE))
-            case ITEM_RECIPE_AINZ_SWORD
-                return "Recipe " + compiletime(getItemName(ITEM_AINZ_SWORD))
-            
-            // Recipes (3)
+        case ITEM_RECIPE_TRIBAL_DRUMS
+            return "Recipe " + compiletime(getItemName(ITEM_TRIBAL_DRUMS))
+        case ITEM_RECIPE_NATURE_FLUTE
+            return "Recipe " + compiletime(getItemName(ITEM_NATURE_FLUTE))
+        case ITEM_RECIPE_VOID_AXE
+            return "Recipe " + compiletime(getItemName(ITEM_VOID_AXE))
+        case ITEM_RECIPE_AINZ_SWORD
+            return "Recipe " + compiletime(getItemName(ITEM_AINZ_SWORD))
+        
+        // Recipes (3)
 
-            case ITEM_RECIPE_SEER_STAFF
-                return "Recipe " + compiletime(getItemName(ITEM_SEER_STAFF))
-            case ITEM_RECIPE_SCALE_AXE
-                return "Recipe " + compiletime(getItemName(ITEM_SCALE_AXE))
-            case ITEM_RECIPE_DALAN_AXE
-                return "Recipe " + compiletime(getItemName(ITEM_DALAN_AXE))
-            case ITEM_RECIPE_DURATION_AXE
-                return "Recipe " + compiletime(getItemName(ITEM_DURATION_AXE))
+        case ITEM_RECIPE_SEER_STAFF
+            return "Recipe " + compiletime(getItemName(ITEM_SEER_STAFF))
+        case ITEM_RECIPE_SCALE_AXE
+            return "Recipe " + compiletime(getItemName(ITEM_SCALE_AXE))
+        case ITEM_RECIPE_DALAN_AXE
+            return "Recipe " + compiletime(getItemName(ITEM_DALAN_AXE))
+        case ITEM_RECIPE_DURATION_AXE
+            return "Recipe " + compiletime(getItemName(ITEM_DURATION_AXE))
 
-            case ITEM_RECIPE_DWARVEN_AXE
-                return "Recipe " + compiletime(getItemName(ITEM_DWARVEN_AXE))
-            case ITEM_RECIPE_BLADE_OF_HELL
-                return "Recipe " + compiletime(getItemName(ITEM_BLADE_OF_HELL))
-            case ITEM_RECIPE_KRAKEN_DAGGER
-                return "Recipe " + compiletime(getItemName(ITEM_KRAKEN_DAGGER))
-            case ITEM_RECIPE_MIDNIGHT_BLADE
-                return "Recipe " + compiletime(getItemName(ITEM_MIDNIGHT_BLADE))
+        case ITEM_RECIPE_DWARVEN_AXE
+            return "Recipe " + compiletime(getItemName(ITEM_DWARVEN_AXE))
+        case ITEM_RECIPE_BLADE_OF_HELL
+            return "Recipe " + compiletime(getItemName(ITEM_BLADE_OF_HELL))
+        case ITEM_RECIPE_KRAKEN_DAGGER
+            return "Recipe " + compiletime(getItemName(ITEM_KRAKEN_DAGGER))
+        case ITEM_RECIPE_MIDNIGHT_BLADE
+            return "Recipe " + compiletime(getItemName(ITEM_MIDNIGHT_BLADE))
 
-            case ITEM_RECIPE_BLOOD_GORGED_BLADE
-                return "Recipe " + compiletime(getItemName(ITEM_BLOOD_GORGED_BLADE))
-            case ITEM_RECIPE_STEEL_SHIELD
-                return "Recipe " + compiletime(getItemName(ITEM_STEEL_SHIELD))
-            case ITEM_RECIPE_SACRED_SHIELD
-                return "Recipe " + compiletime(getItemName(ITEM_SACRED_SHIELD))
-            case ITEM_RECIPE_IRON_SHIELD
-                return "Recipe " + compiletime(getItemName(ITEM_IRON_SHIELD))
+        case ITEM_RECIPE_BLOOD_GORGED_BLADE
+            return "Recipe " + compiletime(getItemName(ITEM_BLOOD_GORGED_BLADE))
+        case ITEM_RECIPE_STEEL_SHIELD
+            return "Recipe " + compiletime(getItemName(ITEM_STEEL_SHIELD))
+        case ITEM_RECIPE_SACRED_SHIELD
+            return "Recipe " + compiletime(getItemName(ITEM_SACRED_SHIELD))
+        case ITEM_RECIPE_IRON_SHIELD
+            return "Recipe " + compiletime(getItemName(ITEM_IRON_SHIELD))
 
-            // Recipes (4)
+        // Recipes (4)
 
-            case ITEM_RECIPE_SPLIT_ARMOR
-                return "Recipe " + compiletime(getItemName(ITEM_SPLIT_ARMOR))
-            case ITEM_RECIPE_AVATAR_ARMOR
-                return "Recipe " + compiletime(getItemName(ITEM_AVATAR_ARMOR))
-            case ITEM_RECIPE_CHAOS_BLADE
-                return "Recipe " + compiletime(getItemName(ITEM_CHAOS_BLADE))
-            case ITEM_RECIPE_O_CLOCK
-                return "Recipe " + compiletime(getItemName(ITEM_O_CLOCK))
+        case ITEM_RECIPE_SPLIT_ARMOR
+            return "Recipe " + compiletime(getItemName(ITEM_SPLIT_ARMOR))
+        case ITEM_RECIPE_AVATAR_ARMOR
+            return "Recipe " + compiletime(getItemName(ITEM_AVATAR_ARMOR))
+        case ITEM_RECIPE_CHAOS_BLADE
+            return "Recipe " + compiletime(getItemName(ITEM_CHAOS_BLADE))
+        case ITEM_RECIPE_O_CLOCK
+            return "Recipe " + compiletime(getItemName(ITEM_O_CLOCK))
 
-            case ITEM_RECIPE_THUNDER_BOW
-                return "Recipe " + compiletime(getItemName(ITEM_THUNDER_BOW))
-            case ITEM_RECIPE_SOUL_OF_KILJEADEN
-                return "Recipe " + compiletime(getItemName(ITEM_SOUL_OF_KILJEADEN))
-            case ITEM_RECIPE_LIZARD_PENDANT
-                return "Recipe " + compiletime(getItemName(ITEM_LIZARD_PENDANT))
-            case ITEM_RECIPE_HELM_HERMES
-                return "Recipe " + compiletime(getItemName(ITEM_HELM_HERMES))
+        case ITEM_RECIPE_THUNDER_BOW
+            return "Recipe " + compiletime(getItemName(ITEM_THUNDER_BOW))
+        case ITEM_RECIPE_SOUL_OF_KILJEADEN
+            return "Recipe " + compiletime(getItemName(ITEM_SOUL_OF_KILJEADEN))
+        case ITEM_RECIPE_LIZARD_PENDANT
+            return "Recipe " + compiletime(getItemName(ITEM_LIZARD_PENDANT))
+        case ITEM_RECIPE_HELM_HERMES
+            return "Recipe " + compiletime(getItemName(ITEM_HELM_HERMES))
 
-            case ITEM_RECIPE_DARK_SPHERE
-                return "Recipe " + compiletime(getItemName(ITEM_DARK_SPHERE))
-            case ITEM_RECIPE_MYSTERY_GREEN_STAFF
-                return "Recipe " + compiletime(getItemName(ITEM_MYSTERY_GREEN_STAFF))
-            case ITEM_RECIPE_ICE_WAND
-                return "Recipe " + compiletime(getItemName(ITEM_ICE_WAND))
-            case ITEM_RECIPE_WAR_ENERGY
-                return "Recipe " + compiletime(getItemName(ITEM_WAR_ENERGY))
+        case ITEM_RECIPE_DARK_SPHERE
+            return "Recipe " + compiletime(getItemName(ITEM_DARK_SPHERE))
+        case ITEM_RECIPE_MYSTERY_GREEN_STAFF
+            return "Recipe " + compiletime(getItemName(ITEM_MYSTERY_GREEN_STAFF))
+        case ITEM_RECIPE_ICE_WAND
+            return "Recipe " + compiletime(getItemName(ITEM_ICE_WAND))
+        case ITEM_RECIPE_WAR_ENERGY
+            return "Recipe " + compiletime(getItemName(ITEM_WAR_ENERGY))
 
-            // Late Game (1)
+        // Late Game (1)
 
-            case ITEM_RECIPE_ICE_AND_FIRE_SWORD
-                return "Recipe " + compiletime(getItemName(ITEM_ICE_AND_FIRE_SWORD))
-            case ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD
-                return "Recipe " + compiletime(getItemName(ITEM_BOOTS_OF_CRYSTAL_GOLD))
-            case ITEM_RECIPE_DESTROY_SWORD
-                return "Recipe " + compiletime(getItemName(ITEM_DESTROY_SWORD))
-            case ITEM_RECIPE_PLATINUM_HAMMER
-                return "Recipe " + compiletime(getItemName(ITEM_PLATINUM_HAMMER))
+        case ITEM_RECIPE_ICE_AND_FIRE_SWORD
+            return "Recipe " + compiletime(getItemName(ITEM_ICE_AND_FIRE_SWORD))
+        case ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD
+            return "Recipe " + compiletime(getItemName(ITEM_BOOTS_OF_CRYSTAL_GOLD))
+        case ITEM_RECIPE_DESTROY_SWORD
+            return "Recipe " + compiletime(getItemName(ITEM_DESTROY_SWORD))
+        case ITEM_RECIPE_PLATINUM_HAMMER
+            return "Recipe " + compiletime(getItemName(ITEM_PLATINUM_HAMMER))
 
-            case ITEM_RECIPE_GLOVES_OF_FLASH
-                return "Recipe " + compiletime(getItemName(ITEM_GLOVES_OF_FLASH))
-            case ITEM_RECIPE_DARK_STEEL_SWORD
-                return "Recipe " + compiletime(getItemName(ITEM_DARK_STEEL_SWORD))
-            case ITEM_RECIPE_PERFECT_ARKENSTONE
-                return "Recipe " + compiletime(getItemName(ITEM_PERFECT_ARKENSTONE))
-            case ITEM_RECIPE_SHINY_ARMOR
-                return "Recipe " + compiletime(getItemName(ITEM_SHINY_ARMOR))
+        case ITEM_RECIPE_GLOVES_OF_FLASH
+            return "Recipe " + compiletime(getItemName(ITEM_GLOVES_OF_FLASH))
+        case ITEM_RECIPE_DARK_STEEL_SWORD
+            return "Recipe " + compiletime(getItemName(ITEM_DARK_STEEL_SWORD))
+        case ITEM_RECIPE_PERFECT_ARKENSTONE
+            return "Recipe " + compiletime(getItemName(ITEM_PERFECT_ARKENSTONE))
+        case ITEM_RECIPE_SHINY_ARMOR
+            return "Recipe " + compiletime(getItemName(ITEM_SHINY_ARMOR))
 
-            case ITEM_RECIPE_REACTIVE_ARMOR
-                return "Recipe " + compiletime(getItemName(ITEM_REACTIVE_ARMOR))
-            case ITEM_RECIPE_HOLY_ARMOR
-                return "Recipe " + compiletime(getItemName(ITEM_HOLY_ARMOR))
-            case ITEM_RECIPE_GOLD_AXE
-                return "Recipe " + compiletime(getItemName(ITEM_GOLD_AXE))
+        case ITEM_RECIPE_REACTIVE_ARMOR
+            return "Recipe " + compiletime(getItemName(ITEM_REACTIVE_ARMOR))
+        case ITEM_RECIPE_HOLY_ARMOR
+            return "Recipe " + compiletime(getItemName(ITEM_HOLY_ARMOR))
+        case ITEM_RECIPE_GOLD_AXE
+            return "Recipe " + compiletime(getItemName(ITEM_GOLD_AXE))
 
-            // Late Game (2)
+        // Late Game (2)
 
-            case ITEM_RECIPE_DARK_MATTER
-                return "Recipe " + compiletime(getItemName(ITEM_DARK_MATTER))
-            case ITEM_RECIPE_RAIN_SWORD
-                return "Recipe " + compiletime(getItemName(ITEM_RAIN_SWORD))
-            case ITEM_RECIPE_CORROSIVE_HAMMER
-                return "Recipe " + compiletime(getItemName(ITEM_CORROSIVE_HAMMER))
-            case ITEM_RECIPE_VAMPIRELLA
-                return "Recipe " + compiletime(getItemName(ITEM_VAMPIRELLA))
+        case ITEM_RECIPE_DARK_MATTER
+            return "Recipe " + compiletime(getItemName(ITEM_DARK_MATTER))
+        case ITEM_RECIPE_RAIN_SWORD
+            return "Recipe " + compiletime(getItemName(ITEM_RAIN_SWORD))
+        case ITEM_RECIPE_CORROSIVE_HAMMER
+            return "Recipe " + compiletime(getItemName(ITEM_CORROSIVE_HAMMER))
+        case ITEM_RECIPE_VAMPIRELLA
+            return "Recipe " + compiletime(getItemName(ITEM_VAMPIRELLA))
 
-            case ITEM_RECIPE_LANCELOT_SHIELD
-                return "Recipe " + compiletime(getItemName(ITEM_LANCELOT_SHIELD))
-            case ITEM_RECIPE_LANCELOT_ARMOR
-                return "Recipe " + compiletime(getItemName(ITEM_LANCELOT_ARMOR))
-            case ITEM_RECIPE_LANCELOT_HELM
-                return "Recipe " + compiletime(getItemName(ITEM_LANCELOT_HELM))
-            case ITEM_RECIPE_MYSTERY_BLUE_STAFF
-                return "Recipe " + compiletime(getItemName(ITEM_MYSTERY_BLUE_STAFF))
+        case ITEM_RECIPE_LANCELOT_SHIELD
+            return "Recipe " + compiletime(getItemName(ITEM_LANCELOT_SHIELD))
+        case ITEM_RECIPE_LANCELOT_ARMOR
+            return "Recipe " + compiletime(getItemName(ITEM_LANCELOT_ARMOR))
+        case ITEM_RECIPE_LANCELOT_HELM
+            return "Recipe " + compiletime(getItemName(ITEM_LANCELOT_HELM))
+        case ITEM_RECIPE_MYSTERY_BLUE_STAFF
+            return "Recipe " + compiletime(getItemName(ITEM_MYSTERY_BLUE_STAFF))
 
-            case ITEM_RECIPE_FREEZE_WAND
-                return "Recipe " + compiletime(getItemName(ITEM_FREEZE_WAND))
+        case ITEM_RECIPE_FREEZE_WAND
+            return "Recipe " + compiletime(getItemName(ITEM_FREEZE_WAND))
 
-            // Gems (3)
+        // Gems (3)
 
-            case ITEM_PERFECT_GARNET
-                return "Perfect Garnet"
-            case ITEM_PERFECT_CARNELIAN
-                return "Perfect Carnelian"
-            case ITEM_PERFECT_CITRINE
-                return "Perfect Citrine"
-            case ITEM_PERFECT_TOPAZ
-                return "Perfect Topaz"
+        case ITEM_PERFECT_GARNET
+            return "Perfect Garnet"
+        case ITEM_PERFECT_CARNELIAN
+            return "Perfect Carnelian"
+        case ITEM_PERFECT_CITRINE
+            return "Perfect Citrine"
+        case ITEM_PERFECT_TOPAZ
+            return "Perfect Topaz"
 
-            case ITEM_PERFECT_OBSIDIAN
-                return "Perfect Obsidian"
-            case ITEM_PERFECT_AQUAMARINE
-                return "Perfect Aquamarine"
-            case ITEM_PERFECT_NEPHRITE
-                return "Perfect Nephrite"
-            case ITEM_PERFECT_EMERALD
-                return "Perfect Emerald"
+        case ITEM_PERFECT_OBSIDIAN
+            return "Perfect Obsidian"
+        case ITEM_PERFECT_AQUAMARINE
+            return "Perfect Aquamarine"
+        case ITEM_PERFECT_NEPHRITE
+            return "Perfect Nephrite"
+        case ITEM_PERFECT_EMERALD
+            return "Perfect Emerald"
 
-            case ITEM_PERFECT_PEARL
-                return "Perfect Pearl"
-            case ITEM_PERFECT_HIPPOPUS
-                return "Perfect Hippopus"
-            case ITEM_PERFECT_SAPPHIRE
-                return "Perfect Sapphire"
-            case ITEM_PERFECT_AMETHYST
-                return "Perfect Amethyst"
+        case ITEM_PERFECT_PEARL
+            return "Perfect Pearl"
+        case ITEM_PERFECT_HIPPOPUS
+            return "Perfect Hippopus"
+        case ITEM_PERFECT_SAPPHIRE
+            return "Perfect Sapphire"
+        case ITEM_PERFECT_AMETHYST
+            return "Perfect Amethyst"
 
-            // Late Game (4)
+        // Late Game (4)
 
-            case ITEM_BULION
-                return "Bulion"
-            case ITEM_CRYSTAL_ARMOR
-                return "Crystal Armor"
-            case ITEM_CRYSTAL_DUAL_SWORD
-                return "Crystal Dual Sword"
-            case ITEM_CRYSTAL_KNIFE
-                return "Crystal Knife"
+        case ITEM_BULION
+            return "Bulion"
+        case ITEM_CRYSTAL_ARMOR
+            return "Crystal Armor"
+        case ITEM_CRYSTAL_DUAL_SWORD
+            return "Crystal Dual Sword"
+        case ITEM_CRYSTAL_KNIFE
+            return "Crystal Knife"
 
-            case ITEM_CRYSTAL_SPEAR
-                return "Crystal Spear"
-            case ITEM_RECIPE_DRAGON_WINGS
-                return "Dragon Wings"
+        case ITEM_CRYSTAL_SPEAR
+            return "Crystal Spear"
+        case ITEM_RECIPE_DRAGON_WINGS
+            return "Dragon Wings"
 
-            case ITEM_TOME_OF_FROSTY_INTELLIGENCE
-                return "Tome of Frosty Intelligence"
-            case ITEM_TOME_OF_FROSTY_STRENGTH
-                return "Tome of Frosty Strength"
-            case ITEM_TOME_OF_FROSTY_AGILITY
-                return "Tome of Frosty Agility"
+        case ITEM_TOME_OF_FROSTY_INTELLIGENCE
+            return "Tome of Frosty Intelligence"
+        case ITEM_TOME_OF_FROSTY_STRENGTH
+            return "Tome of Frosty Strength"
+        case ITEM_TOME_OF_FROSTY_AGILITY
+            return "Tome of Frosty Agility"
 
-            // Creeps (1)
+        // Creeps (1)
 
-            case CREEP_TP_SPIDER
-                return "Spider"
-            case CREEP_TP_MUD_GOLEM
-                return "Mud Golem"
-            case CREEP_TP_MURLOC_TIDERUNNER
-                return "Murloc Tiderunner"
-            case CREEP_TP_TIMBER_WOLF
-                return "Timber Wolf"
+        case CREEP_TP_SPIDER
+            return "Spider"
+        case CREEP_TP_MUD_GOLEM
+            return "Mud Golem"
+        case CREEP_TP_MURLOC_TIDERUNNER
+            return "Murloc Tiderunner"
+        case CREEP_TP_TIMBER_WOLF
+            return "Timber Wolf"
 
-            case CREEP_TP_CRAB_SHORECRAWLER
-                return "Crab Shorecrawler"
-            case CREEP_TP_FACELESS_ONE_TRICKSTER
-                return "Faceless One Trickster"
-            case CREEP_TP_SPITTING_SPIDER
-                return "Spitting Spider"
-            case CREEP_TP_ROCK_GOLEM
-                return "Rock Golem"
+        case CREEP_TP_CRAB_SHORECRAWLER
+            return "Crab Shorecrawler"
+        case CREEP_TP_FACELESS_ONE_TRICKSTER
+            return "Faceless One Trickster"
+        case CREEP_TP_SPITTING_SPIDER
+            return "Spitting Spider"
+        case CREEP_TP_ROCK_GOLEM
+            return "Rock Golem"
 
-            case CREEP_TP_MURGUL_SHADOWCASTER
-                return "Mur'gul Shadowcaster"
-            case CREEP_TP_POLAR_FURBOLG
-                return "Polar Furbolg"
-            case CREEP_TP_GHOST
-                return "Ghost"
-            case CREEP_TP_FACELESS_ONE_DEATHBRINGER
-                return "Faceless One Deathbringer"
-            
-            // Creeps (2)
+        case CREEP_TP_MURGUL_SHADOWCASTER
+            return "Mur'gul Shadowcaster"
+        case CREEP_TP_POLAR_FURBOLG
+            return "Polar Furbolg"
+        case CREEP_TP_GHOST
+            return "Ghost"
+        case CREEP_TP_FACELESS_ONE_DEATHBRINGER
+            return "Faceless One Deathbringer"
+        
+        // Creeps (2)
 
-            case CREEP_TP_BROOD_MOTHER
-                return "Brood Mother"
-            case CREEP_TP_GRANITE_GOLEM
-                return "Granite Golem"
-            case CREEP_TP_TURTLE
-                return "Turtle"
-            case CREEP_TP_GIANT_POLAR_BEAR
-                return "Giant Polar Bear"
+        case CREEP_TP_BROOD_MOTHER
+            return "Brood Mother"
+        case CREEP_TP_GRANITE_GOLEM
+            return "Granite Golem"
+        case CREEP_TP_TURTLE
+            return "Turtle"
+        case CREEP_TP_GIANT_POLAR_BEAR
+            return "Giant Polar Bear"
 
-            case CREEP_TP_STORM_WYRM
-                return "Storm Wyrm"
-            case CREEP_TP_SKELETON_WARRIOR
-                return "Skeleton Warrior"
-            case CREEP_TP_FOREST_TROLL_WARLOCK
-                return "Forest Troll Warlock"
-            case CREEP_TP_DIRE_MAMMOTH
-                return "Dire Mammoth"
+        case CREEP_TP_STORM_WYRM
+            return "Storm Wyrm"
+        case CREEP_TP_SKELETON_WARRIOR
+            return "Skeleton Warrior"
+        case CREEP_TP_FOREST_TROLL_WARLOCK
+            return "Forest Troll Warlock"
+        case CREEP_TP_DIRE_MAMMOTH
+            return "Dire Mammoth"
 
-            case CREEP_TP_FEL_RAVAGER
-                return "Fel Ravager"
-            case CREEP_TP_DALARAN_REJECT
-                return "Dalaran Reject"
-            case CREEP_TP_VILE_TORMENTOR
-                return "Vile Tormentor"
-            case CREEP_TP_ELDER_VOIDWALKER
-                return "Elder Voidwalker"
-            
-            // Creeps (3)
+        case CREEP_TP_FEL_RAVAGER
+            return "Fel Ravager"
+        case CREEP_TP_DALARAN_REJECT
+            return "Dalaran Reject"
+        case CREEP_TP_VILE_TORMENTOR
+            return "Vile Tormentor"
+        case CREEP_TP_ELDER_VOIDWALKER
+            return "Elder Voidwalker"
+        
+        // Creeps (3)
 
-            case CREEP_TP_NERUBIAN_QUEEN
-                return "Nerubian Queen"
-            case CREEP_TP_HYDRALISK
-                return "Hydralisk"
-            case CREEP_TP_FLESH_GOLEM
-                return "Flesh Golem"
-            case CREEP_TP_FURBOLG_GIANT
-                return "Furbolg Ursa Warriror (Giant)"
+        case CREEP_TP_NERUBIAN_QUEEN
+            return "Nerubian Queen"
+        case CREEP_TP_HYDRALISK
+            return "Hydralisk"
+        case CREEP_TP_FLESH_GOLEM
+            return "Flesh Golem"
+        case CREEP_TP_FURBOLG_GIANT
+            return "Furbolg Ursa Warriror (Giant)"
 
-            case CREEP_TP_DOOM_GUARD
-                return "Doom Guard"
-            case CREEP_TP_SCARY_SCREAM
-                return "Scary Scream"
-            case CREEP_TP_FROSTY_SNOWMAN
-                return "Frosty the Snowman"
-            case CREEP_TP_ICE_REVENANT
-                return "Ice Revenant"
+        case CREEP_TP_DOOM_GUARD
+            return "Doom Guard"
+        case CREEP_TP_SCARY_SCREAM
+            return "Scary Scream"
+        case CREEP_TP_FROSTY_SNOWMAN
+            return "Frosty the Snowman"
+        case CREEP_TP_ICE_REVENANT
+            return "Ice Revenant"
 
-            case CREEP_TP_OVERLORD
-                return "OverLord"
-            case CREEP_TP_DRYAD
-                return "Dryad"
-            case CREEP_TP_FOOTMAN
-                return "Betray Footman"
-            case CREEP_TP_CAPTIAN
-                return "Captain"
-            
-            // Creeps (4)
+        case CREEP_TP_OVERLORD
+            return "OverLord"
+        case CREEP_TP_DRYAD
+            return "Dryad"
+        case CREEP_TP_FOOTMAN
+            return "Betray Footman"
+        case CREEP_TP_CAPTIAN
+            return "Captain"
+        
+        // Creeps (4)
 
-            case CREEP_TP_DRAGONS
-                return "Dragon's Lair"
-            case CREEP_TP_TOWER
-                return "!!!Tower!!!"
-            case CREEP_TP_DREADLORD
-                return "Dreadlord"
-            case CREEP_TP_WATER
-                return "Water"
-            
-            //  Not sorted
+        case CREEP_TP_DRAGONS
+            return "Dragon's Lair"
+        case CREEP_TP_TOWER
+            return "!!!Tower!!!"
+        case CREEP_TP_DREADLORD
+            return "Dreadlord"
+        case CREEP_TP_WATER
+            return "Water"
+        
+        //  Not sorted
 
-            case ITEM_LUMBER_100
-                return "Lumber 100"
-            case ITEM_EMPTY_VIAL
-                return "Empty Vial (Fusion)"
-            case ITEM_ICE_AND_FIRE_SWORD
-                return "Ice & Fire Sword"
-            case ITEM_DARK_STEEL_SWORD
-                return "Dark Steel Sword"
-            case ITEM_SHINY_ARMOR
-                return "Shiny Armor"
-            case ITEM_REACTIVE_ARMOR
-                return "Reactive Armor"
-            case ITEM_HOLY_ARMOR
-                return "Holy Armor"
-            case ITEM_GOLD_AXE
-                return "Gold Axe"
-            case ITEM_DARK_MATTER
-                return "Dark Matter"
-            case ITEM_RAIN_SWORD
-                return "Rain Sword"
-            case ITEM_CORROSIVE_HAMMER
-                return "Corrosive Hammer"
-            case ITEM_VAMPIRELLA
-                return "Vampirella"
-            case ITEM_LANCELOT_SHIELD
-                return "Lancelot Shield"
-            case ITEM_LANCELOT_ARMOR
-                return "Lancelot Armor"
-            case ITEM_LANCELOT_HELM
-                return "Lancelot Helm"
-            case ITEM_PERFECT_ARKENSTONE
-                return "Perfect Arkenstone"
-            case ITEM_DESTROY_SWORD
-                return "Destroy Sword"
-            case ITEM_PLATINUM_HAMMER
-                return "Platinum Hammer"
-            case ITEM_GLOVES_OF_FLASH
-                return "Gloves of Flash"
-            case ITEM_BOOTS_OF_CRYSTAL_GOLD
-                return "Boots of Crystal Gold"
-            case ITEM_ICE_SWORD
-                return "Ice Sword"
-            case ITEM_LANCELOT_RING
-                return "Lancelot's Ring"
-            case ITEM_GUINEVERES_RING
-                return "Guinevere's Ring"
-            case ITEM_ARKENSTONE_FRAGMENT
-                return "Arkenstone Fragments"
-            case ITEM_JEWELRY_OF_MANA
-                return "Jewelry of Mana"
-            case ITEM_JEWELRY_OF_LIFE
-                return "Jewelry of Life"
-            case ITEM_STEEL_AXE
-                return "Steel Axe"
-            case ITEM_SILVER_HAMMER
-                return "Silver Hammer"
-            case ITEM_HALF_OF_ARKENSTONE
-                return "Half Arkenstone"
-            case ITEM_LIGHT_ARMOR
-                return "Light Armor"
-            case ITEM_SCROLL_OF_FUSION
-                return "Scroll of Fusion"
-            case ITEM_AMULET_OF_THE_WILD
-                return "Amulet of the Wild"
-            case ITEM_HELM_OF_VALOR
-                return "Helm of Valor"
-            case ITEM_MEDALLION_OF_COURAGE
-                return "Medallion of Courage"
-            case ITEM_ALLERIA_FLUTE_OF_ACCURACY
-                return "Alleria's Flute of Accuracy"
-            case ITEM_ANCIENT_JANGGO_OF_ENDURANCE
-                return "Ancient Janggo of Endurance"
-            case ITEM_THE_LION_HORN_OF_STORMWIND
-                return "The Lion Horn of Stormwind"
-            case ITEM_WARSONG_BATTLE_DRUMS
-                return "Warsong Battle Drums"
-            case ITEM_DRUMS_OF_FUTURE
-                return "Drums of Future."
-            case ITEM_THE_GOLDEN_HORN
-                return "The Golden Horn"
-            case ITEM_TRIBAL_DRUMS
-                return "Tribal Drums"
-            case ITEM_NATURE_FLUTE
-                return "Nature Flute"
-            case ITEM_VOID_AXE
-                return "Void Axe"
-            case ITEM_AINZ_SWORD
-                return "Ainz' Sword"
-            case ITEM_SEER_STAFF
-                return "Seer Staff"
-            case ITEM_SCALE_AXE
-                return "Scale Axe"
-            case ITEM_DALAN_AXE
-                return "Dalan Axe"
-            case ITEM_DURATION_AXE
-                return "Duration Axe"
-            case ITEM_DWARVEN_AXE
-                return "Dwarven Axe"
-            case ITEM_BLADE_OF_HELL
-                return "Blade of Hell"
-            case ITEM_KRAKEN_DAGGER
-                return "Kraken Dagger"
-            case ITEM_MIDNIGHT_BLADE
-                return "Midnight Blade"
-            case ITEM_BLOOD_GORGED_BLADE
-                return "Blood Gorged Blade"
-            case ITEM_STEEL_SHIELD
-                return "Steel Shield"
-            case ITEM_SACRED_SHIELD
-                return "Sacred Shield"
-            case ITEM_IRON_SHIELD
-                return "Iron Shield"
-            case ITEM_SPLIT_ARMOR
-                return "Split Armor"
-            case ITEM_AVATAR_ARMOR
-                return "Avatar Armor"
-            case ITEM_CHAOS_BLADE
-                return "Chaos Blade"
-            case ITEM_O_CLOCK
-                return "O'clock"
-            case ITEM_THUNDER_BOW
-                return "Thunder Bow"
-            case ITEM_SOUL_OF_KILJEADEN
-                return "Soul of Kil'jeaden"
-            case ITEM_LIZARD_PENDANT
-                return "Lizard Pendant"
-            case ITEM_HELM_HERMES
-                return "Helm Hermes"
-            case ITEM_DARK_SPHERE
-                return "Dark Sphere"
-            case ITEM_MYSTERY_GREEN_STAFF
-                return "Mystery Green Staff"
-            case ITEM_MYSTERY_BLUE_STAFF
-                return "Mystery Blue Staff"
-            case ITEM_ICE_WAND
-                return "Ice Wand"
-            case ITEM_FREEZE_WAND
-                return "Freeze Wand"
-            case ITEM_WAR_ENERGY
-                return "War Energy"
-            case ITEM_FIRE_SWORD
-                return "Fire Sword"
-            case ITEM_GLOVES_OF_SPEED
-                return "Gloves of Speed"
-            case ITEM_BOOTS_OF_TELEPORTATION
-                return "Boots of Teleportation"
-            case ITEM_BOOTS_OF_INVISIBILITY
-                return "Boots of Invisibility"
-            case ITEM_WINGED_BOOTS
-                return "Winged Boots"
-            case ITEM_DRAGON_WINGS
-                return "Wing of Dragon"
-            case ITEM_ICE_AND_FIRE_SWORD_II
-                return "Ice & Fire Sword II"
-            case ITEM_DARK_STEEL_SWORD_II
-                return "Dark Steel Sword II"
-            case ITEM_DESTROY_SWORD_II
-                return "Destroy Sword II"
-            case ITEM_PLATINUM_HAMMER_II
-                return "Platinum Hammer II"
-            case ITEM_GOLD_AXE_II
-                return "Gold Axe II"
-            case ITEM_REACTIVE_ARMOR_II
-                return "Reactive Armor II"
-            case ITEM_BOOTS_OF_CRYSTAL_GOLD_II
-                return "Boots of Crystal Gold II"
-            case ITEM_CHAOS
-                return "CHAOS"
-            case ITEM_RUBY_FRAGMENTS_L2
-                return "Ruby Fragments +2"
-            case ITEM_RUBY_FRAGMENTS_L3
-                return "Ruby Fragments +3"
-            case ITEM_RUBY_FRAGMENTS_L4
-                return "Ruby Fragments +4"
-            case ITEM_RUBY_FRAGMENTS_L5
-                return "Ruby Fragments +5"
-            case ITEM_RUBY_FRAGMENTS_L6
-                return "Ruby Fragments +6"
-            case ITEM_RUBY_FRAGMENTS_L7
-                return "Ruby Fragments +7"
-            case ITEM_RUBY_FRAGMENTS_L8
-                return "Ruby Fragments +8"
-            case ITEM_RUBY_FRAGMENTS_L9
-                return "Ruby Fragments +9"
-            case ITEM_RUBY_FRAGMENTS_L10
-                return "Ruby Fragments +10"
-            case ITEM_RUBY_FRAGMENTS_L11
-                return "Ruby Fragments +11"
-            case ITEM_RUBY_FRAGMENTS_L12
-                return "Ruby Fragments +12"
-            case ITEM_RUBY_FRAGMENTS_L13
-                return "Ruby Fragments +13"
-            case ITEM_RUBY_FRAGMENTS_L14
-                return "Ruby Fragments +14"
-            case ITEM_RUBY_FRAGMENTS_L15
-                return "Ruby Fragments +15"
-            case ITEM_RUBY_FRAGMENTS_L16
-                return "Ruby Fragments +16"
-            case ITEM_RUBY_FRAGMENTS_L17
-                return "Ruby Fragments +17"
-            case ITEM_RUBY_FRAGMENTS_L18
-                return "Ruby Fragments +18"
-            case ITEM_RUBY_FRAGMENTS_L19
-                return "Ruby Fragments +19"
-            case ITEM_RUBY_FRAGMENTS_L20
-                return "Ruby Fragments + 20"
-            case ITEM_HALF_RUBYSTONE
-                return "Half Rubystone"
-            case ITEM_DIVINE_RUBYSTONE
-                return "Divine Rubystone"
-            case ITEM_RUBYSTONE
-                return "Rubystone"
-            case ITEM_PERFECT_RUBYSTONE
-                return "Perfect Rubystone"
-            case ITEM_GAUNTLETS_OF_OGRE_STRENGTH
-                return "Gauntlets of Ogre Strength +3"
-            case ITEM_RUSTY_MINING_PICK
-                return "Rusty Mining Pick"
-            case ITEM_WIRTS_LEG
-                return "Wirt's Leg"
-            case ITEM_SLIPPERS_OF_AGILITY
-                return "Slippers of Agility +3"
-            case ITEM_DIAMOND_OF_SUMMONING
-                return "Diamond of Summoning"
-            case ITEM_MANTLE_OF_INTELLIGENCE
-                return "Mantle of Intelligence +3"
-            case ITEM_DRUID_POUCH
-                return "Druid Pouch"
-            case ITEM_RUNED_GAUNTLETS
-                return "Runed Gauntlets"
-            case ITEM_SKULL_SHIELD
-                return "Skull Shield"
-            case ITEM_VOODOO_DOLL
-                return "Voodoo Doll"
-            case ITEM_ANCIENT_FIGURINE
-                return "Ancient Figurine"
-            case ITEM_SPIDER_SILK_BROACH
-                return "Spider Silk Broach"
-            case ITEM_BATTLE_STANDARD
-                return "Battle Standard"
-            case ITEM_BLADEBANE_ARMOR
-                return "Bladebane Armor"
-            case ITEM_FIREHAND_GAUNTLETS
-                return "Firehand Gauntlets"
-            case ITEM_FLARE_GUN
-                return "Flare Gun"
-            case ITEM_ANCESTRAL_STAFF
-                return "Ancestral Staff"
-            case ITEM_POISON_SPEARS
-                return "Poison Spears"
-            case ITEM_KILLMAIM
-                return "Killmaim"
-            case ITEM_DRUID_OF_CLAW
-                return "Druid of the Claw"
-            case ITEM_BOOK_OF_DEAD
-                return "Book of the Dead"
-            case ITEM_HORN_OF_CLOUDS
-                return "Horn of the Clouds"
-            case ITEM_HALF_MOON_ARMOR
-                return "Half Moon Armor"
-            case ITEM_HUMAN_FLAG
-                return "Human Flag"
-            case ITEM_BLOOD_GEM
-                return "Blood Gem"
-            case ITEM_STAFF_OF_PRESERVATION
-                return "Staff of Preservation"
-            case ITEM_SPIKED_ARMOR
-                return "Spiked Armor"
-            case ITEM_FLAK_CANNONS
-                return "Flak Cannons"
-            case ITEM_THUNDERLIZARD_DIAMOND
-                return "Thunderlizard Diamond"
-            case ITEM_GEM_OF_POISON
-                return "Gem of Poison"
-            case ITEM_MOON_ARMOR
-                return "Moon Armor"
-            case ITEM_AMULET_OF_RECALL
-                return "Amulet of Recall"
-            case ITEM_GHOUL_FRENZY
-                return "Ghoul Frenzy"
-            case ITEM_MAGIC_POTION
-                return "Magic Potion"
-            case ITEM_LIONS_RING
-                return "Lion's Ring"
-            case ITEM_MINDSTAFF
-                return "Mindstaff"
-            case ITEM_DRUID_OF_CLAW_AMATEUR
-                return "Druid of the Claw Amateur"
-            case ITEM_SCEPTER_OF_HEALING
-                return "Scepter of Healing"
-            case ITEM_ARCANE_SCROLL
-                return "Arcane Scroll"
-            case ITEM_KEY_OF_THREE_MOONS
-                return "Key of Three Moons"
-            case ITEM_GLOVES_OF_SPELL_MASTERY
-                return "Gloves of Spell Mastery"
-            case ITEM_SCEPTER_OF_MASTERY
-                return "Scepter of Mastery"
-            case ITEM_SCROLL_OF_MAGIC
-                return "Scroll of Magic"
-            case ITEM_SHAMANIC_TOTEM
-                return "Shamanic Totem"
-            case ITEM_HEART_OF_SEARINOX
-                return "The Heart of Searinox"
-            case ITEM_SCEPTER_OF_SEA
-                return "Scepter of the Sea"
-            case ITEM_SACRED_RELIC
-                return "Sacred Relic"
-            case ITEM_SCROLL_OF_UNHOLY_LEGION
-                return "Scroll of the Unholy Legion"
-            case ITEM_DRUID_OF_CLAW_MASTER
-                return "Druid of the Claw Master"
-            case ITEM_CRYSTAL_SKULL
-                return "Crystal Skull"
-            case ITEM_SPHERE_OF_FIRE
-                return "Sphere of Fire"
-            case ITEM_RUBY_FRAGMENTS_L1
-                return "Ruby Fragment +1"
-            case ITEM_SPHERE_OF_WATER
-                return "Sphere of Water"
-            case ITEM_ESSENCE_OF_ASZUNE
-                return "Essence of Aszune"
-            case ITEM_DREAM_SWORD
-                return "Dream Sword"
-            case ITEM_CRYSTAL_SWORD
-                return "Crystal Sword"
-            case ITEM_BLOODY_DAGGER
-                return "Bloody Dagger"
-            case ITEM_CROWN_OF_WIZARD_L0
-                return "Crown of Wizard"
-            case ITEM_CROWN_OF_SOLDIER_L0
-                return "Crown of Soldier"
-            case ITEM_CROWN_OF_ASSASSIN_L0
-                return "Crown of Assassin"
-            case ITEM_GLOVERSHIELD
-                return "Clovershield"
-            case ITEM_BOOK_OF_WIND
-                return "Book of Wind"
-            case ITEM_BOOK_OF_RAIN
-                return "Book of Rain"
-            case ITEM_BOOK_OF_EARTHQUAKE
-                return "Book of Earthquake"
-            case ITEM_LAZARUS_BELT
-                return "Lazarus Belt"
-            case ITEM_MANUAL_OF_HEALTH_50
-                return "Manual of Health 50"
-            case ITEM_TOME_OF_AGILITY_10
-                return "Tome of Agility +10"
-            case ITEM_TOME_OF_INTELLIGENCE_10
-                return "Tome of Intelligence +10"
-            case ITEM_TOME_OF_STRENGTH_10
-                return "Tome of Strength +10"
-            case ITEM_TOME_OF_KNOWLEDGE_10
-                return "Tome of Knowledge +10"
-            case ITEM_TOME_OF_KNOWLEDGE_20
-                return "Tome of Knowledge +20"
-            case ITEM_TOME_OF_KNOWLEDGE_30
-                return "Tome of Knowledge +30"
-            case ITEM_MENELAUS
-                return "Menelaus"
-            case ITEM_CROWN_OF_EVIL
-                return "Crown of Evil"
-            case ITEM_SOUL_BLAME
-                return "Soul Blame"
-            case ITEM_TITANIUM
-                return "Titanium"
-            case ITEM_SCOURGE_BONE_CHIMES
-                return "Scourge Bone Chimes"
-            case ITEM_SKULL_OF_MALGANIS
-                return "Skull of Mal'ganis"
-            case ITEM_SCARYS_POTION
-                return "Scary's potion"
-            case ITEM_DRAGON_BONE
-                return "Bone"
-            case ITEM_DRAGON_SKIN
-                return "Skin"
-            case ITEM_DRAGON_CLAW
-                return "Claw"
-            case ITEM_DRAGON_SPIRIT
-                return "Spirit"
-            case ITEM_FALLING_STAR
-                return "Falling Star"
-            case ITEM_ANGEL_MACE
-                return "Angel Mace"
-            case ITEM_LANCELOT_SET
-                return "Lancelot Set"
-            case ITEM_WATER_SCROLL
-                return "Water Scroll"
-            case ITEM_CRONUS_HAND
-                return "Cronus's Hand"
-            case ITEM_SPHERE_OF_CHAOS
-                return "Sphere of Chaos"
-            case ITEM_FAIR_DROP
-                return "The Fair Drop"
-            case ITEM_ASTRAEUS_BELT
-                return "Astraeus' Belt"
-            case ITEM_APOCALYPSE
-                return "Apocalypse"
-            case ITEM_HOVER_RING
-                return "Hover Ring"
-            case ITEM_NOBLESSE_SHOULDER
-                return "Noblesse Shoulder"
-            case ITEM_ODIN_NECKLE
-                return "Odin's Necklace"
-            case ITEM_HOLY_GOLD_SHIELD
-                return "Holy Gold Shield"
-            case ITEM_BEASTMASTER_CARD
-                return "Beastmaster Card"
-            case ITEM_WARDEN_CARD
-                return "Warden Card"
-            case ITEM_BLADEMASTER_CARD
-                return "Blademaster Card"
-            case ITEM_TAUREN_CARD
-                return "Tauren Card"
-            case ITEM_MOUNTAIN_KING_CARD
-                return "Mountain King Card"
-            case ITEM_PITLORD_CARD
-                return "Pitlord Card"
-            case ITEM_BERSERKERS_BOOTS
-                return "Berserkers Boots"
-            case ITEM_STRIKE_AXE
-                return "Strike Axe"
-            case ITEM_BERSERKERS_HELM
-                return "Berserkers Helm"
-            case ITEM_BERSERKERS_ARMOR
-                return "Berserkers Armor"
-            case ITEM_BERSERKERS_SHIELD
-                return "Berserkers Shield"
-            case ITEM_BERSERKERS_GLOVES
-                return "Berserkers Gloves"
-            case ITEM_APOLLOS_HELM
-                return "Apollo's Helm"
-            case ITEM_CRYSTAL_MOON
-                return "Crystal Moon"
-            case ITEM_VALKYRIE
-                return "Valkyrie"
-            case ITEM_BERSERKERS_STAFF
-                return "Berserkers Staff"
-            case ITEM_RAIN_SWORD_L5
-                return "Rain Sword +5"
-            case ITEM_VAMPIRELLA_L5
-                return "Vampirella +5"
-            case ITEM_FORGE_SWORD_L1
-                return "Forge Sword [Level 1]"
-            case ITEM_KAIN_SWORD_L1
-                return "Kain's Sword 1"
-            case ITEM_KAIN_SWORD_L2
-                return "Kain's Sword 2"
-            case ITEM_KAIN_SWORD_L3
-                return "Kain's Sword 3"
-            case ITEM_FORGE_SWORD_L2
-                return "Forge Sword [Level 2]"
-            case ITEM_KAIN_SWORD_L4
-                return "Kain's Sword 4"
-            case ITEM_SLASH_SWORD_L1
-                return "Slash Sword 1"
-            case ITEM_SLASH_SWORD_L2
-                return "Slash Sword 2"
-            case ITEM_SLASH_SWORD_L3
-                return "Slash Sword 3"
-            case ITEM_FORGE_SWORD_L3
-                return "Forge Sword [Level 3]"
-            case ITEM_SLASH_SWORD_L4
-                return "Slash Sword 4"
-            case ITEM_SLASH_SWORD_L5
-                return "Slash Sword 5"
-            case ITEM_NOBLE_SWORD_L1
-                return "Noble Sword 1"
-            case ITEM_NOBLE_SWORD_L2
-                return "Noble Sword 2"
-            case ITEM_NOBLE_SWORD_L3
-                return "Noble Sword 3"
-            case ITEM_NOBLE_SWORD_L4
-                return "Noble Sword 4"
-            case ITEM_FORGE_SWORD_L4
-                return "Forge Sword [Level 4]"
-            case ITEM_BERSERKER_SWORD
-                return "Berserkers Sword"
-            case ITEM_GOD_SWORD
-                return "God Sword"
-            case ITEM_ARES
-                return "Ares"
-            case ITEM_RAIN_SWORD_L1
-                return "Rain Sword +1"
-            case ITEM_RAIN_SWORD_L2
-                return "Rain Sword +2"
-            case ITEM_RAIN_SWORD_L3
-                return "Rain Sword +3"
-            case ITEM_RAIN_SWORD_L4
-                return "Rain Sword +4"
-            case ITEM_CORROSIVE_HAMMER_L1
-                return "Currosive Hammer +1"
-            case ITEM_CORROSIVE_HAMMER_L2
-                return "Currosive Hammer +2"
-            case ITEM_CORROSIVE_HAMMER_L3
-                return "Currosive Hammer +3"
-            case ITEM_CORROSIVE_HAMMER_L4
-                return "Currosive Hammer +4"
-            case ITEM_CORROSIVE_HAMMER_L5
-                return "Currosive Hammer +5"
-            case ITEM_VAMPIRELLA_L1
-                return "Vampirella +1"
-            case ITEM_VAMPIRELLA_L2
-                return "Vampirella +2"
-            case ITEM_VAMPIRELLA_L3
-                return "Vampirella +3"
-            case ITEM_VAMPIRELLA_L4
-                return "Vampirella +4"
-            case ITEM_CROWN_OF_ASSASSIN_L1
-                return "Crown of Assassin +1"
-            case ITEM_CROWN_OF_ASSASSIN_L2
-                return "Crown of Assassin +2"
-            case ITEM_CROWN_OF_ASSASSIN_L3
-                return "Crown of Assassin +3"
-            case ITEM_CROWN_OF_ASSASSIN_L4
-                return "Crown of Assassin +4"
-            case ITEM_CROWN_OF_ASSASSIN_L5
-                return "Crown of Assassin +5"
-            case ITEM_CROWN_OF_SOLDIER_L1
-                return "Crown of Soldier +1"
-            case ITEM_CROWN_OF_SOLDIER_L2
-                return "Crown of Soldier +2"
-            case ITEM_CROWN_OF_SOLDIER_L3
-                return "Crown of Soldier +3"
-            case ITEM_CROWN_OF_SOLDIER_L4
-                return "Crown of Soldier +4"
-            case ITEM_CROWN_OF_SOLDIER_L5
-                return "Crown of Soldier +5"
-            case ITEM_CROWN_OF_WIZARD_L1
-                return "Crown of Wizard +1"
-            case ITEM_CROWN_OF_WIZARD_L2
-                return "Crown of Wizard +2"
-            case ITEM_CROWN_OF_WIZARD_L3
-                return "Crown of Wizard +3"
-            case ITEM_CROWN_OF_WIZARD_L4
-                return "Crown of Wizard +4"
-            case ITEM_CROWN_OF_WIZARD_L5
-                return "Crown of Wizard +5"
-            case ITEM_CROWN_OF_EVIL_L5
-                return "Crown of Evil +5"
-            case ITEM_BATTLE_AXE_L0
-                return "Battle Axe"
-            case ITEM_BATTLE_AXE_L1
-                return "Battle Axe *&&&&"
-            case ITEM_BATTLE_AXE_L2
-                return "Battle Axe +2"
-            case ITEM_BATTLE_AXE_L3
-                return "Battle Axe +3"
-            case ITEM_BATTLE_AXE_L4
-                return "Battle Axe +4"
-            case ITEM_BATTLE_AXE_L5
-                return "Battle Axe +5"
-            case ITEM_ATHENA
-                return "Athena"
-            case ITEM_MYSTERY_BRACER
-                return "Mystery Bracer"
-            case ITEM_GOLDEN_RING
-                return "Golden Ring"
-            case ITEM_ATHENA_L5
-                return "Athena +5"
-            case ITEM_VALKYRIE_L5
-                return "Valkyrie +5"
-            case ITEM_FORGE_BLADE_L1
-                return "Forge Blade [Level 1]"
-            case ITEM_FORGE_BLADE_L2
-                return "Forge Blade [Level 2]"
-            case ITEM_FORGE_BLADE_L3
-                return "Forge Blade [Level 3]"
-            case ITEM_FORGE_BLADE_L4
-                return "Forge Blade [Level 4]"
-            case ITEM_FORGE_AXE_L1
-                return "Forge Axe [Level 1]"
-            case ITEM_FORGE_AXE_L2
-                return "Forge Axe [Level 2]"
-            case ITEM_FORGE_AXE_L3
-                return "Forge Axe [Level 3]"
-            case ITEM_FORGE_AXE_L4
-                return "Forge Axe [Level 4]"
-            case ITEM_FORGE_STAFF_L1
-                return "Forge Staff [Level 1]"
-            case ITEM_FORGE_STAFF_L2
-                return "Forge Staff [Level 2]"
-            case ITEM_FORGE_STAFF_L3
-                return "Forge Staff [Level 3]"
-            case ITEM_FORGE_STAFF_L4
-                return "Forge Staff [Level 4]"
-            case ITEM_FORGE_ARMOR_L1
-                return "Forge Armor [Level 1]"
-            case ITEM_FORGE_ARMOR_L2
-                return "Forge Armor [Level 2]"
-            case ITEM_FORGE_ARMOR_L3
-                return "Forge Armor [Level 3]"
-            case ITEM_FORGE_ARMOR_L4
-                return "Forge Armor [Level 4]"
-            case ITEM_FORGE_HELM_L1
-                return "Forge Helm [Level 1]"
-            case ITEM_FORGE_HELM_L2
-                return "Forge Helm [Level 2]"
-            case ITEM_FORGE_HELM_L3
-                return "Forge Helm [Level 3]"
-            case ITEM_FORGE_HELM_L4
-                return "Forge Helm [Level 4]"
-            case ITEM_FORGE_BOOTS_L1
-                return "Forge Boots [Level 1]"
-            case ITEM_FORGE_BOOTS_L2
-                return "Forge Boots [Level 2]"
-            case ITEM_FORGE_BOOTS_L3
-                return "Forge Boots [Level 3]"
-            case ITEM_FORGE_BOOTS_L4
-                return "Forge Boots [Level 4]"
-            case ITEM_FORGE_GLOVES_L1
-                return "Forge Gloves [Level 1]"
-            case ITEM_FORGE_GLOVES_L2
-                return "Forge Gloves [Level 2]"
-            case ITEM_FORGE_GLOVES_L3
-                return "Forge Gloves [Level 3]"
-            case ITEM_FORGE_GLOVES_L4
-                return "Forge Gloves [Level 4]"
-            case ITEM_FORGE_SHIELD_L1
-                return "Forge Shield [Level 1]"
-            case ITEM_FORGE_SHIELD_L2
-                return "Forge Shield [Level 2]"
-            case ITEM_FORGE_SHIELD_L3
-                return "Forge Shield [Level 3]"
-            case ITEM_FORGE_SHIELD_L4
-                return "Forge Shield [Level 4]"
-            case ITEM_TOME_OF_FROSTY_ALL_STATS
-                return "Tome of Frosty All Statst"
-            case ITEM_GOLD_TO_LUMBER1
-                return "Lumber Tinker 1"
-            case ITEM_GOLD_TO_LUMBER9
-                return "Lumber Tinker 10"
-            case ITEM_GOLD_TO_LUMBER90
-                return "Lumber Tinker 100"
-            case ITEM_GOLD_TO_LUMBER900
-                return "Lumber Tinker 1000"
-            case ITEM_LUMBER1_TO_GOLD
-                return "Gold Tinker 1"
-            case ITEM_LUMBER10_TO_GOLD
-                return "Gold Tinker 10"
-            case ITEM_LUMBER100_TO_GOLD
-                return "Gold Tinker 100"
-            case ITEM_LUMBER1000_TO_GOLD
-                return "Gold Tinker 1000"
-            case ITEM_RECIPE_ICE_AND_FIRE_SWORD_II
-                return "Treasure of Tinker (Recipe 1)"
-            case ITEM_RECIPE_DARK_STEEL_SWORD_II
-                return "Treasure of Tinker (Recipe 2)"
-            case ITEM_RECIPE_DESTROY_SWORD_II
-                return "Treasure of Tinker (Recipe 3)"
-            case ITEM_RECIPE_PLATINUM_HAMMER_II
-                return "Treasure of Tinker (Recipe 4)"
-            case ITEM_RECIPE_GOLD_AXE_II
-                return "Treasure of Tinker (Recipe 5)"
-            case ITEM_RECIPE_REACTIVE_ARMOR_II
-                return "Treasure of Tinker (Recipe 6)"
-            case ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD_II
-                return "Treasure of Tinker (Recipe 7)"
-            case ITEM_CRITICAL_AXE
-                return "Critical Axe"
-            case ITEM_BASIC_RING
-                return "Basic Ring"
-            case ITEM_BASIC_GOLD_RING
-                return "Basic Gold Ring"
-            case ITEM_SILVER_RING
-                return "Silver Ring"
-            case ITEM_RING_OF_SUN
-                return "Ring Of The Sun"
-            case ITEM_SUNFLOWER_RING
-                return "Sunflower Ring"
-            case ITEM_LEATHER_BRACER
-                return "Leather Bracer"
-            case ITEM_WOOD_BRACER
-                return "Wood Bracer"
-            case ITEM_GOOD_BRACER
-                return "Good Bracer"
-            case ITEM_GOLDEN_BRACER
-                return "Golden Bracer"
-            case ITEM_HAMANUS_BRACER
-                return "Hamanus's Bracer"
-            case ITEM_BRACER_OF_EVIL
-                return "Bracer Of The Evil"
-            case ITEM_KNIFE
-                return "Knife"
-            case ITEM_KNIFE_OF_HUNTER
-                return "Knife Of Hunter"
-            case ITEM_KNIFE_OF_BAHAMUT
-                return "Knife Of Bahamut"
-            case ITEM_STEEL_SWORD
-                return "Steel Sword"
-            case ITEM_SWORD_OF_HUNTER
-                return "Sword Of Hunter"
-            case ITEM_SWORD_FANG
-                return "Sword Fang"
-            case ITEM_SWORD_ROAR
-                return "Sword Roar"
-            case ITEM_SWORD_OF_DRUIDMASTER
-                return "Sword of Druidmaster"
-            case ITEM_SPIRIT_SWORD_L1
-                return "Spirit Sword"
-            case ITEM_SPIRIT_SWORD_L2
-                return "Spirit Sword Upgraded"
-            case ITEM_SPIRIT_DAGGER
-                return "Spirit Dagger"
-            case ITEM_SPIRIT_BLADE
-                return "Spirit Blade"
-            case ITEM_SPIRIT_MIDDLE_BLADE
-                return "Spirit Middle Blade"
-            case ITEM_SPIRIT_GIANT_BLADE
-                return "Spirit Giant Blade"
-            case ITEM_ASHRUNE
-                return "Ashrune"
-            case ITEM_GOLDEN_PHOENIX_SWORD
-                return "Golden Phoenix' Sword"
-            case ITEM_ECHO_MACE
-                return "Echo Mace"
-            case ITEM_MIDNIGHT_MACE
-                return "Midnight Mace"
-            case ITEM_INVOCATION
-                return "Invocation"
-            case ITEM_DOOMS_GRAND_STAFF
-                return "Doom's Grand Staff"
-            case ITEM_SWAN_SONG
-                return "Swan Song"
-            case ITEM_VENGEANCE_WAR_STAFF
-                return "Vengeance War Staff"
-            case ITEM_HONED_WARPWOOD_GRAND_STAFF
-                return "Honed Warpwood Grand Staff"
-            case ITEM_FIERCE_GREATSTAFF
-                return "Fierce Greatstaff"
-            case ITEM_MERCY
-                return "Mercy"
-            case ITEM_SOUL_SILK_CAPE
-                return "Soul Silk Cape"
-            case ITEM_CAPE_OF_CURSED
-                return "Cape of Cursed"
-            case ITEM_BINDING_SORROW_CLOAK
-                return "Binding Sorrow Cloak"
-            case ITEM_FUSION_HIDE_DRAPE
-                return "Fusion Hide Drape"
-            case ITEM_PADDED_GREATCLOAK
-                return "Padded Greatcloak"
-            case ITEM_BLOODIED_WOOL_CLOAK
-                return "Bloodied Wool Cloak"
-            case ITEM_SIMPLE_RING
-                return "Simple Ring"
-            case ITEM_OLD_RING
-                return "Old Ring"
-            case ITEM_RING_OF_MEDIVH
-                return "Ring of Medivh"
-            case ITEM_RING_OF_MYSTERY
-                return "Ring of Mystery"
-            case ITEM_HOLLHOVER
-                return "Hollhover"
-            case ITEM_GOLD_SIMPLE_RING
-                return "Gold Simple Ring"
-            case ITEM_DOMINION_RING
-                return "Dominion Ring"
-            case ITEM_RING_OF_FAKE_SUN
-                return "Ring Of Fake Sun"
-            case ITEM_RING_OF_LEGACY
-                return "Ring Of Legacy"
-            case ITEM_STEEL_HAMMER
-                return "Steel Hammer"
-            case ITEM_SIMPLE_HAMMER
-                return "Simple Hammer"
-            case ITEM_GIANT_HAMMER
-                return "Giant Hammer"
-            case ITEM_WARRIOR_HAMMER
-                return "Warrior Hammer"
-            case ITEM_PLATE_HAMMER
-                return "Plate Hammer"
-            case ITEM_FUSION_HAMMER
-                return "Fusion Hammer"
-            case ITEM_FIREHELL_HAMMER
-                return "Firehell Hammer"
-            case ITEM_THUNDERCHAOS_HAMMER
-                return "Thunderchaos Hammer"
-            case ITEM_GOLDEN_HAMMER
-                return "Golden Hammer"
-            case ITEM_ARMOR_OF_SACRED
-                return "Armor of Sacred"
-            case ITEM_ARMOR_OF_HELL
-                return "Armor of Hell"
-            case ITEM_THIEF_SILVER_ARMOR
-                return "Silver Armor"
-            case ITEM_SILVER_GIANT_ARMOR
-                return "Silver Giant Armor"
-            case ITEM_SILVER_SPLIT_ARMOR
-                return "Silver Split Armor"
-            case ITEM_DESTROYER_ARMOR
-                return "Destroyer Armor"
-            case ITEM_POISON_ORB
-                return "Poison Orb"
-            case ITEM_BLOOD_ORB
-                return "Blood Orb"
-            case ITEM_EARTH_ORB
-                return "Earth Orb"
-            case ITEM_GOLD_CRYSTAL_ORB
-                return "Gold Crystal Orb"
-            case ITEM_LIGHT_THUNDER_ORB
-                return "Light Thunder Orb"
-            case ITEM_CHAOS_ORB
-                return "Chaos Orb"
-            case ITEM_FUSION_ORB
-                return "Fusion Orb"
-            case ITEM_GOLDEN_ORB
-                return "Golden Orb"
-            case ITEM_LONELY_WOOL_BOOTS
-                return "Lonely Wool Boots"
-            case ITEM_LEATHER_BOOTS
-                return "Leather Boots"
-            case ITEM_LEATHER_GIANT_BOOTS
-                return "Leather Giant Boots"
-            case ITEM_HEAVY_BOOTS
-                return "Heavy Boots"
-            case ITEM_MENDED_DEMON_WARBOOTS
-                return "Mended Demon Warboots"
-            case ITEM_BLOOD_INFUSED_LINEN_BOOTS
-                return "Blood Infused Linen Boots"
-            case ITEM_FIRESOUL_WOOL_BOOTS
-                return "Firesoul Wool Boots"
-            case ITEM_BLOSSOM_RING
-                return "Blossom Ring"
-            case ITEM_FREE_PLEDGE_RING
-                return "Free Pledge Ring"
-            case ITEM_BLIND_BUBBLE_NECKLACE
-                return "The Blind Bubble Necklace"
-            case ITEM_AGED_IMAGE
-                return "The Aged Image"
-            case ITEM_TENDER_LEAF
-                return "The Tender Leaf"
-            case ITEM_SUN_NECKLACE
-                return "Sun Necklace"
-            case ITEM_FAINT_TRINKET_NECKLACE
-                return "The Faint Trinket Necklace"
-            case ITEM_MYSTERY_PURPLE_STAFF
-                return "Mystery Purple Staff"
-            case ITEM_FROZEN_CLOTH_GREATCLOAK
-                return "Frozen Cloth Greatcloak"
-            case ITEM_INHERITED_ARMOR
-                return "Inherited Armor"
-            case ITEM_MATRIX_ORB
-                return "Matrix Orb"
-            case ITEM_SONG_BROOCH
-                return "Song Brooch"
-            case ITEM_MYSTERY_RED_STAFF
-                return "Mystery Red Staff"
-            case ITEM_FROZEN_STAFF
-                return "Frozen Staff"
-            case ITEM_HYDRAS_TREASURE_BIG
-                return "Hydra's Big Treasure"
-            case ITEM_HYDRAS_TREASURE_PERFECT
-                return "Hydra's Treasure Perfect"
-            case ITEM_SPIDERS_TREASURE_BIG
-                return "Spider's Big Treasure"
-            case ITEM_SPIDERS_TREASURE_PERFECT
-                return "Spider's Treasure Perfect"
-            case ITEM_ROYAL_ARMOR_L1
-                return "Royal Armor 1"
-            case ITEM_ROYAL_ARMOR_L2
-                return "Royal Armor 2"
-            case ITEM_ROYAL_ARMOR_L3
-                return "Royal Armor 3"
-            case ITEM_COMPOSITE_ARMOR_L1
-                return "Compositel Armor 1"
-            case ITEM_COMPOSITE_ARMOR_L2
-                return "Compositel Armor 2"
-            case ITEM_COMPOSITE_ARMOR_L3
-                return "Compositel Armor 3"
-            case ITEM_ROYAL_ARMOR_L4
-                return "Royal Armor 4"
-            case ITEM_ROYAL_ARMOR_L5
-                return "Royal Armor 5"
-            case ITEM_LIMIT_ARMOR
-                return "Limit Armor"
-            case ITEM_DRONE_ARMOR
-                return "Drone Armor"
-            case ITEM_DREAD_HELM_L1
-                return "Dread Helm 1"
-            case ITEM_DREAD_HELM_L2
-                return "Dread Helm 2"
-            case ITEM_DREAD_HELM_L3
-                return "Dread Helm 3"
-            case ITEM_DREAD_HELM_L4
-                return "Dread Helm 4"
-            case ITEM_DREAD_HELM_L5
-                return "Dread Helm 5"
-            case ITEM_GLOW_GLOVES_L1
-                return "Glow Gloves 1"
-            case ITEM_GLOW_GLOVES_L2
-                return "Glow Gloves 2"
-            case ITEM_GLOW_GLOVES_L3
-                return "Glow Gloves 3"
-            case ITEM_GLOW_GLOVES_L4
-                return "Glow Gloves 4"
-            case ITEM_GLOW_GLOVES_L5
-                return "Glow Gloves 5"
-            case ITEM_PLATINUM_SHIELD_L1
-                return "Platium Shield 1"
-            case ITEM_PLATINUM_SHIELD_L2
-                return "Platium Shield 2"
-            case ITEM_PLATINUM_SHIELD_L3
-                return "Platium Shield 3"
-            case ITEM_PLATINUM_SHIELD_L4
-                return "Platium Shield 4"
-            case ITEM_PLATINUM_SHIELD_L5
-                return "Platium Shield 5"
-            case ITEM_PLATINUM_SHIELD_L6
-                return "Platium Shield 6"
-            case ITEM_STORM_BOOTS_L1
-                return "Storm Boots 1"
-            case ITEM_STORM_BOOTS_L2
-                return "Storm Boots 2"
-            case ITEM_STORM_BOOTS_L3
-                return "Storm Boots 3"
-            case ITEM_STORM_BOOTS_L4
-                return "Storm Boots 4"
-            case ITEM_STORM_BOOTS_L5
-                return "Storm Boots 5"
-            case ITEM_STORM_BOOTS_L6
-                return "Storm Boots 6"
-            case ITEM_STORM_BOOTS_L7
-                return "Storm Boots 7"
-            case ITEM_MEDIVL_BOOTS
-                return "Medivl Boots"
-            case ITEM_DEMONIC_BOOTS
-                return "Demonic Boots"
-            case ITEM_IMPERIAL_BOOTS
-                return "Imperial Boots"
-            case ITEM_RAVEN_BLADE_L1
-                return "Raven Blade 1"
-            case ITEM_RAVEN_BLADE_L2
-                return "Raven Blade 2"
-            case ITEM_RAVEN_BLADE_L3
-                return "Raven Blade 3"
-            case ITEM_RAVEN_BLADE_L4
-                return "Raven Blade 4"
-            case ITEM_RAVEN_BLADE_L5
-                return "Raven Blade 5"
-            case ITEM_BERSERKERS_BLADE
-                return "Berserkers Blade"
-            case ITEM_EXOTIC_AXE_L1
-                return "Exotic Axe 1"
-            case ITEM_EXOTIC_AXE_L2
-                return "Exotic Axe 2"
-            case ITEM_EXOTIC_AXE_L3
-                return "Exotic Axe 3"
-            case ITEM_EXOTIC_AXE_L4
-                return "Exotic Axe 4"
-            case ITEM_EXOTIC_AXE_L5
-                return "Exotic Axe 5"
-            case ITEM_EXOTIC_AXE_L6
-                return "Exotic Axe 6"
-            case ITEM_EXOTIC_AXE_L7
-                return "Exotic Axe 7"
-            case ITEM_EXOTIC_AXE_L8
-                return "Exotic Axe 8"
-            case ITEM_FIRE_AXE_L1
-                return "Fire Axe 1"
-            case ITEM_FIRE_AXE_L2
-                return "Fire Axe 2"
-            case ITEM_FIRE_AXE_L3
-                return "Fire Axe 3"
-            case ITEM_GOLDEN_STAFF_L1
-                return "Golden Staff 1"
-            case ITEM_GOLDEN_STAFF_L2
-                return "Golden Staff 2"
-            case ITEM_GOLDEN_STAFF_L3
-                return "Golden Staff 3"
-            case ITEM_HEAVEN_STAFF_L1
-                return "Heaven Staff 1"
-            case ITEM_HEAVEN_STAFF_L2
-                return "Heaven Staff 2"
-            case ITEM_HEAVEN_STAFF_L3
-                return "Heaven Staff 3"
-            case ITEM_NERUBIAN_STAFF_L1
-                return "Nerubian Staff 1"
-            case ITEM_DEAD_EYES
-                return "Dead Eyes"
-            case ITEM_NECKLACE_OF_SPELL_IMMUNITY
-                return "Necklace of Spell Immunity"
-            case ITEM_NECKLACE_OF_WOLFMAN
-                return "Necklace of Wolfman"
-            case ITEM_JEWELRY_OF_HERMES
-                return "Jewelry of Hermes"
-            case ITEM_JEWELRY_OF_DIARES
-                return "Jewelry of Diares"
-            case ITEM_JEWELRY_OF_ISSABELLA
-                return "Jewelry of Issabella"
-            case ITEM_LIGHT_OF_MOON
-                return "Light of the Moon"
-            case ITEM_PENDANT_OF_MUGEN
-                return "Pendant of Mugen"
-            case ITEM_JEWELRY_OF_MOON
-                return "Jewelry of Moon"
-            case ITEM_NECKLACE_OF_ROYAL
-                return "Necklace of Royal"
-            case ITEM_NECROPEDIA
-                return "Necropedia"
-            case ITEM_LOKI_NECKLACE
-                return "Loki's Necklace"
-            case ITEM_SOFT_SHOULDER
-                return "Soft Shoulder"
-            case ITEM_HARD_SHOULDER
-                return "Hard Shoulder"
-            case ITEM_HEAVY_SHOULDER
-                return "Heavy Shoulder"
-            case ITEM_ROYAL_SHOULDER
-                return "Royal Shoulder"
-            case ITEM_AMULET_OF_LUCIFER
-                return "Amulet of Lucifer"
-            case ITEM_VEJOVIS
-                return "Vejovis"
-            case ITEM_HYDRAS_TREASURE
-                return "Hydra's Treasure"
-            case ITEM_SPIDERS_TREASURE
-                return "Spider's Treasure"
-            case ITEM_CHIMAERAS_LIGHNING_POWER
-                return "Chimaera's Lighning Power"
-            case ITEM_THUNDER_BOW_II
-                return "Thunder Bow II"
-            case ITEM_ABO_TREASURE
-                return "Abo' Treasure"
-            case ITEM_DARKNESS
-                return "Darkness"
-            case ITEM_BELT_OF_SLAYER
-                return "Belt of Slayer"
-            case ITEM_BELT_OF_GUARDIAN
-                return "Belt of Guardian"
-            case ITEM_BELT_OF_GLADIATOR
-                return "Belt of Gladiator"
-            case ITEM_BELT_OF_OCEANUS
-                return "Belt of Oceanus"
-            case ITEM_HYPERION
-                return "Hyperion"
-            case ITEM_ANGEL_MACE_L5
-                return "Angel Mace +5"
-            case ITEM_CALL_OF_FURBOLG_URSA
-                return "Call of Furbolg Ursa Warrior"
-            case ITEM_CALL_OF_DOOM
-                return "Call of Doom"
-            case ITEM_CALL_OF_FLESH_GOLEM
-                return "Call of Flesh Golem"
-            case ITEM_CHAINS_RING
-                return "Chains Ring"
-            case ITEM_RING_OF_HEAVEN
-                return "Ring of Heaven"
-            case ITEM_RING_OF_WITCH
-                return "Ring of Witch"
-            case ITEM_EMERALD_RING
-                return "Emerald Ring"
-            case ITEM_ICE_RING
-                return "Ice Ring"
-            case ITEM_ROLL_RING
-                return "Roll Ring"
-            case ITEM_BRYNHILDR
-                return "Brynhildr"
-            case ITEM_FROSMOUNE_L5
-                return "Frostmourne +5"
-            case ITEM_IRONWOOD_BRANCH
-                return "Ironwood Branch"
-            case ITEM_SPIKE_OF_CRYPTLORD
-                return "Spike of Cryptlord"
-            case ITEM_CLOAK_OF_FLAMES
-                return "Cloak of Flames"
-            case ITEM_SCORPION_POTION
-                return "Scorpion Potion"
-            case ITEM_O3_CLOCK
-                return "OOO'Clock"
-            case ITEM_O9_CLOCK
-                return "O9'Clock"
-            case ITEM_RECIPE_O3_CLOCK
-                return "Treasure of Tinker (Recipe 8)"
-            case UPGRADE_BASE_ARMOR
-                return "Upgrade Armor"
-            case UPGRADE_BASE_HEALTH
-                return "Upgrade Health"
-            case ITEM_FROST_SHIELD
-                return "Frost Shield"
-            case ITEM_QUEST
-                return "Acquire Quest"
+        case ITEM_LUMBER_100
+            return "Lumber 100"
+        case ITEM_EMPTY_VIAL
+            return "Empty Vial (Fusion)"
+        case ITEM_ICE_AND_FIRE_SWORD
+            return "Ice & Fire Sword"
+        case ITEM_DARK_STEEL_SWORD
+            return "Dark Steel Sword"
+        case ITEM_SHINY_ARMOR
+            return "Shiny Armor"
+        case ITEM_REACTIVE_ARMOR
+            return "Reactive Armor"
+        case ITEM_HOLY_ARMOR
+            return "Holy Armor"
+        case ITEM_GOLD_AXE
+            return "Gold Axe"
+        case ITEM_DARK_MATTER
+            return "Dark Matter"
+        case ITEM_RAIN_SWORD
+            return "Rain Sword"
+        case ITEM_CORROSIVE_HAMMER
+            return "Corrosive Hammer"
+        case ITEM_VAMPIRELLA
+            return "Vampirella"
+        case ITEM_LANCELOT_SHIELD
+            return "Lancelot Shield"
+        case ITEM_LANCELOT_ARMOR
+            return "Lancelot Armor"
+        case ITEM_LANCELOT_HELM
+            return "Lancelot Helm"
+        case ITEM_PERFECT_ARKENSTONE
+            return "Perfect Arkenstone"
+        case ITEM_DESTROY_SWORD
+            return "Destroy Sword"
+        case ITEM_PLATINUM_HAMMER
+            return "Platinum Hammer"
+        case ITEM_GLOVES_OF_FLASH
+            return "Gloves of Flash"
+        case ITEM_BOOTS_OF_CRYSTAL_GOLD
+            return "Boots of Crystal Gold"
+        case ITEM_ICE_SWORD
+            return "Ice Sword"
+        case ITEM_LANCELOT_RING
+            return "Lancelot's Ring"
+        case ITEM_GUINEVERES_RING
+            return "Guinevere's Ring"
+        case ITEM_ARKENSTONE_FRAGMENT
+            return "Arkenstone Fragments"
+        case ITEM_JEWELRY_OF_MANA
+            return "Jewelry of Mana"
+        case ITEM_JEWELRY_OF_LIFE
+            return "Jewelry of Life"
+        case ITEM_STEEL_AXE
+            return "Steel Axe"
+        case ITEM_SILVER_HAMMER
+            return "Silver Hammer"
+        case ITEM_HALF_OF_ARKENSTONE
+            return "Half Arkenstone"
+        case ITEM_LIGHT_ARMOR
+            return "Light Armor"
+        case ITEM_SCROLL_OF_FUSION
+            return "Scroll of Fusion"
+        case ITEM_AMULET_OF_THE_WILD
+            return "Amulet of the Wild"
+        case ITEM_HELM_OF_VALOR
+            return "Helm of Valor"
+        case ITEM_MEDALLION_OF_COURAGE
+            return "Medallion of Courage"
+        case ITEM_ALLERIA_FLUTE_OF_ACCURACY
+            return "Alleria's Flute of Accuracy"
+        case ITEM_ANCIENT_JANGGO_OF_ENDURANCE
+            return "Ancient Janggo of Endurance"
+        case ITEM_THE_LION_HORN_OF_STORMWIND
+            return "The Lion Horn of Stormwind"
+        case ITEM_WARSONG_BATTLE_DRUMS
+            return "Warsong Battle Drums"
+        case ITEM_DRUMS_OF_FUTURE
+            return "Drums of Future."
+        case ITEM_THE_GOLDEN_HORN
+            return "The Golden Horn"
+        case ITEM_TRIBAL_DRUMS
+            return "Tribal Drums"
+        case ITEM_NATURE_FLUTE
+            return "Nature Flute"
+        case ITEM_VOID_AXE
+            return "Void Axe"
+        case ITEM_AINZ_SWORD
+            return "Ainz' Sword"
+        case ITEM_SEER_STAFF
+            return "Seer Staff"
+        case ITEM_SCALE_AXE
+            return "Scale Axe"
+        case ITEM_DALAN_AXE
+            return "Dalan Axe"
+        case ITEM_DURATION_AXE
+            return "Duration Axe"
+        case ITEM_DWARVEN_AXE
+            return "Dwarven Axe"
+        case ITEM_BLADE_OF_HELL
+            return "Blade of Hell"
+        case ITEM_KRAKEN_DAGGER
+            return "Kraken Dagger"
+        case ITEM_MIDNIGHT_BLADE
+            return "Midnight Blade"
+        case ITEM_BLOOD_GORGED_BLADE
+            return "Blood Gorged Blade"
+        case ITEM_STEEL_SHIELD
+            return "Steel Shield"
+        case ITEM_SACRED_SHIELD
+            return "Sacred Shield"
+        case ITEM_IRON_SHIELD
+            return "Iron Shield"
+        case ITEM_SPLIT_ARMOR
+            return "Split Armor"
+        case ITEM_AVATAR_ARMOR
+            return "Avatar Armor"
+        case ITEM_CHAOS_BLADE
+            return "Chaos Blade"
+        case ITEM_O_CLOCK
+            return "O'clock"
+        case ITEM_THUNDER_BOW
+            return "Thunder Bow"
+        case ITEM_SOUL_OF_KILJEADEN
+            return "Soul of Kil'jeaden"
+        case ITEM_LIZARD_PENDANT
+            return "Lizard Pendant"
+        case ITEM_HELM_HERMES
+            return "Helm Hermes"
+        case ITEM_DARK_SPHERE
+            return "Dark Sphere"
+        case ITEM_MYSTERY_GREEN_STAFF
+            return "Mystery Green Staff"
+        case ITEM_MYSTERY_BLUE_STAFF
+            return "Mystery Blue Staff"
+        case ITEM_ICE_WAND
+            return "Ice Wand"
+        case ITEM_FREEZE_WAND
+            return "Freeze Wand"
+        case ITEM_WAR_ENERGY
+            return "War Energy"
+        case ITEM_FIRE_SWORD
+            return "Fire Sword"
+        case ITEM_GLOVES_OF_SPEED
+            return "Gloves of Speed"
+        case ITEM_BOOTS_OF_TELEPORTATION
+            return "Boots of Teleportation"
+        case ITEM_BOOTS_OF_INVISIBILITY
+            return "Boots of Invisibility"
+        case ITEM_WINGED_BOOTS
+            return "Winged Boots"
+        case ITEM_DRAGON_WINGS
+            return "Wing of Dragon"
+        case ITEM_ICE_AND_FIRE_SWORD_II
+            return "Ice & Fire Sword II"
+        case ITEM_DARK_STEEL_SWORD_II
+            return "Dark Steel Sword II"
+        case ITEM_DESTROY_SWORD_II
+            return "Destroy Sword II"
+        case ITEM_PLATINUM_HAMMER_II
+            return "Platinum Hammer II"
+        case ITEM_GOLD_AXE_II
+            return "Gold Axe II"
+        case ITEM_REACTIVE_ARMOR_II
+            return "Reactive Armor II"
+        case ITEM_BOOTS_OF_CRYSTAL_GOLD_II
+            return "Boots of Crystal Gold II"
+        case ITEM_CHAOS
+            return "CHAOS"
+        case ITEM_RUBY_FRAGMENTS_L2
+            return "Ruby Fragments +2"
+        case ITEM_RUBY_FRAGMENTS_L3
+            return "Ruby Fragments +3"
+        case ITEM_RUBY_FRAGMENTS_L4
+            return "Ruby Fragments +4"
+        case ITEM_RUBY_FRAGMENTS_L5
+            return "Ruby Fragments +5"
+        case ITEM_RUBY_FRAGMENTS_L6
+            return "Ruby Fragments +6"
+        case ITEM_RUBY_FRAGMENTS_L7
+            return "Ruby Fragments +7"
+        case ITEM_RUBY_FRAGMENTS_L8
+            return "Ruby Fragments +8"
+        case ITEM_RUBY_FRAGMENTS_L9
+            return "Ruby Fragments +9"
+        case ITEM_RUBY_FRAGMENTS_L10
+            return "Ruby Fragments +10"
+        case ITEM_RUBY_FRAGMENTS_L11
+            return "Ruby Fragments +11"
+        case ITEM_RUBY_FRAGMENTS_L12
+            return "Ruby Fragments +12"
+        case ITEM_RUBY_FRAGMENTS_L13
+            return "Ruby Fragments +13"
+        case ITEM_RUBY_FRAGMENTS_L14
+            return "Ruby Fragments +14"
+        case ITEM_RUBY_FRAGMENTS_L15
+            return "Ruby Fragments +15"
+        case ITEM_RUBY_FRAGMENTS_L16
+            return "Ruby Fragments +16"
+        case ITEM_RUBY_FRAGMENTS_L17
+            return "Ruby Fragments +17"
+        case ITEM_RUBY_FRAGMENTS_L18
+            return "Ruby Fragments +18"
+        case ITEM_RUBY_FRAGMENTS_L19
+            return "Ruby Fragments +19"
+        case ITEM_RUBY_FRAGMENTS_L20
+            return "Ruby Fragments + 20"
+        case ITEM_HALF_RUBYSTONE
+            return "Half Rubystone"
+        case ITEM_DIVINE_RUBYSTONE
+            return "Divine Rubystone"
+        case ITEM_RUBYSTONE
+            return "Rubystone"
+        case ITEM_PERFECT_RUBYSTONE
+            return "Perfect Rubystone"
+        case ITEM_GAUNTLETS_OF_OGRE_STRENGTH
+            return "Gauntlets of Ogre Strength +3"
+        case ITEM_RUSTY_MINING_PICK
+            return "Rusty Mining Pick"
+        case ITEM_WIRTS_LEG
+            return "Wirt's Leg"
+        case ITEM_SLIPPERS_OF_AGILITY
+            return "Slippers of Agility +3"
+        case ITEM_DIAMOND_OF_SUMMONING
+            return "Diamond of Summoning"
+        case ITEM_MANTLE_OF_INTELLIGENCE
+            return "Mantle of Intelligence +3"
+        case ITEM_DRUID_POUCH
+            return "Druid Pouch"
+        case ITEM_RUNED_GAUNTLETS
+            return "Runed Gauntlets"
+        case ITEM_SKULL_SHIELD
+            return "Skull Shield"
+        case ITEM_VOODOO_DOLL
+            return "Voodoo Doll"
+        case ITEM_ANCIENT_FIGURINE
+            return "Ancient Figurine"
+        case ITEM_SPIDER_SILK_BROACH
+            return "Spider Silk Broach"
+        case ITEM_BATTLE_STANDARD
+            return "Battle Standard"
+        case ITEM_BLADEBANE_ARMOR
+            return "Bladebane Armor"
+        case ITEM_FIREHAND_GAUNTLETS
+            return "Firehand Gauntlets"
+        case ITEM_FLARE_GUN
+            return "Flare Gun"
+        case ITEM_ANCESTRAL_STAFF
+            return "Ancestral Staff"
+        case ITEM_POISON_SPEARS
+            return "Poison Spears"
+        case ITEM_KILLMAIM
+            return "Killmaim"
+        case ITEM_DRUID_OF_CLAW
+            return "Druid of the Claw"
+        case ITEM_BOOK_OF_DEAD
+            return "Book of the Dead"
+        case ITEM_HORN_OF_CLOUDS
+            return "Horn of the Clouds"
+        case ITEM_HALF_MOON_ARMOR
+            return "Half Moon Armor"
+        case ITEM_HUMAN_FLAG
+            return "Human Flag"
+        case ITEM_BLOOD_GEM
+            return "Blood Gem"
+        case ITEM_STAFF_OF_PRESERVATION
+            return "Staff of Preservation"
+        case ITEM_SPIKED_ARMOR
+            return "Spiked Armor"
+        case ITEM_FLAK_CANNONS
+            return "Flak Cannons"
+        case ITEM_THUNDERLIZARD_DIAMOND
+            return "Thunderlizard Diamond"
+        case ITEM_GEM_OF_POISON
+            return "Gem of Poison"
+        case ITEM_MOON_ARMOR
+            return "Moon Armor"
+        case ITEM_AMULET_OF_RECALL
+            return "Amulet of Recall"
+        case ITEM_GHOUL_FRENZY
+            return "Ghoul Frenzy"
+        case ITEM_MAGIC_POTION
+            return "Magic Potion"
+        case ITEM_LIONS_RING
+            return "Lion's Ring"
+        case ITEM_MINDSTAFF
+            return "Mindstaff"
+        case ITEM_DRUID_OF_CLAW_AMATEUR
+            return "Druid of the Claw Amateur"
+        case ITEM_SCEPTER_OF_HEALING
+            return "Scepter of Healing"
+        case ITEM_ARCANE_SCROLL
+            return "Arcane Scroll"
+        case ITEM_KEY_OF_THREE_MOONS
+            return "Key of Three Moons"
+        case ITEM_GLOVES_OF_SPELL_MASTERY
+            return "Gloves of Spell Mastery"
+        case ITEM_SCEPTER_OF_MASTERY
+            return "Scepter of Mastery"
+        case ITEM_SCROLL_OF_MAGIC
+            return "Scroll of Magic"
+        case ITEM_SHAMANIC_TOTEM
+            return "Shamanic Totem"
+        case ITEM_HEART_OF_SEARINOX
+            return "The Heart of Searinox"
+        case ITEM_SCEPTER_OF_SEA
+            return "Scepter of the Sea"
+        case ITEM_SACRED_RELIC
+            return "Sacred Relic"
+        case ITEM_SCROLL_OF_UNHOLY_LEGION
+            return "Scroll of the Unholy Legion"
+        case ITEM_DRUID_OF_CLAW_MASTER
+            return "Druid of the Claw Master"
+        case ITEM_CRYSTAL_SKULL
+            return "Crystal Skull"
+        case ITEM_SPHERE_OF_FIRE
+            return "Sphere of Fire"
+        case ITEM_RUBY_FRAGMENTS_L1
+            return "Ruby Fragment +1"
+        case ITEM_SPHERE_OF_WATER
+            return "Sphere of Water"
+        case ITEM_ESSENCE_OF_ASZUNE
+            return "Essence of Aszune"
+        case ITEM_DREAM_SWORD
+            return "Dream Sword"
+        case ITEM_CRYSTAL_SWORD
+            return "Crystal Sword"
+        case ITEM_BLOODY_DAGGER
+            return "Bloody Dagger"
+        case ITEM_CROWN_OF_WIZARD_L0
+            return "Crown of Wizard"
+        case ITEM_CROWN_OF_SOLDIER_L0
+            return "Crown of Soldier"
+        case ITEM_CROWN_OF_ASSASSIN_L0
+            return "Crown of Assassin"
+        case ITEM_GLOVERSHIELD
+            return "Clovershield"
+        case ITEM_BOOK_OF_WIND
+            return "Book of Wind"
+        case ITEM_BOOK_OF_RAIN
+            return "Book of Rain"
+        case ITEM_BOOK_OF_EARTHQUAKE
+            return "Book of Earthquake"
+        case ITEM_LAZARUS_BELT
+            return "Lazarus Belt"
+        case ITEM_MANUAL_OF_HEALTH_50
+            return "Manual of Health 50"
+        case ITEM_TOME_OF_AGILITY_10
+            return "Tome of Agility +10"
+        case ITEM_TOME_OF_INTELLIGENCE_10
+            return "Tome of Intelligence +10"
+        case ITEM_TOME_OF_STRENGTH_10
+            return "Tome of Strength +10"
+        case ITEM_TOME_OF_KNOWLEDGE_10
+            return "Tome of Knowledge +10"
+        case ITEM_TOME_OF_KNOWLEDGE_20
+            return "Tome of Knowledge +20"
+        case ITEM_TOME_OF_KNOWLEDGE_30
+            return "Tome of Knowledge +30"
+        case ITEM_MENELAUS
+            return "Menelaus"
+        case ITEM_CROWN_OF_EVIL
+            return "Crown of Evil"
+        case ITEM_SOUL_BLAME
+            return "Soul Blame"
+        case ITEM_TITANIUM
+            return "Titanium"
+        case ITEM_SCOURGE_BONE_CHIMES
+            return "Scourge Bone Chimes"
+        case ITEM_SKULL_OF_MALGANIS
+            return "Skull of Mal'ganis"
+        case ITEM_SCARYS_POTION
+            return "Scary's potion"
+        case ITEM_DRAGON_BONE
+            return "Bone"
+        case ITEM_DRAGON_SKIN
+            return "Skin"
+        case ITEM_DRAGON_CLAW
+            return "Claw"
+        case ITEM_DRAGON_SPIRIT
+            return "Spirit"
+        case ITEM_FALLING_STAR
+            return "Falling Star"
+        case ITEM_ANGEL_MACE
+            return "Angel Mace"
+        case ITEM_LANCELOT_SET
+            return "Lancelot Set"
+        case ITEM_WATER_SCROLL
+            return "Water Scroll"
+        case ITEM_CRONUS_HAND
+            return "Cronus's Hand"
+        case ITEM_SPHERE_OF_CHAOS
+            return "Sphere of Chaos"
+        case ITEM_FAIR_DROP
+            return "The Fair Drop"
+        case ITEM_ASTRAEUS_BELT
+            return "Astraeus' Belt"
+        case ITEM_APOCALYPSE
+            return "Apocalypse"
+        case ITEM_HOVER_RING
+            return "Hover Ring"
+        case ITEM_NOBLESSE_SHOULDER
+            return "Noblesse Shoulder"
+        case ITEM_ODIN_NECKLE
+            return "Odin's Necklace"
+        case ITEM_HOLY_GOLD_SHIELD
+            return "Holy Gold Shield"
+        case ITEM_BEASTMASTER_CARD
+            return "Beastmaster Card"
+        case ITEM_WARDEN_CARD
+            return "Warden Card"
+        case ITEM_BLADEMASTER_CARD
+            return "Blademaster Card"
+        case ITEM_TAUREN_CARD
+            return "Tauren Card"
+        case ITEM_MOUNTAIN_KING_CARD
+            return "Mountain King Card"
+        case ITEM_PITLORD_CARD
+            return "Pitlord Card"
+        case ITEM_BERSERKERS_BOOTS
+            return "Berserkers Boots"
+        case ITEM_STRIKE_AXE
+            return "Strike Axe"
+        case ITEM_BERSERKERS_HELM
+            return "Berserkers Helm"
+        case ITEM_BERSERKERS_ARMOR
+            return "Berserkers Armor"
+        case ITEM_BERSERKERS_SHIELD
+            return "Berserkers Shield"
+        case ITEM_BERSERKERS_GLOVES
+            return "Berserkers Gloves"
+        case ITEM_APOLLOS_HELM
+            return "Apollo's Helm"
+        case ITEM_CRYSTAL_MOON
+            return "Crystal Moon"
+        case ITEM_VALKYRIE
+            return "Valkyrie"
+        case ITEM_BERSERKERS_STAFF
+            return "Berserkers Staff"
+        case ITEM_RAIN_SWORD_L5
+            return "Rain Sword +5"
+        case ITEM_VAMPIRELLA_L5
+            return "Vampirella +5"
+        case ITEM_FORGE_SWORD_L1
+            return "Forge Sword [Level 1]"
+        case ITEM_KAIN_SWORD_L1
+            return "Kain's Sword 1"
+        case ITEM_KAIN_SWORD_L2
+            return "Kain's Sword 2"
+        case ITEM_KAIN_SWORD_L3
+            return "Kain's Sword 3"
+        case ITEM_FORGE_SWORD_L2
+            return "Forge Sword [Level 2]"
+        case ITEM_KAIN_SWORD_L4
+            return "Kain's Sword 4"
+        case ITEM_SLASH_SWORD_L1
+            return "Slash Sword 1"
+        case ITEM_SLASH_SWORD_L2
+            return "Slash Sword 2"
+        case ITEM_SLASH_SWORD_L3
+            return "Slash Sword 3"
+        case ITEM_FORGE_SWORD_L3
+            return "Forge Sword [Level 3]"
+        case ITEM_SLASH_SWORD_L4
+            return "Slash Sword 4"
+        case ITEM_SLASH_SWORD_L5
+            return "Slash Sword 5"
+        case ITEM_NOBLE_SWORD_L1
+            return "Noble Sword 1"
+        case ITEM_NOBLE_SWORD_L2
+            return "Noble Sword 2"
+        case ITEM_NOBLE_SWORD_L3
+            return "Noble Sword 3"
+        case ITEM_NOBLE_SWORD_L4
+            return "Noble Sword 4"
+        case ITEM_FORGE_SWORD_L4
+            return "Forge Sword [Level 4]"
+        case ITEM_BERSERKER_SWORD
+            return "Berserkers Sword"
+        case ITEM_GOD_SWORD
+            return "God Sword"
+        case ITEM_ARES
+            return "Ares"
+        case ITEM_RAIN_SWORD_L1
+            return "Rain Sword +1"
+        case ITEM_RAIN_SWORD_L2
+            return "Rain Sword +2"
+        case ITEM_RAIN_SWORD_L3
+            return "Rain Sword +3"
+        case ITEM_RAIN_SWORD_L4
+            return "Rain Sword +4"
+        case ITEM_CORROSIVE_HAMMER_L1
+            return "Currosive Hammer +1"
+        case ITEM_CORROSIVE_HAMMER_L2
+            return "Currosive Hammer +2"
+        case ITEM_CORROSIVE_HAMMER_L3
+            return "Currosive Hammer +3"
+        case ITEM_CORROSIVE_HAMMER_L4
+            return "Currosive Hammer +4"
+        case ITEM_CORROSIVE_HAMMER_L5
+            return "Currosive Hammer +5"
+        case ITEM_VAMPIRELLA_L1
+            return "Vampirella +1"
+        case ITEM_VAMPIRELLA_L2
+            return "Vampirella +2"
+        case ITEM_VAMPIRELLA_L3
+            return "Vampirella +3"
+        case ITEM_VAMPIRELLA_L4
+            return "Vampirella +4"
+        case ITEM_CROWN_OF_ASSASSIN_L1
+            return "Crown of Assassin +1"
+        case ITEM_CROWN_OF_ASSASSIN_L2
+            return "Crown of Assassin +2"
+        case ITEM_CROWN_OF_ASSASSIN_L3
+            return "Crown of Assassin +3"
+        case ITEM_CROWN_OF_ASSASSIN_L4
+            return "Crown of Assassin +4"
+        case ITEM_CROWN_OF_ASSASSIN_L5
+            return "Crown of Assassin +5"
+        case ITEM_CROWN_OF_SOLDIER_L1
+            return "Crown of Soldier +1"
+        case ITEM_CROWN_OF_SOLDIER_L2
+            return "Crown of Soldier +2"
+        case ITEM_CROWN_OF_SOLDIER_L3
+            return "Crown of Soldier +3"
+        case ITEM_CROWN_OF_SOLDIER_L4
+            return "Crown of Soldier +4"
+        case ITEM_CROWN_OF_SOLDIER_L5
+            return "Crown of Soldier +5"
+        case ITEM_CROWN_OF_WIZARD_L1
+            return "Crown of Wizard +1"
+        case ITEM_CROWN_OF_WIZARD_L2
+            return "Crown of Wizard +2"
+        case ITEM_CROWN_OF_WIZARD_L3
+            return "Crown of Wizard +3"
+        case ITEM_CROWN_OF_WIZARD_L4
+            return "Crown of Wizard +4"
+        case ITEM_CROWN_OF_WIZARD_L5
+            return "Crown of Wizard +5"
+        case ITEM_CROWN_OF_EVIL_L5
+            return "Crown of Evil +5"
+        case ITEM_BATTLE_AXE_L0
+            return "Battle Axe"
+        case ITEM_BATTLE_AXE_L1
+            return "Battle Axe *&&&&"
+        case ITEM_BATTLE_AXE_L2
+            return "Battle Axe +2"
+        case ITEM_BATTLE_AXE_L3
+            return "Battle Axe +3"
+        case ITEM_BATTLE_AXE_L4
+            return "Battle Axe +4"
+        case ITEM_BATTLE_AXE_L5
+            return "Battle Axe +5"
+        case ITEM_ATHENA
+            return "Athena"
+        case ITEM_MYSTERY_BRACER
+            return "Mystery Bracer"
+        case ITEM_GOLDEN_RING
+            return "Golden Ring"
+        case ITEM_ATHENA_L5
+            return "Athena +5"
+        case ITEM_VALKYRIE_L5
+            return "Valkyrie +5"
+        case ITEM_FORGE_BLADE_L1
+            return "Forge Blade [Level 1]"
+        case ITEM_FORGE_BLADE_L2
+            return "Forge Blade [Level 2]"
+        case ITEM_FORGE_BLADE_L3
+            return "Forge Blade [Level 3]"
+        case ITEM_FORGE_BLADE_L4
+            return "Forge Blade [Level 4]"
+        case ITEM_FORGE_AXE_L1
+            return "Forge Axe [Level 1]"
+        case ITEM_FORGE_AXE_L2
+            return "Forge Axe [Level 2]"
+        case ITEM_FORGE_AXE_L3
+            return "Forge Axe [Level 3]"
+        case ITEM_FORGE_AXE_L4
+            return "Forge Axe [Level 4]"
+        case ITEM_FORGE_STAFF_L1
+            return "Forge Staff [Level 1]"
+        case ITEM_FORGE_STAFF_L2
+            return "Forge Staff [Level 2]"
+        case ITEM_FORGE_STAFF_L3
+            return "Forge Staff [Level 3]"
+        case ITEM_FORGE_STAFF_L4
+            return "Forge Staff [Level 4]"
+        case ITEM_FORGE_ARMOR_L1
+            return "Forge Armor [Level 1]"
+        case ITEM_FORGE_ARMOR_L2
+            return "Forge Armor [Level 2]"
+        case ITEM_FORGE_ARMOR_L3
+            return "Forge Armor [Level 3]"
+        case ITEM_FORGE_ARMOR_L4
+            return "Forge Armor [Level 4]"
+        case ITEM_FORGE_HELM_L1
+            return "Forge Helm [Level 1]"
+        case ITEM_FORGE_HELM_L2
+            return "Forge Helm [Level 2]"
+        case ITEM_FORGE_HELM_L3
+            return "Forge Helm [Level 3]"
+        case ITEM_FORGE_HELM_L4
+            return "Forge Helm [Level 4]"
+        case ITEM_FORGE_BOOTS_L1
+            return "Forge Boots [Level 1]"
+        case ITEM_FORGE_BOOTS_L2
+            return "Forge Boots [Level 2]"
+        case ITEM_FORGE_BOOTS_L3
+            return "Forge Boots [Level 3]"
+        case ITEM_FORGE_BOOTS_L4
+            return "Forge Boots [Level 4]"
+        case ITEM_FORGE_GLOVES_L1
+            return "Forge Gloves [Level 1]"
+        case ITEM_FORGE_GLOVES_L2
+            return "Forge Gloves [Level 2]"
+        case ITEM_FORGE_GLOVES_L3
+            return "Forge Gloves [Level 3]"
+        case ITEM_FORGE_GLOVES_L4
+            return "Forge Gloves [Level 4]"
+        case ITEM_FORGE_SHIELD_L1
+            return "Forge Shield [Level 1]"
+        case ITEM_FORGE_SHIELD_L2
+            return "Forge Shield [Level 2]"
+        case ITEM_FORGE_SHIELD_L3
+            return "Forge Shield [Level 3]"
+        case ITEM_FORGE_SHIELD_L4
+            return "Forge Shield [Level 4]"
+        case ITEM_TOME_OF_FROSTY_ALL_STATS
+            return "Tome of Frosty All Statst"
+        case ITEM_GOLD_TO_LUMBER1
+            return "Lumber Tinker 1"
+        case ITEM_GOLD_TO_LUMBER9
+            return "Lumber Tinker 10"
+        case ITEM_GOLD_TO_LUMBER90
+            return "Lumber Tinker 100"
+        case ITEM_GOLD_TO_LUMBER900
+            return "Lumber Tinker 1000"
+        case ITEM_LUMBER1_TO_GOLD
+            return "Gold Tinker 1"
+        case ITEM_LUMBER10_TO_GOLD
+            return "Gold Tinker 10"
+        case ITEM_LUMBER100_TO_GOLD
+            return "Gold Tinker 100"
+        case ITEM_LUMBER1000_TO_GOLD
+            return "Gold Tinker 1000"
+        case ITEM_RECIPE_ICE_AND_FIRE_SWORD_II
+            return "Treasure of Tinker (Recipe 1)"
+        case ITEM_RECIPE_DARK_STEEL_SWORD_II
+            return "Treasure of Tinker (Recipe 2)"
+        case ITEM_RECIPE_DESTROY_SWORD_II
+            return "Treasure of Tinker (Recipe 3)"
+        case ITEM_RECIPE_PLATINUM_HAMMER_II
+            return "Treasure of Tinker (Recipe 4)"
+        case ITEM_RECIPE_GOLD_AXE_II
+            return "Treasure of Tinker (Recipe 5)"
+        case ITEM_RECIPE_REACTIVE_ARMOR_II
+            return "Treasure of Tinker (Recipe 6)"
+        case ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD_II
+            return "Treasure of Tinker (Recipe 7)"
+        case ITEM_CRITICAL_AXE
+            return "Critical Axe"
+        case ITEM_BASIC_RING
+            return "Basic Ring"
+        case ITEM_BASIC_GOLD_RING
+            return "Basic Gold Ring"
+        case ITEM_SILVER_RING
+            return "Silver Ring"
+        case ITEM_RING_OF_SUN
+            return "Ring Of The Sun"
+        case ITEM_SUNFLOWER_RING
+            return "Sunflower Ring"
+        case ITEM_LEATHER_BRACER
+            return "Leather Bracer"
+        case ITEM_WOOD_BRACER
+            return "Wood Bracer"
+        case ITEM_GOOD_BRACER
+            return "Good Bracer"
+        case ITEM_GOLDEN_BRACER
+            return "Golden Bracer"
+        case ITEM_HAMANUS_BRACER
+            return "Hamanus's Bracer"
+        case ITEM_BRACER_OF_EVIL
+            return "Bracer Of The Evil"
+        case ITEM_KNIFE
+            return "Knife"
+        case ITEM_KNIFE_OF_HUNTER
+            return "Knife Of Hunter"
+        case ITEM_KNIFE_OF_BAHAMUT
+            return "Knife Of Bahamut"
+        case ITEM_STEEL_SWORD
+            return "Steel Sword"
+        case ITEM_SWORD_OF_HUNTER
+            return "Sword Of Hunter"
+        case ITEM_SWORD_FANG
+            return "Sword Fang"
+        case ITEM_SWORD_ROAR
+            return "Sword Roar"
+        case ITEM_SWORD_OF_DRUIDMASTER
+            return "Sword of Druidmaster"
+        case ITEM_SPIRIT_SWORD_L1
+            return "Spirit Sword"
+        case ITEM_SPIRIT_SWORD_L2
+            return "Spirit Sword Upgraded"
+        case ITEM_SPIRIT_DAGGER
+            return "Spirit Dagger"
+        case ITEM_SPIRIT_BLADE
+            return "Spirit Blade"
+        case ITEM_SPIRIT_MIDDLE_BLADE
+            return "Spirit Middle Blade"
+        case ITEM_SPIRIT_GIANT_BLADE
+            return "Spirit Giant Blade"
+        case ITEM_ASHRUNE
+            return "Ashrune"
+        case ITEM_GOLDEN_PHOENIX_SWORD
+            return "Golden Phoenix' Sword"
+        case ITEM_ECHO_MACE
+            return "Echo Mace"
+        case ITEM_MIDNIGHT_MACE
+            return "Midnight Mace"
+        case ITEM_INVOCATION
+            return "Invocation"
+        case ITEM_DOOMS_GRAND_STAFF
+            return "Doom's Grand Staff"
+        case ITEM_SWAN_SONG
+            return "Swan Song"
+        case ITEM_VENGEANCE_WAR_STAFF
+            return "Vengeance War Staff"
+        case ITEM_HONED_WARPWOOD_GRAND_STAFF
+            return "Honed Warpwood Grand Staff"
+        case ITEM_FIERCE_GREATSTAFF
+            return "Fierce Greatstaff"
+        case ITEM_MERCY
+            return "Mercy"
+        case ITEM_SOUL_SILK_CAPE
+            return "Soul Silk Cape"
+        case ITEM_CAPE_OF_CURSED
+            return "Cape of Cursed"
+        case ITEM_BINDING_SORROW_CLOAK
+            return "Binding Sorrow Cloak"
+        case ITEM_FUSION_HIDE_DRAPE
+            return "Fusion Hide Drape"
+        case ITEM_PADDED_GREATCLOAK
+            return "Padded Greatcloak"
+        case ITEM_BLOODIED_WOOL_CLOAK
+            return "Bloodied Wool Cloak"
+        case ITEM_SIMPLE_RING
+            return "Simple Ring"
+        case ITEM_OLD_RING
+            return "Old Ring"
+        case ITEM_RING_OF_MEDIVH
+            return "Ring of Medivh"
+        case ITEM_RING_OF_MYSTERY
+            return "Ring of Mystery"
+        case ITEM_HOLLHOVER
+            return "Hollhover"
+        case ITEM_GOLD_SIMPLE_RING
+            return "Gold Simple Ring"
+        case ITEM_DOMINION_RING
+            return "Dominion Ring"
+        case ITEM_RING_OF_FAKE_SUN
+            return "Ring Of Fake Sun"
+        case ITEM_RING_OF_LEGACY
+            return "Ring Of Legacy"
+        case ITEM_STEEL_HAMMER
+            return "Steel Hammer"
+        case ITEM_SIMPLE_HAMMER
+            return "Simple Hammer"
+        case ITEM_GIANT_HAMMER
+            return "Giant Hammer"
+        case ITEM_WARRIOR_HAMMER
+            return "Warrior Hammer"
+        case ITEM_PLATE_HAMMER
+            return "Plate Hammer"
+        case ITEM_FUSION_HAMMER
+            return "Fusion Hammer"
+        case ITEM_FIREHELL_HAMMER
+            return "Firehell Hammer"
+        case ITEM_THUNDERCHAOS_HAMMER
+            return "Thunderchaos Hammer"
+        case ITEM_GOLDEN_HAMMER
+            return "Golden Hammer"
+        case ITEM_ARMOR_OF_SACRED
+            return "Armor of Sacred"
+        case ITEM_ARMOR_OF_HELL
+            return "Armor of Hell"
+        case ITEM_THIEF_SILVER_ARMOR
+            return "Silver Armor"
+        case ITEM_SILVER_GIANT_ARMOR
+            return "Silver Giant Armor"
+        case ITEM_SILVER_SPLIT_ARMOR
+            return "Silver Split Armor"
+        case ITEM_DESTROYER_ARMOR
+            return "Destroyer Armor"
+        case ITEM_POISON_ORB
+            return "Poison Orb"
+        case ITEM_BLOOD_ORB
+            return "Blood Orb"
+        case ITEM_EARTH_ORB
+            return "Earth Orb"
+        case ITEM_GOLD_CRYSTAL_ORB
+            return "Gold Crystal Orb"
+        case ITEM_LIGHT_THUNDER_ORB
+            return "Light Thunder Orb"
+        case ITEM_CHAOS_ORB
+            return "Chaos Orb"
+        case ITEM_FUSION_ORB
+            return "Fusion Orb"
+        case ITEM_GOLDEN_ORB
+            return "Golden Orb"
+        case ITEM_LONELY_WOOL_BOOTS
+            return "Lonely Wool Boots"
+        case ITEM_LEATHER_BOOTS
+            return "Leather Boots"
+        case ITEM_LEATHER_GIANT_BOOTS
+            return "Leather Giant Boots"
+        case ITEM_HEAVY_BOOTS
+            return "Heavy Boots"
+        case ITEM_MENDED_DEMON_WARBOOTS
+            return "Mended Demon Warboots"
+        case ITEM_BLOOD_INFUSED_LINEN_BOOTS
+            return "Blood Infused Linen Boots"
+        case ITEM_FIRESOUL_WOOL_BOOTS
+            return "Firesoul Wool Boots"
+        case ITEM_BLOSSOM_RING
+            return "Blossom Ring"
+        case ITEM_FREE_PLEDGE_RING
+            return "Free Pledge Ring"
+        case ITEM_BLIND_BUBBLE_NECKLACE
+            return "The Blind Bubble Necklace"
+        case ITEM_AGED_IMAGE
+            return "The Aged Image"
+        case ITEM_TENDER_LEAF
+            return "The Tender Leaf"
+        case ITEM_SUN_NECKLACE
+            return "Sun Necklace"
+        case ITEM_FAINT_TRINKET_NECKLACE
+            return "The Faint Trinket Necklace"
+        case ITEM_MYSTERY_PURPLE_STAFF
+            return "Mystery Purple Staff"
+        case ITEM_FROZEN_CLOTH_GREATCLOAK
+            return "Frozen Cloth Greatcloak"
+        case ITEM_INHERITED_ARMOR
+            return "Inherited Armor"
+        case ITEM_MATRIX_ORB
+            return "Matrix Orb"
+        case ITEM_SONG_BROOCH
+            return "Song Brooch"
+        case ITEM_MYSTERY_RED_STAFF
+            return "Mystery Red Staff"
+        case ITEM_FROZEN_STAFF
+            return "Frozen Staff"
+        case ITEM_HYDRAS_TREASURE_BIG
+            return "Hydra's Big Treasure"
+        case ITEM_HYDRAS_TREASURE_PERFECT
+            return "Hydra's Treasure Perfect"
+        case ITEM_SPIDERS_TREASURE_BIG
+            return "Spider's Big Treasure"
+        case ITEM_SPIDERS_TREASURE_PERFECT
+            return "Spider's Treasure Perfect"
+        case ITEM_ROYAL_ARMOR_L1
+            return "Royal Armor 1"
+        case ITEM_ROYAL_ARMOR_L2
+            return "Royal Armor 2"
+        case ITEM_ROYAL_ARMOR_L3
+            return "Royal Armor 3"
+        case ITEM_COMPOSITE_ARMOR_L1
+            return "Compositel Armor 1"
+        case ITEM_COMPOSITE_ARMOR_L2
+            return "Compositel Armor 2"
+        case ITEM_COMPOSITE_ARMOR_L3
+            return "Compositel Armor 3"
+        case ITEM_ROYAL_ARMOR_L4
+            return "Royal Armor 4"
+        case ITEM_ROYAL_ARMOR_L5
+            return "Royal Armor 5"
+        case ITEM_LIMIT_ARMOR
+            return "Limit Armor"
+        case ITEM_DRONE_ARMOR
+            return "Drone Armor"
+        case ITEM_DREAD_HELM_L1
+            return "Dread Helm 1"
+        case ITEM_DREAD_HELM_L2
+            return "Dread Helm 2"
+        case ITEM_DREAD_HELM_L3
+            return "Dread Helm 3"
+        case ITEM_DREAD_HELM_L4
+            return "Dread Helm 4"
+        case ITEM_DREAD_HELM_L5
+            return "Dread Helm 5"
+        case ITEM_GLOW_GLOVES_L1
+            return "Glow Gloves 1"
+        case ITEM_GLOW_GLOVES_L2
+            return "Glow Gloves 2"
+        case ITEM_GLOW_GLOVES_L3
+            return "Glow Gloves 3"
+        case ITEM_GLOW_GLOVES_L4
+            return "Glow Gloves 4"
+        case ITEM_GLOW_GLOVES_L5
+            return "Glow Gloves 5"
+        case ITEM_PLATINUM_SHIELD_L1
+            return "Platium Shield 1"
+        case ITEM_PLATINUM_SHIELD_L2
+            return "Platium Shield 2"
+        case ITEM_PLATINUM_SHIELD_L3
+            return "Platium Shield 3"
+        case ITEM_PLATINUM_SHIELD_L4
+            return "Platium Shield 4"
+        case ITEM_PLATINUM_SHIELD_L5
+            return "Platium Shield 5"
+        case ITEM_PLATINUM_SHIELD_L6
+            return "Platium Shield 6"
+        case ITEM_STORM_BOOTS_L1
+            return "Storm Boots 1"
+        case ITEM_STORM_BOOTS_L2
+            return "Storm Boots 2"
+        case ITEM_STORM_BOOTS_L3
+            return "Storm Boots 3"
+        case ITEM_STORM_BOOTS_L4
+            return "Storm Boots 4"
+        case ITEM_STORM_BOOTS_L5
+            return "Storm Boots 5"
+        case ITEM_STORM_BOOTS_L6
+            return "Storm Boots 6"
+        case ITEM_STORM_BOOTS_L7
+            return "Storm Boots 7"
+        case ITEM_MEDIVL_BOOTS
+            return "Medivl Boots"
+        case ITEM_DEMONIC_BOOTS
+            return "Demonic Boots"
+        case ITEM_IMPERIAL_BOOTS
+            return "Imperial Boots"
+        case ITEM_RAVEN_BLADE_L1
+            return "Raven Blade 1"
+        case ITEM_RAVEN_BLADE_L2
+            return "Raven Blade 2"
+        case ITEM_RAVEN_BLADE_L3
+            return "Raven Blade 3"
+        case ITEM_RAVEN_BLADE_L4
+            return "Raven Blade 4"
+        case ITEM_RAVEN_BLADE_L5
+            return "Raven Blade 5"
+        case ITEM_BERSERKERS_BLADE
+            return "Berserkers Blade"
+        case ITEM_EXOTIC_AXE_L1
+            return "Exotic Axe 1"
+        case ITEM_EXOTIC_AXE_L2
+            return "Exotic Axe 2"
+        case ITEM_EXOTIC_AXE_L3
+            return "Exotic Axe 3"
+        case ITEM_EXOTIC_AXE_L4
+            return "Exotic Axe 4"
+        case ITEM_EXOTIC_AXE_L5
+            return "Exotic Axe 5"
+        case ITEM_EXOTIC_AXE_L6
+            return "Exotic Axe 6"
+        case ITEM_EXOTIC_AXE_L7
+            return "Exotic Axe 7"
+        case ITEM_EXOTIC_AXE_L8
+            return "Exotic Axe 8"
+        case ITEM_FIRE_AXE_L1
+            return "Fire Axe 1"
+        case ITEM_FIRE_AXE_L2
+            return "Fire Axe 2"
+        case ITEM_FIRE_AXE_L3
+            return "Fire Axe 3"
+        case ITEM_GOLDEN_STAFF_L1
+            return "Golden Staff 1"
+        case ITEM_GOLDEN_STAFF_L2
+            return "Golden Staff 2"
+        case ITEM_GOLDEN_STAFF_L3
+            return "Golden Staff 3"
+        case ITEM_HEAVEN_STAFF_L1
+            return "Heaven Staff 1"
+        case ITEM_HEAVEN_STAFF_L2
+            return "Heaven Staff 2"
+        case ITEM_HEAVEN_STAFF_L3
+            return "Heaven Staff 3"
+        case ITEM_NERUBIAN_STAFF_L1
+            return "Nerubian Staff 1"
+        case ITEM_DEAD_EYES
+            return "Dead Eyes"
+        case ITEM_NECKLACE_OF_SPELL_IMMUNITY
+            return "Necklace of Spell Immunity"
+        case ITEM_NECKLACE_OF_WOLFMAN
+            return "Necklace of Wolfman"
+        case ITEM_JEWELRY_OF_HERMES
+            return "Jewelry of Hermes"
+        case ITEM_JEWELRY_OF_DIARES
+            return "Jewelry of Diares"
+        case ITEM_JEWELRY_OF_ISSABELLA
+            return "Jewelry of Issabella"
+        case ITEM_LIGHT_OF_MOON
+            return "Light of the Moon"
+        case ITEM_PENDANT_OF_MUGEN
+            return "Pendant of Mugen"
+        case ITEM_JEWELRY_OF_MOON
+            return "Jewelry of Moon"
+        case ITEM_NECKLACE_OF_ROYAL
+            return "Necklace of Royal"
+        case ITEM_NECROPEDIA
+            return "Necropedia"
+        case ITEM_LOKI_NECKLACE
+            return "Loki's Necklace"
+        case ITEM_SOFT_SHOULDER
+            return "Soft Shoulder"
+        case ITEM_HARD_SHOULDER
+            return "Hard Shoulder"
+        case ITEM_HEAVY_SHOULDER
+            return "Heavy Shoulder"
+        case ITEM_ROYAL_SHOULDER
+            return "Royal Shoulder"
+        case ITEM_AMULET_OF_LUCIFER
+            return "Amulet of Lucifer"
+        case ITEM_VEJOVIS
+            return "Vejovis"
+        case ITEM_HYDRAS_TREASURE
+            return "Hydra's Treasure"
+        case ITEM_SPIDERS_TREASURE
+            return "Spider's Treasure"
+        case ITEM_CHIMAERAS_LIGHNING_POWER
+            return "Chimaera's Lighning Power"
+        case ITEM_THUNDER_BOW_II
+            return "Thunder Bow II"
+        case ITEM_ABO_TREASURE
+            return "Abo' Treasure"
+        case ITEM_DARKNESS
+            return "Darkness"
+        case ITEM_BELT_OF_SLAYER
+            return "Belt of Slayer"
+        case ITEM_BELT_OF_GUARDIAN
+            return "Belt of Guardian"
+        case ITEM_BELT_OF_GLADIATOR
+            return "Belt of Gladiator"
+        case ITEM_BELT_OF_OCEANUS
+            return "Belt of Oceanus"
+        case ITEM_HYPERION
+            return "Hyperion"
+        case ITEM_ANGEL_MACE_L5
+            return "Angel Mace +5"
+        case ITEM_CALL_OF_FURBOLG_URSA
+            return "Call of Furbolg Ursa Warrior"
+        case ITEM_CALL_OF_DOOM
+            return "Call of Doom"
+        case ITEM_CALL_OF_FLESH_GOLEM
+            return "Call of Flesh Golem"
+        case ITEM_CHAINS_RING
+            return "Chains Ring"
+        case ITEM_RING_OF_HEAVEN
+            return "Ring of Heaven"
+        case ITEM_RING_OF_WITCH
+            return "Ring of Witch"
+        case ITEM_EMERALD_RING
+            return "Emerald Ring"
+        case ITEM_ICE_RING
+            return "Ice Ring"
+        case ITEM_ROLL_RING
+            return "Roll Ring"
+        case ITEM_BRYNHILDR
+            return "Brynhildr"
+        case ITEM_FROSMOUNE_L5
+            return "Frostmourne +5"
+        case ITEM_IRONWOOD_BRANCH
+            return "Ironwood Branch"
+        case ITEM_SPIKE_OF_CRYPTLORD
+            return "Spike of Cryptlord"
+        case ITEM_CLOAK_OF_FLAMES
+            return "Cloak of Flames"
+        case ITEM_SCORPION_POTION
+            return "Scorpion Potion"
+        case ITEM_O3_CLOCK
+            return "OOO'Clock"
+        case ITEM_O9_CLOCK
+            return "O9'Clock"
+        case ITEM_RECIPE_O3_CLOCK
+            return "Treasure of Tinker (Recipe 8)"
+        case UPGRADE_BASE_ARMOR
+            return "Upgrade Armor"
+        case UPGRADE_BASE_HEALTH
+            return "Upgrade Health"
+        case ITEM_FROST_SHIELD
+            return "Frost Shield"
+        case ITEM_QUEST
+            return "Acquire Quest"
 
-            default
-                return "Not implemented"
-    else
-        return "don't use runtime"
+        default
+            return "Not implemented"
