@@ -18,6 +18,7 @@ public class Recipe
         completedItem = tempList.get(0)
         tempList.remove(0)
         items.addAll(tempList)
+        destroy tempList
 
     construct(int item1, int completedItem)
         items.add(item1)

@@ -28,3 +28,4 @@ public function metalStrength()
                     bs.removeItemById(foundRecipe.items.get(i))
                 let newite = bs.addItemById(foundRecipe.completedItem)
                 newite.setPos(bs.getPos())
+                destroy itemInBs
