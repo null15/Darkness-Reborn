@@ -47,7 +47,7 @@ let difficultyDamageIncrease = [0.5, 0.75, 1., 1.5, 2.]
 texttag justaposeCrit
 
 function unit.calculateMagicRes() returns real
-    let magicResCalc = this.getMagicResist()
+    let magicResCalc = this.getRes(resistanceType.MAGICAL)
     return 1-(magicResCalc)
 
 function returnReducedDamage() returns real
@@ -62,8 +62,8 @@ init
             DamageEvent.setAmount(DamageEvent.getAmount() * difficultyDamageIncrease[gameMode])
         switch DamageEvent.getType()
             case ATTACK
-                if(returnReducedDamage() > 0 and unitStatMap.has(src.getTypeId()))
-                    DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
+                if(returnReducedDamage() > 0)
+                    DamageEvent.addAmount(returnReducedDamage() * src.getPen(penetrationType.PHYSICAL))
                 if src.isType(UNIT_TYPE_RANGED_ATTACKER)
                     physicalDamageChecks(0, src, targ, WEAPON_TYPE_AXE_MEDIUM_CHOP)
                 else
@@ -80,7 +80,7 @@ init
                 DamageEvent.setAmount(DamageEvent.getAmount() * 1.111111111)
                 if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
                     if(returnReducedDamage() > 0 and unitStatMap.has(src.getTypeId()))
-                        DamageEvent.addAmount(returnReducedDamage() * src.getPhysPenetration())
+                        DamageEvent.addAmount(returnReducedDamage() * src.getPen(penetrationType.PHYSICAL))
                     physicalDamageChecks(damId, src, targ, DamageEvent.getWeaponType())
                 else if (DamageEvent.getDamageType() == DAMAGE_TYPE_MAGIC)
                     magicDamageChecks(damId, src, targ)

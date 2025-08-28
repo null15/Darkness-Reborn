@@ -223,17 +223,23 @@ init
 function unit.getItemBySlot(int slot) returns item
     return UnitItemInSlot(this, slot)
 
-public function integer.getPhysPenetration() returns real
-    return unitStatMap.get(this).getCombinedPen(penetrationType.PHYSICAL)
+public function integer.getPen(penetrationType typeToGet) returns real
+    let stateMap = unitStatMap.get(this)
+    if stateMap == null
+        return 0
+    return stateMap.getCombinedPen(typeToGet)
 
-public function unit.getPhysPenetration() returns real
-    return unitStatMap.get(this.getTypeId()).getCombinedPen(penetrationType.PHYSICAL)
+public function unit.getPen(penetrationType typeToGet) returns real
+    return this.getTypeId().getPen(typeToGet)
 
-public function unit.getMagicResist() returns real
-    return unitStatMap.get(this.getTypeId()).getResistance(resistanceType.MAGICAL)
+public function integer.getRes(resistanceType typeToGet) returns real
+    let stateMap = unitStatMap.get(this)
+    if stateMap == null
+        return 0
+    return stateMap.getResistance(typeToGet)
 
-public function integer.getMagicResist() returns real
-    return unitStatMap.get(this).getResistance(resistanceType.MAGICAL)
+public function unit.getRes(resistanceType typeToGet) returns real
+    return this.getTypeId().getRes(typeToGet)
 
 public function int.putInPhysPenItemHash(real input)
     physPenItemHash.put(this, input * 0.01)
@@ -306,5 +312,5 @@ function statscheck()
         if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-stats"
             let p = GetTriggerPlayer()
             let u = playerHero.get(p)
-            printTimedToPlayer("Physical Penetration: "+ (u.getPhysPenetration() * 100).toString() + "%" +
-            "\nMagic Ressistence: "+ (u.getMagicResist() * 100).toString() +"%", 10, p)
+            printTimedToPlayer("Physical Penetration: "+ (u.getPen(penetrationType.PHYSICAL) * 100).toString() + "%" +
+            "\nMagic Ressistence: "+ (u.getRes(resistanceType.MAGICAL) * 100).toString() +"%", 10, p)

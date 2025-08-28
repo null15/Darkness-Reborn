@@ -118,7 +118,9 @@ function player.initiateFountainQuest(HashSet<int> targetUnitType, int rarity)
 
 public function unit.questItemPickup()
     EventListener.add(this, EVENT_PLAYER_UNIT_SELL_ITEM) ->
-        if EventData.getSoldItem().getTypeId() == ITEM_QUEST
+        let questItem = EventData.getSoldItem()
+        if questItem.getTypeId() == ITEM_QUEST
+            questItem.remove()
             let questOwner = EventData.getBuyingUnit().getOwner()
             if questListsOwners.get(questOwner).questListFull()
                 let lvl = playerHero.get(questOwner).getLevel()

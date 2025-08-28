@@ -212,7 +212,7 @@ function wavesSetup()
 
 
 function continueUnitStats(integer uId) returns string
-	return "|r\n|c00aa3101Physical Pen: " + (uId.getPhysPenetration() * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (uId.getMagicResist() * 100).toString() + "%|r\n"
+	return "|r\n|c00aa3101Physical Pen: " + (uId.getPen(penetrationType.PHYSICAL) * 100).toString() + "%|r\n|c003228ffMagical Resistance: " + (uId.getRes(resistanceType.MAGICAL) * 100).toString() + "%|r\n"
 
 function unit.unitStats(int whichSide)
 	let uId = this.getTypeId()

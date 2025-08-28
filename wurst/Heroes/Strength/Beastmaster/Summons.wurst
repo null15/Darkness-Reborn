@@ -33,7 +33,7 @@ public function quilBeast()
                 summon.setMaxHP(((0.25*summoner.getMaxHP()) + lvl * 125).toInt(), true)
                 summon.setArmor(0.4 * summoner.getArmor() + lvl * 8)
                 summon.setBaseDamage((0.15 * str + lvl * 10).toInt(), 0)
-                summon.enumeratePhysicalPenetration(summoner.getPhysPenetration() * lvl)
+                summon.enumeratePhysicalPenetration(summoner.getPen(penetrationType.PHYSICAL) * lvl)
                 if lvl == 8
                     BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)
                 if lvl == 9
@@ -44,7 +44,7 @@ public function quilBeast()
                 summon.setMaxHP(((0.01*summoner.getMaxHP()) + lvl * 125).toInt(), true)
                 summon.setArmor(0.15 * summoner.getArmor() + lvl * 4)
                 summon.setBaseDamage((0.4 * str).toInt() + lvl * 15, 0)
-                summon.enumeratePhysicalPenetration(summoner.getPhysPenetration() * 2 * lvl)
+                summon.enumeratePhysicalPenetration(summoner.getPen(penetrationType.PHYSICAL) * 2 * lvl)
                 if lvl > 5
                     BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)
                 if lvl == 9
@@ -54,7 +54,7 @@ public function quilBeast()
                 summon.setMaxHP(((0.05*summoner.getMaxHP()) + lvl * 125).toInt(), true)
                 summon.setArmor(0.1 * summoner.getArmor() + lvl * 2)
                 summon.setBaseDamage((0.75 * str).toInt() + lvl * 20, 0)
-                summon.enumeratePhysicalPenetration(summoner.getPhysPenetration() * 3 * lvl)
+                summon.enumeratePhysicalPenetration(summoner.getPen(penetrationType.PHYSICAL) * 3 * lvl)
                 if lvl > 5
                     BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)
                 if lvl == 9

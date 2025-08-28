@@ -11,16 +11,12 @@ framehandle helpBtni
 framehandle tooltipText
 framehandle tooltipBackdrop
 public framehandle array ui_QuestEntries
-public int questCount = 0
 
 //ui_Btn[1] - its the button itself
 //ui_Btn[100] - its the backdrop of the frame
 //ui_Btn[200] - its the log
 //ui_Btn[300] - its the mini-name
 init
-
-
-
     doAfter(1.) ->
         helpBtni = createFrame("IconButtonTemplate")
             ..setAbsPoint(FRAMEPOINT_BOTTOMLEFT, 0, 0.17)
@@ -60,6 +56,15 @@ init
         tooltipBackdrop.setAbsPoint(FRAMEPOINT_BOTTOMLEFT, 0, 0.19)
         tooltipBackdrop.setVisible(false)
 
+        // Prefil 15 quest frames
+        for int i = 0 to 14
+            let btnIndex = 400 + i
+            ui_Btn[btnIndex] = createFrame("TEXT", "questEntry", ui_Btn[200], "", 0)
+            ui_Btn[btnIndex].setSize(0.3, 0.03)
+            ui_Btn[btnIndex].setScale(0.6)
+            ui_Btn[btnIndex].setTextAlignment(TEXT_JUSTIFY_LEFT, TEXT_JUSTIFY_CENTER)
+            ui_Btn[btnIndex].setAbsPoint(FRAMEPOINT_TOPLEFT, 0.02, 0.45 - (i * 0.03))
+
         let hoverTrig = CreateTrigger()
         BlzTriggerRegisterFrameEvent(hoverTrig, helpBtni, FRAMEEVENT_MOUSE_ENTER)
         hoverTrig.addAction(() -> begin
@@ -78,42 +83,26 @@ init
         onKeyPress(OSKEY_F3) -> 
             toggleQuestPanel()
 
-
 function toggleQuestPanel()
-    if GetLocalPlayer() != GetTriggerPlayer()
+    let localPlayer = GetLocalPlayer()
+    if localPlayer != GetTriggerPlayer()
         return
 
-    if BlzFrameIsVisible(ui_Btn[200])
-        ui_Btn[200].setVisible(false)
+    if ui_Btn[200].isVisible(localPlayer)
+        ui_Btn[200].setVisible(localPlayer,false)
         tooltipText.setText("|cffffcc00[F3]|r |cffffffccOpen Quest Log|r")
     else
         // Update the dynamic quest list each time we open
-        ui_Btn[200].setVisible(true)
+        ui_Btn[200].setVisible(localPlayer,true)
         tooltipText.setText("|cffffcc00[F3]|r |cffffffccClose Quest Log|r")
-        updateQuestPanel()
+        updateQuestPanel(localPlayer)
 
     helpBtni.unfocus()
 
 
-function updateQuestPanel()
-    let localPlayer = GetLocalPlayer()
-    let triggerPlayer = GetTriggerPlayer()
-
-    if localPlayer != triggerPlayer
-        DisplayTimedTextToPlayer(localPlayer, 0, 0, 5., "DEBUG: Not local player, skipping update")
-        return
-
-
-    // Create main panel if it doesn't exist
-    if ui_Btn[200] == null
-        ui_Btn[200] = BlzCreateFrameByType("FRAME", "questPanel", BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0), "", 0)
-        ui_Btn[200].setSize(0.35, 0.5)
-        ui_Btn[200].setAbsPoint(FRAMEPOINT_TOPLEFT, 0.02, 0.95)
-        ui_Btn[200].setVisible(true)
-        DisplayTimedTextToPlayer(localPlayer, 0, 0, 5., "DEBUG: Created main panel")
-
+function updateQuestPanel(player localPlayer)
     // Hide previous quest entries
-    for int i = 400 to 499
+    for int i = 400 to 414
         if ui_Btn[i] != null
             ui_Btn[i].setVisible(false)
 
@@ -122,37 +111,25 @@ function updateQuestPanel()
     let quests = questList.getQuestHashList()
     let count = quests.size()
 
-
     // Show placeholder if no quests
     if count == 0
         let btnIndex = 400
-        if ui_Btn[btnIndex] == null
-            ui_Btn[btnIndex] = BlzCreateFrameByType("TEXT", "questEntryEmpty", ui_Btn[200], "", 0)
-            ui_Btn[btnIndex].setSize(0.3, 0.05)
-            ui_Btn[btnIndex].setScale(0.6)
-            ui_Btn[btnIndex].setTextAlignment(TEXT_JUSTIFY_LEFT, TEXT_JUSTIFY_CENTER)
-            ui_Btn[btnIndex].setAbsPoint(FRAMEPOINT_TOPLEFT, 0.02, 0.45)
+        ui_Btn[btnIndex].setSize(0.3, 0.05)
+        ui_Btn[btnIndex].setScale(0.6)
+        ui_Btn[btnIndex].setTextAlignment(TEXT_JUSTIFY_LEFT, TEXT_JUSTIFY_CENTER)
+        ui_Btn[btnIndex].setAbsPoint(FRAMEPOINT_TOPLEFT, 0.02, 0.45)
         ui_Btn[btnIndex].setText("|cffffcc00No quests available|r")
-        ui_Btn[btnIndex].setVisible(true)
+        ui_Btn[btnIndex].setVisible(localPlayer,true)
         return
 
     // Display dynamic quest entries
     for int idx = 0 to count - 1
         let questText = quests.get(idx)
         let btnIndex = 400 + idx
-
-        if ui_Btn[btnIndex] == null
-            ui_Btn[btnIndex] = BlzCreateFrameByType("TEXT", "questEntry" + I2S(idx), ui_Btn[200], "", 0)
+        if(btnIndex == 400)
             ui_Btn[btnIndex].setSize(0.3, 0.03)
             ui_Btn[btnIndex].setScale(0.6)
             ui_Btn[btnIndex].setTextAlignment(TEXT_JUSTIFY_LEFT, TEXT_JUSTIFY_CENTER)
             ui_Btn[btnIndex].setAbsPoint(FRAMEPOINT_TOPLEFT, 0.02, 0.45 - (idx * 0.03))
-
         ui_Btn[btnIndex].setText(questText)
-        ui_Btn[btnIndex].setVisible(true)
-
-
-
-
-
-
+        ui_Btn[btnIndex].setVisible(localPlayer,true)
