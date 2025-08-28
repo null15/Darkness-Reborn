@@ -64,7 +64,7 @@ init
             case ATTACK
                 if(returnReducedDamage() > 0)
                     DamageEvent.addAmount(returnReducedDamage() * src.getPen(penetrationType.PHYSICAL))
-                if src.isType(UNIT_TYPE_RANGED_ATTACKER)
+                if src.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 0) > 210
                     physicalDamageChecks(0, src, targ, WEAPON_TYPE_AXE_MEDIUM_CHOP)
                 else
                     physicalDamageChecks(0, src, targ, WEAPON_TYPE_WHOKNOWS)

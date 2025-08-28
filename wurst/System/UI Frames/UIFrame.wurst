@@ -3,6 +3,7 @@ import public ClosureFrames
 import ClosureTimers
 import ClosureKeyPresses
 import Icons
+import Quests
 import QuestList
 import HashList
 
@@ -108,8 +109,12 @@ function updateQuestPanel(player localPlayer)
 
     let questList = questListsOwners.get(localPlayer)
 
-    let quests = questList.getQuestHashList()
+    let quests = questList.getQuestList()
     let count = quests.size()
+
+    // Set frame ownership to quests
+    for int i = 0 to count - 1
+        quests.get(i).setQuestFrame(ui_Btn[400+i])
 
     // Show placeholder if no quests
     if count == 0
@@ -124,12 +129,15 @@ function updateQuestPanel(player localPlayer)
 
     // Display dynamic quest entries
     for int idx = 0 to count - 1
-        let questText = quests.get(idx)
+        let questText = quests.get(idx).getQuestText()
         let btnIndex = 400 + idx
         if(btnIndex == 400)
             ui_Btn[btnIndex].setSize(0.3, 0.03)
             ui_Btn[btnIndex].setScale(0.6)
             ui_Btn[btnIndex].setTextAlignment(TEXT_JUSTIFY_LEFT, TEXT_JUSTIFY_CENTER)
             ui_Btn[btnIndex].setAbsPoint(FRAMEPOINT_TOPLEFT, 0.02, 0.45 - (idx * 0.03))
-        ui_Btn[btnIndex].setText(questText)
+        if(quests.get(idx).getQuestStatus())
+            ui_Btn[btnIndex].setText("Quest completed!")
+        else
+            ui_Btn[btnIndex].setText(questText)
         ui_Btn[btnIndex].setVisible(localPlayer,true)

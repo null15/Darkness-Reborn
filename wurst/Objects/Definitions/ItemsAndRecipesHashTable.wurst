@@ -5,6 +5,10 @@ import HashMap
 
 let itemRecipeHasTable = compiletime(new HashMap<int, int>())
 
+init
+    itemRecipeHasTable.flush()
+    destroy itemRecipeHasTable
+
 @compiletime
 function initHasTable()
     itemRecipeHasTable.put(ITEM_ICE_SWORD, ITEM_RECIPE_ICE_SWORD)

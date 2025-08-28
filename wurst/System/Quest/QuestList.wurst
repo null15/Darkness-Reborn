@@ -4,12 +4,15 @@ import Quests
 import ClosureEvents
 import HashSet
 import HashMap
+import LinkedList
 
 public class QuestList
-    private let instantIntKillAnyList = new HashSet<QuestIntKillAnyInstant>
-    private let instantIntKillTargetList = new HashSet<QuestIntKillTargetInstant>
-    private let instantIntKillLevelRangeList = new HashSet<QuestIntKillLevelRangeInstant>
-    private let instantIntKillLevelLowestList = new HashSet<QuestIntKillLowestLevelInstant>
+
+    private let quests = new LinkedList<Quest>()
+    private let instantIntKillAnyList = new LinkedList<QuestIntKillAnyInstant>
+    private let instantIntKillTargetList = new LinkedList<QuestIntKillTargetInstant>
+    private let instantIntKillLevelRangeList = new LinkedList<QuestIntKillLevelRangeInstant>
+    private let instantIntKillLevelLowestList = new LinkedList<QuestIntKillLowestLevelInstant>
     player listOwner
     
     construct(player listOwner)
@@ -34,60 +37,28 @@ public class QuestList
         else
             return true
 
+    function getQuestList() returns LinkedList<Quest>
+        return quests
+
+
     function printQuestList()
-        instantIntKillAnyList.forEach() (QuestIntKillAnyInstant t) ->
-            printTimedToPlayer(t.getTitle() + "\n|cffc2b30arequired kills |r" + t.getRequired().toString() + "\n|cff921313kills left " + (t.getRequired()-t.getResource()).toString() + "|r", 10, listOwner)
-        instantIntKillTargetList.forEach() (QuestIntKillTargetInstant t) ->
-            printTimedToPlayer(t.getTitle() + "\n|cffc2b30arequired kills |r" + t.getRequired().toString() + "\n|cff921313kills left " + (t.getRequired()-t.getResource()).toString() + "|r", 10, listOwner)
-        instantIntKillLevelRangeList.forEach() (QuestIntKillLevelRangeInstant t) ->
-            printTimedToPlayer(t.getTitle() + "\n|cffc2b30arequired kills |r" + t.getRequired().toString() + "\n|cff921313kills left " + (t.getRequired()-t.getResource()).toString() + "|r", 10, listOwner)
-        instantIntKillLevelLowestList.forEach() (QuestIntKillLowestLevelInstant t) ->
-            printTimedToPlayer(t.getTitle() + "\n|cffc2b30arequired kills |r" + t.getRequired().toString() + "\n|cff921313kills left " + (t.getRequired()-t.getResource()).toString() + "|r", 10, listOwner) 
+        quests.forEach() (Quest t) ->
+            printTimedToPlayer(t.getQuestText(), 10, listOwner)
 
-    function removeQuest(QuestIntKillAnyInstant newQuest)
-        instantIntKillAnyList.remove(newQuest)
+    function removeQuest(Quest newQuest)
+        quests.remove(newQuest)
 
-    function removeQuest(QuestIntKillTargetInstant newQuest)
-        instantIntKillTargetList.remove(newQuest)
+    function addQuest(Quest newQuest)
+        quests.add(newQuest)
 
-    function removeQuest(QuestIntKillLevelRangeInstant newQuest)
-        instantIntKillLevelRangeList.remove(newQuest)
-
-    function removeQuest(QuestIntKillLowestLevelInstant newQuest)
-        instantIntKillLevelLowestList.remove(newQuest)
-
-    function addQuest(QuestIntKillAnyInstant newQuest)
-        instantIntKillAnyList.add(newQuest)
-
-    function addQuest(QuestIntKillTargetInstant newQuest)
-        instantIntKillTargetList.add(newQuest)
-
-    function addQuest(QuestIntKillLevelRangeInstant newQuest)
-        instantIntKillLevelRangeList.add(newQuest)
-
-    function addQuest(QuestIntKillLowestLevelInstant newQuest)
-        instantIntKillLevelLowestList.add(newQuest)
         
     function getQuestHashList() returns HashList<string>
-        let quests = new HashList<string>()
+        let questStrings = new HashList<string>()
 
-        instantIntKillAnyList.forEach() (QuestIntKillAnyInstant t) ->
-            quests.add(t.getTitle() + " |cffc2b30arequired kills |r" + I2S(t.getRequired()) + 
-                    " |cff921313kills left " + I2S(t.getRequired() - t.getResource()) + "|r")
+        quests.forEach() (Quest t) ->
+            questStrings.add(t.getQuestText())
 
-        instantIntKillTargetList.forEach() (QuestIntKillTargetInstant t) ->
-            quests.add(t.getTitle() + " |cffc2b30arequired kills |r" + I2S(t.getRequired()) + 
-                    " |cff921313kills left " + I2S(t.getRequired() - t.getResource()) + "|r")
-
-        instantIntKillLevelRangeList.forEach() (QuestIntKillLevelRangeInstant t) ->
-            quests.add(t.getTitle() + " |cffc2b30arequired kills |r" + I2S(t.getRequired()) + 
-                    " |cff921313kills left " + I2S(t.getRequired() - t.getResource()) + "|r")
-
-        instantIntKillLevelLowestList.forEach() (QuestIntKillLowestLevelInstant t) ->
-            quests.add(t.getTitle() + " |cffc2b30arequired kills |r" + I2S(t.getRequired()) + 
-                    " |cff921313kills left " + I2S(t.getRequired() - t.getResource()) + "|r")
-
-        return quests
+        return questStrings
 
 public let questListsOwners = new HashMap<player, QuestList>
 
@@ -98,7 +69,8 @@ init
             questListsOwners.put(p, new QuestList(p))
 
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) ->
-        if EventData.getChatMessage().toLowerCase() == "-quests"
+        let compareString = EventData.getChatMessage().toLowerCase()
+        if "-quests".contains(compareString)
             let p = EventData.getTriggerPlayer()
             if questListsOwners.has(p)
                 let questList = questListsOwners.get(p)
@@ -110,7 +82,7 @@ init
                      
 
 public function startExclusiveKillingTargetQuest(int required, player questOwner, HashSet<int> targetUnitType, string title, OnQuestComplete questDone)
-    let newQuest = new QuestIntKillTargetInstant(required, questOwner, title, targetUnitType) (questOwner, questToRemove) ->
+    let newQuest = new QuestIntKillTargetInstant(required, questOwner, title, targetUnitType, "Out of {1} there are |cff921313{0} |rleft to kill") (questOwner, questToRemove) ->
         questDone.questComplete(questOwner)
         questListsOwners.get(questOwner).removeQuest(questToRemove)
         destroy questDone
@@ -119,14 +91,14 @@ public function startExclusiveKillingTargetQuest(int required, player questOwner
 public function startKillingTargetQuest(int required, player questOwner, HashSet<int> targetUnitType, string title, OnQuestComplete questDone)
     let questList = questListsOwners.get(questOwner)
     if questList.questListFull()
-        let newQuest = new QuestIntKillTargetInstant(required, questOwner, title, targetUnitType) (questOwner, questToRemove) ->
+        let newQuest = new QuestIntKillTargetInstant(required, questOwner, title, targetUnitType, "Out of {1} there are |cff921313{0} |rleft to kill") (questOwner, questToRemove) ->
             questDone.questComplete(questOwner)
             questListsOwners.get(questOwner).removeQuest(questToRemove)
             destroy questDone
         questList.addQuest(newQuest)
 
 public function startExclusiveKillingAnyQuest(int required, player questOwner, string title, OnQuestComplete questDone)
-    let newQuest = new QuestIntKillAnyInstant(required, questOwner, title) (questOwner, questToRemove) ->
+    let newQuest = new QuestIntKillAnyInstant(required, questOwner, title, "|cff921313 {0} |rmonsters left ") (questOwner, questToRemove) ->
         questDone.questComplete(questOwner)
         questListsOwners.get(questOwner).removeQuest(questToRemove)
         destroy questDone
@@ -135,14 +107,14 @@ public function startExclusiveKillingAnyQuest(int required, player questOwner, s
 public function startKillingAnyQuest(int required, player questOwner, string title, OnQuestComplete questDone)
     let questList = questListsOwners.get(questOwner)
     if questList.questListFull()
-        let newQuest = new QuestIntKillAnyInstant(required, questOwner, title) (questOwner, questToRemove) ->
+        let newQuest = new QuestIntKillAnyInstant(required, questOwner, title, "|cff921313 {0} |rmonsters left ") (questOwner, questToRemove) ->
             questDone.questComplete(questOwner)
             questListsOwners.get(questOwner).removeQuest(questToRemove)
             destroy questDone
         questList.addQuest(newQuest)
 
 public function startExclusiveKillingLevelRangeQuest(int required, player questOwner, int lower_Range, int higher_Range, string title, OnQuestComplete questDone)
-    let newQuest = new QuestIntKillLevelRangeInstant(required, questOwner, title, lower_Range, higher_Range) (questOwner, questToRemove) ->
+    let newQuest = new QuestIntKillLevelRangeInstant(required, questOwner, title, lower_Range, higher_Range, "|cff921313 {0} |rmonsters between the levels {1} and {2} left to kill") (questOwner, questToRemove) ->
         questDone.questComplete(questOwner)
         questListsOwners.get(questOwner).removeQuest(questToRemove)
         destroy questDone
@@ -152,14 +124,14 @@ public function startExclusiveKillingLevelRangeQuest(int required, player questO
 public function startKillingLevelRangeQuest(int required, player questOwner, int lower_Range, int higher_Range, string title, OnQuestComplete questDone)
     let questList = questListsOwners.get(questOwner)
     if questList.questListFull()
-        let newQuest = new QuestIntKillLevelRangeInstant(required, questOwner, title, lower_Range, higher_Range) (questOwner, questToRemove) ->
+        let newQuest = new QuestIntKillLevelRangeInstant(required, questOwner, title, lower_Range, higher_Range, "|cff921313 {0} |rmonsters between the levels {1} and {2} left to kill") (questOwner, questToRemove) ->
             questDone.questComplete(questOwner)
             questListsOwners.get(questOwner).removeQuest(questToRemove)
             destroy questDone
         questList.addQuest(newQuest)
 
 public function startExclusiveKillingLowestLevelQuest(int required, player questOwner, int lowestLevel, string title, OnQuestComplete questDone)
-    let newQuest = new QuestIntKillLowestLevelInstant(required, questOwner, title, lowestLevel) (questOwner, questToRemove) ->
+    let newQuest = new QuestIntKillLowestLevelInstant(required, questOwner, title, lowestLevel, "|cff921313 {0} |rmonsters with the lowest level of {1} left") (questOwner, questToRemove) ->
         questDone.questComplete(questOwner)
         questListsOwners.get(questOwner).removeQuest(questToRemove)
         destroy questDone
@@ -168,7 +140,7 @@ public function startExclusiveKillingLowestLevelQuest(int required, player quest
 public function startKillingLowestLevelQuest(int required, player questOwner, int lowestLevel, string title, OnQuestComplete questDone)
     let questList = questListsOwners.get(questOwner)
     if questList.questListFull()
-        let newQuest = new QuestIntKillLowestLevelInstant(required, questOwner, title, lowestLevel) (questOwner, questToRemove) ->
+        let newQuest = new QuestIntKillLowestLevelInstant(required, questOwner, title, lowestLevel, "|cff921313 {0} |rmonsters with the lowest level of {1} left") (questOwner, questToRemove) ->
             questDone.questComplete(questOwner)
             questListsOwners.get(questOwner).removeQuest(questToRemove)
             destroy questDone

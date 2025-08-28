@@ -17,10 +17,12 @@ interface OnQuestKillLevelRangeComplete
 interface OnQuestKillLowestLevelComplete
     function questComplete(player questOwner, QuestIntKillLowestLevelInstant questToRemove)
 
-abstract class Quest
+public abstract class Quest
     protected bool done = false
     protected player questOwner
     protected string title
+    protected framehandle questFrame
+    protected string questText
 
     function getQuestOwner() returns player
         return questOwner
@@ -31,12 +33,21 @@ abstract class Quest
     function getTitle() returns string
         return title
 
+    abstract function getQuestText() returns string
+
     protected function toggleQuestStatus()
         done = not done
 
-    construct(player questOwner, string title)
+    function setQuestFrame(framehandle questFrame)
+        this.questFrame = questFrame
+
+    function updateQuestFrame(string textUpdate)
+        questFrame.setText(textUpdate)
+
+    construct(player questOwner, string title, string questText)
         this.questOwner = questOwner
         this.title = title
+        this.questText = questText
         printTimedToPlayer(title + " has started!", 5, questOwner)
         
 
@@ -45,8 +56,8 @@ class QuestIntInstant extends Quest
     int quest_requirement
     
 
-    construct(int quest_requirement, player questOwner, string title)
-        super(questOwner,title)
+    construct(int quest_requirement, player questOwner, string title, string questText)
+        super(questOwner,title, questText)
         this.quest_requirement = quest_requirement
 
     function addResource(int toAdd)
@@ -63,11 +74,14 @@ class QuestIntInstant extends Quest
     function getRequired() returns int
         return quest_requirement
 
+    override function getQuestText() returns string
+        return questText.format((quest_requirement-quest_resource).toString())
+
 public class QuestIntKillAnyInstant extends QuestIntInstant
     EventListener listener
 
-    construct(int quest_requirement, player questOwner, string title, OnQuestKillAnyComplete onComplete)
-        super(quest_requirement, questOwner, title)
+    construct(int quest_requirement, player questOwner, string title, string questText, OnQuestKillAnyComplete onComplete)
+        super(quest_requirement, questOwner, title, questText)
         listener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
             let killer = EventData.getKillingUnit()
             if killer.getOwner() == questOwner
@@ -82,13 +96,24 @@ public class QuestIntKillAnyInstant extends QuestIntInstant
                         destroy listener
                         destroy this
                     else
-                        printTimedToPlayer("|cff921313" + (quest_requirement-getResource()).toString() + "|r left ", 2, questOwner)
+                        let textToSet = getQuestText()
+                        questFrame.setText(textToSet)
+                        printTimedToPlayer(textToSet, 2, questOwner)
+    
+    override function getQuestText() returns string
+        return questText.format((quest_requirement-quest_resource).toString())
 
 public class QuestIntKillTargetInstant extends QuestIntInstant
     EventListener listener
+    string monsterNames
 
-    construct(int quest_requirement, player questOwner, string title, HashList<int> targetType, OnQuestKillTargetComplete onComplete)
-        super(quest_requirement, questOwner, title)
+    construct(int quest_requirement, player questOwner, string title, HashList<int> targetType, string questText,  OnQuestKillTargetComplete onComplete)
+        super(quest_requirement, questOwner, title, questText)
+        targetType.forEach() (integer t) ->
+            let tempUnit = createUnit(t)
+            monsterNames += tempUnit.getName() + "/"
+            tempUnit.remove()
+        monsterNames.substring(0, monsterNames.length()-1)
         listener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
             if targetType.has(GetDyingUnit().getTypeId())
                 let killer = GetKillingUnit()
@@ -105,13 +130,22 @@ public class QuestIntKillTargetInstant extends QuestIntInstant
                             destroy onComplete
                             destroy this
                         else
-                            printTimedToPlayer("|cff921313" + (quest_requirement-getResource()).toString() + "|r left ", 2, questOwner)
+                            let textToSet = getQuestText()
+                            questFrame.setText(textToSet)
+                            printTimedToPlayer(textToSet, 2, questOwner)
+    
+    override function getQuestText() returns string
+        return questText.format((quest_requirement-quest_resource).toString(),monsterNames)
 
 public class QuestIntKillLevelRangeInstant extends QuestIntInstant
     EventListener listener
+    int lowestRange
+    int highestRange
 
-    construct(int quest_requirement, player questOwner, string title, int lowRange, int highRange, OnQuestKillLevelRangeComplete onComplete)
-        super(quest_requirement, questOwner, title)
+    construct(int quest_requirement, player questOwner, string title, int lowRange, int highRange, string questText,  OnQuestKillLevelRangeComplete onComplete)
+        super(quest_requirement, questOwner, title, questText)
+        lowestRange = lowRange
+        highestRange = highRange
         listener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
             let dyingUnitLvl = EventData.getDyingUnit().getLevel()
             if dyingUnitLvl > lowRange and dyingUnitLvl < highRange
@@ -128,13 +162,20 @@ public class QuestIntKillLevelRangeInstant extends QuestIntInstant
                             destroy listener
                             destroy this
                         else
-                            printTimedToPlayer("|cff921313" + (quest_requirement-getResource()).toString() + "|r left ", 2, questOwner)
+                            let textToSet = getQuestText()
+                            questFrame.setText(textToSet)
+                            printTimedToPlayer(textToSet, 2, questOwner)
+
+    override function getQuestText() returns string
+        return questText.format((quest_requirement-quest_resource).toString(),lowestRange.toString(),highestRange.toString())
 
 public class QuestIntKillLowestLevelInstant extends QuestIntInstant
     EventListener listener
+    int lowestRange
 
-    construct(int quest_requirement, player questOwner, string title, int lowestLevel, OnQuestKillLowestLevelComplete onComplete)
-        super(quest_requirement, questOwner, title)
+    construct(int quest_requirement, player questOwner, string title, int lowestLevel, string questText,  OnQuestKillLowestLevelComplete onComplete)
+        super(quest_requirement, questOwner, title, questText)
+        lowestRange = lowestLevel
         listener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
             let dyingUnitLvl = GetDyingUnit().getLevel()
             if dyingUnitLvl > lowestLevel
@@ -151,4 +192,9 @@ public class QuestIntKillLowestLevelInstant extends QuestIntInstant
                             destroy listener
                             destroy this
                         else
-                            printTimedToPlayer("|cff921313" + (quest_requirement-getResource()).toString() + "|r left ", 2, questOwner)
+                            let textToSet = getQuestText()
+                            questFrame.setText(textToSet)
+                            printTimedToPlayer(textToSet, 2, questOwner)
+
+    override function getQuestText() returns string
+        return questText.format((quest_requirement-quest_resource).toString(),lowestRange.toString())

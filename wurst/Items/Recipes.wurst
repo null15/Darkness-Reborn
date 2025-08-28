@@ -2,7 +2,7 @@ package Recipes
 
 import LinkedList
 
-class Recipe
+public class Recipe
     let items = new LinkedList<int>
     int completedItem
 
