@@ -4,7 +4,7 @@ import AbilityIds
 import MyUpgradesIds
 import MyItemIds
 
-public let DEBUG = false
+import public DebugVar
 
 public function initDebug()
     if (not DEBUG)
