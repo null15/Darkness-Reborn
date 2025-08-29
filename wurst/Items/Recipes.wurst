@@ -11,15 +11,6 @@ public class Recipe
 
     construct()
 
-    function populateRecipe(vararg int itemsInRecipe) // Let first item be completed Item, rest are components
-        let tempList = new LinkedList<int>
-        for items in itemsInRecipe
-            tempList.add(items)
-        completedItem = tempList.get(0)
-        tempList.remove(0)
-        items.addAll(tempList)
-        destroy tempList
-
     construct(int item1, int completedItem)
         items.add(item1)
         this.completedItem = completedItem
