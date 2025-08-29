@@ -8,6 +8,7 @@ import ItemsNames
 import ItemObjEditing
 import LinkedList
 import ObjectIds
+import RecipeItems
 import public ItemStats
 import ObjectIdGenerator
 import ItemsAndRecipesHashTable

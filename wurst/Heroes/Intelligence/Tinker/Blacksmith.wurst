@@ -52,6 +52,7 @@ public function blacksmithDoAfter()
                                 printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed|r" + newitecur.getName(), 7)
                                 destroy perItem
                                 destroy rightList
+                            destroy itemInBs
                             bs.setAnimation("Stand")
                             timerTextTag.destr()
                         else
@@ -71,5 +72,6 @@ public function blacksmithDoAfter()
                 bs.setAnimation("Stand")
                 countedTime.stop()
                 timerTextTag.destr()
+                destroy itemInBs
                 destroy countedTime
                 countedTime = null

@@ -177,6 +177,7 @@ public class UnitStats
                 itemInUnit.forEach() (item t) ->
                     resistances += magicResItemHash.get(t.getTypeId())
                     unitStatMap.get(toEnumerate.getTypeId()).setResistance(resType, resistances)
+        destroy itemInUnit
 
     static function enumerateAllResistances(unit toEnumerate)
         if(unitStatMap.has(toEnumerate.getTypeId()))
@@ -196,7 +197,7 @@ public class UnitStats
             itemInUnit.add(toEnumerate.itemInSlot(i))
         itemInUnit.forEach() (item t) ->
             if(t == null)
-                itemInUnit.remove(t)
+                itemInUnit.remove(t)        
         var resistances = 0.
         switch penType
             case penetrationType.MAGICAL
@@ -211,6 +212,7 @@ public class UnitStats
                 itemInUnit.forEach() (item t) ->
                     resistances += magicResItemHash.get(t.getTypeId())
                     unitStatMap.get(toEnumerate.getTypeId()).setAdditivePen(penType, resistances)
+        destroy itemInUnit
 
     static function enumerateAllPens(unit toEnumerate)
         enumeratePens(toEnumerate, penetrationType.MAGICAL)
