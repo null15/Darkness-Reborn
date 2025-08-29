@@ -44,51 +44,6 @@ init
     ..addHotKey()
     ..register()
 
-//I0E1
-    new MyItemWithRecipeDefinition(ITEM_RAIN_SWORD, itemRecipeList, ITEM_RECIPE_RAIN_SWORD,
-    (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setGoldCost(35000)
-    )
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
-    ..setClassification("Artifact")
-    ..addStats(addAgi(350))
-    ..addStats(addArmor(70))
-    ..addStats(addDamage(700))
-    ..addComponents(
-    ITEM_AINZ_SWORD)
-    ..addHotKey()
-    ..register()
-
-//I0E2
-    new MyItemWithRecipeDefinition(ITEM_CORROSIVE_HAMMER, itemRecipeList, ITEM_RECIPE_CORROSIVE_HAMMER,
-    (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setGoldCost(35000)
-    )
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
-    ..setClassification("Artifact")
-    ..addStats(addStr(350))
-    ..addStats(addHp(6000))
-    ..addStats(addDamage(700))
-    ..addComponents(
-    ITEM_VOID_AXE)
-    ..addHotKey()
-    ..register()
-
-//I0E3
-    new MyItemWithRecipeDefinition(ITEM_VAMPIRELLA, itemRecipeList, ITEM_RECIPE_VAMPIRELLA,
-    (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setGoldCost(35000)
-    )
-    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
-    ..setClassification("Artifact")
-    ..addStats(addInt(400))
-    ..addStats(addMp(6000))
-    ..addStats(addDamage(700))
-    ..addComponents(
-    ITEM_SEER_STAFF)
-    ..addHotKey()
-    ..register()
-
 //I0ED
     new MyItemWithRecipeDefinition(ITEM_LANCELOT_SHIELD, itemRecipeList, ITEM_RECIPE_LANCELOT_SHIELD,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe

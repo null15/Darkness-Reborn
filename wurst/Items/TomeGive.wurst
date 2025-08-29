@@ -2,12 +2,21 @@ package TomeGive
 import ClosureEvents
 import LinkedList
 import Global_Variables
+import AbilitiesList
+import ObjectIdGenerator
+import CommonDescriptions
+import AbilityObjEditing
+import Abilities
+import Units
 
 public let tomesList = compiletime(new LinkedList<Tome>())
 
 init
     tomesList.forEach() (Tome t) ->
-        tomeStatGiving(t.abilId, t.tomeType, t.amount)
+        if (t.auto)
+            tomeStatGivingAuto(t)
+        else
+            tomeStatGiving(t)
         destroy t
     tomesList.clear()
     destroy tomesList
@@ -16,31 +25,117 @@ public class Tome
     int amount
     statTome tomeType
     int abilId
+    int itemId
+    string effects
+    boolean auto
 
-    construct(int amount, statTome tomeType, int abilId)
+    construct(int amount, statTome tomeType, int abilId, string effects)
         this.amount = amount
         this.tomeType = tomeType
         this.abilId = abilId
+        this.auto = false
+        this.effects = effects
+
+    construct(int amount, statTome tomeType, int abilId, string effects, int itemId)
+        this.amount = amount
+        this.tomeType = tomeType
+        this.abilId = abilId
+        this.auto = true
+        this.itemId = itemId
+        this.effects = effects
 
 public enum statTome
     STRENGTH
     INTELLIGENCE
     AGILITY
     ALLSTATS
+    HP
+    MP
+    ARMOR
+    DAMAGE
 
-public function tomeStatGiving(int abilId, statTome statToGive, int amountToGive)
-    EventListener.onCast(abilId) (unit caster) ->
-        print(amountToGive.toString())
-        let hero = playerHero.get(caster.getOwner())
-        switch statToGive
-            case statTome.STRENGTH
-                hero.addStr(amountToGive)
-            case statTome.AGILITY
-                print(amountToGive.toString())
-                hero.addAgi(amountToGive)
-            case statTome.INTELLIGENCE
-                hero.addInt(amountToGive)
-            case statTome.ALLSTATS
-                hero.addStr(amountToGive)
-                hero.addAgi(amountToGive)
-                hero.addInt(amountToGive)
+public function getTomeStatsDescription(int amount, statTome tomeType) returns string
+    switch tomeType
+        case statTome.AGILITY
+            return "+{0} {1}".format(amount.toString(), wordAgi)
+        case statTome.STRENGTH
+            return "+{0} {1}".format(amount.toString(), wordStr)
+        case statTome.INTELLIGENCE
+            return "+{0} {1}".format(amount.toString(), wordInt)
+        case statTome.ALLSTATS
+            return "+{0} {1}".format(amount.toString(), wordAllStats)
+        case statTome.HP
+            return "+{0} {1}".format(amount.toString(), wordHp)
+        case statTome.MP
+            return "+{0} {1}".format(amount.toString(), wordMp)
+        case statTome.DAMAGE
+            return "+{0} {1}".format(amount.toString(), wordDamage)
+        case statTome.ARMOR
+            return "+{0} {1}".format(amount.toString(), wordArmor)
+
+public function getTomeAbilityBase(int abilityId, statTome tomeType) returns AbilityDefinition
+    let abilDef = new AbilityDefinitionRoar(abilityId)
+    ..setDurationHero(1, 0.01)
+    ..setDurationNormal(1, 0.01)
+    ..setManaCost(1, 0)
+
+    switch tomeType
+        case statTome.AGILITY
+            abilDef.setArtCaster(Abilities.aIamTarget) // Agility gain animation from book
+        case statTome.STRENGTH
+            abilDef.setArtCaster(Abilities.aIsmTarget)
+        case statTome.INTELLIGENCE
+            abilDef.setArtCaster(Abilities.aIimTarget)
+        case statTome.ALLSTATS
+            abilDef.setArtCaster(Abilities.aIilTarget)
+        case statTome.HP
+            abilDef.setArtCaster(Abilities.aIheTarget) // Scroll of healing
+        case statTome.MP
+            abilDef.setArtCaster(Abilities.aImaTarget) // Scroll of mana
+        case statTome.DAMAGE
+            abilDef.setArtCaster(Abilities.roarCaster)
+        case statTome.ARMOR
+            abilDef.setArtCaster(Abilities.avatarCaster)
+    return abilDef
+
+public function tomeGiveStats(unit hero, statTome statToGive, int amountToGive)
+    switch statToGive
+        case statTome.STRENGTH
+            hero.addStr(amountToGive)
+        case statTome.AGILITY
+            print(amountToGive.toString())
+            hero.addAgi(amountToGive)
+        case statTome.INTELLIGENCE
+            hero.addInt(amountToGive)
+        case statTome.ALLSTATS
+            hero.addStr(amountToGive)
+            hero.addAgi(amountToGive)
+            hero.addInt(amountToGive)
+        case statTome.HP
+            hero.setMaxHP(hero.getMaxHP().toInt() + amountToGive)
+        case statTome.MP
+            hero.setMaxMana(hero.getMaxMana().toInt() + amountToGive)
+        case statTome.ARMOR
+            hero.setArmor(hero.getArmor() + amountToGive)
+        case statTome.DAMAGE
+            hero.setBaseDamage(hero.getBaseDamage(0) + amountToGive, 0)
+
+public function tomeStatGiving(Tome t)
+    EventListener.onCast(t.abilId) (unit caster) ->
+        let p = caster.getOwner()
+        let hero = playerHero.get(p)
+
+        printTimedToPlayer("Given {0} to hero".format(t.effects), 3, p)
+        tomeGiveStats(hero, t.tomeType, t.amount)
+        
+public function tomeStatGivingAuto(Tome t)
+    EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) -> 
+        let u = EventData.getTriggerUnit()
+        let i = EventData.getManipulatedItem()
+
+        if (i.getTypeId() == t.itemId)
+            let p = u.getOwner()
+            let hero = playerHero.get(p)
+
+            printTimedToPlayer("Given {0} to hero".format(t.effects), 3, p)
+            tomeGiveStats(hero, t.tomeType, t.amount)

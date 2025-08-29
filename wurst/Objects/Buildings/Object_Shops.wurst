@@ -186,7 +186,7 @@ function initLists()
             shopNameTinkerTomes,
             asList(
             ITEM_TOME_OF_FROSTY_ALL_STATS,
-            ITEM_TOME_OF_AGILITY_10, ITEM_TOME_OF_STRENGTH_10, ITEM_TOME_OF_INTELLIGENCE_10
+            ITEM_TOME_OF_AGILITY_L1, ITEM_TOME_OF_STRENGTH_L1, ITEM_TOME_OF_INTELLIGENCE_L1, ITEM_TOME_OF_HEALTH_L1, ITEM_TOME_OF_MANA_L1, ITEM_TOME_OF_DAMAGE, ITEM_TOME_OF_ARMOR
             ),
             new LinkedList<int>()
         ),

@@ -5,6 +5,7 @@ import MyUpgradesIds
 import MyItemIds
 
 import public DebugVar
+import ItemStats
 
 public function initDebug()
     if (not DEBUG)
@@ -17,20 +18,47 @@ public function initDebug()
         players[i].addLumber(100000000)
         players[i].setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 50)
 
+    // Above the fountain position
     var posX = GetRectCenterX(gg_rct_DebugBlacksmith)
     var posY = GetRectCenterY(gg_rct_DebugBlacksmith)
 
-    CreateUnit(p, BUILDING_TINKER_BLACKSMITH, posX, posY, 270.000)
+    // Add tinker's blacksmith and shops near the fountain
+    CreateUnit(p, BUILDING_TINKER_BLACKSMITH, posX - 200, posY, 270.000)
     ..addPermanentAbility(AbilityIds.invulnerable)
     SetPlayerTechResearched(p, blacksmithInventoryUpgrade, 6)
     
-    CreateUnit(p, BUILDING_TINKER_SHOP_RECIPES, posX, posY + 200, 270.000)
+    CreateUnit(p, BUILDING_TINKER_SHOP_RECIPES, posX + 200, posY, 270.000)
     ..addPermanentAbility(AbilityIds.invulnerable)
     
+    CreateUnit(p, BUILDING_TINKER_SHOP_TOMES, posX - 200, posY + 400, 270.000)
+    ..addPermanentAbility(AbilityIds.invulnerable)
+
+    CreateUnit(p, BUILDING_TINKER_SHOP_LUMBER, posX + 200, posY + 400, 270.000)
+    ..addPermanentAbility(AbilityIds.invulnerable)
     
+    // Spawn supportive heroes
+
+    // thief
+    CreateUnit(players[0], PLAY_HERO_31, posX, posY - 400, 270.000)
+    ..setLevel(70, false)
+    ..setArmor(30000)
+    ..setMaxHP(1000000)
+    ..setMaxMana(100000)
+    ..addItemToSlot(ITEM_BLINK_MAP, 0)
+    
+    // jacksmith
+    CreateUnit(players[0], PLAY_HERO_7, posX, posY - 400, 270.000)
+    ..setLevel(70, false)
+    ..setArmor(30000)
+    ..setMaxHP(1000000)
+    ..setMaxMana(100000)
+    ..addItemToSlot(ITEM_BLINK_MAP, 0)
+
+    // The mid point position
     posX = GetRectCenterX(gg_rct_AllSpawnMove1)
     posY = GetRectCenterY(gg_rct_AllSpawnMove1)
 
+    // Naga boss to defend waves
     CreateUnit(players[0], WAVE_HERO_24, posX, posY - 1000, 270.000)
     ..setStr(100000)
     ..setAgi(200000)

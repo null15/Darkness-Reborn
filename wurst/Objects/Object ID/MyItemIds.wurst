@@ -364,13 +364,16 @@ public constant ITEM_BOOK_OF_WIND = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_BOOK_OF_RAIN = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_BOOK_OF_EARTHQUAKE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_LAZARUS_BELT = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_MANUAL_OF_HEALTH_50 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_TOME_OF_AGILITY_10 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_TOME_OF_INTELLIGENCE_10 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_TOME_OF_STRENGTH_10 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_TOME_OF_KNOWLEDGE_10 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_TOME_OF_KNOWLEDGE_20 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_TOME_OF_KNOWLEDGE_30 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_TOME_OF_HEALTH_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_TOME_OF_MANA_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_TOME_OF_DAMAGE = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_TOME_OF_ARMOR = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_TOME_OF_AGILITY_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_TOME_OF_INTELLIGENCE_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_TOME_OF_STRENGTH_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_TOME_OF_KNOWLEDGE_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_TOME_OF_KNOWLEDGE_L2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_TOME_OF_KNOWLEDGE_L3 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_MENELAUS = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CROWN_OF_EVIL = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_SOUL_BLAME = compiletime(ITEM_ID_GEN.next())
@@ -733,6 +736,7 @@ public constant ITEM_RECIPE_O9_CLOCK = compiletime(ITEM_ID_GEN.next())
 public constant UPGRADE_BASE_ARMOR = compiletime(ITEM_ID_GEN.next())
 public constant UPGRADE_BASE_HEALTH = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_FROST_SHIELD = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_BLINK_MAP = compiletime(ITEM_ID_GEN.next())
 // -------------------------
 public int array ITEM = []
 public int array ITEM_DROP = []
@@ -900,22 +904,22 @@ function compileItems()
     ITEM_BOOK_OF_RAIN,
     ITEM_BOOK_OF_EARTHQUAKE,
     ITEM_LAZARUS_BELT,
-    ITEM_MANUAL_OF_HEALTH_50, // potentially not used, filling with dummy not to change array size ITEM_DROP_69
-    ITEM_TOME_OF_AGILITY_10, // potentially not used, filling with dummy not to change array size ITEM_DROP_70
-    ITEM_TOME_OF_INTELLIGENCE_10, // potentially not used, filling with dummy not to change array size ITEM_DROP_71
-    ITEM_TOME_OF_STRENGTH_10,
-    ITEM_TOME_OF_KNOWLEDGE_10, // potentially not used, filling with dummy not to change array size ITEM_DROP_73
-    ITEM_TOME_OF_KNOWLEDGE_20, // potentially not used, filling with dummy not to change array size ITEM_DROP_74
-    ITEM_TOME_OF_KNOWLEDGE_30, // potentially not used, filling with dummy not to change array size ITEM_DROP_75
-    ITEM_TOME_OF_KNOWLEDGE_30, // potentially not used, filling with dummy not to change array size ITEM_DROP_76
-    ITEM_TOME_OF_AGILITY_10,
-    ITEM_TOME_OF_INTELLIGENCE_10,
-    ITEM_TOME_OF_STRENGTH_10
+    ITEM_TOME_OF_HEALTH_L1, // potentially not used, filling with dummy not to change array size ITEM_DROP_69
+    ITEM_TOME_OF_AGILITY_L1, // potentially not used, filling with dummy not to change array size ITEM_DROP_70
+    ITEM_TOME_OF_INTELLIGENCE_L1, // potentially not used, filling with dummy not to change array size ITEM_DROP_71
+    ITEM_TOME_OF_STRENGTH_L1,
+    ITEM_TOME_OF_KNOWLEDGE_L1, // potentially not used, filling with dummy not to change array size ITEM_DROP_73
+    ITEM_TOME_OF_KNOWLEDGE_L2, // potentially not used, filling with dummy not to change array size ITEM_DROP_74
+    ITEM_TOME_OF_KNOWLEDGE_L3, // potentially not used, filling with dummy not to change array size ITEM_DROP_75
+    ITEM_TOME_OF_KNOWLEDGE_L3, // potentially not used, filling with dummy not to change array size ITEM_DROP_76
+    ITEM_TOME_OF_AGILITY_L1,
+    ITEM_TOME_OF_INTELLIGENCE_L1,
+    ITEM_TOME_OF_STRENGTH_L1
     )
     itemList.add(
-    ITEM_TOME_OF_KNOWLEDGE_10,
-    ITEM_TOME_OF_KNOWLEDGE_20,
-    ITEM_TOME_OF_KNOWLEDGE_30,
+    ITEM_TOME_OF_KNOWLEDGE_L1,
+    ITEM_TOME_OF_KNOWLEDGE_L2,
+    ITEM_TOME_OF_KNOWLEDGE_L3,
     ITEM_MENELAUS,
     ITEM_CROWN_OF_EVIL,
     ITEM_SOUL_BLAME,

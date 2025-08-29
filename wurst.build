@@ -4,6 +4,6 @@ dependencies:
 - https://github.com/wurstscript/wurstStdlib2
 - https://github.com/Frotty/wurst-table-layout.git
 buildMapData:
-  name: '|cFF990000Darkness |cFF99FF99Reborn|r v1.9.63 DesyncFix'
-  fileName: Darkness Reborn v1.9.63 DesyncFix
+  name: '|cFF990000Darkness |cFF99FF99Reborn|r v1.9.64'
+  fileName: Darkness Reborn v1.9.64
   author: ' Community'

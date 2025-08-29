@@ -765,20 +765,26 @@ public function getItemName(int id) returns string
             return "Book of Earthquake"
         case ITEM_LAZARUS_BELT
             return "Lazarus Belt"
-        case ITEM_MANUAL_OF_HEALTH_50
-            return "Manual of Health 50"
-        case ITEM_TOME_OF_AGILITY_10
-            return "Tome of Agility +10"
-        case ITEM_TOME_OF_INTELLIGENCE_10
-            return "Tome of Intelligence +10"
-        case ITEM_TOME_OF_STRENGTH_10
-            return "Tome of Strength +10"
-        case ITEM_TOME_OF_KNOWLEDGE_10
-            return "Tome of Knowledge +10"
-        case ITEM_TOME_OF_KNOWLEDGE_20
-            return "Tome of Knowledge +20"
-        case ITEM_TOME_OF_KNOWLEDGE_30
-            return "Tome of Knowledge +30"
+        case ITEM_TOME_OF_HEALTH_L1
+            return "Manual of Health"
+        case ITEM_TOME_OF_MANA_L1
+            return "Manual of Mana"
+        case ITEM_TOME_OF_DAMAGE
+            return "Manual of Damage"
+        case ITEM_TOME_OF_ARMOR
+            return "Manual of Armor"
+        case ITEM_TOME_OF_AGILITY_L1
+            return "Tome of Agility"
+        case ITEM_TOME_OF_INTELLIGENCE_L1
+            return "Tome of Intelligence"
+        case ITEM_TOME_OF_STRENGTH_L1
+            return "Tome of Strength"
+        case ITEM_TOME_OF_KNOWLEDGE_L1
+            return "Tome of Knowledge"
+        case ITEM_TOME_OF_KNOWLEDGE_L2
+            return "Tome of Knowledge"
+        case ITEM_TOME_OF_KNOWLEDGE_L3
+            return "Tome of Knowledge"
         case ITEM_MENELAUS
             return "Menelaus"
         case ITEM_CROWN_OF_EVIL
