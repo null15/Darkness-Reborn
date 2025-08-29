@@ -115,6 +115,7 @@ function player.initiateFountainQuest(HashSet<int> targetUnitType, int rarity)
             fountainQuestEliteReward(rarity, questOwner, targetUnitType)
         else
             fountainQuestNormalReward(rarity, questOwner, targetUnitType)
+        destroy targetUnitType
 
 public function unit.questItemPickup()
     EventListener.add(this, EVENT_PLAYER_UNIT_SELL_ITEM) ->
@@ -168,5 +169,4 @@ public function unit.questItemPickup()
                 let targetUnitType = new HashSet<int>
                 targetUnitType.add(templist.getRandomElement())
                 questOwner.initiateFountainQuest(targetUnitType, rarity)
-                destroy targetUnitType
                 destroy templist

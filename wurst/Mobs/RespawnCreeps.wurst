@@ -45,6 +45,13 @@ public function player.setCreepSettings(int unitId, vec2 pos)
             u..setMaxHP((u.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u.getMaxHP())
         currentCreep.put(pid, unitId)
 
+function doAfterCreepRespawn(unit u)
+    let uid = u.getTypeId()
+    doAfter(creepRespawns.get(uid)) ->
+        let u2 = createUnit(hostile, uid, u.getPos(), u.getFacingAngle())
+        u2..setArmor(u2.getArmor() * armorDifficultyModifier[gameMode])
+        u2..setMaxHP((u2.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u2.getMaxHP())
+
 function creepRespawner()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
         let u = GetDyingUnit()
@@ -71,11 +78,9 @@ function creepRespawner()
                     u.dropItems()
                     if uid == ELITE_CREEP[9] and frostyCounter < 2
                         frostyCounter++
+                        doAfterCreepRespawn(u)
                     else
-                        doAfter(creepRespawns.get(uid)) ->
-                            let u2 = createUnit(hostile, uid, pos, rot)
-                            u2..setArmor(u2.getArmor() * armorDifficultyModifier[gameMode])
-                            u2..setMaxHP((u2.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u2.getMaxHP())
+                        doAfterCreepRespawn(u)
         
 public function eliteSideCreepsSetup()
     for int i = 1 to 24
