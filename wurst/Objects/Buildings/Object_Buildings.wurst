@@ -50,7 +50,7 @@ import MyAbilityIds
     ..setSightRadiusDay(30000)
     ..setSightRadiusNight(30000)
     ..setItemsMade(commaList(""))
-    ..setItemsSold(commaList(ITEM_LUMBER100_TO_GOLD, ITEM_LUMBER_100, ITEM_EMPTY_VIAL, ITEM_QUEST))
+    ..setItemsSold(commaList(ITEM_LUMBER_100_TO_GOLD, ITEM_GOLD_TO_LUMBER_100, ITEM_EMPTY_VIAL, ITEM_QUEST))
     ..setUnitsSold(commaList(HORSE_UNIT_1, HORSE_UNIT_2))
     ..setHideMinimapDisplay(false)
     ..setUnitClassification(commaList("mechanical", "neutral", "townhall"))

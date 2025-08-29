@@ -1,0 +1,30 @@
+package LumberStats
+
+import ObjectIdGenerator
+import AbilityObjEditing
+import CommonDescriptions
+import ItemStatsDef
+
+// ----------------------------------------------------------------------------
+
+public function addBuyLumber(int lumberAmount, int goldCost) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordBuyLumber.format(lumberAmount.toString(), goldCost.toString())
+
+    new AbilityDefinitionGiveLumber(abilityId)
+    ..setLumberGiven(1, lumberAmount)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addBuyGold(int goldAmount, int lumberCost) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordBuyGold.format(goldAmount.toString(), lumberCost.toString())
+
+    new AbilityDefinitionGiveGold(abilityId)
+    ..setGoldGiven(1, goldAmount)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------

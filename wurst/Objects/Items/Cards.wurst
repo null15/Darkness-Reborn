@@ -5,6 +5,9 @@ import ItemObjEditing
 import MyItemIds
 import RecipeItems
 import codeDamageTypings
+import ActiveAbilityDef
+import ClosureForGroups
+import CommonDescriptions
 
 init
 
@@ -20,13 +23,28 @@ init
     ..addStats("[WIP] Activate the ability to summon a Misha Bear maintain 60 seconds.")
     ..register()
 
+integer counter = 0
+
+function wardenCardAbility(real damage, real range, damageType damageType, int maxTargets, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityDamageMaxTargets.format(damage.toString(), damageType.toString(), maxTargets.toString(), range.toString(0), cd.toString())
+    
+    return new CastAbility(effects, manaCost, cd, (unit caster) -> begin
+        counter = 0
+        forUnitsInRange(caster.getPos(), range) (unit u) ->
+            if(counter < maxTargets and u.isEnemyOf(caster))
+                caster.damageTargetCode(damage, u, null, -1, damageType)
+                counter++
+    end)
+    .register()
+    
+@compiletime function createItemsWardenCard()
 //I0CR
     new MyItemDefinition(ITEM_WARDEN_CARD)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (2).blp")
     ..setCooldownGroup("A0TE")
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
-    ..addStats("[WIP] Activate the Fan of Knives to cause Damage 15.000 in 600 AoE")
+    ..addStats(wardenCardAbility(40000, 900, damageType.PHYSICALRANGED, 5, 6000, 10))
     ..addStats(addAgi(125))
     ..addStats(addAttackSpeed(1))
     ..register()

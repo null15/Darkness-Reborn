@@ -1,13 +1,6 @@
 package ItemStatsDef
 
-import ObjectIdGenerator
-import AbilityObjEditing
-import CommonDescriptions
-import codeDamageTypings
-import ObjectIds
-import TomeGive
 import ItemObjEditing
-import Format
 
 // ----------------------------------------------------------------------------
 

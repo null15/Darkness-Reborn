@@ -3,11 +3,10 @@ package AbilitiesList
 import ClosureEvents
 import LinkedList
 
+// ----------------------------------------------------------------------------
+
 public interface UnitTargetCastFunc
     function run(unit _caster, unit _target)
-
-public interface UnitCastFunc
-    function run(unit _caster)
 
 public class ItemTargetAbility
     UnitTargetCastFunc handler
@@ -17,6 +16,11 @@ public class ItemTargetAbility
         this.handler = handler
         this.abilityId = abilityId
 
+// ----------------------------------------------------------------------------
+
+public interface UnitCastFunc
+    function run(unit _caster)
+
 public class ItemAbility
     UnitCastFunc handler
     int abilityId
@@ -25,8 +29,26 @@ public class ItemAbility
         this.handler = handler
         this.abilityId = abilityId
 
+// ----------------------------------------------------------------------------
+
+public interface CustomEventFunc
+    function run()
+
+public class ItemCustomEventAbility
+    eventid eventId
+    CustomEventFunc handler
+
+    construct(eventid eventId, CustomEventFunc handler)
+        this.eventId = eventId
+        this.handler = handler
+
+// ----------------------------------------------------------------------------
+
 public let itemsTargetAbilitiesList = compiletime(new LinkedList<ItemTargetAbility>())
 public let itemsAbilitiesList = compiletime(new LinkedList<ItemAbility>())
+public let itemsCustomEventAbilitiesList = compiletime(new LinkedList<ItemCustomEventAbility>())
+
+// ----------------------------------------------------------------------------
 
 init
     for abilityInfo in itemsTargetAbilitiesList
@@ -37,6 +59,7 @@ init
     itemsTargetAbilitiesList.clear()
     destroy itemsTargetAbilitiesList
     
+
     for abilityInfo in itemsAbilitiesList
         EventListener.onCast(abilityInfo.abilityId) (unit caster) ->
             abilityInfo.handler.run(caster)
@@ -44,3 +67,14 @@ init
 
     itemsAbilitiesList.clear()
     destroy itemsAbilitiesList
+
+    
+    for abilityInfo in itemsCustomEventAbilitiesList
+        EventListener.add(abilityInfo.eventId) ->
+            abilityInfo.handler.run()
+        destroy abilityInfo
+        
+    itemsCustomEventAbilitiesList.clear()
+    destroy itemsCustomEventAbilitiesList
+    
+// ----------------------------------------------------------------------------

@@ -69,7 +69,7 @@ function creepRespawner()
             else
                 if creepRespawns.has(uid)
                     u.dropItems()
-                    if uid == ELITE_CREEP[9] and frostyCounter < 2
+                    if uid == ELITE_CREEP[9] and frostyCounter <= 2
                         frostyCounter++
                     else
                         doAfter(creepRespawns.get(uid)) ->

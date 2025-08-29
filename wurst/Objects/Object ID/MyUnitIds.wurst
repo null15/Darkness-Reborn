@@ -261,17 +261,17 @@ public constant LEFT_CREEP_19 = compiletime(UNIT_ID_GEN.next())
 public constant LEFT_CREEP_20 = compiletime(UNIT_ID_GEN.next())
 public constant LEFT_CREEP_21 = compiletime(UNIT_ID_GEN.next())
 public constant LEFT_CREEP_22 = compiletime(UNIT_ID_GEN.next())
-public constant LEFT_CREEP_23 = compiletime(UNIT_ID_GEN.next())
+public constant CREEP_LEFT_ELDER_VOIDWALKER = compiletime(UNIT_ID_GEN.next())
 
-public constant ELITE_CREEP_0 = compiletime(UNIT_ID_GEN.next())
-public constant ELITE_CREEP_1 = compiletime(UNIT_ID_GEN.next())
-public constant ELITE_CREEP_2 = compiletime(UNIT_ID_GEN.next())
-public constant ELITE_CREEP_3 = compiletime(UNIT_ID_GEN.next())
+public constant CREEP_ELITE_NERUBIAN_QUEEN = compiletime(UNIT_ID_GEN.next())
+public constant CREEP_ELITE_HYDRALISK = compiletime(UNIT_ID_GEN.next())
+public constant CREEP_ELITE_FURBOLG_URSA_WARRIOR = compiletime(UNIT_ID_GEN.next())
+public constant CREEP_ELITE_FLESH_GOLEM = compiletime(UNIT_ID_GEN.next())
 public constant ELITE_CREEP_4 = compiletime(UNIT_ID_GEN.next())
 public constant ELITE_CREEP_5 = compiletime(UNIT_ID_GEN.next())
 public constant ELITE_CREEP_6 = compiletime(UNIT_ID_GEN.next())
 public constant ELITE_CREEP_7 = compiletime(UNIT_ID_GEN.next())
-public constant ELITE_CREEP_8 = compiletime(UNIT_ID_GEN.next())
+public constant CREEP_ELITE_FROSTY_THE_SNOWMAN = compiletime(UNIT_ID_GEN.next())
 public constant ELITE_CREEP_9 = compiletime(UNIT_ID_GEN.next())
 
 public constant BOSS_CREEP_0 = compiletime(UNIT_ID_GEN.next())
@@ -531,17 +531,17 @@ init
     LEFT_CREEP[21] = LEFT_CREEP_20
     LEFT_CREEP[22] = LEFT_CREEP_21
     LEFT_CREEP[23] = LEFT_CREEP_22
-    LEFT_CREEP[24] = LEFT_CREEP_23
+    LEFT_CREEP[24] = CREEP_LEFT_ELDER_VOIDWALKER
 
-    ELITE_CREEP[1] = ELITE_CREEP_0
-    ELITE_CREEP[2] = ELITE_CREEP_1
-    ELITE_CREEP[3] = ELITE_CREEP_2
-    ELITE_CREEP[4] = ELITE_CREEP_3
+    ELITE_CREEP[1] = CREEP_ELITE_NERUBIAN_QUEEN
+    ELITE_CREEP[2] = CREEP_ELITE_HYDRALISK
+    ELITE_CREEP[3] = CREEP_ELITE_FURBOLG_URSA_WARRIOR
+    ELITE_CREEP[4] = CREEP_ELITE_FLESH_GOLEM
     ELITE_CREEP[5] = ELITE_CREEP_4
     ELITE_CREEP[6] = ELITE_CREEP_5
     ELITE_CREEP[7] = ELITE_CREEP_6
     ELITE_CREEP[8] = ELITE_CREEP_7
-    ELITE_CREEP[9] = ELITE_CREEP_8
+    ELITE_CREEP[9] = CREEP_ELITE_FROSTY_THE_SNOWMAN
     ELITE_CREEP[10] = ELITE_CREEP_9
 
     BOSS_CREEP[1] = BOSS_CREEP_0

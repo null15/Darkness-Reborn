@@ -21,6 +21,7 @@ import public GeneralStats
 import public MiscStats
 import public OrbEffectsStats
 import public TomeStats
+import public LumberStats
 
 import public Auras
 import public DamageAbilities
@@ -68,7 +69,8 @@ public class MyItemDefinitionBase extends ItemDefinition
         setTintingColor2Green(255)
         setTintingColor3Blue(255)
         
-        setCanBeSold(true)
+        setCanBeSoldByMerchants(true)
+        setCanBeSoldToMerchants(false)
 
         setCanBeDropped(true)
         setDroppedWhenCarrierDies(false)
@@ -94,17 +96,17 @@ public class MyItemDefinitionBase extends ItemDefinition
         
         setClassification("Campaign")
         
-        setCanBeSold(false)
+        setCanBeSoldByMerchants(true)
+        setCanBeSoldToMerchants(false)
         setGoldCost(149000)
 
         setStockReplenishInterval(600)
         setStockStartDelay(100)
 
-    function setCanBeSold(boolean value)
-        setCanBeSoldByMerchants(value)
-        setCanBeSoldToMerchants(value)
-
     function register()
+
+    function addHotKey()
+        setHotkey(getHotKey(itemId))
 
     function setChestColors(Color color)
         this.chestColor = color
@@ -195,9 +197,6 @@ public class MyItemDefinition extends MyItemDefinitionBase
         // The shop and inventory text
         setTooltipExtended(descrEffects)
         
-    function addHotKey()
-        setHotkey(getHotKey(itemId))
-
     override function register()
         applyStats()
         basicEffectsDescr()
@@ -356,8 +355,8 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
         ..setTooltipBasic("Purchase Recipe " + itemName)
         ..setTooltipExtended(descrRecipe)
         ..setHotkey(getHotKey(recipeItemId))
-        ..setStockReplenishInterval(3)
-        ..setStockStartDelay(3)
+        ..setStockReplenishInterval(1)
+        ..setStockStartDelay(1)
         applyChestColors(recipeItemDef)
 
         initRecipe.call(recipeItemDef)
@@ -396,4 +395,38 @@ public class MyCreepTpDefinition extends MyItemDefinitionBase
         super(newId)
 
 // ----------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
+public class BuyLumberDefinition extends MyItemDefinition
+    construct(int newId, int lumberAmount, int goldCost)
+        super(newId, ItemIds.bundleofLumber)
+
+        setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBundleOfLumber.blp")
+        setModelUsed("Objects\\InventoryItems\\BundleofLumber\\BundleofLumber.mdl")
+        setClassification("Campaign")
+        setActivelyUsed(true)
+        setUseAutomaticallyWhenAcquired(true)
+        setNumberofCharges(1)
+        setPerishable(true)
+        setGoldCost(goldCost)
+        addHotKey()
+
+        addStats(addBuyLumber(lumberAmount, goldCost))
+
+public class BuyGoldDefinition extends MyItemDefinition
+    construct(int newId, int goldAmount, int lumberCost)
+        super(newId, ItemIds.goldCoins)
+
+        setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNChestOfGold.blp")
+        setModelUsed("Objects\\InventoryItems\\PotofGold\\PotofGold.mdl")
+        setClassification("Campaign")
+        setActivelyUsed(true)
+        setUseAutomaticallyWhenAcquired(true)
+        setNumberofCharges(1)
+        setPerishable(true)
+        setLumberCost(lumberCost)
+        addHotKey()
+
+        addStats(addBuyGold(goldAmount, lumberCost))
+
 // ----------------------------------------------------------------------------

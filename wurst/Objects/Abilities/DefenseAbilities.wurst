@@ -65,7 +65,7 @@ public function addAbilityManaShield(real hpPerMana) returns ItemStats
     return activeAbility(effects, 0, 0) (int abilityId) ->
         return new AbilityDefinitionManaShieldCreep(abilityId)
         ..setDamageAbsorbed(1, 1)
-        ..setCooldown(1, 0)
+        ..setCooldown(1, 0.1)
         ..setManaperHitPoint(1, 1/hpPerMana)
 
 // ----------------------------------------------------------------------------

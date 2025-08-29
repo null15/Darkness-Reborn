@@ -36,8 +36,7 @@ import RecipeItems
     ..addComponents(
     ITEM_SIMPLE_SWORD,
     ITEM_CLAWS_OF_ATTACK,
-    ITEM_ORB_OF_FIRE,
-    ITEM_STURDY_WAR_AXE)
+    ITEM_ORB_OF_FIRE)
     ..addHotKey()
     ..register()
 

@@ -190,7 +190,7 @@ init
 //I06L
     new MyItemDefinition(ITEM_SCROLL_OF_UNHOLY_LEGION)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBansheeMaster.blp")
-    ..addStats(addStr(5))
+    ..addStats(addStr(50))
     ..setStockMaximum(99)
     ..register()
 

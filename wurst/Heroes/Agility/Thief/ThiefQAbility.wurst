@@ -64,13 +64,13 @@ function bossLoot(int unitId, unit caster)
 
 function callLoot(int unitId, unit caster)
     var itemId = ITEM_GLOVES_OF_HASTE
-    if unitId == ELITE_CREEP_3
+    if unitId == CREEP_ELITE_FLESH_GOLEM
         let random = GetRandomInt(0, 8)
         if(random == 8)
             itemId = ITEM_CALL_OF_FLESH_GOLEM
         else
             itemId = ITEM_DROP[57+random]
-    else if unitId == ELITE_CREEP_2
+    else if unitId == CREEP_ELITE_FURBOLG_URSA_WARRIOR
         let random = GetRandomInt(0, 10)
         if(random == 10)
             itemId = ITEM_CALL_OF_FURBOLG_URSA
@@ -115,10 +115,10 @@ public function steal()
     dropListHash.put(LEFT_CREEP_20, dropList.HIGHER)
     dropListHash.put(LEFT_CREEP_21, dropList.HIGHER)
     dropListHash.put(LEFT_CREEP_22, dropList.HIGHER)
-    dropListHash.put(LEFT_CREEP_23, dropList.HIGHER)
+    dropListHash.put(CREEP_LEFT_ELDER_VOIDWALKER, dropList.HIGHER)
 
-    dropListHash.put(ELITE_CREEP_0, dropList.ELITE)
-    dropListHash.put(ELITE_CREEP_1, dropList.ELITE)
+    dropListHash.put(CREEP_ELITE_NERUBIAN_QUEEN, dropList.ELITE)
+    dropListHash.put(CREEP_ELITE_HYDRALISK, dropList.ELITE)
 
     dropListHash.put(WAVE_BOSS_26, dropList.BOSS)
     dropListHash.put(WAVE_BOSS_27, dropList.BOSS)
@@ -130,8 +130,8 @@ public function steal()
     dropListHash.put(WAVE_BOSS_83, dropList.BOSS)
     dropListHash.put(WAVE_HERO_7, dropList.BOSS)
 
-    dropListHash.put(ELITE_CREEP_2, dropList.CALL)
-    dropListHash.put(ELITE_CREEP_3, dropList.CALL)
+    dropListHash.put(CREEP_ELITE_FURBOLG_URSA_WARRIOR, dropList.CALL)
+    dropListHash.put(CREEP_ELITE_FLESH_GOLEM, dropList.CALL)
     dropListHash.put(ELITE_CREEP_4, dropList.CALL)
 
     EventListener.onTargetCast('A0X5') (unit caster, unit target) ->

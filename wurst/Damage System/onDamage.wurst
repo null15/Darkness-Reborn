@@ -18,8 +18,6 @@ import CrystalArmor
 import CrystalSpear
 import BerserkerStaff
 import Frostmourne
-import ThunderBow
-import ThunderBow2
 import OrbofLightning
 import codeDamageTypings
 import MyItemIds
@@ -176,20 +174,13 @@ init
                     //Orb of Lightning
                     if src.hasItemById(ITEM_ORB_OF_LIGHTNING) and GetRandomInt(0, 100) < 20
                         orbofLightning(src)
-                    //ThunderBows
-                    if src.hasItemById(ITEM_THUNDER_BOW) and GetRandomInt(0, 100) < 10
-                        thunderBow(src)
-
-                    if src.hasItemById(ITEM_THUNDER_BOW_II) and GetRandomInt(0, 100) < 15
-                        thunderBow2(src)
-
                     //Platinum 1
                     if src.hasItemById(ITEM_PLATINUM_HAMMER) and GetRandomInt(0, 100) < 25
                         platinum1Stun(src, targ)
                     //Platinum 2
                     if src.hasItemById(ITEM_PLATINUM_HAMMER_II) and GetRandomInt(0, 100) < 25
                         platinum2Stun(src, targ)
-    
+
 function magicDamageChecks(int damId, unit src, unit targ)
     if(targ.getAbilityLevel(UTHER_ABIL_3) > 0)
         DamageEvent.setAmount(DamageEvent.getAmount() * (1-0.02*targ.getAbilityLevel(UTHER_ABIL_3)))

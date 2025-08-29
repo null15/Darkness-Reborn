@@ -44,7 +44,7 @@ public function setRegions()
     item2Unit.put(CREEP_TP_FEL_RAVAGER, LEFT_CREEP_20)
     item2Unit.put(CREEP_TP_DALARAN_REJECT, LEFT_CREEP_21)
     item2Unit.put(CREEP_TP_VILE_TORMENTOR, LEFT_CREEP_22)
-    item2Unit.put(CREEP_TP_ELDER_VOIDWALKER, LEFT_CREEP_23)
+    item2Unit.put(CREEP_TP_ELDER_VOIDWALKER, CREEP_LEFT_ELDER_VOIDWALKER)
 
 public function teleportToMobs(unit u1, unit u2, unit u3, unit u4)
     EventListener.add(u1, EVENT_PLAYER_UNIT_SELL_ITEM) ->

@@ -33,7 +33,7 @@ public function addArmorOnHit(int value) returns ItemStats
 // ----------------------------------------------------------------------------
 
 public function addArmorPen(real value) returns ItemStats
-    let effects = realToString(value, 0) + " " + wordArmorOnHit
+    let effects = realToString(value, 0) + " " + wordArmorPen
     
     return new ItemStatsCustomFunc(effects, 
     (itemId, itemDef) -> itemId.putInPhysPenItemHash(value))

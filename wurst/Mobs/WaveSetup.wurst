@@ -22,7 +22,7 @@ init
 	LEFT_CREEP_7.enumerateMagicResistance(80)
 	LEFT_CREEP_13.enumerateMagicResistance(80)
 
-	ELITE_CREEP_8.enumerateMagicResistance(40)
+	CREEP_ELITE_FROSTY_THE_SNOWMAN.enumerateMagicResistance(40)
 	ELITE_CREEP_9..enumerateMagicResistance(60)
 
 	WAVE_MOB[1]..enumerateMagicResistance(0).enumeratePhysicalPenetration(0)

@@ -91,7 +91,7 @@ init
     ..addStats(addAllStats(100))
     ..addStats(addDamage(300))
     ..addStats(addAttackSpeed(2))
-    ..addStats(addChainLighting(0.4, 3000, 0.1, 5))
+    ..addStats(addChainLighting(0.4, 5000, 0.1, 5))
     ..addComponents(
     ITEM_MEDALLION_OF_COURAGE,
     ITEM_AMULET_OF_THE_WILD,
@@ -102,14 +102,14 @@ init
 //I07Q
     new MyItemWithRecipeDefinition(ITEM_SOUL_OF_KILJEADEN, itemRecipeList, ITEM_RECIPE_SOUL_OF_KILJEADEN,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setGoldCost(6000)
+    ..setGoldCost(5000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSoulGem.blp")
     ..setClassification("Permanent")
     ..addStats(addDamage(200))
     ..addStats(addMp(3000))
     ..addStats(addMpReg(1.5))
-    ..addStats(addMpOnHit(0.1))
+    ..addStats(addMpOnHit(0.03))
     ..addComponents(
     ITEM_MEDALLION_OF_COURAGE,
     ITEM_PENDANT_OF_MANA,
@@ -210,7 +210,12 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAnimalWarTraining.blp")
     ..setClassification("Permanent")
-    ..addStats(addMp(7000))
+    ..addStats(addMpOnHit(0.08))
+    ..addStats(addHp(12000))
+    ..addStats(addMp(12000))
+    ..addStats(addMpReg(3))
+    ..addStats(addMovementSpeed(522))
+    ..addStats(addAttackSpeed(1.2))
     ..addComponents(
     ITEM_SOUL_OF_KILJEADEN,
     ITEM_ARKENSTONE_FRAGMENT)
