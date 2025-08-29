@@ -7,7 +7,7 @@ public let tomesList = compiletime(new LinkedList<Tome>())
 
 init
     tomesList.forEach() (Tome t) ->
-        tomeStatGiving(t.abilId, t.tomeType, t.amount)
+        tomeStatGiving(t.abilId, t.tomeType, t.amount, t.autoAcquiry)
         destroy t
     tomesList.clear()
     destroy tomesList
@@ -16,11 +16,13 @@ public class Tome
     int amount
     statTome tomeType
     int abilId
+    bool autoAcquiry
 
-    construct(int amount, statTome tomeType, int abilId)
+    construct(int amount, statTome tomeType, int abilId, bool autoAcquiry)
         this.amount = amount
         this.tomeType = tomeType
         this.abilId = abilId
+        this.autoAcquiry = autoAcquiry
 
 public enum statTome
     STRENGTH
@@ -28,15 +30,29 @@ public enum statTome
     AGILITY
     ALLSTATS
 
-public function tomeStatGiving(int abilId, statTome statToGive, int amountToGive)
+public function tomeStatGiving(int abilId, statTome statToGive, int amountToGive, bool autoAcquiry)
+    if (autoAcquiry)
+        EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) -> 
+            let hero = playerHero.get(EventData.getTriggerUnit().getOwner())
+            switch statToGive
+                case statTome.STRENGTH
+                    hero.addStr(amountToGive)
+                case statTome.AGILITY
+                    hero.addAgi(amountToGive)
+                case statTome.INTELLIGENCE
+                    hero.addInt(amountToGive)
+                case statTome.ALLSTATS
+                    hero.addStr(amountToGive)
+                    hero.addAgi(amountToGive)
+                    hero.addInt(amountToGive)
+        return
+
     EventListener.onCast(abilId) (unit caster) ->
-        print(amountToGive.toString())
         let hero = playerHero.get(caster.getOwner())
         switch statToGive
             case statTome.STRENGTH
                 hero.addStr(amountToGive)
             case statTome.AGILITY
-                print(amountToGive.toString())
                 hero.addAgi(amountToGive)
             case statTome.INTELLIGENCE
                 hero.addInt(amountToGive)

@@ -3,22 +3,13 @@ package Recipes
 import LinkedList
 
 public class Recipe
-    let items = new LinkedList<int>()
+    let items = new LinkedList<int>
     int completedItem
 
     ondestroy
         destroy items
 
     construct()
-
-    function populateRecipe(vararg int itemsInRecipe) // Let first item be completed Item, rest are components
-        let tempList = new LinkedList<int>
-        for items in itemsInRecipe
-            tempList.add(items)
-        completedItem = tempList.get(0)
-        for int i = 1 to tempList.size()
-            items.add(tempList.get(i))
-        destroy tempList
 
     construct(int item1, int completedItem)
         items.add(item1)

@@ -880,7 +880,7 @@ public function addAbilityIllusions(int numberIllusions, real damageDealt, real 
 
 // ----------------------------------------------------------------------------
 
-public function addTomeStatGiving(int amount, int tomeID, statTome tomeType) returns ItemStats
+public function addTomeStatGiving(int amount, bool autoAcquiry, statTome tomeType) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
     let effects = tomeAgiGive.format(amount.toString())
     
@@ -889,7 +889,7 @@ public function addTomeStatGiving(int amount, int tomeID, statTome tomeType) ret
     ..setDurationNormal(1, 0.01)
     ..setManaCost(1, 0)
 
-    tomesList.add(new Tome(amount, tomeType, abilityId))
+    tomesList.add(new Tome(amount, tomeType, abilityId, autoAcquiry))
     
     switch tomeType
         case statTome.AGILITY
