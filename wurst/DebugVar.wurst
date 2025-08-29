@@ -1,0 +1,3 @@
+package DebugVar
+
+public let DEBUG = false

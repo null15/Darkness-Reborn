@@ -27,6 +27,9 @@ public constant SUMMONED_UNIT_6 = compiletime(UNIT_ID_GEN.next())
 public constant SUMMONED_UNIT_7 = compiletime(UNIT_ID_GEN.next())
 public constant SUMMONED_UNIT_8 = compiletime(UNIT_ID_GEN.next())
 
+public constant UNIT_SUMMON_INFERNAL = compiletime(UNIT_ID_GEN.next())
+public constant UNIT_SUMMON_HYDRA = compiletime(UNIT_ID_GEN.next())
+
 public constant DUMMY_BLACKSMITH_WISP = compiletime(UNIT_ID_GEN.next())
 
 public constant HERO_PICKER = compiletime(UNIT_ID_GEN.next())
@@ -233,7 +236,7 @@ public constant PLAY_HERO_33_ASCENDED = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_34 = compiletime(HERO_ID_GEN.next())
 public constant PLAY_HERO_34_FORM = compiletime(HERO_ID_GEN.next())
 
-public constant ABILITYUNIT_0 = compiletime(UNIT_ID_GEN.next())
+public constant UNIT_INFERNAL = compiletime(UNIT_ID_GEN.next())
 
 public constant LEFT_CREEP_0 = compiletime(UNIT_ID_GEN.next())
 public constant LEFT_CREEP_1 = compiletime(UNIT_ID_GEN.next())

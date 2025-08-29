@@ -1,0 +1,91 @@
+package Cards
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import RecipeItems
+
+init
+
+@compiletime function createItems()
+
+//I0CP
+    new MyItemDefinition(ITEM_BEASTMASTER_CARD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (3).blp")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..addStats(addHp(6000))
+    ..addStats(addMp(6000))
+    ..addStats("[WIP] Activate the ability to summon a Misha Bear maintain 60 seconds.")
+    ..register()
+
+//I0CR
+    new MyItemDefinition(ITEM_WARDEN_CARD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (2).blp")
+    ..setCooldownGroup("A0TE")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..addStats(addAgi(125))
+    ..addStats(addAttackSpeed(1))
+    ..addStats("[WIP] Activate the Fan of Knives to cause Damage 15.000 in 600 AoE")
+    ..register()
+
+//I0CU
+    new MyItemDefinition(ITEM_BLADEMASTER_CARD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (6).blp")
+    ..setClassification("Artifact")
+    ..addStats(addArmor(100))
+    ..addStats(addDamage(700))
+    ..addStats(addCrit(2, 1))
+    ..register()
+
+//I0CS
+    new MyItemDefinition(ITEM_TAUREN_CARD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (1).blp")
+    ..setCooldownGroup("A0XS")
+    ..setActivelyUsed(true)
+    ..setClassification("Artifact")
+    ..addStats(addStr(150))
+    ..addStats(addAttackSpeed(1))
+    ..addStats("[WIP] Activate the Warstomp caused 25")
+    ..register()
+
+//I0CQ
+    new MyItemDefinition(ITEM_MOUNTAIN_KING_CARD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (5).blp")
+    ..setClassification("Artifact")
+    ..addStats(addArmor(100))
+    ..addStats(addDamage(700))
+    ..addStats(addBash(0.25, 900, 1, 3))
+    ..register()
+
+//I0CT
+    new MyItemDefinition(ITEM_PITLORD_CARD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (4).blp")
+    ..setClassification("Artifact")
+    ..addStats(addArmor(100))
+    ..addStats(addDamage(700))
+    ..addStats(addCleave(0.35, 500))
+    ..register()
+    
+//I0CW
+    new MyItemWithCraftInfoDefinition(ITEM_CHAOS, itemRecipeList, ITEM_INFO_CHAOS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (7).blp")
+    ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..setGoldCost(500000)
+    ..addTitle("A powerful relic of the great demon that is holding souls of the traitor")
+    ..addStats(addAllStats(600))
+    ..addStats(addAttackSpeed(2.2))
+    ..addStats(addArmor(300))
+    ..addStats("Active: open tab with special skills.")
+    ..addComponents(
+    ITEM_BEASTMASTER_CARD,
+    ITEM_WARDEN_CARD,
+    ITEM_BLADEMASTER_CARD,
+    ITEM_TAUREN_CARD,
+    ITEM_MOUNTAIN_KING_CARD,
+    ITEM_PITLORD_CARD)
+    ..addHotKey()
+    ..register()
+    

@@ -75,7 +75,9 @@ function constructManaCdAbility(int abilityId, string effects, int manaCost, rea
     ..setCooldown(1, cd)
     ..setManaCost(1, manaCost)
 
-    return new ItemStats(abilityId, effects)
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
 
 function constructManaCdTargetAbility(int abilityId, string effects, int manaCost, real cd)  returns ItemStats
     new AbilityDefinitionFrostBolt(abilityId)
@@ -88,7 +90,9 @@ function constructManaCdTargetAbility(int abilityId, string effects, int manaCos
     ..setBuffs(1, "")
     ..setManaCost(1, manaCost)
 
-    return new ItemStats(abilityId, effects)
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
 
 // ----------------------------------------------------------------------------
 
@@ -141,7 +145,6 @@ public function addArmorPen(real value) returns ItemStats
     
     return new ItemStatsCustomFunc(effects, 
     (itemId, itemDef) -> itemId.putInPhysPenItemHash(value))
-
 // ----------------------------------------------------------------------------
 
 public function addMpOnHit(real percentOfMaxMp) returns ItemStats
@@ -271,7 +274,7 @@ public function addHpRegRel(real percentOfMaxHp) returns ItemStats
 public function addHpRegAura(real amount, bool percentage, real range) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
 
-    string effects = ""
+    string effects
     if (percentage)
         effects = wordHpRegAura.format((100*amount).toString() + "% of max HP", range.toString())
     else
@@ -281,7 +284,7 @@ public function addHpRegAura(real amount, bool percentage, real range) returns I
     ..setAreaofEffect(1, range)
     ..setPercentage(1, percentage)
     ..setAmountofHitPointsRegenerated(1, amount)
-    ..setTargetsAllowed(1, commaList(TargetsAllowed.ground, TargetsAllowed.air, TargetsAllowed.friend))
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.ground, TargetsAllowed.air, TargetsAllowed.friend, TargetsAllowed.self))
 
     return new ItemStats(abilityId, effects)
 
@@ -498,20 +501,20 @@ public function addAuraEndurance(real moveSpeed, real attackSpeed, real range) r
 
 // ----------------------------------------------------------------------------
 
-public function addAuraDevotionFlat(real armor, real range) returns ItemStats
+public function addAuraArmorFlat(real armor, real range) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
     let effects = wordAuraDevotionFlat.format(realToString(armor, 0), range.toString())
 
-    new AbilityDefinitionPaladinDevotionAura(abilityId)
+    new AbilityDefinitionAuraDevotionCreep(abilityId)
     ..setPercentBonus(1, false)
     ..setArmorBonus(1, armor)
     ..setAreaofEffect(1, range)
 
     return new ItemStats(abilityId, effects)
 
-public function addAuraDevotionRel(real factor, real range) returns ItemStats
+public function addAuraArmorRel(real factor, real range) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
-    let effects = wordAuraDevotionFlat.format(realToString(100*factor, 0), range.toString())
+    let effects = wordAuraDevotionRel.format(realToString(100*factor, 0), range.toString())
 
     new AbilityDefinitionPaladinDevotionAura(abilityId)
     ..setPercentBonus(1, true)
@@ -519,6 +522,46 @@ public function addAuraDevotionRel(real factor, real range) returns ItemStats
     ..setAreaofEffect(1, range)
 
     return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addAuraMinusArmorFlat(real armor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAuraDevotionFlat.format(realToString(armor, 0), range.toString())
+
+    new AbilityDefinitionAuraDevotionCreep(abilityId)
+    ..setPercentBonus(1, false)
+    ..setArmorBonus(1, armor)
+    ..setAreaofEffect(1, range)
+    ..setTargetsAllowed(1, TargetsAllowed.enemies)
+
+    return new ItemStats(abilityId, effects)
+
+public function addAuraMinusArmorRel(real factor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAuraDevotionRel.format(realToString(100*factor, 0), range.toString())
+
+    new AbilityDefinitionPaladinDevotionAura(abilityId)
+    ..setPercentBonus(1, true)
+    ..setArmorBonus(1, factor)
+    ..setAreaofEffect(1, range)
+    ..setTargetsAllowed(1, TargetsAllowed.enemies)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addRevive(real duration, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityRevive.format(cd.toString())
+
+    new AbilityDefinitionReincarnationcreep(abilityId)
+    ..setReincarnationDelay(1, duration)
+    ..setCooldown(1, cd)
+
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
 
 // ----------------------------------------------------------------------------
 
@@ -544,7 +587,6 @@ public function addAuraCommandRel2(real factor, real range) returns ItemStats
 
     return new ItemStats(abilityId, effects)
 
-
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 
@@ -558,7 +600,9 @@ public function addAbilityAvatarMagicImmune(real duration, real cd, int manaCost
     ..setDurationNormal(1, cd)
     ..setManaCost(1, manaCost)
 
-    return new ItemStats(abilityId, effects)
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
 
 // ----------------------------------------------------------------------------
 
@@ -602,7 +646,7 @@ public function addAbilityPhoenixFire(real damage, real attackCd, real range) re
 
 public function addAbilityLifeStealAura(real factor, real range) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
-    let effects = wordVampiricAura.format((100*factor).toString(), range.toString())
+    let effects = wordVampiricAura.format((100*factor).toString(1), range.toString())
 
     new AbilityDefinitionDreadlordVampiricAura(abilityId)
     ..setAttackDamageStolen(1, factor)
@@ -732,7 +776,107 @@ public function addAbilityLightingBoltStun(real damage, real intFactor, real stu
         caster.damageTargetCode(damageSum, target, null, -1, damageType.MAGICAL)
     end))
 
-    return new ItemStats(abilityId, effects)
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityArmorDamageHpRegBuff(real damage, int armor, real hpReg, real duration, int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityArmorDamageHpReg.format((100*damage).toString(), armor.toString(), hpReg.toString(), duration.toString(), cd.toString())
+
+    new AbilityDefinitionRoar(abilityId)
+    ..setDamageIncrease(1, damage)
+    ..setDefenseIncrease(1, armor)
+    ..setLifeRegenerationRate(1, hpReg)
+    ..setDurationHero(1, duration)
+    ..setDurationNormal(1, duration)
+    ..setTargetsAllowed(1, TargetsAllowed.self)
+    ..setManaRegen(1, 0)
+    ..setLevels(1)
+    ..setCooldown(1, cd)
+    ..setManaCost(1, manaCost)
+
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
+
+// ----------------------------------------------------------------------------
+
+public function addAbilitySummonInfernoUnit(real aoeDamage, real area, int unitId, string unitName, real unitDuration, int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilitySummonInferno.format(aoeDamage.toString(), area.toString(), unitName, unitDuration.toString(), cd.toString())
+
+    new AbilityDefinitionInferno(abilityId)
+    ..setLevels(1)
+    ..setDamage(1, aoeDamage)
+    ..setDuration(1, unitDuration)
+    ..setSummonedUnit(1, unitId.toRawCode())
+    ..setAreaofEffect(1, area)
+    ..setHeroAbility(false)
+    ..setItemAbility(true)
+    ..setManaCost(1, manaCost)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris, TargetsAllowed.enemies))
+
+
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
+
+// ----------------------------------------------------------------------------
+
+public function addAbilitySummonPermanentUnit(int unitId, string unitName, int manaCost, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilitySummonInferno.format(unitName, cd.toString())
+
+    new AbilityDefinitionBeastMasterSummonBear(abilityId)
+    ..setLevels(1)
+    ..setSummonedUnitCount(1, 2)
+    ..setSummonedUnitType(1, unitId.toRawCode())
+    ..setDurationHero(1, 0)
+    ..setDurationNormal(1, 0)
+    ..setManaCost(1, manaCost)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris, TargetsAllowed.enemies))
+
+
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityManaShield(real hpPerMana) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityManaShield.format(hpPerMana.toString())
+
+    new AbilityDefinitionManaShieldCreep(abilityId)
+    ..setDamageAbsorbed(1, 1)
+    ..setCooldown(1, 0)
+    ..setManaperHitPoint(1, 1/hpPerMana)
+
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityIllusions(int numberIllusions, real damageDealt, real damageReceived, int manaCost, real duration, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordAbilityIllusions.format(numberIllusions.toString(), damageDealt.toString(), damageReceived.toString(), duration.toString(), cd.toString())
+
+    new AbilityDefinitionBladeMasterMirrorImage(abilityId)
+    ..setDamageDealt(1, damageReceived)
+    ..setDamageTaken(1, damageDealt)
+    ..setDurationHero(1, duration)
+    ..setDurationNormal(1, duration)
+    ..setNumberofImages(1, numberIllusions)
+    ..setCooldown(1, cd)
+    ..setManaCost(1, manaCost)
+
+    return new ItemStatsCustomFunc(abilityId, effects,
+    (itemId, itemDef) -> itemDef.setCooldownGroup(abilityId.toRawCode())
+    )
 
 // ----------------------------------------------------------------------------
 
@@ -758,4 +902,3 @@ public function addTomeStatGiving(int amount, int tomeID, statTome tomeType) ret
             abilDef.setArtCaster(Abilities.aIilTarget)
 
     return new ItemStats(abilityId, effects)
-

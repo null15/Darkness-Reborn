@@ -1,0 +1,217 @@
+package Recipes3
+
+import CommonDescriptions
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import RecipeItems
+
+init
+
+@compiletime function createItems()
+
+//I04Z
+    new MyItemWithRecipeDefinition(ITEM_SEER_STAFF, itemRecipeList, ITEM_RECIPE_SEER_STAFF,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(4600)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSeerStaff.blp")
+    ..setClassification("Permanent")
+    ..addStats(addInt(160))
+    ..addStats(addAttackSpeed(1))
+    ..addStats(addMp(3000))
+    ..addComponents(
+    ITEM_SCROLL_OF_FUSION,
+    ITEM_MEDALLION_OF_COURAGE,
+    ITEM_PENDANT_OF_MANA)
+    ..addHotKey()
+    ..register()
+
+//I057
+    new MyItemWithRecipeDefinition(ITEM_SCALE_AXE, itemRecipeList, ITEM_RECIPE_SCALE_AXE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(750)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Axe_06.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(15))
+    ..addStats(addCleave(0.25, 200))
+    ..addComponents(
+    ITEM_STURDY_WAR_AXE)
+    ..addHotKey()
+    ..register()
+
+//I058
+    new MyItemWithRecipeDefinition(ITEM_DALAN_AXE, itemRecipeList, ITEM_RECIPE_DALAN_AXE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(1250)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Axe_05.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(23))
+    ..addStats(addStr(10))
+    ..addStats(addCleave(0.28, 250))
+    ..addComponents(
+    ITEM_SCALE_AXE,
+    ITEM_BELT_OF_GIANT_STRENGTH,
+    ITEM_CIRCLET_OF_NOBILITY)
+    ..addHotKey()
+    ..register()
+    
+//I059
+    new MyItemWithRecipeDefinition(ITEM_DURATION_AXE, itemRecipeList, ITEM_RECIPE_DURATION_AXE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(1850)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Axe_04.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(50))
+    ..addStats(addStr(18))
+    ..addStats(addCleave(0.32, 300))
+    ..addComponents(
+    ITEM_DALAN_AXE,
+    ITEM_SOUL_RING,
+    ITEM_CLAWS_OF_ATTACK)
+    ..addHotKey()
+    ..register()
+
+//I05A
+    new MyItemWithRecipeDefinition(ITEM_DWARVEN_AXE, itemRecipeList, ITEM_RECIPE_DWARVEN_AXE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(2100)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDwarvenDoubleAxe2.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(100))
+    ..addStats(addStr(30))
+    ..addStats(addCleave(0.4, 400))
+    ..addComponents(
+    ITEM_DURATION_AXE,
+    ITEM_SCROLL_OF_FUSION,
+    ITEM_STURDY_WAR_AXE)
+    ..addHotKey()
+    ..register()
+
+//I05B
+    new MyItemWithRecipeDefinition(ITEM_BLADE_OF_HELL, itemRecipeList, ITEM_RECIPE_BLADE_OF_HELL,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(3200)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFireBlade.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(220))
+    ..addStats(addAttackSpeed(1))
+    ..addStats(addAllStats(12))
+    ..addStats(addCrit(0.18, 3))
+    ..addComponents(
+    ITEM_FIRE_SWORD,
+    ITEM_GLOVES_OF_SPEED,
+    ITEM_SIMPLE_SWORD)
+    ..addHotKey()
+    ..register()
+
+//I05C
+    new MyItemWithRecipeDefinition(ITEM_KRAKEN_DAGGER, itemRecipeList, ITEM_RECIPE_KRAKEN_DAGGER,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(2300)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDeathKnightDagger.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(120))
+    ..addStats(addStr(60))
+    ..addStats(addAttackSpeed(0.6))
+    ..addComponents(
+    ITEM_SOUL_RING,
+    ITEM_GLOVES_OF_HADES,
+    ITEM_KHADGAR_PENDANT_OF_HEALTH)
+    ..addHotKey()
+    ..register()
+
+//I05D
+    new MyItemWithRecipeDefinition(ITEM_MIDNIGHT_BLADE, itemRecipeList, ITEM_RECIPE_MIDNIGHT_BLADE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(2250)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNmidnightGS.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(65))
+    ..addStats(addAttackSpeed(0.6))
+    ..addStats(addArmorOnHit(-30))
+    ..addComponents(
+    ITEM_ORB_OF_CORRUPTION,
+    ITEM_SIMPLE_SWORD,
+    ITEM_GLOVES_OF_WIND)
+    ..addHotKey()
+    ..register()
+
+//I05E
+    new MyItemWithRecipeDefinition(ITEM_BLOOD_GORGED_BLADE, itemRecipeList, ITEM_RECIPE_BLOOD_GORGED_BLADE,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(400)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_CR_Blood-Gorged Blade.blp")
+    ..setClassification("Permanent")
+    ..addStats(addDamage(80))
+    ..addStats(addHp(1000))
+    ..addStats(addHpReg(15))
+    ..addStats(addLifeSteal(0.16))
+    ..addComponents(
+    ITEM_LIFE_STEAL,
+    ITEM_SIMPLE_SWORD,
+    ITEM_PERIAPT_OF_VITALITY)
+    ..addHotKey()
+    ..register()
+
+//I05F
+    new MyItemWithRecipeDefinition(ITEM_STEEL_SHIELD, itemRecipeList, ITEM_RECIPE_STEEL_SHIELD,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(2100)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNrcgs.blp")
+    ..setClassification("Permanent")
+    ..addStats(addArmor(50))
+    ..addStats(addAllStats(30))
+    ..addStats(addHp(2000))
+    ..addStats(addDamageBlock(0.5, 600))
+    ..addComponents(
+    ITEM_SCROLL_OF_FUSION,
+    ITEM_ENCHANTED_SHIELD,
+    ITEM_ARCANITE_SHIELD)
+    ..addHotKey()
+    ..register()
+
+//I05G
+    new MyItemWithRecipeDefinition(ITEM_SACRED_SHIELD, itemRecipeList, ITEM_RECIPE_SACRED_SHIELD,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(3500)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNElectricrune.blp")
+    ..setClassification("Permanent")
+    ..addStats(addArmor(150))
+    ..addStats(addAllStats(50))
+    ..addStats(addDamageBlock(0.6, 3000))
+    ..addComponents(
+    ITEM_STEEL_SHIELD,
+    ITEM_ENCHANTED_SHIELD,
+    ITEM_SHIELD_OF_HONOR)
+    ..addHotKey()
+    ..register()
+
+//I05H
+    new MyItemWithRecipeDefinition(ITEM_IRON_SHIELD, itemRecipeList, ITEM_RECIPE_IRON_SHIELD,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(3000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcanum Protector.blp")
+    ..setClassification("Permanent")
+    ..addStats(addArmor(100))
+    ..addStats(addStr(80))
+    ..addStats(addAgi(50))
+    ..addStats(addInt(50))
+    ..addStats(addHpReg(50))
+    ..addStats(addDamageBlock(0.6, 2000))
+    ..addComponents(
+    ITEM_STEEL_SHIELD,
+    ITEM_HELM_OF_VALOR)
+    ..addHotKey()
+    ..register()
