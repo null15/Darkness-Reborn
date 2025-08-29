@@ -1,18 +1,21 @@
 package Misc
 
 import ClosureEvents
+import LinkedList
+
+let allowedPlayers = new LinkedList<player>
 
 init
     disableTK() // Disables team attack
     shoptobaseTp() // Teleports to below fountain if they enter shop area
 
-
 function shoptobaseTp()
+    allowedPlayers.add(Player(10), Player(14))
     CreateTrigger()
     ..registerRectEnterEventSource(gg_rct_ShopLeft)
     ..registerRectEnterEventSource(gg_rct_ShopRight)
     ..addAction() ->
-        if GetEnteringUnit().getOwner() != Player(10)
+        if not allowedPlayers.has(GetEnteringUnit().getOwner())
             GetEnteringUnit().setPos(gg_rct_Base.getCenter())
 
 function disableTK()

@@ -168,4 +168,5 @@ public function unit.questItemPickup()
                 let targetUnitType = new HashSet<int>
                 targetUnitType.add(templist.getRandomElement())
                 questOwner.initiateFountainQuest(targetUnitType, rarity)
+                destroy targetUnitType
                 destroy templist
