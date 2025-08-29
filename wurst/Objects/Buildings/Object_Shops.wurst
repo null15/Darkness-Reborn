@@ -372,7 +372,6 @@ public function getHotKey(int itemId) returns string
         if (entry == itemId)
             return hotKeys[idx]
         idx++
-    
     return ""
 
 // ----------------------------------------------------------------------------

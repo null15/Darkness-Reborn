@@ -1,0 +1,102 @@
+package LateGame4
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import ObjectIds
+import MyAbilityIds
+import AbilityObjEditing
+import RecipeItems
+import TomeGive
+import Icons
+
+init
+
+@compiletime function createItems()
+
+//I0EL
+    new MyItemDefinition(ITEM_BULION)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGold.blp")    
+    ..setClassification("Artifact")
+    ..setLumberCost(100)
+    ..addStats(addMp(6000))
+    ..addExtraDescription("Used to upgrade some type of item")
+    ..addHotKey()
+    ..register()
+
+//I0CD
+    new MyItemDefinition(ITEM_CRYSTAL_ARMOR)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (7).blp")
+    ..setClassification("Campaign")
+    ..setLumberCost(1100)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..addStats(addStr(1200))
+    ..addStats(addArmor(300))
+    ..addStats('A0SZ', "50% Chance to deal 2x Strength damage back to enemies attacking you.")
+    ..addHotKey()
+    ..register()
+
+//I0CC
+    new MyItemDefinition(ITEM_CRYSTAL_DUAL_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (2).blp")
+    ..setClassification("Campaign")
+    ..setGoldCost(50000)
+    ..setLumberCost(700)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..addStats(addDamage(1500))
+    ..addStats(addAgi(690))
+    ..addStats(addArmorPen(5))
+    ..addStats(addCrit(60, 0.04))
+    ..addHotKey()
+    ..register()
+
+//I0CJ
+    new MyItemDefinition(ITEM_CRYSTAL_KNIFE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (9).blp")
+    ..setClassification("Campaign")
+    ..setScalingValue(0.50)
+    ..setGoldCost(50000)
+    ..setLumberCost(700)
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..addStats(addAllStats(600))
+    ..addStats(addArmorOnHit(-300))
+    ..addHotKey()
+    ..register()
+
+//I0CE
+    new MyItemDefinition(ITEM_CRYSTAL_SPEAR)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN F (3).blp")
+    ..setClassification("Campaign")
+    ..setScalingValue(0.50)
+    ..setGoldCost(50000)
+    ..setLumberCost(700)
+    ..addStats(addInt(1350))
+    ..setStockMaximum(2)
+    ..setStockReplenishInterval(45)
+    ..addStats('A0IG', "15% chance to deal 10 times Intelligence Damage on-hit")
+    ..addHotKey()
+    ..register()
+
+//I0AX
+    new MyItemWithRecipeDefinition(ITEM_DRAGON_WINGS, itemRecipeList, ITEM_RECIPE_DRAGON_WINGS,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(25000)
+    )
+    // setAbilities('A0JY')
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDragonWing.blp")
+    ..setModelUsed("assets-wings effect\\DwingsStand.mdx")
+    ..setClassification("Campaign")
+    ..setScalingValue(0.80)
+    ..addStats(addDamage(2500))
+    ..addStats(addAllStats(200))
+    ..addStats("[WIP] Changes your Damage Type to 'Blood' permanently if picked up.")
+    ..addComponents(
+    ITEM_DRAGON_BONE,
+    ITEM_DRAGON_CLAW,
+    ITEM_DRAGON_SKIN,
+    ITEM_DRAGON_SPIRIT)
+    ..addHotKey()
+    ..register()

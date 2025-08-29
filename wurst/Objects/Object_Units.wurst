@@ -4731,7 +4731,7 @@ init
 
 @compiletime function abilityUnits()
 
-    new UnitDefinition(ABILITYUNIT_0, UnitIds.infernal)
+    new UnitDefinition(UNIT_INFERNAL, UnitIds.infernal)
     ..setNormalAbilities(commaList("A0A5", "ACmi", "A081", "ACrk"))
     ..setScalingValue(2)
     ..setSelectionScale(3)

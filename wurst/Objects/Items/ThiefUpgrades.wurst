@@ -1,0 +1,387 @@
+package ThiefUpgrades
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import Blacksmith
+
+init
+
+@compiletime function createItems()
+    
+//I0HP
+    new MyItemWithCraftInfoDefinition(ITEM_BASIC_GOLD_RING, blacksmithThiefList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif1.blp")
+    ..setClassification("Purchasable")
+    ..addStats(addAgi(60))
+    ..addComponents(ITEM_BASIC_RING)
+    ..register()
+
+//I0HR
+    new MyItemWithCraftInfoDefinition(ITEM_RING_OF_SUN, blacksmithThiefList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif4.blp")
+    ..setClassification("Purchasable")
+    ..addStats(addAgi(180))
+    ..addComponents(ITEM_SILVER_RING)
+    ..register()
+
+//I0HT
+    new MyItemWithCraftInfoDefinition(ITEM_HOVER_RING, blacksmithThiefList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif6.blp")
+    ..setClassification("Permanent")
+    ..addStats(addAgi(380))
+    ..addComponents(ITEM_SUNFLOWER_RING)
+    ..register()
+
+//I0HW
+    new MyItemWithCraftInfoDefinition(ITEM_WOOD_BRACER, blacksmithThiefList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif32.blp")
+    ..setClassification("Purchasable")
+    ..addStats(addStr(60))
+    ..addComponents(ITEM_LEATHER_BRACER)
+    ..register()
+
+//I0HY
+    new MyItemWithCraftInfoDefinition(ITEM_GOLDEN_BRACER, blacksmithThiefList, -1)    
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif34.blp")
+    ..addStats(addStr(180))
+    ..addComponents(ITEM_GOOD_BRACER)
+    ..register()
+    
+//I0I0
+    new MyItemWithCraftInfoDefinition(ITEM_BRACER_OF_EVIL, blacksmithThiefList, -1)    
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif36.blp")
+    ..addStats(addStr(380))
+    ..addComponents(ITEM_HAMANUS_BRACER)
+    ..register()
+    
+//I0I3
+    new MyItemWithCraftInfoDefinition(ITEM_KNIFE_OF_HUNTER, blacksmithThiefList, -1)
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif19.blp")
+    ..addStats(addCrit(4, 0.07))
+    ..addComponents(ITEM_KNIFE)
+    ..register()
+    
+//I0I5
+    new MyItemWithCraftInfoDefinition(ITEM_STEEL_SWORD, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif12.blp")
+    ..addStats(addCrit(6, 0.11))
+    ..addComponents(ITEM_KNIFE_OF_BAHAMUT)
+    ..register()
+
+//I0I7
+    new MyItemWithCraftInfoDefinition(ITEM_SWORD_FANG, blacksmithThiefList, -1)
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif15.blp")
+    ..addStats(addCrit(8, 0.15))
+    ..addComponents(ITEM_SWORD_OF_HUNTER)
+    ..register()
+
+//I0I9
+    new MyItemWithCraftInfoDefinition(ITEM_SWORD_OF_DRUIDMASTER, blacksmithThiefList, -1)
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif16.blp")
+    ..addStats(addCrit(10, 0.19))
+    ..addComponents(ITEM_SWORD_ROAR)
+    ..register()
+
+//I0HG
+    new MyItemWithCraftInfoDefinition(ITEM_SPIRIT_SWORD_L2, blacksmithThiefList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif21.blp")
+    ..setClassification("PowerUp")
+    ..addStats(addAuraCommandRel2(0.1, 900))
+    ..addComponents(ITEM_SPIRIT_SWORD_L1)
+    ..register()
+    
+//I0HH
+    new MyItemWithCraftInfoDefinition(ITEM_SPIRIT_DAGGER, blacksmithThiefList, -1)    
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif22.blp")
+    ..setClassification("PowerUp")
+    ..addStats(addAuraCommandRel2(0.15, 900))
+    ..addComponents(ITEM_SPIRIT_SWORD_L2)
+    ..register()
+    
+//I0HI
+    new MyItemWithCraftInfoDefinition(ITEM_SPIRIT_BLADE, blacksmithThiefList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif23.blp")
+    ..setClassification("PowerUp")
+    ..addStats(addAuraCommandRel2(0.3, 900))
+    ..addComponents(ITEM_SPIRIT_DAGGER)
+    ..register()
+
+//I0HJ
+    new MyItemWithCraftInfoDefinition(ITEM_SPIRIT_MIDDLE_BLADE, blacksmithThiefList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif24.blp")
+    ..setClassification("PowerUp")
+    ..addStats(addAuraCommandRel2(0.45, 900))
+    ..addComponents(ITEM_SPIRIT_BLADE)
+    ..register()
+
+//I0HK
+    new MyItemWithCraftInfoDefinition(ITEM_SPIRIT_GIANT_BLADE, blacksmithThiefList, -1)    
+    ..setClassification("Permanent")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif25.blp")
+    ..addStats(addAuraCommandRel2(0.5, 900))
+    ..addComponents(ITEM_SPIRIT_MIDDLE_BLADE)
+    ..register()
+    
+//I0G8
+    new MyItemWithCraftInfoDefinition(ITEM_MIDNIGHT_MACE, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif42.blp")
+    ..addStats(addDamage(15))
+    ..addStats(addInt(15))
+    ..addComponents(ITEM_ECHO_MACE)
+    ..register()
+    
+//I0GA
+    new MyItemWithCraftInfoDefinition(ITEM_DOOMS_GRAND_STAFF, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif44.blp")
+    ..addStats(addDamage(35))
+    ..addStats(addInt(35))
+    ..addComponents(ITEM_INVOCATION)
+    ..register()
+
+//I0GC
+    new MyItemWithCraftInfoDefinition(ITEM_VENGEANCE_WAR_STAFF, blacksmithThiefList, -1)
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif46.blp")
+    ..addStats(addDamage(120))
+    ..addStats(addInt(120))
+    ..addComponents(ITEM_SWAN_SONG)
+    ..register()
+
+//I0GE
+    new MyItemWithCraftInfoDefinition(ITEM_FIERCE_GREATSTAFF, blacksmithThiefList, -1)
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif48.blp")
+    ..addStats(addDamage(400))
+    ..addStats(addInt(400))
+    ..addComponents(ITEM_HONED_WARPWOOD_GRAND_STAFF)
+    ..register()
+    
+//I0GH
+    new MyItemWithCraftInfoDefinition(ITEM_CAPE_OF_CURSED, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif002.blp")
+    ..addStats(addEvasion(0.12))
+    ..addStats(addCrit(3, 0.12))
+    ..addComponents(ITEM_SOUL_SILK_CAPE)
+    ..register()
+
+//I0GJ
+    new MyItemWithCraftInfoDefinition(ITEM_FUSION_HIDE_DRAPE, blacksmithThiefList, -1)    
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif004.blp")
+    ..addStats(addEvasion(0.24))
+    ..addStats(addCrit(5, 0.24))
+    ..addComponents(ITEM_BINDING_SORROW_CLOAK)
+    ..register()
+    
+//I0GL
+    new MyItemWithCraftInfoDefinition(ITEM_BLOODIED_WOOL_CLOAK, blacksmithThiefList, -1)    
+    ..setClassification("Permanent")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif006.blp")
+    ..addStats(addEvasion(0.46))
+    ..addStats(addCrit(7, 0.46))
+    ..addComponents(ITEM_PADDED_GREATCLOAK)
+    ..register()
+
+//I0FQ
+    new MyItemWithCraftInfoDefinition(ITEM_OLD_RING, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif02.blp")
+    ..addStats(addDamage(15))
+    ..addStats(addAgi(15))
+    ..addComponents(ITEM_SIMPLE_RING)
+    ..register()
+
+//I0FS
+    new MyItemWithCraftInfoDefinition(ITEM_RING_OF_MYSTERY, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif04.blp")
+    ..addStats(addDamage(35))
+    ..addStats(addAgi(35))
+    ..addComponents(ITEM_RING_OF_MEDIVH)
+    ..register()
+    
+//I0FU
+    new MyItemWithCraftInfoDefinition(ITEM_GOLD_SIMPLE_RING, blacksmithThiefList, -1)
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif06.blp")
+    ..addStats(addDamage(120))
+    ..addStats(addAgi(120))
+    ..addComponents(ITEM_HOLLHOVER)
+    ..register()
+
+//I0FW
+    new MyItemWithCraftInfoDefinition(ITEM_RING_OF_FAKE_SUN, blacksmithThiefList, -1)    
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif08.blp")
+    ..addStats(addDamage(420))
+    ..addStats(addAgi(420))
+    ..addComponents(ITEM_DOMINION_RING)
+    ..register()
+
+//I0FZ
+    new MyItemWithCraftInfoDefinition(ITEM_SIMPLE_HAMMER, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif92.blp")
+    ..addStats(addDamage(15))
+    ..addStats(addStr(15))
+    ..addComponents(ITEM_STEEL_HAMMER)
+    ..register()
+
+//I0G1
+    new MyItemWithCraftInfoDefinition(ITEM_WARRIOR_HAMMER, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif94.blp")
+    ..addStats(addDamage(70))
+    ..addStats(addStr(70))
+    ..addComponents(ITEM_GIANT_HAMMER)
+    ..register()
+
+//I0G3
+    new MyItemWithCraftInfoDefinition(ITEM_FUSION_HAMMER, blacksmithThiefList, -1)    
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif99.blp")
+    ..addStats(addDamage(150))
+    ..addStats(addStr(150))
+    ..addComponents(ITEM_PLATE_HAMMER)
+    ..register()
+
+//I0G5
+    new MyItemWithCraftInfoDefinition(ITEM_THUNDERCHAOS_HAMMER, blacksmithThiefList, -1)    
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif98.blp")
+    ..addStats(addDamage(420))
+    ..addStats(addStr(420))
+    ..addComponents(ITEM_FIREHELL_HAMMER)
+    ..register()
+
+
+//I0GN
+    new MyItemWithCraftInfoDefinition(ITEM_ARMOR_OF_HELL, blacksmithThiefList, -1)    
+    ..setClassification("Purchasable")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif62.blp")
+    ..addStats(addArmor(9))
+    ..addStats(addHpReg(15))
+    ..addComponents(ITEM_ARMOR_OF_SACRED)
+    ..register()
+
+//I0GP
+    new MyItemWithCraftInfoDefinition(ITEM_SILVER_GIANT_ARMOR, blacksmithThiefList, -1)    
+    ..setClassification("Purchasable")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif64.blp")
+    ..addStats(addArmor(50))
+    ..addStats(addHpReg(55))
+    ..addComponents(ITEM_THIEF_SILVER_ARMOR)
+    ..register()
+
+//I0GR
+    new MyItemWithCraftInfoDefinition(ITEM_DESTROYER_ARMOR, blacksmithThiefList, -1)
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif67.blp")
+    ..addStats(addArmor(240))
+    ..addStats(addHpReg(250))
+    ..addComponents(ITEM_SILVER_SPLIT_ARMOR)
+    ..register()
+    
+//I0GT
+    new MyItemWithCraftInfoDefinition(ITEM_BLOOD_ORB, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif82.blp")
+    ..addStats(addHp(500))
+    ..addStats(addMp(500))
+    ..addComponents(ITEM_POISON_ORB)
+    ..register()
+
+//I0GV
+    new MyItemWithCraftInfoDefinition(ITEM_GOLD_CRYSTAL_ORB, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif84.blp")
+    ..addStats(addHp(1700))
+    ..addStats(addMp(1700))
+    ..addComponents(ITEM_EARTH_ORB)
+    ..register()
+
+//I0GX
+    new MyItemWithCraftInfoDefinition(ITEM_CHAOS_ORB, blacksmithThiefList, -1)
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif86.blp")
+    ..addStats(addHp(5600))
+    ..addStats(addMp(5600))
+    ..addComponents(ITEM_LIGHT_THUNDER_ORB)
+    ..register()
+    
+//I0GZ
+    new MyItemWithCraftInfoDefinition(ITEM_GOLDEN_ORB, blacksmithThiefList, -1)
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif8x.blp")
+    ..addStats(addHp(18000))
+    ..addStats(addMp(18000))
+    ..addComponents(ITEM_FUSION_ORB)
+    ..register()
+
+//I0H1
+    new MyItemWithCraftInfoDefinition(ITEM_LEATHER_BOOTS, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif52.blp")
+    ..addStats(addMovementSpeed(2))
+    ..addStats(addAttackSpeed(0.2))
+    ..addComponents(ITEM_LONELY_WOOL_BOOTS)
+    ..register()
+    
+//I0H3
+    new MyItemWithCraftInfoDefinition(ITEM_HEAVY_BOOTS, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif54.blp")
+    ..addStats(addMovementSpeed(50))
+    ..addStats(addAttackSpeed(0.5))
+    ..addComponents(ITEM_LEATHER_GIANT_BOOTS)
+    ..register()
+    
+//I0H5
+    new MyItemWithCraftInfoDefinition(ITEM_BLOOD_INFUSED_LINEN_BOOTS, blacksmithThiefList, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif56.blp")
+    ..addStats(addMovementSpeed(130))
+    ..addStats(addAttackSpeed(1.3))
+    ..addComponents(ITEM_MENDED_DEMON_WARBOOTS)
+    ..register()
+
+//I0H8
+    new MyItemWithCraftInfoDefinition(ITEM_FREE_PLEDGE_RING, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif71.blp")
+    ..addStats(addMpReg(0.2))
+    ..addComponents(ITEM_BLOSSOM_RING)
+    ..register()
+    
+//I0HA
+    new MyItemWithCraftInfoDefinition(ITEM_AGED_IMAGE, blacksmithThiefList, -1)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif73.blp")
+    ..addStats(addMpReg(0.8))
+    ..addComponents(ITEM_BLIND_BUBBLE_NECKLACE)
+    ..register()
+
+//I0HC
+    new MyItemWithCraftInfoDefinition(ITEM_SUN_NECKLACE, blacksmithThiefList, -1)
+    ..setClassification("Charged")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif75.blp")
+    ..addStats(addMpReg(2.2))
+    ..addComponents(ITEM_TENDER_LEAF)
+    ..register()
+
+//I0HE
+    new MyItemWithCraftInfoDefinition(ITEM_FAINT_TRINKET_NECKLACE, blacksmithThiefList, -1)
+    ..setClassification("Artifact")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif77.blp")
+    ..addStats(addMpReg(6))
+    ..addComponents(ITEM_FAIR_DROP)
+    ..register()

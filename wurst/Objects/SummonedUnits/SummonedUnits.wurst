@@ -1,0 +1,48 @@
+package SummonedUnits
+import UnitObjEditing
+import ObjectIds
+import UnitIds
+import MyUnitIds
+import Abilities
+
+
+@compiletime
+function initSummons()
+    new UnitDefinition(UNIT_SUMMON_INFERNAL, UnitIds.infernal)
+    ..setNormalAbilities(commaList("A0A5", "ACmi", "A081", "ACrk"))
+    ..setScalingValue(2)
+    ..setSelectionScale(3)
+    ..setAcquisitionRange(800)
+    ..setAttack1CooldownTime(0.7)
+    ..setAttack1DamageBase(1600)
+    ..setAttack1DamageNumberofDice(9)
+    ..setAttack1ProjectileArt("")
+    ..setAttack1TargetsAllowed(commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris))
+    ..setDefenseBase(111)
+    ..setDefenseUpgradeBonus(25)
+    ..setSpeedBase(350)
+    ..setTurnRate(0.4)
+    ..setHitPointsMaximumBase(100000)
+    ..setHitPointsRegenerationRate(700)
+    ..setLevel(45)
+    ..setName("Burning Infernal")
+
+    new UnitDefinition(UNIT_SUMMON_HYDRA, UnitIds.hydra)
+    ..setNormalAbilities(commaList("A0A5", "ACmi", "A081", "ACrk"))
+    ..setScalingValue(1)
+    ..setSelectionScale(1)
+    ..setAcquisitionRange(800)
+    ..setAttack1CooldownTime(0.2)
+    ..setAttack1DamageBase(6000)
+    ..setAttack1DamageNumberofDice(9)
+    ..setAttack1MaximumNumberofTargets(5)
+    ..setAttack1Range(1200)
+    ..setAttack1ProjectileArt(Abilities.breathOfFrostMissile)
+    ..setAttack1TargetsAllowed(commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris))
+    ..setDefenseBase(150)
+    ..setSpeedBase(250)
+    ..setTurnRate(1)
+    ..setHitPointsMaximumBase(50000)
+    ..setHitPointsRegenerationRate(800)
+    ..setLevel(45)
+    ..setName("Burning Infernal")

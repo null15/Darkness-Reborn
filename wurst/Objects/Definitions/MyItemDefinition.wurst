@@ -70,6 +70,20 @@ public class MyItemDefinitionBase extends ItemDefinition
         setRequirementsLevels("")
         setClassification("PowerUp")
 
+    function initGem(int R, int G, int B, string modelUsed)
+        setModelUsed(modelUsed)
+        setTintingColor1Red(R)
+        setTintingColor2Green(G)
+        setTintingColor3Blue(B)
+        
+        setClassification("Campaign")
+        
+        setCanBeSold(false)
+        setGoldCost(149000)
+
+        setStockReplenishInterval(600)
+        setStockStartDelay(100)
+
     function setCanBeSold(boolean value)
         setCanBeSoldByMerchants(value)
         setCanBeSoldToMerchants(value)
@@ -138,11 +152,11 @@ public class MyItemDefinition extends MyItemDefinitionBase
     protected function getEffectsDescription() returns string
         string result = ""
         if (title != "")
-            result = title
+            result = title + "\n"
         if (effects != "")
             result = result + wordEffects + effects
         if (extraDescription != "")
-            result = result + extraDescription + wordEffects
+            result = result + "\n" + extraDescription + wordEffects
         return result
 
     protected function basicEffectsDescr()
@@ -344,20 +358,6 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
         this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.recipeItemId, this.itemId)
         this.components = new LinkedList<int>()
         this.components.add(item1, item2, item3, item4, item5, this.recipeItemId)
-
-// ----------------------------------------------------------------------------
-// ----------------------------------------------------------------------------
-
-public class MyGemDefinition extends MyItemDefinition
-    construct(int newId)
-        super(newId)
-        setActivelyUsed(true)
-        setCanBeSold(false)
-        setGoldCost(149000)
-
-        setStockReplenishInterval(600)
-        setStockStartDelay(100)
-
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------

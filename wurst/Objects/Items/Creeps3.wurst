@@ -1,0 +1,143 @@
+package Creeps3
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+
+init
+
+@compiletime function createItems()
+
+//I047
+    new MyItemDefinition(ITEM_SPHERE_OF_FIRE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSphereOfFire.blp") 
+    ..setClassification("Artifact")
+    ..addStats(addHp(6000))
+    ..setStockMaximum(99)
+    ..register()
+
+
+//I046
+    new MyItemDefinition(ITEM_SPHERE_OF_WATER)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSphereOfWater.blp")
+    ..setClassification("Artifact")
+    ..addStats(addMp(6000))
+    ..setStockMaximum(99)
+    ..register()
+
+//I03P
+    new MyItemDefinition(ITEM_ESSENCE_OF_ASZUNE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHeartOfAszune.blp") 
+    ..setClassification("Artifact")
+    ..addStats(addAllStats(80))
+    ..setStockMaximum(99)
+    ..register()
+
+//I04B
+    new MyItemDefinition(ITEM_DREAM_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFairyDreamSword.blp") 
+    ..setClassification("Artifact")
+    ..addStats(addDamage(220))
+    ..addStats(addAttackSpeed(1.2))
+    ..addStats(addAllStats(12))
+    ..addStats(addCrit(4, 0.12))
+    ..setStockMaximum(99)
+    ..register()
+
+//I04C
+    new MyItemDefinition(ITEM_CRYSTAL_SWORD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNredsword4.blp")
+    ..setClassification("Artifact")
+    ..addStats(addDamage(240))
+    ..addStats(addAttackSpeed(1.2))
+    ..addStats(addAllStats(20))
+    ..addStats(addArmorOnHit(-65))
+    ..setStockMaximum(99)
+    ..register()
+
+//I0AY
+    new MyItemDefinition(ITEM_BLOODY_DAGGER)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (3).blp")
+    ..setClassification("Artifact")
+    ..addStats(addDamage(220))
+    ..addStats(addAllStats(30))
+    ..addStats(addLifeSteal(0.2))
+    ..setStockMaximum(99)
+    ..register()
+
+//I0BB
+    new MyItemDefinition(ITEM_GLOVERSHIELD)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (5).blp") 
+    ..setClassification("Artifact")
+    ..addStats(addArmor(100))
+    ..addStats(addMagicResist(30))
+    ..addStats("[WIP] Has the Ability to resurrect. (cd 240 sec)")
+    ..setStockMaximum(99)
+    ..register()
+
+//I048
+    new MyItemDefinition(ITEM_BOOK_OF_WIND)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeaver 02.blp")
+    ..setClassification("Artifact")
+    ..addStats(addAgi(220))
+    ..setStockMaximum(99)
+    ..register()
+
+//I04A
+    new MyItemDefinition(ITEM_BOOK_OF_RAIN)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeaver.blp")
+    ..setClassification("Artifact")
+    ..addStats(addInt(280))
+    ..setStockMaximum(99)
+    ..register()
+
+//I049
+    new MyItemDefinition(ITEM_BOOK_OF_EARTHQUAKE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeaver 03.blp")
+    ..setClassification("Artifact")
+    ..addStats(addStr(250))
+    ..addStats(addArmorPen(1))
+    ..setStockMaximum(99)
+    ..register()
+
+//I0BC
+    new MyItemDefinition(ITEM_LAZARUS_BELT)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (1).blp")
+    ..setActivelyUsed(true)
+    ..setClassification("Miscellaneous")
+    ..addStats(addArmor(100))
+    ..addStats(addInt(80))
+    ..addStats(addMp(2000))
+    ..addStats("[WIP] Mana Shield that drains 1 Mana per 0.8 damage taken.")
+    ..setStockMaximum(99)
+    ..register()
+
+//I06V
+    new MyItemDefinition(ITEM_MENELAUS)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInjusticePlate.blp")
+    ..setClassification("Artifact")
+    ..addStats(addArmor(240))
+    ..addStats(addMagicResist(70))
+    ..addStats(addHp(2500))
+    ..addStats(addMovementSpeed(200))
+    ..setStockMaximum(99)
+    ..register()
+
+//I0BE
+    new MyItemDefinition(ITEM_SOUL_BLAME)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNI (4).blp")
+    ..setClassification("Artifact")
+    ..addStats(addDamage(700))
+    ..addStats(addAttackSpeed(1.4))
+    ..addStats(addHp(1000))
+    ..addStats(addArmorOnHit(-120))
+    ..setStockMaximum(99)
+    ..register()
+
+//I0BO
+    new MyItemDefinition(ITEM_TITANIUM)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (4).blp")
+    ..setClassification("Campaign")
+    ..addStats(addEvasion(0.5))
+    ..setStockMaximum(99)
+    ..register()

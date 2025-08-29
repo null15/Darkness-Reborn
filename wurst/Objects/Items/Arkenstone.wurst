@@ -1,0 +1,74 @@
+package Arkenstone
+
+import MyItemDefinition
+import ItemObjEditing
+import MyItemIds
+import RecipeItems
+
+init
+
+@compiletime function createItems()
+
+//I027
+    new MyItemWithCraftInfoDefinition(ITEM_JEWELRY_OF_MANA, itemRecipeList, ITEM_INFO_JEWELRY_OF_MANA)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Jewelry_Ring_05.blp")
+    ..setClassification("Miscellaneous")
+    ..addStats(addMp(1000))
+    ..addStats(addMpReg(1))
+    ..addComponents(
+    ITEM_PENDANT_OF_ENERGY,
+    ITEM_PENDANT_OF_MANA)
+    ..addHotKey()
+    ..register()
+
+//I026
+    new MyItemWithCraftInfoDefinition(ITEM_JEWELRY_OF_LIFE, itemRecipeList, ITEM_INFO_JEWELRY_OF_LIFE)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNINV_Jewelry_Ring_04.blp")
+    ..setClassification("Miscellaneous")
+    ..addStats(addHp(1000))
+    ..addStats(addHpReg(10))
+    ..addComponents(
+    ITEM_PERIAPT_OF_VITALITY,
+    ITEM_KHADGAR_PENDANT_OF_HEALTH)
+    ..addHotKey()
+    ..register()
+
+//I000
+    new MyItemWithCraftInfoDefinition(ITEM_LANCELOT_RING, itemRecipeList, ITEM_INFO_LANCELOT_RING)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLancelot_Ring.blp")
+    ..setClassification("Miscellaneous")
+    ..addStats(addMp(2000))
+    ..addStats(addMpReg(1.5))
+    ..addComponents(
+    ITEM_JEWELRY_OF_MANA,
+    ITEM_PENDANT_OF_MANA)
+    ..addHotKey()
+    ..register()
+
+//I028
+    new MyItemWithCraftInfoDefinition(ITEM_GUINEVERES_RING, itemRecipeList, ITEM_INFO_GUINEVERES_RING)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInjusticeRing.blp")
+    ..setClassification("Miscellaneous")
+    ..addStats(addHp(2000))
+    ..addStats(addHpReg(20))
+    ..addComponents(
+    ITEM_JEWELRY_OF_LIFE,
+    ITEM_RING_OF_REGENERATION,
+    ITEM_PERIAPT_OF_VITALITY)
+    ..addHotKey()
+    ..register()
+
+//I02B
+    new MyItemWithCraftInfoDefinition(ITEM_ARKENSTONE_FRAGMENT, itemRecipeList, ITEM_INFO_ARKENSTONE_FRAGMENT)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTopaz.BLP")
+    ..setClassification("Miscellaneous")
+    ..addStats(addHp(2500))
+    ..addStats(addHpReg(25))
+    ..addStats(addMp(2500))
+    ..addStats(addMpReg(2))
+    ..addComponents(
+    ITEM_LANCELOT_RING,
+    ITEM_GUINEVERES_RING,
+    ITEM_PENDANT_OF_ENERGY)
+    ..addHotKey()
+    ..register()

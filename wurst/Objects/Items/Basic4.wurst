@@ -1,0 +1,96 @@
+package Basic4
+
+import MyItemDefinition
+import ItemObjEditing
+import ItemIds
+import MyItemIds
+import Icons
+
+init
+
+@compiletime function createItems()
+
+//I015
+    new MyItemDefinition(ITEM_POTION_OF_GREATER_HEALING)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.bTNPotionGreen)
+    ..setActivelyUsed(true)
+    ..setGoldCost(300)
+    ..setNumberofCharges(5)
+    ..setPerishable(true)
+    ..addStats(addRestoreHpOnUse(600))
+    ..addHotKey()
+    ..register()
+
+//I016
+    new MyItemDefinition(ITEM_POTION_OF_GREATER_MANA)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.bTNPotionBlueBig)  
+    ..setActivelyUsed(true)
+    ..setGoldCost(300)
+    ..setNumberofCharges(5)
+    ..setPerishable(true)
+    ..addStats(addRestoreMpOnUse(400))
+    ..addHotKey()
+    ..register()
+
+//I012
+    new MyItemDefinition(ITEM_PENDANT_OF_ENERGY)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.bTNPendantOfEnergy)
+    ..setGoldCost(700)
+    ..addStats(addMp(200))
+    ..addStats(addMpReg(0.5))
+    ..addHotKey()
+    ..register()
+
+//I013
+    new MyItemDefinition(ITEM_PENDANT_OF_MANA)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon(Icons.bTNPendantOfMana) 
+    ..setGoldCost(1250)
+    ..addStats(addMp(500))
+    ..addStats(addMpReg(0.75))
+    ..addHotKey()
+    ..register()
+
+//I01P
+    new MyItemDefinition(ITEM_PERIAPT_OF_VITALITY)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPeriapt.blp")
+    ..setGoldCost(1000)
+    ..addStats(addHp(500))
+    ..addHotKey()
+    ..register()
+
+//I025
+    new MyItemDefinition(ITEM_KHADGAR_PENDANT_OF_HEALTH)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPeriapt1.blp")
+    ..setGoldCost(1800)
+    ..addStats(addHp(1000))
+    ..addHotKey()
+    ..register()
+
+//I00V
+    new MyItemDefinition(ITEM_CLOAK_OF_SHADOWS, ItemIds.cloakofShadows)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCloak.blp")
+    ..setGoldCost(550)
+    ..addStats("Allows the hero to turn invisible at night")
+    ..addHotKey()
+    ..register()
+
+//I05L
+    new MyItemDefinition(ITEM_TOME_OF_RETRAINING, ItemIds.tomeofRetraining)
+    ..setClassification("PowerUp")
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTomeOfRetraining.blp")
+    ..setActivelyUsed(true)
+    ..setGoldCost(650)
+    ..setStockStartDelay(440)
+    ..setNumberofCharges(1)
+    ..setStockReplenishInterval(120)
+    ..setPerishable(true)
+    ..addStats("Unlearns a Hero's skills (resets them to zero level to redistribute skill points again).")
+    ..addHotKey()
+    ..register()
