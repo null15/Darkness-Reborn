@@ -4,6 +4,7 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import RecipeItems
+import CommonDescriptions
 
 init
 
@@ -129,17 +130,15 @@ init
 
     new MyItemWithRecipeDefinition(ITEM_O3_CLOCK, itemRecipeList, ITEM_RECIPE_O3_CLOCK,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setStockReplenishInterval(120)
+    ..setStockReplenishInterval(180)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")
-    ..setTintingColor1Red(240)
-    ..setTintingColor2Green(85)
-    ..setTintingColor3Blue(240)
+    ..setChestColors(colItemL1)
     ..setActivelyUsed(true)
     ..setClassification("Miscellaneous")
     ..addStats(addAbilityResetCd(150, 6000))
     ..addStats(addAllStats(150))
-    ..addExtraDescription("Use horse to craft this item since hero can carry only one instance of O'Clock, but three is needed in recipe.")
+    ..addExtraDescription(wordNote + "Use horse to craft this item since hero can carry only one instance of O'Clock, but three is needed in recipe.")
     ..addComponents(
     ITEM_O_CLOCK,
     ITEM_O_CLOCK,
@@ -151,18 +150,16 @@ init
     // Will be available starting with 26 minute due to tomes of retraining cd.
     new MyItemWithRecipeDefinition(ITEM_O9_CLOCK, itemRecipeList, ITEM_RECIPE_O9_CLOCK,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setStockReplenishInterval(120)
+    ..setStockReplenishInterval(180)
     ..setLumberCost(100)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTN_cr_Warp8.blp")
-    ..setTintingColor1Red(210)
-    ..setTintingColor2Green(90)
-    ..setTintingColor3Blue(60)
+    ..setChestColors(colItemL3)
     ..setActivelyUsed(true)
     ..setClassification("Miscellaneous")
     ..addStats(addAbilityResetCd(60, 18000))
     ..addStats(addAllStats(600))
-    ..addExtraDescription("Use horse to craft this item since hero can carry only one instance of OOO'Clock, but three is needed in recipe.")
+    ..addExtraDescription(wordNote + "Use horse to craft this item since hero can carry only one instance of OOO'Clock, but three is needed in recipe.")
     ..addComponents(
     ITEM_O3_CLOCK,
     ITEM_O3_CLOCK,

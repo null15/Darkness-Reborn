@@ -4,128 +4,238 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import Jacksmith_Q
+import RecipeItems
+import CommonDescriptions
 
 init
 
 @compiletime function createItems()
 
+//I0E1
+    new MyItemWithRecipeDefinition(ITEM_RAIN_SWORD, itemRecipeList, ITEM_RECIPE_RAIN_SWORD,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(35000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
+    ..setClassification("Artifact")
+    ..addStats(addDamage(700))
+    ..addStats(addAgi(350))
+    ..addStats(addArmor(70))
+    ..addComponents(
+    ITEM_AINZ_SWORD)
+    ..addHotKey()
+    ..register()
+
 //I0EM
     new MyItemDefinition(ITEM_RAIN_SWORD_L1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setClassification("Artifact")
-    ..addStats(addAgi(385))
+    ..addStats(addDamage(1000))
+    ..addStats(addAttackSpeed(1))
+    ..addStats(addAgi(500))
+    ..addStats(addArmor(100))
+    ..setChestColors(colItemL1)
     ..register()
 
 //I0EN
     new MyItemDefinition(ITEM_RAIN_SWORD_L2)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setClassification("Artifact")
-    ..addStats(addAgi(490))
+    ..addStats(addDamage(1000))
+    ..addStats(addAttackSpeed(1.6))
+    ..addStats(addAgi(800))
+    ..addStats(addArmor(140))
+    ..setChestColors(colItemL2)
     ..register()
 
 //I0EO
     new MyItemDefinition(ITEM_RAIN_SWORD_L3)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setClassification("Artifact")
-    ..addStats(addAgi(630))
+    ..addStats(addDamage(1500))
+    ..addStats(addAttackSpeed(2.2))
+    ..addStats(addAgi(1200))
+    ..addStats(addArmor(190))
+    ..setChestColors(colItemL3)
     ..register()
 
 //I0EP
     new MyItemDefinition(ITEM_RAIN_SWORD_L4)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setClassification("Artifact")
-    ..addStats(addAgi(910))
+    ..addStats(addDamage(2000))
+    ..addStats(addAttackSpeed(2.8))
+    ..addStats(addAgi(1600))
+    ..addStats(addArmor(250))
+    ..setChestColors(colItemL4)
     ..register()
 
 //I0EQ
     new MyItemDefinition(ITEM_RAIN_SWORD_L5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setClassification("Artifact")
-    ..addStats(addAgi(1470))
+    ..addStats(addDamage(2400))
+    ..addStats(addAttackSpeed(3.5))
+    ..addStats(addAgi(1900))
+    ..addStats(addArmor(320))
+    ..setChestColors(colItemL5)
     ..register()
+
+//I0E3
+    new MyItemWithRecipeDefinition(ITEM_VAMPIRELLA, itemRecipeList, ITEM_RECIPE_VAMPIRELLA,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(35000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
+    ..setClassification("Artifact")
+    ..addStats(addDamage(700))
+    ..addStats(addInt(400))
+    ..addStats(addMp(6000))
+    ..addComponents(
+    ITEM_SEER_STAFF)
+    ..addHotKey()
+    ..register()
+
 
 //I0EW
     new MyItemDefinition(ITEM_VAMPIRELLA_L1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
     ..setClassification("Artifact")
-    ..addStats(addInt(440))
+    ..addStats(addDamage(1500))
+    ..addStats(addInt(1000))
+    ..addStats(addMp(12000))
+    ..addStats(addMpReg(1))
+    ..setChestColors(colItemL1)
     ..register()
 
 //I0EX
     new MyItemDefinition(ITEM_VAMPIRELLA_L2)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
     ..setClassification("Artifact")
-    ..addStats(addInt(560))
+    ..addStats(addDamage(2000))
+    ..addStats(addInt(1600))
+    ..addStats(addMp(18000))
+    ..addStats(addMpReg(2))
+    ..setChestColors(colItemL2)
     ..register()
 
 //I0EY
     new MyItemDefinition(ITEM_VAMPIRELLA_L3)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
     ..setClassification("Artifact")
-    ..addStats(addInt(720))
+    ..addStats(addDamage(2500))
+    ..addStats(addInt(2200))
+    ..addStats(addMp(24000))
+    ..addStats(addMpReg(3))
+    ..setChestColors(colItemL3)
     ..register()
 
 //I0EZ
     new MyItemDefinition(ITEM_VAMPIRELLA_L4)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
     ..setClassification("Artifact")
-    ..addStats(addInt(1040))
+    ..addStats(addDamage(3000))
+    ..addStats(addInt(2600))
+    ..addStats(addMp(30000))
+    ..addStats(addMpReg(4))
+    ..setChestColors(colItemL4)
     ..register()
 
 //I0F0
     new MyItemDefinition(ITEM_VAMPIRELLA_L5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
     ..setClassification("Artifact")
-    ..addStats(addInt(1680))
+    ..addStats(addDamage(4000))
+    ..addStats(addInt(3000))
+    ..addStats(addMp(35000))
+    ..addStats(addMpReg(5))
+    ..setChestColors(colItemL5)
+    ..register()
+
+//I0E2
+    new MyItemWithRecipeDefinition(ITEM_CORROSIVE_HAMMER, itemRecipeList, ITEM_RECIPE_CORROSIVE_HAMMER,
+    (MyItemDefinitionBase itemRecipe) -> itemRecipe
+    ..setGoldCost(35000)
+    )
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
+    ..setClassification("Artifact")
+    ..addStats(addDamage(700))
+    ..addStats(addStr(350))
+    ..addStats(addHp(6000))
+    ..addComponents(
+    ITEM_VOID_AXE)
+    ..addHotKey()
     ..register()
 
 //I0ER
     new MyItemDefinition(ITEM_CORROSIVE_HAMMER_L1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setClassification("Artifact")
-    ..addStats(addStr(385))
+    ..addStats(addDamage(1000))
+    ..addStats(addStr(700))
+    ..addStats(addHp(8000))
+    ..addStats(addHpReg(50))
+    ..setChestColors(colItemL1)
     ..register()
 
 //I0ES
     new MyItemDefinition(ITEM_CORROSIVE_HAMMER_L2)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setClassification("Artifact")
-    ..addStats(addStr(490))
+    ..addStats(addDamage(1500))
+    ..addStats(addStr(1000))
+    ..addStats(addHp(12000))
+    ..addStats(addHpReg(100))
+    ..setChestColors(colItemL2)
     ..register()
 
 //I0ET
     new MyItemDefinition(ITEM_CORROSIVE_HAMMER_L3)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setClassification("Artifact")
-    ..addStats(addStr(630))
+    ..addStats(addDamage(2000))
+    ..addStats(addStr(1400))
+    ..addStats(addHp(18000))
+    ..addStats(addHpReg(200))
+    ..setChestColors(colItemL3)
     ..register()
 
 //I0EU
     new MyItemDefinition(ITEM_CORROSIVE_HAMMER_L4)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setClassification("Artifact")
-    ..addStats(addStr(910))
+    ..addStats(addDamage(2500))
+    ..addStats(addStr(1800))
+    ..addStats(addHp(25000))
+    ..addStats(addHpReg(300))
+    ..setChestColors(colItemL4)
     ..register()
     
 //I0EV
     new MyItemDefinition(ITEM_CORROSIVE_HAMMER_L5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setClassification("Artifact")
-    ..addStats(addStr(1470))
+    ..addStats(addDamage(3000))
+    ..addStats(addStr(2500))
+    ..addStats(addHp(32000))
+    ..addStats(addHpReg(400))
+    ..setChestColors(colItemL5)
     ..register()
 
 //I0E7
     new MyItemWithCraftInfoDefinition(ITEM_ANGEL_MACE, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_mace_82.blp")    
     ..setClassification("Campaign")
-    ..setGoldCost(100000)
-    ..addStats(addAllStats(500))
+    ..setGoldCost(190000)
+    ..setCanBeSoldToMerchants(true)
     ..addStats(addDamage(2500))
-    ..addStats(addHpReg(100))
-    ..addStats(addArmor(200))
     ..addStats(addAttackSpeed(3))
+    ..addStats(addAllStats(500))
+    ..addStats(addArmor(200))
     ..addStats(addHp(10000))
+    ..addStats(addHpReg(100))
     ..addStats(addMp(10000))
+    ..addStats(addMpReg(1))
     ..addComponents(
     ITEM_RAIN_SWORD,
     ITEM_VAMPIRELLA,
@@ -136,14 +246,14 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_ANGEL_MACE_L5, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_mace_82.blp")      
     ..setClassification("Campaign")
-    ..setGoldCost(00000)
-    ..addStats(addAllStats(3500))
     ..addStats(addDamage(10000))
-    ..addStats(addHpReg(500))
-    ..addStats(addArmor(800))
     ..addStats(addAttackSpeed(7))
+    ..addStats(addAllStats(3500))
+    ..addStats(addArmor(800))
     ..addStats(addHp(40000))
+    ..addStats(addHpReg(500))
     ..addStats(addMp(40000))
+    ..addStats(addMpReg(6))
     ..addComponents(
     ITEM_RAIN_SWORD_L5,
     ITEM_VAMPIRELLA_L5,

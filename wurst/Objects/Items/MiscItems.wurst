@@ -1,10 +1,11 @@
-package ItemsMisc
+package MiscItems
 
 import ItemObjEditing
 import ItemIds
 import MyItemIds
 import MyItemDefinition
 import RecipeItems
+import AbilityIds
 
 init
 
@@ -82,3 +83,9 @@ init
     ..setTooltipBasic("Upgrade Health")
     ..setTooltipExtended("Upgrade Health by 500 each time")
     ..setHotkey("W")
+    
+    new MyItemDefinition(ITEM_BLINK_MAP, AbilityIds.wardenBlink)
+    ..setActivelyUsed(true)
+    ..addTitle("Blink within the entire map")
+    ..addStats(addAbilityBlink(32000, 1, 0.1))
+    ..register()

@@ -6,7 +6,10 @@ import LinkedList
 public interface UnitTargetCastFunc
     function run(unit _caster, unit _target)
 
-public class ItemAbility
+public interface UnitCastFunc
+    function run(unit _caster)
+
+public class ItemTargetAbility
     UnitTargetCastFunc handler
     int abilityId
 
@@ -14,14 +17,31 @@ public class ItemAbility
         this.handler = handler
         this.abilityId = abilityId
 
+public class ItemAbility
+    UnitCastFunc handler
+    int abilityId
+
+    construct(int abilityId, UnitCastFunc handler)
+        this.handler = handler
+        this.abilityId = abilityId
+
+public let itemsTargetAbilitiesList = compiletime(new LinkedList<ItemTargetAbility>())
 public let itemsAbilitiesList = compiletime(new LinkedList<ItemAbility>())
 
 init
-    for abilityInfo in itemsAbilitiesList
+    for abilityInfo in itemsTargetAbilitiesList
         EventListener.onTargetCast(abilityInfo.abilityId) (unit caster, unit target) ->
             abilityInfo.handler.run(caster, target)
+        destroy abilityInfo
+
+    itemsTargetAbilitiesList.clear()
+    destroy itemsTargetAbilitiesList
     
     for abilityInfo in itemsAbilitiesList
+        println("Adding ability onCast listiner")
+        EventListener.onCast(abilityInfo.abilityId) (unit caster) ->
+            abilityInfo.handler.run(caster)
         destroy abilityInfo
+
     itemsAbilitiesList.clear()
     destroy itemsAbilitiesList

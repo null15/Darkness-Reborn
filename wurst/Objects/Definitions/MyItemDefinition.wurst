@@ -19,6 +19,8 @@ import ItemsAndRecipesHashTable
 public class MyItemDefinitionBase extends ItemDefinition
     // The item's ID. Example: Scroll of Fusion.
     int itemId
+    // Icon colors
+    Color chestColor
     
     construct(int newId)
         super(newId, ItemIds.orbofDarkness)
@@ -90,6 +92,13 @@ public class MyItemDefinitionBase extends ItemDefinition
 
     function register()
 
+    function setChestColors(Color color)
+        this.chestColor = color
+
+    protected function applyChestColors(ItemDefinition itemDef)
+        if (chestColor != null)
+            chestColor.setColor(itemDef)
+
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 
@@ -156,7 +165,7 @@ public class MyItemDefinition extends MyItemDefinitionBase
         if (effects != "")
             result = result + wordEffects + effects
         if (extraDescription != "")
-            result = result + "\n" + extraDescription + wordEffects
+            result = result + extraDescription + "\n"
         return result
 
     protected function basicEffectsDescr()
@@ -178,6 +187,7 @@ public class MyItemDefinition extends MyItemDefinitionBase
     override function register()
         applyStats()
         basicEffectsDescr()
+        applyChestColors(this)
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -226,17 +236,19 @@ public class MyItemWithCraftInfoDefinition extends MyItemDefinition
     override function register()
         applyStats()
         basicEffectsDescr()
+        applyChestColors(this)
 
         let itemName = getItemName(itemId)
         let descrRecipe  = getRecipeDescription()
 
         if (recipeItemId != -1)
-            new MyItemDefinitionBase(recipeItemId)
+            let craftInfoDef = new MyItemDefinitionBase(recipeItemId)
             ..setInterfaceIcon(icon)
             ..setName("Craft Info " + itemName)
             ..setTooltipBasic("Craft Info " + itemName)
             ..setTooltipExtended(descrRecipe)
             ..setStockMaximum(0)
+            applyChestColors(craftInfoDef)
 
     override function setInterfaceIcon(string data)
         super.setInterfaceIcon(data)
@@ -317,6 +329,7 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
     override function register()
         applyStats()
         basicEffectsDescr()
+        applyChestColors(this)
         
         let itemName = getItemName(itemId)
         let descrRecipe  = getRecipeDescription()
@@ -331,6 +344,7 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
         ..setHotkey(getHotKey(recipeItemId))
         ..setStockReplenishInterval(3)
         ..setStockStartDelay(3)
+        applyChestColors(recipeItemDef)
 
         initRecipe.call(recipeItemDef)
 

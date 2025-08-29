@@ -4020,7 +4020,7 @@ init
 + "Difficulty: 5/5\n")
     ..setManaRegeneration(0.01)
 
-    new HeroDefinition(PLAY_HERO_31, UnitIds.blademaster)// Theif (O00V)
+    new HeroDefinition(PLAY_HERO_31, UnitIds.blademaster)// Thief (O00V)
     ..hideHeroDeathMsg(true)
     ..setHeroAbilities(commaList('A0X5', 'A0XE', 'A0XF', 'A0XD', 'A0XG'))
     ..setNormalAbilities(commaList('A007', 'AInv'))

@@ -1,4 +1,5 @@
 package CommonDescriptions
+import ItemObjEditing
 
 public let colRst             = "|r"
 public let colBasic           = "|c0000C800"
@@ -12,6 +13,29 @@ public let colTinkerLumber    = "|c005FA412"
 public let colTinkerRecipes   = "|c00AF3BD9"
 
 public let colCreepsTp        = "|c00505050" 
+
+public let colPicker = "|c00121212"
+
+public class Color
+    int R
+    int G
+    int B
+
+    construct(int R, int G, int B)
+        this.R = R
+        this.G = G
+        this.B = B
+
+    function setColor(ItemDefinition itemDef)
+        itemDef.setTintingColor1Red(R)
+        itemDef.setTintingColor2Green(G)
+        itemDef.setTintingColor3Blue(B)
+
+public let colItemL1 = new Color(137, 218, 128) // Green
+public let colItemL2 = new Color(77, 151, 223)  // Blue
+public let colItemL3 = new Color(229, 136, 72)  // Orange
+public let colItemL4 = new Color(239, 102, 86)  // Red
+public let colItemL5 = new Color(199, 104, 250) // Purple
 
 public function itemNameBasic(string name) returns string
     if compiletime
@@ -120,7 +144,7 @@ public let wordRestoreMp          = "Restores {0} MP when used"
 public let wordAgi                = "Agility"
 public let wordStr                = "Strength"
 public let wordInt                = "Intelligence"
-public let wordAllStats           = "All stats"
+public let wordAllStats           = "All Stats"
 
 public let wordAuraTrueshot       = "Trueshot Aura: {0}% ranged damage in {1} range"
 public let wordAuraEndurance      = "Endurance Aura: {0}% movement speed, {1}% attack speed in {2} range"
@@ -148,10 +172,8 @@ public let wordAbilityRestoreMp   = "Active: fully restores MP (cd {0} sec)"
 public let wordAbilityRestoreHpMp = "Active: fully restores HP and MP (cd {0} sec)"
 
 public let wordAbilityHolyLight   = "Active: heal friendly target for {0} + {1}x int amount or deal {2}% damage to enemy (cd {3} sec)"
+public let wordAbilityBlink       = "Active: blink within {0} range (cd {1} sec)"
 
 public let wordAbilityRevive      = "Revives the wearer (cd {0} sec)"
 
-public let tomeAgiGive            = "Active: Give yourself {0} agility on use"
-public let tomeStrGive            = "Active: Give yourself {0} strength on use"
-public let tomeIntGive            = "Active: Give yourself {0} intelligence on use"
-public let tomeAllGive            = "Active: Give yourself {0} all stats on use"
+public let wordTomeGive           = "Active: Give yourself {0} on use"
