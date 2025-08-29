@@ -6,8 +6,6 @@ import HashMap
 let itemRecipeHasTable = compiletime(new HashMap<int, int>())
 
 init
-    itemRecipeHasTable.flush()
-    destroy itemRecipeHasTable
 
 @compiletime
 function initHasTable()
