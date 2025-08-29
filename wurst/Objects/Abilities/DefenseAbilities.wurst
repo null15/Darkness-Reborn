@@ -1,0 +1,81 @@
+package DefenseAbilities
+
+import AbilityObjEditing
+import AbilitiesList
+import ItemStatsDef
+import ObjectIds
+import ObjectIdGenerator
+import CommonDescriptions
+import codeDamageTypings
+import ActiveAbilityDef
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityRestoreHp(int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityRestoreHp.format(cd.toString())
+
+    return new CastAbility(effects, manaCost, cd, (unit caster) -> begin
+        caster.setHP(caster.getMaxHP())
+    end)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityRestoreMp(int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityRestoreMp.format(cd.toString())
+
+    return new CastAbility(effects, manaCost, cd, (unit caster) -> begin
+        caster.setMana(caster.getMaxMana())
+    end)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityRestoreHpMp(int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityRestoreHpMp.format(cd.toString())
+
+    return new CastAbility(effects, manaCost, cd, (unit caster) -> begin
+        caster..setMana(caster.getMaxMana()).setHP(caster.getMaxHP())
+    end)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityArmorDamageHpRegBuff(real damage, int armor, real hpReg, real duration, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityArmorDamageHpReg.format((100*damage).toString(), armor.toString(), hpReg.toString(), duration.toString(), cd.toString())
+
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionRoar(abilityId)
+        ..setDamageIncrease(1, damage)
+        ..setDefenseIncrease(1, armor)
+        ..setLifeRegenerationRate(1, hpReg)
+        ..setDurationHero(1, duration)
+        ..setDurationNormal(1, duration)
+        ..setTargetsAllowed(1, TargetsAllowed.self)
+        ..setManaRegen(1, 0)
+        ..setLevels(1)
+        ..setCooldown(1, cd)
+        ..setManaCost(1, manaCost)
+    
+// ----------------------------------------------------------------------------
+
+public function addAbilityManaShield(real hpPerMana) returns ItemStats
+    let effects = wordAbilityManaShield.format(hpPerMana.toString())
+
+    return activeAbility(effects, 0, 0) (int abilityId) ->
+        return new AbilityDefinitionManaShieldCreep(abilityId)
+        ..setDamageAbsorbed(1, 1)
+        ..setCooldown(1, 0)
+        ..setManaperHitPoint(1, 1/hpPerMana)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityAvatarMagicImmune(real duration, real cd, int manaCost) returns ItemStats
+    let effects = wordAvatar.format(duration.toString(), cd.toString())
+
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionMountainKingAvatar(abilityId)
+        ..setDurationHero(1, duration)
+        ..setDurationNormal(1, duration)
+
+// ----------------------------------------------------------------------------

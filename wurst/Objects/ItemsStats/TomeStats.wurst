@@ -1,0 +1,35 @@
+package TomeStats
+
+import ObjectIdGenerator
+import AbilityObjEditing
+import CommonDescriptions
+import TomeGive
+import ItemStatsDef
+
+// ----------------------------------------------------------------------------
+
+public function addTomeStatGiving(int amount, statTome tomeType) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    
+    getTomeAbilityBase(abilityId, tomeType)
+    let statsDescr = getTomeStatsDescription(amount, tomeType)
+    let effects = wordTomeGive.format(statsDescr)
+
+    tomesList.add(new Tome(amount, tomeType, abilityId, statsDescr))
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addTomeStatGivingAuto(int amount, statTome tomeType) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+
+    getTomeAbilityBase(abilityId, tomeType)
+    let statsDescr = getTomeStatsDescription(amount, tomeType)
+    let effects = wordTomeGive.format(statsDescr)
+
+    return new ItemStatsCustomFunc(abilityId, effects, (itemId, itemDef) -> begin
+        tomesList.add( new Tome(amount, tomeType, abilityId, statsDescr, itemId) )
+    end)
+
+// ----------------------------------------------------------------------------

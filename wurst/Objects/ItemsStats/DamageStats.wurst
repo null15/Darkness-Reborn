@@ -1,0 +1,70 @@
+package DamageStats
+
+import ObjectIdGenerator
+import AbilityObjEditing
+import CommonDescriptions
+import Format
+import ItemStatsDef
+
+// ----------------------------------------------------------------------------
+
+public function addAttackSpeed(real value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = realToString(100 * value, 0) + "% " + wordAttackSpeed
+
+    new AbilityDefinitionAttackSpeedIncrease(abilityId)
+    ..setAttackSpeedIncrease(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addDamage(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordDamage
+
+    new AbilityDefinitionAttackBonus(abilityId)
+    ..setAttackBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addCleave(real factor, real range) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordCleave.format(factor.toString(1), range.toString(0))
+
+    new AbilityDefinitionPitLordCleavingAttack(abilityId)
+    ..setDistributedDamageFactor(1, factor)
+    ..setCastRange(1, range)
+    
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addCrit(real factor, real chance) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordCrit.format((100*chance).toString(0), factor.toString(1))
+
+    new AbilityDefinitionCriticalStrikecreep(abilityId)
+    ..setDamageMultiplier(1, factor)
+    ..setChancetoCriticalStrike(1, chance)
+    
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addBash(real chance, real damage, real stunDuration, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordBash.format((100*chance).toString(0), damage.toString(), stunDuration.toString(), cd.toString())
+
+    new AbilityDefinitionMountainKingBash(abilityId)
+    ..setChancetoBash(1, chance)
+    ..setDamageBonus(1, damage)
+    ..setDurationHero(1, stunDuration)
+    ..setDurationHero(1, stunDuration)
+    ..setCooldown(1, cd)
+    
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------

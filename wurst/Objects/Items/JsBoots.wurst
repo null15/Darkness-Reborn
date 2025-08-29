@@ -137,10 +137,10 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_MEDIVL_BOOTS, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSteelBoots.blp")    
     ..setClassification("Purchasable")
+    ..addStats(addAbilityBlink(32000, 2000, 5))
     ..addStats(addArmor(130))
     ..addStats(addAllStats(130))
     ..addStats(addMovementSpeed(160))
-    ..addStats(addTp(5))
     ..addComponents(
     ITEM_STORM_BOOTS_L7,
     ITEM_BOOTS_OF_TELEPORTATION,

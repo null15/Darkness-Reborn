@@ -1,6 +1,7 @@
 package MyItemDefinition
 
 import CommonDescriptions
+import MyColors
 import ItemIds
 import Recipes
 import Object_Shops
@@ -8,12 +9,25 @@ import ItemsNames
 import ItemObjEditing
 import LinkedList
 import ObjectIds
-import RecipeItems
-import public ItemStats
 import ObjectIdGenerator
 import ItemsAndRecipesHashTable
 
 // ----------------------------------------------------------------------------
+
+import public ItemStatsDef
+import public DamageStats
+import public DefenseStats
+import public GeneralStats
+import public MiscStats
+import public OrbEffectsStats
+import public TomeStats
+
+import public Auras
+import public DamageAbilities
+import public DefenseAbilities
+import public MiscAbilities
+import public SummonAbilities
+
 // ----------------------------------------------------------------------------
 
 public class MyItemDefinitionBase extends ItemDefinition

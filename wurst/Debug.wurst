@@ -5,7 +5,6 @@ import MyUpgradesIds
 import MyItemIds
 
 import public DebugVar
-import ItemStats
 
 public function initDebug()
     if (not DEBUG)

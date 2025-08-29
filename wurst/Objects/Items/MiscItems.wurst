@@ -87,5 +87,5 @@ init
     new MyItemDefinition(ITEM_BLINK_MAP, AbilityIds.wardenBlink)
     ..setActivelyUsed(true)
     ..addTitle("Blink within the entire map")
-    ..addStats(addAbilityBlink(32000, 1, 0.1))
+    ..addStats(addAbilityBlink(32000, 0, 0))
     ..register()

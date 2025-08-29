@@ -4,6 +4,7 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import RecipeItems
+import codeDamageTypings
 
 init
 
@@ -25,9 +26,9 @@ init
     ..setCooldownGroup("A0TE")
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
+    ..addStats("[WIP] Activate the Fan of Knives to cause Damage 15.000 in 600 AoE")
     ..addStats(addAgi(125))
     ..addStats(addAttackSpeed(1))
-    ..addStats("[WIP] Activate the Fan of Knives to cause Damage 15.000 in 600 AoE")
     ..register()
 
 //I0CU
@@ -42,12 +43,11 @@ init
 //I0CS
     new MyItemDefinition(ITEM_TAUREN_CARD)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (1).blp")
-    ..setCooldownGroup("A0XS")
-    ..setActivelyUsed(true)
     ..setClassification("Artifact")
+    ..setActivelyUsed(true)
+    ..addStats(addAbilityDealAoeDamage(30000, 600, damageType.PHYSICALRANGED, 6000, 10))
     ..addStats(addStr(150))
     ..addStats(addAttackSpeed(1))
-    ..addStats("[WIP] Activate the Warstomp caused 25")
     ..register()
 
 //I0CQ

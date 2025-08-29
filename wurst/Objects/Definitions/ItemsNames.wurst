@@ -2,6 +2,8 @@ package ItemsNames
 
 import MyItemIds
 
+// ----------------------------------------------------------------------------
+
 public function getItemName(int id) returns string
     switch (id)
         // Basic Items (1)
@@ -1512,3 +1514,5 @@ public function getItemName(int id) returns string
 
         default
             return "Not implemented"
+        
+// ----------------------------------------------------------------------------

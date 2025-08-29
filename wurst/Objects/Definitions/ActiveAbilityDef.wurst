@@ -1,0 +1,108 @@
+package ActiveAbilityDef
+
+import AbilityObjEditing
+import AbilitiesList
+import ItemStatsDef
+import ObjectIds
+import ObjectIdGenerator
+import CommonDescriptions
+
+// ----------------------------------------------------------------------------
+
+class AbilityBase extends AbilityDefinition
+    string effects
+    int cdGroup
+
+    construct(int baseId, string effects, int manaCost, real cd)
+        super(ABIL_ID_GEN.next(), baseId)
+
+        this.effects = wordActive + effects + wordCd.format(cd.toString(1))
+        this.cdGroup = newId
+
+        setLevels(1)
+        setDurationHero(1, 0)
+        setDurationNormal(1, 0)
+        setManaCost(1, manaCost)
+        setCooldown(1, cd)
+
+    function setCooldownGroup(int groupId)
+        this.cdGroup = groupId
+
+    function register() returns ItemStats
+        return new ItemStatsCustomFunc(newId, effects, (itemId, itemDef) -> begin
+            itemDef.setCooldownGroup(cdGroup.toRawCode())
+        end)
+
+// ----------------------------------------------------------------------------
+
+public class TargetAbility extends AbilityBase
+    int castRange
+
+    construct(string effects, int manaCost, real cd, UnitTargetCastFunc handler)
+        super(AbilityIds.frostBolt, effects, manaCost, cd)
+        setDamage(1, 0)
+        setCastRange(1, 900)
+        setBuffs(1, "")
+
+        this.castRange = 900
+
+        itemsTargetAbilitiesList.add(new ItemTargetAbility(newId, handler))
+
+    function setDamage(int level, real value)
+        def.setLvlDataUnreal("Htb1", level, 1, value)
+
+// ----------------------------------------------------------------------------
+
+public class CastAbility extends AbilityBase
+
+    construct(string effects, int manaCost, real cd, UnitCastFunc handler)
+        super(AbilityIds.berserkerRage1, effects, manaCost, cd)
+
+        itemsAbilitiesList.add(new ItemAbility(newId, handler))
+
+// ----------------------------------------------------------------------------
+
+public interface AbilityInitFunc
+    function run(int abilityId) returns AbilityDefinition
+
+public function activeAbility(string effects, int manaCost, real cd, AbilityInitFunc initFunc) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    return activeAbility(abilityId, effects, manaCost, cd, abilityId, initFunc)
+
+public function activeAbility(string effects, int manaCost, real cd, int cdGroup, AbilityInitFunc initFunc) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    return activeAbility(abilityId, effects, manaCost, cd, cdGroup, initFunc)
+
+function activeAbility(int abilityId, string effects, int manaCost, real cd, int cdGroup, AbilityInitFunc initFunc) returns ItemStats
+    initFunc.run(abilityId)
+    ..setManaCost(1, manaCost)
+    ..setCooldown(1, cd)
+
+    let effectDescr = wordActive + effects + wordCd.format(cd.toString(1))
+
+    return new ItemStatsCustomFunc(abilityId, effectDescr, (itemId, itemDef) -> begin
+        itemDef.setCooldownGroup(cdGroup.toRawCode())
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function auraAbility(string auraName, string effects, real range, AbilityInitFunc initFunc) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    initFunc.run(abilityId)
+    ..setAreaofEffect(1, range)
+
+    let effectDescr = wordAura.format(auraName + " ") + effects + wordRange.format(range.toString(0))
+
+    return new ItemStats(abilityId, effectDescr)
+
+// ----------------------------------------------------------------------------
+
+public function passiveAbility(string effects, AbilityInitFunc initFunc) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    initFunc.run(abilityId)
+
+    let effectDescr = wordPassive + effects
+
+    return new ItemStats(abilityId, effectDescr)
+
+// ----------------------------------------------------------------------------

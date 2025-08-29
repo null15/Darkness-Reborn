@@ -38,7 +38,6 @@ init
     destroy itemsTargetAbilitiesList
     
     for abilityInfo in itemsAbilitiesList
-        println("Adding ability onCast listiner")
         EventListener.onCast(abilityInfo.abilityId) (unit caster) ->
             abilityInfo.handler.run(caster)
         destroy abilityInfo
