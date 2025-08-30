@@ -5,6 +5,10 @@ import AbilityObjEditing
 import CommonDescriptions
 import Format
 import ItemStatsDef
+import AbilitiesList
+import ItemObjEditing
+import DamageEvent
+import codeDamageTypings
 
 // ----------------------------------------------------------------------------
 

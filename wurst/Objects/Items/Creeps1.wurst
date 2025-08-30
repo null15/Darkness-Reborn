@@ -134,8 +134,8 @@ init
     new MyItemDefinition(ITEM_ANCESTRAL_STAFF)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWitchDoctorMaster.blp")
     ..setActivelyUsed(true)
+    ..addStats(addAbilityDamageStun(500, 0, 2, 500, 5))
     ..addStats(addInt(12))
-    ..addStats("[WIP] Active: Hurl a Fireball that deals 100 Damage and stuns for 2 seconds (cd 5 sec).")
     ..setStockMaximum(99)
     ..register()
 

@@ -4,17 +4,13 @@ import ItemObjEditing
 import ItemIds
 import MyItemIds
 import MyItemDefinition
-import RecipeItems
 import AbilityIds
 
 init
 
 @compiletime function createItems()
 
-    new ItemDefinition(NEXTPAGE, ItemIds.amuletofRecall)
-    ..setAbilities("")
-    ..setGoldCost(0)
-    ..setLumberCost(0)
+    new MyItemDefinition(NEXTPAGE, ItemIds.amuletofRecall)
     ..setName("Next Page")
     ..setClassification("Powerup")
     ..setUseAutomaticallyWhenAcquired(true)
@@ -26,10 +22,7 @@ init
     ..setButtonPositionX(3)
     ..setButtonPositionY(2)
 
-    new ItemDefinition(PREVPAGE, ItemIds.amuletofRecall)
-    ..setAbilities("")
-    ..setGoldCost(0)
-    ..setLumberCost(0)
+    new MyItemDefinition(PREVPAGE, ItemIds.amuletofRecall)
     ..setClassification("Powerup")
     ..setUseAutomaticallyWhenAcquired(true)
     ..setName("Previous Page")
@@ -45,21 +38,16 @@ init
     ..setTooltipBasic("Acquire Quest")
     ..setTooltipExtended("Grab this to Acquire Quest")
     ..setDescription("Buy this to start a random quest based on your level.")
-    ..setAbilities("")
     ..setStockReplenishInterval(1)
     ..setStockMaximum(20)
-    ..setGoldCost(0)
     ..addHotKey()
     ..register()
     
-    new ItemDefinition(UPGRADE_BASE_ARMOR, ItemIds.tomeofPower)
+    new MyItemDefinition(UPGRADE_BASE_ARMOR, ItemIds.tomeofPower)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcaniteArchitecture.blp")
     //.setModelUsed(data) - use base , as well as scaling,color, and all the base stuff that dosent matter since its only icon.
     ..setGoldCost(2000)
     ..setClassification("Artifact")
-    ..setCanBeSoldToMerchants(true)
-    ..setCanBeSoldByMerchants(true)
-    ..setLevel(1)
     ..setStockReplenishInterval(1)
     ..setStockStartDelay(1)
     ..setMaxStack(1)
@@ -68,14 +56,11 @@ init
     ..setTooltipExtended("Upgrade armor by 5 each time")
     ..setHotkey("Q")
 
-    new ItemDefinition(UPGRADE_BASE_HEALTH, ItemIds.tomeofPower)
+    new MyItemDefinition(UPGRADE_BASE_HEALTH, ItemIds.tomeofPower)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcaniteArchitecture.blp")
     //.setModelUsed(data) - use base , as well as scaling,color, and all the base stuff that dosent matter since its only icon.
     ..setGoldCost(2000)
     ..setClassification("Artifact")
-    ..setCanBeSoldToMerchants(true)
-    ..setCanBeSoldByMerchants(true)
-    ..setLevel(1)
     ..setStockReplenishInterval(1)
     ..setStockStartDelay(1)
     ..setMaxStack(1)

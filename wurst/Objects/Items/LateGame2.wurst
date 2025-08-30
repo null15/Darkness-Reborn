@@ -4,6 +4,7 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import RecipeItems
+import codeDamageTypings
 
 init
 
@@ -84,10 +85,10 @@ init
     ..setActivelyUsed(true)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLancelot_Helm.blp")
     ..setClassification("Artifact")
+    ..addStats(addAbilityDealAoeDamage(10000, 600, damageType.MAGICAL, 4000, 30))
     ..addStats(addArmor(100))
     ..addStats(addHp(5000))
     ..addStats(addHpReg(50))
-    ..addStats("[WIP] Active: Deals 10.000 Damage to enemies in a 600 AoE around the Hero. Cooldown: 30 seconds")
     ..addComponents(
     ITEM_SEER_STAFF,
     ITEM_SHINY_ARMOR)

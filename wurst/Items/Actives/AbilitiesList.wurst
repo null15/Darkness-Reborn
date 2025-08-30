@@ -5,27 +5,35 @@ import LinkedList
 
 // ----------------------------------------------------------------------------
 
-public interface UnitTargetCastFunc
+public interface TargetAbilityFunc
     function run(unit _caster, unit _target)
 
-public class ItemTargetAbility
-    UnitTargetCastFunc handler
+public class ItemTargetEventAbility
+    TargetAbilityFunc handler
     int abilityId
 
-    construct(int abilityId, UnitTargetCastFunc handler)
+    construct(int abilityId, TargetAbilityFunc handler)
         this.handler = handler
         this.abilityId = abilityId
 
+public class ItemTargetWurstAbility
+    TargetAbilityFunc handler
+    int itemId
+
+    construct(int itemId, TargetAbilityFunc handler)
+        this.handler = handler
+        this.itemId = itemId
+
 // ----------------------------------------------------------------------------
 
-public interface UnitCastFunc
+public interface CastAbilityFunc
     function run(unit _caster)
 
-public class ItemAbility
-    UnitCastFunc handler
+public class ItemCastEventAbility
+    CastAbilityFunc handler
     int abilityId
 
-    construct(int abilityId, UnitCastFunc handler)
+    construct(int abilityId, CastAbilityFunc handler)
         this.handler = handler
         this.abilityId = abilityId
 
@@ -44,37 +52,43 @@ public class ItemCustomEventAbility
 
 // ----------------------------------------------------------------------------
 
-public let itemsTargetAbilitiesList = compiletime(new LinkedList<ItemTargetAbility>())
-public let itemsAbilitiesList = compiletime(new LinkedList<ItemAbility>())
-public let itemsCustomEventAbilitiesList = compiletime(new LinkedList<ItemCustomEventAbility>())
+// Used in runtime to init EventListener, after that is destroyed.
+public let abilitiesListTargetEvent = compiletime(new LinkedList<ItemTargetEventAbility>())
+public let abilitiesListCastEvent = compiletime(new LinkedList<ItemCastEventAbility>())
+public let abilitiesListCustomEvent = compiletime(new LinkedList<ItemCustomEventAbility>())
+
+// Used in runtime in onDamage.wurst
+public let abilitiesListReflections  = compiletime(new LinkedList<ItemTargetWurstAbility>())
+public let abilitiesListOnDamageTaken = compiletime(new LinkedList<ItemTargetWurstAbility>())
+public let abilitiesListOnDamageDealt = compiletime(new LinkedList<ItemTargetWurstAbility>())
 
 // ----------------------------------------------------------------------------
 
 init
-    for abilityInfo in itemsTargetAbilitiesList
+    for abilityInfo in abilitiesListTargetEvent
         EventListener.onTargetCast(abilityInfo.abilityId) (unit caster, unit target) ->
             abilityInfo.handler.run(caster, target)
         destroy abilityInfo
 
-    itemsTargetAbilitiesList.clear()
-    destroy itemsTargetAbilitiesList
+    abilitiesListTargetEvent.clear()
+    destroy abilitiesListTargetEvent
     
 
-    for abilityInfo in itemsAbilitiesList
+    for abilityInfo in abilitiesListCastEvent
         EventListener.onCast(abilityInfo.abilityId) (unit caster) ->
             abilityInfo.handler.run(caster)
         destroy abilityInfo
 
-    itemsAbilitiesList.clear()
-    destroy itemsAbilitiesList
+    abilitiesListCastEvent.clear()
+    destroy abilitiesListCastEvent
 
     
-    for abilityInfo in itemsCustomEventAbilitiesList
+    for abilityInfo in abilitiesListCustomEvent
         EventListener.add(abilityInfo.eventId) ->
             abilityInfo.handler.run()
         destroy abilityInfo
         
-    itemsCustomEventAbilitiesList.clear()
-    destroy itemsCustomEventAbilitiesList
+    abilitiesListCustomEvent.clear()
+    destroy abilitiesListCustomEvent
     
 // ----------------------------------------------------------------------------

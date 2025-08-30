@@ -50,7 +50,7 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_GOLDEN_PHOENIX_SWORD, blacksmithJackedList, -1)    
     ..setClassification("Artifact")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif28.blp")
-    ..addStats("[WIP] +150% Damage to all the team around")
+    ..addStats(addAuraCommandRel2(1.5, 900))
     ..addComponents(
     ITEM_ASHRUNE,
     ITEM_APOCALYPSE)
@@ -201,7 +201,7 @@ init
 
 //I0IZ
     new MyItemWithCraftInfoDefinition(ITEM_HYDRAS_TREASURE_PERFECT, blacksmithJackedList, -1)
-    ..setAbilities(commaList('A0YD'))
+    ..setAbilities(commaList('A0YD')) // WIP
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHydra1.blp")
     ..setActivelyUsed(true)
     ..setClassification("Permanent")
@@ -213,7 +213,7 @@ init
 
 //I0J2
     new MyItemWithCraftInfoDefinition(ITEM_SPIDERS_TREASURE_PERFECT, blacksmithJackedList, -1)
-    ..setAbilities(commaList('A0YH'))
+    ..setAbilities(commaList('A0YH'))// WIP
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeb.blp")
     ..setActivelyUsed(true)
     ..setClassification("Permanent")
@@ -274,7 +274,7 @@ init
 //I0IY
     new MyItemWithCraftInfoDefinition(ITEM_HYDRAS_TREASURE_BIG, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHydra1.blp")
-    ..setAbilities(commaList('A0YD'))
+    ..setAbilities(commaList('A0YD'))// WIP
     ..setActivelyUsed(true)
     ..setClassification("Permanent")
     ..addStats("[WIP] Summon Hydra 1 level 2 for the user Recovery time skills of 120 seconds.")
@@ -285,7 +285,7 @@ init
 
 //I0J1
     new MyItemWithCraftInfoDefinition(ITEM_SPIDERS_TREASURE_BIG, jackSmithRecipe, -1)
-    ..setAbilities(commaList('A0YG'))
+    ..setAbilities(commaList('A0YG'))// WIP
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWeb.blp")
     ..setActivelyUsed(true)
     ..setClassification("Permanent")

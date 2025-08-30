@@ -99,36 +99,42 @@ public let wordVampiricAura       = "converts {0}% damage into hp"
 
 // ----------------------------------------------------------------------------
 
-public let wordAbilityBlink       = "Blink within {0} range (cd {1} sec)"
-public let wordTp                 = "Teleport to allied unit or building (cd 20 sec)"
+public let wordAbilityBlink       = "Blink within {0} range"
+public let wordTp                 = "Teleport to allied unit or building"
 
 public let wordBuyLumber          = "Convert {1} gold into {0} lumber"
 public let wordBuyGold            = "Convert {1} lumber into {0} gold"
 
 // ----------------------------------------------------------------------------
 
-public let wordAvatar                  = "Activate Avatar for {0} sec (cd {1} sec)"
-public let wordResetSpellCd            = "Reset all of your Skill Cooldowns (cd {0} sec)"
+public let wordAvatar                  = "Activate Avatar for {0} sec"
+public let wordResetSpellCd            = "Reset all of your Skill Cooldowns"
 public let wordPhoenixFire             = "Every {0} second deal {1} Damage to a nearby enemy within {2} Range"
-public let wordAbilityMagicDamage      = "Deals {0} magical damage to target (cd {1} sec)"
-public let wordAbilityMagicDamageInt   = "Deals {0}x int magical damage to target (cd {1} sec)"
-public let wordAbilityMagicDamageInt2  = "Deals {0} + {1}x int magical damage to target (cd {2} sec)"
-public let wordAbilityAoeDamage        = "Deals {0} {1} for all enemies in range {2} (cd {3} sec)"
-public let wordAbilityDamageMaxTargets = "Deals {0} {1} for maximum {2} enemies in range {3} (cd {4} sec)"
-public let wordAbilityArmorDamageHpReg = "+{0}% damage, +{1} armor, +{2} hp regen for {3} sec (cd {4} sec)"
-public let wordAbilitySummonInferno    = "Deals {0} damage in {1} range and summons {2} for {3} sec (cd {4} sec)"
-public let wordAbilitySummonPermanent  = "Summons permanent unit {0} (cd {2} sec)"
+public let wordAbilityMagicDamage      = "Deals {0} magical damage to target"
+public let wordAbilityMagicDamageInt   = "Deals {0}x int magical damage to target"
+public let wordAbilityMagicDamageInt2  = "Deals {0} + {1}x int magical damage to target"
+public let wordAbilityAoeDamage        = "Deals {0} {1} for all enemies in range {2}"
+public let wordAbilityDamageMaxTargets = "Deals {0} {1} for maximum {2} enemies in range {3}"
+public let wordAbilityArmorDamageHpReg = "+{0}% damage, +{1} armor, +{2} hp regen for {3} sec"
+public let wordAbilitySummonInferno    = "Deals {0} damage in {1} range and summons {2} for {3} sec"
+public let wordAbilitySummonPermanent  = "Summons permanent unit {0}"
 public let wordAbilityManaShield       = "Drains 1 mana per {0} damage taken (after armor reduction is applied)"
-public let wordAbilityIllusions        = "Summons {0} illusions that deal x{1} and receive x{2} damage for {3} sec (cd {4} sec)"
+public let wordAbilityIllusions        = "Summons {0} illusions that deal x{1} and receive x{2} damage for {3} sec"
 
-public let wordAbilityRestoreHp        = "Fully restores HP (cd {0} sec)"
-public let wordAbilityRestoreMp        = "Fully restores MP (cd {0} sec)"
-public let wordAbilityRestoreHpMp      = "Fully restores HP and MP (cd {0} sec)"
+public let wordAbilityRestoreHp        = "Fully restores HP"
+public let wordAbilityRestoreMp        = "Fully restores MP"
+public let wordAbilityRestoreHpMp      = "Fully restores HP and MP"
 
-public let wordAbilityHolyLight        = "Heal friendly target for {0} + {1}x int amount or deal {2}% damage to enemy (cd {3} sec)"
+public let wordAbilityHolyLight        = "Heal friendly target for {0} + {1}x int amount or deal {2}% damage to enemy"
 
-public let wordAbilityRevive           = "Revives the wearer (cd {0} sec)"
+public let wordAbilityRevive           = "Revives the wearer"
 
 public let wordTomeGive                = "Give yourself {0} on use"
+
+public let wordReturnDamageStats       = "{0}% chance to return {1}x {2} {3} on taken"
+
+public let wordDealDamageStats         = "{0}% chance to deal additional {1}x {2} {3}"
+
+public let wordGetStatsOnKill          = "{0}% chance to get {1} {2} on kill" 
 
 // ----------------------------------------------------------------------------

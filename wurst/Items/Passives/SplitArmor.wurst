@@ -1,5 +1,0 @@
-package SplitArmor
-
-import codeDamageTypings
-public function splitArmor(unit holder, unit attacker, real dam)
-    holder.damageTargetCode(dam * 0.22, attacker, null, -1, damageType.PHYSICALRANGED)

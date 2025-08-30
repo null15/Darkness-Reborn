@@ -1,12 +1,8 @@
 package DefenseAbilities
 
 import AbilityObjEditing
-import AbilitiesList
 import ItemStatsDef
-import ObjectIds
-import ObjectIdGenerator
 import CommonDescriptions
-import codeDamageTypings
 import ActiveAbilityDef
 
 // ----------------------------------------------------------------------------
@@ -77,5 +73,18 @@ public function addAbilityAvatarMagicImmune(real duration, real cd, int manaCost
         return new AbilityDefinitionMountainKingAvatar(abilityId)
         ..setDurationHero(1, duration)
         ..setDurationNormal(1, duration)
+
+// ----------------------------------------------------------------------------
+
+public class AbilityDefinitionAmuletOfSpellShield extends AbilityDefinition
+    construct(int abilityId)
+        super(abilityId, 'ANss')
+
+public function addSpellShield(real cd) returns ItemStats
+    let effects = wordSpellShield.format(cd.toString())
+
+    return passiveAbility(effects) (int abilityId) ->
+        return new AbilityDefinitionAmuletOfSpellShield(abilityId)
+        ..setCooldown(1, 40)
 
 // ----------------------------------------------------------------------------

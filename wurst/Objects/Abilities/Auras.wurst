@@ -1,10 +1,8 @@
 package Auras
 
 import AbilityObjEditing
-import AbilitiesList
 import ItemStatsDef
 import ObjectIds
-import ObjectIdGenerator
 import CommonDescriptions
 import Format
 import ActiveAbilityDef

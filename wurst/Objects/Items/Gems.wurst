@@ -102,7 +102,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green2.blp")
     ..setModelUsed("Green Item.mdl")
 
-    ..addStats(addRevive(8, 30))
+    ..addStats(addRevive(7, 30))
 
     ..addStats(addAllStats(600))
     ..addStats(addArmor(240))
@@ -175,7 +175,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple2.blp")
     ..setActivelyUsed(true)
 
-    ..addStats(addAbilityLightingBoltStun(5000, 15, 10, 4000, 30))
+    ..addStats(addAbilityDamageStun(5000, 15, 10, 4000, 30))
 
     ..addStats(addAllStats(300))
 

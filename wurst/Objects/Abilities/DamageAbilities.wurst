@@ -2,12 +2,15 @@ package DamageAbilities
 
 import AbilityObjEditing
 import ItemStatsDef
-import ObjectIdGenerator
 import CommonDescriptions
 import codeDamageTypings
 import Abilities
 import ClosureForGroups
 import ActiveAbilityDef
+import ItemObjEditing
+import AbilitiesList
+import StatsType
+import DamageEvent
 
 // ----------------------------------------------------------------------------
 
@@ -82,9 +85,7 @@ public function addAbilityHolyLight(real healIntFactor, real healAmount, real da
             
             flashEffect(Abilities.holyBoltSpecialArt, target.getPos())
         else
-            let newHp = (target.getMaxHP() + heal)
-            let maxHp = target.getMaxHP()
-            target.setHP(newHp > maxHp ? maxHp : newHp)
+            target.setHP(target.getMaxHP() + heal)
 
             flashEffect(Abilities.healTarget, target.getPos())
     end)
@@ -92,7 +93,7 @@ public function addAbilityHolyLight(real healIntFactor, real healAmount, real da
 
 // ----------------------------------------------------------------------------
 
-public function addAbilityLightingBoltStun(real damage, real intFactor, real stunDuration, int manaCost, real cd) returns ItemStats
+public function addAbilityDamageStun(real damage, real intFactor, real stunDuration, int manaCost, real cd) returns ItemStats
     let effects = wordAbilityMagicDamageInt2.format(damage.toString(), intFactor.toString(), cd.toString())
     
     return new TargetAbility(effects, manaCost, cd, (unit caster, unit target) -> begin
@@ -105,6 +106,63 @@ public function addAbilityLightingBoltStun(real damage, real intFactor, real stu
 
 // ----------------------------------------------------------------------------
 
+public function addSpikes(real factor) returns ItemStats
+    let effects = wordSpikes.format((100*factor).toString())
 
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListReflections.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            target.damageTargetCode(DamageEvent.getAmount() * factor, src, null, -1, damageType.PHYSICALRANGED)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityReturnDamageStats(real factor, real chance, statsType statsType, damageType damageType) returns ItemStats
+    let effects = wordReturnDamageStats.format((100*chance).toString(0), factor.toString(1), statsType.toString(), damageType.toString())
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListReflections.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+
+            real stats = 0
+            switch (statsType)
+                case statsType.Str
+                    stats += target.getStr(true)
+                case statsType.Agi
+                    stats += target.getAgi(true)
+                case statsType.Int
+                    stats += target.getInt(true)
+                case statsType.All
+                    stats += target.getStr(true) + target.getAgi(true) + target.getInt(true)
+            let damage = stats * factor
+            target.damageTargetCode(damage, src, null, -1, damageType)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityDealDamageStats(real factor, real chance, statsType statsType, damageType damageType) returns ItemStats
+    let effects = wordReturnDamageStats.format((100*chance).toString(0), factor.toString(1), statsType.toString(), damageType.toString())
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+
+            real stats = 0
+            switch (statsType)
+                case statsType.Str
+                    stats += target.getStr(true)
+                case statsType.Agi
+                    stats += target.getAgi(true)
+                case statsType.Int
+                    stats += target.getInt(true)
+                case statsType.All
+                    stats += target.getStr(true) + target.getAgi(true) + target.getInt(true)
+            let damage = stats * factor
+            src.damageTargetCode(damage, target, null, -1, damageType)
+        end))
+    end)
 
 // ----------------------------------------------------------------------------

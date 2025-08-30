@@ -1,4 +1,0 @@
-package NerubianStaff
-import codeDamageTypings
-public function nerubianStaff(unit src, unit targ)
-    src.damageTargetCode(src.getInt(true) * 3., targ, null, -1, damageType.MAGICAL)

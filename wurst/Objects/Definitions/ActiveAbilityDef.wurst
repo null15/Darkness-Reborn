@@ -38,7 +38,7 @@ class AbilityBase extends AbilityDefinition
 public class TargetAbility extends AbilityBase
     int castRange
 
-    construct(string effects, int manaCost, real cd, UnitTargetCastFunc handler)
+    construct(string effects, int manaCost, real cd, TargetAbilityFunc handler)
         super(AbilityIds.frostNova, effects, manaCost, cd)
         setDamage(1, 0.01)
         setCastRange(1, 900)
@@ -50,7 +50,7 @@ public class TargetAbility extends AbilityBase
 
         this.castRange = 900
         
-        itemsTargetAbilitiesList.add(new ItemTargetAbility(newId, handler))
+        abilitiesListTargetEvent.add(new ItemTargetEventAbility(newId, handler))
 
     function setDamage(int level, real value)
         def.setLvlDataUnreal("Htb1", level, 1, value)
@@ -59,10 +59,10 @@ public class TargetAbility extends AbilityBase
 
 public class CastAbility extends AbilityBase
 
-    construct(string effects, int manaCost, real cd, UnitCastFunc handler)
+    construct(string effects, int manaCost, real cd, CastAbilityFunc handler)
         super(AbilityIds.berserkerRage1, effects, manaCost, cd)
 
-        itemsAbilitiesList.add(new ItemAbility(newId, handler))
+        abilitiesListCastEvent.add(new ItemCastEventAbility(newId, handler))
 
 // ----------------------------------------------------------------------------
 

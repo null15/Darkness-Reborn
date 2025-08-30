@@ -102,32 +102,6 @@ public function addMagicResist(real value) returns ItemStats
 
 // ----------------------------------------------------------------------------
 
-public function addSpikes(real factor) returns ItemStats
-    let abilityId = ABIL_ID_GEN.next()
-    let effects = wordSpikes.format((100*factor).toString())
-
-    new AbilityDefinitionCryptLordSpikedCarapace(abilityId)
-    ..setReturnedDamageFactor(1, factor)
-
-    return new ItemStats(abilityId, wordPassive + effects)
-
-// ----------------------------------------------------------------------------
-
-public class AbilityDefinitionAmuletOfSpellShield extends AbilityDefinition
-    construct(int abilityId)
-        super(abilityId, 'ANss')
-
-public function addSpellShield(real cd) returns ItemStats
-    let abilityId = ABIL_ID_GEN.next()
-    let effects = wordSpellShield.format(cd.toString())
-
-    new AbilityDefinitionAmuletOfSpellShield(abilityId)
-    ..setCooldown(1, 40)
-
-    return new ItemStats(abilityId, wordPassive + effects)
-
-// ----------------------------------------------------------------------------
-
 public function addMp(int value) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
     let effects = intToString(value) + " " + wordMp

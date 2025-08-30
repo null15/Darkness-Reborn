@@ -110,8 +110,8 @@ init
     new MyItemDefinition(ITEM_SCEPTER_OF_HEALING)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPriestAdept.blp")
     ..setActivelyUsed(true)
+    ..addStats(addAbilityHolyLight(0, 800, 0.5, 500, 5))
     ..addStats(addInt(50))
-    ..addStats("[WIP] Active: Heal target ally for 800 HP or deal 400 HP to an enemy. (cd 25 sec)")
     ..setStockMaximum(99)
     ..register()
 

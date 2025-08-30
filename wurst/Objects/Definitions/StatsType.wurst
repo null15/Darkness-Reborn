@@ -1,0 +1,24 @@
+package StatsType
+
+import CommonDescriptions
+
+// ----------------------------------------------------------------------------
+
+public enum statsType
+    Str
+    Agi
+    Int
+    All
+
+public function statsType.toString() returns string
+    switch (this)
+        case statsType.Str
+            return wordStr
+        case statsType.Agi
+            return wordAgi
+        case statsType.Int
+            return wordInt
+        case statsType.All
+            return wordAllStats
+
+// ----------------------------------------------------------------------------

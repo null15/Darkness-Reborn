@@ -6,36 +6,22 @@ import MyAbilityIds
 import Platinum1Stun
 import Platinum2Stun
 import LancelotSet
-import HelmofHermes
 import LancelotShield
 import HolyGoldShield
-import DeadEyes
-import NobleSword
-import NerubianStaff
-import RavenBlade
-import ApolloHelm
-import CrystalArmor
-import CrystalSpear
-import BerserkerStaff
 import Frostmourne
 import OrbofLightning
 import codeDamageTypings
 import MyItemIds
 import MyBuffIds
 import WaveHeroSetup
-import PerfectAquamrina
-import ReactiveArmor1
-import ReactiveArmor2
-import SpikedArmor
-import SplitArmor
 import DragonTurtle
 import Turtle
 import A0RI_R
 import A0RL_E
 import ThornsAuraWave
 import SoulKilJaeden
-import SpikeOfCrypt
 import Global_Variables
+import AbilitiesList
 
 @configurable constant DETECT_NATIVE_ABILITIES = true
 
@@ -67,6 +53,7 @@ init
                 else
                     physicalDamageChecks(0, src, targ, WEAPON_TYPE_WHOKNOWS)
 
+                // Warden T ability.
                 if src.hasAbility('B003')
                     src.removeAbility('B003')
 
@@ -75,7 +62,8 @@ init
                 
             case CODE
                 let damId = DamageEvent.getId()
-                DamageEvent.setAmount(DamageEvent.getAmount() * 1.111111111)
+                // Why increase the damage?
+                // DamageEvent.setAmount(DamageEvent.getAmount() * 1.111111111)
                 if(DamageEvent.getDamageType() == DAMAGE_TYPE_NORMAL)
                     if(returnReducedDamage() > 0 and unitStatMap.has(src.getTypeId()))
                         DamageEvent.addAmount(returnReducedDamage() * src.getPen(penetrationType.PHYSICAL))
@@ -90,12 +78,11 @@ init
         if (DamageEvent.getType() == ATTACK)
             let damtyp = DamageEvent.getDamageType()
             if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
-                //Reflection for Melee only
-                if(src.isType(UNIT_TYPE_MELEE_ATTACKER))
-                    reflectionChecks(src, targ)
-                //HermesHelm
-                if targ.hasItemById(ITEM_HELM_HERMES)
-                    hermesHelm(targ, src)
+                
+                for abilityInfo in abilitiesListOnDamageTaken
+                    if (targ.hasItemById(abilityInfo.itemId))
+                        abilityInfo.handler.run(src, targ)
+                
                 //Lancelot Armor
                 if targ.hasItemById(ITEM_LANCELOT_ARMOR) and GetRandomInt(0, 100) < 20
                     lancelotSetMana(targ)
@@ -111,15 +98,6 @@ init
                 //holyGoldShield
                 if targ.hasItemById(ITEM_HOLY_GOLD_SHIELD) and GetRandomInt(0, 100) < 50
                     holyGoldShield(targ)
-                //ApolloHelm
-                if targ.hasItemById(ITEM_APOLLOS_HELM) and GetRandomInt(0, 100) < 33 
-                    apolloHelm(targ, src)
-                //Crystal Armor
-                if targ.hasItemById(ITEM_CRYSTAL_ARMOR) and GetRandomInt(0, 100) < 50
-                    crystalArmor(targ, src)
-                //SoulOfKiljaeden
-                if src.hasItemById(ITEM_ORB_OF_KILJAEDAN) and GetRandomInt(0, 100) <= 47
-                    kiljaedenSoul(src)
 
     DamageEvent.addListener(2) ->
         let src = DamageEvent.getSource()
@@ -130,44 +108,15 @@ init
             else
                 let damtyp = DamageEvent.getDamageType()
                 if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
-                    //deadEyes
-                    if src.hasItemById(ITEM_DEAD_EYES) and GetRandomInt(0, 100) < 14
-                        deadEyes(src, targ)
+                    
+                    for abilityInfo in abilitiesListOnDamageDealt
+                        if (src.hasItemById(abilityInfo.itemId))
+                            abilityInfo.handler.run(src, targ)
+                        
+                    //SoulOfKiljaeden
+                    if src.hasItemById(ITEM_ORB_OF_KILJAEDAN) and GetRandomInt(0, 100) <= 47
+                        kiljaedenSoul(src)
 
-                    //Noble Sword levels, integer is additive with 2xagi
-                    if src.hasItemById(ITEM_NOBLE_SWORD_L1) and GetRandomInt(0, 100) < 11
-                        nobleSword(src, targ, 0)
-
-                    if src.hasItemById(ITEM_NOBLE_SWORD_L2) and GetRandomInt(0, 100) < 12
-                        nobleSword(src, targ, 1)
-
-                    if src.hasItemById(ITEM_NOBLE_SWORD_L3) and GetRandomInt(0, 100) < 13
-                        nobleSword(src, targ, 2)
-
-                    if src.hasItemById(ITEM_NOBLE_SWORD_L4) and GetRandomInt(0, 100) < 14
-                        nobleSword(src, targ, 3)
-
-                    if src.hasItemById(ITEM_BERSERKER_SWORD) and GetRandomInt(0, 100) < 18
-                        nobleSword(src, targ, 4)
-
-                    //Raven Blade levels, integer is multiplier by 2xstr
-                    if src.hasItemById(ITEM_RAVEN_BLADE_L4) and GetRandomInt(0, 100) < 12
-                        ravenBlade(src, targ, 1)
-
-                    if src.hasItemById(ITEM_RAVEN_BLADE_L5) and GetRandomInt(0, 100) < 13
-                        ravenBlade(src, targ, 2)
-
-                    if src.hasItemById(ITEM_BERSERKERS_BLADE) and GetRandomInt(0, 100) < 14
-                        ravenBlade(src, targ, 3)
-                    //Crystal Spear
-                    if src.hasItemById(ITEM_CRYSTAL_SPEAR) and GetRandomInt(0, 100) < 15
-                        crystalSpear(src, targ)
-                    //Int Staff
-                    if src.hasItemById(ITEM_BERSERKERS_STAFF) and GetRandomInt(0, 100) < 24
-                        berserkerStaff(src, targ)
-
-                    if src.hasItemById(ITEM_NERUBIAN_STAFF_L1) and GetRandomInt(0, 100) < 24
-                        nerubianStaff(src, targ)
                     //Frostmourne
                     if src.hasItemById(ITEM_FROSMOUNE_L5) and GetRandomInt(0, 100) < 15
                         frostmourne(targ)
@@ -197,22 +146,14 @@ function physicalDamageChecks(int damId, unit src, unit targ, weapontype notRang
     if(notRanged == WEAPON_TYPE_WHOKNOWS)
         reflectionChecks(src,targ)
 
-
 function reflectionChecks(unit src, unit targ)
     let dam = DamageEvent.getAmount()
     let targuID = targ.getTypeId()
-    if(targ.hasItemById(ITEM_REACTIVE_ARMOR))
-        reactiveArmor1(targ, src, dam)
-    if(targ.hasItemById(ITEM_SPIKE_OF_CRYPTLORD))
-        spikeofCrypt(targ, src, dam)
-    if(targ.hasItemById(ITEM_REACTIVE_ARMOR_II))
-        reactiveArmor2(targ, src, dam)
-    if(targ.hasItemById(ITEM_SPLIT_ARMOR))
-        splitArmor(targ, src, dam)
-    if(targ.hasItemById(ITEM_PERFECT_AQUAMARINE))
-        perfectAquamrina(targ, src, dam)
-    if(targ.hasItemById(ITEM_SPIKED_ARMOR))
-        spikedArmor(targ, src, dam)
+
+    for abilityInfo in abilitiesListReflections
+        if (targ.hasItemById(abilityInfo.itemId))
+            abilityInfo.handler.run(src, targ)
+
     if(targuID == WAVE_MOB_18)
         turtle(targ, src, dam)
     if(targuID == WAVE_BOSS_95)

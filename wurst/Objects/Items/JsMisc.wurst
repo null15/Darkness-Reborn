@@ -4,6 +4,7 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import Jacksmith_Q
+import codeDamageTypings
 
 init
 
@@ -14,6 +15,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNA111.blp")
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
+    ..addStats(addAbilityDealAoeDamage(20000, 900, damageType.MAGICAL, 6000, 20))
     ..addStats(addArmor(400))
     ..addStats(addHp(10000))
     ..addStats(addInt(300))
