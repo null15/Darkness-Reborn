@@ -18,7 +18,7 @@ function phantomArrowToggle()
     EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
         let u = GetTriggerUnit()
         let uid = u.getTypeId()
-        if(uid == PLAY_HERO_18 or uid == WAVE_HERO_19)
+        if(uid == HERO_RANGER or uid == WAVE_HERO_19)
             if(GetIssuedOrderId() == OrderIds.poisonarrows)
                 arrowToggle.add(u)
             else if GetIssuedOrderId() == OrderIds.poisonarrows + 1

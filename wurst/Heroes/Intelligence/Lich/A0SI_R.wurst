@@ -6,7 +6,7 @@ import MyUnitIds
 
 public function frostRise()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
-        if GetKillingUnit().getTypeId() == PLAY_HERO_24 and GetKillingUnit().getAbilityLevel('A0SI') > 0
+        if GetKillingUnit().getTypeId() == HERO_LICH and GetKillingUnit().getAbilityLevel('A0SI') > 0
             let lich = GetKillingUnit()
             let lvl = lich.getAbilityLevel('A0SI')
             if lvl <= 2

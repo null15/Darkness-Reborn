@@ -38,7 +38,7 @@ public function initDebug()
     // Spawn supportive heroes
 
     // thief
-    CreateUnit(players[0], PLAY_HERO_31, posX, posY - 400, 270.000)
+    CreateUnit(players[0], HERO_THIEF, posX, posY - 400, 270.000)
     ..setLevel(70, false)
     ..setArmor(30000)
     ..setMaxHP(1000000)
@@ -46,7 +46,7 @@ public function initDebug()
     ..addItemToSlot(ITEM_BLINK_MAP, 0)
     
     // jacksmith
-    CreateUnit(players[0], PLAY_HERO_7, posX, posY - 400, 270.000)
+    CreateUnit(players[0], HERO_JACKSMITH, posX, posY - 400, 270.000)
     ..setLevel(70, false)
     ..setArmor(30000)
     ..setMaxHP(1000000)

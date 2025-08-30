@@ -13,13 +13,16 @@ import heroLoader
 import UpdateDropSite
 import MultiboardTimer
 import ClosureEvents
-import MyItemIds
+import LinkedList
 import FountainQuest
 import codeDamageTypings
 import Debug
+import Quest
 
 real facing = 270
 real facingUp = 90
+
+public let taverns = new LinkedList<unit>()
 
 init
     mapSetup()
@@ -33,6 +36,7 @@ public function questSetup()
     let commands = CreateQuest()
     let discord = CreateQuest()
     let recipe = CreateQuest()
+    let credits = CreateQuest()
     
     QuestSetDiscovered(commands, true)
     QuestSetIconPath(commands, "ReplaceableTextures\\CommandButtons\\BTNSpy.blp")
@@ -55,11 +59,21 @@ public function questSetup()
     +"Jewelry of Mana + Pendant of Mana = Lancelot's Ring\n"
     +"Lancelot's Ring + Guinevere's Ring + Pendant of Energy = Arkenstone Fragment")
 
+    credits..discovered(true)
+    ..setDescription("Talavaj - Models\n If anyone is missing here, I just don't know who to credit")
+    ..setTitle("Model Credits")
+    ..setRequired(true)
+
+
+public function createWisp(player p)
+    playerHero.put(p, createUnit(p, HERO_PICKER, gg_rct_HeroPicker.getCenter()))
+
 function onBuyHero(unit u)
     EventListener.add(u, EVENT_PLAYER_UNIT_SELL) ->
         let soldUnit = GetSoldUnit()
         let p = soldUnit.getOwner()
-        if playerHero.get(p) == null
+        let playHero = playerHero.get(p)
+        if playHero.getTypeId() == HERO_PICKER
             playerHero.put(p, soldUnit)
             soldUnit.heroCheck()
             gg_cam_CameraHeroPicked.apply(true, p, 0.5)
@@ -70,7 +84,7 @@ function onBuyHero(unit u)
         else
             soldUnit.remove()
             printTimedToPlayer("Your hero was killed by the newly recruited one as it left.", 10, p)
-            playerHero.get(p).kill()
+            playHero.kill()
 
 function createSetup()
     let p = players[10]
@@ -81,23 +95,46 @@ function createSetup()
     SetPlayerState(players[13], PLAYER_STATE_GIVES_BOUNTY, 1)
 
     for i = 0 to 9
-        createUnit(players[i], HERO_PICKER, gg_rct_HeroPicker.getCenter())
+        createWisp(players[i])
         players[i]..addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)..addState(PLAYER_STATE_RESOURCE_GOLD, 800)
         
     var posX = GetRectCenterX(gg_rct_HeroPicker) - 384.
     var posY = GetRectCenterY(gg_rct_HeroPicker) - 128
 
+    let defenderTavern = CreateUnit(p, BUILDING_TAVERN_DEFENDER, posX, posY, bj_UNIT_FACING)
+    taverns.add(defenderTavern)
+    onBuyHero(defenderTavern)
 
-    onBuyHero(CreateUnit(p, BUILDING_TAVERN_DEFENDER, posX, posY, bj_UNIT_FACING))
-    onBuyHero(CreateUnit(p, BUILDING_TAVERN_SUPPORT, posX, posY + 164, bj_UNIT_FACING))
-    onBuyHero(CreateUnit(p, BUILDING_TAVERN_ASCENSION, posX, posY + 328, bj_UNIT_FACING))
+    let supportTavern = CreateUnit(p, BUILDING_TAVERN_SUPPORT, posX, posY + 164, bj_UNIT_FACING)
+    taverns.add(supportTavern)
+    onBuyHero(supportTavern)
+
+    let ascensionTavern = CreateUnit(p, BUILDING_TAVERN_ASCENSION, posX, posY + 328, bj_UNIT_FACING)
+    taverns.add(ascensionTavern)
+    onBuyHero(ascensionTavern)
+
     posX = GetRectCenterX(gg_rct_HeroPicker)
-    onBuyHero(CreateUnit(p, BUILDING_TAVERN_PHYSICAL_DPS, posX, posY, bj_UNIT_FACING))
-    onBuyHero(CreateUnit(p, BUILDING_TAVERN_MAGICAL_DPS, posX, posY + 328, bj_UNIT_FACING))
+    let physicalTavern = CreateUnit(p, BUILDING_TAVERN_PHYSICAL_DPS, posX, posY, bj_UNIT_FACING)
+    taverns.add(physicalTavern)
+    onBuyHero(physicalTavern)
+
+    let magicalTavern = CreateUnit(p, BUILDING_TAVERN_MAGICAL_DPS, posX, posY + 328, bj_UNIT_FACING)
+    taverns.add(magicalTavern)
+    onBuyHero(magicalTavern)
+
     posX = GetRectCenterX(gg_rct_HeroPicker) + 384.
-    onBuyHero(CreateUnit(p, BUILDING_TAVERN_BUILDER, posX, posY, bj_UNIT_FACING))
-    onBuyHero(CreateUnit(p, BUILDING_TAVERN_GATHERER, posX, posY + 328, bj_UNIT_FACING))
-    onBuyHero(CreateUnit(p, BUILDING_TAVERN_CRAFTER, posX, posY + 164, bj_UNIT_FACING))
+
+    let builderTavern = CreateUnit(p, BUILDING_TAVERN_BUILDER, posX, posY, bj_UNIT_FACING)
+    taverns.add(builderTavern)
+    onBuyHero(builderTavern)
+
+    let gatherTavern = CreateUnit(p, BUILDING_TAVERN_GATHERER, posX, posY + 328, bj_UNIT_FACING)
+    taverns.add(gatherTavern)
+    onBuyHero(gatherTavern)
+
+    let crafterTavern = CreateUnit(p, BUILDING_TAVERN_CRAFTER, posX, posY + 164, bj_UNIT_FACING)
+    taverns.add(crafterTavern)
+    onBuyHero(crafterTavern)
 
     posX = GetRectCenterX(gg_rct_ShopLeft) + 150
     var posMax = GetRectMaxY(gg_rct_ShopLeft)

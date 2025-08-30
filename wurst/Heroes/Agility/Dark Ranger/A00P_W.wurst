@@ -15,7 +15,7 @@ public function darkArrow()
     EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
         let u = GetTriggerUnit()
         let uid = u.getTypeId()
-        if(uid == PLAY_HERO_16 or uid == WAVE_HERO_16)
+        if(uid == HERO_DARK_RANGER or uid == WAVE_HERO_16)
             if(GetIssuedOrderId() == OrderIds.flamingarrows)
                 arrowToggle.add(u)
             else if GetIssuedOrderId() == OrderIds.flamingarrows + 1

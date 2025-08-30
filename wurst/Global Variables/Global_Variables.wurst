@@ -7,6 +7,8 @@ public rect array creepLoc = []
 public rect array eliteLoc = []
 public rect array bossLoc = []
 
+public let heroPickedUpgradeHash = new HashMap<int, int>
+
 public int gameMode = -1
 
 public let playerHero = new HashMap<player,unit>

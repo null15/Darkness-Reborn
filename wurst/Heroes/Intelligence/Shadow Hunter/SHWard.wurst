@@ -7,7 +7,7 @@ import MyAbilityIds
 public function shWardSummon()
     EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
         let summoner = GetSummoningUnit()
-        if(summoner.getTypeId() == PLAY_HERO_23)
+        if(summoner.getTypeId() == HERO_SHADOW_HUNTER)
             let summon = GetSummonedUnit()
             let ite = summoner.getInt(true)
             let hp = summoner.getMaxHP()

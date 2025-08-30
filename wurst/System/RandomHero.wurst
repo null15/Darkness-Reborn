@@ -1,0 +1,65 @@
+package RandomHero
+
+import ClosureEvents
+import Global_Variables
+import MyUnitIds
+import LinkedList
+import onStart
+import heroLoader
+
+let playableHeroes = new LinkedList<int>()
+
+init
+    playableHeroes.add(
+    HERO_MOUNTAIN_KING,
+    HERO_WOLFMAN_INITIAL,
+    HERO_TAUREN_CHIEFTAIN,
+    HERO_VIVPIRE,
+    HERO_DEATH_KNIGHT,
+    HERO_BEASTMASTER,
+    HERO_PITLORD,
+    HERO_JACKSMITH,
+    HERO_UTHER,
+    HERO_PRIESTESS_OF_THE_MOON,
+    HERO_ASSASSIN,
+    HERO_DEMON_HUNTER,
+    HERO_SHADOW_OF_VENGEANCE,
+    HERO_WARDEN,
+    HERO_BLADEMASTER,
+    HERO_SATYR,
+    HERO_DARK_RANGER,
+    HERO_ILLUSIONIST)
+    playableHeroes.add(
+    HERO_RANGER,
+    HERO_FIRELORD,
+    HERO_KEEPER_OF_THE_GROVE,
+    HERO_FIRE_MAGE,
+    HERO_HERALD_OF_LIGHTNING,
+    HERO_SHADOW_HUNTER,
+    HERO_LICH,
+    HERO_NAGA_SEA_WITCH,
+    HERO_GUARDIAN_OF_LIGHT,
+    HERO_ARCHMAGE,
+    HERO_TIME_WIZARD,
+    HERO_TRACKER,
+    HERO_TINKER,
+    HERO_THIEF,
+    HERO_PANDAREN_MONK,
+    HERO_KING_OF_LOAS,
+    HERO_ARTHAS)
+    randomHero()
+
+function randomHero()
+    EventListener.add(EVENT_PLAYER_CHAT_FILTER) ->
+        if EventData.getChatMessage().substring(0, 7).toLowerCase() == "-random"
+            let trigP = EventData.getTriggerPlayer()
+            let playHero = playerHero.get(trigP)
+            if playHero.getTypeId() == HERO_PICKER
+                playHero.remove()
+                let uid = playableHeroes.getRandomElement()
+                playableHeroes.remove(uid)
+                let randomedHero = createUnit(trigP, uid, gg_rct_Base.getCenter())
+                playerHero.put(trigP, randomedHero)
+                randomedHero.heroCheck()
+                taverns.forEach() (unit t) ->
+                    t.removeUnitFromStock(uid)

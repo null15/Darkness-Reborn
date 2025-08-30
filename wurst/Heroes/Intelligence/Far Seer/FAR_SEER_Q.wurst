@@ -16,7 +16,7 @@ public function orbofLightning()
             let posCaster = caster.getPos()
             let angle = (60. + 120 * i).asAngleDegrees()
             let pos = posCaster.polarOffset(angle, 75).withZ(150)
-            let sfx = createUnit(players[10], PLAY_HERO_22_DUMMY_2)..setPosFly(pos)
+            let sfx = createUnit(players[10], HERO_HERALD_OF_LIGHTNING_DUMMY_2)..setPosFly(pos)
             sfxtemp.add(sfx)
         doPeriodicallyTimed(0.03, 10) (CallbackCounted cb) ->
             for int i = 0 to 2
@@ -33,7 +33,7 @@ public function orbofLightning()
                     temp.add(u)
             let damagedunit = temp.getRandomElement()
             let damageorb = sfxtemp.getRandomElement()
-            let tempu = createUnit(players[10], PLAY_HERO_22_DUMMY, damageorb.getPos3Fly(), damageorb.getPos().angleTo(damagedunit.getPos()))
+            let tempu = createUnit(players[10], HERO_HERALD_OF_LIGHTNING_DUMMY, damageorb.getPos3Fly(), damageorb.getPos().angleTo(damagedunit.getPos()))
             tempu.addAbility(HERALD_ABILI_DUMMY)
             tempu.issueTargetOrderById(Orders.chainlightning, damagedunit)
             doAfter(0.1) ->

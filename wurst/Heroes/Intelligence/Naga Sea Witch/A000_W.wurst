@@ -17,7 +17,7 @@ function unit.getFrostArrowToggled() returns bool
 public function frostArrowToggle() //For some reason orderID is not getting updated to flamingarrows, putting it to coldarrows
     EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
         let u = GetTriggerUnit()
-        if(u.getTypeId() == PLAY_HERO_25)
+        if(u.getTypeId() == HERO_NAGA_SEA_WITCH)
             if(GetIssuedOrderId() == OrderIds.coldarrows)
                 arrowToggle.add(u)
             else if GetIssuedOrderId() == OrderIds.coldarrows + 1

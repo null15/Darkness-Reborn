@@ -11,7 +11,7 @@ public function spiritGuardian()
         AddSpecialEffect(Abilities.animateDeadTarget, target.x, target.y).destr()
     EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
         let summoner = GetSummoningUnit()
-        if(summoner.getTypeId() == PLAY_HERO_20 or summoner.getTypeId() == 'e003')
+        if(summoner.getTypeId() == HERO_KEEPER_OF_THE_GROVE or summoner.getTypeId() == 'e003')
             let summon = GetSummonedUnit()
             
             let heroInt = playerHero.get(summon.getOwner()).getInt(true)
