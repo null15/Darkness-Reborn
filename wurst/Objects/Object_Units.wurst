@@ -13,7 +13,7 @@ import UpgradeObjEditing
 import MyUpgradesIds
 import LinkedList
 
-let heroPickedUpgrades = compiletime(new LinkedList<int>)
+public let heroPickedUpgrades = compiletime(new LinkedList<int>)
 
 init
     
