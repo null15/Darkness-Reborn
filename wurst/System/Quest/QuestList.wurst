@@ -84,10 +84,10 @@ public function startExclusiveKillingTargetQuest(int required, player questOwner
         destroy questDone
     questListsOwners.get(questOwner).addQuest(newQuest)
 
-public function startKillingTargetQuest(int required, player questOwner, HashSet<int> targetUnitType, string title, OnQuestComplete questDone)
+public function startKillingTargetQuest(int required, player questOwner, HashSet<int> targetUnitType, string title, string rewardText, OnQuestComplete questDone)
     let questList = questListsOwners.get(questOwner)
     if questList.questListFull()
-        let newQuest = new QuestIntKillTargetInstant(required, questOwner, title, targetUnitType, "Out of {1} there are |cff921313{0} |rleft to kill") (questOwner, questToRemove) ->
+        let newQuest = new QuestIntKillTargetInstant(required, questOwner, title, targetUnitType, "Out of {1} there are |cff921313{0} |rleft to kill", rewardText)  (questOwner, questToRemove) ->
             questDone.questComplete(questOwner)
             questListsOwners.get(questOwner).removeQuest(questToRemove)
             destroy questDone

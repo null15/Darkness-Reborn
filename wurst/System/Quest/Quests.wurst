@@ -23,6 +23,7 @@ public abstract class Quest
     protected string title
     protected framehandle questFrame
     protected string questText
+    protected string rewardText = ""
 
     function getQuestOwner() returns player
         return questOwner
@@ -49,15 +50,25 @@ public abstract class Quest
         this.title = title
         this.questText = questText
         printTimedToPlayer(title + " has started!", 5, questOwner)
+    
+    construct(player questOwner, string title, string questText, string rewardText)
+        this.questOwner = questOwner
+        this.title = title
+        this.questText = questText
+        this.rewardText = rewardText
+        printTimedToPlayer(title + " has started!", 5, questOwner)
         
 
 class QuestIntInstant extends Quest
     int quest_resource = 0
     int quest_requirement
-    
 
     construct(int quest_requirement, player questOwner, string title, string questText)
         super(questOwner,title, questText)
+        this.quest_requirement = quest_requirement
+
+    construct(int quest_requirement, player questOwner, string title, string questText, string rewardText)
+        super(questOwner,title, questText, rewardText)
         this.quest_requirement = quest_requirement
 
     function addResource(int toAdd)
@@ -75,13 +86,15 @@ class QuestIntInstant extends Quest
         return quest_requirement
 
     override function getQuestText() returns string
-        return questText.format((quest_requirement-quest_resource).toString())
+        if rewardText == ""
+            return questText.format((quest_requirement-quest_resource).toString())
+        else
+            return questText.format((quest_requirement-quest_resource).toString()) + rewardText
 
 public class QuestIntKillAnyInstant extends QuestIntInstant
     EventListener listener
 
-    construct(int quest_requirement, player questOwner, string title, string questText, OnQuestKillAnyComplete onComplete)
-        super(quest_requirement, questOwner, title, questText)
+    function onConstruct(OnQuestKillAnyComplete onComplete)
         listener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
             let killer = EventData.getKillingUnit()
             if killer.getOwner() == questOwner
@@ -99,6 +112,14 @@ public class QuestIntKillAnyInstant extends QuestIntInstant
                         let textToSet = getQuestText()
                         questFrame.setText(textToSet)
                         printTimedToPlayer(textToSet, 2, questOwner)
+
+    construct(int quest_requirement, player questOwner, string title, string questText, OnQuestKillAnyComplete onComplete)
+        super(quest_requirement, questOwner, title, questText)
+        onConstruct(onComplete)
+        
+    construct(int quest_requirement, player questOwner, string title, string questText, string rewardText, OnQuestKillAnyComplete onComplete)
+        super(quest_requirement, questOwner, title, questText, rewardText)
+        onConstruct(onComplete)
     
     override function getQuestText() returns string
         return questText.format((quest_requirement-quest_resource).toString())
@@ -107,8 +128,7 @@ public class QuestIntKillTargetInstant extends QuestIntInstant
     EventListener listener
     string monsterNames
 
-    construct(int quest_requirement, player questOwner, string title, HashList<int> targetType, string questText,  OnQuestKillTargetComplete onComplete)
-        super(quest_requirement, questOwner, title, questText)
+    function onConstruct(HashList<int> targetType,OnQuestKillTargetComplete onComplete)
         targetType.forEach() (integer t) ->
             let tempUnit = createUnit(t)
             monsterNames += tempUnit.getName() + "/"
@@ -134,6 +154,14 @@ public class QuestIntKillTargetInstant extends QuestIntInstant
                             let textToSet = getQuestText()
                             questFrame.setText(textToSet)
                             printTimedToPlayer(textToSet, 2, questOwner)
+                            
+    construct(int quest_requirement, player questOwner, string title, HashList<int> targetType, string questText,  OnQuestKillTargetComplete onComplete)
+        super(quest_requirement, questOwner, title, questText)
+        onConstruct(targetType,onComplete)
+    
+    construct(int quest_requirement, player questOwner, string title, HashList<int> targetType, string questText, string rewardText, OnQuestKillTargetComplete onComplete)
+        super(quest_requirement, questOwner, title, questText, rewardText)
+        onConstruct(targetType,onComplete)
     
     override function getQuestText() returns string
         return questText.format((quest_requirement-quest_resource).toString(),monsterNames)
