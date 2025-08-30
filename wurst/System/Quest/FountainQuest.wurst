@@ -107,10 +107,21 @@ function fountainQuestEliteReward(int rarity, player questOwner, HashSet<int> ta
     printTimedToPlayer("You have gained " + goldGained.toString() + " Gold, " + lumberGain.toString() + " Lumber and " + xpGained.toString() + " EXP.", 10, questOwner)
     playerHero.get(questOwner).giveDropItem(targetUnitType.get(0))
 
+function rewardTextFrame(int rarity, HashSet<int> targetUnitType) returns string
+    let gold = 750 * rarity + 100
+    let xp = 350 * (rarity + 1)
+    var rewardtext = "|cff00ffddRewards:|r |cffffcc00Gold|r: " + gold.toString() +" |cff001affXP|r: "+ xp.toString()
+    if hasEliteEnemy(targetUnitType)
+        let lumber = 10*(rarity-1)
+        rewardtext += " |cff00ff22Lumber|r: " + lumber.toString() + " And a random item from the creep drop list"      
+    else if (rarity > 1)
+        rewardtext += " And a random item from the creep drop list"
+    return rewardtext
+
 function player.initiateFountainQuest(HashSet<int> targetUnitType, int rarity)
     let title = createUnit(targetUnitType.get(0))..remove().getName() + " Kill Quest " + questStringConversion(rarity)
     let required = filterEpicQuestKill(rarity, targetUnitType) //rarity * 3 + 7
-    let rewardText = ""
+    let rewardText = rewardTextFrame(rarity, targetUnitType)
     startKillingTargetQuest(required, this, targetUnitType, title, rewardText) (player questOwner) ->
         if hasEliteEnemy(targetUnitType)
             fountainQuestEliteReward(rarity, questOwner, targetUnitType)
