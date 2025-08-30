@@ -12,9 +12,9 @@ import ActiveAbilityDef
 public function addHpRegAura(real amount, bool relative, real range) returns ItemStats
     string effects
     if (relative)
-        effects = wordHpRegAura.format((100*amount).toString() + "% of max HP", range.toString())
+        effects = wordHpRegAura.format((100*amount).toString() + "% of max HP")
     else
-        effects = wordHpRegAura.format(amount.toString() + " HP/s", range.toString())
+        effects = wordHpRegAura.format(amount.toString() + " HP/s")
 
     return auraAbility("HP Regen", effects, range) (int abilityId) -> 
         return new AbilityDefinitionNeutralRegenhealthonly(abilityId)
@@ -26,7 +26,7 @@ public function addHpRegAura(real amount, bool relative, real range) returns Ite
 // ----------------------------------------------------------------------------
 
 public function addAuraTrueshot(real factor, real range) returns ItemStats
-    let effects = wordAuraTrueshot.format(realToString(100*factor, 0), range.toString())
+    let effects = wordAuraTrueshot.format(realToString(100*factor, 0))
 
     return auraAbility("Trueshot", effects, range) (int abilityId) -> 
         return new AbilityDefinitionMoonPriestessTrueshotAura(abilityId)
@@ -36,7 +36,7 @@ public function addAuraTrueshot(real factor, real range) returns ItemStats
 // ----------------------------------------------------------------------------
 
 public function addAuraEndurance(real moveSpeed, real attackSpeed, real range) returns ItemStats
-    let effects = wordAuraEndurance.format(realToString(100*moveSpeed, 0), realToString(100*attackSpeed, 0), range.toString())
+    let effects = wordAuraEndurance.format(realToString(100*moveSpeed, 0), realToString(100*attackSpeed, 0))
 
     return auraAbility("Endurance", effects, range) (int abilityId) -> 
         return new AbilityDefinitionTaurenChieftainEnduranceAura(abilityId)
@@ -47,7 +47,7 @@ public function addAuraEndurance(real moveSpeed, real attackSpeed, real range) r
 // ----------------------------------------------------------------------------
 
 public function addAuraArmorFlat(real armor, real range) returns ItemStats
-    let effects = wordAuraDevotionFlat.format(realToString(armor, 0), range.toString())
+    let effects = wordAuraDevotionFlat.format(realToString(armor, 0))
 
     return auraAbility("Devotion", effects, range) (int abilityId) ->
         return new AbilityDefinitionAuraDevotionCreep(abilityId)
@@ -56,7 +56,7 @@ public function addAuraArmorFlat(real armor, real range) returns ItemStats
         ..setAreaofEffect(1, range)
 
 public function addAuraArmorRel(real factor, real range) returns ItemStats
-    let effects = wordAuraDevotionRel.format(realToString(100*factor, 0), range.toString())
+    let effects = wordAuraDevotionRel.format(realToString(100*factor, 0))
 
     return auraAbility("The Supreme Devotion", effects, range) (int abilityId) ->
         return new AbilityDefinitionPaladinDevotionAura(abilityId)
@@ -67,7 +67,7 @@ public function addAuraArmorRel(real factor, real range) returns ItemStats
 // ----------------------------------------------------------------------------
 
 public function addAuraMinusArmorFlat(real armor, real range) returns ItemStats
-    let effects = wordAuraDevotionFlat.format(realToString(armor, 0), range.toString())
+    let effects = wordAuraDevotionFlat.format(realToString(armor, 0))
 
     return auraAbility("Corrosive", effects, range) (int abilityId) ->
         return new AbilityDefinitionAuraDevotionCreep(abilityId)
@@ -77,7 +77,7 @@ public function addAuraMinusArmorFlat(real armor, real range) returns ItemStats
         ..setTargetsAllowed(1, TargetsAllowed.enemies)
 
 public function addAuraMinusArmorRel(real factor, real range) returns ItemStats
-    let effects = wordAuraDevotionRel.format(realToString(100*factor, 0), range.toString())
+    let effects = wordAuraDevotionRel.format(realToString(100*factor, 0))
 
     return auraAbility("Ancient Corrosive", effects, range) (int abilityId) ->
         return new AbilityDefinitionPaladinDevotionAura(abilityId)
@@ -89,7 +89,7 @@ public function addAuraMinusArmorRel(real factor, real range) returns ItemStats
 // ----------------------------------------------------------------------------
 
 public function addAuraCommandRel(real factor, real range) returns ItemStats
-    let effects = wordAuraCommandRel.format(realToString(100*factor, 0), range.toString())
+    let effects = wordAuraCommandRel.format(realToString(100*factor, 0))
 
     return auraAbility("Command", effects, range) (int abilityId) ->
         return new AbilityDefinitionAuraCommandCreep(abilityId)
@@ -99,7 +99,7 @@ public function addAuraCommandRel(real factor, real range) returns ItemStats
 // ----------------------------------------------------------------------------
 
 public function addAuraCommandRel2(real factor, real range) returns ItemStats
-    let effects = wordAuraDevotionFlat.format(realToString(100*factor, 0), range.toString())
+    let effects = wordAuraDevotionFlat.format(realToString(100*factor, 0))
 
     return auraAbility("War", effects, range) (int abilityId) ->
         return new AbilityDefinitionAuraWarDrumsKodobeast(abilityId)
@@ -109,7 +109,7 @@ public function addAuraCommandRel2(real factor, real range) returns ItemStats
 // ----------------------------------------------------------------------------
 
 public function addAbilityLifeStealAura(real factor, real range) returns ItemStats
-    let effects = wordVampiricAura.format((100*factor).toString(1), range.toString())
+    let effects = wordLifeSteal.format(realToString(100 * factor, 0))
 
     return auraAbility("Vampiric", effects, range) (int abilityId) ->
         return new AbilityDefinitionDreadlordVampiricAura(abilityId)

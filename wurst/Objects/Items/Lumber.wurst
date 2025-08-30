@@ -9,11 +9,11 @@ init
 @compiletime function createItems()
 
 // Fountain:
-    new BuyLumberDefinition(ITEM_GOLD_TO_LUMBER_100, 100, 100000)
+    new BuyLumberDefinition(ITEM_FOUNTAIN_GOLD_TO_LUMBER_100, 100, 100000)
     ..setStockStartDelay(1200)
     ..register()
     
-    new BuyGoldDefinition(ITEM_LUMBER_100_TO_GOLD, 90000, 100)
+    new BuyGoldDefinition(ITEM_FOUNTAIN_LUMBER_100_TO_GOLD, 90000, 100)
     ..register()
 
 // Tinker:
@@ -37,6 +37,9 @@ init
     ..register()
 
     new BuyGoldDefinition(ITEM_LUMBER_10_TO_GOLD, 9000, 10)
+    ..register()
+
+    new BuyGoldDefinition(ITEM_LUMBER_100_TO_GOLD, 90000, 100)
     ..register()
 
     new BuyGoldDefinition(ITEM_LUMBER_1000_TO_GOLD, 900000, 1000)

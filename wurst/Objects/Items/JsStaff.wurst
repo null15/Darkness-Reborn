@@ -129,10 +129,10 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_NERUBIAN_STAFF_L1, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNMagicStickFire.blp")    
     ..setClassification("Purchasable")
-    ..addStats(addAbilityDealDamageStats(3, 0.12, statsType.Int, damageType.MAGICAL))
     ..addStats(addDamage(280))
     ..addStats(addInt(180))
     ..addStats(addMpReg(2.5))
+    ..addStats(addAbilityDealDamageStats(3, 0.12, statsType.Int, damageType.MAGICAL))
     ..addComponents(
     ITEM_GOLDEN_STAFF_L3,
     ITEM_FORGE_STAFF_L3,
@@ -143,10 +143,10 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_DEAD_EYES, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDeadProphetStaff.blp")    
     ..setClassification("Purchasable")
-    ..addStats(addAbilityDealDamageStats(5, 0.18, statsType.Int, damageType.MAGICAL))
     ..addStats(addDamage(350))
     ..addStats(addInt(250))
     ..addStats(addMpReg(3))
+    ..addStats(addAbilityDealDamageStats(5, 0.18, statsType.Int, damageType.MAGICAL))
     ..addComponents(
     ITEM_NERUBIAN_STAFF_L1,
     ITEM_FORGE_STAFF_L4,
@@ -157,10 +157,10 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_BERSERKERS_STAFF, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNLunarEdge.blp")    
     ..setClassification("Campaign")
-    ..addStats(addAbilityDealDamageStats(8, 0.25, statsType.Int, damageType.MAGICAL))
     ..addStats(addDamage(800))
     ..addStats(addInt(400))
     ..addStats(addMpReg(4))
+    ..addStats(addAbilityDealDamageStats(8, 0.25, statsType.Int, damageType.MAGICAL))
     ..addComponents(
     ITEM_DEAD_EYES,
     ITEM_BOOK_OF_RAIN,

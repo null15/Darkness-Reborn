@@ -51,7 +51,7 @@ init
     ..setClassification("Artifact")
     ..addStats(addArmor(130))
     ..addStats(addHp(5000))
-    ..addStats("[WIP] When attacked you have a 30% to heal for 500 HP")
+    ..addStats(addAbilityGetHpOnDamage(500, 0.3))
     ..addComponents(
     ITEM_STEEL_SHIELD,
     ITEM_SCEPTER_OF_HEALING)
@@ -68,7 +68,7 @@ init
     ..addStats(addArmor(190))
     ..addStats(addHp(3000))
     ..addStats(addInt(200))
-    ..addStats("[WIP] When attacked you have a 20% to gain back 1xint mana")
+    ..addStats(addAbilityGetMpOnDamage(1, 0.2))
     ..addComponents(
     ITEM_LIGHT_ARMOR,
     ITEM_SOUL_OF_KILJEADEN,

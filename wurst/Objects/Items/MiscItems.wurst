@@ -5,6 +5,7 @@ import ItemIds
 import MyItemIds
 import MyItemDefinition
 import AbilityIds
+import Icons
 
 init
 
@@ -35,6 +36,7 @@ init
     ..setButtonPositionY(2)
     
     new MyItemDefinition(ITEM_QUEST, ItemIds.tomeofAgility)
+    ..setInterfaceIcon(Icons.bTNTomeBrown)
     ..setTooltipBasic("Acquire Quest")
     ..setTooltipExtended("Grab this to Acquire Quest")
     ..setDescription("Buy this to start a random quest based on your level.")

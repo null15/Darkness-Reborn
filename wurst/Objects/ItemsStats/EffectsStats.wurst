@@ -1,10 +1,9 @@
-package OrbEffectsStats
+package EffectsStats
 
 import ObjectIdGenerator
 import AbilityObjEditing
 import CommonDescriptions
 import codeDamageTypings
-import ObjectIds
 import Format
 import ItemStatsDef
 
@@ -12,7 +11,7 @@ import ItemStatsDef
 
 public function addLifeSteal(real value) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
-    let effects = realToString(100 * value, 0) + "% " + wordLifeSteal
+    let effects = wordLifeSteal.format(realToString(100 * value, 0))
 
     new AbilityDefinitionVampiricattack(abilityId)
     ..setLifeStolenPerAttack(1, value)
@@ -23,7 +22,7 @@ public function addLifeSteal(real value) returns ItemStats
 
 public function addArmorOnHit(int value) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
-    let effects = intToString(value) + " " + wordArmorOnHit
+    let effects = wordArmorOnHit.format(value.toString())
 
     new AbilityDefinitionOrbofCorruption(abilityId)
     ..setArmorPenalty(1, -value)
@@ -40,17 +39,6 @@ public function addArmorPen(real value) returns ItemStats
 
 // ----------------------------------------------------------------------------
 
-public function addMpOnHit(real percentOfMaxMp) returns ItemStats
-    let abilityId = ABIL_ID_GEN.next()
-    let effects = wordMpOnHit.format((100*percentOfMaxMp).toString(0))
-
-    new AbilityDefinitionSiphonManaCreep(abilityId)
-    ..setManaTransferredPerSecond(1, percentOfMaxMp)
-
-    return new ItemStats(abilityId, effects)
-
-// ----------------------------------------------------------------------------
-
 public function addFrost(real durationNormal, real durationHero) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
 
@@ -64,25 +52,6 @@ public function addFrost(real durationNormal, real durationHero) returns ItemSta
     ..setDurationHero(1, durationHero)
     ..setDurationNormal(1, durationNormal)
     
-    return new ItemStats(abilityId, effects)
+    return new ItemStats(abilityId, wordPassive + effects)
 
 // ----------------------------------------------------------------------------
-
-public function addChainLighting(real chance, real damage, real damageReductionPerTarget, int numberOfTargets) returns ItemStats
-    let abilityId1 = ABIL_ID_GEN.next()
-    let abilityId2 = ABIL_ID_GEN.next()
-
-    let effects = wordLightning.format((100*chance).toString(), damage.toString(), numberOfTargets.toString(), damageReductionPerTarget.toString())
-
-    new AbilityDefinitionFarseerChainLightning(abilityId1)
-    ..setDamageperTarget(1, damage)
-    ..setNumberofTargetsHit(1, numberOfTargets)
-    ..setDamageReductionperTarget(1, damageReductionPerTarget)
-    
-    new AbilityDefinitionOrbofLightning(abilityId2)
-    ..setChanceToHitUnits(1, chance)
-    ..setChanceToHitSummons(1, chance)
-    ..setChanceToHitHeros(1, chance)
-    ..setEffectAbility(1, abilityId1.toRawCode())
-    
-    return new ItemStats(abilityId2, effects)

@@ -3,14 +3,7 @@ import MyUnitIds
 // import DamageDetection
 import DamageEvent
 import MyAbilityIds
-import Platinum1Stun
-import Platinum2Stun
-import LancelotSet
-import LancelotShield
-import HolyGoldShield
-import OrbofLightning
 import codeDamageTypings
-import MyItemIds
 import MyBuffIds
 import WaveHeroSetup
 import DragonTurtle
@@ -18,7 +11,6 @@ import Turtle
 import A0RI_R
 import A0RL_E
 import ThornsAuraWave
-import SoulKilJaeden
 import Global_Variables
 import AbilitiesList
 
@@ -47,7 +39,7 @@ init
             case ATTACK
                 if(returnReducedDamage() > 0)
                     DamageEvent.addAmount(returnReducedDamage() * src.getPen(penetrationType.PHYSICAL))
-                if src.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 0) > 210
+                if src.isRanged()
                     physicalDamageChecks(0, src, targ, WEAPON_TYPE_AXE_MEDIUM_CHOP)
                 else
                     physicalDamageChecks(0, src, targ, WEAPON_TYPE_WHOKNOWS)
@@ -82,22 +74,6 @@ init
                     if (targ.hasItemById(abilityInfo.itemId))
                         abilityInfo.handler.run(src, targ)
                 
-                //Lancelot Armor
-                if targ.hasItemById(ITEM_LANCELOT_ARMOR) and GetRandomInt(0, 100) < 20
-                    lancelotSetMana(targ)
-                //LanceSet
-                if targ.hasItemById(ITEM_LANCELOT_SET)
-                    if(GetRandomInt(0, 100) < 30)
-                        lancelotSetMana(targ)
-                    if(GetRandomInt(0, 100) < 50)
-                        lancelotSetHealth(targ)
-                //LanceShield
-                if targ.hasItemById(ITEM_LANCELOT_SHIELD) and GetRandomInt(0, 100) < 30
-                    lancelotShield(targ)
-                //holyGoldShield
-                if targ.hasItemById(ITEM_HOLY_GOLD_SHIELD) and GetRandomInt(0, 100) < 50
-                    holyGoldShield(targ)
-
     DamageEvent.addListener(2) ->
         let src = DamageEvent.getSource()
         let targ = DamageEvent.getTarget()
@@ -111,20 +87,6 @@ init
                     for abilityInfo in abilitiesListOnDamageDealt
                         if (src.hasItemById(abilityInfo.itemId))
                             abilityInfo.handler.run(src, targ)
-                        
-                    //SoulOfKiljaeden
-                    if src.hasItemById(ITEM_ORB_OF_KILJAEDAN) and GetRandomInt(0, 100) <= 47
-                        kiljaedenSoul(src)
-
-                    //Orb of Lightning
-                    if src.hasItemById(ITEM_ORB_OF_LIGHTNING) and GetRandomInt(0, 100) < 20
-                        orbofLightning(src)
-                    //Platinum 1
-                    if src.hasItemById(ITEM_PLATINUM_HAMMER) and GetRandomInt(0, 100) < 25
-                        platinum1Stun(src, targ)
-                    //Platinum 2
-                    if src.hasItemById(ITEM_PLATINUM_HAMMER_II) and GetRandomInt(0, 100) < 25
-                        platinum2Stun(src, targ)
 
 function magicDamageChecks(int damId, unit src, unit targ)
     if(targ.getAbilityLevel(UTHER_ABIL_3) > 0)
@@ -140,7 +102,7 @@ function physicalDamageChecks(int damId, unit src, unit targ, weapontype notRang
         src.addHP(DamageEvent.getAmount() * 0.25)
     // Reflection non-ranged
     if(notRanged == WEAPON_TYPE_WHOKNOWS)
-        reflectionChecks(src,targ)
+        reflectionChecks(src, targ)
 
 function reflectionChecks(unit src, unit targ)
     let dam = DamageEvent.getAmount()

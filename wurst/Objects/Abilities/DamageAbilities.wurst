@@ -182,3 +182,30 @@ public function addAbilityDrainHpRel(real factor, real chance) returns ItemStats
     end)
 
 // ----------------------------------------------------------------------------
+
+public function addChainLighting(real chance, real damage, real damageReductionPerTarget, int maxTargets, real range, bool onlyRanged) returns ItemStats
+
+    let effects = wordLightning.format((100*chance).toString(), damage.toString(),
+    maxTargets.toString(), damageReductionPerTarget.toString()) + (onlyRanged ? wordOnlyRanged : "")
+
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+            if (onlyRanged and (not src.isRanged()))
+                skip
+
+            forMaxEnemiesInRange(src, src.getPos(), range, maxTargets, (unit u, int idx) -> begin
+                var damageDealt = damage
+                var i = 0
+                while (i < idx)
+                    damageDealt *= (1 - damageReductionPerTarget)
+                    i++
+                    
+                src.damageTargetCode(damageDealt, u, null, -1, damageType.MAGICAL)
+                flashEffect(Abilities.forkedLightningTarget, u.getPos())
+            end)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------

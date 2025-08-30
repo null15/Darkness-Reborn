@@ -50,7 +50,7 @@ import RecipeItems
     ..setActivelyUsed(true)
     ..addStats(addAbilityBlink(32000, 2000, 20))
     ..addStats(addAllStats(24))
-    ..addStats(addMovementSpeed(100))
+    ..addStats(addMovementSpeed(80))
     ..addComponents(
     ITEM_BOOTS_OF_SPEED,
     ITEM_CRYSTAL_BALL,
@@ -66,9 +66,9 @@ import RecipeItems
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWater Sandals.blp")
     ..setClassification("Permanent")
     ..setActivelyUsed(true)
+    // WIP Previously here was invis 30 sec, cd 30 sec.
     ..addStats(addAllStats(24))    
     ..addStats(addMovementSpeed(120))
-    // TODO. Previously here was invis 30 sec, cd 30 sec.
     ..addComponents(
     ITEM_BOOTS_OF_SPEED,
     ITEM_CRYSTAL_BALL,
@@ -83,10 +83,9 @@ import RecipeItems
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNwind boots.blp")
     ..setClassification("Permanent")
-    ..setActivelyUsed(true)
     ..addStats(addAllStats(24))
     ..addStats(addAttackSpeed(0.6))
-    ..addStats(addMovementSpeed(140))
+    ..addStats(addMovementSpeed(180))
     ..addComponents(
     ITEM_BOOTS_OF_SPEED,
     ITEM_CRYSTAL_BALL,

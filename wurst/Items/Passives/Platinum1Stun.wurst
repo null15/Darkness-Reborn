@@ -9,6 +9,7 @@ import HashMap
 let plat1StunGroup = new HashMap<int, int>
 
 public function platinum1Stun(unit src,unit targ)
+    // 25% chance
     let number = src.getOwner().getId()
     if plat1StunGroup.has(number) or targ.isAlive() == false
         skip

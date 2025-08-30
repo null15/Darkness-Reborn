@@ -7,6 +7,9 @@ import LinkedList
 
 public interface TargetAbilityFunc
     function run(unit _caster, unit _target)
+        
+public interface OnlyTargetAbilityFunc
+    function run(unit _target)
 
 public class ItemTargetEventAbility
     TargetAbilityFunc handler
@@ -43,12 +46,21 @@ public interface CustomEventFunc
     function run()
 
 public class ItemCustomEventAbility
-    eventid eventId
     CustomEventFunc handler
 
-    construct(eventid eventId, CustomEventFunc handler)
-        this.eventId = eventId
+    construct(CustomEventFunc handler)
         this.handler = handler
+        
+    function addListener()
+
+public class ItemPlayerUnitDeathEventAbility extends ItemCustomEventAbility
+    
+    construct(CustomEventFunc handler)
+        super(handler)
+
+    override function addListener()
+        EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+            handler.run()
 
 // ----------------------------------------------------------------------------
 
@@ -84,8 +96,7 @@ init
 
     
     for abilityInfo in abilitiesListCustomEvent
-        EventListener.add(abilityInfo.eventId) ->
-            abilityInfo.handler.run()
+        abilityInfo.addListener()
         destroy abilityInfo
         
     abilitiesListCustomEvent.clear()

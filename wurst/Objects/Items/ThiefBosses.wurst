@@ -39,7 +39,7 @@ init
     ..setClassification("Permanent")
     ..addStats(addAgi(100))
     ..addStats(addDamage(100))
-    ..addStats(addChainLighting(0.2, 2500, 0.1, 5))
+    ..addStats(addChainLighting(0.2, 2500, 0.1, 5, 2000, false))
     ..register()
 
 //I0J6
@@ -112,7 +112,7 @@ init
     new MyItemDefinition(ITEM_CLOAK_OF_FLAMES)
     ..setInterfaceIcon(Icons.bTNCloakOfFlames)
     ..addStats(addArmor(160))
-    ..addStats(ITEM_CLOAK_OF_FLAMES_ABI1, "[WIP] 10,000 dps for enemies in 200 range")
+    ..addStats(ITEM_CLOAK_OF_FLAMES_ABI1, "10,000 dps for enemies in 200 range")
     ..register()
     
 // Scorpion potion

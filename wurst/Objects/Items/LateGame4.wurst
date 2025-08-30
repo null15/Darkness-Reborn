@@ -28,9 +28,9 @@ init
     ..setLumberCost(1100)
     ..setStockMaximum(2)
     ..setStockReplenishInterval(45)
-    ..addStats(addAbilityReturnDamageStats(2, 0.5, statsType.Str, damageType.PHYSICALRANGED))
     ..addStats(addStr(1200))
     ..addStats(addArmor(300))
+    ..addStats(addAbilityReturnDamageStats(2, 0.5, statsType.Str, damageType.PHYSICALRANGED))
     ..addHotKey()
     ..register()
 
@@ -70,10 +70,10 @@ init
     ..setScalingValue(0.50)
     ..setGoldCost(50000)
     ..setLumberCost(700)
-    ..addStats(addAbilityDealDamageStats(15, 0.15, statsType.Int, damageType.MAGICAL))
     ..addStats(addInt(1350))
     ..setStockMaximum(2)
     ..setStockReplenishInterval(45)
+    ..addStats(addAbilityDealDamageStats(15, 0.15, statsType.Int, damageType.MAGICAL))
     ..addHotKey()
     ..register()
 

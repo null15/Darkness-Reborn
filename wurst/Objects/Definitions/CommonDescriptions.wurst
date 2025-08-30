@@ -2,6 +2,7 @@ package CommonDescriptions
 
 import public Colors
 import Format
+import MyColors
 
 // ----------------------------------------------------------------------------
 
@@ -29,6 +30,10 @@ public let shopNameCreepsTp2      = itemNameCreepsTp("Intermediate hunting groun
 public let shopNameCreepsTp3      = itemNameCreepsTp("Elite hunting grounds")
 public let shopNameCreepsTp4      = itemNameCreepsTp("End-game bosses")
 
+public let wordElementalSoul      = "Elemental Soul"
+public let wordDropSite           = "Drop Site"
+public let wordFountain           = "The Fountain"
+
 // ----------------------------------------------------------------------------
 
 public let monsterDrop            = "Monster Drop"
@@ -49,13 +54,14 @@ public let wordPassive            = "|c0052e1e1Passive:|r "
 
 public let wordAttackSpeed        = "Attack Speed"
 public let wordDamage             = "Damage"
-public let wordLifeSteal          = "Life Steal"
-public let wordArmorOnHit         = "armor on hit (Orb Effect)"
+public let wordLifeSteal          = "{0}% Life Steal".setColor(colLifeSteal)
+public let wordArmorOnHit         = "{0} armor on hit (Orb Effect)".setColor(colMinusArmor)
 public let wordArmorPen           = "armor penetration"
 public let wordMpOnHit            = "{0}% of max MP on hit"
 public let wordFrost1             = "Frost Orb Effect on-hit: {0} sec"
 public let wordFrost2             = "Frost Orb Effect on-hit: {0} sec (normal), {1} sec (hero)"
-public let wordLightning          = "{0}% chance to shoot a chain lightning dealing {1} damage to up to {2} targets ({3} damage reduction per target)"   
+public let wordLightning          = "{0}% chance to shoot a chain lightning dealing {1} damage to up to {2} targets ({3} damage reduction per target)"  
+public let wordOnlyRanged         = " (works only for ranged heroes)" 
    
 public let wordCleave             = "|c00cb4545Cleave:|r {0} damage in {1} range"
 public let wordCrit               = "|c00faba53Crit:|r {0}% chance to do x{1} damage"
@@ -95,7 +101,6 @@ public let wordAuraDevotionFlat   = "{0} armor"
 public let wordAuraDevotionRel    = "{0}% armor"
 public let wordAuraCommandRel     = "{0}% damage"
 public let wordAuraDamageRel      = "{0}% damage"
-public let wordVampiricAura       = "converts {0}% damage into hp"
 
 // ----------------------------------------------------------------------------
 
@@ -130,6 +135,8 @@ public let wordAbilityManaShield       = "Drains 1 mana per {0} damage taken (af
 public let wordAbilityRestoreHp        = "Fully restores HP"
 public let wordAbilityRestoreMp        = "Fully restores MP"
 public let wordAbilityRestoreHpMp      = "Fully restores HP and MP"
+public let wordAbilityGetHpOnDamage    = "When attacked you have a {0}% chance to restore {1} HP"
+public let wordAbilityGetMpOnDamage    = "When attacked you have a {0}% chance to restore {1}x intelligence) MP"
 
 public let wordAbilityHolyLight        = "Heal friendly target for {0} + {1}x int amount or deal {2}% damage to enemy"
 

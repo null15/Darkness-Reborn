@@ -1,4 +1,0 @@
-package SoulKilJaeden
-
-public function kiljaedenSoul(unit owner)
-    owner.setMana(owner.getMana() + 95)

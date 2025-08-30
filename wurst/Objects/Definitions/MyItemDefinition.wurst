@@ -19,7 +19,7 @@ import public DamageStats
 import public DefenseStats
 import public GeneralStats
 import public MiscStats
-import public OrbEffectsStats
+import public EffectsStats
 import public TomeStats
 import public LumberStats
 

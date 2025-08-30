@@ -28,9 +28,9 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_CARNELIAN, itemRecipeList, ITEM_INFO_PERFECT_CARNELIAN)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelcrafting_gem_16.blp")
 
-    ..addStats(addAbilityLifeStealAura(0.3, 900))
-
     ..addStats(addAllStats(300))
+
+    ..addStats(addAbilityLifeStealAura(0.3, 900))
 
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
@@ -57,9 +57,9 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_TOPAZ, itemRecipeList, ITEM_INFO_PERFECT_TOPAZ)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Yellow.blp")
 
-    ..addStats(addHpRegAura(0.02, true, 900))
-
     ..addStats(addAllStats(300))
+
+    ..addStats(addHpRegAura(0.02, true, 900))
 
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
@@ -85,10 +85,10 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AQUAMARINE, itemRecipeList, ITEM_INFO_PERFECT_AQUAMARINE)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe.blp")
 
-    ..addStats(addSpikes(1.5))
-
     ..addStats(addAllStats(600))
     ..addStats(addArmor(300))
+
+    ..addStats(addSpikes(1.5))
 
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
@@ -102,11 +102,11 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green2.blp")
     ..setModelUsed("Green Item.mdl")
 
-    ..addStats(addRevive(7, 30))
-
     ..addStats(addAllStats(600))
     ..addStats(addArmor(240))
     ..addStats(addMagicResist(50))
+
+    ..addStats(addRevive(7, 30))
 
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
@@ -118,13 +118,13 @@ init
 //I0B4
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_EMERALD, itemRecipeList, ITEM_INFO_PERFECT_EMERALD)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green.blp")
-    
+        
+    ..addStats(addAllStats(300))
+
     ..addStats(addAuraTrueshot(2, 900))
     ..addStats(addAuraCommandRel(1.5, 900))
     ..addStats(addAuraArmorFlat(200, 900))
     ..addStats(addAuraEndurance(2, 2, 900))
-    
-    ..addStats(addAllStats(300))
 
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE, 
@@ -191,11 +191,11 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AMETHYST, itemRecipeList, ITEM_INFO_PERFECT_AMETHYST)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple.blp")
 
-    ..addStats(addAuraMinusArmorFlat(-86, 900)) // -70
-    //..addStats(addAuraMinusArmorRel(-0.05, 900))
-
     ..addStats(addAllStats(300))
 
+    ..addStats(addAuraMinusArmorFlat(-86, 900)) // -70
+    //..addStats(addAuraMinusArmorRel(-0.05, 900))
+    
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
     ITEM_DARK_STEEL_SWORD,

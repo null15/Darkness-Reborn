@@ -6,6 +6,7 @@ import ItemStatsDef
 import ObjectIds
 import ObjectIdGenerator
 import CommonDescriptions
+import ClosureForGroups
 
 // ----------------------------------------------------------------------------
 
@@ -108,5 +109,74 @@ public function passiveAbility(string effects, AbilityInitFunc initFunc) returns
     let effectDescr = wordPassive + effects
 
     return new ItemStats(abilityId, effectDescr)
+
+// ----------------------------------------------------------------------------
+
+public interface MaxTargetsAbilityFunc
+    // targetIndex is the number of target hit - 1.
+    // So, numbers of targets 1, 2, 3, etc.
+    // Indexes of targets 0, 1, 2, etc.
+    function run(unit target, int targetIndex)
+
+class AbilityMaxTargetsHelper
+    int counter
+    int maxTargets
+    MaxTargetsAbilityFunc handler
+
+    construct(int maxTargets, MaxTargetsAbilityFunc handler)
+        this.counter = 0
+        this.maxTargets = maxTargets
+        this.handler = handler
+
+    function run(unit u)
+        if (counter < maxTargets)
+            handler.run(u, counter)
+            counter++
+            
+class AbilityMaxEnemiesHelper extends AbilityMaxTargetsHelper
+    unit src
+
+    construct(int maxTargets, unit src, MaxTargetsAbilityFunc handler)
+        super(maxTargets, handler)
+        this.src = src
+
+    override function run(unit u)
+        if (u.isEnemyOf(src))
+            super.run(u)
+    
+class AbilityMaxAlliesHelper extends AbilityMaxTargetsHelper
+    unit src
+
+    construct(int maxTargets, unit src, MaxTargetsAbilityFunc handler)
+        super(maxTargets, handler)
+        this.src = src
+
+    override function run(unit u)
+        if (u.isAllyOf(src))
+            super.run(u)
+
+public function forMaxTargetsInRange(vec2 position, real range, int maxTargets, MaxTargetsAbilityFunc handler)
+    let helper = new AbilityMaxTargetsHelper(maxTargets, handler)
+
+    forUnitsInRange(position, range) (unit u) ->
+        helper.run(u)
+
+    destroy helper
+
+public function forMaxEnemiesInRange(unit src, vec2 position, real range, int maxTargets, MaxTargetsAbilityFunc handler)
+    let helper = new AbilityMaxEnemiesHelper(maxTargets, src, handler)
+
+    forUnitsInRange(position, range) (unit u) ->
+        helper.run(u)
+
+    destroy helper
+
+public function forMaxAlliesInRange(unit src, vec2 position, real range, int maxTargets, MaxTargetsAbilityFunc handler)
+    let helper = new AbilityMaxAlliesHelper(maxTargets, src, handler)
+
+    forUnitsInRange(position, range) (unit u) ->
+        helper.run(u)
+
+    destroy helper
 
 // ----------------------------------------------------------------------------

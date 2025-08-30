@@ -56,7 +56,7 @@ public function addAbilityGetStatsOnKill(int amount, real chance, statsType stat
     let effects = wordGetStatsOnKill.format((100*chance).toString(0), amount.toString(), statsType.toString())
     
     return new ItemStatsCustomFunc(-1, wordPassive + effects, (itemId, itemDef) -> begin
-        abilitiesListCustomEvent.add(new ItemCustomEventAbility(EVENT_PLAYER_UNIT_DEATH, () -> begin
+        abilitiesListCustomEvent.add(new ItemPlayerUnitDeathEventAbility(() -> begin
             let p = playerHero.get(GetKillingUnit().getOwner())
             if p.hasItemById(itemId) and GetRandomInt(1, 1000) <= (chance * 1000).toInt()
                 switch statsType

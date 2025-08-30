@@ -109,10 +109,10 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSHIELD 1.blp")
     ..setClassification("Campaign")
     ..setGoldCost(200000)
+    ..addStats(addAbilityGetHpOnDamage(5000, 0.5))
     ..addStats(addRevive(5, 0))
     ..addStats(addArmor(250))
     ..addStats(addHp(10000))
-    ..addStats("[WIP] |c00FF0303When attacked you have a 50% Chance to restore 4000 HP.\n")
     ..setStockMaximum(99)
     ..register()
     

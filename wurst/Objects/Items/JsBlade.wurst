@@ -47,9 +47,9 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_RAVEN_BLADE_L1, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPirateSword.blp")    
     ..setClassification("Purchasable")
-    ..addStats(addAbilityDealDamageStats(1.5, 0.05, statsType.Str, damageType.PHYSICALMELEE))
     ..addStats(addDamage(50))
     ..addStats(addStr(12))
+    ..addStats(addAbilityDealDamageStats(1.5, 0.05, statsType.Str, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_FORGE_BLADE_L1,
     ITEM_GAUNTLETS_OF_OGRE_STRENGTH,
@@ -60,9 +60,9 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_RAVEN_BLADE_L2, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPirateSword.blp")    
     ..setClassification("Purchasable")
-    ..addStats(addAbilityDealDamageStats(2, 0.08, statsType.Str, damageType.PHYSICALMELEE))
     ..addStats(addDamage(75))
     ..addStats(addStr(26))
+    ..addStats(addAbilityDealDamageStats(2, 0.08, statsType.Str, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_RAVEN_BLADE_L1,
     ITEM_HORN_OF_CLOUDS)
@@ -72,9 +72,9 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_RAVEN_BLADE_L3, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPirateSword.blp")    
     ..setClassification("Purchasable")
-    ..addStats(addAbilityDealDamageStats(3, 0.11, statsType.Str, damageType.PHYSICALMELEE))
     ..addStats(addDamage(155))
     ..addStats(addStr(60))
+    ..addStats(addAbilityDealDamageStats(3, 0.11, statsType.Str, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_RAVEN_BLADE_L2,
     ITEM_HEART_OF_SEARINOX,
@@ -85,9 +85,9 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_RAVEN_BLADE_L4, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPirateSword.blp")    
     ..setClassification("Purchasable")
-    ..addStats(addAbilityDealDamageStats(4, 0.14, statsType.Str, damageType.PHYSICALMELEE))
     ..addStats(addDamage(300))
     ..addStats(addStr(120))
+    ..addStats(addAbilityDealDamageStats(4, 0.14, statsType.Str, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_RAVEN_BLADE_L3,
     ITEM_SCROLL_OF_UNHOLY_LEGION,
@@ -98,9 +98,9 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_RAVEN_BLADE_L5, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNPirateSword.blp")    
     ..setClassification("Purchasable")
-    ..addStats(addAbilityDealDamageStats(6, 0.17, statsType.Str, damageType.PHYSICALMELEE))
     ..addStats(addDamage(450))
     ..addStats(addStr(200))
+    ..addStats(addAbilityDealDamageStats(6, 0.17, statsType.Str, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_RAVEN_BLADE_L4,
     ITEM_HELM_OF_VALOR,
@@ -111,9 +111,9 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_BERSERKERS_BLADE, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRedQueen.blp")    
     ..setClassification("Campaign")
-    ..addStats(addAbilityDealDamageStats(8, 0.2, statsType.Str, damageType.PHYSICALMELEE))
     ..addStats(addDamage(755))
     ..addStats(addStr(380))
+    ..addStats(addAbilityDealDamageStats(8, 0.2, statsType.Str, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_RAVEN_BLADE_L5,
     ITEM_VOID_AXE,

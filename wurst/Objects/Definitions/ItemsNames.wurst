@@ -423,7 +423,7 @@ public function getItemName(int id) returns string
         
         //  Not sorted
 
-        case ITEM_GOLD_TO_LUMBER_100
+        case ITEM_FOUNTAIN_GOLD_TO_LUMBER_100
             return "Lumber 100"
         case ITEM_EMPTY_VIAL
             return "Empty Vial (Fusion)"

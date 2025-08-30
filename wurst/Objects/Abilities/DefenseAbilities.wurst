@@ -4,6 +4,9 @@ import AbilityObjEditing
 import ItemStatsDef
 import CommonDescriptions
 import ActiveAbilityDef
+import AbilitiesList
+import ItemObjEditing
+import Abilities
 
 // ----------------------------------------------------------------------------
 
@@ -86,5 +89,46 @@ public function addSpellShield(real cd) returns ItemStats
     return passiveAbility(effects) (int abilityId) ->
         return new AbilityDefinitionAmuletOfSpellShield(abilityId)
         ..setCooldown(1, 40)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityGetHpOnDamage(real amount, real chance) returns ItemStats
+    let effects = wordAbilityGetHpOnDamage.format((100*chance).toString(0), (amount).toString(0))
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageTaken.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+
+            target.setHP(target.getHP() + amount)
+            flashEffect(Abilities.crystalBallCaster, target.getPos())
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityGetMpOnDamage(real intFactor, real chance) returns ItemStats
+    let effects = wordAbilityGetMpOnDamage.format((100*chance).toString(0), intFactor.toString(1))
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageTaken.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+
+            target.setMana(target.getMana() + intFactor * target.getInt(true))
+            flashEffect(Abilities.manaShieldCaster, target.getPos())
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function addMpOnHit(real percentOfMaxMp) returns ItemStats
+    let effects = wordMpOnHit.format((100*percentOfMaxMp).toString(0))
+
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            src.setMana(src.getMana() + src.getMaxMana() * percentOfMaxMp)
+        end))
+    end)
 
 // ----------------------------------------------------------------------------
