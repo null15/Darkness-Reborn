@@ -116,10 +116,16 @@ public let wordAbilityMagicDamageInt2  = "Deals {0} + {1}x int magical damage to
 public let wordAbilityAoeDamage        = "Deals {0} {1} for all enemies in range {2}"
 public let wordAbilityDamageMaxTargets = "Deals {0} {1} for maximum {2} enemies in range {3}"
 public let wordAbilityArmorDamageHpReg = "+{0}% damage, +{1} armor, +{2} hp regen for {3} sec"
-public let wordAbilitySummonInferno    = "Deals {0} damage in {1} range and summons {2} for {3} sec"
+public let wordReturnDamageStats       = "{0}% chance to return {1}x {2} {3} on taken"
+public let wordDealDamageStats         = "{0}% chance to deal additional {1}x {2} {3}"
+public let wordGetStatsOnKill          = "{0}% chance to get {1} {2} on kill" 
+public let wordAbilityDrainHpRel       = "{0}% chance to drain {1}% of current hp of target (bypasses all damage reductions)"
+
 public let wordAbilitySummonPermanent  = "Summons permanent unit {0}"
-public let wordAbilityManaShield       = "Drains 1 mana per {0} damage taken (after armor reduction is applied)"
+public let wordAbilitySummonInferno    = "Deals {0} damage in {1} range and summons {2} for {3} sec"
 public let wordAbilityIllusions        = "Summons {0} illusions that deal x{1} and receive x{2} damage for {3} sec"
+
+public let wordAbilityManaShield       = "Drains 1 mana per {0} damage taken (after armor reduction is applied)"
 
 public let wordAbilityRestoreHp        = "Fully restores HP"
 public let wordAbilityRestoreMp        = "Fully restores MP"
@@ -130,11 +136,5 @@ public let wordAbilityHolyLight        = "Heal friendly target for {0} + {1}x in
 public let wordAbilityRevive           = "Revives the wearer"
 
 public let wordTomeGive                = "Give yourself {0} on use"
-
-public let wordReturnDamageStats       = "{0}% chance to return {1}x {2} {3} on taken"
-
-public let wordDealDamageStats         = "{0}% chance to deal additional {1}x {2} {3}"
-
-public let wordGetStatsOnKill          = "{0}% chance to get {1} {2} on kill" 
 
 // ----------------------------------------------------------------------------

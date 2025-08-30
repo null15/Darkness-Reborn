@@ -2,10 +2,7 @@ package Basic3
 
 import MyItemDefinition
 import ItemObjEditing
-import AbilityObjEditing
 import MyItemIds
-import MyAbilityIds
-import Abilities
 
 init
 

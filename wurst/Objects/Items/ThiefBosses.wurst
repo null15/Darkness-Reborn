@@ -80,11 +80,11 @@ init
     new MyItemDefinition(ITEM_FROSMOUNE_L5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFr1.blp")
     ..setClassification("Campaign")
+    ..addStats(addAbilityDrainHpRel(0.01, 0.15))
     ..addStats(addDamage(7700))
     ..addStats(addStr(600))
     ..addStats(addCrit(10, 0.1))
     ..addStats(addArmorPen(10))
-    ..addStats("[WIP] 15% chance to cause 1 amount of Damage by 1% current HP the enemy.")
     ..register()
 
 // Iron wood

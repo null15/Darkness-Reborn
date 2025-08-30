@@ -8,7 +8,6 @@ import Platinum2Stun
 import LancelotSet
 import LancelotShield
 import HolyGoldShield
-import Frostmourne
 import OrbofLightning
 import codeDamageTypings
 import MyItemIds
@@ -117,9 +116,6 @@ init
                     if src.hasItemById(ITEM_ORB_OF_KILJAEDAN) and GetRandomInt(0, 100) <= 47
                         kiljaedenSoul(src)
 
-                    //Frostmourne
-                    if src.hasItemById(ITEM_FROSMOUNE_L5) and GetRandomInt(0, 100) < 15
-                        frostmourne(targ)
                     //Orb of Lightning
                     if src.hasItemById(ITEM_ORB_OF_LIGHTNING) and GetRandomInt(0, 100) < 20
                         orbofLightning(src)

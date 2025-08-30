@@ -166,3 +166,19 @@ public function addAbilityDealDamageStats(real factor, real chance, statsType st
     end)
 
 // ----------------------------------------------------------------------------
+
+public function addAbilityDrainHpRel(real factor, real chance) returns ItemStats
+    let effects = wordAbilityDrainHpRel.format((100*chance).toString(0), (100*factor).toString(1))
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+
+            let hpDrained = target.getHP() * factor
+            target.subHP(hpDrained)
+            src.addHP(hpDrained)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
