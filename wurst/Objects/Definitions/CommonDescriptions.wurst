@@ -61,6 +61,7 @@ public let wordMpOnHit            = "{0}% of max MP on hit"
 public let wordFrost1             = "Frost Orb Effect on-hit: {0} sec"
 public let wordFrost2             = "Frost Orb Effect on-hit: {0} sec (normal), {1} sec (hero)"
 public let wordLightning          = "{0}% chance to shoot a chain lightning dealing {1} damage to up to {2} targets ({3} damage reduction per target)"  
+public let wordLightningActive    = "Chain lightning that deals {0} damage to up to {1} targets in {2} range ({3} damage reduction per target)"
 public let wordOnlyRanged         = " (works only for ranged heroes)" 
    
 public let wordCleave             = "|c00cb4545Cleave:|r {0} damage in {1} range"
