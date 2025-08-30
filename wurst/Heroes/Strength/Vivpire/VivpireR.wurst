@@ -17,12 +17,12 @@ public function bloodGain()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
         if EventData.getChatMessage().substring(0, 6).toLowerCase() == "-blood"
             let p = EventData.getTriggerPlayer()
-            if (playerHero.get(p).getTypeId() == PLAY_HERO_3)
+            if (playerHero.get(p).getTypeId() == HERO_VIVPIRE)
                 printTimedToPlayer("You currently have |cffcf0505" + (blood.toString()) + " blood|r", 5, p)
 
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
         let kDie = EventData.getKillingUnit()
-        if(kDie.getTypeId() == PLAY_HERO_3)
+        if(kDie.getTypeId() == HERO_VIVPIRE)
             let uDie = EventData.getDyingUnit()
             if(preySet.has(uDie))
                 printTimedToPlayer("|cffcf0505Delicious Prey|r", 5, GetKillingUnit().getOwner())

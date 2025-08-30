@@ -6,7 +6,7 @@ import ClosureEvents
 public function shadowDancer()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
         let u = GetDyingUnit()
-        if u.isIllusion() and u.getTypeId() == PLAY_HERO_17
+        if u.isIllusion() and u.getTypeId() == HERO_ILLUSIONIST
             let hero = playerHero.get(u.getOwner())
             let lvl = hero.getAbilityLevel('A0TP')
             if GetRandomInt(1, 100) < lvl*7

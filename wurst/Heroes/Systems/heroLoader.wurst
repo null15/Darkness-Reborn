@@ -149,160 +149,160 @@ public function unit.heroCheck()
             wolfhowl()
             frenzy()
             manbite()
-        case PLAY_HERO_2 // Tauren
+        case HERO_TAUREN_CHIEFTAIN // Tauren
             pulverize()
             warStomp()
             shockExplosion()
             blessedHammer()
-        case PLAY_HERO_3//Vivpire
+        case HERO_VIVPIRE//Vivpire
             bloodGain()
             vampiricBite()
             vivpireUnleashed()
             bloodHunter()
             vivpireAura()
-        case PLAY_HERO_4//Death Knight
+        case HERO_DEATH_KNIGHT//Death Knight
             this.soulCollector()
             curseOfDarkness()
             soulsKing()
             tasteOfDeath()
-        case PLAY_HERO_5//Beast Master
+        case HERO_BEASTMASTER//Beast Master
             spirits()
             quilBeast()
-        case PLAY_HERO_6//Pit Lord
+        case HERO_PITLORD//Pit Lord
             rainofFire()
             strikeSlam()
             noblesseAura()
-        case PLAY_HERO_7//Jacksmith
+        case HERO_JACKSMITH//Jacksmith
             forgeSmart()
             metalStrength()
             radiantRing()
             forge()
             forgeMaster()
-        case PLAY_HERO_8//Uthar
+        case HERO_UTHER//Uthar
             holyStorm()
             judgement()
             lightsWrath()
             redemptionAlly()
             redemptionHoly()
-        case PLAY_HERO_9
+        case HERO_PRIESTESS_OF_THE_MOON
             skip
-        case PLAY_HERO_10//Assassin
+        case HERO_ASSASSIN//Assassin
             lastKiller()
             shadowWalk()
             quickSlash()
             katarMastery()
             learnULT()
             this.disableAbility(ASSASSIN_ABIL_3_QUEST, true, true)
-        case PLAY_HERO_11//Demon Hunter(illidan)
+        case HERO_DEMON_HUNTER//Demon Hunter(illidan)
             chainFlash()
             demonPower()
-        case PLAY_HERO_12//Time Wizard
+        case HERO_SHADOW_OF_VENGEANCE//Time Wizard
             furyPeak()
             blackHole()
             gravitone()
-        case PLAY_HERO_13
+        case HERO_WARDEN
             deadlyStrike()
             shadowRaze()
-        case PLAY_HERO_14
+        case HERO_BLADEMASTER
             rampage()
             hasteSlash()
-        case PLAY_HERO_15
+        case HERO_SATYR
             biteofDeath()
-        case PLAY_HERO_16//Dark Ranger
+        case HERO_DARK_RANGER//Dark Ranger
             imageArrow()
             darkArrow()
             burstMana()
             darkDrain()
-        case PLAY_HERO_17//Illusnist
+        case HERO_ILLUSIONIST//Illusnist
             shadowDancer()
             juxtapose()
-        case PLAY_HERO_18//Archer
+        case HERO_RANGER//Archer
             phantomArrow()
             poisonArrow()
             longRange()
             goldenArrow()
-        case PLAY_HERO_19//Fire lord
+        case HERO_FIRELORD//Fire lord
             conflagration()
             pillarOfFlame()
             fireballCast()
             sear()
-        case PLAY_HERO_20//Keep of the grove
+        case HERO_KEEPER_OF_THE_GROVE//Keep of the grove
             entanglingRoots()
             naturalOrb()
             hawkeyeSplit()
             spiritGuardian()
             thornRoot()
-        case PLAY_HERO_21//Fire Mage
+        case HERO_FIRE_MAGE//Fire Mage
             phoenix()
             eternalFlame()
             meltingPhoenix()
             fireShield()
-        case PLAY_HERO_22//Far seer
+        case HERO_HERALD_OF_LIGHTNING//Far seer
             thunderRage()
             mindRipper()
             orbofLightning()
             lightningNova()
-        case PLAY_HERO_23//Shadow Hunter
+        case HERO_SHADOW_HUNTER//Shadow Hunter
             craggyHex()
             shadowHex()
             shWardSummon()
-        case PLAY_HERO_24//Lich
+        case HERO_LICH//Lich
             deathandnDecay()
             frostArmor()
             frostRise()
             chainTest()
             frostNova()
-        case PLAY_HERO_25
+        case HERO_NAGA_SEA_WITCH
             frostArrowToggle()
             tornado()
             blueSea()
             bubbleBomb()
-        case PLAY_HERO_26
+        case HERO_TINKER
             construction()
             tinkerResourceProduction()
             blacksmithDoAfter()
             repair()
             factorySpawn()
             clusterRockets()
-        case PLAY_HERO_27
+        case HERO_GUARDIAN_OF_LIGHT
             holyWrath()
             godsBlessing()
-        case PLAY_HERO_28
+        case HERO_ARCHMAGE
             eclipse()
             fallingLight()
             ultima()
             lightningShock()
             lightRemoval()
-        case PLAY_HERO_29
+        case HERO_TIME_WIZARD
             timeTravel()
             timeStop()
             radarTime()
             punishTimeInit()
             punishTimeAct(this)
             hourglass()
-        case PLAY_HERO_30 // Tracker not implemented
+        case HERO_TRACKER // Tracker not implemented
             skip
-        case PLAY_HERO_31
+        case HERO_THIEF
             sell()
             steal()
             goldBonus()
             noCommand()
             windwalk()
-        case PLAY_HERO_32 // Panda not implemented
+        case HERO_PANDAREN_MONK // Panda not implemented
             skip
-        case PLAY_HERO_33
+        case HERO_KING_OF_LOAS
             thunderOfAkunda()
             loasQact()
             kingOfloasRact()
             kingOfloasTinit()
             hakkarBlood()
             finsofGral()
-        case PLAY_HERO_33_ASCENDED
+        case HERO_KING_OF_LOAS_ASCENDED
             superKingOfloasE()
             crownOfRezan()
             superShadraPoison()
             bloodOfHakkar()
             avatarOfBwonsamdi()
             embodimentOfGral()
-        case PLAY_HERO_34
+        case HERO_ARTHAS
             dragonClaw()

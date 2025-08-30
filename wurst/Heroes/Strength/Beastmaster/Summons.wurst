@@ -24,7 +24,7 @@ public function quilBeast()
 
     EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
         let summoner = GetSummoningUnit()
-        if(summoner.getTypeId() == PLAY_HERO_5)
+        if(summoner.getTypeId() == HERO_BEASTMASTER)
             let summon = GetSummonedUnit()
             let str = summoner.getStr(true)
             

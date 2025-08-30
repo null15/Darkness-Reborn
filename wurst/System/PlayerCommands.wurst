@@ -1,11 +1,15 @@
 package PlayerCommands
 import Votekick
 import ClosureEvents
+import Global_Variables
+import MyUnitIds
+import onStart
 camerafield cam
 
 init
   changeCameraDistInit()
   startVoteKick()
+  repickHero()
 
 function changeCameraDistInit()
   EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
@@ -15,6 +19,17 @@ function changeCameraDistInit()
         printTimedToPlayer("Input has to be between 500 and 4000", 3, GetTriggerPlayer())
       else
         cam.setCameraField(GetTriggerPlayer(), distance, 1.5)
+
+function repickHero()
+  EventListener.add(EVENT_PLAYER_CHAT_FILTER) ->
+    if EventData.getChatMessage().substring(0, 7).toLowerCase() == "-repick"
+      let trigP = EventData.getTriggerPlayer()
+      let playHero = playerHero.get(trigP)
+      if(playHero.getTypeId() == HERO_PICKER)
+        skip
+      else
+        createWisp(trigP)
+        playHero.remove()
 
 function startVoteKick()
   EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 

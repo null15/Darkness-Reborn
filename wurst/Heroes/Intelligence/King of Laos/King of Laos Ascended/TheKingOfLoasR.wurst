@@ -10,7 +10,7 @@ import ClosureTimers
 
 public function bloodOfHakkar()
     EventListener.onCast(ABILITY_54) (unit caster) ->
-        if caster.getTypeId() == PLAY_HERO_33_ASCENDED
+        if caster.getTypeId() == HERO_KING_OF_LOAS_ASCENDED
             doAfter(0.2) ->      
                 caster
                 ..issueImmediateOrderById(OrderIds.stop)

@@ -11,7 +11,7 @@ texttag soulsText
 public function unit.soulCollector()
     EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
         let u = GetKillingUnit()
-        if u.getTypeId() == PLAY_HERO_4 or u.hasAbility('Bslp')
+        if u.getTypeId() == HERO_DEATH_KNIGHT or u.hasAbility('Bslp')
             souls = souls + 1
             this.addStr(1)
             if souls % 5 == 0

@@ -11,7 +11,7 @@ let armor = [50,100,150,250]
 
 
 public function vivpireUnleashed()
-    let oldSkin = PLAY_HERO_3
+    let oldSkin = HERO_VIVPIRE
     EventListener.onCast(VIVPIRE_ABIL_5) (unit caster) ->
         let lvl = caster.getAbilityLevel(VIVPIRE_ABIL_5)
         let oldBlood = getBlood()

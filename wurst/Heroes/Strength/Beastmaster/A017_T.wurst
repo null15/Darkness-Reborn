@@ -12,7 +12,7 @@ boolean notTeleporting = true
 public function spirits()
     EventListener.add(EVENT_PLAYER_UNIT_SPELL_CHANNEL) -> 
         if(GetSpellAbilityId() == 'A007')
-            if(GetTriggerUnit().getTypeId() == PLAY_HERO_5)
+            if(GetTriggerUnit().getTypeId() == HERO_BEASTMASTER)
                 notTeleporting = false
                 doAfter(2.2) -> 
                     notTeleporting = true
