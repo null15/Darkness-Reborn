@@ -4,6 +4,8 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import Jacksmith_Q
+import codeDamageTypings
+import StatsType
 
 init
 
@@ -97,7 +99,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (2).blp")    
     ..setClassification("Campaign")
     ..addStats(addStr(500))
-    ..addStats("[WIP] + 33% of likely against Damage by with Strength x 3")
+    ..addStats(addAbilityReturnDamageStats(3, 0.35, statsType.Str, damageType.PHYSICALRANGED))
     ..addComponents(
     ITEM_ASTRAEUS_BELT,
     ITEM_HELM_HERMES)

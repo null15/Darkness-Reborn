@@ -83,14 +83,13 @@ init
 
 //I05L
     new MyItemDefinition(ITEM_TOME_OF_RETRAINING, ItemIds.tomeofRetraining)
-    ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTomeOfRetraining.blp")
+    ..setClassification("PowerUp")
     ..setActivelyUsed(true)
     ..setGoldCost(650)
-    ..setStockStartDelay(440)
     ..setNumberofCharges(1)
-    ..setStockReplenishInterval(120)
     ..setPerishable(true)
-    ..addStats("Unlearns a Hero's skills (resets them to zero level to redistribute skill points again).")
+    ..setStockReplenishInterval(140)
+    ..addStats('Aret', "Unlearns a Hero's skills (resets them to zero level to redistribute skill points again).")
     ..addHotKey()
     ..register()

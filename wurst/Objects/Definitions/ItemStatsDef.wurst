@@ -1,0 +1,39 @@
+package ItemStatsDef
+
+import ItemObjEditing
+
+// ----------------------------------------------------------------------------
+
+public class ItemStats
+    int abilityId
+    string effects
+
+    construct(int abilityId, string effects)
+        this.abilityId = abilityId
+        this.effects   = effects
+
+    function addCustomStats(int _itemId, ItemDefinition _itemDef)
+
+    function addToAbilityList() returns boolean
+        return abilityId != -1
+
+// ----------------------------------------------------------------------------
+
+public interface InitItemsStatsFunc
+    function call(int itemId, ItemDefinition itemDef)
+
+public class ItemStatsCustomFunc extends ItemStats
+    InitItemsStatsFunc initFunc
+
+    construct(string effects, InitItemsStatsFunc initFunc)
+        super(-1, effects)
+        this.initFunc = initFunc
+
+    construct(int abilityId, string effects, InitItemsStatsFunc initFunc)
+        super(abilityId, effects)
+        this.initFunc = initFunc
+
+    override function addCustomStats(int itemId, ItemDefinition itemDef)
+        initFunc.call(itemId, itemDef)
+
+// ----------------------------------------------------------------------------

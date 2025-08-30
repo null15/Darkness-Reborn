@@ -1,15 +1,8 @@
 package CreepsTp
 
-import CommonDescriptions
 import MyItemDefinition
 import ItemObjEditing
-import AbilityObjEditing
-import ItemIds
 import MyItemIds
-import ObjectIds
-import MyAbilityIds
-import Icons
-import Abilities
 
 init
 

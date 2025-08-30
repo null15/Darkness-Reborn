@@ -2,6 +2,7 @@ package Tomes
 
 import MyItemDefinition
 import ItemObjEditing
+import MyColors
 import TomeGive
 import MyItemIds
 import Icons

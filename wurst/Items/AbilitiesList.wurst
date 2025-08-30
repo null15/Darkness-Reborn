@@ -1,0 +1,105 @@
+package AbilitiesList
+
+import ClosureEvents
+import LinkedList
+
+// ----------------------------------------------------------------------------
+
+public interface TargetAbilityFunc
+    function run(unit _caster, unit _target)
+        
+public interface OnlyTargetAbilityFunc
+    function run(unit _target)
+
+public class ItemTargetEventAbility
+    TargetAbilityFunc handler
+    int abilityId
+
+    construct(int abilityId, TargetAbilityFunc handler)
+        this.handler = handler
+        this.abilityId = abilityId
+
+public class ItemTargetWurstAbility
+    TargetAbilityFunc handler
+    int itemId
+
+    construct(int itemId, TargetAbilityFunc handler)
+        this.handler = handler
+        this.itemId = itemId
+
+// ----------------------------------------------------------------------------
+
+public interface CastAbilityFunc
+    function run(unit _caster)
+
+public class ItemCastEventAbility
+    CastAbilityFunc handler
+    int abilityId
+
+    construct(int abilityId, CastAbilityFunc handler)
+        this.handler = handler
+        this.abilityId = abilityId
+
+// ----------------------------------------------------------------------------
+
+public interface CustomEventFunc
+    function run()
+
+public class ItemCustomEventAbility
+    CustomEventFunc handler
+
+    construct(CustomEventFunc handler)
+        this.handler = handler
+        
+    function addListener()
+
+public class ItemPlayerUnitDeathEventAbility extends ItemCustomEventAbility
+    
+    construct(CustomEventFunc handler)
+        super(handler)
+
+    override function addListener()
+        EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+            handler.run()
+
+// ----------------------------------------------------------------------------
+
+// Used in runtime to init EventListener, after that is destroyed.
+public let abilitiesListTargetEvent = compiletime(new LinkedList<ItemTargetEventAbility>())
+public let abilitiesListCastEvent = compiletime(new LinkedList<ItemCastEventAbility>())
+public let abilitiesListCustomEvent = compiletime(new LinkedList<ItemCustomEventAbility>())
+
+// Used in runtime in onDamage.wurst
+public let abilitiesListReflections  = compiletime(new LinkedList<ItemTargetWurstAbility>())
+public let abilitiesListOnDamageTaken = compiletime(new LinkedList<ItemTargetWurstAbility>())
+public let abilitiesListOnDamageDealt = compiletime(new LinkedList<ItemTargetWurstAbility>())
+
+// ----------------------------------------------------------------------------
+
+init
+    for abilityInfo in abilitiesListTargetEvent
+        EventListener.onTargetCast(abilityInfo.abilityId) (unit caster, unit target) ->
+            abilityInfo.handler.run(caster, target)
+        destroy abilityInfo
+
+    abilitiesListTargetEvent.clear()
+    destroy abilitiesListTargetEvent
+    
+
+    for abilityInfo in abilitiesListCastEvent
+        EventListener.onCast(abilityInfo.abilityId) (unit caster) ->
+            abilityInfo.handler.run(caster)
+        destroy abilityInfo
+
+    abilitiesListCastEvent.clear()
+    destroy abilitiesListCastEvent
+
+    
+    for abilityInfo in abilitiesListCustomEvent
+        abilityInfo.addListener()
+        destroy abilityInfo
+        
+    abilitiesListCustomEvent.clear()
+    destroy abilitiesListCustomEvent
+    
+// ----------------------------------------------------------------------------

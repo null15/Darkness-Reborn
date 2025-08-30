@@ -1,7 +1,0 @@
-package LancelotSet
-
-public function lancelotSetMana(unit holder)
-    holder.setMana(holder.getMana() + holder.getInt(true))
-
-public function lancelotSetHealth(unit holder)
-    holder.setHP(holder.getHP() + 1000)

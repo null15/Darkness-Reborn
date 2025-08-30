@@ -1,4 +1,0 @@
-package NobleSword
-import codeDamageTypings
-public function nobleSword(unit src, unit targ, int plus)
-    src.damageTargetCode(src.getAgi(true) * (2. + plus), targ, null, -1, damageType.PHYSICALMELEE)

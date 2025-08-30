@@ -8,11 +8,14 @@ import MyBuildingsIds
 import MyUnitIds
 import MyItemIds
 import MyAbilityIds
+import Object_Shops
+import CommonDescriptions
 
 @compiletime function buildings()
 
     new BuildingDefinition(ELEMENTAL_SOUL, UnitIds.castle)
-    ..setName("Elemental Soul")
+    ..setName(wordElementalSoul)
+    ..setDescription("Defend it at all cost. You will lose if {0} is destroyed".format(wordElementalSoul))
     ..setGroundTexture("")
     ..setNormalAbilities(commaList(SHOP_CRYSTAL, 'Abds', 'Apit', 'AM3~'))
     ..setHitPointsMaximumBase(2500)
@@ -21,7 +24,8 @@ import MyAbilityIds
     ..setPathingMap("")
     ..setItemsSold("")
     ..setModelFile("Red Item.mdl")
-    ..setItemsMade(commaList(UPGRADE_BASE_ARMOR,UPGRADE_BASE_HEALTH))
+    ..setItemsSold(getShopItemsListSold(ELEMENTAL_SOUL))
+    ..setItemsMade(getShopItemsListMade(ELEMENTAL_SOUL))
     ..setUpgradesTo("")
     ..setUpgradesUsed("RM0e,RM0d")
     ..setArmorType(ArmorType.Fortified)
@@ -32,6 +36,7 @@ import MyAbilityIds
 
     new BuildingDefinition(DROPSITE, UnitIds.marketplace)
     ..setName("Drop Site")
+    ..setDescription("You can find items dropped by creeps here. If an item disappears from the ground, it means that it was transferred to this box.")
     ..setGroundTexture("")
     ..setModelFile(Buildings.magicVault)
     ..setNormalAbilities(commaList(SHOP_SHARE, 'Avul', 'Aneu', 'Apit', 'Asid'))
@@ -43,14 +48,15 @@ import MyAbilityIds
 
     new BuildingDefinition(BUILDING_FOUNTAIN, UnitIds.fountainofhealth)
     ..setName("Provides healing")
+    ..setDescription("Here you can purchase a courier for items (horse). Click on the book (A) to obtain quests. You can simultaneously have a maximum of 3 quests. Quest rewards are based on their quality and include gold and experience. In the late game, you can exchange gold for lumber here to purchase the best items.")
     ..setGroundTexture("")
     ..setModelFile(Buildings.fountainOfLifeDefiled1)
     ..setNormalAbilities(commaList('Avul', FOUNTAIN_HEALING, FOUNTAIN_MANAREGEN, 'Ane2', 'Aneu', 'Asud', 'Apit', 'Abds', SHOP_SHARE))
     ..setHitPointsRegenerationRate(1000)
     ..setSightRadiusDay(30000)
     ..setSightRadiusNight(30000)
-    ..setItemsMade(commaList(""))
-    ..setItemsSold(commaList(ITEM_LUMBER100_TO_GOLD, ITEM_LUMBER_100, ITEM_EMPTY_VIAL, ITEM_QUEST))
+    ..setItemsSold(getShopItemsListSold(BUILDING_FOUNTAIN))
+    ..setItemsMade(getShopItemsListMade(BUILDING_FOUNTAIN))
     ..setUnitsSold(commaList(HORSE_UNIT_1, HORSE_UNIT_2))
     ..setHideMinimapDisplay(false)
     ..setUnitClassification(commaList("mechanical", "neutral", "townhall"))

@@ -1,0 +1,50 @@
+package SummonAbilities
+
+import AbilityObjEditing
+import ItemStatsDef
+import ObjectIds
+import CommonDescriptions
+import ActiveAbilityDef
+
+// ----------------------------------------------------------------------------
+
+public function addAbilitySummonInfernoUnit(real aoeDamage, real area, int unitId, string unitName, real unitDuration, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilitySummonInferno.format(aoeDamage.toString(), area.toString(), unitName, unitDuration.toString(), cd.toString())
+
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionInferno(abilityId)
+        ..setDamage(1, aoeDamage)
+        ..setDuration(1, unitDuration)
+        ..setSummonedUnit(1, unitId.toRawCode())
+        ..setAreaofEffect(1, area)
+        ..setHeroAbility(false)
+        ..setItemAbility(true)
+        ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris, TargetsAllowed.enemies))
+
+// ----------------------------------------------------------------------------
+
+public function addAbilitySummonPermanentUnit(int unitId, string unitName, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilitySummonInferno.format(unitName, cd.toString())
+    
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionBeastMasterSummonBear(abilityId)
+        ..setSummonedUnitCount(1, 2)
+        ..setSummonedUnitType(1, unitId.toRawCode())
+        ..setDurationHero(1, 0)
+        ..setDurationNormal(1, 0)
+        ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.structure, TargetsAllowed.debris, TargetsAllowed.enemies))
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityIllusions(int numberIllusions, real damageDealt, real damageReceived, int manaCost, real duration, real cd) returns ItemStats
+    let effects = wordAbilityIllusions.format(numberIllusions.toString(), damageDealt.toString(), damageReceived.toString(), duration.toString(), cd.toString())
+
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionBladeMasterMirrorImage(abilityId)
+        ..setDamageDealt(1, damageReceived)
+        ..setDamageTaken(1, damageDealt)
+        ..setDurationHero(1, duration)
+        ..setDurationNormal(1, duration)
+        ..setNumberofImages(1, numberIllusions)
+
+// ----------------------------------------------------------------------------

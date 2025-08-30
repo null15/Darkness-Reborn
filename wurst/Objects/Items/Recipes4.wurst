@@ -4,6 +4,8 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import RecipeItems
+import codeDamageTypings
+import StatsType
 
 init
 
@@ -84,14 +86,14 @@ init
 //I07M
     new MyItemWithRecipeDefinition(ITEM_THUNDER_BOW, itemRecipeList, ITEM_RECIPE_THUNDER_BOW,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setGoldCost(4000)
+    ..setGoldCost(3200)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNbow.blp")
     ..setClassification("Permanent")
-    ..addStats(addAllStats(100))
+    ..addStats(addAllStats(120))
     ..addStats(addDamage(300))
     ..addStats(addAttackSpeed(2))
-    ..addStats(addChainLighting(0.4, 3000, 0.1, 5))
+    ..addStats(addChainLighting(0.4, 6000, 0.1, 10, 1600, true))
     ..addComponents(
     ITEM_MEDALLION_OF_COURAGE,
     ITEM_AMULET_OF_THE_WILD,
@@ -102,7 +104,7 @@ init
 //I07Q
     new MyItemWithRecipeDefinition(ITEM_SOUL_OF_KILJEADEN, itemRecipeList, ITEM_RECIPE_SOUL_OF_KILJEADEN,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setGoldCost(6000)
+    ..setGoldCost(3000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSoulGem.blp")
     ..setClassification("Permanent")
@@ -141,9 +143,9 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (3).blp")
     ..setClassification("Permanent")
+    ..addStats(addAbilityReturnDamageStats(0.5, 1, statsType.Str, damageType.PHYSICALRANGED))
     ..addStats(addStr(100))
     ..addStats(addHp(3000))
-    ..addStats("100% to return 0.5xstr damage\n")
     ..addComponents(
     ITEM_HELM_HERMES,
     ITEM_SPLIT_ARMOR)
@@ -192,7 +194,7 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC1.blp")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityDealMagicDamageInt(10, 1500, 20))
+    ..addStats(addAbilityDealMagicDamageInt(10, 1500, 30))
     ..addStats(addInt(180))
     ..addStats(addHp(3200))
     ..addStats(addMp(3200))
@@ -206,11 +208,16 @@ init
 //I0JK
     new MyItemWithRecipeDefinition(ITEM_WAR_ENERGY, itemRecipeList, ITEM_RECIPE_WAR_ENERGY,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setGoldCost(7600)
+    ..setGoldCost(6000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAnimalWarTraining.blp")
     ..setClassification("Permanent")
-    ..addStats(addMp(7000))
+    ..addStats(addMpOnHit(0.15))
+    ..addStats(addHp(12000))
+    ..addStats(addMp(12000))
+    ..addStats(addMpReg(3))
+    ..addStats(addMovementSpeed(522))
+    ..addStats(addAttackSpeed(1.2))
     ..addComponents(
     ITEM_SOUL_OF_KILJEADEN,
     ITEM_ARKENSTONE_FRAGMENT)

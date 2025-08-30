@@ -1,0 +1,76 @@
+package MiscAbilities
+
+import AbilityObjEditing
+import AbilitiesList
+import ItemStatsDef
+import ObjectIdGenerator
+import CommonDescriptions
+import Global_Variables
+import StatsType
+import ActiveAbilityDef
+
+// ----------------------------------------------------------------------------
+
+public function addTp(int manaCost, real cd) returns ItemStats
+    let effects = wordTp.format(cd.toString())
+
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionStaffoTeleportation(abilityId)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityBlink(real range, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityBlink.format(range.toString(0), cd.toString())
+    
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionWardenBlink(abilityId)
+        ..setMaximumRange(1, range)
+        ..setMinimumRange(1, 1)
+
+// ----------------------------------------------------------------------------
+
+let ABILITY_RESET_CD_COOLDOWN_GROUP = compiletime(ABIL_ID_GEN.next())
+
+public function addAbilityResetCd(real cd, int manaCost) returns ItemStats
+    let effects = wordResetSpellCd.format(cd.toString())
+
+    return new CastAbility(effects, manaCost, cd, (unit caster) -> begin
+        caster.resetCooldown()
+    end)
+    ..setCooldownGroup(ABILITY_RESET_CD_COOLDOWN_GROUP)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addRevive(real duration, real cd) returns ItemStats
+    let effects = wordAbilityRevive.format(cd.toString())
+
+    return passiveAbility(effects) (int abilityId) ->
+        return new AbilityDefinitionReincarnationcreep(abilityId)
+        ..setReincarnationDelay(1, duration)
+        ..setCooldown(1, cd)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityGetStatsOnKill(int amount, real chance, statsType statsType) returns ItemStats
+    let effects = wordGetStatsOnKill.format((100*chance).toString(0), amount.toString(), statsType.toString())
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (itemId, itemDef) -> begin
+        abilitiesListCustomEvent.add(new ItemPlayerUnitDeathEventAbility(() -> begin
+            let p = playerHero.get(GetKillingUnit().getOwner())
+            if p.hasItemById(itemId) and GetRandomInt(1, 1000) <= (chance * 1000).toInt()
+                switch statsType
+                    case statsType.Str
+                        p.addStr(amount)
+                    case statsType.Agi
+                        p.addAgi(amount)
+                    case statsType.Int
+                        p.addInt(amount)
+                    case statsType.All
+                        p.addStr(amount)
+                        p.addAgi(amount)
+                        p.addInt(amount)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------

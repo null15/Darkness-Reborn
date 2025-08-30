@@ -11,6 +11,7 @@ init
 
 //I043
     new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L0)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHelmutPurple.blp")
     ..setClassification("Artifact")
     ..addStats(addArmor(120))
     ..addStats(addStr(40))
@@ -77,6 +78,7 @@ init
     
 //I044
     new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L0)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHeroHelmet.blp")
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
     ..addStats(addAbilityRestoreHp(6000, 60))

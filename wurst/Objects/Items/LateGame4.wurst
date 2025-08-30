@@ -3,12 +3,9 @@ package LateGame4
 import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
-import ObjectIds
-import MyAbilityIds
-import AbilityObjEditing
 import RecipeItems
-import TomeGive
-import Icons
+import codeDamageTypings
+import StatsType
 
 init
 
@@ -33,7 +30,7 @@ init
     ..setStockReplenishInterval(45)
     ..addStats(addStr(1200))
     ..addStats(addArmor(300))
-    ..addStats('A0SZ', "50% Chance to deal 2x Strength damage back to enemies attacking you.")
+    ..addStats(addAbilityReturnDamageStats(2, 0.5, statsType.Str, damageType.PHYSICALRANGED))
     ..addHotKey()
     ..register()
 
@@ -76,7 +73,7 @@ init
     ..addStats(addInt(1350))
     ..setStockMaximum(2)
     ..setStockReplenishInterval(45)
-    ..addStats('A0IG', "15% chance to deal 10 times Intelligence Damage on-hit")
+    ..addStats(addAbilityDealDamageStats(15, 0.15, statsType.Int, damageType.MAGICAL))
     ..addHotKey()
     ..register()
 
@@ -85,7 +82,6 @@ init
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
     ..setGoldCost(25000)
     )
-    // setAbilities('A0JY')
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDragonWing.blp")
     ..setModelUsed("assets-wings effect\\DwingsStand.mdx")
     ..setClassification("Campaign")

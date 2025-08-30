@@ -1,0 +1,46 @@
+package MyColors
+import ItemObjEditing
+
+// ----------------------------------------------------------------------------
+
+public let colRst             = "|r"
+public let colBasic           = "|c0000C800"
+public let colRecipe          = "|c002979fa"
+public let colLateGame1       = "|c00C80000"
+public let colLateGame2       = "|c004896E1"
+public let colHotKey          = "|c00FFFC01"
+
+public let colTinkerTomes     = "|c006BF1F6"
+public let colTinkerLumber    = "|c005FA412"
+public let colTinkerRecipes   = "|c00AF3BD9"
+
+public let colCreepsTp        = "|c00505050" 
+
+public let colMinusArmor      = "|c00903cf6"
+public let colLifeSteal       = "|c00df5a5a"
+
+public class Color
+    int R
+    int G
+    int B
+
+    construct(int R, int G, int B)
+        this.R = R
+        this.G = G
+        this.B = B
+
+    function setColor(ItemDefinition itemDef)
+        itemDef.setTintingColor1Red(R)
+        itemDef.setTintingColor2Green(G)
+        itemDef.setTintingColor3Blue(B)
+
+public let colItemL1 = new Color(137, 218, 128) // Green
+public let colItemL2 = new Color(77, 151, 223)  // Blue
+public let colItemL3 = new Color(229, 136, 72)  // Orange
+public let colItemL4 = new Color(239, 102, 86)  // Red
+public let colItemL5 = new Color(199, 104, 250) // Purple
+
+public function string.setColor(string color) returns string
+    return color + this + colRst
+
+// ----------------------------------------------------------------------------

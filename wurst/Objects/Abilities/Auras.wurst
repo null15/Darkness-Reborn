@@ -1,0 +1,119 @@
+package Auras
+
+import AbilityObjEditing
+import ItemStatsDef
+import ObjectIds
+import CommonDescriptions
+import Format
+import ActiveAbilityDef
+
+// ----------------------------------------------------------------------------
+
+public function addHpRegAura(real amount, bool relative, real range) returns ItemStats
+    string effects
+    if (relative)
+        effects = wordHpRegAura.format((100*amount).toString() + "% of max HP")
+    else
+        effects = wordHpRegAura.format(amount.toString() + " HP/s")
+
+    return auraAbility("HP Regen", effects, range) (int abilityId) -> 
+        return new AbilityDefinitionNeutralRegenhealthonly(abilityId)
+        ..setAreaofEffect(1, range)
+        ..setPercentage(1, relative)
+        ..setAmountofHitPointsRegenerated(1, amount)
+        ..setTargetsAllowed(1, commaList(TargetsAllowed.ground, TargetsAllowed.air, TargetsAllowed.friend, TargetsAllowed.self))
+
+// ----------------------------------------------------------------------------
+
+public function addAuraTrueshot(real factor, real range) returns ItemStats
+    let effects = wordAuraTrueshot.format(realToString(100*factor, 0))
+
+    return auraAbility("Trueshot", effects, range) (int abilityId) -> 
+        return new AbilityDefinitionMoonPriestessTrueshotAura(abilityId)
+        ..setDamageBonus(1, factor)
+        ..setAreaofEffect(1, range)
+
+// ----------------------------------------------------------------------------
+
+public function addAuraEndurance(real moveSpeed, real attackSpeed, real range) returns ItemStats
+    let effects = wordAuraEndurance.format(realToString(100*moveSpeed, 0), realToString(100*attackSpeed, 0))
+
+    return auraAbility("Endurance", effects, range) (int abilityId) -> 
+        return new AbilityDefinitionTaurenChieftainEnduranceAura(abilityId)
+        ..setMovementSpeedIncrease(1, moveSpeed)
+        ..setAttackSpeedIncrease(1, attackSpeed)
+        ..setAreaofEffect(1, range)
+
+// ----------------------------------------------------------------------------
+
+public function addAuraArmorFlat(real armor, real range) returns ItemStats
+    let effects = wordAuraDevotionFlat.format(realToString(armor, 0))
+
+    return auraAbility("Devotion", effects, range) (int abilityId) ->
+        return new AbilityDefinitionAuraDevotionCreep(abilityId)
+        ..setPercentBonus(1, false)
+        ..setArmorBonus(1, armor)
+        ..setAreaofEffect(1, range)
+
+public function addAuraArmorRel(real factor, real range) returns ItemStats
+    let effects = wordAuraDevotionRel.format(realToString(100*factor, 0))
+
+    return auraAbility("The Supreme Devotion", effects, range) (int abilityId) ->
+        return new AbilityDefinitionPaladinDevotionAura(abilityId)
+        ..setPercentBonus(1, true)
+        ..setArmorBonus(1, factor)
+        ..setAreaofEffect(1, range)
+
+// ----------------------------------------------------------------------------
+
+public function addAuraMinusArmorFlat(real armor, real range) returns ItemStats
+    let effects = wordAuraDevotionFlat.format(realToString(armor, 0))
+
+    return auraAbility("Corrosive", effects, range) (int abilityId) ->
+        return new AbilityDefinitionAuraDevotionCreep(abilityId)
+        ..setPercentBonus(1, false)
+        ..setArmorBonus(1, armor)
+        ..setAreaofEffect(1, range)
+        ..setTargetsAllowed(1, TargetsAllowed.enemies)
+
+public function addAuraMinusArmorRel(real factor, real range) returns ItemStats
+    let effects = wordAuraDevotionRel.format(realToString(100*factor, 0))
+
+    return auraAbility("Ancient Corrosive", effects, range) (int abilityId) ->
+        return new AbilityDefinitionPaladinDevotionAura(abilityId)
+        ..setPercentBonus(1, true)
+        ..setArmorBonus(1, factor)
+        ..setAreaofEffect(1, range)
+        ..setTargetsAllowed(1, TargetsAllowed.enemies)
+
+// ----------------------------------------------------------------------------
+
+public function addAuraCommandRel(real factor, real range) returns ItemStats
+    let effects = wordAuraCommandRel.format(realToString(100*factor, 0))
+
+    return auraAbility("Command", effects, range) (int abilityId) ->
+        return new AbilityDefinitionAuraCommandCreep(abilityId)
+        ..setAttackDamageIncrease(1, factor)
+        ..setAreaofEffect(1, range)
+
+// ----------------------------------------------------------------------------
+
+public function addAuraCommandRel2(real factor, real range) returns ItemStats
+    let effects = wordAuraDevotionFlat.format(realToString(100*factor, 0))
+
+    return auraAbility("War", effects, range) (int abilityId) ->
+        return new AbilityDefinitionAuraWarDrumsKodobeast(abilityId)
+        ..setAttackDamageIncrease(1, factor)
+        ..setAreaofEffect(1, range)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityLifeStealAura(real factor, real range) returns ItemStats
+    let effects = wordLifeSteal.format(realToString(100 * factor, 0))
+
+    return auraAbility("Vampiric", effects, range) (int abilityId) ->
+        return new AbilityDefinitionDreadlordVampiricAura(abilityId)
+        ..setAttackDamageStolen(1, factor)
+        ..setCastRange(1, range)
+
+// ----------------------------------------------------------------------------

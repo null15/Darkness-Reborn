@@ -1,0 +1,182 @@
+package ActiveAbilityDef
+
+import AbilityObjEditing
+import AbilitiesList
+import ItemStatsDef
+import ObjectIds
+import ObjectIdGenerator
+import CommonDescriptions
+import ClosureForGroups
+
+// ----------------------------------------------------------------------------
+
+class AbilityBase extends AbilityDefinition
+    string effects
+    int cdGroup
+
+    construct(int baseId, string effects, int manaCost, real cd)
+        super(ABIL_ID_GEN.next(), baseId)
+
+        this.effects = wordActive + effects + wordCd.format(cd.toString(1))
+        this.cdGroup = newId
+
+        setLevels(1)
+        setDurationHero(1, 0.01)
+        setDurationNormal(1, 0.01)
+        setManaCost(1, manaCost)
+        setCooldown(1, cd)
+
+    function setCooldownGroup(int groupId)
+        this.cdGroup = groupId
+
+    function register() returns ItemStats
+        return new ItemStatsCustomFunc(newId, effects, (itemId, itemDef) -> begin
+            itemDef.setCooldownGroup(cdGroup.toRawCode())
+        end)
+
+// ----------------------------------------------------------------------------
+
+public class TargetAbility extends AbilityBase
+    int castRange
+
+    construct(string effects, int manaCost, real cd, TargetAbilityFunc handler)
+        super(AbilityIds.frostNova, effects, manaCost, cd)
+        setDamage(1, 0.01)
+        setCastRange(1, 900)
+        setBuffs(1, "")
+        // setAreaofEffectDamage
+        def.setLvlDataUnreal("Ufn1", 1, 1, 0)
+        // setSpecificTargetDamage
+        def.setLvlDataUnreal("Ufn2", 1, 2, 0)
+
+        this.castRange = 900
+        
+        abilitiesListTargetEvent.add(new ItemTargetEventAbility(newId, handler))
+
+    function setDamage(int level, real value)
+        def.setLvlDataUnreal("Htb1", level, 1, value)
+
+// ----------------------------------------------------------------------------
+
+public class CastAbility extends AbilityBase
+
+    construct(string effects, int manaCost, real cd, CastAbilityFunc handler)
+        super(AbilityIds.berserkerRage1, effects, manaCost, cd)
+
+        abilitiesListCastEvent.add(new ItemCastEventAbility(newId, handler))
+
+// ----------------------------------------------------------------------------
+
+public interface AbilityInitFunc
+    function run(int abilityId) returns AbilityDefinition
+
+public function activeAbility(string effects, int manaCost, real cd, AbilityInitFunc initFunc) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    return activeAbility(abilityId, effects, manaCost, cd, abilityId, initFunc)
+
+public function activeAbility(string effects, int manaCost, real cd, int cdGroup, AbilityInitFunc initFunc) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    return activeAbility(abilityId, effects, manaCost, cd, cdGroup, initFunc)
+
+function activeAbility(int abilityId, string effects, int manaCost, real cd, int cdGroup, AbilityInitFunc initFunc) returns ItemStats
+    initFunc.run(abilityId)
+    ..setManaCost(1, manaCost)
+    ..setCooldown(1, cd)
+
+    let effectDescr = wordActive + effects + wordCd.format(cd.toString(1))
+
+    return new ItemStatsCustomFunc(abilityId, effectDescr, (itemId, itemDef) -> begin
+        itemDef.setCooldownGroup(cdGroup.toRawCode())
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function auraAbility(string auraName, string effects, real range, AbilityInitFunc initFunc) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    initFunc.run(abilityId)
+    ..setAreaofEffect(1, range)
+
+    let effectDescr = wordAura.format(auraName + " ") + effects + wordRange.format(range.toString(0))
+
+    return new ItemStats(abilityId, effectDescr)
+
+// ----------------------------------------------------------------------------
+
+public function passiveAbility(string effects, AbilityInitFunc initFunc) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    initFunc.run(abilityId)
+
+    let effectDescr = wordPassive + effects
+
+    return new ItemStats(abilityId, effectDescr)
+
+// ----------------------------------------------------------------------------
+
+public interface MaxTargetsAbilityFunc
+    // targetIndex is the number of target hit - 1.
+    // So, numbers of targets 1, 2, 3, etc.
+    // Indexes of targets 0, 1, 2, etc.
+    function run(unit target, int targetIndex)
+
+class AbilityMaxTargetsHelper
+    int counter
+    int maxTargets
+    MaxTargetsAbilityFunc handler
+
+    construct(int maxTargets, MaxTargetsAbilityFunc handler)
+        this.counter = 0
+        this.maxTargets = maxTargets
+        this.handler = handler
+
+    function run(unit u)
+        if (counter < maxTargets)
+            handler.run(u, counter)
+            counter++
+            
+class AbilityMaxEnemiesHelper extends AbilityMaxTargetsHelper
+    unit src
+
+    construct(int maxTargets, unit src, MaxTargetsAbilityFunc handler)
+        super(maxTargets, handler)
+        this.src = src
+
+    override function run(unit u)
+        if (u.isEnemyOf(src))
+            super.run(u)
+    
+class AbilityMaxAlliesHelper extends AbilityMaxTargetsHelper
+    unit src
+
+    construct(int maxTargets, unit src, MaxTargetsAbilityFunc handler)
+        super(maxTargets, handler)
+        this.src = src
+
+    override function run(unit u)
+        if (u.isAllyOf(src))
+            super.run(u)
+
+public function forMaxTargetsInRange(vec2 position, real range, int maxTargets, MaxTargetsAbilityFunc handler)
+    let helper = new AbilityMaxTargetsHelper(maxTargets, handler)
+
+    forUnitsInRange(position, range) (unit u) ->
+        helper.run(u)
+
+    destroy helper
+
+public function forMaxEnemiesInRange(unit src, vec2 position, real range, int maxTargets, MaxTargetsAbilityFunc handler)
+    let helper = new AbilityMaxEnemiesHelper(maxTargets, src, handler)
+
+    forUnitsInRange(position, range) (unit u) ->
+        helper.run(u)
+
+    destroy helper
+
+public function forMaxAlliesInRange(unit src, vec2 position, real range, int maxTargets, MaxTargetsAbilityFunc handler)
+    let helper = new AbilityMaxAlliesHelper(maxTargets, src, handler)
+
+    forUnitsInRange(position, range) (unit u) ->
+        helper.run(u)
+
+    destroy helper
+
+// ----------------------------------------------------------------------------

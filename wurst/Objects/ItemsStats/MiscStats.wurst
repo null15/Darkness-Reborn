@@ -1,0 +1,20 @@
+package MiscStats
+
+import ObjectIdGenerator
+import AbilityObjEditing
+import CommonDescriptions
+import Format
+import ItemStatsDef
+
+// ----------------------------------------------------------------------------
+
+public function addMovementSpeed(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordMovementSpeed
+
+    new AbilityDefinitionMoveSpeedBonus(abilityId)
+    ..setMovementSpeedBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------

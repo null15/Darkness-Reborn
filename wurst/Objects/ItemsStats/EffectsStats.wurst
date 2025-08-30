@@ -1,0 +1,57 @@
+package EffectsStats
+
+import ObjectIdGenerator
+import AbilityObjEditing
+import CommonDescriptions
+import codeDamageTypings
+import Format
+import ItemStatsDef
+
+// ----------------------------------------------------------------------------
+
+public function addLifeSteal(real value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordLifeSteal.format(realToString(100 * value, 0))
+
+    new AbilityDefinitionVampiricattack(abilityId)
+    ..setLifeStolenPerAttack(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addArmorOnHit(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordArmorOnHit.format(value.toString())
+
+    new AbilityDefinitionOrbofCorruption(abilityId)
+    ..setArmorPenalty(1, -value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addArmorPen(real value) returns ItemStats
+    let effects = realToString(value, 0) + " " + wordArmorPen
+    
+    return new ItemStatsCustomFunc(effects, 
+    (itemId, itemDef) -> itemId.putInPhysPenItemHash(value))
+
+// ----------------------------------------------------------------------------
+
+public function addFrost(real durationNormal, real durationHero) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+
+    string effects
+    if (durationHero == durationHero)
+        effects = wordFrost2.format(durationNormal.toString(1), durationHero.toString(1))
+    else
+        effects = wordFrost1.format(durationHero.toString(1))
+
+    new AbilityDefinitionFrostDamageBonus(abilityId)
+    ..setDurationHero(1, durationHero)
+    ..setDurationNormal(1, durationNormal)
+    
+    return new ItemStats(abilityId, wordPassive + effects)
+
+// ----------------------------------------------------------------------------

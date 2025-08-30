@@ -1,5 +1,0 @@
-package ReactiveArmor2
-
-import codeDamageTypings
-public function reactiveArmor2(unit holder, unit attacker, real dam)
-    holder.damageTargetCode(dam * 2.5, attacker, null, -1, damageType.PHYSICALRANGED)

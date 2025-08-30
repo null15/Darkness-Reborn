@@ -1,4 +1,0 @@
-package Frostmourne
-
-public function frostmourne(unit targ)
-    targ.subHP(targ.getHP() * 0.01)

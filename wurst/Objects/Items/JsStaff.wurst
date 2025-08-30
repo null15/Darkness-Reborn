@@ -4,6 +4,8 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import Jacksmith_Q
+import codeDamageTypings
+import StatsType
 
 init
 
@@ -130,7 +132,7 @@ init
     ..addStats(addDamage(280))
     ..addStats(addInt(180))
     ..addStats(addMpReg(2.5))
-    ..addStats("[WIP]  + 12% of likely cause Damage to fold 3 times Intelligence")
+    ..addStats(addAbilityDealDamageStats(3, 0.12, statsType.Int, damageType.MAGICAL))
     ..addComponents(
     ITEM_GOLDEN_STAFF_L3,
     ITEM_FORGE_STAFF_L3,
@@ -144,7 +146,7 @@ init
     ..addStats(addDamage(350))
     ..addStats(addInt(250))
     ..addStats(addMpReg(3))
-    ..addStats("[WIP]  + 14% of likely cause Damage to fold 5 times Intelligence")
+    ..addStats(addAbilityDealDamageStats(5, 0.18, statsType.Int, damageType.MAGICAL))
     ..addComponents(
     ITEM_NERUBIAN_STAFF_L1,
     ITEM_FORGE_STAFF_L4,
@@ -158,7 +160,7 @@ init
     ..addStats(addDamage(800))
     ..addStats(addInt(400))
     ..addStats(addMpReg(4))
-    ..addStats("[WIP]  + 24% of likely cause Damage to fold 7 times Intelligence")
+    ..addStats(addAbilityDealDamageStats(8, 0.25, statsType.Int, damageType.MAGICAL))
     ..addComponents(
     ITEM_DEAD_EYES,
     ITEM_BOOK_OF_RAIN,

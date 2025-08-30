@@ -2,6 +2,8 @@ package ItemsNames
 
 import MyItemIds
 
+// ----------------------------------------------------------------------------
+
 public function getItemName(int id) returns string
     switch (id)
         // Basic Items (1)
@@ -421,7 +423,7 @@ public function getItemName(int id) returns string
         
         //  Not sorted
 
-        case ITEM_LUMBER_100
+        case ITEM_FOUNTAIN_GOLD_TO_LUMBER_100
             return "Lumber 100"
         case ITEM_EMPTY_VIAL
             return "Empty Vial (Fusion)"
@@ -1055,21 +1057,21 @@ public function getItemName(int id) returns string
             return "Forge Shield [Level 4]"
         case ITEM_TOME_OF_FROSTY_ALL_STATS
             return "Tome of Frosty All Statst"
-        case ITEM_GOLD_TO_LUMBER1
+        case ITEM_GOLD_TO_LUMBER_1
             return "Lumber Tinker 1"
-        case ITEM_GOLD_TO_LUMBER9
+        case ITEM_GOLD_TO_LUMBER_9
             return "Lumber Tinker 10"
-        case ITEM_GOLD_TO_LUMBER90
+        case ITEM_GOLD_TO_LUMBER_90
             return "Lumber Tinker 100"
-        case ITEM_GOLD_TO_LUMBER900
+        case ITEM_GOLD_TO_LUMBER_900
             return "Lumber Tinker 1000"
-        case ITEM_LUMBER1_TO_GOLD
+        case ITEM_LUMBER_1_TO_GOLD
             return "Gold Tinker 1"
-        case ITEM_LUMBER10_TO_GOLD
+        case ITEM_LUMBER_10_TO_GOLD
             return "Gold Tinker 10"
-        case ITEM_LUMBER100_TO_GOLD
+        case ITEM_LUMBER_100_TO_GOLD
             return "Gold Tinker 100"
-        case ITEM_LUMBER1000_TO_GOLD
+        case ITEM_LUMBER_1000_TO_GOLD
             return "Gold Tinker 1000"
         case ITEM_RECIPE_ICE_AND_FIRE_SWORD_II
             return "Treasure of Tinker (Recipe 1)"
@@ -1512,3 +1514,5 @@ public function getItemName(int id) returns string
 
         default
             return "Not implemented"
+        
+// ----------------------------------------------------------------------------

@@ -6610,7 +6610,7 @@ function int.heroPickedBlocker()
     ..setManaRegeneration(10.00)
     ..setLevel(22)
 
-    new UnitDefinition(LEFT_CREEP_23, UnitIds.eldervoidwalker) // Elder Voidwalker (Dungeon (n010)
+    new UnitDefinition(CREEP_LEFT_ELDER_VOIDWALKER, UnitIds.eldervoidwalker) // Elder Voidwalker (Dungeon (n010)
     ..setNormalAbilities(commaList(""))
     
     ..setScalingValue(1.50)
@@ -6691,7 +6691,7 @@ function int.heroPickedBlocker()
 
 @compiletime function eliteCreeps()
 
-    new UnitDefinition(ELITE_CREEP_0, UnitIds.nerubianqueen)// Nerubian Queen (n012)
+    new UnitDefinition(CREEP_ELITE_NERUBIAN_QUEEN, UnitIds.nerubianqueen)// Nerubian Queen (n012)
     ..setNormalAbilities(commaList(""))
     ..setScalingValue(2.00)
     ..setSelectionScale(2.00)
@@ -6769,7 +6769,7 @@ function int.heroPickedBlocker()
     ..setManaRegeneration(1.25)
     ..setLevel(25)
 
-    new UnitDefinition(ELITE_CREEP_1, UnitIds.hydralisk)// Hydralisk (z000)
+    new UnitDefinition(CREEP_ELITE_HYDRALISK, UnitIds.hydralisk)// Hydralisk (z000)
     ..setNormalAbilities(commaList(""))
     ..setModelFile("HydraliskREVISED.mdx")
     ..setScalingValue(2.50)
@@ -6848,7 +6848,7 @@ function int.heroPickedBlocker()
     ..setManaRegeneration(0.00)
     ..setLevel(25)
 
-    new UnitDefinition(ELITE_CREEP_2, UnitIds.furbolgancient)// Furbolg Ursa Warrior (n014)
+    new UnitDefinition(CREEP_ELITE_FURBOLG_URSA_WARRIOR, UnitIds.furbolgancient)// Furbolg Ursa Warrior (n014)
     ..setNormalAbilities(commaList(CREEP_ABILITY_4, 'ACac'))
     
     ..setScalingValue(2.50)
@@ -6927,7 +6927,7 @@ function int.heroPickedBlocker()
     ..setManaRegeneration(1.25)
     ..setLevel(42)
 
-    new UnitDefinition(ELITE_CREEP_3, UnitIds.fleshgolem)// Flesh Golem (n013)
+    new UnitDefinition(CREEP_ELITE_FLESH_GOLEM, UnitIds.fleshgolem)// Flesh Golem (n013)
     ..setNormalAbilities(commaList(""))
     
     ..setScalingValue(1.75)
@@ -7322,7 +7322,7 @@ function int.heroPickedBlocker()
     ..setManaRegeneration(0.00)
     ..setLevel(70)
 
-    new UnitDefinition(ELITE_CREEP_8, UnitIds.chaoswarlord)// Frosty the Snowman (o005)
+    new UnitDefinition(CREEP_ELITE_FROSTY_THE_SNOWMAN, UnitIds.chaoswarlord)// Frosty the Snowman (o005)
     ..setNormalAbilities(commaList(CREEP_ABILITY_5, CREEP_ABILITY_6, CREEP_ABILITY_7, 'Aasl'))
     ..setModelFile("Units\\Frosty\\Frosty.mdx")
     ..setScalingValue(1.80)

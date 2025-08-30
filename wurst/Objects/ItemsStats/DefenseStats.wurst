@@ -1,0 +1,136 @@
+package DefenseStats
+
+import ObjectIdGenerator
+import AbilityObjEditing
+import CommonDescriptions
+import codeDamageTypings
+import ObjectIds
+import ItemStatsDef
+import Format
+
+// ----------------------------------------------------------------------------
+
+public function addHp(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordHp
+
+    new AbilityDefinitionMaxLifeBonusGreater(abilityId)
+    ..setMaxLifeGained(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addHpReg(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordHpReg
+
+    new AbilityDefinitionRegenLife(abilityId)
+    ..setHitPointsRegeneratedPerSecond(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addHpRegRel(real percentOfMaxHp) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = realToString(100*percentOfMaxHp, 0) + "% " + wordHpReg
+
+    new AbilityDefinitionNeutralRegenhealthonly(abilityId)
+    ..setPercentage(1, true)
+    ..setAmountofHitPointsRegenerated(1, percentOfMaxHp)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.self))
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addRestoreHpOnUse(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects   = wordRestoreHp.format(value.toString())
+
+    new AbilityDefinitionItemHealGreater(abilityId)
+    ..setHitPointsGained(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addArmor(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordArmor
+
+    new AbilityDefinitionDefenseBonusPlus1(abilityId)
+    ..setDefenseBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addDamageBlock(real chance, real ignoreValue) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordDamageBlock.format(chance.toString(1), ignoreValue.toString(0))
+
+    new AbilityDefinitionHardenedSkin(abilityId)
+    ..setLevels(1)
+    ..setChancetoReduceDamage(1, chance)
+    ..setMinimumDamage(1, 0)
+    ..setIgnoredDamage(1, ignoreValue)
+    ..setIncludeMeleeDamage(1, true)
+    ..setIncludeRangedDamage(1, true)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addEvasion(real chance) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = (chance * 100).toString(0) + "% " + wordEvasion
+
+    new AbilityDefinitionEvasion(abilityId)
+    ..setChancetoEvade(1, chance)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addMagicResist(real value) returns ItemStats
+    let effects = wordMagicResist.format(realToString(value, 0))
+    
+    return new ItemStatsCustomFunc(effects,
+    (itemId, itemDef) -> itemId.putInMagicResItemHash(value))
+
+// ----------------------------------------------------------------------------
+
+public function addMp(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordMp
+
+    new AbilityDefinitionMaxManaBonusMost(abilityId)
+    ..setMaxManaGained(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addMpReg(real value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects   = realToString(100*value,0) + "% " + wordMpReg
+
+    new AbilityDefinitionItemRegenMana(abilityId)
+    ..setManaRegenerationBonusasfractionofnormal(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addRestoreMpOnUse(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = wordRestoreMp.format(value.toString())
+
+    new AbilityDefinitionItemManaRestoreGreater(abilityId)
+    ..setManaPointsGained(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------

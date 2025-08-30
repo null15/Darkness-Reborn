@@ -2,10 +2,7 @@ package Basic3
 
 import MyItemDefinition
 import ItemObjEditing
-import AbilityObjEditing
 import MyItemIds
-import MyAbilityIds
-import Abilities
 
 init
 
@@ -63,8 +60,8 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNThoriumArmor.blp")
     ..setClassification("PowerUp")
     ..setGoldCost(1050)
-    ..addStats(addDamageBlock(20, 200))
     ..addStats(addHpReg(10))
+    ..addStats(addDamageBlock(20, 200))
     ..addHotKey()
     ..register()
 
@@ -73,8 +70,8 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNArcaniteArmor.blp")
     ..setClassification("PowerUp")
     ..setGoldCost(1600)
-    ..addStats(addDamageBlock(30, 300))
     ..addStats(addHpReg(15))
+    ..addStats(addDamageBlock(30, 300))
     ..addHotKey()
     ..register()
 
@@ -83,8 +80,8 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHumanArmorUpThree.blp")
     ..setClassification("PowerUp")
     ..setGoldCost(2200)
-    ..addStats(addDamageBlock(40, 500))
     ..addStats(addHpReg(25))
+    ..addStats(addDamageBlock(40, 500))
     ..addHotKey()
     ..register()
 
@@ -112,8 +109,8 @@ init
     new MyItemDefinition(ITEM_ORB_OF_LIGHTNING)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfLightning.blp")
     ..setClassification("PowerUp")
-    ..setGoldCost(3200)
+    ..setGoldCost(3600)
     ..addStats(addDamage(15))
-    ..addStats(addChainLighting(0.2, 500, 0.2, 2))
+    ..addStats(addChainLighting(0.2, 1000, 0.2, 5, 900, false))
     ..addHotKey()
     ..register()

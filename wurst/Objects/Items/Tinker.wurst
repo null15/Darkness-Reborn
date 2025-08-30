@@ -2,6 +2,7 @@ package Tinker
 
 import MyItemDefinition
 import ItemObjEditing
+import MyColors
 import MyItemIds
 import RecipeItems
 import CommonDescriptions
@@ -120,9 +121,9 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAdept 002.blp")
     ..setClassification("Artifact")
+    ..addStats(addAbilityBlink(32000, 2000, 5))
     ..addStats(addMovementSpeed(500))
     ..addStats(addAllStats(600))
-    ..addStats(addTp(5))
     ..addComponents(
     ITEM_BOOTS_OF_CRYSTAL_GOLD)
     ..addHotKey()

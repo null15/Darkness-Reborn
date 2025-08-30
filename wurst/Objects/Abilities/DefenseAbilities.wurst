@@ -1,0 +1,134 @@
+package DefenseAbilities
+
+import AbilityObjEditing
+import ItemStatsDef
+import CommonDescriptions
+import ActiveAbilityDef
+import AbilitiesList
+import ItemObjEditing
+import Abilities
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityRestoreHp(int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityRestoreHp.format(cd.toString())
+
+    return new CastAbility(effects, manaCost, cd, (unit caster) -> begin
+        caster.setHP(caster.getMaxHP())
+    end)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityRestoreMp(int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityRestoreMp.format(cd.toString())
+
+    return new CastAbility(effects, manaCost, cd, (unit caster) -> begin
+        caster.setMana(caster.getMaxMana())
+    end)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityRestoreHpMp(int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityRestoreHpMp.format(cd.toString())
+
+    return new CastAbility(effects, manaCost, cd, (unit caster) -> begin
+        caster..setMana(caster.getMaxMana()).setHP(caster.getMaxHP())
+    end)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityArmorDamageHpRegBuff(real damage, int armor, real hpReg, real duration, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityArmorDamageHpReg.format((100*damage).toString(), armor.toString(), hpReg.toString(), duration.toString(), cd.toString())
+
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionRoar(abilityId)
+        ..setDamageIncrease(1, damage)
+        ..setDefenseIncrease(1, armor)
+        ..setLifeRegenerationRate(1, hpReg)
+        ..setDurationHero(1, duration)
+        ..setDurationNormal(1, duration)
+        ..setTargetsAllowed(1, TargetsAllowed.self)
+        ..setManaRegen(1, 0)
+        ..setLevels(1)
+        ..setCooldown(1, cd)
+        ..setManaCost(1, manaCost)
+    
+// ----------------------------------------------------------------------------
+
+public function addAbilityManaShield(real hpPerMana) returns ItemStats
+    let effects = wordAbilityManaShield.format(hpPerMana.toString())
+
+    return activeAbility(effects, 0, 0) (int abilityId) ->
+        return new AbilityDefinitionManaShieldCreep(abilityId)
+        ..setDamageAbsorbed(1, 1)
+        ..setCooldown(1, 0.1)
+        ..setManaperHitPoint(1, 1/hpPerMana)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityAvatarMagicImmune(real duration, real cd, int manaCost) returns ItemStats
+    let effects = wordAvatar.format(duration.toString(), cd.toString())
+
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionMountainKingAvatar(abilityId)
+        ..setDurationHero(1, duration)
+        ..setDurationNormal(1, duration)
+
+// ----------------------------------------------------------------------------
+
+public class AbilityDefinitionAmuletOfSpellShield extends AbilityDefinition
+    construct(int abilityId)
+        super(abilityId, 'ANss')
+
+public function addSpellShield(real cd) returns ItemStats
+    let effects = wordSpellShield.format(cd.toString())
+
+    return passiveAbility(effects) (int abilityId) ->
+        return new AbilityDefinitionAmuletOfSpellShield(abilityId)
+        ..setCooldown(1, 40)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityGetHpOnDamage(real amount, real chance) returns ItemStats
+    let effects = wordAbilityGetHpOnDamage.format((100*chance).toString(0), (amount).toString(0))
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageTaken.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+
+            target.setHP(target.getHP() + amount)
+            flashEffect(Abilities.crystalBallCaster, target.getPos())
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityGetMpOnDamage(real intFactor, real chance) returns ItemStats
+    let effects = wordAbilityGetMpOnDamage.format((100*chance).toString(0), intFactor.toString(1))
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageTaken.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+
+            target.setMana(target.getMana() + intFactor * target.getInt(true))
+            flashEffect(Abilities.manaShieldCaster, target.getPos())
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function addMpOnHit(real percentOfMaxMp) returns ItemStats
+    let effects = wordMpOnHit.format((100*percentOfMaxMp).toString(0))
+
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            src.setMana(src.getMana() + src.getMaxMana() * percentOfMaxMp)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------

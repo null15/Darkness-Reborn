@@ -33,9 +33,9 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHoly Heavy Boots.blp")
     ..setClassification("Artifact")
+    ..addStats(addAbilityBlink(32000, 4000, 10))
     ..addStats(addMovementSpeed(250))
     ..addStats(addAllStats(100))
-    ..addStats(addTp(5))
     ..addComponents(
     ITEM_BOOTS_OF_TELEPORTATION,
     ITEM_WINGED_BOOTS,

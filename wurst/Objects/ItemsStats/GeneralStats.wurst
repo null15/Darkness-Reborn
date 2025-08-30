@@ -1,0 +1,55 @@
+package GeneralStats
+
+import ObjectIdGenerator
+import AbilityObjEditing
+import CommonDescriptions
+import ItemStatsDef
+import Format
+
+// ----------------------------------------------------------------------------
+
+public function addAgi(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordAgi
+
+    new AbilityDefinitionAllPlus1(abilityId)
+    ..setAgilityBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addStr(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordStr
+
+    new AbilityDefinitionAllPlus1(abilityId)
+    ..setStrengthBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addInt(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordInt
+
+    new AbilityDefinitionAllPlus1(abilityId)
+    ..setIntelligenceBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------
+
+public function addAllStats(int value) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    let effects = intToString(value) + " " + wordAllStats
+
+    new AbilityDefinitionAllPlus1(abilityId)
+    ..setAgilityBonus(1, value)
+    ..setStrengthBonus(1, value)
+    ..setIntelligenceBonus(1, value)
+
+    return new ItemStats(abilityId, effects)
+
+// ----------------------------------------------------------------------------

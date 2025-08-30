@@ -3,7 +3,11 @@ package ItemsAndRecipesHashTable
 import MyItemIds
 import HashMap
 
+// ----------------------------------------------------------------------------
+
 let itemRecipeHasTable = compiletime(new HashMap<int, int>())
+
+// ----------------------------------------------------------------------------
 
 @compiletime
 function initHasTable()
@@ -106,8 +110,12 @@ function initHasTable()
 
     itemRecipeHasTable.put(ITEM_O3_CLOCK, ITEM_RECIPE_O3_CLOCK)
 
+// ----------------------------------------------------------------------------
+
 public function getItemRecipeId(int itemId) returns int
     if (itemRecipeHasTable.has(itemId))
         return itemRecipeHasTable.get(itemId)
     else
         return -1
+
+// ----------------------------------------------------------------------------

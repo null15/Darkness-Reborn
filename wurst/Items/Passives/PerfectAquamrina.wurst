@@ -1,5 +1,0 @@
-package PerfectAquamrina
-
-import codeDamageTypings
-public function perfectAquamrina(unit holder, unit attacker, real dam)
-    holder.damageTargetCode(dam, attacker, null, -1, damageType.PHYSICALRANGED)

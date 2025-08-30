@@ -225,6 +225,19 @@ init
 function unit.getItemBySlot(int slot) returns item
     return UnitItemInSlot(this, slot)
 
+public function damageType.toString() returns string
+    switch this
+        case damageType.MAGICAL
+            return "magic damage"
+        case damageType.PHYSICALMELEE
+            return "physical melee damage"
+        case damageType.PHYSICALRANGED
+            return "physical range damage"
+        case damageType.PURE
+            return "pure damage"
+        default
+            return "null"
+
 public function integer.getPen(penetrationType typeToGet) returns real
     let stateMap = unitStatMap.get(this)
     if stateMap == null
@@ -316,3 +329,6 @@ function statscheck()
             let u = playerHero.get(p)
             printTimedToPlayer("Physical Penetration: "+ (u.getPen(penetrationType.PHYSICAL) * 100).toString() + "%" +
             "\nMagic Ressistence: "+ (u.getRes(resistanceType.MAGICAL) * 100).toString() +"%", 10, p)
+
+public function unit.isRanged() returns boolean
+    return this.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1) > 300

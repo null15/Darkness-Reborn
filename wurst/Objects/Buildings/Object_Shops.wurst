@@ -92,11 +92,10 @@ function initLists()
             BUILDING_SHOP_BASIC_ITEMS4,
             shopNameBasicItems4,
             asList(
-            ITEM_POTION_OF_GREATER_HEALING, ITEM_POTION_OF_GREATER_MANA, ITEM_PENDANT_OF_ENERGY, ITEM_PENDANT_OF_MANA, ITEM_PERIAPT_OF_VITALITY, ITEM_KHADGAR_PENDANT_OF_HEALTH, ITEM_CLOAK_OF_SHADOWS
-            ),
-            asList(
+            ITEM_POTION_OF_GREATER_HEALING, ITEM_POTION_OF_GREATER_MANA, ITEM_PENDANT_OF_ENERGY, ITEM_PENDANT_OF_MANA, ITEM_PERIAPT_OF_VITALITY, ITEM_KHADGAR_PENDANT_OF_HEALTH, ITEM_CLOAK_OF_SHADOWS,
             ITEM_TOME_OF_RETRAINING
-            )
+            ),
+            new LinkedList<int>()
         ),
 
         new ShopInfo(
@@ -194,8 +193,8 @@ function initLists()
             BUILDING_TINKER_SHOP_LUMBER,
             shopNameTinkerLumber,
             asList(
-            ITEM_GOLD_TO_LUMBER1, ITEM_GOLD_TO_LUMBER9, ITEM_GOLD_TO_LUMBER90, ITEM_GOLD_TO_LUMBER900,
-            ITEM_LUMBER1_TO_GOLD, ITEM_LUMBER10_TO_GOLD, ITEM_LUMBER100_TO_GOLD, ITEM_LUMBER1000_TO_GOLD
+            ITEM_GOLD_TO_LUMBER_1, ITEM_GOLD_TO_LUMBER_9, ITEM_GOLD_TO_LUMBER_90, ITEM_GOLD_TO_LUMBER_900,
+            ITEM_LUMBER_1_TO_GOLD, ITEM_LUMBER_10_TO_GOLD, ITEM_LUMBER_100_TO_GOLD, ITEM_LUMBER_1000_TO_GOLD
             ),
             new LinkedList<int>()
         ),
@@ -206,6 +205,19 @@ function initLists()
             ITEM_RECIPE_ICE_AND_FIRE_SWORD_II, ITEM_RECIPE_DARK_STEEL_SWORD_II, ITEM_RECIPE_DESTROY_SWORD_II, ITEM_RECIPE_PLATINUM_HAMMER_II,
             ITEM_RECIPE_GOLD_AXE_II, ITEM_RECIPE_REACTIVE_ARMOR_II, ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD_II, ITEM_RECIPE_O3_CLOCK, ITEM_RECIPE_O9_CLOCK
             ),
+            new LinkedList<int>()
+        ),
+
+        new ShopInfo(
+            ELEMENTAL_SOUL,
+            wordElementalSoul,
+            asList(UPGRADE_BASE_HEALTH, UPGRADE_BASE_ARMOR),
+            new LinkedList<int>()
+        ),
+        new ShopInfo(
+            BUILDING_FOUNTAIN,
+            wordFountain,
+            asList(ITEM_FOUNTAIN_LUMBER_100_TO_GOLD, ITEM_FOUNTAIN_GOLD_TO_LUMBER_100, ITEM_EMPTY_VIAL, ITEM_QUEST),
             new LinkedList<int>()
         ),
 
@@ -307,9 +319,9 @@ public function getShopItemsListForItem(int itemId) returns LinkedList<int>
     if (shopInfo == null)
         return null
 
-    if (shopInfo.itemsMade.indexOf(itemId) != -1)
-        return shopInfo.itemsMade
-    return null
+    return new LinkedList<int>()
+    ..addAll(shopInfo.itemsMade)
+    ..addAll(shopInfo.itemsSold)
 
 public function getShopName(int shopId) returns string
     if (shopId == -1)
@@ -772,7 +784,7 @@ public function getHotKey(int itemId) returns string
     new BuildingDefinition(BUILDING_TINKER_SHOP_LUMBER, UnitIds.arcanevault)// Goblin Magic Vault (n053)
     ..setGroundTexture("")
     ..setRequirements("")
-    ..setNormalAbilities(commaList('Aneu', 'Avul', 'Apit'))
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Aneu', 'Avul', 'Apit'))
     ..setScalingValue(1.00)
     ..setSelectionScale(3.30)
     ..setAttack1CooldownTime(0.00)
@@ -865,7 +877,7 @@ public function getHotKey(int itemId) returns string
     new BuildingDefinition(BUILDING_TINKER_SHOP_RECIPES, UnitIds.arcanevault)// Goblin Fruit Stand (n055)
     ..setGroundTexture("")
     ..setRequirements("")
-    ..setNormalAbilities(commaList('Aneu', 'Avul', 'Apit'))
+    ..setNormalAbilities(commaList(SHOP_SHARE, 'Aneu', 'Avul', 'Apit'))
     ..setScalingValue(1.00)
     ..setSelectionScale(4.00)
     ..setAttack1CooldownTime(0.00)

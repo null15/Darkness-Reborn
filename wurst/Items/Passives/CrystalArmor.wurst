@@ -1,5 +1,0 @@
-package CrystalArmor
-import codeDamageTypings
-public function crystalArmor(unit holder, unit attacker)
-    let dam = holder.getStr(true) * 2.
-    holder.damageTargetCode(dam, attacker, null, -1, damageType.PHYSICALRANGED)

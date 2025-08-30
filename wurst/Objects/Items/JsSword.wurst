@@ -4,6 +4,8 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import Jacksmith_Q
+import codeDamageTypings
+import StatsType
 
 init
 
@@ -167,7 +169,7 @@ init
     ..addStats(addDamage(180))
     ..addStats(addAgi(30))
     ..addStats(addAttackSpeed(0.45))
-    ..addStats("[WIP] +11% chance to cause Damage to fold 2 times Agility")
+    ..addStats(addAbilityDealDamageStats(1, 0.07, statsType.Agi, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_KAIN_SWORD_L4,
     ITEM_KILLMAIM)
@@ -180,7 +182,7 @@ init
     ..addStats(addDamage(260))
     ..addStats(addAgi(70))
     ..addStats(addAttackSpeed(1))
-    ..addStats("[WIP] +12% chance to cause Damage to fold 3 times Agility")
+    ..addStats(addAbilityDealDamageStats(2, 0.09, statsType.Agi, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_NOBLE_SWORD_L1,
     ITEM_LIONS_RING)
@@ -193,7 +195,7 @@ init
     ..addStats(addDamage(280))
     ..addStats(addAgi(110))
     ..addStats(addAttackSpeed(1.2))
-    ..addStats("[WIP] +12% chance to cause Damage to fold 3 times Agility")
+    ..addStats(addAbilityDealDamageStats(3, 0.11, statsType.Agi, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_NOBLE_SWORD_L2,
     ITEM_AMULET_OF_THE_WILD)
@@ -206,7 +208,7 @@ init
     ..addStats(addDamage(300))
     ..addStats(addAgi(200))
     ..addStats(addAttackSpeed(1.4))
-    ..addStats("[WIP] +14% chance to cause Damage to fold 5 times Agility")
+    ..addStats(addAbilityDealDamageStats(4, 0.13, statsType.Agi, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_NOBLE_SWORD_L3,
     ITEM_AINZ_SWORD,
@@ -220,7 +222,7 @@ init
     ..addStats(addDamage(400))
     ..addStats(addAgi(350))
     ..addStats(addAttackSpeed(1.8))
-    ..addStats("[WIP] +15% chance to cause Damage to fold 6 times Agility")
+    ..addStats(addAbilityDealDamageStats(5, 0.15, statsType.Agi, damageType.PHYSICALMELEE))
     ..addComponents(
     ITEM_NOBLE_SWORD_L4,
     ITEM_FORGE_SWORD_L4,

@@ -1,4 +1,0 @@
-package RavenBlade
-import codeDamageTypings
-public function ravenBlade(unit src, unit targ, int mul)
-    src.damageTargetCode(src.getStr(true) * (2.*mul), targ, null, -1, damageType.PHYSICALMELEE)

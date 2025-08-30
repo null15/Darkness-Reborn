@@ -1,81 +1,10 @@
 package CommonDescriptions
-import ItemObjEditing
 
-public let colRst             = "|r"
-public let colBasic           = "|c0000C800"
-public let colRecipe          = "|c002979fa"
-public let colLateGame1       = "|c00C80000"
-public let colLateGame2       = "|c004896E1"
-public let colHotKey          = "|c00FFFC01"
+import public Colors
+import Format
+import MyColors
 
-public let colTinkerTomes     = "|c006BF1F6"
-public let colTinkerLumber    = "|c005FA412"
-public let colTinkerRecipes   = "|c00AF3BD9"
-
-public let colCreepsTp        = "|c00505050" 
-
-public let colPicker = "|c00121212"
-
-public class Color
-    int R
-    int G
-    int B
-
-    construct(int R, int G, int B)
-        this.R = R
-        this.G = G
-        this.B = B
-
-    function setColor(ItemDefinition itemDef)
-        itemDef.setTintingColor1Red(R)
-        itemDef.setTintingColor2Green(G)
-        itemDef.setTintingColor3Blue(B)
-
-public let colItemL1 = new Color(137, 218, 128) // Green
-public let colItemL2 = new Color(77, 151, 223)  // Blue
-public let colItemL3 = new Color(229, 136, 72)  // Orange
-public let colItemL4 = new Color(239, 102, 86)  // Red
-public let colItemL5 = new Color(199, 104, 250) // Purple
-
-public function itemNameBasic(string name) returns string
-    if compiletime
-        return colBasic + name + colRst
-    return ""
-
-public function itemNameRecipe(string name) returns string
-    if compiletime
-        return colRecipe + name + colRst
-    return ""
-
-public function itemNameLateGame1(string name) returns string
-    if compiletime
-        return colLateGame1 + name + colRst
-    return ""
-
-public function itemNameLateGame2(string name) returns string
-    if compiletime
-        return colLateGame2 + name + colRst
-    return ""
-
-public function itemNameTinkerTome(string name) returns string
-    if compiletime
-        return colTinkerTomes + name + colRst
-    return ""
-
-public function itemNameTinkerLumber(string name) returns string
-    if compiletime
-        return colTinkerLumber + name + colRst
-    return ""
-
-public function itemNameTinkerRecipe(string name) returns string
-    if compiletime
-        return colTinkerRecipes + name + colRst
-    return ""
-
-public function itemNameCreepsTp(string name) returns string
-    if compiletime
-        return colCreepsTp + name + colRst
-    return ""
+// ----------------------------------------------------------------------------
 
 public let shopNameBasicItems1    = itemNameBasic("Basic Items (1)")
 public let shopNameBasicItems2    = itemNameBasic("Basic Items (2)")
@@ -101,6 +30,12 @@ public let shopNameCreepsTp2      = itemNameCreepsTp("Intermediate hunting groun
 public let shopNameCreepsTp3      = itemNameCreepsTp("Elite hunting grounds")
 public let shopNameCreepsTp4      = itemNameCreepsTp("End-game bosses")
 
+public let wordElementalSoul      = "Elemental Soul"
+public let wordDropSite           = "Drop Site"
+public let wordFountain           = "The Fountain"
+
+// ----------------------------------------------------------------------------
+
 public let monsterDrop            = "Monster Drop"
 public let bossDrop               = "Boss Drop"
    
@@ -108,72 +43,105 @@ public let wordEffects            = "|c00FFFC01Effects:|r\n"
 public let wordExtraEffects       = "|c00FFFC01Extra Effects:|r\n"
 public let wordMaterials          = "|c00FEBA0EMaterials required to craft this item:|r\n"
 public let wordNote               = "|c00FEBA0ENote:|r\n"
+
+public let wordCd                 = " (cd {0} sec)"
+public let wordActive             = "|c00d7b632Active:|r "
+public let wordAura               = "|c0054d682{0}Aura:|r "
+public let wordRange              = " in {0} range"
+public let wordPassive            = "|c0052e1e1Passive:|r "
    
+// ----------------------------------------------------------------------------
+
 public let wordAttackSpeed        = "Attack Speed"
 public let wordDamage             = "Damage"
-public let wordLifeSteal          = "Life Steal"
-public let wordArmorOnHit         = "Armor on hit (Orb Effect)"
-public let wordArmorPen           = "Armor penetration"
+public let wordLifeSteal          = "{0}% Life Steal".setColor(colLifeSteal)
+public let wordArmorOnHit         = "{0} armor on hit (Orb Effect)".setColor(colMinusArmor)
+public let wordArmorPen           = "armor penetration"
 public let wordMpOnHit            = "{0}% of max MP on hit"
 public let wordFrost1             = "Frost Orb Effect on-hit: {0} sec"
 public let wordFrost2             = "Frost Orb Effect on-hit: {0} sec (normal), {1} sec (hero)"
-public let wordLightning          = "{0}% chance to shoot a chain lightning dealing {1} damage to up to {2} targets ({3} damage reduction per target)"   
+public let wordLightning          = "{0}% chance to shoot a chain lightning dealing {1} damage to up to {2} targets ({3} damage reduction per target)"  
+public let wordOnlyRanged         = " (works only for ranged heroes)" 
    
-public let wordCleave             = "Cleave: {0} damage in {1} range"
-public let wordCrit               = "Crit: {0}% chance to do x{1} damage"
-public let wordBash               = "Bash: {0}% chance to do {1} bonus damage and stun for {2} sec (cd {3} sec)"
+public let wordCleave             = "|c00cb4545Cleave:|r {0} damage in {1} range"
+public let wordCrit               = "|c00faba53Crit:|r {0}% chance to do x{1} damage"
+public let wordBash               = "|c00376bf9Bash:|r {0}% chance to do {1} bonus damage and stun for {2} sec (cd {3} sec)"
    
+// ----------------------------------------------------------------------------
+
 public let wordHp                 = "HP"
 public let wordHpReg              = "HP/s"
-public let wordHpRegAura          = "Aura: +{0} in {1} range"
+public let wordHpRegAura          = "+{0} in {1} range"
 public let wordRestoreHp          = "Restores {0} HP when used"
    
 public let wordArmor              = "Armor"
-public let wordDamageBlock        = "Block: {0}% chance to block {1} damage"
+public let wordDamageBlock        = "|c006d6d6dBlock:|r {0}% chance to block {1} damage"
 public let wordEvasion            = "Evasion"
 public let wordMagicResist        = "{0}% Magic Resistance"
 public let wordSpikes             = "Return {0}% of the damage dealt to you back to the attacker"
 public let wordSpellShield        = "Blocks one negative spell (cd {0} sec)"
 public let wordMovementSpeed      = "Movement Speed"
-public let wordTp                 = "Active: teleport to allied unit or building (cd 20 sec)"
    
 public let wordMp                 = "MP"
 public let wordMpReg              = "MP Regeneration"
 public let wordRestoreMp          = "Restores {0} MP when used"
    
+// ----------------------------------------------------------------------------
+
 public let wordAgi                = "Agility"
 public let wordStr                = "Strength"
 public let wordInt                = "Intelligence"
 public let wordAllStats           = "All Stats"
 
-public let wordAuraTrueshot       = "Trueshot Aura: {0}% ranged damage in {1} range"
-public let wordAuraEndurance      = "Endurance Aura: {0}% movement speed, {1}% attack speed in {2} range"
-public let wordAuraDevotionFlat   = "Aura: {0} armor in {1} range"
-public let wordAuraDevotionRel    = "Aura: {0}% armor in {1} range"
-public let wordAuraCommandRel     = "Command Aura: {0}% damage in {1} range (stacks with damage aura)"
-public let wordAuraDamageRel      = "Damage Aura: {0}% damage in {1} range (stacks with command aura)"
+// ----------------------------------------------------------------------------
 
-public let wordAvatar             = "Active: activate Avatar for {0} sec (cd {1} sec)"
-public let wordResetSpellCd       = "Active: Reset all of your Skill Cooldowns (cd {0} sec)"
-public let wordPhoenixFire        = "Every {0} second deal {1} Damage to a nearby enemy within {2} Range"
-public let wordVampiricAura       = "Life Steal Aura: converts {0}% damage into hp in {1} range"
+public let wordAuraTrueshot       = "{0}% ranged damage"
+public let wordAuraEndurance      = "{0}% movement speed, {1}% attack speed"
+public let wordAuraDevotionFlat   = "{0} armor"
+public let wordAuraDevotionRel    = "{0}% armor"
+public let wordAuraCommandRel     = "{0}% damage"
+public let wordAuraDamageRel      = "{0}% damage"
 
-public let wordAbilityMagicDamage     = "Active: deals {0} magical damage to target (cd {1} sec)"
-public let wordAbilityMagicDamageInt  = "Active: deals {0}x int magical damage to target (cd {1} sec)"
-public let wordAbilityMagicDamageInt2 = "Active: deals {0} + {1}x int magical damage to target (cd {2} sec)"
-public let wordAbilityArmorDamageHpReg = "Active: +{0}% damage, +{1} armor, +{2} hp regen for {3} sec (cd {4} sec)"
-public let wordAbilitySummonInferno = "Active: deals {0} damage in {1} range and summons {2} for {3} sec (cd {4} sec)"
-public let wordAbilitySummonPermanent = "Active: summons permanent unit {0} (cd {2} sec)"
-public let wordAbilityManaShield  = "Active: drains 1 mana per {0} damage taken (after armor reduction is applied)"
-public let wordAbilityIllusions = "Active: summons {0} illusions that deal x{1} and receive x{2} damage for {3} sec (cd {4} sec)"
+// ----------------------------------------------------------------------------
 
-public let wordAbilityRestoreHp   = "Active: fully restores HP (cd {0} sec)"
-public let wordAbilityRestoreMp   = "Active: fully restores MP (cd {0} sec)"
-public let wordAbilityRestoreHpMp = "Active: fully restores HP and MP (cd {0} sec)"
+public let wordAbilityBlink       = "Blink within {0} range"
+public let wordTp                 = "Teleport to allied unit or building"
 
-public let wordAbilityHolyLight   = "Active: heal friendly target for {0} + {1}x int amount or deal {2}% damage to enemy (cd {3} sec)"
-public let wordAbilityBlink       = "Active: blink within {0} range (cd {1} sec)"
+public let wordBuyLumber          = "Convert {1} gold into {0} lumber"
+public let wordBuyGold            = "Convert {1} lumber into {0} gold"
 
-public let wordAbilityRevive      = "Revives the wearer (cd {0} sec)"
+// ----------------------------------------------------------------------------
 
-public let wordTomeGive           = "Active: Give yourself {0} on use"
+public let wordAvatar                  = "Activate Avatar for {0} sec"
+public let wordResetSpellCd            = "Reset all of your Skill Cooldowns"
+public let wordPhoenixFire             = "Every {0} second deal {1} Damage to a nearby enemy within {2} Range"
+public let wordAbilityMagicDamage      = "Deals {0} magical damage to target"
+public let wordAbilityMagicDamageInt   = "Deals {0}x int magical damage to target"
+public let wordAbilityMagicDamageInt2  = "Deals {0} + {1}x int magical damage to target"
+public let wordAbilityAoeDamage        = "Deals {0} {1} for all enemies in range {2}"
+public let wordAbilityDamageMaxTargets = "Deals {0} {1} for maximum {2} enemies in range {3}"
+public let wordAbilityArmorDamageHpReg = "+{0}% damage, +{1} armor, +{2} hp regen for {3} sec"
+public let wordReturnDamageStats       = "{0}% chance to return {1}x {2} {3} on taken"
+public let wordDealDamageStats         = "{0}% chance to deal additional {1}x {2} {3}"
+public let wordGetStatsOnKill          = "{0}% chance to get {1} {2} on kill" 
+public let wordAbilityDrainHpRel       = "{0}% chance to drain {1}% of current hp of target (bypasses all damage reductions)"
+
+public let wordAbilitySummonPermanent  = "Summons permanent unit {0}"
+public let wordAbilitySummonInferno    = "Deals {0} damage in {1} range and summons {2} for {3} sec"
+public let wordAbilityIllusions        = "Summons {0} illusions that deal x{1} and receive x{2} damage for {3} sec"
+
+public let wordAbilityManaShield       = "Drains 1 mana per {0} damage taken (after armor reduction is applied)"
+
+public let wordAbilityRestoreHp        = "Fully restores HP"
+public let wordAbilityRestoreMp        = "Fully restores MP"
+public let wordAbilityRestoreHpMp      = "Fully restores HP and MP"
+public let wordAbilityGetHpOnDamage    = "When attacked you have a {0}% chance to restore {1} HP"
+public let wordAbilityGetMpOnDamage    = "When attacked you have a {0}% chance to restore {1}x intelligence) MP"
+
+public let wordAbilityHolyLight        = "Heal friendly target for {0} + {1}x int amount or deal {2}% damage to enemy"
+
+public let wordAbilityRevive           = "Revives the wearer"
+
+public let wordTomeGive                = "Give yourself {0} on use"
+
+// ----------------------------------------------------------------------------

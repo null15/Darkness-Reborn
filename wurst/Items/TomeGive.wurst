@@ -2,12 +2,9 @@ package TomeGive
 import ClosureEvents
 import LinkedList
 import Global_Variables
-import AbilitiesList
-import ObjectIdGenerator
 import CommonDescriptions
 import AbilityObjEditing
 import Abilities
-import Units
 
 public let tomesList = compiletime(new LinkedList<Tome>())
 

@@ -1,0 +1,211 @@
+package DamageAbilities
+
+import AbilityObjEditing
+import ItemStatsDef
+import CommonDescriptions
+import codeDamageTypings
+import Abilities
+import ClosureForGroups
+import ActiveAbilityDef
+import ItemObjEditing
+import AbilitiesList
+import StatsType
+import DamageEvent
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityDealMagicDamage(real damage, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityMagicDamage.format(damage.toString(), cd.toString())
+
+    return new TargetAbility(effects, manaCost, cd, (unit caster, unit target) -> begin
+        caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
+    end)
+    .register()
+    
+// ----------------------------------------------------------------------------
+
+public function addAbilityDealMagicDamageInt(real intFactor, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityMagicDamageInt.format(intFactor.toString(), cd.toString())
+
+    return new TargetAbility(effects, manaCost, cd, (unit caster, unit target) -> begin
+        let damage = caster.getInt(true) * intFactor
+        caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
+    end)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityDealMagicDamageInt2(real damage, real intFactor, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityMagicDamageInt2.format(damage.toString(), intFactor.toString(), cd.toString())
+
+    return new TargetAbility(effects, manaCost, cd, (unit caster, unit target) -> begin
+        let damageSum = damage + caster.getInt(true) * intFactor
+        caster.damageTargetCode(damageSum, target, null, -1, damageType.MAGICAL)
+    end)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityDealAoeDamage(real damage, real range, damageType damageType, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityAoeDamage.format(damage.toString(), damageType.toString(), range.toString(0), cd.toString())
+    
+    return new CastAbility(effects, manaCost, cd, (unit caster) -> begin
+        forUnitsInRange(caster.getPos(), range) (unit u) ->
+            if(u.isEnemyOf(caster))
+                caster.damageTargetCode(damage, u, null, -1, damageType)
+    end)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityPhoenixFire(real damage, real attackCd, real range) returns ItemStats
+    let effects = wordPhoenixFire.format(attackCd.toString(), damage.toString(), range.toString())
+
+    return passiveAbility(effects) (int abilityId) ->
+        return new AbilityDefinitionPhoenixFire(abilityId)
+        ..setDamagePerSecond(1, 0)
+        ..setInitialDamage(1, damage)
+        ..setDurationHero(1, 0.1)
+        ..setDurationNormal(1, 0.1)
+        ..setCooldown(1, attackCd)
+        ..setCastRange(1, range)
+        ..setMissileArt(Abilities.avengerMissile)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityHolyLight(real healIntFactor, real healAmount, real damageFactor, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityHolyLight.format(healAmount.toString(), healIntFactor.toString(), (100*damageFactor).toString(), cd.toString())
+
+    return new TargetAbility(effects, manaCost, cd, (unit caster, unit target) -> begin
+        let heal = healIntFactor * caster.getInt(true) + healAmount
+
+        if (target.isEnemyOf(caster))
+            let damage = heal * damageFactor
+            caster.damageTargetCode(damage, target, null, -1, damageType.MAGICAL)
+            
+            flashEffect(Abilities.holyBoltSpecialArt, target.getPos())
+        else
+            target.setHP(target.getMaxHP() + heal)
+
+            flashEffect(Abilities.healTarget, target.getPos())
+    end)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityDamageStun(real damage, real intFactor, real stunDuration, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityMagicDamageInt2.format(damage.toString(), intFactor.toString(), cd.toString())
+    
+    return new TargetAbility(effects, manaCost, cd, (unit caster, unit target) -> begin
+        let damageSum = caster.getInt(true) * intFactor + damage
+        caster.damageTargetCode(damageSum, target, null, -1, damageType.MAGICAL)
+    end)
+    ..setDurationNormal(1, stunDuration)
+    ..setDurationHero(1, stunDuration)
+    .register()
+
+// ----------------------------------------------------------------------------
+
+public function addSpikes(real factor) returns ItemStats
+    let effects = wordSpikes.format((100*factor).toString())
+
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListReflections.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            target.damageTargetCode(DamageEvent.getAmount() * factor, src, null, -1, damageType.PHYSICALRANGED)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityReturnDamageStats(real factor, real chance, statsType statsType, damageType damageType) returns ItemStats
+    let effects = wordReturnDamageStats.format((100*chance).toString(0), factor.toString(1), statsType.toString(), damageType.toString())
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListReflections.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+
+            real stats = 0
+            switch (statsType)
+                case statsType.Str
+                    stats += target.getStr(true)
+                case statsType.Agi
+                    stats += target.getAgi(true)
+                case statsType.Int
+                    stats += target.getInt(true)
+                case statsType.All
+                    stats += target.getStr(true) + target.getAgi(true) + target.getInt(true)
+            let damage = stats * factor
+            target.damageTargetCode(damage, src, null, -1, damageType)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityDealDamageStats(real factor, real chance, statsType statsType, damageType damageType) returns ItemStats
+    let effects = wordReturnDamageStats.format((100*chance).toString(0), factor.toString(1), statsType.toString(), damageType.toString())
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+
+            real stats = 0
+            switch (statsType)
+                case statsType.Str
+                    stats += target.getStr(true)
+                case statsType.Agi
+                    stats += target.getAgi(true)
+                case statsType.Int
+                    stats += target.getInt(true)
+                case statsType.All
+                    stats += target.getStr(true) + target.getAgi(true) + target.getInt(true)
+            let damage = stats * factor
+            src.damageTargetCode(damage, target, null, -1, damageType)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityDrainHpRel(real factor, real chance) returns ItemStats
+    let effects = wordAbilityDrainHpRel.format((100*chance).toString(0), (100*factor).toString(1))
+    
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+
+            let hpDrained = target.getHP() * factor
+            target.subHP(hpDrained)
+            src.addHP(hpDrained)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------
+
+public function addChainLighting(real chance, real damage, real damageReductionPerTarget, int maxTargets, real range, bool onlyRanged) returns ItemStats
+
+    let effects = wordLightning.format((100*chance).toString(), damage.toString(),
+    maxTargets.toString(), damageReductionPerTarget.toString()) + (onlyRanged ? wordOnlyRanged : "")
+
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
+                skip
+            if (onlyRanged and (not src.isRanged()))
+                skip
+
+            forMaxEnemiesInRange(src, src.getPos(), range, maxTargets, (unit u, int idx) -> begin
+                var damageDealt = damage
+                var i = 0
+                while (i < idx)
+                    damageDealt *= (1 - damageReductionPerTarget)
+                    i++
+                    
+                src.damageTargetCode(damageDealt, u, null, -1, damageType.MAGICAL)
+                flashEffect(Abilities.forkedLightningTarget, u.getPos())
+            end)
+        end))
+    end)
+
+// ----------------------------------------------------------------------------

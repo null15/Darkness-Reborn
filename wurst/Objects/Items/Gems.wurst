@@ -16,7 +16,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Red2.blp")
     ..setActivelyUsed(true)
     
-    ..addStats(addAbilityArmorDamageHpRegBuff(0.2, 9999, 300, 8, 5000, 15))
+    ..addStats(addAbilityArmorDamageHpRegBuff(0.2, 9999, 300, 8, 4000, 15))
 
     ..addStats(addAllStats(300))
 
@@ -28,9 +28,9 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_CARNELIAN, itemRecipeList, ITEM_INFO_PERFECT_CARNELIAN)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNInv_jewelcrafting_gem_16.blp")
 
-    ..addStats(addAbilityLifeStealAura(0.3, 900))
-
     ..addStats(addAllStats(300))
+
+    ..addStats(addAbilityLifeStealAura(0.3, 900))
 
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
@@ -45,7 +45,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Yellow2.blp")
     ..setActivelyUsed(true)
 
-    ..addStats(addAbilityHolyLight(30, 20000, 1, 8000, 10))
+    ..addStats(addAbilityHolyLight(30, 20000, 1, 4000, 10))
 
     ..addStats(addAllStats(900))
 
@@ -57,9 +57,9 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_TOPAZ, itemRecipeList, ITEM_INFO_PERFECT_TOPAZ)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Yellow.blp")
 
-    ..addStats(addHpRegAura(0.02, true, 900))
-
     ..addStats(addAllStats(300))
+
+    ..addStats(addHpRegAura(0.02, true, 900))
 
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
@@ -73,7 +73,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe2.blp")
     ..setActivelyUsed(true)
 
-    ..addStats(addAbilitySummonInfernoUnit(15000, 600, UNIT_SUMMON_INFERNAL, "Summon infernal", 120, 5000, 140))
+    ..addStats(addAbilitySummonInfernoUnit(15000, 600, UNIT_SUMMON_INFERNAL, "Summon infernal", 120, 4000, 140))
 
     ..addStats(addAllStats(300))
 
@@ -85,10 +85,10 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AQUAMARINE, itemRecipeList, ITEM_INFO_PERFECT_AQUAMARINE)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe.blp")
 
-    ..addStats(addSpikes(1.5))
-
     ..addStats(addAllStats(600))
     ..addStats(addArmor(300))
+
+    ..addStats(addSpikes(1.5))
 
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
@@ -102,11 +102,11 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green2.blp")
     ..setModelUsed("Green Item.mdl")
 
-    ..addStats(addRevive(8, 30))
-
     ..addStats(addAllStats(600))
     ..addStats(addArmor(240))
     ..addStats(addMagicResist(50))
+
+    ..addStats(addRevive(7, 30))
 
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
@@ -118,13 +118,13 @@ init
 //I0B4
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_EMERALD, itemRecipeList, ITEM_INFO_PERFECT_EMERALD)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Green.blp")
-    
+        
+    ..addStats(addAllStats(300))
+
     ..addStats(addAuraTrueshot(2, 900))
     ..addStats(addAuraCommandRel(1.5, 900))
     ..addStats(addAuraArmorFlat(200, 900))
     ..addStats(addAuraEndurance(2, 2, 900))
-    
-    ..addStats(addAllStats(300))
 
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE, 
@@ -141,7 +141,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Blue2.blp")
     ..setActivelyUsed(true)
 
-    ..addStats(addAbilityIllusions(2, 0.7, 1.5, 3000, 60, 60))
+    ..addStats(addAbilityIllusions(2, 0.7, 1.5, 4000, 60, 60))
 
     ..addStats(addAllStats(300))
 
@@ -175,7 +175,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple2.blp")
     ..setActivelyUsed(true)
 
-    ..addStats(addAbilityLightingBoltStun(5000, 15, 10, 8000, 30))
+    ..addStats(addAbilityDamageStun(5000, 15, 10, 4000, 30))
 
     ..addStats(addAllStats(300))
 
@@ -191,11 +191,11 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_PERFECT_AMETHYST, itemRecipeList, ITEM_INFO_PERFECT_AMETHYST)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple.blp")
 
-    ..addStats(addAuraMinusArmorFlat(-86, 900)) // -70
-    //..addStats(addAuraMinusArmorRel(-0.05, 900))
-
     ..addStats(addAllStats(300))
 
+    ..addStats(addAuraMinusArmorFlat(-86, 900)) // -70
+    //..addStats(addAuraMinusArmorRel(-0.05, 900))
+    
     ..addComponents(
     ITEM_PERFECT_RUBYSTONE,
     ITEM_DARK_STEEL_SWORD,
