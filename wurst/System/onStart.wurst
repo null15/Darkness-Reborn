@@ -13,6 +13,7 @@ import heroLoader
 import UpdateDropSite
 import MultiboardTimer
 import ClosureEvents
+import Object_Units
 import LinkedList
 import FountainQuest
 import codeDamageTypings
@@ -64,6 +65,10 @@ public function questSetup()
     ..setTitle("Model Credits")
     ..setRequired(true)
 
+public function unit.setPlayersResearch(boolean active)
+    let toSet = active ? 1 : 0
+    for i = 0 to 9
+        SetPlayerTechResearched(players[i], heroPickedUpgradeHash.get(this.getTypeId()), toSet)
 
 public function createWisp(player p)
     playerHero.put(p, createUnit(p, HERO_PICKER, gg_rct_HeroPicker.getCenter()))
@@ -75,7 +80,8 @@ function onBuyHero(unit u)
         let playHero = playerHero.get(p)
         if playHero.getTypeId() == HERO_PICKER
             playerHero.put(p, soldUnit)
-            soldUnit.heroCheck()
+            soldUnit..heroCheck()
+            .setPlayersResearch(false)
             gg_cam_CameraHeroPicked.apply(true, p, 0.5)
             soldUnit.setPos(gg_rct_Base.getCenter())
             p.setState(PLAYER_STATE_RESOURCE_FOOD_CAP, 0)
@@ -97,6 +103,8 @@ function createSetup()
     for i = 0 to 9
         createWisp(players[i])
         players[i]..addState(PLAYER_STATE_RESOURCE_FOOD_CAP, 5)..addState(PLAYER_STATE_RESOURCE_GOLD, 800)
+        heroPickedUpgrades.forEach() (integer t) ->
+            SetPlayerTechResearched(players[i], t, 1)
         
     var posX = GetRectCenterX(gg_rct_HeroPicker) - 384.
     var posY = GetRectCenterY(gg_rct_HeroPicker) - 128

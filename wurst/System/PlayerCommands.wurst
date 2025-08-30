@@ -29,7 +29,7 @@ function repickHero()
         skip
       else
         createWisp(trigP)
-        playHero.remove()
+        playHero..setPlayersResearch(true).remove()
 
 function startVoteKick()
   EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 

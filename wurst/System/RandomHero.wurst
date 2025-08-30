@@ -60,6 +60,6 @@ function randomHero()
                 playableHeroes.remove(uid)
                 let randomedHero = createUnit(trigP, uid, gg_rct_Base.getCenter())
                 playerHero.put(trigP, randomedHero)
-                randomedHero.heroCheck()
+                randomedHero..heroCheck().setPlayersResearch(false)
                 taverns.forEach() (unit t) ->
                     t.removeUnitFromStock(uid)

@@ -113,7 +113,7 @@ public class QuestIntKillTargetInstant extends QuestIntInstant
             let tempUnit = createUnit(t)
             monsterNames += tempUnit.getName() + "/"
             tempUnit.remove()
-        monsterNames.substring(0, monsterNames.length()-1)
+        monsterNames = monsterNames.substring(0, monsterNames.length()-1)
         listener = EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
             if targetType.has(GetDyingUnit().getTypeId())
                 let killer = GetKillingUnit()
@@ -128,6 +128,7 @@ public class QuestIntKillTargetInstant extends QuestIntInstant
                             destroy targetType
                             destroy listener
                             destroy onComplete
+                            monsterNames = ""
                             destroy this
                         else
                             let textToSet = getQuestText()

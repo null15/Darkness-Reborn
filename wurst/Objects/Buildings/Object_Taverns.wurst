@@ -33,7 +33,7 @@ import MyUnitIds
     ..setTintingColorBlue(0)
     ..setTintingColorGreen(0)
     ..setTintingColorRed(255)
-    .setUnitsTrained(commaList(HERO_MOUNTAIN_KING, HERO_WOLFMAN_INITIAL, HERO_TAUREN_CHIEFTAIN, HERO_VIVPIRE, HERO_DEATH_KNIGHT, HERO_BEASTMASTER, HERO_PITLORD, HERO_JACKSMITH, HERO_UTHER, HERO_RANGER, HERO_ARTHAS))
+    .setUnitsSold(commaList(HERO_MOUNTAIN_KING, HERO_WOLFMAN_INITIAL, HERO_TAUREN_CHIEFTAIN, HERO_VIVPIRE, HERO_DEATH_KNIGHT, HERO_BEASTMASTER, HERO_PITLORD, HERO_JACKSMITH, HERO_UTHER, HERO_RANGER, HERO_ARTHAS))
 
     new BuildingDefinition(BUILDING_TAVERN_AGI, UnitIds.cantina)// Tavern Build Agility Heroes (n00A)
     ..setName("Agility Heroes")
@@ -46,7 +46,7 @@ import MyUnitIds
     ..setArmorType(ArmorType.Unarmored)
     ..setPathingMap("")
     ..setPlacementRequires("")
-    .setUnitsTrained(commaList(HERO_PRIESTESS_OF_THE_MOON, HERO_ASSASSIN, HERO_THIEF, HERO_DEMON_HUNTER, HERO_SHADOW_OF_VENGEANCE, HERO_WARDEN, HERO_BLADEMASTER, HERO_SATYR, HERO_DARK_RANGER, HERO_ILLUSIONIST))
+    .setUnitsSold(commaList(HERO_PRIESTESS_OF_THE_MOON, HERO_ASSASSIN, HERO_THIEF, HERO_DEMON_HUNTER, HERO_SHADOW_OF_VENGEANCE, HERO_WARDEN, HERO_BLADEMASTER, HERO_SATYR, HERO_DARK_RANGER, HERO_ILLUSIONIST))
 
     new BuildingDefinition(BUILDING_TAVERN_INT, UnitIds.cantina)// Tavern Build Intelligent Heroes (n00B)
     ..setName("Intelligent Heroes")
@@ -59,7 +59,7 @@ import MyUnitIds
     ..setArmorType(ArmorType.Unarmored)
     ..setPathingMap("")
     ..setPlacementRequires("")
-    .setUnitsTrained(commaList(HERO_KING_OF_LOAS, HERO_FIRELORD, HERO_KEEPER_OF_THE_GROVE, HERO_FIRE_MAGE, HERO_HERALD_OF_LIGHTNING, HERO_SHADOW_HUNTER, HERO_LICH, HERO_NAGA_SEA_WITCH, HERO_TINKER, HERO_GUARDIAN_OF_LIGHT, HERO_ARCHMAGE, HERO_TIME_WIZARD))
+    .setUnitsSold(commaList(HERO_KING_OF_LOAS, HERO_FIRELORD, HERO_KEEPER_OF_THE_GROVE, HERO_FIRE_MAGE, HERO_HERALD_OF_LIGHTNING, HERO_SHADOW_HUNTER, HERO_LICH, HERO_NAGA_SEA_WITCH, HERO_TINKER, HERO_GUARDIAN_OF_LIGHT, HERO_ARCHMAGE, HERO_TIME_WIZARD))
 
     new BuildingDefinition(BUILDING_TAVERN_SUPPORT, UnitIds.cantina)
     ..setName("Support Heroes")
@@ -73,7 +73,7 @@ import MyUnitIds
     ..setPathingMap("")
     ..setStockStartDelay(0)
     ..setPlacementRequires("")
-    .setUnitsTrained(commaList(HERO_FIRELORD,HERO_KEEPER_OF_THE_GROVE,HERO_SHADOW_HUNTER,HERO_GUARDIAN_OF_LIGHT,HERO_TIME_WIZARD))
+    .setUnitsSold(commaList(HERO_FIRELORD,HERO_KEEPER_OF_THE_GROVE,HERO_SHADOW_HUNTER,HERO_GUARDIAN_OF_LIGHT,HERO_TIME_WIZARD))
 
     new BuildingDefinition(BUILDING_TAVERN_MAGICAL_DPS, UnitIds.cantina)
     ..setName("Magical DPS Heroes")
@@ -87,7 +87,7 @@ import MyUnitIds
     ..setPathingMap("")
     ..setStockStartDelay(0)
     ..setPlacementRequires("")
-    .setUnitsTrained(commaList(HERO_SHADOW_OF_VENGEANCE,HERO_DARK_RANGER,HERO_RANGER,HERO_HERALD_OF_LIGHTNING,HERO_LICH,HERO_NAGA_SEA_WITCH,HERO_ARCHMAGE,HERO_TRACKER,HERO_PANDAREN_MONK))
+    .setUnitsSold(commaList(HERO_SHADOW_OF_VENGEANCE,HERO_DARK_RANGER,HERO_RANGER,HERO_HERALD_OF_LIGHTNING,HERO_LICH,HERO_NAGA_SEA_WITCH,HERO_ARCHMAGE,HERO_TRACKER,HERO_PANDAREN_MONK))
 
     new BuildingDefinition(BUILDING_TAVERN_PHYSICAL_DPS, UnitIds.cantina)
     ..setName("Physical DPS Heroes")
@@ -101,7 +101,7 @@ import MyUnitIds
     ..setPathingMap("")
     ..setStockStartDelay(0)
     ..setPlacementRequires("")
-    .setUnitsTrained(commaList(HERO_PRIESTESS_OF_THE_MOON, HERO_ASSASSIN,HERO_DEMON_HUNTER,HERO_WARDEN,HERO_SATYR,HERO_ILLUSIONIST,HERO_ARTHAS,HERO_BLADEMASTER))
+    .setUnitsSold(commaList(HERO_PRIESTESS_OF_THE_MOON, HERO_ASSASSIN,HERO_DEMON_HUNTER,HERO_WARDEN,HERO_SATYR,HERO_ILLUSIONIST,HERO_ARTHAS,HERO_BLADEMASTER))
 
     new BuildingDefinition(BUILDING_TAVERN_CRAFTER, UnitIds.cantina)
     ..setName("Crafter Heroes")
@@ -115,7 +115,7 @@ import MyUnitIds
     ..setPathingMap("")
     ..setStockStartDelay(0)
     ..setPlacementRequires("")
-    .setUnitsTrained(commaList(HERO_JACKSMITH))
+    .setUnitsSold(commaList(HERO_JACKSMITH))
 
     new BuildingDefinition(BUILDING_TAVERN_GATHERER, UnitIds.cantina)
     ..setName("Gatherer Heroes")
@@ -129,7 +129,7 @@ import MyUnitIds
     ..setPathingMap("")
     ..setStockStartDelay(0)
     ..setPlacementRequires("")
-    .setUnitsTrained(commaList(HERO_THIEF))
+    .setUnitsSold(commaList(HERO_THIEF))
 
     new BuildingDefinition(BUILDING_TAVERN_BUILDER, UnitIds.cantina)
     ..setName("Builder Heroes")
@@ -143,7 +143,7 @@ import MyUnitIds
     ..setPathingMap("")
     ..setStockStartDelay(0)
     ..setPlacementRequires("")
-    .setUnitsTrained(commaList(HERO_TINKER))
+    .setUnitsSold(commaList(HERO_TINKER))
 
     new BuildingDefinition(BUILDING_TAVERN_DEFENDER, UnitIds.cantina)
     ..setName("Defender Heroes")
@@ -157,7 +157,7 @@ import MyUnitIds
     ..setPathingMap("")
     ..setStockStartDelay(0)
     ..setPlacementRequires("")
-    .setUnitsTrained(commaList(HERO_MOUNTAIN_KING,HERO_TAUREN_CHIEFTAIN,HERO_VIVPIRE,HERO_DEATH_KNIGHT,HERO_BEASTMASTER,HERO_PITLORD,HERO_UTHER,HERO_FIRE_MAGE))
+    .setUnitsSold(commaList(HERO_MOUNTAIN_KING,HERO_TAUREN_CHIEFTAIN,HERO_VIVPIRE,HERO_DEATH_KNIGHT,HERO_BEASTMASTER,HERO_PITLORD,HERO_UTHER,HERO_FIRE_MAGE))
 
     new BuildingDefinition(BUILDING_TAVERN_ASCENSION, UnitIds.cantina)
     ..setName("Ascension Heroes")
@@ -171,4 +171,4 @@ import MyUnitIds
     ..setPathingMap("")
     ..setStockStartDelay(0)
     ..setPlacementRequires("")
-    .setUnitsTrained(commaList(HERO_KING_OF_LOAS, HERO_WOLFMAN_INITIAL))
+    .setUnitsSold(commaList(HERO_KING_OF_LOAS, HERO_WOLFMAN_INITIAL))

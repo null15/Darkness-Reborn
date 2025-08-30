@@ -2,6 +2,8 @@ package Global_Variables
 
 import DamageEvent
 import HashMap
+import MyUnitIds
+import MyUpgradesIds
 
 public rect array creepLoc = []
 public rect array eliteLoc = []
@@ -55,3 +57,40 @@ init
     bossLoc[2] = gg_rct_ElementalSpawn
     bossLoc[3] = gg_rct_TowerSpawn
     bossLoc[4] = gg_rct_DreadlordSpawn
+
+
+    heroPickedUpgradeHash.put(HERO_MOUNTAIN_KING, HERO_MOUNTAIN_KING_PICKED)
+    heroPickedUpgradeHash.put(HERO_WOLFMAN_INITIAL, HERO_WOLFMAN_INITIAL_PICKED)
+    heroPickedUpgradeHash.put(HERO_TAUREN_CHIEFTAIN, HERO_TAUREN_CHIEFTAIN_PICKED)
+    heroPickedUpgradeHash.put(HERO_VIVPIRE, HERO_VIVPIRE_PICKED)
+    heroPickedUpgradeHash.put(HERO_DEATH_KNIGHT, HERO_DEATH_KNIGHT_PICKED)
+    heroPickedUpgradeHash.put(HERO_BEASTMASTER, HERO_BEASTMASTER_PICKED)
+    heroPickedUpgradeHash.put(HERO_PITLORD, HERO_PITLORD_PICKED)
+    heroPickedUpgradeHash.put(HERO_JACKSMITH, HERO_JACKSMITH_PICKED)
+    heroPickedUpgradeHash.put(HERO_UTHER, HERO_UTHER_PICKED)
+    heroPickedUpgradeHash.put(HERO_PRIESTESS_OF_THE_MOON, HERO_PRIESTESS_OF_THE_MOON_PICKED)
+    heroPickedUpgradeHash.put(HERO_ASSASSIN, HERO_ASSASSIN_PICKED)
+    heroPickedUpgradeHash.put(HERO_DEMON_HUNTER, HERO_DEMON_HUNTER_PICKED)
+    heroPickedUpgradeHash.put(HERO_SHADOW_OF_VENGEANCE, HERO_SHADOW_OF_VENGEANCE_PICKED)
+    heroPickedUpgradeHash.put(HERO_WARDEN, HERO_WARDEN_PICKED)
+    heroPickedUpgradeHash.put(HERO_BLADEMASTER, HERO_BLADEMASTER_PICKED)
+    heroPickedUpgradeHash.put(HERO_SATYR, HERO_SATYR_PICKED)
+    heroPickedUpgradeHash.put(HERO_DARK_RANGER, HERO_DARK_RANGER_PICKED)
+    heroPickedUpgradeHash.put(HERO_ILLUSIONIST, HERO_ILLUSIONIST_PICKED)
+    heroPickedUpgradeHash.put(HERO_RANGER, HERO_RANGER_PICKED)
+    heroPickedUpgradeHash.put(HERO_FIRELORD, HERO_FIRELORD_PICKED)
+    heroPickedUpgradeHash.put(HERO_KEEPER_OF_THE_GROVE, HERO_KEEPER_OF_THE_GROVE_PICKED)
+    heroPickedUpgradeHash.put(HERO_FIRE_MAGE, HERO_FIRE_MAGE_PICKED)
+    heroPickedUpgradeHash.put(HERO_HERALD_OF_LIGHTNING, HERO_HERALD_OF_LIGHTNING_PICKED)
+    heroPickedUpgradeHash.put(HERO_SHADOW_HUNTER, HERO_SHADOW_HUNTER_PICKED)
+    heroPickedUpgradeHash.put(HERO_LICH, HERO_LICH_PICKED)
+    heroPickedUpgradeHash.put(HERO_NAGA_SEA_WITCH, HERO_NAGA_SEA_WITCH_PICKED)
+    heroPickedUpgradeHash.put(HERO_TINKER, HERO_TINKER_PICKED)
+    heroPickedUpgradeHash.put(HERO_GUARDIAN_OF_LIGHT, HERO_GUARDIAN_OF_LIGHT_PICKED)
+    heroPickedUpgradeHash.put(HERO_ARCHMAGE, HERO_ARCHMAGE_PICKED)
+    heroPickedUpgradeHash.put(HERO_TIME_WIZARD, HERO_TIME_WIZARD_PICKED)
+    heroPickedUpgradeHash.put(HERO_TRACKER, HERO_TRACKER_PICKED)
+    heroPickedUpgradeHash.put(HERO_THIEF, HERO_THIEF_PICKED)
+    heroPickedUpgradeHash.put(HERO_PANDAREN_MONK, HERO_PANDAREN_MONK_PICKED)
+    heroPickedUpgradeHash.put(HERO_KING_OF_LOAS, HERO_KING_OF_LOAS_PICKED)
+    heroPickedUpgradeHash.put(HERO_ARTHAS, HERO_ARTHAS_PICKED)

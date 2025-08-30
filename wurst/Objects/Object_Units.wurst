@@ -11,6 +11,9 @@ import AbilityObjEditing
 import Soundsets
 import UpgradeObjEditing
 import MyUpgradesIds
+import LinkedList
+
+let heroPickedUpgrades = compiletime(new LinkedList<int>)
 
 init
     
@@ -320,6 +323,7 @@ init
 function int.heroPickedBlocker()
     new UpgradeDefinition(this, 1)
     ..setName(1, "Picked")
+    heroPickedUpgrades.add(this)
 
 @compiletime function playableHeroes()
 
