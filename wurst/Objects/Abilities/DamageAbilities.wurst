@@ -209,3 +209,17 @@ public function addChainLighting(real chance, real damage, real damageReductionP
     end)
 
 // ----------------------------------------------------------------------------
+
+public function addChainLightingActive(real damage, real damageReductionPerTarget, int maxTargets, real range, int manaCost, real cd) returns ItemStats
+
+    let effects = wordLightningActive.format(damage.toString(),
+    maxTargets.toString(), range.toString(), damageReductionPerTarget.toString())
+
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionFarseerChainLightning(abilityId)
+        ..setDamageperTarget(1, damage)
+        ..setNumberofTargetsHit(1, maxTargets)
+        ..setDamageReductionperTarget(1, damageReductionPerTarget)
+        ..setAreaofEffect(1, range)
+
+// ----------------------------------------------------------------------------
