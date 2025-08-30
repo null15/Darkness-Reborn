@@ -36,7 +36,7 @@ init
     ..setClassification("PowerUp")
     ..setGoldCost(1250)
     ..addStats(addDamage(15))
-    ..addStats(addMpOnHit(0.01))
+    ..addStats(addMpOnHit(0.05))
     ..addHotKey()
     ..register()
 
@@ -112,7 +112,7 @@ init
     new MyItemDefinition(ITEM_ORB_OF_LIGHTNING)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNOrbOfLightning.blp")
     ..setClassification("PowerUp")
-    ..setGoldCost(3200)
+    ..setGoldCost(1400)
     ..addStats(addDamage(15))
     ..addStats(addChainLighting(0.2, 500, 0.2, 2))
     ..addHotKey()

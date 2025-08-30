@@ -20,8 +20,8 @@ class AbilityBase extends AbilityDefinition
         this.cdGroup = newId
 
         setLevels(1)
-        setDurationHero(1, 0)
-        setDurationNormal(1, 0)
+        setDurationHero(1, 0.01)
+        setDurationNormal(1, 0.01)
         setManaCost(1, manaCost)
         setCooldown(1, cd)
 
@@ -39,13 +39,17 @@ public class TargetAbility extends AbilityBase
     int castRange
 
     construct(string effects, int manaCost, real cd, UnitTargetCastFunc handler)
-        super(AbilityIds.frostBolt, effects, manaCost, cd)
-        setDamage(1, 0)
+        super(AbilityIds.frostNova, effects, manaCost, cd)
+        setDamage(1, 0.01)
         setCastRange(1, 900)
         setBuffs(1, "")
+        // setAreaofEffectDamage
+        def.setLvlDataUnreal("Ufn1", 1, 1, 0)
+        // setSpecificTargetDamage
+        def.setLvlDataUnreal("Ufn2", 1, 2, 0)
 
         this.castRange = 900
-
+        
         itemsTargetAbilitiesList.add(new ItemTargetAbility(newId, handler))
 
     function setDamage(int level, real value)

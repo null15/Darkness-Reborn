@@ -4,9 +4,6 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import RecipeItems
-import ClosureEvents
-import codeDamageTypings
-import ObjectIdGenerator
 
 init
 
@@ -122,7 +119,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC2.blp")
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityDealMagicDamageInt2(5000, 25, 6000, 10))
+    ..addStats(addAbilityDealMagicDamageInt2(5000, 50, 6000, 10))
     ..addStats(addInt(280))
     ..addStats(addHp(6000))
     ..addStats(addMp(6000))

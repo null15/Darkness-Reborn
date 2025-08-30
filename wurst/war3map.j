@@ -76,10 +76,10 @@ globals
     rect                    gg_rct_BlockTinkerBuildings = null
     rect                    gg_rct_CleanItemsArea2     = null
     rect                    gg_rct_CleanItemsArea3     = null
+    rect                    gg_rct_DebugBlacksmith     = null
     camerasetup             gg_cam_CameraHeroPick      = null
     camerasetup             gg_cam_CameraHeroPicked    = null
     trigger                 gg_trg_GameSpeed           = null
-    rect                    gg_rct_DebugBlacksmith     = null
 endglobals
 
 function InitGlobals takes nothing returns nothing

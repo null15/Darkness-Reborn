@@ -16,7 +16,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Red2.blp")
     ..setActivelyUsed(true)
     
-    ..addStats(addAbilityArmorDamageHpRegBuff(0.2, 9999, 300, 8, 5000, 15))
+    ..addStats(addAbilityArmorDamageHpRegBuff(0.2, 9999, 300, 8, 4000, 15))
 
     ..addStats(addAllStats(300))
 
@@ -45,7 +45,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Yellow2.blp")
     ..setActivelyUsed(true)
 
-    ..addStats(addAbilityHolyLight(30, 20000, 1, 8000, 10))
+    ..addStats(addAbilityHolyLight(30, 20000, 1, 4000, 10))
 
     ..addStats(addAllStats(900))
 
@@ -73,7 +73,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Organe2.blp")
     ..setActivelyUsed(true)
 
-    ..addStats(addAbilitySummonInfernoUnit(15000, 600, UNIT_SUMMON_INFERNAL, "Summon infernal", 120, 5000, 140))
+    ..addStats(addAbilitySummonInfernoUnit(15000, 600, UNIT_SUMMON_INFERNAL, "Summon infernal", 120, 4000, 140))
 
     ..addStats(addAllStats(300))
 
@@ -141,7 +141,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Blue2.blp")
     ..setActivelyUsed(true)
 
-    ..addStats(addAbilityIllusions(2, 0.7, 1.5, 3000, 60, 60))
+    ..addStats(addAbilityIllusions(2, 0.7, 1.5, 4000, 60, 60))
 
     ..addStats(addAllStats(300))
 
@@ -175,7 +175,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple2.blp")
     ..setActivelyUsed(true)
 
-    ..addStats(addAbilityLightingBoltStun(5000, 15, 10, 8000, 30))
+    ..addStats(addAbilityLightingBoltStun(5000, 15, 10, 4000, 30))
 
     ..addStats(addAllStats(300))
 

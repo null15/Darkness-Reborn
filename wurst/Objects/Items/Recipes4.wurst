@@ -88,7 +88,7 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNbow.blp")
     ..setClassification("Permanent")
-    ..addStats(addAllStats(100))
+    ..addStats(addAllStats(120))
     ..addStats(addDamage(300))
     ..addStats(addAttackSpeed(2))
     ..addStats(addChainLighting(0.4, 5000, 0.1, 5))
@@ -102,14 +102,14 @@ init
 //I07Q
     new MyItemWithRecipeDefinition(ITEM_SOUL_OF_KILJEADEN, itemRecipeList, ITEM_RECIPE_SOUL_OF_KILJEADEN,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setGoldCost(5000)
+    ..setGoldCost(3000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSoulGem.blp")
     ..setClassification("Permanent")
     ..addStats(addDamage(200))
     ..addStats(addMp(3000))
     ..addStats(addMpReg(1.5))
-    ..addStats(addMpOnHit(0.03))
+    ..addStats(addMpOnHit(0.1))
     ..addComponents(
     ITEM_MEDALLION_OF_COURAGE,
     ITEM_PENDANT_OF_MANA,
@@ -192,7 +192,7 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC1.blp")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityDealMagicDamageInt(10, 1500, 20))
+    ..addStats(addAbilityDealMagicDamageInt(10, 1500, 30))
     ..addStats(addInt(180))
     ..addStats(addHp(3200))
     ..addStats(addMp(3200))
@@ -206,11 +206,11 @@ init
 //I0JK
     new MyItemWithRecipeDefinition(ITEM_WAR_ENERGY, itemRecipeList, ITEM_RECIPE_WAR_ENERGY,
     (MyItemDefinitionBase itemRecipe) -> itemRecipe
-    ..setGoldCost(7600)
+    ..setGoldCost(6000)
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAnimalWarTraining.blp")
     ..setClassification("Permanent")
-    ..addStats(addMpOnHit(0.08))
+    ..addStats(addMpOnHit(0.15))
     ..addStats(addHp(12000))
     ..addStats(addMp(12000))
     ..addStats(addMpReg(3))
