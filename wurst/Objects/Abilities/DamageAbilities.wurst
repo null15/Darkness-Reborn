@@ -143,7 +143,7 @@ public function addAbilityReturnDamageStats(real factor, real chance, statsType 
 // ----------------------------------------------------------------------------
 
 public function addAbilityDealDamageStats(real factor, real chance, statsType statsType, damageType damageType) returns ItemStats
-    let effects = wordReturnDamageStats.format((100*chance).toString(0), factor.toString(1), statsType.toString(), damageType.toString())
+    let effects = wordDealDamageStats.format((100*chance).toString(0), factor.toString(1), statsType.toString(), damageType.toString())
     
     return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
         abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
