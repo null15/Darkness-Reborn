@@ -121,6 +121,7 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAdept 002.blp")
     ..setClassification("Artifact")
+    ..setActivelyUsed(true)
     ..addStats(addAbilityBlink(32000, 2000, 5))
     ..addStats(addMovementSpeed(500))
     ..addStats(addAllStats(600))
