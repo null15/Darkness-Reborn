@@ -11,6 +11,7 @@ import ItemObjEditing
 import AbilitiesList
 import StatsType
 import DamageEvent
+import DebugVar
 
 // ----------------------------------------------------------------------------
 
