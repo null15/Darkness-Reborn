@@ -18,7 +18,7 @@ init
     ..setClassification("Artifact")
     ..addStats(addDamage(400))
     ..addStats("[WIP] 30% Chance to Freeze Target for 0.1s + deal 1000 Damage\n")
-    ..addStats(addCrit(5, 0.28))
+    ..addStats(addCrit(5, 28))
     ..addComponents(
     ITEM_FIRE_SWORD,
     ITEM_ICE_SWORD,
@@ -52,7 +52,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSword.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(700))
-    ..addStats(addCrit(8.6, 0.25))
+    ..addStats(addCrit(8.6, 25))
     ..addComponents(
     ITEM_FIRE_SWORD,
     ITEM_KRAKEN_DAGGER,
@@ -69,7 +69,7 @@ init
     ..setClassification("Artifact")
     ..addStats(addDamage(500))
     ..addStats(addStr(120))
-    ..addStats(addBash(0.25, 1000, 0.5, 5))
+    ..addStats(addBash(25, 1000, 0.5, 5))
     ..addComponents(
     ITEM_SILVER_HAMMER,
     ITEM_KRAKEN_DAGGER,

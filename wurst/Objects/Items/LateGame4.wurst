@@ -45,7 +45,7 @@ init
     ..addStats(addDamage(1500))
     ..addStats(addAgi(690))
     ..addStats(addArmorPen(5))
-    ..addStats(addCrit(60, 0.04))
+    ..addStats(addCrit(60, 4))
     ..addHotKey()
     ..register()
 

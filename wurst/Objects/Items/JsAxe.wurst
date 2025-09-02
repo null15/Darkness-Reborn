@@ -161,7 +161,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNGromHellscreamsAxe.blp")    
     ..setClassification("Campaign")
     ..addStats(addDamage(2000))
-    ..addStats(addCrit(3, 1))
+    ..addStats(addCrit(3, 100))
     ..addComponents(
     ITEM_EXOTIC_AXE_L6,
     ITEM_GOLD_AXE)
@@ -172,7 +172,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNragingstrike.blp")    
     ..setClassification("Purchasable")
     ..addStats(addDamage(1500))
-    ..addStats(addCrit(2, 1))
+    ..addStats(addCrit(2, 100))
     ..addComponents(
     ITEM_CRITICAL_AXE,
     ITEM_GOLD_AXE)
