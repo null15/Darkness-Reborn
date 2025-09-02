@@ -136,6 +136,10 @@ public function addAbilityReturnDamageStats(real factor, real chance, statsType 
                 case statsType.All
                     stats += target.getStr(true) + target.getAgi(true) + target.getInt(true)
             let damage = stats * factor
+
+            if DEBUG
+                printTimedToPlayer("Return damage {0}, factor {1}, stats {2}".format(damage.toString(), factor.toString(), stats.toString()), 3, target.getOwner())
+
             target.damageTargetCode(damage, src, null, -1, damageType)
         end))
     end)
@@ -149,18 +153,22 @@ public function addAbilityDealDamageStats(real factor, real chance, statsType st
         abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
             if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
                 skip
-
+            
             real stats = 0
             switch (statsType)
                 case statsType.Str
-                    stats += target.getStr(true)
+                    stats += src.getStr(true)
                 case statsType.Agi
-                    stats += target.getAgi(true)
+                    stats += src.getAgi(true)
                 case statsType.Int
-                    stats += target.getInt(true)
+                    stats += src.getInt(true)
                 case statsType.All
-                    stats += target.getStr(true) + target.getAgi(true) + target.getInt(true)
+                    stats += src.getStr(true) + src.getAgi(true) + src.getInt(true)
             let damage = stats * factor
+            
+            if DEBUG
+                printTimedToPlayer("Target damaged {0}, factor {1}, stats {2}".format(damage.toString(), factor.toString(), stats.toString()), 3, src.getOwner())
+
             src.damageTargetCode(damage, target, null, -1, damageType)
         end))
     end)
