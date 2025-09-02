@@ -2756,7 +2756,7 @@ function int.heroPickedBlocker()
 + "|c0066FF66Healing|r: 0/5\n"
 + "Difficulty: 3/5\n")
     ..setManaRegeneration(0.01)
-    ..setUpgradesUsed("R001")
+    ..setUpgradesUsed(commaList(HERO_RANGER_LONG_RANGE))
 
     new HeroDefinition(HERO_FIRELORD, UnitIds.firelord)// Firelord (N005)
     ..hideHeroDeathMsg(true)

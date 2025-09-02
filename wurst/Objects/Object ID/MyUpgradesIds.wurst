@@ -56,3 +56,5 @@ public constant HERO_THIEF_PICKED = compiletime(UPGD_ID_GEN.next())
 public constant HERO_PANDAREN_MONK_PICKED = compiletime(UPGD_ID_GEN.next())
 public constant HERO_KING_OF_LOAS_PICKED = compiletime(UPGD_ID_GEN.next())
 public constant HERO_ARTHAS_PICKED = compiletime(UPGD_ID_GEN.next())
+
+public constant HERO_RANGER_LONG_RANGE = compiletime(UPGD_ID_GEN.next())

@@ -352,3 +352,8 @@ import Icons
     ..setTooltipExtended(1, "The Attack Speed for Goblin Blaster increases by 5%")
     ..setButtonPositionX(2)
     ..setButtonPositionY(1)
+
+    new UpgradeDefinition(HERO_RANGER_LONG_RANGE, 9)
+    ..addEffectAttackSpeedBonus(0.3, 0.3)
+    ..addEffectAttackRangeBonus(75, 75)
+    ..setClass(UpgradeClass.Ranged)

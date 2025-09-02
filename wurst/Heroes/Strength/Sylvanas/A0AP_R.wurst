@@ -1,5 +1,6 @@
 package A0AP_R
 import ClosureEvents
+import MyUpgradesIds
 
 public function longRange()
     EventListener.add(EVENT_PLAYER_HERO_SKILL) ->
@@ -8,4 +9,4 @@ public function longRange()
             let u = GetTriggerUnit()
             let lvl = u.getAbilityLevel(abi)
             let p = u.getOwner()
-            SetPlayerTechResearched(p, 'R001', lvl)
+            SetPlayerTechResearched(p, HERO_RANGER_LONG_RANGE, lvl)

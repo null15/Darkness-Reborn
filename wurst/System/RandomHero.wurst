@@ -51,13 +51,19 @@ init
 
 function randomHero()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) ->
-        if EventData.getChatMessage().substring(0, 7).toLowerCase() == "-random"
+        if not randomRepick
+            skip
+        else if EventData.getChatMessage().substring(0, 7).toLowerCase() == "-random"
             let trigP = EventData.getTriggerPlayer()
             let playHero = playerHero.get(trigP)
             if playHero.getTypeId() == HERO_PICKER
+                var uid = playableHeroes.getRandomElement()
+                while true
+                    if heroPickedUpgradeHash.get(uid).active
+                        uid = playableHeroes.getRandomElement()
+                    else
+                        break
                 playHero.remove()
-                let uid = playableHeroes.getRandomElement()
-                playableHeroes.remove(uid)
                 let randomedHero = createUnit(trigP, uid, gg_rct_Base.getCenter())
                 playerHero.put(trigP, randomedHero)
                 randomedHero..heroCheck().setPlayersResearch(false)

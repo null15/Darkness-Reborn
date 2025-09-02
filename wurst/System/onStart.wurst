@@ -67,8 +67,11 @@ public function questSetup()
 
 public function unit.setPlayersResearch(boolean active)
     let toSet = active ? 1 : 0
+    let uid = this.getTypeId()
+    heroPickedUpgradeHash.get(uid).active = active
     for i = 0 to 9
-        SetPlayerTechResearched(players[i], heroPickedUpgradeHash.get(this.getTypeId()), toSet)
+        SetPlayerTechResearched(players[i], heroPickedUpgradeHash.get(uid).upgradeID, toSet)
+        
 
 public function createWisp(player p)
     playerHero.put(p, createUnit(p, HERO_PICKER, gg_rct_HeroPicker.getCenter()))
@@ -212,6 +215,10 @@ function createSetup()
     elementalSoul.onDefeat()
 
     teleportToMobs(easyGrounds, intermediateGrounds, eliteGrounds, endGamebosses)
+
+    doAfter(30) -> 
+        print("No more repicking or randoming can be done")
+        randomRepick = false
 
     initDebug()
 
