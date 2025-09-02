@@ -147,7 +147,7 @@ init
     ..addStats(addStr(100))
     ..addStats(addHp(3000))
     ..addComponents(
-    ITEM_HELM_HERMES,
+    ITEM_HELM_OF_VALOR,
     ITEM_SPLIT_ARMOR)
     ..addHotKey()
     ..register()

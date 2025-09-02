@@ -30,7 +30,7 @@ init
     ..setStockReplenishInterval(45)
     ..addStats(addStr(1200))
     ..addStats(addArmor(300))
-    ..addStats(addAbilityReturnDamageStats(2, 0.5, statsType.Str, damageType.PHYSICALRANGED))
+    ..addStats(addAbilityReturnDamageStats(8, 0.5, statsType.Str, damageType.PHYSICALRANGED))
     ..addHotKey()
     ..register()
 
@@ -45,7 +45,7 @@ init
     ..addStats(addDamage(1500))
     ..addStats(addAgi(690))
     ..addStats(addArmorPen(5))
-    ..addStats(addCrit(60, 0.04))
+    ..addStats(addCrit(60, 4))
     ..addHotKey()
     ..register()
 

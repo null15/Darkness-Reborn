@@ -20,12 +20,26 @@ public class ItemTargetEventAbility
         this.abilityId = abilityId
 
 public class ItemTargetWurstAbility
-    TargetAbilityFunc handler
+    protected TargetAbilityFunc handler
     int itemId
 
     construct(int itemId, TargetAbilityFunc handler)
         this.handler = handler
         this.itemId = itemId
+
+    function runHandler(unit src, unit target)
+        handler.run(src, target)
+
+public class ItemTargetWurstChanceAbility extends ItemTargetWurstAbility
+    real chance
+
+    construct(int itemId, real chance, TargetAbilityFunc handler)
+        super(itemId, handler)
+        this.chance = chance
+        
+    override function runHandler(unit src, unit target)
+        if (GetRandomInt(1, 1000) <= (chance * 1000).toInt())
+            handler.run(src, target)
 
 // ----------------------------------------------------------------------------
 

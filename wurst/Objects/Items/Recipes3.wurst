@@ -102,7 +102,7 @@ init
     ..addStats(addDamage(220))
     ..addStats(addAttackSpeed(1))
     ..addStats(addAllStats(12))
-    ..addStats(addCrit(0.18, 3))
+    ..addStats(addCrit(3, 18))
     ..addComponents(
     ITEM_FIRE_SWORD,
     ITEM_GLOVES_OF_SPEED,
