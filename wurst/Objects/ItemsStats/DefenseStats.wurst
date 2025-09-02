@@ -69,7 +69,7 @@ public function addArmor(int value) returns ItemStats
 
 public function addDamageBlock(real chance, real ignoreValue) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
-    let effects = wordDamageBlock.format(chance.toString(1), ignoreValue.toString(0))
+    let effects = wordDamageBlock.format((100*chance).toString(1), ignoreValue.toString(0))
 
     new AbilityDefinitionHardenedSkin(abilityId)
     ..setLevels(1)

@@ -38,7 +38,7 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_GOD_SWORD, blacksmithJackedList, -1)    
     ..setClassification("Artifact")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif17.blp")
-    ..addStats(addCrit(12, 0.2))
+    ..addStats(addCrit(12, 20))
     ..addComponents(
     ITEM_KNIFE_OF_HUNTER,
     ITEM_STEEL_SWORD,
@@ -74,7 +74,7 @@ init
     ..setClassification("Artifact")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif00x.blp")
     ..addStats(addEvasion(0.5))
-    ..addStats(addCrit(10, 0.5))
+    ..addStats(addCrit(10, 50))
     ..addComponents(
     ITEM_CAPE_OF_CURSED,
     ITEM_FUSION_HIDE_DRAPE,
@@ -233,7 +233,7 @@ init
     ..addStats(addAllStats(333))
     ..addStats(addAttackSpeed(2.2))
     ..addStats(addArmorPen(15))
-    ..addStats(addCrit(20, 0.2))
+    ..addStats(addCrit(20, 20))
     ..addComponents(
     ITEM_SLASH_SWORD_L5,
     ITEM_GOD_SWORD,

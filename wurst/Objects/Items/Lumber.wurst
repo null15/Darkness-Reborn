@@ -21,15 +21,15 @@ init
     ..setStockStartDelay(1200)
     ..register()
 
-    new BuyLumberDefinition(ITEM_GOLD_TO_LUMBER_9, 9, 9000)
+    new BuyLumberDefinition(ITEM_GOLD_TO_LUMBER_9, 10, 9000)
     ..setStockStartDelay(1200)
     ..register()
 
-    new BuyLumberDefinition(ITEM_GOLD_TO_LUMBER_90, 90, 90000)
+    new BuyLumberDefinition(ITEM_GOLD_TO_LUMBER_90, 100, 90000)
     ..setStockStartDelay(1200)
     ..register()
 
-    new BuyLumberDefinition(ITEM_GOLD_TO_LUMBER_900, 900, 900000)
+    new BuyLumberDefinition(ITEM_GOLD_TO_LUMBER_900, 1000, 900000)
     ..setStockStartDelay(1200)
     ..register()
 

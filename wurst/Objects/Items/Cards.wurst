@@ -55,7 +55,7 @@ function wardenCardAbility(real damage, real range, damageType damageType, int m
     ..setClassification("Artifact")
     ..addStats(addArmor(100))
     ..addStats(addDamage(700))
-    ..addStats(addCrit(2, 1))
+    ..addStats(addCrit(2, 100))
     ..register()
 
 //I0CS
@@ -74,7 +74,7 @@ function wardenCardAbility(real damage, real range, damageType damageType, int m
     ..setClassification("Artifact")
     ..addStats(addArmor(100))
     ..addStats(addDamage(700))
-    ..addStats(addBash(0.25, 900, 1, 3))
+    ..addStats(addBash(25, 900, 1, 3))
     ..register()
 
 //I0CT

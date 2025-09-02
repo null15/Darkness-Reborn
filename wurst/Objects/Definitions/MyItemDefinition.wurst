@@ -357,6 +357,7 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
         ..setHotkey(getHotKey(recipeItemId))
         ..setStockReplenishInterval(1)
         ..setStockStartDelay(1)
+        ..setCanBeSoldToMerchants(true)
         applyChestColors(recipeItemDef)
 
         initRecipe.call(recipeItemDef)

@@ -11,6 +11,8 @@ import ItemObjEditing
 import AbilitiesList
 import StatsType
 import DamageEvent
+import DebugVar
+import ObjectIds
 
 // ----------------------------------------------------------------------------
 
@@ -70,6 +72,7 @@ public function addAbilityPhoenixFire(real damage, real attackCd, real range) re
         ..setCooldown(1, attackCd)
         ..setCastRange(1, range)
         ..setMissileArt(Abilities.avengerMissile)
+        ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral, TargetsAllowed.structure))
 
 // ----------------------------------------------------------------------------
 
@@ -121,10 +124,7 @@ public function addAbilityReturnDamageStats(real factor, real chance, statsType 
     let effects = wordReturnDamageStats.format((100*chance).toString(0), factor.toString(1), statsType.toString(), damageType.toString())
     
     return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
-        abilitiesListReflections.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
-            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
-                skip
-
+        abilitiesListReflections.add(new ItemTargetWurstChanceAbility(itemId, chance, (unit src, unit target) -> begin
             real stats = 0
             switch (statsType)
                 case statsType.Str
@@ -136,6 +136,7 @@ public function addAbilityReturnDamageStats(real factor, real chance, statsType 
                 case statsType.All
                     stats += target.getStr(true) + target.getAgi(true) + target.getInt(true)
             let damage = stats * factor
+
             target.damageTargetCode(damage, src, null, -1, damageType)
         end))
     end)
@@ -143,24 +144,22 @@ public function addAbilityReturnDamageStats(real factor, real chance, statsType 
 // ----------------------------------------------------------------------------
 
 public function addAbilityDealDamageStats(real factor, real chance, statsType statsType, damageType damageType) returns ItemStats
-    let effects = wordReturnDamageStats.format((100*chance).toString(0), factor.toString(1), statsType.toString(), damageType.toString())
+    let effects = wordDealDamageStats.format((100*chance).toString(0), factor.toString(1), statsType.toString(), damageType.toString())
     
     return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
-        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
-            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
-                skip
-
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstChanceAbility(itemId, chance, (unit src, unit target) -> begin
             real stats = 0
             switch (statsType)
                 case statsType.Str
-                    stats += target.getStr(true)
+                    stats += src.getStr(true)
                 case statsType.Agi
-                    stats += target.getAgi(true)
+                    stats += src.getAgi(true)
                 case statsType.Int
-                    stats += target.getInt(true)
+                    stats += src.getInt(true)
                 case statsType.All
-                    stats += target.getStr(true) + target.getAgi(true) + target.getInt(true)
+                    stats += src.getStr(true) + src.getAgi(true) + src.getInt(true)
             let damage = stats * factor
+            
             src.damageTargetCode(damage, target, null, -1, damageType)
         end))
     end)
@@ -171,10 +170,7 @@ public function addAbilityDrainHpRel(real factor, real chance) returns ItemStats
     let effects = wordAbilityDrainHpRel.format((100*chance).toString(0), (100*factor).toString(1))
     
     return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
-        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
-            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
-                skip
-
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstChanceAbility(itemId, chance, (unit src, unit target) -> begin
             let hpDrained = target.getHP() * factor
             target.subHP(hpDrained)
             src.addHP(hpDrained)
@@ -189,23 +185,33 @@ public function addChainLighting(real chance, real damage, real damageReductionP
     maxTargets.toString(), damageReductionPerTarget.toString()) + (onlyRanged ? wordOnlyRanged : "")
 
     return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
-        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
-            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
-                skip
-            if (onlyRanged and (not src.isRanged()))
-                skip
-
-            forMaxEnemiesInRange(src, src.getPos(), range, maxTargets, (unit u, int idx) -> begin
-                var damageDealt = damage
-                var i = 0
-                while (i < idx)
-                    damageDealt *= (1 - damageReductionPerTarget)
-                    i++
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstChanceAbility(itemId, chance, (unit src, unit target) -> begin
+            if ((not onlyRanged) or (onlyRanged and src.isRanged()))
+                forMaxEnemiesInRange(src, src.getPos(), range, maxTargets, (unit u, int idx) -> begin
+                    var damageDealt = damage
+                    var i = 0
+                    while (i < idx)
+                        damageDealt *= (1 - damageReductionPerTarget)
+                        i++
                     
-                src.damageTargetCode(damageDealt, u, null, -1, damageType.MAGICAL)
-                flashEffect(Abilities.forkedLightningTarget, u.getPos())
-            end)
+                    src.damageTargetCode(damageDealt, u, null, -1, damageType.MAGICAL)
+                    flashEffect(Abilities.forkedLightningTarget, u.getPos())
+                end)
         end))
     end)
+
+// ----------------------------------------------------------------------------
+
+public function addChainLightingActive(real damage, real damageReductionPerTarget, int maxTargets, real range, int manaCost, real cd) returns ItemStats
+
+    let effects = wordLightningActive.format(damage.toString(),
+    maxTargets.toString(), range.toString(), damageReductionPerTarget.toString())
+
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionFarseerChainLightning(abilityId)
+        ..setDamageperTarget(1, damage)
+        ..setNumberofTargetsHit(1, maxTargets)
+        ..setDamageReductionperTarget(1, damageReductionPerTarget)
+        ..setAreaofEffect(1, range)
 
 // ----------------------------------------------------------------------------

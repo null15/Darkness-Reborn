@@ -7,7 +7,9 @@ import ClosureEvents
 import HashMap
 import TowerAbilities
 import ClosureForGroups
+// key = creep Id. value = time to respawn.
 let creepRespawns = new HashMap<int,real>
+// key = player Id. value = creep Id.
 let currentCreep = new HashMap<int,int>
 player hostile = players[PLAYER_NEUTRAL_AGGRESSIVE]
 unit array bossCreep = []
@@ -19,13 +21,13 @@ integer frostyCounter = 0
 
 
 function int.testForEarlyMob() returns bool
-    if this == LEFT_CREEP_0
+    if this == CREEP_LEFT_SPIDER
         return false
-    if this == LEFT_CREEP_1
+    if this == CREEP_LEFT_MUD_GOLEM
         return false
-    if this == LEFT_CREEP_2
+    if this == CREEP_LEFT_MURLOC_TIDERUNNER
         return false
-    if this == LEFT_CREEP_3
+    if this == CREEP_LEFT_TIMBER_WOLF
         return false
     return true
 
@@ -59,7 +61,7 @@ function creepRespawner()
         let pos = u.getPos()
         let rot = u.getFacingAngle()
         let uid = u.getTypeId()
-            
+        
         if currentCreep.get(killOwnerId) == uid
             u.dropItems()
             currentCreep.put(killOwnerId, 0)

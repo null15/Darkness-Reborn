@@ -40,7 +40,7 @@ init
     ..addStats(addDamage(220))
     ..addStats(addAttackSpeed(1.2))
     ..addStats(addAllStats(12))
-    ..addStats(addCrit(4, 0.12))
+    ..addStats(addCrit(4, 12))
     ..setStockMaximum(99)
     ..register()
 

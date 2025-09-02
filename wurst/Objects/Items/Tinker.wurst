@@ -20,7 +20,7 @@ init
     ..setClassification("Artifact")
     ..addStats(addDamage(700))
     ..addStats(addAttackSpeed(3))
-    ..addStats(addCrit(7, 0.46))
+    ..addStats(addCrit(7, 46))
     ..addStats("[WIP] 37% Chance to freeze the target for 0.25s")
     ..addComponents( 
     ITEM_ICE_AND_FIRE_SWORD,
@@ -53,7 +53,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAdept 002.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(1700))
-    ..addStats(addCrit(11, 0.25))
+    ..addStats(addCrit(11, 25))
     ..addStats(addArmorPen(8))
     ..addComponents(
     ITEM_DESTROY_SWORD,
@@ -72,7 +72,7 @@ init
     ..setClassification("Artifact")
     ..addStats(addDamage(4500))
     ..addStats(addStr(600))
-    ..addStats(addBash(0.3, 3000, 1, 2.5))
+    ..addStats(addBash(30, 3000, 1, 2.5))
     ..addComponents(
     ITEM_CORROSIVE_HAMMER,
     ITEM_PLATINUM_HAMMER,
@@ -88,7 +88,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAdept 002.blp") 
     ..setClassification("Artifact")
     ..addStats(addDamage(7000))
-    ..addStats(addCrit(5, 0.7))
+    ..addStats(addCrit(5, 70))
     ..addStats(addArmorPen(10))
     ..addComponents(
     ITEM_GOLD_AXE,
@@ -121,6 +121,7 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAdept 002.blp")
     ..setClassification("Artifact")
+    ..setActivelyUsed(true)
     ..addStats(addAbilityBlink(32000, 2000, 5))
     ..addStats(addMovementSpeed(500))
     ..addStats(addAllStats(600))

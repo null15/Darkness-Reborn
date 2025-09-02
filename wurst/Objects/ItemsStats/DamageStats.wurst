@@ -5,10 +5,6 @@ import AbilityObjEditing
 import CommonDescriptions
 import Format
 import ItemStatsDef
-import AbilitiesList
-import ItemObjEditing
-import DamageEvent
-import codeDamageTypings
 
 // ----------------------------------------------------------------------------
 
@@ -48,7 +44,7 @@ public function addCleave(real factor, real range) returns ItemStats
 
 public function addCrit(real factor, real chance) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
-    let effects = wordCrit.format((100*chance).toString(0), factor.toString(1))
+    let effects = wordCrit.format(chance.toString(0), factor.toString(1))
 
     new AbilityDefinitionCriticalStrikecreep(abilityId)
     ..setDamageMultiplier(1, factor)
@@ -60,7 +56,7 @@ public function addCrit(real factor, real chance) returns ItemStats
 
 public function addBash(real chance, real damage, real stunDuration, real cd) returns ItemStats
     let abilityId = ABIL_ID_GEN.next()
-    let effects = wordBash.format((100*chance).toString(0), damage.toString(), stunDuration.toString(), cd.toString())
+    let effects = wordBash.format(chance.toString(0), damage.toString(), stunDuration.toString(), cd.toString())
 
     new AbilityDefinitionMountainKingBash(abilityId)
     ..setChancetoBash(1, chance)

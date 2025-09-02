@@ -37,9 +37,9 @@ init
     new MyItemDefinition(ITEM_THUNDERLIZARD_DIAMOND)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNEnchantedGemstone.blp")
     ..setActivelyUsed(true)
+    ..addStats(addChainLightingActive(1000, 0.1, 4, 900, 500, 15))
     ..addStats(addInt(30))
     ..addStats(addMpReg(1))
-    ..addStats("[WIP] Active: Chain Lightning that deals 500 damage to up to 4 enemies (cd 15 sec)")
     ..setStockMaximum(99)
     ..register()
 

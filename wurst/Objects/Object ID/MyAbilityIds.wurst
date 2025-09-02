@@ -171,6 +171,8 @@ public constant WOLF_FINAL_ABIL_3 = compiletime(ABIL_ID_GEN.next())
 public constant WOLF_FINAL_ABIL_4 = compiletime(ABIL_ID_GEN.next())
 public constant WOLF_FINAL_ABIL_5 = compiletime(ABIL_ID_GEN.next())
 
+public constant ARCHMAGE_ABIL_T = compiletime(ABIL_ID_GEN.next())
+
 public constant TINKER_OBELISK_ABILITY_1 = compiletime(ABIL_ID_GEN.next())
 public constant TINKER_OBELISK_ABILITY_2 = compiletime(ABIL_ID_GEN.next())
 public constant TINKER_OBELISK_ABILITY_3 = compiletime(ABIL_ID_GEN.next())

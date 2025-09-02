@@ -32,7 +32,7 @@ import RecipeItems
     ..setClassification("Permanent")
     ..addStats(addDamage(80))
     ..addStats(addAttackSpeed(0.5))
-    ..addStats(addCrit(2, 0.15))
+    ..addStats(addCrit(2, 15))
     ..addComponents(
     ITEM_SIMPLE_SWORD,
     ITEM_CLAWS_OF_ATTACK,
@@ -116,7 +116,7 @@ import RecipeItems
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStoneHammer.blp")
     ..setClassification("Permanent")
     ..addStats(addDamage(90))
-    ..addStats(addBash(0.1, 200, 0.1, 0))
+    ..addStats(addBash(10, 200, 0.1, 0))
     ..addComponents(
     ITEM_MAUL_OF_STRENGTH,
     ITEM_BELT_OF_GIANT_STRENGTH)

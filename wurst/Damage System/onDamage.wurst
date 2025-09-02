@@ -72,7 +72,7 @@ init
                 
                 for abilityInfo in abilitiesListOnDamageTaken
                     if (targ.hasItemById(abilityInfo.itemId))
-                        abilityInfo.handler.run(src, targ)
+                        abilityInfo.runHandler(src, targ)
                 
     DamageEvent.addListener(2) ->
         let src = DamageEvent.getSource()
@@ -86,7 +86,7 @@ init
                     
                     for abilityInfo in abilitiesListOnDamageDealt
                         if (src.hasItemById(abilityInfo.itemId))
-                            abilityInfo.handler.run(src, targ)
+                            abilityInfo.runHandler(src, targ)
 
 function magicDamageChecks(int damId, unit src, unit targ)
     if(targ.getAbilityLevel(UTHER_ABIL_3) > 0)
@@ -110,7 +110,7 @@ function reflectionChecks(unit src, unit targ)
 
     for abilityInfo in abilitiesListReflections
         if (targ.hasItemById(abilityInfo.itemId))
-            abilityInfo.handler.run(src, targ)
+            abilityInfo.runHandler(src, targ)
 
     if(targuID == WAVE_MOB_18)
         turtle(targ, src, dam)

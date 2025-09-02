@@ -61,7 +61,7 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_KNIFE_OF_HUNTER, blacksmithThiefList, -1)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif19.blp")
-    ..addStats(addCrit(4, 0.07))
+    ..addStats(addCrit(4, 7))
     ..addComponents(ITEM_KNIFE)
     ..register()
     
@@ -69,7 +69,7 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_STEEL_SWORD, blacksmithThiefList, -1)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif12.blp")
-    ..addStats(addCrit(6, 0.11))
+    ..addStats(addCrit(6, 11))
     ..addComponents(ITEM_KNIFE_OF_BAHAMUT)
     ..register()
 
@@ -77,7 +77,7 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_SWORD_FANG, blacksmithThiefList, -1)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif15.blp")
-    ..addStats(addCrit(8, 0.15))
+    ..addStats(addCrit(8, 15))
     ..addComponents(ITEM_SWORD_OF_HUNTER)
     ..register()
 
@@ -85,7 +85,7 @@ init
     new MyItemWithCraftInfoDefinition(ITEM_SWORD_OF_DRUIDMASTER, blacksmithThiefList, -1)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif16.blp")
-    ..addStats(addCrit(10, 0.19))
+    ..addStats(addCrit(10, 19))
     ..addComponents(ITEM_SWORD_ROAR)
     ..register()
 
@@ -170,7 +170,7 @@ init
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif002.blp")
     ..addStats(addEvasion(0.12))
-    ..addStats(addCrit(3, 0.12))
+    ..addStats(addCrit(3, 12))
     ..addComponents(ITEM_SOUL_SILK_CAPE)
     ..register()
 
@@ -179,7 +179,7 @@ init
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif004.blp")
     ..addStats(addEvasion(0.24))
-    ..addStats(addCrit(5, 0.24))
+    ..addStats(addCrit(5, 24))
     ..addComponents(ITEM_BINDING_SORROW_CLOAK)
     ..register()
     
@@ -188,7 +188,7 @@ init
     ..setClassification("Permanent")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif006.blp")
     ..addStats(addEvasion(0.46))
-    ..addStats(addCrit(7, 0.46))
+    ..addStats(addCrit(7, 46))
     ..addComponents(ITEM_PADDED_GREATCLOAK)
     ..register()
 
