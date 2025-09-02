@@ -137,9 +137,6 @@ public function addAbilityReturnDamageStats(real factor, real chance, statsType 
                     stats += target.getStr(true) + target.getAgi(true) + target.getInt(true)
             let damage = stats * factor
 
-            if DEBUG and true
-                printTimedToPlayer("Return damage {0}, factor {1}, stats {2}".format(damage.toString(), factor.toString(), stats.toString()), 3, target.getOwner())
-
             target.damageTargetCode(damage, src, null, -1, damageType)
         end))
     end)
@@ -163,9 +160,6 @@ public function addAbilityDealDamageStats(real factor, real chance, statsType st
                     stats += src.getStr(true) + src.getAgi(true) + src.getInt(true)
             let damage = stats * factor
             
-            if DEBUG
-                printTimedToPlayer("Target damaged {0}, factor {1}, stats {2}".format(damage.toString(), factor.toString(), stats.toString()), 3, src.getOwner())
-
             src.damageTargetCode(damage, target, null, -1, damageType)
         end))
     end)
@@ -199,7 +193,7 @@ public function addChainLighting(real chance, real damage, real damageReductionP
                     while (i < idx)
                         damageDealt *= (1 - damageReductionPerTarget)
                         i++
-                        
+                    
                     src.damageTargetCode(damageDealt, u, null, -1, damageType.MAGICAL)
                     flashEffect(Abilities.forkedLightningTarget, u.getPos())
                 end)

@@ -20,7 +20,7 @@ public class ItemTargetEventAbility
         this.abilityId = abilityId
 
 public class ItemTargetWurstAbility
-    private TargetAbilityFunc handler
+    protected TargetAbilityFunc handler
     int itemId
 
     construct(int itemId, TargetAbilityFunc handler)
@@ -31,8 +31,6 @@ public class ItemTargetWurstAbility
         handler.run(src, target)
 
 public class ItemTargetWurstChanceAbility extends ItemTargetWurstAbility
-    private TargetAbilityFunc handler
-    int itemId
     real chance
 
     construct(int itemId, real chance, TargetAbilityFunc handler)

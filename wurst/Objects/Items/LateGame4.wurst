@@ -30,7 +30,7 @@ init
     ..setStockReplenishInterval(45)
     ..addStats(addStr(1200))
     ..addStats(addArmor(300))
-    ..addStats(addAbilityReturnDamageStats(2, 0.5, statsType.Str, damageType.PHYSICALRANGED))
+    ..addStats(addAbilityReturnDamageStats(8, 0.5, statsType.Str, damageType.PHYSICALRANGED))
     ..addHotKey()
     ..register()
 
