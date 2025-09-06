@@ -83,7 +83,7 @@ init
     ..addStats(addAbilityDrainHpRel(0.01, 0.15))
     ..addStats(addDamage(7700))
     ..addStats(addStr(600))
-    ..addStats(addCrit(10, 0.1))
+    ..addStats(addCrit(10, 10))
     ..addStats(addArmorPen(10))
     ..register()
 

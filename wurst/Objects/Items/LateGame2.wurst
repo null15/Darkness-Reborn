@@ -18,7 +18,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAxeStrike.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(700))
-    ..addStats(addCrit(2, 0.7))
+    ..addStats(addCrit(2, 70))
     ..addComponents(
     ITEM_BLADE_OF_HELL,
     ITEM_STEEL_AXE)

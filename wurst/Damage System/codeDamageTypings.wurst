@@ -331,4 +331,4 @@ function statscheck()
             "\nMagic Ressistence: "+ (u.getRes(resistanceType.MAGICAL) * 100).toString() +"%", 10, p)
 
 public function unit.isRanged() returns boolean
-    return this.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1) > 300
+    return this.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 0) > 230

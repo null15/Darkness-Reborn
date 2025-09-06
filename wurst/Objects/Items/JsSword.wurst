@@ -98,7 +98,7 @@ init
     ..addStats(addDamage(155))
     ..addStats(addAllStats(20))
     ..addStats(addAttackSpeed(0.45))
-    ..addStats(addCrit(2.5, 0.15))
+    ..addStats(addCrit(2.5, 15))
     ..addStats(addArmorPen(2))
     ..addComponents(
     ITEM_KAIN_SWORD_L4,
@@ -112,7 +112,7 @@ init
     ..addStats(addDamage(255))
     ..addStats(addAllStats(40))
     ..addStats(addAttackSpeed(0.75))
-    ..addStats(addCrit(4.5, 0.15))
+    ..addStats(addCrit(4.5, 15))
     ..addStats(addArmorPen(4))
     ..addComponents(
     ITEM_SLASH_SWORD_L1,
@@ -126,7 +126,7 @@ init
     ..addStats(addDamage(455))
     ..addStats(addAllStats(60))
     ..addStats(addAttackSpeed(0.85))
-    ..addStats(addCrit(7.5, 0.15))
+    ..addStats(addCrit(7.5, 15))
     ..addStats(addArmorPen(6))
     ..addComponents(
     ITEM_SLASH_SWORD_L2,
@@ -140,7 +140,7 @@ init
     ..addStats(addDamage(555))
     ..addStats(addAllStats(80))
     ..addStats(addAttackSpeed(0.95))
-    ..addStats(addCrit(9.5, 0.15))
+    ..addStats(addCrit(9.5, 15))
     ..addStats(addArmorPen(8))
     ..addComponents(
     ITEM_SLASH_SWORD_L3,
@@ -155,7 +155,7 @@ init
     ..addStats(addDamage(755))
     ..addStats(addAllStats(100))
     ..addStats(addAttackSpeed(1.15))
-    ..addStats(addCrit(12.5, 0.15))
+    ..addStats(addCrit(12.5, 15))
     ..addStats(addArmorPen(10))
     ..addComponents(
     ITEM_SLASH_SWORD_L4,

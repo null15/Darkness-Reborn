@@ -52,6 +52,20 @@ public function addRevive(real duration, real cd) returns ItemStats
 
 // ----------------------------------------------------------------------------
 
+public function addWindWalk(real duration, real moveSpeedFactor, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityRevive.format(cd.toString())
+
+    return activeAbility(effects, manaCost, cd) (int abilityId) ->
+        return new AbilityDefinitionBladeMasterWindWalk(abilityId)
+        ..setBackstabDamage(1, false)
+        ..setBackstabDamage1(1, 0)
+        ..setTransitionTime(1, 0.1)
+        ..setDurationHero(1, duration)
+        ..setDurationNormal(1, duration)
+        ..setMovementSpeedIncrease(1, moveSpeedFactor)
+
+// ----------------------------------------------------------------------------
+
 public function addAbilityGetStatsOnKill(int amount, real chance, statsType statsType) returns ItemStats
     let effects = wordGetStatsOnKill.format((100*chance).toString(0), amount.toString(), statsType.toString())
     

@@ -61,28 +61,28 @@ init
     new MyItemDefinition(ITEM_KNIFE)
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif11.blp")
-    ..addStats(addCrit(3, 0.05))
+    ..addStats(addCrit(3, 5))
     ..register()
 
 //I0I4
     new MyItemDefinition(ITEM_KNIFE_OF_BAHAMUT)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif12.blp")
-    ..addStats(addCrit(5, 0.09))
+    ..addStats(addCrit(5, 9))
     ..register()
 
 //I0I6
     new MyItemDefinition(ITEM_SWORD_OF_HUNTER)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif14.blp")
-    ..addStats(addCrit(7, 0.13))
+    ..addStats(addCrit(7, 13))
     ..register()
 
 //I0I8
     new MyItemDefinition(ITEM_SWORD_ROAR)
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif16.blp")
-    ..addStats(addCrit(9, 0.17))
+    ..addStats(addCrit(9, 17))
     ..register()
 
 //I0HF
@@ -136,7 +136,7 @@ init
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif001.blp")
     ..addStats(addEvasion(0.8))
-    ..addStats(addCrit(2, 0.08))
+    ..addStats(addCrit(2, 8))
     ..register()
 
 //I0GI
@@ -144,7 +144,7 @@ init
     ..setClassification("PowerUp")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif003.blp")
     ..addStats(addEvasion(0.18))
-    ..addStats(addCrit(4, 0.18))
+    ..addStats(addCrit(4, 18))
     ..register()
 
 //I0GK
@@ -152,7 +152,7 @@ init
     ..setClassification("Charged")
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNTheif005.blp")
     ..addStats(addEvasion(0.32))
-    ..addStats(addCrit(6, 0.32))
+    ..addStats(addCrit(6, 32))
     ..register()
 
 //I0FP

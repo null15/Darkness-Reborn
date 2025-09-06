@@ -96,10 +96,7 @@ public function addAbilityGetHpOnDamage(real amount, real chance) returns ItemSt
     let effects = wordAbilityGetHpOnDamage.format((100*chance).toString(0), (amount).toString(0))
     
     return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
-        abilitiesListOnDamageTaken.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
-            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
-                skip
-
+        abilitiesListOnDamageTaken.add(new ItemTargetWurstChanceAbility(itemId, chance, (unit src, unit target) -> begin
             target.setHP(target.getHP() + amount)
             flashEffect(Abilities.crystalBallCaster, target.getPos())
         end))
@@ -111,10 +108,7 @@ public function addAbilityGetMpOnDamage(real intFactor, real chance) returns Ite
     let effects = wordAbilityGetMpOnDamage.format((100*chance).toString(0), intFactor.toString(1))
     
     return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
-        abilitiesListOnDamageTaken.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
-            if (GetRandomInt(1, 1000) > (chance * 1000).toInt())
-                skip
-
+        abilitiesListOnDamageTaken.add(new ItemTargetWurstChanceAbility(itemId, chance, (unit src, unit target) -> begin
             target.setMana(target.getMana() + intFactor * target.getInt(true))
             flashEffect(Abilities.manaShieldCaster, target.getPos())
         end))
