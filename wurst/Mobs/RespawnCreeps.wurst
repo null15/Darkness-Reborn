@@ -47,10 +47,9 @@ public function player.setCreepSettings(int unitId, vec2 pos)
             u..setMaxHP((u.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u.getMaxHP())
         currentCreep.put(pid, unitId)
 
-function doAfterCreepRespawn(unit u)
-    let uid = u.getTypeId()
+function doAfterCreepRespawn(int uid, vec2 pos, angle unitFacing)
     doAfter(creepRespawns.get(uid)) ->
-        let u2 = createUnit(hostile, uid, u.getPos(), u.getFacingAngle())
+        let u2 = createUnit(hostile, uid, pos, unitFacing)
         u2..setArmor(u2.getArmor() * armorDifficultyModifier[gameMode])
         u2..setMaxHP((u2.getMaxHP() * healthDifficultyModifier[gameMode]).toInt()).addHP(u2.getMaxHP())
 
@@ -78,11 +77,11 @@ function creepRespawner()
             else
                 if creepRespawns.has(uid)
                     u.dropItems()
-                    if uid == ELITE_CREEP[9] and frostyCounter < 2
+                    if uid != ELITE_CREEP[9]
+                        doAfterCreepRespawn(uid, u.getPos(), u.getFacingAngle())
+                    else if frostyCounter < 2
                         frostyCounter++
-                        doAfterCreepRespawn(u)
-                    else
-                        doAfterCreepRespawn(u)
+                        doAfterCreepRespawn(uid, u.getPos(), u.getFacingAngle())
         
 public function eliteSideCreepsSetup()
     for int i = 1 to 24

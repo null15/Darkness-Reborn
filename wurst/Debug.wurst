@@ -21,6 +21,8 @@ public function initDebug()
     var posX = GetRectCenterX(gg_rct_DebugBlacksmith)
     var posY = GetRectCenterY(gg_rct_DebugBlacksmith)
 
+    createItem(ITEM_BATTLE_AXE_L5, vec2(posX, posY))
+
     // Add tinker's blacksmith and shops near the fountain
     CreateUnit(p, BUILDING_TINKER_BLACKSMITH, posX - 200, posY, 270.000)
     ..addPermanentAbility(AbilityIds.invulnerable)
