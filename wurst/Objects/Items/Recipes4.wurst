@@ -143,9 +143,9 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (3).blp")
     ..setClassification("Permanent")
-    ..addStats(addAbilityReturnDamageStats(0.5, 1, statsType.Str, damageType.PHYSICALRANGED))
     ..addStats(addStr(100))
     ..addStats(addHp(3000))
+    ..addStats(addAbilityReturnDamageStats(0.5, 1, statsType.Str, damageType.PHYSICALRANGED))
     ..addComponents(
     ITEM_HELM_OF_VALOR,
     ITEM_SPLIT_ARMOR)
@@ -212,12 +212,12 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNAnimalWarTraining.blp")
     ..setClassification("Permanent")
-    ..addStats(addMpOnHit(0.15))
     ..addStats(addHp(12000))
     ..addStats(addMp(12000))
     ..addStats(addMpReg(3))
     ..addStats(addMovementSpeed(522))
     ..addStats(addAttackSpeed(1.2))
+    ..addStats(addMpOnHit(0.15))
     ..addComponents(
     ITEM_SOUL_OF_KILJEADEN,
     ITEM_ARKENSTONE_FRAGMENT)
