@@ -55,24 +55,24 @@ init
     new MyItemDefinition(ITEM_CALL_OF_FURBOLG_URSA)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFurbolgElder.blp")
     ..setClassification("PowerUp")
-    ..addStats(addAbilityGetStatsOnKill(1, 1, statsType.Int))
     ..addStats(addInt(200))
+    ..addStats(addAbilityGetStatsOnKill(1, 1, statsType.Int))
     ..register()
 
 //I0JD
     new MyItemDefinition(ITEM_CALL_OF_DOOM)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNDoomGuard.blp")
     ..setClassification("PowerUp")
-    ..addStats(addAbilityGetStatsOnKill(1, 1, statsType.Agi))
     ..addStats(addAgi(200))
+    ..addStats(addAbilityGetStatsOnKill(1, 1, statsType.Agi))
     ..register()
 
 //I0JE
     new MyItemDefinition(ITEM_CALL_OF_FLESH_GOLEM)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFleshGolem.blp")
     ..setClassification("PowerUp")
-    ..addStats(addAbilityGetStatsOnKill(1, 1, statsType.Str))
     ..addStats(addStr(200))
+    ..addStats(addAbilityGetStatsOnKill(1, 1, statsType.Str))
     ..register()
     
 
@@ -80,11 +80,11 @@ init
     new MyItemDefinition(ITEM_FROSMOUNE_L5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFr1.blp")
     ..setClassification("Campaign")
-    ..addStats(addAbilityDrainHpRel(0.01, 0.15))
     ..addStats(addDamage(7700))
     ..addStats(addStr(600))
     ..addStats(addCrit(10, 10))
     ..addStats(addArmorPen(10))
+    ..addStats(addAbilityDrainHpRel(0.01, 0.15))
     ..register()
 
 // Iron wood
@@ -98,8 +98,8 @@ init
 // Spike of cryptlord
     new MyItemDefinition(ITEM_SPIKE_OF_CRYPTLORD)
     ..setInterfaceIcon(Icons.bTNCloakOfFlames)
-    ..addStats(addSpikes(5))
     ..addStats(addArmor(230))
+    ..addStats(addSpikes(5))
     ..register()
 
     let ITEM_CLOAK_OF_FLAMES_ABI1 = compiletime(ABIL_ID_GEN.next())
@@ -127,6 +127,6 @@ init
 
     new MyItemDefinition(ITEM_SCORPION_POTION)
     ..setInterfaceIcon(Icons.bTNRejuvPotion)
-    ..addStats(addAllStats(200))
     ..addStats(ITEM_SCORPION_POTION_ABI1, "Can activate the toxins up ourselves. immediately increase 10,000 damage in 15 seconds, and has the ability to convert 10% of damage into HP itself,cooldown 30 seconds.")
+    ..addStats(addAllStats(200))
     ..register()
