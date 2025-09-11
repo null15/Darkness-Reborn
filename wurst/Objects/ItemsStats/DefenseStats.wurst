@@ -98,7 +98,7 @@ public function addMagicResist(real value) returns ItemStats
     let effects = wordMagicResist.format(realToString(value, 0))
     
     return new ItemStatsCustomFunc(effects,
-    (itemId, itemDef) -> itemId.putInMagicResItemHash(value))
+    (itemId, itemDef) -> itemId.putInResItemHash(value, resistanceType.MAGICAL))
 
 // ----------------------------------------------------------------------------
 
