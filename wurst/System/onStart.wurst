@@ -38,23 +38,24 @@ public function questSetup()
     let discord = CreateQuest()
     let recipe = CreateQuest()
     let credits = CreateQuest()
+    let repickRandom = CreateQuest()
     
-    QuestSetDiscovered(commands, true)
-    QuestSetIconPath(commands, "ReplaceableTextures\\CommandButtons\\BTNSpy.blp")
-    QuestSetTitle(commands, "Commands")
-    QuestSetDescription(commands, "-cam 500-4000 : Adjusts the camera view \n-clean : Cleans items in 10 seconds\n-stopclean : Stops cleaning process\n-Quests : View your questlist"
+    commands..discovered(true)
+    ..setIcon("ReplaceableTextures\\CommandButtons\\BTNSpy.blp")
+    ..setTitle("Commands")
+    ..setDescription("-cam 500-4000 : Adjusts the camera view \n-clean : Cleans items in 10 seconds\n-stopclean : Stops cleaning process\n-Quests : View your questlist"
     +"\n-votekick : Kicks the player, you can use number, full name, and partial name")
 
-    QuestSetDiscovered(discord, true)
-    QuestSetIconPath(discord, "ReplaceableTextures\\Icons\\discordIcon.blp")
-    QuestSetTitle(discord, "Discord")
-    QuestSetDescription(discord, "Discord invite: https://discord.gg/pnrhrHS")
+
+    discord..discovered(true)
+    ..setIcon("ReplaceableTextures\\Icons\\discordIcon.blp")
+    ..setTitle("Discord")
+    ..setDescription("Discord invite: https://discord.gg/pnrhrHS")
     
-    QuestSetDiscovered(recipe, true)
-    QuestSetRequired(recipe, false)
-    QuestSetIconPath(recipe, "ReplaceableTextures\\CommandButtons\\BTNAdvStruct.blp")
-    QuestSetTitle(recipe, "Recipe for non-store items")
-    QuestSetDescription(recipe, "Khadgar's Pendant of Health + Periapt of Vitality = Jewelry of Life\n"
+    recipe..discovered(true)
+    ..setIcon("ReplaceableTextures\\CommandButtons\\BTNAdvStruct.blp")
+    ..setTitle("Recipe for non-store items")
+    ..setDescription("Khadgar's Pendant of Health + Periapt of Vitality = Jewelry of Life\n"
     +"Pendant of Mana + Pendant of Energy = jewelry of Mana\n"
     +"Jewelry of Life + Periapt of Vitality + Ring of Regeneration = Guinevere's Ring\n"
     +"Jewelry of Mana + Pendant of Mana = Lancelot's Ring\n"
@@ -216,7 +217,7 @@ function createSetup()
 
     teleportToMobs(easyGrounds, intermediateGrounds, eliteGrounds, endGamebosses)
 
-    doAfter(30) -> 
+    doAfter(600) -> 
         print("No more repicking or randoming can be done")
         randomRepick = false
 

@@ -1,0 +1,12 @@
+package InitTrigger
+import codeDamageTypings
+
+function createInitTrigger() returns trigger
+    return CreateTrigger()..registerTimerEvent(0.01, false)
+    
+function createPenAction(int itemId,real penPercent, penetrationType penType)
+    itemId.putInPenItemHash(penPercent, penType)
+
+public function createPenTrigger(int itemId, real penPercent, penetrationType penType)
+    let initTrigger = createInitTrigger()
+    initTrigger.addAction(action createPenAction(itemId, penPercent, penType))

@@ -6,8 +6,9 @@ import ClosureEvents
 import LinkedList
 
 public let unitStatMap = new HashMap<integer, UnitStats>
-let physPenItemHash = compiletime(new HashMap<int, real>)
-let magicResItemHash = compiletime(new HashMap<int, real>)
+
+let penItemHash = new HashMap<int, ItemPenStats>
+let resItemHash = new HashMap<int, ItemResStats>
 
 public enum damageType
     PURE
@@ -25,6 +26,34 @@ public enum resistanceType
     PHYSICAL
     MAGICAL
 
+public class ItemPenStats
+    private real penPercent
+    private penetrationType penType
+    
+    function getPenType() returns penetrationType
+        return penType
+
+    function getPenPercent() returns real
+        return penPercent
+
+    construct(real penPercent, penetrationType penType)
+        this.penPercent = penPercent
+        this.penType = penType
+
+public class ItemResStats
+    private real penPercent
+    private resistanceType resType
+    
+    function getResType() returns resistanceType
+        return resType
+
+    function getResPercent() returns real
+        return penPercent
+
+    construct(real penPercent, resistanceType resType)
+        this.penPercent = penPercent
+        this.resType = resType
+
 public class UnitStats
     // Base pen, this penetration comes from hero skills temporary or permanent
     private real basePhysPen = 0
@@ -38,6 +67,16 @@ public class UnitStats
     private real magicRes = 0
     private real physRes = 0
     private real universalRes = 0
+
+    function clearRes()
+        magicRes = 0
+        physRes = 0
+        universalRes = 0
+
+    function clearPen()
+        additivePhysPen = 0
+        additiveMagicPen = 0
+        additiveUniversalPen = 0
 
     function addAdditivePen(penetrationType penType, real amount)
         switch penType
@@ -156,68 +195,63 @@ public class UnitStats
             case resistanceType.UNIVERSAL
                 return universalRes
 
-    private static function enumerateResistances(unit toEnumerate, resistanceType resType)
+    private static function enumerateResistances(unit toEnumerate)
         let itemInUnit = new LinkedList<item>()
         for int i = 0 to 5
             itemInUnit.add(toEnumerate.itemInSlot(i))
         itemInUnit.forEach() (item t) ->
             if(t == null)
                 itemInUnit.remove(t)
-        var resistances = 0.
-        switch resType
-            case resistanceType.MAGICAL
-                itemInUnit.forEach() (item t) ->
-                    resistances += magicResItemHash.get(t.getTypeId())
-                    unitStatMap.get(toEnumerate.getTypeId()).setResistance(resType, resistances)
-            case resistanceType.PHYSICAL
-                itemInUnit.forEach() (item t) ->
-                    resistances += magicResItemHash.get(t.getTypeId())
-                    unitStatMap.get(toEnumerate.getTypeId()).setResistance(resType, resistances)
-            case resistanceType.UNIVERSAL
-                itemInUnit.forEach() (item t) ->
-                    resistances += magicResItemHash.get(t.getTypeId())
-                    unitStatMap.get(toEnumerate.getTypeId()).setResistance(resType, resistances)
+        let stats = unitStatMap.get(toEnumerate.getTypeId())
+        stats.clearRes()
+        itemInUnit.forEach() (item t) ->
+            let itemId = t.getTypeId()
+            if(resItemHash.has(itemId))
+                let itemStats = resItemHash.get(itemId)
+                let resType = itemStats.getResType()
+                switch itemStats.getResType()
+                    case resistanceType.MAGICAL
+                        unitStatMap.get(toEnumerate.getTypeId()).addResistance(resType, itemStats.getResPercent())
+                    case resistanceType.PHYSICAL
+                        unitStatMap.get(toEnumerate.getTypeId()).addResistance(resType, itemStats.getResPercent())
+                    case resistanceType.UNIVERSAL
+                        unitStatMap.get(toEnumerate.getTypeId()).addResistance(resType, itemStats.getResPercent())
+        
         destroy itemInUnit
 
     static function enumerateAllResistances(unit toEnumerate)
         if(unitStatMap.has(toEnumerate.getTypeId()))
-            enumerateResistances(toEnumerate, resistanceType.MAGICAL)
-            enumerateResistances(toEnumerate, resistanceType.PHYSICAL)
-            enumerateResistances(toEnumerate, resistanceType.UNIVERSAL)
+            enumerateResistances(toEnumerate)
         else
             let newStats = new UnitStats()
             unitStatMap.put(toEnumerate.getTypeId(), newStats)
-            enumerateResistances(toEnumerate, resistanceType.MAGICAL)
-            enumerateResistances(toEnumerate, resistanceType.PHYSICAL)
-            enumerateResistances(toEnumerate, resistanceType.UNIVERSAL)
+            enumerateResistances(toEnumerate)
 
-    private static function enumeratePens(unit toEnumerate, penetrationType penType)
+    private static function enumeratePens(unit toEnumerate)
         let itemInUnit = new LinkedList<item>()
         for int i = 0 to 5
             itemInUnit.add(toEnumerate.itemInSlot(i))
         itemInUnit.forEach() (item t) ->
             if(t == null)
                 itemInUnit.remove(t)        
-        var resistances = 0.
-        switch penType
-            case penetrationType.MAGICAL
-                itemInUnit.forEach() (item t) ->
-                    resistances += magicResItemHash.get(t.getTypeId())
-                    unitStatMap.get(toEnumerate.getTypeId()).setAdditivePen(penType, resistances)
-            case penetrationType.PHYSICAL
-                itemInUnit.forEach() (item t) ->
-                    resistances += magicResItemHash.get(t.getTypeId())
-                    unitStatMap.get(toEnumerate.getTypeId()).setAdditivePen(penType, resistances)
-            case penetrationType.UNIVERSAL
-                itemInUnit.forEach() (item t) ->
-                    resistances += magicResItemHash.get(t.getTypeId())
-                    unitStatMap.get(toEnumerate.getTypeId()).setAdditivePen(penType, resistances)
+        let stats = unitStatMap.get(toEnumerate.getTypeId())
+        stats.clearPen()
+        itemInUnit.forEach() (item t) ->
+            let itemId = t.getTypeId()
+            if(resItemHash.has(itemId))
+                let itemStats = penItemHash.get(itemId)
+                let penType = itemStats.getPenType()
+                switch itemStats.getPenType()
+                    case penetrationType.MAGICAL
+                        unitStatMap.get(toEnumerate.getTypeId()).addAdditivePen(penType, itemStats.getPenPercent())
+                    case penetrationType.PHYSICAL
+                        unitStatMap.get(toEnumerate.getTypeId()).addAdditivePen(penType, itemStats.getPenPercent())
+                    case penetrationType.UNIVERSAL
+                        unitStatMap.get(toEnumerate.getTypeId()).addAdditivePen(penType, itemStats.getPenPercent())
         destroy itemInUnit
 
     static function enumerateAllPens(unit toEnumerate)
-        enumeratePens(toEnumerate, penetrationType.MAGICAL)
-        enumeratePens(toEnumerate, penetrationType.PHYSICAL)
-        enumeratePens(toEnumerate, penetrationType.UNIVERSAL)
+        enumeratePens(toEnumerate)
 
 init
     statscheck()
@@ -256,23 +290,25 @@ public function integer.getRes(resistanceType typeToGet) returns real
 public function unit.getRes(resistanceType typeToGet) returns real
     return this.getTypeId().getRes(typeToGet)
 
-public function int.putInPhysPenItemHash(real input)
-    physPenItemHash.put(this, input * 0.01)
+public function int.putInPenItemHash(real input, penetrationType penType)
+    let stats = new ItemPenStats(input * 0.01, penType)
+    penItemHash.put(this, stats)
 
-public function int.putInMagicResItemHash(real input)
-    magicResItemHash.put(this, input * 0.01)
+public function int.putInResItemHash(real input, resistanceType resType)
+    let stats = new ItemResStats(input * 0.01, resType)
+    resItemHash.put(this, stats)
 
-public function int.getPhysPenItemHash() returns real
-    return physPenItemHash.get(this)
+public function int.getPenItemHash() returns ItemPenStats
+    return penItemHash.get(this)
 
-public function int.getMagicResItemHash() returns real
-    return magicResItemHash.get(this)
+public function int.getResItemHash() returns ItemResStats
+    return resItemHash.get(this)
 
-public function item.getPhysPenItemHash() returns real
-    return physPenItemHash.get(this.getTypeId())
+public function item.getPenItemHash() returns ItemPenStats
+    return penItemHash.get(this.getTypeId())
 
-public function item.getMagicResItemHash() returns real
-    return magicResItemHash.get(this.getTypeId())
+public function item.getResItemHash() returns ItemResStats
+    return resItemHash.get(this.getTypeId())
 
 function enumerateMagicRes(integer unitID, real magicRes)
     if unitStatMap.get(unitID) != null
@@ -331,4 +367,4 @@ function statscheck()
             "\nMagic Ressistence: "+ (u.getRes(resistanceType.MAGICAL) * 100).toString() +"%", 10, p)
 
 public function unit.isRanged() returns boolean
-    return this.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 0) > 230
+    return this.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1) > 230

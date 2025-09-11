@@ -6,6 +6,7 @@ import CommonDescriptions
 import codeDamageTypings
 import Format
 import ItemStatsDef
+import InitTrigger
 
 // ----------------------------------------------------------------------------
 
@@ -35,7 +36,7 @@ public function addArmorPen(real value) returns ItemStats
     let effects = realToString(value, 0) + " " + wordArmorPen
     
     return new ItemStatsCustomFunc(effects, 
-    (itemId, itemDef) -> itemId.putInPhysPenItemHash(value))
+    (itemId, itemDef) -> createInitTrigger(itemId.putInPenItemHash(value, penetrationType.PHYSICAL)))
 
 // ----------------------------------------------------------------------------
 
