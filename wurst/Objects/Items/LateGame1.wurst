@@ -4,6 +4,7 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import RecipeItems
+import MyColors
 
 init
 
@@ -173,7 +174,7 @@ init
     ..addStats(addMagicResist(60))
     ..addStats(addHp(5000))
     ..addStats(addHpReg(40))
-    ..addStats("Permanently changes your armor type to 'Hero' if picked up")
+    ..addStats("Permanently changes your armor type to 'Hero' if picked up".setColor("|c643a9bae"))
     ..addComponents(
     ITEM_SHINY_ARMOR,
     ITEM_LIGHT_ARMOR,

@@ -9,6 +9,7 @@ import ActiveAbilityDef
 import ClosureForGroups
 import CommonDescriptions
 import HashList
+import MyColors
 
 init
 
@@ -99,7 +100,7 @@ function createItemsWardenCard()
     ..addStats(addAllStats(600))
     ..addStats(addAttackSpeed(2.2))
     ..addStats(addArmor(300))
-    ..addStats("Permanently changes your armor type to 'Holy' if picked up")
+    ..addStats("Permanently changes your armor type to 'Holy' if picked up".setColor("|c00b1d4d4"))
     ..addComponents(
     ITEM_BEASTMASTER_CARD,
     ITEM_WARDEN_CARD,
