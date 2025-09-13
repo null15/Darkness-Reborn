@@ -5,6 +5,8 @@ import AbilityObjEditing
 import CommonDescriptions
 import Format
 import ItemStatsDef
+import ObjectIds
+import ActiveAbilityDef
 
 // ----------------------------------------------------------------------------
 
@@ -58,13 +60,18 @@ public function addBash(real chance, real damage, real stunDuration, real cd) re
     let abilityId = ABIL_ID_GEN.next()
     let effects = wordBash.format(chance.toString(0), damage.toString(), stunDuration.toString(), cd.toString())
 
-    new AbilityDefinitionMountainKingBash(abilityId)
-    ..setChancetoBash(1, chance)
-    ..setDamageBonus(1, damage)
+    new AbilityDefinitionMountainKingThunderBolt(abilityId)
+    ..setDamage(1, damage)
     ..setDurationHero(1, stunDuration)
     ..setDurationHero(1, stunDuration)
-    ..setCooldown(1, cd)
-    
-    return new ItemStats(abilityId, effects)
+    // Structures cannot be bashed, but can be freezed.
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.enemies, TargetsAllowed.neutral, TargetsAllowed.ground, TargetsAllowed.air, TargetsAllowed.organic))
+    ..setArtCaster("")
+    ..setArtSpecial("")
+    //..setArtTarget("")
+    ..setArtCaster("")
+    ..setDummyAbility()
+
+    return addAbilityStunTargetPassive(chance, cd, effects, abilityId)
 
 // ----------------------------------------------------------------------------

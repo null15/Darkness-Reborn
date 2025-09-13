@@ -3,25 +3,27 @@ import ClosureEvents
 import MyItemIds
 import codeDamageTypings
 import HashSet
+import ArmorWeaponTypes
 
 public let itemPickedup = new HashSet<item>
 
 init
-    itemPickup()
-
-function itemPickup()
     EventListener.add(EVENT_PLAYER_UNIT_PICKUP_ITEM) ->
         let u = EventData.getTriggerUnit()
         itemPickedup.add(EventData.getManipulatedItem())
+
         let defenseType = u.getField(UNIT_IF_DEFENSE_TYPE)
-        if u.hasItemById(ITEM_DRAGON_WINGS) and u.getFieldWeapon(UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0) != 4
-            u.setFieldWeapon(UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 4)
-        else if u.hasItemById(ITEM_HOLY_ARMOR) and defenseType != 5 and defenseType != 6
-            u.setField(UNIT_IF_DEFENSE_TYPE, 5)
-        else if u.hasItemById(ITEM_CHAOS) and defenseType == 5 and defenseType != 6
-            u.setField(UNIT_IF_DEFENSE_TYPE, 6)
+
+        if u.hasItemById(ITEM_DRAGON_WINGS) and u.getFieldWeapon(UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0) != WEAPON_TYPE_BLOOD
+            u.setFieldWeapon(UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, WEAPON_TYPE_BLOOD)
+        else if u.hasItemById(ITEM_HOLY_ARMOR) and defenseType != ARMOR_TYPE_HERO and defenseType != ARMOR_TYPE_HOLY
+            u.setField(UNIT_IF_DEFENSE_TYPE, ARMOR_TYPE_HERO)
+        else if u.hasItemById(ITEM_CHAOS) and defenseType == ARMOR_TYPE_HERO and defenseType != ARMOR_TYPE_HOLY
+            u.setField(UNIT_IF_DEFENSE_TYPE, ARMOR_TYPE_HOLY)
+
         UnitStats.enumerateAllResistances(u)
         UnitStats.enumerateAllPens(u)
+        
     EventListener.add(EVENT_PLAYER_UNIT_DROP_ITEM) -> 
         let u = EventData.getTriggerUnit()
         UnitStats.enumerateAllResistances(u)

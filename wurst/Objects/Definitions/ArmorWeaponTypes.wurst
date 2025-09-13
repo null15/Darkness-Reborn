@@ -1,0 +1,5 @@
+package ArmorWeaponTypes
+
+public let WEAPON_TYPE_BLOOD = 4
+public let ARMOR_TYPE_HERO   = 5
+public let ARMOR_TYPE_HOLY    = 6

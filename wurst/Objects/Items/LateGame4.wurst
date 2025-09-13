@@ -6,6 +6,8 @@ import MyItemIds
 import RecipeItems
 import codeDamageTypings
 import StatsType
+import CommonDescriptions
+import MyColors
 
 init
 
@@ -88,7 +90,7 @@ init
     ..setScalingValue(0.80)
     ..addStats(addDamage(2500))
     ..addStats(addAllStats(200))
-    ..addStats("[WIP] Changes your Damage Type to 'Blood' permanently if picked up.")
+    ..addStats("Permanently changes your damage type to 'Blood' if picked up.".setColor("|c00ad1313"))
     ..addComponents(
     ITEM_DRAGON_BONE,
     ITEM_DRAGON_CLAW,

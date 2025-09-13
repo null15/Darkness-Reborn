@@ -120,7 +120,7 @@ public function addMpOnHit(real percentOfMaxMp) returns ItemStats
     let effects = wordMpOnHit.format((100*percentOfMaxMp).toString(0))
 
     return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
-        abilitiesListOnDamageDealt.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+        abilitiesListOnDamageDealt.add(new ItemWurstAbility(itemId, (unit src, unit target) -> begin
             src.setMana(src.getMana() + src.getMaxMana() * percentOfMaxMp)
         end))
     end)

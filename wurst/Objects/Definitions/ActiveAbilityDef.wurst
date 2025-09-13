@@ -7,6 +7,11 @@ import ObjectIds
 import ObjectIdGenerator
 import CommonDescriptions
 import ClosureForGroups
+import HashList
+import ItemObjEditing
+import DummyCaster
+import Orders
+import ClosureTimers
 
 // ----------------------------------------------------------------------------
 
@@ -37,7 +42,6 @@ class AbilityBase extends AbilityDefinition
 // ----------------------------------------------------------------------------
 
 public class TargetAbility extends AbilityBase
-    int castRange
 
     construct(string effects, int manaCost, real cd, TargetAbilityFunc handler)
         super(AbilityIds.frostNova, effects, manaCost, cd)
@@ -49,7 +53,21 @@ public class TargetAbility extends AbilityBase
         // setSpecificTargetDamage
         def.setLvlDataUnreal("Ufn2", 1, 2, 0)
 
-        this.castRange = 900
+        abilitiesListTargetEvent.add(new ItemTargetEventAbility(newId, handler))
+
+    function setDamage(int level, real value)
+        def.setLvlDataUnreal("Htb1", level, 1, value)
+
+public class StunAbility extends AbilityBase
+
+    construct(string effects, int manaCost, real cd, real duration, TargetAbilityFunc handler)
+        super(AbilityIds.stormBolt, effects, manaCost, cd)
+        setCastRange(1, 900)
+        setDamage(1, 0)
+        setDurationNormal(1, duration)
+        setDurationHero(1, duration)
+        setTargetsAllowed(1, commaList(TargetsAllowed.enemies, TargetsAllowed.neutral, TargetsAllowed.ground, TargetsAllowed.air, TargetsAllowed.organic, TargetsAllowed.structure))
+        setArtCaster("")
         
         abilitiesListTargetEvent.add(new ItemTargetEventAbility(newId, handler))
 
@@ -179,4 +197,22 @@ public function forMaxAlliesInRange(unit src, vec2 position, real range, int max
 
     destroy helper
 
+// ----------------------------------------------------------------------------
+
+public function addAbilityStunTargetPassive(real chance, real cd, string effects, int abilityId) returns ItemStats
+    return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
+        let cdGroup = new HashList<int>
+        abilitiesListOnDamageDealt.add(new ItemTargetWurstChanceAbility(itemId, chance, (unit src, unit target) -> begin
+            let id = src.getHandleId()
+            if not cdGroup.has(id) and target.isAlive()
+                cdGroup.add(id)
+                new DummyCaster()
+                ..owner(src.getOwner())
+                ..origin(src.getPos())
+                ..castTarget(abilityId, 1, OrderIds.thunderbolt, target)
+                doAfter(cd) ->
+                    cdGroup.remove(id)
+        end))
+    end)
+    
 // ----------------------------------------------------------------------------

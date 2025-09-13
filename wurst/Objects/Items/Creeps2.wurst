@@ -3,6 +3,7 @@ package Creeps2
 import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
+import codeDamageTypings
 
 init
 
@@ -37,7 +38,7 @@ init
     new MyItemDefinition(ITEM_THUNDERLIZARD_DIAMOND)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNEnchantedGemstone.blp")
     ..setActivelyUsed(true)
-    ..addStats(addChainLightingActive(1000, 0.1, 4, 900, 500, 15))
+    ..addStats(addAbilityChainLightingActive(1000, 0.1, 4, 900, 500, 15))
     ..addStats(addInt(30))
     ..addStats(addMpReg(1))
     ..setStockMaximum(99)
@@ -141,9 +142,9 @@ init
     new MyItemDefinition(ITEM_SCEPTER_OF_MASTERY)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNScepterOfMastery.blp")
     ..setActivelyUsed(true)
+    ..addStats(addAbilityDealAoeDamage(2000, 500, damageType.MAGICAL, 800, 20))
     ..addStats(addInt(80))
     ..addStats(addMpReg(2))
-    ..addStats("Active: Use Frost Nova on an enemy dealing 2000 damage to enemy and 1500 damage to creeps in a 500 aoe (cd 30 sec)")
     ..setStockMaximum(99)
     ..register()
 

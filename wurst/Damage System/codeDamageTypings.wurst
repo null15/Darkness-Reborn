@@ -10,6 +10,25 @@ public let unitStatMap = new HashMap<integer, UnitStats>
 let penItemHash = new HashMap<int, ItemPenStats>
 let resItemHash = new HashMap<int, ItemResStats>
 
+class ItemPenStatsPair
+    int itemId
+    ItemPenStats stats
+
+    construct(int itemId, ItemPenStats stats)
+        this.itemId = itemId
+        this.stats  = stats
+
+class ItemResStatsPair
+    int itemId
+    ItemResStats stats
+
+    construct(int itemId, ItemResStats stats)
+        this.itemId = itemId
+        this.stats  = stats
+
+let penItemList = compiletime(new LinkedList<ItemPenStatsPair>())
+let resItemList = compiletime(new LinkedList<ItemResStatsPair>())
+
 public enum damageType
     PURE
     PHYSICALMELEE
@@ -238,7 +257,7 @@ public class UnitStats
         stats.clearPen()
         itemInUnit.forEach() (item t) ->
             let itemId = t.getTypeId()
-            if(resItemHash.has(itemId))
+            if(penItemHash.has(itemId))
                 let itemStats = penItemHash.get(itemId)
                 let penType = itemStats.getPenType()
                 switch itemStats.getPenType()
@@ -254,6 +273,20 @@ public class UnitStats
         enumeratePens(toEnumerate)
 
 init
+    for pair in penItemList
+        penItemHash.put(pair.itemId, pair.stats)
+        destroy pair
+        
+    penItemList.clear()
+    destroy penItemList
+        
+    for pair in resItemList
+        resItemHash.put(pair.itemId, pair.stats)
+        destroy pair
+        
+    resItemList.clear()
+    destroy resItemList
+
     statscheck()
 
 function unit.getItemBySlot(int slot) returns item
@@ -292,11 +325,11 @@ public function unit.getRes(resistanceType typeToGet) returns real
 
 public function int.putInPenItemHash(real input, penetrationType penType)
     let stats = new ItemPenStats(input * 0.01, penType)
-    penItemHash.put(this, stats)
+    penItemList.add(new ItemPenStatsPair(this, stats))
 
 public function int.putInResItemHash(real input, resistanceType resType)
     let stats = new ItemResStats(input * 0.01, resType)
-    resItemHash.put(this, stats)
+    resItemList.add(new ItemResStatsPair(this, stats))
 
 public function int.getPenItemHash() returns ItemPenStats
     return penItemHash.get(this)
@@ -367,4 +400,4 @@ function statscheck()
             "\nMagic Ressistence: "+ (u.getRes(resistanceType.MAGICAL) * 100).toString() +"%", 10, p)
 
 public function unit.isRanged() returns boolean
-    return this.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 1) > 230
+    return this.getFieldWeapon(UNIT_WEAPON_RF_ATTACK_RANGE, 0) > 230

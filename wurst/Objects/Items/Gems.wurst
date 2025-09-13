@@ -175,7 +175,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNJew_Purple2.blp")
     ..setActivelyUsed(true)
 
-    ..addStats(addAbilityDamageStun(5000, 15, 10, 4000, 30))
+    ..addStats(addAbilityDamageStunActive(5000, 15, 8, 4000, 30))
 
     ..addStats(addAllStats(300))
 

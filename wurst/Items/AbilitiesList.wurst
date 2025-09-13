@@ -19,7 +19,7 @@ public class ItemTargetEventAbility
         this.handler = handler
         this.abilityId = abilityId
 
-public class ItemTargetWurstAbility
+public class ItemWurstAbility
     protected TargetAbilityFunc handler
     int itemId
 
@@ -30,7 +30,7 @@ public class ItemTargetWurstAbility
     function runHandler(unit src, unit target)
         handler.run(src, target)
 
-public class ItemTargetWurstChanceAbility extends ItemTargetWurstAbility
+public class ItemTargetWurstChanceAbility extends ItemWurstAbility
     real chance
 
     construct(int itemId, real chance, TargetAbilityFunc handler)
@@ -84,9 +84,10 @@ public let abilitiesListCastEvent = compiletime(new LinkedList<ItemCastEventAbil
 public let abilitiesListCustomEvent = compiletime(new LinkedList<ItemCustomEventAbility>())
 
 // Used in runtime in onDamage.wurst
-public let abilitiesListReflections  = compiletime(new LinkedList<ItemTargetWurstAbility>())
-public let abilitiesListOnDamageTaken = compiletime(new LinkedList<ItemTargetWurstAbility>())
-public let abilitiesListOnDamageDealt = compiletime(new LinkedList<ItemTargetWurstAbility>())
+public let abilitiesListReflections  = compiletime(new LinkedList<ItemWurstAbility>())
+public let abilitiesListOnDamageTaken = compiletime(new LinkedList<ItemWurstAbility>())
+public let abilitiesListOnDamageDealt = compiletime(new LinkedList<ItemWurstAbility>())
+public let pickUpItemHandler = compiletime(new LinkedList<ItemWurstAbility>())
 
 // ----------------------------------------------------------------------------
 

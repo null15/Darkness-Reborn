@@ -8,6 +8,8 @@ import codeDamageTypings
 import ActiveAbilityDef
 import ClosureForGroups
 import CommonDescriptions
+import HashList
+import MyColors
 
 init
 
@@ -37,7 +39,8 @@ function wardenCardAbility(real damage, real range, damageType damageType, int m
     end)
     .register()
     
-@compiletime function createItemsWardenCard()
+@compiletime
+function createItemsWardenCard()
 //I0CR
     new MyItemDefinition(ITEM_WARDEN_CARD)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCard (2).blp")
@@ -93,10 +96,11 @@ function wardenCardAbility(real damage, real range, damageType damageType, int m
     ..setActivelyUsed(true)
     ..setGoldCost(500000)
     ..addTitle("A powerful relic of the great demon that is holding souls of the traitor")
+    ..addStats("Active: open tab with special skills.")
     ..addStats(addAllStats(600))
     ..addStats(addAttackSpeed(2.2))
     ..addStats(addArmor(300))
-    ..addStats("Active: open tab with special skills.")
+    ..addStats("Permanently changes your armor type to 'Holy' if picked up".setColor("|c00b1d4d4"))
     ..addComponents(
     ITEM_BEASTMASTER_CARD,
     ITEM_WARDEN_CARD,
