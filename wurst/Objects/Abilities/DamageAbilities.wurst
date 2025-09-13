@@ -11,8 +11,9 @@ import ItemObjEditing
 import AbilitiesList
 import StatsType
 import DamageEvent
-import DebugVar
 import ObjectIds
+import BuffIds
+import ObjectIdGenerator
 
 // ----------------------------------------------------------------------------
 
@@ -96,15 +97,13 @@ public function addAbilityHolyLight(real healIntFactor, real healAmount, real da
 
 // ----------------------------------------------------------------------------
 
-public function addAbilityDamageStun(real damage, real intFactor, real stunDuration, int manaCost, real cd) returns ItemStats
-    let effects = wordAbilityMagicDamageInt2.format(damage.toString(), intFactor.toString(), cd.toString())
-    
-    return new TargetAbility(effects, manaCost, cd, (unit caster, unit target) -> begin
+public function addAbilityDamageStunActive(real damage, real intFactor, real stunDuration, int manaCost, real cd) returns ItemStats
+    let effects = wordAbilityStunActive.format(damage.toString(), intFactor.toString(), cd.toString())
+
+    return new StunAbility(effects, manaCost, cd, stunDuration, (unit caster, unit target) -> begin
         let damageSum = caster.getInt(true) * intFactor + damage
         caster.damageTargetCode(damageSum, target, null, -1, damageType.MAGICAL)
     end)
-    ..setDurationNormal(1, stunDuration)
-    ..setDurationHero(1, stunDuration)
     .register()
 
 // ----------------------------------------------------------------------------
@@ -113,7 +112,7 @@ public function addSpikes(real factor) returns ItemStats
     let effects = wordSpikes.format((100*factor).toString())
 
     return new ItemStatsCustomFunc(-1, wordPassive + effects, (int itemId, ItemDefinition itemDef) -> begin
-        abilitiesListReflections.add(new ItemTargetWurstAbility(itemId, (unit src, unit target) -> begin
+        abilitiesListReflections.add(new ItemWurstAbility(itemId, (unit src, unit target) -> begin
             target.damageTargetCode(DamageEvent.getAmount() * factor, src, null, -1, damageType.PHYSICALRANGED)
         end))
     end)
@@ -179,7 +178,7 @@ public function addAbilityDrainHpRel(real factor, real chance) returns ItemStats
 
 // ----------------------------------------------------------------------------
 
-public function addChainLighting(real chance, real damage, real damageReductionPerTarget, int maxTargets, real range, bool onlyRanged) returns ItemStats
+public function addAbilityChainLighting(real chance, real damage, real damageReductionPerTarget, int maxTargets, real range, bool onlyRanged) returns ItemStats
 
     let effects = wordLightning.format((100*chance).toString(), damage.toString(),
     maxTargets.toString(), damageReductionPerTarget.toString()) + (onlyRanged ? wordOnlyRanged : "")
@@ -202,7 +201,7 @@ public function addChainLighting(real chance, real damage, real damageReductionP
 
 // ----------------------------------------------------------------------------
 
-public function addChainLightingActive(real damage, real damageReductionPerTarget, int maxTargets, real range, int manaCost, real cd) returns ItemStats
+public function addAbilityChainLightingActive(real damage, real damageReductionPerTarget, int maxTargets, real range, int manaCost, real cd) returns ItemStats
 
     let effects = wordLightningActive.format(damage.toString(),
     maxTargets.toString(), range.toString(), damageReductionPerTarget.toString())
@@ -213,5 +212,27 @@ public function addChainLightingActive(real damage, real damageReductionPerTarge
         ..setNumberofTargetsHit(1, maxTargets)
         ..setDamageReductionperTarget(1, damageReductionPerTarget)
         ..setAreaofEffect(1, range)
+
+// ----------------------------------------------------------------------------
+
+public function addAbilityFreezePassive(real chance, real damage, real stunDuration, real cd) returns ItemStats
+    let abilityId = ABIL_ID_GEN.next()
+    
+    let effects = wordFreeze.format(chance.toString(), damage.toString(), stunDuration.toString(), cd.toString())
+    
+    new AbilityDefinitionMountainKingThunderBolt(abilityId)
+    ..setBuffs(1, BuffIds.freezingBreath.toRawCode())
+    ..setDamage(1, damage)
+    ..setDurationHero(1, stunDuration)
+    ..setDurationHero(1, stunDuration)
+    // Structures cannot be bashed, but can be freezed.
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.enemies, TargetsAllowed.neutral, TargetsAllowed.ground, TargetsAllowed.air, TargetsAllowed.organic, TargetsAllowed.structure))
+    ..setArtCaster("")
+    ..setArtSpecial("")
+    //..setArtTarget("")
+    ..setArtCaster("")
+    ..setDummyAbility()
+
+    return addAbilityStunTargetPassive(chance, cd, effects, abilityId)
 
 // ----------------------------------------------------------------------------

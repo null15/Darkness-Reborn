@@ -21,7 +21,7 @@ init
     ..addStats(addDamage(700))
     ..addStats(addAttackSpeed(3))
     ..addStats(addCrit(7, 46))
-    ..addStats("[WIP] 37% Chance to freeze the target for 0.25s")
+    ..addStats(addAbilityFreezePassive(40, 15000, 1, 6))
     ..addComponents( 
     ITEM_ICE_AND_FIRE_SWORD,
     ITEM_ICE_SWORD,
@@ -72,7 +72,7 @@ init
     ..setClassification("Artifact")
     ..addStats(addDamage(4500))
     ..addStats(addStr(600))
-    ..addStats(addBash(30, 3000, 1, 2.5))
+    ..addStats(addBash(35, 10000, 0.75, 4))
     ..addComponents(
     ITEM_CORROSIVE_HAMMER,
     ITEM_PLATINUM_HAMMER,

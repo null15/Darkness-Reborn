@@ -63,11 +63,12 @@ public let wordFrost2             = "Frost Orb Effect on-hit: {0} sec (normal), 
 public let wordLightning          = "{0}% chance to shoot a chain lightning dealing {1} damage to up to {2} targets ({3} damage reduction per target)"  
 public let wordLightningActive    = "Chain lightning that deals {0} damage to up to {1} targets in {2} range ({3} damage reduction per target)"
 public let wordOnlyRanged         = " (works only for ranged heroes)" 
-   
+
 public let wordCleave             = "|c00cb4545Cleave:|r {0} damage in {1} range"
-public let wordCrit               = "|c00faba53Crit:|r {0}% chance to do x{1} damage"
-public let wordBash               = "|c00376bf9Bash:|r {0}% chance to do {1} bonus damage and stun for {2} sec (cd {3} sec)"
-   
+public let wordCrit               = "|c00faba53Crit:|r {0}% chance to deal x{1} damage"
+public let wordBash               = "|c00376bf9Bash:|r {0}% chance to deal {1} bonus damage and stun for {2} sec (cd {3} sec)"
+public let wordFreeze             = "|c00376bf9Freeze:|r {0}% chance to deal {1} bonus damage and freeze target for {2} sec (cd {3} sec)"
+
 // ----------------------------------------------------------------------------
 
 public let wordHp                 = "HP"
@@ -121,6 +122,7 @@ public let wordAbilityMagicDamageInt   = "Deals {0}x int magical damage to targe
 public let wordAbilityMagicDamageInt2  = "Deals {0} + {1}x int magical damage to target"
 public let wordAbilityAoeDamage        = "Deals {0} {1} for all enemies in range {2}"
 public let wordAbilityDamageMaxTargets = "Deals {0} {1} for maximum {2} enemies in range {3}"
+public let wordAbilityStunActive       = "Deals {0} + {1}x int magical damage to target and stuns it for {2} sec"
 public let wordAbilityArmorDamageHpReg = "+{0}% damage, +{1} armor, +{2} hp regen for {3} sec"
 public let wordReturnDamageStats       = "{0}% chance to return {1}x {2} {3} on damage taken"
 public let wordDealDamageStats         = "{0}% chance to deal additional {1}x {2} {3}"

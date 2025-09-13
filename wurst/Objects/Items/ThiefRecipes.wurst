@@ -302,7 +302,7 @@ init
     ..addStats(addAllStats(800))
     ..addStats(addDamage(1000))
     ..addStats(addAttackSpeed(3))
-    ..addStats(addChainLighting(0.5, 10000, 0.05, 15, 6000, true))
+    ..addStats(addAbilityChainLighting(0.5, 10000, 0.05, 15, 6000, true))
     ..addComponents(
     ITEM_THUNDER_BOW,
     ITEM_CHIMAERAS_LIGHNING_POWER,

@@ -479,20 +479,6 @@ import OrderIds
     ..setMissileArt(".mdl")
     ..setBuffs(1, BUFF_24.toRawCode())
 
-    new AbilityDefinitionMountainKingThunderBolt(ABILITY_DUMMY_STUN)
-    ..setLevels(2)
-    ..setDurationHero(1, 0.5)
-    ..setDurationNormal(1, 0.5)
-    ..setDurationHero(2, 1)
-    ..setDurationNormal(2, 1)
-    ..setDummyAbility()
-    ..presetDamage(lvl -> 0)
-    ..setArtTarget(".mdl")
-    ..setArtSpecial(".mdl")
-    ..setArtEffect(".mdl")
-    ..setArtCaster(".mdl")
-
-
 @compiletime function abilities()
 // A01K
     new AbilityDefinitionFaerieFire(ABILITY_0)

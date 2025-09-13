@@ -93,7 +93,7 @@ init
     ..addStats(addAllStats(120))
     ..addStats(addDamage(300))
     ..addStats(addAttackSpeed(2))
-    ..addStats(addChainLighting(0.4, 6000, 0.1, 10, 1600, true))
+    ..addStats(addAbilityChainLighting(0.4, 6000, 0.1, 10, 1600, true))
     ..addComponents(
     ITEM_MEDALLION_OF_COURAGE,
     ITEM_AMULET_OF_THE_WILD,

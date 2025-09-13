@@ -122,6 +122,6 @@ init
     ..setCanBeSoldToMerchants(true)
     ..setGoldCost(3600)
     ..addStats(addDamage(15))
-    ..addStats(addChainLighting(0.2, 1000, 0.2, 5, 900, false))
+    ..addStats(addAbilityChainLighting(0.2, 1000, 0.2, 5, 900, false))
     ..addHotKey()
     ..register()

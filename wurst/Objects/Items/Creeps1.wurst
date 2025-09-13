@@ -134,7 +134,7 @@ init
     new MyItemDefinition(ITEM_ANCESTRAL_STAFF)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNWitchDoctorMaster.blp")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityDamageStun(500, 0, 2, 500, 5))
+    ..addStats(addAbilityDamageStunActive(500, 0, 2, 500, 5))
     ..addStats(addInt(12))
     ..setStockMaximum(99)
     ..register()
