@@ -1,0 +1,35 @@
+package KeeperOfTheGrove_E
+
+import ClosureForGroups
+import ClosureEvents
+import ClosureTimers
+import Abilities
+import codeDamageTypings
+import Projectile
+import Units
+
+public function hawkeyeSplit()
+    EventListener.onPointCast('A0U1') (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel('A0U1')
+        let owl = AddSpecialEffect(Units.owlSCOUT, target.x, target.y)
+        caster.setUserData(GetRandomInt(0, 359))
+        owl.setYaw(caster.getUserData().toReal())
+        owl.setHeight(150)
+        doPeriodicallyTimed(0.25, 5) (CallbackCounted cb) ->
+            if(caster.getUserData() + 18 > 360)
+                caster.setUserData(caster.getUserData() + 18 - 360)
+            else
+                caster.setUserData(caster.getUserData() + 18)
+            owl.setYaw(caster.getUserData().toReal())
+            forUnitsInRange(target, 500, true) (unit u) ->
+                if caster.isEnemyOf(u) and u.isAlive()
+                    let pos = owl.getPos()
+                    let sfx = AddSpecialEffect(Abilities.arrowMissile1, pos.x, pos.y)
+                    sfx.setHeight(150)
+                    let proj = new Projectile(u, sfx, 4)
+                    proj.moveForward(false) (effect detectionUnit, unit target) ->
+                        let output = (caster.getInt(true) * 0.25 + 5.) * lvl
+                        caster.damageTargetCode(output, u, null, -1, damageType.MAGICAL)
+                        
+            if(cb.isLast())
+                owl.destr()

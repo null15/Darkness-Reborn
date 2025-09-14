@@ -1,0 +1,367 @@
+package WolfmanAbilities
+
+import MyAbilityIds
+import AbilityObjEditing
+import MyBuffIds
+import ObjectIds
+import MyUnitIds
+import Icons
+import BuffIds
+import BuffObjEditing
+
+@compiletime function wolfmanAbils()
+    new AbilityDefinitionCripple(MAN_ABILITY_1)
+    ..setLevels(9)
+    ..setHotkeyLearn("Q")
+    ..setHotkeyNormal("Q")
+    ..setName("Man - Q - Punch")
+    ..setButtonPositionNormalX(0)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(0)
+    ..setButtonPositionResearchY(0)
+    ..setTooltipLearn("Learn Punch [|cffffcc00Q|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Punch the enemy dealing 2 * str * lvl damage")
+    ..presetCooldown(lvl -> 5)
+    ..presetManaCost(lvl -> 0)
+    ..presetTooltipNormal(lvl -> "Punch [|cffffcc00Q|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Punch the enemy dealing " + (2 * lvl).toString() + " * str damage")
+    ..presetCastRange(lvl -> 180)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetDurationHero(lvl -> 0.01)
+    ..presetDurationNormal(lvl -> 0.01)
+    ..presetBuffs(lvl -> commaList(""))
+    ..setRequirements("")
+    ..setIconNormal(Icons.bTNSeaGiantPulverize)
+    ..setIconResearch(Icons.bTNSeaGiantPulverize)
+
+    new AbilityDefinitionTaurenChieftainWarStomp(MAN_ABILITY_2)
+    ..setLevels(9)
+    ..setHotkeyLearn("W")
+    ..setHotkeyNormal("W")
+    ..setName("Man - W - Scream")
+    ..setButtonPositionNormalX(1)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(1)
+    ..setButtonPositionResearchY(0)
+    ..setTooltipLearn("Learn Scream [|cffffcc00W|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Screams so hard that the nearby enemies are stunned for 2 seconds")
+    ..presetTooltipNormal(lvl -> "Scream [|cffffcc00W|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Screams so hard that the nearby enemies are stunned for 2 seconds")
+    ..presetDurationHero(lvl -> 2)
+    ..presetDurationNormal(lvl -> 2)
+    ..presetBuffs(lvl -> commaList(MAN_BUFF))
+    ..presetCooldown(lvl -> 12.-lvl)
+    ..presetManaCost(lvl -> 0)
+    ..presetDamage(lvl -> 0)
+
+    new AbilityDefinitionFarseerSpiritWolf(MAN_ABILITY_3)
+    ..setLevels(9)
+    ..setHotkeyLearn("E")
+    ..setHotkeyNormal("E")
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(2)
+    ..setButtonPositionResearchY(0)
+    ..setName("Man - E - Man's Best Friend")
+    ..setTooltipLearn("Learn Man's Best Friend [|cffffcc00E|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Summon \"Dog\"\n"+
+    "Ability: N/A\n" + 
+    "Health: 0.1 * maxHP + 125 * lvl" + 
+    "\nArmor: 0.2 * armor + 2 * lvl" + 
+    "\nDamage: 0.1 * str + 20 * lvl" + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s"+
+    "\n\n|cffff0000Upgrades give flat health/damage/armor|r")
+    ..presetSummonedUnit(lvl -> commaList(MAN_WOLF_INITIAL))
+    ..presetNumberofSummonedUnits(lvl -> 1)
+    ..setIconNormal(Icons.bTNDireWolf)
+    ..setIconResearch(Icons.bTNDireWolf)
+    ..presetTooltipNormalExtended(lvl -> "Summon \"Dog\"\n"+
+    "Ability: N/A\n" + 
+    "Health: 0.1 * maxHP + " + (125*lvl).toString() + 
+    "\nArmor: 0.2 * armor + " + (2*lvl).toString() + 
+    "\nDamage: 0.1 * str + " + (20*lvl).toString() + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s")
+    ..presetDurationHero(lvl -> 0)
+    ..presetDurationNormal(lvl -> 0)
+
+    new AbilityDefinitionWarStompcreep(WOLF_INITIATE_DUMMY_1)
+    ..setLevels(9)
+    ..presetDamage(lvl -> 0)
+    ..presetCooldown(lvl -> 0)
+    ..presetCastRange(lvl -> 93083)
+    ..presetManaCost(lvl -> 0)
+    ..presetAreaofEffect(lvl -> 400)
+    ..presetDurationHero(lvl -> 2)
+    ..presetDurationNormal(lvl -> 2)
+    ..presetBuffs(lvl -> commaList(WOLF_BUFF_2))
+    ..presetEffects(lvl -> "")
+    ..presetTerrainDeformationDurationms(lvl -> 0)
+    ..presetTerrainDeformationAmplitude(lvl -> 0)
+    ..setArtSpecial("")
+    ..setArtEffect("")
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    
+    new AbilityDefinitionCripple(WOLF_INITIATE_ABILITY_1)
+    ..setLevels(9)
+    ..setHotkeyLearn("Q")
+    ..setHotkeyNormal("Q")
+    ..setName("Dogman - Q - Bite")
+    ..setButtonPositionNormalX(0)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(0)
+    ..setButtonPositionResearchY(0)
+    ..setTooltipLearn("Learn Bite [|cffffcc00Q|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Bite the enemy dealing 3 * str * lvl damage")
+    ..presetCooldown(lvl -> 5)
+    ..presetManaCost(lvl -> 0)
+    ..presetTooltipNormal(lvl -> "Bite [|cffffcc00Q|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Bite the enemy dealing " + (3 * lvl).toString() + " * str damage")
+    ..presetCastRange(lvl -> 180)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetDurationHero(lvl -> 0.01)
+    ..presetDurationNormal(lvl -> 0.01)
+    ..presetBuffs(lvl -> commaList(""))
+    ..setRequirements("")
+    ..setIconNormal(Icons.bTNCannibalize)
+    ..setIconResearch(Icons.bTNCannibalize)
+
+    new AbilityDefinitionRoar(WOLF_INITIATE_ABILITY_2)
+    ..setLevels(9)
+    ..setHotkeyLearn("W")
+    ..setHotkeyNormal("W")
+    ..setName("Dogman - W - Howl")
+    ..setButtonPositionNormalX(1)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(1)
+    ..setButtonPositionResearchY(0)
+    ..setTooltipLearn("Learn Howl [|cffffcc00W|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Howl to the sky, stunning enemies for 2 seconds and reducing armor by 10 * lvl for nearby enemies for 10 seconds")
+    ..presetTooltipNormal(lvl -> "Howl [|cffffcc00W|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Howl to the sky, stunning enemies for 2 seconds and reducing armor by " + (lvl * 10).toString() + " for nearby enemies for 10 seconds")
+    ..presetDurationHero(lvl -> 10)
+    ..presetDurationNormal(lvl -> 10)
+    ..presetDamageIncrease(lvl -> 0)
+    ..presetDefenseIncrease(lvl -> -(10*lvl))
+    ..presetLifeRegenerationRate(lvl -> 0)
+    ..presetAreaofEffect(lvl -> 500.)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetBuffs(lvl -> commaList(WOLF_BUFF_3))
+    ..setIconNormal(Icons.bTNBattleRoar)
+    ..setIconResearch(Icons.bTNBattleRoar)
+    ..presetCooldown(lvl -> 12.-lvl)
+    ..presetManaCost(lvl -> 0)
+
+    new AbilityDefinitionBerserk(WOLF_INITIATE_ABILITY_3)
+    ..setLevels(9)
+    ..setHotkeyLearn("E")
+    ..setHotkeyNormal("E")
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(2)
+    ..setButtonPositionResearchY(0)
+    ..setName("Dogman - E - Bloodlust")
+    ..setTooltipLearn("Learn Bloodlust [|cffffcc00E|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Hunger for blood, attacking 20% * lvl faster and move 15% * lvl faster. Gain 25% lifesteal. Lasts 5 seconds.")
+    ..presetTooltipNormal(lvl -> "Bloodlust [|cffffcc00E|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Hunger for blood, attacking " + (20*lvl).toString() + "% * lvl faster and move " + (15*lvl).toString() + "% * lvl faster. Gain 25% lifesteal.  Lasts 5 seconds.")
+    ..presetDurationHero(lvl -> 5)
+    ..presetDurationNormal(lvl -> 5)
+    ..presetCooldown(lvl -> 18.-lvl)
+    ..presetManaCost(lvl -> 0)
+    ..presetAttackSpeedIncrease(lvl -> 0.2*lvl)
+    ..presetMovementSpeedIncrease(lvl -> 0.15*lvl)
+    ..presetDamageTakenIncrease(lvl -> 0)
+    ..setIconResearch(Icons.bTNBerserk)
+    ..setIconNormal(Icons.bTNBerserk)
+    ..presetBuffs(lvl -> commaList(WOLF_BUFF_1))
+
+    new AbilityDefinitionFarseerSpiritWolf(WOLF_INITIATE_ABILITY_4)
+    ..setLevels(9)
+    ..setHotkeyLearn("R")
+    ..setHotkeyNormal("R")
+    ..setButtonPositionNormalX(3)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(3)
+    ..setButtonPositionResearchY(0)
+    ..setName("Dogman - R - Dog's Best Friend")
+    ..setTooltipLearn("Learn Dog's Best Friend [|cffffcc00R|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Summon \"Wolf\"\n"+
+    "Ability: N/A\n" + 
+    "Health: 0.15 * maxHP + 125 * lvl" + 
+    "\nArmor: 0.3 * armor + 2 * lvl" + 
+    "\nDamage: 0.2 * str + 40 * lvl" + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s"+
+    "\n\n|cffff0000Upgrades give flat health/damage/armor|r")
+    ..presetSummonedUnit(lvl -> commaList(MAN_WOLF_INITIATE))
+    ..presetNumberofSummonedUnits(lvl -> 1)
+    ..setIconNormal(Icons.bTNDireWolf)
+    ..setIconResearch(Icons.bTNDireWolf)
+    ..presetTooltipNormalExtended(lvl -> "Summon \"Alpha Wolf\"\n"+
+    "Ability: Raise Wolf\n" + 
+    "Health: 0.15 * maxHP + " + (125*lvl).toString() + 
+    "\nArmor: 0.3 * armor + " + (2*lvl).toString() + 
+    "\nDamage: 0.2 * str + " + (40*lvl).toString() + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s")
+    ..presetDurationHero(lvl -> 0)
+    ..presetDurationNormal(lvl -> 0)
+
+    new AbilityDefinitionCripple(WOLF_FINAL_ABILITY_1)
+    ..setLevels(1)
+    ..setHotkeyLearn("Q")
+    ..setHotkeyNormal("Q")
+    ..setButtonPositionNormalX(0)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(0)
+    ..setButtonPositionResearchY(0)
+    ..setName("Wolfman - Q - Bite")
+    ..setTooltipLearn("Learn Bite [|cffffcc00Q|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Bite the enemy dealing 27 * str + 2250 damage")
+    ..presetCooldown(lvl -> 5)
+    ..presetManaCost(lvl -> 0)
+    ..presetTooltipNormal(lvl -> "Bite [|cffffcc00Q|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Bite the enemy dealing 27 * str + 2250 damage")
+    ..presetCastRange(lvl -> 180)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetDurationHero(lvl -> 0.01)
+    ..presetDurationNormal(lvl -> 0.01)
+    ..presetBuffs(lvl -> commaList(""))
+    ..setRequirements("")
+    ..setIconNormal(Icons.bTNCannibalize)
+    ..setIconResearch(Icons.bTNCannibalize)
+
+    new AbilityDefinitionRoar(WOLF_FINAL_ABILITY_2)
+    ..setLevels(1)
+    ..setHotkeyLearn("W")
+    ..setHotkeyNormal("W")
+    ..setButtonPositionNormalX(1)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(1)
+    ..setButtonPositionResearchY(0)
+    ..setName("Wolfman - W - Howl")
+    ..setTooltipLearn("Learn Howl [|cffffcc00W|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Howl to the sky, stunning enemies for 2 seconds and reducing armor by 150 for nearby enemies for 10 seconds")
+    ..presetTooltipNormal(lvl -> "Howl [|cffffcc00W|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Howl to the sky, stunning enemies for 2 seconds and reducing armor by 150 for nearby enemies for 10 seconds")
+    ..presetDurationHero(lvl -> 10)
+    ..presetDurationNormal(lvl -> 10)
+    ..presetDamageIncrease(lvl -> 0)
+    ..presetDefenseIncrease(lvl -> -150)
+    ..presetLifeRegenerationRate(lvl -> 0)
+    ..presetTargetsAllowed(lvl -> commaList(TargetsAllowed.enemies))
+    ..presetBuffs(lvl -> commaList(WOLF_BUFF_3))
+    ..setIconNormal(Icons.bTNBattleRoar)
+    ..setIconResearch(Icons.bTNBattleRoar)
+    ..presetCooldown(lvl -> 3.)
+    ..presetManaCost(lvl -> 0)
+
+    new AbilityDefinitionBerserk(WOLF_FINAL_ABILITY_3)
+    ..setLevels(1)
+    ..setHotkeyLearn("E")
+    ..setHotkeyNormal("E")
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(2)
+    ..setButtonPositionResearchY(0)
+    ..setName("Wolfman - E - Bloodlust")
+    ..setTooltipLearn("Learn Bloodlust [|cffffcc00E|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Hunger for blood, attacking 300% faster and move 200% lvl faster. Gain 50% lifesteal. Lasts 5 seconds.")
+    ..presetTooltipNormal(lvl -> "Bloodlust [|cffffcc00E|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Hunger for blood, attacking 300% faster and move 200% lvl faster. Gain 50% lifesteal. Lasts 5 seconds.")
+    ..presetDurationHero(lvl -> 5)
+    ..presetDurationNormal(lvl -> 5)
+    ..presetCooldown(lvl -> 7)
+    ..presetManaCost(lvl -> 0)
+    ..presetDamageTakenIncrease(lvl -> 0)
+    ..presetAttackSpeedIncrease(lvl -> 3)
+    ..presetMovementSpeedIncrease(lvl -> 2)
+    ..setIconResearch(Icons.bTNBerserk)
+    ..setIconNormal(Icons.bTNBerserk)
+    ..presetBuffs(lvl -> commaList(WOLF_BUFF_1))
+    
+
+    new AbilityDefinitionFarseerSpiritWolf(WOLF_FINAL_ABILITY_4)
+    ..setLevels(1)
+    ..setHotkeyLearn("R")
+    ..setHotkeyNormal("R")
+    ..setButtonPositionNormalX(3)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(3)
+    ..setButtonPositionResearchY(0)
+    ..setName("Wolfman - R - Dog's Best Friend")
+    ..setTooltipLearn("Learn Dog's Best Friend [|cffffcc00R|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Summon \"Spirit Wolf\"\n"+
+    "Ability: Call Pack\n" + 
+    "Health: 0.25 * maxHP + 125 * lvl" + 
+    "\nArmor: 0.5 * armor + 2 * lvl" + 
+    "\nDamage: 0.4 * str + 40 * lvl" + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s"+
+    "\nArmor Penetration: 10% of summoner Armor Pen per level")
+    ..presetSummonedUnit(lvl -> commaList(MAN_WOLF_FINAL))
+    ..presetNumberofSummonedUnits(lvl -> 1)
+    ..setIconNormal(Icons.bTNDireWolf)
+    ..setIconResearch(Icons.bTNDireWolf)
+    ..presetDurationHero(lvl -> 0)
+    ..presetDurationNormal(lvl -> 0)
+    ..presetTooltipNormalExtended(lvl -> "Summon \"Alpha Wolf\"\n"+
+    "Ability: Call Pack\n" + 
+    "Health: 0.25 * maxHP + " + (2500*lvl).toString() + 
+    "\nArmor: 0.5 * armor + " + (40*lvl).toString() + 
+    "\nDamage: 0.4 * str + " + (400*lvl).toString() + 
+    "\nDuration: Infinite" +
+    "\nCooldown: 35s"+
+    "\nArmor Penetration: " + (10*lvl).toString() + "% of summoner Armor Pen")
+
+    new AbilityDefinitionBladeMasterCriticalStrike(WOLF_FINAL_ABILITY_5)
+    ..setLevels(1)
+    ..setHotkeyLearn("T")
+    ..setName("Wolfman - T - Frenzy")
+    ..setButtonPositionNormalX(3)
+    ..setButtonPositionNormalY(1)
+    ..setButtonPositionResearchX(3)
+    ..setButtonPositionResearchY(1)
+    ..setTooltipLearn("Learn Frenzy [|cffffcc00T|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Gives 9% chance to deal 50x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: WIP on summons|r")
+    ..presetTooltipNormal(lvl -> "Frenzy [|cffffcc00T|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Gives 9% chance to deal 50x crit.\nAlso makes it so you get +1 str for every kill of an enemy under level 30, 3-7 str for units between 30 and 44. 6-20 str for enemies over level 45\n\n|cffff0000WARNING: WIP on summons|r")
+    ..setChancetoCriticalStrike(1, 9)
+    ..setDamageMultiplier(1, 50)
+
+    new AbilityDefinitionFarseerSpiritWolf(MAN_WOLF_FINAL_ABIL)
+    ..setLevels(1)
+    ..setSummonedUnit(1, commaList(MAN_WOLF_INITIATE))
+    ..setNumberofSummonedUnits(1, 4)
+    ..setManaCost(1, 0)
+    ..presetDurationHero(lvl -> 0)
+    ..presetDurationNormal(lvl -> 0)
+    ..setName("Call Pack")
+    ..presetTooltipNormalExtended(lvl -> "Call \"Pack\"\n"+
+    "Ability: N/A\n" + 
+    "Health: 0.25 * maxHP" + 
+    "\nArmor: 0.5 * armor" + 
+    "\nDamage: 0.4 * damage")
+
+@compiletime function wolfmanBuffs()
+    new BuffDefinition(MAN_BUFF, BuffIds.stunned)
+    ..setName("Scream")
+    ..setTooltipNormal("This unit is covering their ears")
+    ..setTooltipNormalExtended("This unit is covering their ears")
+
+    new BuffDefinition(WOLF_BUFF_1, BuffIds.berserk)
+    ..setName("Bloodlust")
+    ..setTooltipNormal("This wolf is in a state of Bloodlust")
+    ..setTooltipNormalExtended("This wolf is in a state of Bloodlust")
+
+    new BuffDefinition(WOLF_BUFF_2, BuffIds.stunned)
+    ..setName("Howl")
+    ..setTooltipNormal("This unit is covering their ears")
+    ..setTooltipNormalExtended("This unit is covering their ears")
+
+    new BuffDefinition(WOLF_BUFF_3, BuffIds.devour)
+    ..setName("Howl")
+    ..setTooltipNormal("The Howl has reduced their mobility")
+    ..setTooltipNormalExtended("The Howl has reduced their mobility")

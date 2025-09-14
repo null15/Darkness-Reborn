@@ -1,0 +1,18 @@
+package MiscUnitAbilities
+
+import AbilityObjEditing
+import MyAbilityIds
+
+@compiletime function defineAbilities()
+	new AbilityDefinitionItemTownPortal(ABILITY_HERO_TP)
+	..presetAreaofEffect(lvl -> 0)
+	..presetCastingTime(lvl -> 2)
+	..presetMaximumNumberofUnits(lvl -> 0)
+	..presetCooldown(lvl -> 10)
+	..setItemAbility(false)
+	..setIconNormal("ReplaceableTextures\\CommandButtons\\BTNGreaterRejuvScroll.blp")
+	..setButtonPositionNormalX(1)
+	..setButtonPositionNormalY(1)
+	..setHotkeyNormal("Z")
+	..presetTooltipNormal(lvl -> "Teleport [Z]")
+	..presetTooltipNormalExtended(lvl -> "Teleports the caster to targeted friendly building. The caster is invulnerable while channelling.|n Cooldown: 10 sec")

@@ -1,0 +1,38 @@
+package Vivpire_T
+
+import Vivpire_R
+import MyAbilityIds
+import ClosureEvents
+import ClosureTimers
+import MyUnitIds
+import ArmorLimiter
+
+let damage = [100,300,600,1000]
+let armor = [50,100,150,250]
+
+
+public function vivpireUnleashed()
+    let oldSkin = HERO_VIVPIRE
+    EventListener.onCast(VIVPIRE_ABILITY_5) (unit caster) ->
+        let lvl = caster.getAbilityLevel(VIVPIRE_ABILITY_5)
+        let oldBlood = getBlood()
+        let hpgain = 1000 * Pow(2, lvl-1.).toInt()
+        caster..setArmor(caster.getArmor() + armor[lvl-1] + 3* oldBlood)
+            ..setMaxHP(caster.getMaxHP().toInt() + hpgain)
+            ..addHP(hpgain.toReal())
+            ..addInt(oldBlood * 4)
+            ..addStr(oldBlood * 4)
+            ..addAgi(oldBlood * 4)
+            ..setFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 0, caster.getFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 1) + oldBlood * 8 + damage[lvl-1])
+            .limitArmorImmediate()
+        BlzSetUnitSkin(caster, SKIN_2)
+        doAfter(10. + lvl * 5) -> 
+            BlzSetUnitSkin(caster, oldSkin)
+            caster..setArmor(caster.getArmor() - armor[lvl-1] - 3* oldBlood)
+                ..setMaxHP(caster.getMaxHP().toInt() - hpgain)
+                ..addAgi(oldBlood * -4)
+                ..addStr(oldBlood * -4)
+                ..addInt(oldBlood * -4)
+                ..setFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 0, 
+                caster.getFieldWeapon(UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE, 0) - oldBlood * 8 - damage[lvl-1])
+                .resetArmor()

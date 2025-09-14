@@ -87,7 +87,7 @@ init
     heroPickedUpgradeHash.put(HERO_SATYR, new UpgradeHeroBool(HERO_SATYR_PICKED))
     heroPickedUpgradeHash.put(HERO_DARK_RANGER, new UpgradeHeroBool(HERO_DARK_RANGER_PICKED))
     heroPickedUpgradeHash.put(HERO_ILLUSIONIST, new UpgradeHeroBool(HERO_ILLUSIONIST_PICKED))
-    heroPickedUpgradeHash.put(HERO_RANGER, new UpgradeHeroBool(HERO_RANGER_PICKED))
+    heroPickedUpgradeHash.put(HERO_SYLVANAS, new UpgradeHeroBool(HERO_RANGER_PICKED))
     heroPickedUpgradeHash.put(HERO_FIRELORD, new UpgradeHeroBool(HERO_FIRELORD_PICKED))
     heroPickedUpgradeHash.put(HERO_KEEPER_OF_THE_GROVE, new UpgradeHeroBool(HERO_KEEPER_OF_THE_GROVE_PICKED))
     heroPickedUpgradeHash.put(HERO_FIRE_MAGE, new UpgradeHeroBool(HERO_FIRE_MAGE_PICKED))

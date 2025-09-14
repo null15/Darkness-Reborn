@@ -1,0 +1,29 @@
+package BuildingAbilities
+
+import MyAbilityIds
+import AbilityObjEditing
+import ObjectIds
+
+@compiletime function buildingGeneral()
+    new AbilityDefinitionShopSharing(SHOP_SHARE)
+    ..setLevels(1)
+    ..presetActivationRadius(lvl -> 1800)
+    ..setShowSelectUnitButton(1, false)
+
+    new AbilityDefinitionShopSharing(SHOP_CRYSTAL)
+    ..setLevels(1)
+    ..presetActivationRadius(lvl -> 32000)
+    ..setShowSelectUnitButton(1, false)
+
+@compiletime function fountainAbils()
+    new AbilityDefinitionNeutralRegenhealthonly(FOUNTAIN_HEALING)
+    ..setAreaofEffect(1, 400)
+    ..setLevels(1)
+    ..setAmountofHitPointsRegenerated(1, 0.07)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.ground, TargetsAllowed.air))
+
+    new AbilityDefinitionNeutralRegenmanaonly(FOUNTAIN_MANAREGEN)
+    ..setAreaofEffect(1, 400)
+    ..setLevels(1)
+    ..setAmountRegenerated(1, 0.07)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.ground, TargetsAllowed.air))

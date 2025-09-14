@@ -1,0 +1,19 @@
+package Firemage_W
+
+import ClosureEvents
+import MyUnitIds
+import ClosureTimers
+
+function spawnPhoenix(unit caster, vec2 target)
+    let lvl = GetUnitAbilityLevel(caster, 'A004')
+    let phoenix = createUnit(GetOwningPlayer(caster), DUMMY_UNIT_3, target)
+    phoenix..addAbility('A005')..setAbilityLevel('A005', lvl)..setTimedLife(3.5)
+    doAfter(3.5) -> 
+        phoenix.remove()
+
+public function phoenix()
+    EventListener.onTargetCast('A004') (unit caster, unit target) ->
+        spawnPhoenix(caster, target.getPos())
+
+    EventListener.onPointCast('A004') (unit caster, vec2 target) ->
+        spawnPhoenix(caster, target)

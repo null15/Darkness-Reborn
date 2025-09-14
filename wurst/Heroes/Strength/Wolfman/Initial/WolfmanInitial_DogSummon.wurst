@@ -1,0 +1,17 @@
+package WolfmanInitial_DogSummon
+import MyUnitIds
+import ClosureEvents
+import MyAbilityIds
+
+public function manDog()
+    EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
+        let summoner = GetSummoningUnit()
+        if(summoner.getTypeId() == HERO_WOLFMAN_INITIAL)
+            let summon = GetSummonedUnit()
+            let str = summoner.getStr(true)
+            
+            if summon.getTypeId() == MAN_WOLF_INITIAL
+                let lvl = summoner.getAbilityLevel(MAN_ABILITY_3)
+                summon.setMaxHP(((0.1*summoner.getMaxHP()) + lvl * 125).toInt(), true)
+                summon.setArmor(0.2 * summoner.getArmor() + lvl * 2)
+                summon.setBaseDamage((0.1 * str + lvl * 20).toInt(), 0)

@@ -1,0 +1,18 @@
+package ShadowOfVengeance_Abilities
+
+import MyAbilityIds
+import AbilityObjEditing
+
+@compiletime function dummyAbilities()
+    new AbilityDefinitionMountainKingThunderBolt(DARK_VENGEANCE_ABILITY_Q_DUMMY)
+    ..setLevels(1)
+    ..setDurationHero(1, 0.6)
+    ..setDurationNormal(1, 0.6)
+    ..setCastRange(1, 9999)
+    ..setManaCost(1, 0)
+    ..setCooldown(1, 0)
+    ..setDamage(1, 0)
+    ..setArtTarget(".mdl")
+    ..setArtSpecial(".mdl")
+    ..setArtEffect(".mdl")
+    ..setArtCaster(".mdl")

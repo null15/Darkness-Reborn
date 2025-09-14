@@ -1,0 +1,21 @@
+package Pitlord_Abilities
+
+import MyAbilityIds
+import AbilityObjEditing
+
+@compiletime function pitlordAbils()
+    new AbilityDefinitionRainofFire(PITLORD_ABILITY_1)
+    ..setLevels(9)
+    ..setHotkeyLearn("Q")
+    ..setHotkeyNormal("Q")
+    ..setName("Pitlord - Q - Meteor")
+    ..setTooltipLearn("Learn Meteor [|cffffcc00Q|r]  - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Causes a meteor to rain down from the sky, dealing damage and applying a burn to enemies for lvl seconds. Dealing 3 * str *  lvl on impact and burning for 1 * str damage.")
+    ..presetAreaofEffect(lvl -> 175. + 25 * lvl)
+    ..presetDamage(lvl -> 0)
+    ..presetNumberofShards(lvl -> 0)
+    ..presetNumberofWaves(lvl -> 0)
+    ..presetCooldown(lvl -> 21. - lvl)
+    ..presetManaCost(lvl -> 75 + 10 * lvl + 10 * lvl + 10 * (lvl-2))
+    ..presetTooltipNormal(lvl -> "Meteor [|cffffcc00Q|r] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Causes a meteor to rain down from the sky, dealing damage and applying a burn to enemies for " + lvl.toString() + " seconds. Dealing " + (lvl * 3).toString() + " * str on impact and burning for 1 * str damage.")

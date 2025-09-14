@@ -1,0 +1,17 @@
+package ShadowOfVengeance_R
+
+import codeDamageTypings
+import DamageEvent
+
+public function gravitone()
+    DamageEvent.addListener(2) ->
+        
+        if (DamageEvent.getType() == ATTACK)
+            let damtyp = DamageEvent.getDamageType()
+            if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                let src = DamageEvent.getSource()
+                let lvl = src.getAbilityLevel('A0CG')
+                if GetRandomInt(1, 100) < lvl*2
+                    let targ = DamageEvent.getTarget()
+                    let missingHp = src.getMissingHP()
+                    src.damageTargetCode(missingHp + 175 * lvl, targ, null, -1, damageType.MAGICAL)

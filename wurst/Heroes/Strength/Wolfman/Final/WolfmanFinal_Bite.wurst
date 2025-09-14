@@ -1,0 +1,10 @@
+package WolfmanFinal_Bite
+
+import ClosureEvents
+import codeDamageTypings
+import MyAbilityIds
+
+public function manbite()
+    EventListener.onTargetCast(WOLF_FINAL_ABILITY_1) (unit caster, unit target) ->
+        let amount = caster.getStr(true) * 27  + 2250.
+        caster.damageTargetCode(amount, target, null, -1, damageType.PHYSICALMELEE)

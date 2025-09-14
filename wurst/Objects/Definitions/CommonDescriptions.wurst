@@ -148,3 +148,16 @@ public let wordAbilityRevive           = "Revives the wearer"
 public let wordTomeGive                = "Give yourself {0} on use"
 
 // ----------------------------------------------------------------------------
+
+public let defender  = "|c00081EE4Defender|r"
+public let farmer    = "|c00FFFF33Farmer|r"
+public let crafter   = "|c00239B0BCrafter|r"
+public let caster    = "|c0028DBE1Caster|r"
+public let summoner  = "|c00E1A328Summoner|r"
+public let stacker   = "|c008428E1Stacker|r"
+public let support   = "|c00E12891Support|r"
+public let ascendant = "|c00FC293EAscend|r"
+public let builder   = "|c00065cdeBuilder|r"
+public let gatherer  = "|c00a806deGatherer|r"
+    
+// ----------------------------------------------------------------------------

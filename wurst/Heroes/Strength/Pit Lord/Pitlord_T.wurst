@@ -1,0 +1,19 @@
+package Pitlord_T
+
+import ClosureEvents
+
+int strGain = 0
+
+public function noblesseAura()
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
+        let killer = GetKillingUnit()
+        let lvl = killer.getAbilityLevel('A0R8')
+        if(lvl > 0)
+            let limit = 750 * lvl
+            if (strGain < limit)
+                strGain++
+                killer.addStr(1)
+                if(lvl == 4 and strGain < limit)
+                    strGain++
+                    killer.addStr(1)
+            killer.setMaxHP(R2I(killer.getMaxHP()+lvl*7), true)

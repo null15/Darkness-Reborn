@@ -1,0 +1,14 @@
+package DarkRanger_R
+
+import MyAbilityIds
+import ClosureEvents
+
+public function burstMana()
+    EventListener.onCast(DARKRANGER_ABILITY_4) (unit caster) ->
+        let lvl = GetUnitAbilityLevel(caster, DARKRANGER_ABILITY_4)
+        let hp = caster.getHP()
+        let calc = 1-(0.04*lvl)
+        let newHp = calc*hp
+        let newMp = (newHp * (lvl * 0.01))
+        caster.setHP(newHp)
+        caster.addMana(newMp)

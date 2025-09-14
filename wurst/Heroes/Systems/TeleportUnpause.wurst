@@ -3,9 +3,10 @@ package TeleportUnpause
 import ClosureEvents
 import ClosureTimers
 import PauseAllocation
+import MyAbilityIds
 
 function unpauseOnTeleportFinish()
-    EventListener.onCast('A007') (unit caster) ->
+    EventListener.onCast(ABILITY_HERO_TP) (unit caster) ->
         doAfter(2) -> 
             caster.unPauseUnitIndef()
 

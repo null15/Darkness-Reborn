@@ -1,0 +1,24 @@
+package Assassin_Q
+
+import ClosureTimers
+import ClosureForGroups
+import ClosureEvents
+import codeDamageTypings
+
+
+public function shadowWalk()
+    EventListener.onCast('A0DA') (unit caster) ->
+        let angle = caster.getFacingAngle()
+        let lvl = GetUnitAbilityLevel(caster, 'A0DA')
+        let dmg = ((lvl*0.22) * caster.getAgi(true))
+        caster
+        ..setVertexColor(color(100, 100, 100))
+        ..setAnimation("ready")
+        doPeriodicallyTimed(0.03, 1) (CallbackCounted cb) ->
+            caster.setPos(caster.getPos().polarOffset(angle,20))
+            forUnitsInRange(caster.getPos(), 175, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    caster.damageTargetCode(dmg, u, null, -1, damageType.PHYSICALMELEE)
+            if cb.isLast()
+                caster
+                ..setVertexColor(color(255, 255, 255))

@@ -1,0 +1,10 @@
+package WolfmanInitiate_Bite
+
+import ClosureEvents
+import codeDamageTypings
+import MyAbilityIds
+
+public function dogbite()
+    EventListener.onTargetCast(WOLF_INITIATE_ABILITY_1) (unit caster, unit target) ->
+        let amount = caster.getStr(true) * 3. * caster.getAbilityLevel(WOLF_INITIATE_ABILITY_1)
+        caster.damageTargetCode(amount, target, null, -1, damageType.PHYSICALMELEE)

@@ -1,0 +1,19 @@
+package Tinker_R
+
+import ClosureEvents
+import ClosureTimers
+
+public function repair()
+    EventListener.onTargetCast('A0QK') (unit caster, unit target) ->
+        let lvl = caster.getAbilityLevel('A0QK')
+        if caster.getMana() < 10.00 * lvl
+            caster.issueImmediateOrder("stop")
+        else
+            target.addHP(10.00*lvl)
+            caster.addMana(-10.00*lvl)
+            doPeriodically(1) (CallbackPeriodic cb) ->
+                if not caster.getMana() < 10.00 * lvl and caster.getCurrentOrder() == 852600
+                    target.addHP(10.00*lvl)
+                    caster.addMana(-10.00*lvl)
+                else
+                    destroy cb

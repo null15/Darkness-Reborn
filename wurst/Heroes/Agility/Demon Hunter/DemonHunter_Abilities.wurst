@@ -1,0 +1,13 @@
+package DemonHunter_Abilities
+
+import MyAbilityIds
+import AbilityObjEditing
+import MyBuffIds
+import ObjectIds
+import Abilities
+import MyUnitIds
+import Icons
+import OrderIds
+
+@compiletime function illidanAbils()
+    

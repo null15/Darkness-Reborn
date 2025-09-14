@@ -1,0 +1,28 @@
+package KeeperOfTheGrove_Q
+
+import ClosureEvents
+import ClosureForGroups
+import Abilities
+import ClosureTimers
+import codeDamageTypings
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+
+real array entanglingDamage = [20, 40, 60, 90, 120, 160, 210, 260, 320]
+
+
+public function entanglingRoots()
+    EventListener.onPointCast('A0TS') (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel('A0TS')
+        let output = 2.00 * lvl * caster.getInt(true) + entanglingDamage[lvl-1]
+        forUnitsInRange(target, 350, true) (unit u) ->
+            if caster.isEnemyOf(u) and u.isAlive()
+                new DummyCaster()
+                ..owner(caster.getOwner())
+                ..origin(caster.getPos())
+                ..castTarget(ABILITY_DUMMY_17, 1, OrderIds.entanglingroots, u)
+                ..delay(0)
+                flashEffect(Abilities.roots1, u, "overhead")
+                doPeriodicallyTimed(1.00, 5.00) (CallbackCounted cb) ->
+                    caster.damageTargetCode(output, u, null, -1, damageType.MAGICAL)

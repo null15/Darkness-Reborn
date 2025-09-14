@@ -1,184 +1,185 @@
 package heroLoader
+
 import MyUnitIds
-import A0DV_W
-import A0DX_R
-import A00O_Q
-import DogSummon
-import ManPunch
-import WolfBite
-import WolfHowl
-import WolfSummon
-import wolfmanBite
-import wolfmanFrenzy
-import wolfmanSummon
-import wolfmanHowl
-import A0CI_W
-import A0Z0_Q
-import A01A_T
-import A01B_E
-import VivepireT
-import VivpireQ
-import VivpireR
-import VivpireW
-import A00L_Q
-import A00N_W
-import A013_T
-import A088_E
-import A00Y_T
-import A07Q_R
-import A0R8_T
-import A0RS_W
-import PitlordAbilQ
 import Jacksmith_E
 import Jacksmith_R
 import Jacksmith_W
 import Jacksmith_Q
 import Jacksmith_T
-import HolyStormW
-import JudgementQ
-import LightsWrathT
-import RedemptionR
-import A0DA_Q
-import A0DC_W
-import A0GC_R
-import A0GJ_T
-import A0E6_R
-import A0RW_Q
-import A0C3_Q
-import A0CE_T
-import A0CG_R
-import A0D8_E
-import A00T_T
-import A017_T
-import Summons
-import A01K_T
-import A00G_E
-import A00J_R
-import A00P_W
-import A006_Q
-import A0S8_E
-import A0TP_R
-import A0F0_W
-import A0AO_Q
-import A0AP_R
-import A0CH_E
-import A0E7_E
-import A0MN_T
-import A004_W
-import EternalFlame
-import A0TS_Q
-import A0TZ_R
-import A0U1_E
-import A0U2_T
-import A0TU_W
-import A01P_Q
-import A01S_R
-import A01T_W
-import A01U_E
-import A0DI_R
-import A01D_T
-import A0M3_R
-import A0M9_E
-import SHWard
-import A0SF_T
-import A0SG_W
-import A0SI_R
-import A01H_E
-import A01Q_Q
-import ASSA_T_PASSIVE
-import A000_W
-import A0AN_T
-import A0AQ_R
 import NagaSeaWitch_Q
-import A0QK_R
-import ABILITY_12_E
 import Blacksmith
-import TinkerAbility_Q
 import TinkerIncome
 import ConstructFinish
-import A0CY_T
-import A00K_R
-import A0CX_W
-import A0CZ_Q
-import A0D1_E
-import A0D3_R
-import A0D7_T
-import A0K5_E
-import A0K6_Q
-import A0N4_T
-import A0NC_W
-import A0ND_R
-import ThiefEAbility
-import ThiefQAbility
-import ThiefRAbility
-import ThiefWAbility
-import ThiefTAbility
-import KingOfLoasE
-import KingOfLoasQ
-import KingOfLoasR
-import KingOfLoasT
-import KingOfLoasW
-import TheKingOfLoasE
-import TheKingOfLoasPassive
-import TheKingOfLoasQ
-import TheKingOfLoasR
-import TheKingOfLoasT
-import TheKingOfLoasW
-import A00S_Q
-import FAR_SEER_Q
-import FAR_SEER_W
-import BloodOfHakkar
-import VivpireVampirism
+import KingOfLoas_E
+import KingOfLoas_Q
+import KingOfLoas_R
+import KingOfLoas_T
+import KingOfLoas_W
+import TheKingOfLoas_E
+import TheKingOfLoas_Passive
+import TheKingOfLoas_Q
+import TheKingOfLoas_R
+import TheKingOfLoas_T
+import TheKingOfLoas_W
+import KingOfLoas_BloodOfHakkar
 import MyAbilityIds
+import MountainKing_W
+import MountainKing_Q
+import MountainKing_R
+import WolfmanInitial_DogSummon
+import WolfmanInitial_ManPunch
+import WolfmanInitiate_Summon
+import WolfmanInitiate_Bite
+import WolfmanInitiate_Howl
+import WolfmanFinal_Summon
+import WolfmanFinal_Howl
+import WolfmanFinal_Frenzy
+import WolfmanFinal_Bite
+import TaurenChieftain_E
+import TaurenChieftain_T
+import TaurenChieftain_Q
+import TaurenChieftain_W
+import Vivpire_R
+import Vivpire_Q
+import Vivpire_T
+import Vivpire_W
+import Vivpire_Vampirism
+import DeathKnight_Q
+import DeathKnight_E
+import DeathKnight_T
+import DeathKnight_W
+import BeastMaster_T
+import BeastMaster_Summons
+import Pitlord_Q
+import Pitlord_W
+import Pitlord_T
+import Uther_W_HolyStorm
+import Uther_Q_Judgement
+import Uther_T_LightsWrath
+import Uther_R_Redemption
+import Assassin_T
+import Assassin_Q
+import Assassin_W
+import Assassin_R
+import Assassin_T_PASSIVE
+import DemonHunter_Q
+import DemonHunter_R
+import ShadowOfVengeance_Q
+import ShadowOfVengeance_T
+import ShadowOfVengeance_R
+import Warden_T
+import Warden_E
+import Blademaster_R
+import Blademaster_T
+import Satyr_T
+import DarkRanger_Q
+import DarkRanger_W
+import DarkRanger_R
+import DarkRanger_E
+import illusionist_R
+import illusionist_E
+import Sylvanas_W
+import Sylvanas_E
+import Sylvanas_R
+import Sylvanas_Q
+import Firelord_E
+import Firelord_W
+import Firelord_R
+import Firelord_Q
+import KeeperOfTheGrove_Q
+import KeeperOfTheGrove_W
+import KeeperOfTheGrove_E
+import KeeperOfTheGrove_T
+import KeeperOfTheGrove_R
+import Firemage_W
+import Firemage_EternalFlame
+import Firemage_T
+import Firemage_E
+import HeraldOfLightning_T
+import HeraldOfLightning_R
+import HeraldOfLightning_W
+import HeraldOfLightning_Q
+import ShadowHunter_R
+import ShadowHunter_E
+import ShadowHunter_Ward
+import Lich_T
+import Lich_W
+import Lich_R
+import Lich_E
+import Lich_Q
+import NagaSeaWitch_W
+import NagaSeaWitch_T
+import NagaSeaWitch_R
+import Tinker_E
+import Tinker_R
+import Tinker_Q
+import Archmage_Q
+import Archmage_W
+import Archmage_E
+import Archmage_R
+import Archmage_T
+import TimeWizard_Q
+import TimeWizard_E
+import TimeWizard_T
+import TimeWizard_W
+import TimeWizard_R
+import Thief_E
+import Thief_Q
+import Thief_R
+import Thief_T
+import Thief_W
+import Arthas_Q
+import GuardianOfLight_R
+import GuardianOfLight_T
 
 public function unit.heroCheck()
     switch this.getTypeId()
-        case HERO_MOUNTAIN_KING//Mk
+        case HERO_MOUNTAIN_KING
             thunderClap()
             stormbolt()
             overPower()
-        case HERO_WOLFMAN_INITIAL//Wolfman 1st
+        case HERO_WOLFMAN_INITIAL
             manDog()
             punch()
-        case HERO_WOLFMAN_INITIATE//wolfman 2nd
+        case HERO_WOLFMAN_INITIATE
             dogDog()
             dogbite()
             doghowl()
-        case HERO_WOLFMAN_FINAL//Wolfman 3rd
+        case HERO_WOLFMAN_FINAL
             manwolfDog()
             wolfhowl()
             frenzy()
             manbite()
-        case HERO_TAUREN_CHIEFTAIN // Tauren
+        case HERO_TAUREN_CHIEFTAIN
             pulverize()
             warStomp()
             shockExplosion()
             blessedHammer()
-        case HERO_VIVPIRE//Vivpire
+        case HERO_VIVPIRE
             bloodGain()
             vampiricBite()
             vivpireUnleashed()
             bloodHunter()
             vivpireAura()
-        case HERO_DEATH_KNIGHT//Death Knight
+        case HERO_DEATH_KNIGHT
             this.soulCollector()
             curseOfDarkness()
             soulsKing()
             tasteOfDeath()
-        case HERO_BEASTMASTER//Beast Master
+        case HERO_BEASTMASTER
             spirits()
             quilBeast()
-        case HERO_PITLORD//Pit Lord
+        case HERO_PITLORD
             rainofFire()
             strikeSlam()
             noblesseAura()
-        case HERO_JACKSMITH//Jacksmith
+        case HERO_JACKSMITH
             forgeSmart()
             metalStrength()
             radiantRing()
             forge()
             forgeMaster()
-        case HERO_UTHER//Uthar
+        case HERO_UTHER
             holyStorm()
             judgement()
             lightsWrath()
@@ -186,17 +187,17 @@ public function unit.heroCheck()
             redemptionHoly()
         case HERO_PRIESTESS_OF_THE_MOON
             skip
-        case HERO_ASSASSIN//Assassin
+        case HERO_ASSASSIN
             lastKiller()
             shadowWalk()
             quickSlash()
             katarMastery()
             learnULT()
-            this.disableAbility(ASSASSIN_ABIL_3_QUEST, true, true)
-        case HERO_DEMON_HUNTER//Demon Hunter(illidan)
+            this.disableAbility(ASSASSIN_ABILITY_3_QUEST, true, true)
+        case HERO_DEMON_HUNTER
             chainFlash()
             demonPower()
-        case HERO_SHADOW_OF_VENGEANCE//Time Wizard
+        case HERO_SHADOW_OF_VENGEANCE
             furyPeak()
             blackHole()
             gravitone()
@@ -208,45 +209,45 @@ public function unit.heroCheck()
             hasteSlash()
         case HERO_SATYR
             biteofDeath()
-        case HERO_DARK_RANGER//Dark Ranger
+        case HERO_DARK_RANGER
             imageArrow()
             darkArrow()
             burstMana()
             darkDrain()
-        case HERO_ILLUSIONIST//Illusnist
+        case HERO_ILLUSIONIST
             shadowDancer()
             juxtapose()
-        case HERO_RANGER//Archer
+        case HERO_SYLVANAS
             phantomArrow()
             poisonArrow()
             longRange()
             goldenArrow()
-        case HERO_FIRELORD//Fire lord
+        case HERO_FIRELORD
             conflagration()
             pillarOfFlame()
             fireballCast()
             sear()
-        case HERO_KEEPER_OF_THE_GROVE//Keep of the grove
+        case HERO_KEEPER_OF_THE_GROVE
             entanglingRoots()
             naturalOrb()
             hawkeyeSplit()
             spiritGuardian()
             thornRoot()
-        case HERO_FIRE_MAGE//Fire Mage
+        case HERO_FIRE_MAGE
             phoenix()
             eternalFlame()
             meltingPhoenix()
             fireShield()
-        case HERO_HERALD_OF_LIGHTNING//Far seer
+        case HERO_HERALD_OF_LIGHTNING
             thunderRage()
             mindRipper()
             orbofLightning()
             lightningNova()
-        case HERO_SHADOW_HUNTER//Shadow Hunter
+        case HERO_SHADOW_HUNTER
             craggyHex()
             shadowHex()
             shWardSummon()
-        case HERO_LICH//Lich
+        case HERO_LICH
             deathandnDecay()
             frostArmor()
             frostRise()
@@ -280,7 +281,7 @@ public function unit.heroCheck()
             punishTimeInit()
             punishTimeAct(this)
             hourglass()
-        case HERO_TRACKER // Tracker not implemented
+        case HERO_TRACKER 
             skip
         case HERO_THIEF
             sell()
@@ -288,7 +289,7 @@ public function unit.heroCheck()
             goldBonus()
             noCommand()
             windwalk()
-        case HERO_PANDAREN_MONK // Panda not implemented
+        case HERO_PANDAREN_MONK 
             skip
         case HERO_KING_OF_LOAS
             thunderOfAkunda()

@@ -1,0 +1,11 @@
+package ShadowHunter_E
+
+import ClosureEvents
+import codeDamageTypings
+
+public function shadowHex()
+    EventListener.onTargetCast('A0M9') (unit caster, unit target) ->
+        let lvl = caster.getAbilityLevel('A0M9')
+        let intellect = caster.getInt(true)
+        let dmg = lvl*intellect.toReal()
+        caster.damageTargetCode(dmg, target, null, -1, damageType.MAGICAL)

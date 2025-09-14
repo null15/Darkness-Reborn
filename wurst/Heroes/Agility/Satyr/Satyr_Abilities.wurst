@@ -1,0 +1,18 @@
+package Satyr_Abilities
+
+import BuffIds
+import BuffObjEditing
+import MyBuffIds
+
+@compiletime function satyrAbilities()
+
+@compiletime function satyrBuffs()
+    new BuffDefinition(SATYR_BUFF_Q_ARMOR_REDUCTION, BuffIds.faerieFire)
+    ..setTooltipNormal(1, "This unit is under Bite of Death")
+    ..setTooltipNormal(2, "This unit is under Bite of Death")
+    ..setTooltipNormal(3, "This unit is under Bite of Death")
+    ..setTooltipNormal(4, "This unit is under Bite of Death")
+    ..setTooltipNormalExtended(1, "Satyr is mad, target armor poof")
+    ..setTooltipNormalExtended(2, "Satyr is mad, target armor poof")
+    ..setTooltipNormalExtended(3, "Satyr is mad, target armor poof")
+    ..setTooltipNormalExtended(4, "Satyr is mad, target armor poof")

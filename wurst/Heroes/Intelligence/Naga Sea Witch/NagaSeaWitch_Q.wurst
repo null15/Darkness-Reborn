@@ -1,4 +1,5 @@
 package NagaSeaWitch_Q
+
 import ClosureForGroups
 import Artillery
 import SoundUtils
@@ -11,10 +12,10 @@ import codeDamageTypings
 public function bubbleBomb()
     let WATER_BUBBLE_ARTILLERY = compiletime(ArtilleryDetection.createArtilleryDummy(0, 120, 160, 1, "Units\\NagaWitch\\Water_egg.mdx", 500, 0.3))
     let WATER_BUBBLE_SOUND = new SoundDefinition(Sounds.waterWaterFallLoop1, false, true)
-    EventListener.onPointCast(NAGAWITCH_ABIL_1) (unit caster, vec2 target) ->
+    EventListener.onPointCast(NAGA_WITCH_ABILITY_1) (unit caster, vec2 target) ->
         ArtilleryDetection.fireArtillery(caster, WATER_BUBBLE_ARTILLERY, caster.getPos(), target) (unit detectionUnit, unit caster, int data) ->
             let targetPos = detectionUnit.getPos3Zero()
-            let lvl = caster.getAbilityLevel(NAGAWITCH_ABIL_1)
+            let lvl = caster.getAbilityLevel(NAGA_WITCH_ABILITY_1)
             let dmg = (0.1*lvl) * caster.getMaxMana() + 200 * lvl
             WATER_BUBBLE_SOUND.playOnPoint(targetPos)
             flashEffect("Effects\\Vashj\\WaterBlast.mdl", targetPos, 4)
@@ -24,5 +25,5 @@ public function bubbleBomb()
                     ..owner(caster.getOwner())
                     ..origin(caster.getPos())
                     ..delay(1)
-                    ..castTarget(ABILITY_DUMMY_20, 1, OrderIds.firebolt, u)
+                    ..castTarget(NAGA_WITCH_ABILITY_Q_DUMMY, 1, OrderIds.firebolt, u)
                     caster.damageTargetCode(dmg, u, null, -1, damageType.MAGICAL)

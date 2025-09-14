@@ -1,0 +1,11 @@
+package FirelordHero
+
+import UnitIds
+import ObjectIds
+import MyUnitIds
+import MyAbilityIds
+import AbilityObjEditing
+import MyUpgradesIds
+import CommonDescriptions
+
+@compiletime function defineHero()

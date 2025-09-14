@@ -1,0 +1,46 @@
+package Sylvanas_W
+
+import MyUnitIds
+import OrderIds
+import ClosureEvents
+import DamageEvent
+import codeDamageTypings
+import LinkedList
+
+let arrowToggle = new LinkedList<unit>
+
+init
+    phantomArrowToggle()
+
+function unit.getPhantomArrowToggle() returns bool
+    return arrowToggle.has(this)
+
+function phantomArrowToggle()
+    EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
+        let u = GetTriggerUnit()
+        let uid = u.getTypeId()
+        if(uid == HERO_SYLVANAS or uid == WAVE_HERO_19)
+            if(GetIssuedOrderId() == OrderIds.poisonarrows)
+                arrowToggle.add(u)
+            else if GetIssuedOrderId() == OrderIds.poisonarrows + 1
+                arrowToggle.remove(u)
+        
+
+public function phantomArrow()
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            let targ = DamageEvent.getTarget()
+            if (DamageEvent.getType() == ATTACK)
+                let damtyp = DamageEvent.getDamageType()
+                if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                    // Sylvanas (Phantom Arrow) W - Autocast
+                    if src.getPhantomArrowToggle()
+                        let hp = src.getMaxHP()
+                        let lvl = src.getAbilityLevel('A0F0')
+                        let dmg = (lvl*0.04)*hp
+                        if(src.getMana() < BlzGetAbilityIntegerLevelField(src.getAbility('A0F0'), ABILITY_ILF_MANA_COST, lvl))
+                            src.issueImmediateOrderById(OrderIds.poisonarrows + 1)
+                        src.damageTargetCode(dmg, targ, null, -1, damageType.MAGICAL)

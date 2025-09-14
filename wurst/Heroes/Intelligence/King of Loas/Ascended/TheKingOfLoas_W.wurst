@@ -1,0 +1,42 @@
+package TheKingOfLoas_W
+
+import DummyCaster
+import OrderIds
+import ClosureTimers
+import MyAbilityIds
+import MyUnitIds
+import MyBuffIds
+import KingOfLoas_W
+import DamageEvent
+import codeDamageTypings
+
+// Embodiment of Gral
+
+public function embodimentOfGral()
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            if DamageEvent.getType() == ATTACK
+                let lvl = src.getAbilityLevel(ABILITY_47)
+                if GetRandomInt(1, 100) <= 15 and not src.hasAbility(BUFF_15) and lvl > 0
+                    let targ = DamageEvent.getTarget()
+                    new DummyCaster()
+                    ..owner(src.getOwner())
+                    ..origin(src.getPos())
+                    ..castTarget(ABILITY_48, 1, OrderIds.bloodlust, src)
+                    if not targ.hasAbility(BUFF_22)
+                        let shark = createUnit(src.getOwner(), DUMMY_UNIT_5, src.getPos(), src.getPos().angleTo(targ.getPos()))
+                        new DummyCaster()
+                        ..owner(targ.getOwner())
+                        ..castTarget(ABILITY_55, 1, OrderIds.innerfire, targ)
+                        doPeriodicallyTimed(1, 5) (CallbackCounted cb) ->
+                            src.damageTargetCode(src.getInt(true) * 1., targ, null, -1, damageType.PHYSICALRANGED)
+                        doAfter(0.01) ->
+                            shark.setAnimation(0)
+                            gralBite.playOnPoint(targ.getPos3Real())
+                            doAfter(0.5) ->
+                                shark.setAnimation(1)
+                                doAfter(0.8) -> 
+                                    shark.remove()

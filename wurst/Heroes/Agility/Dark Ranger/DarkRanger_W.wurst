@@ -1,0 +1,40 @@
+package DarkRanger_W
+
+import MyUnitIds
+import OrderIds
+import MyAbilityIds
+import ClosureEvents
+import codeDamageTypings
+import LinkedList
+import DamageEvent
+
+let arrowToggle = new LinkedList<unit>
+
+public function unit.getDarkArrowToggle() returns bool
+    return arrowToggle.has(this)
+
+public function darkArrow()
+    EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
+        let u = GetTriggerUnit()
+        let uid = u.getTypeId()
+        if(uid == HERO_DARK_RANGER or uid == WAVE_HERO_16)
+            if(GetIssuedOrderId() == OrderIds.flamingarrows)
+                arrowToggle.add(u)
+            else if GetIssuedOrderId() == OrderIds.flamingarrows + 1
+                arrowToggle.remove(u)
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            if (DamageEvent.getType() == ATTACK)
+                let damtyp = DamageEvent.getDamageType()
+                if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                    if src.getDarkArrowToggle()            
+                        let lvl = GetUnitAbilityLevel(src, DARKRANGER_ABILITY_2)
+                        let target = DamageEvent.getTarget()
+                        let dmg = (src.getAgi(true)*lvl*0.5)
+                        if(src.getMana() < BlzGetAbilityIntegerLevelField(src.getAbility(DARKRANGER_ABILITY_2), ABILITY_ILF_MANA_COST, lvl))
+                            src.issueImmediateOrderById(OrderIds.flamingarrows + 1)
+                        src.damageTargetCode(dmg, target, null, -1, damageType.MAGICAL)
+                        src.addHP(dmg * 0.5* (1-target.getRes(resistanceType.MAGICAL)))

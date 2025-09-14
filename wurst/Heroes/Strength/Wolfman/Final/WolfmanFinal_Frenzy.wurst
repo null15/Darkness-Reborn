@@ -1,0 +1,21 @@
+package WolfmanFinal_Frenzy
+
+import ClosureEvents
+import MyUnitIds
+import MyAbilityIds
+
+public function frenzy()
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
+        let wolfman = GetKillingUnit()
+        if wolfman.getTypeId() == HERO_WOLFMAN_FINAL
+            let lvl = wolfman.getAbilityLevel(WOLF_FINAL_ABILITY_5)
+            if lvl > 0
+                let killedUnitLvl = GetDyingUnit().getLevel()
+                if killedUnitLvl < 30
+                    wolfman.addStr(1)
+                else if killedUnitLvl >= 30 and killedUnitLvl <= 44
+                    let i = GetRandomInt(3, 7)
+                    wolfman.addStr(i)
+                else if killedUnitLvl >= 45
+                    let y = GetRandomInt(6, 20)
+                    wolfman.addStr(y)

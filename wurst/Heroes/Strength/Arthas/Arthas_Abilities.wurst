@@ -1,0 +1,34 @@
+package Arthas_Abilities
+
+import MyAbilityIds
+import AbilityObjEditing
+import ObjectIds
+import MyUnitIds
+
+@compiletime function arthasAbils()
+    new AbilityDefinitionIllidanMetamorphosis(ARTHAS_ABILITY_5)
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(1)
+    ..setButtonPositionResearchX(3)
+    ..setButtonPositionResearchY(1)
+    ..setHotkeyLearn("T")
+    ..setHotkeyNormal("T")
+    ..setLevels(4)
+    ..setLevelSkipRequirement(8)
+    ..presetAlternateFormHitPointBonus(lvl -> 0)
+    ..presetAlternateFormUnit(lvl -> commaList(HERO_ARTHAS_FORM))
+    ..presetDurationHero(lvl -> 60.)
+    ..presetCooldown(lvl -> 130. - 10)
+    ..setRequiredLevel(8)
+    ..presetNormalFormUnit(lvl -> commaList(HERO_ARTHAS))
+    ..presetIcon("ReplaceableTextures\\CommandButtons\\BTNKingArthas.blp")
+    ..presetBuffs(lvl -> commaList('B013'))
+    ..presetManaCost(lvl -> 50 + 100 * lvl)
+    ..presetTooltipNormal(lvl -> "DeathKing [ |c00FFFC01T|r ] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Arthas gets possessed by the true Death King, temporarily exceeding all his limits. Massively increases his Attackspeed for 60 seconds. Cooldown " + (130. - 10 * lvl).toString() + " seconds.")
+    ..setTooltipLearn("Learn Death King [ |c00FFFC01T|r ] - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Arthas gets possessed by the true Death King, temporarily exceeding all his limits. Massively increases his Attackspeed, Damage and Armor for 60 seconds.\n"
+    +"|c00FFFC01Level 1 :|r  Increases Attackspeed for 60 seconds. Also changes his Damage Type to Blood.\n"
+    +"|c00FFFC01Level 2 :|r  Increases Attackspeed for 60 seconds. Also changes his Damage Type to Blood.\n"
+    +"|c00FFFC01Level 3 :|r  Increases Attackspeed for 60 seconds. Also changes his Damage Type to Blood.\n"
+    +"|c00FFFC01Level 4 :|r  Increases Attackspeed for 60 seconds. Also changes his Damage Type to Blood.")

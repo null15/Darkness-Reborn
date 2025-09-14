@@ -1,0 +1,33 @@
+package TaurenChieftain_W
+
+import ClosureEvents
+import ClosureForGroups
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+import codeDamageTypings
+import PointTransitProjectile
+
+public function blessedHammer()
+    EventListener.onPointCast('A0CI') (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel('A0CI')
+        let str = caster.getStr(true)
+        let sfx = addEffect("BladeBeamFinal.mdl", caster.getPos())
+        let angle = sfx.getPos().angleTo(target)
+        flashEffect("DustWindFaster3.mdl", caster.getPos(), 1, angle)
+        let dmg = str*lvl.toReal()
+        sfx.setYaw(angle.radians())
+        sfx.setScale(1.5)
+        let tickRate = 0.03
+        let time = 1.
+        let range = 900.
+        let transitProjectile = new PointTransitProjectile(target, sfx, tickRate)
+        transitProjectile.timedMoveForward(range, time) (vec2 target, boolean inTransit) ->
+            if inTransit
+                forUnitsInRange(target, 150) (unit u) ->
+                    if caster.isEnemyOf(u)
+                        new DummyCaster()
+                        ..owner(GetOwningPlayer(caster))
+                        ..castTarget(ABILITY_DUMMY_6, 1, OrderIds.cripple, u)
+                        ..origin(caster.getPos())
+                        caster.damageTargetCode(dmg, u, null, -1, damageType.PHYSICALRANGED)

@@ -1,0 +1,80 @@
+package Assassin_T_PASSIVE
+
+import MyAbilityIds
+import ClosureEvents
+import codeDamageTypings
+import QuestList
+
+bool quest1 = true
+bool quest2 = true
+bool quest3 = true
+bool quest4 = true
+
+public function learnULT()
+    EventListener.add(EVENT_PLAYER_HERO_SKILL) -> 
+        if (GetLearnedSkill() == ASSASSIN_ABILITY_5)
+            let u = GetLearningUnit()
+            u.assa_quest()
+            if (u.getUserData() != 1)
+                u.setUserData(1)
+                printTimedToPlayer("You can now type -Quests to check your Assassin test progress\nNOTE: The assassin training quests count as quests, but, are always added even if the quest log is full.", 20, u.getOwner())
+                EventListener.add(EVENT_PLAYER_UNIT_DEATH) -> 
+                    let killer = GetKillingUnit()
+                    if(killer == u and GetRandomInt(1, 100) <= 50)
+                        let targetLevel = GetDyingUnit().getLevel()
+                        let lowDmg = killer.getBaseDamage(0)
+                        if (targetLevel <= 10)
+                            killer.setBaseDamage(lowDmg+3, 0)
+                        else if (targetLevel <= 20)
+                            killer.setBaseDamage(lowDmg+4, 0)
+                        else if (targetLevel <= 24)
+                            killer.setBaseDamage(lowDmg+5, 0)
+                        else if (targetLevel <= 25)
+                            killer.setBaseDamage(lowDmg+10, 0)
+                        else if (targetLevel <= 45)
+                            killer.setBaseDamage(lowDmg+20, 0)
+                        else if (targetLevel <= 70)
+                            killer.setBaseDamage(lowDmg+20, 0)
+
+function unit.assa_quest()
+    if GetUnitAbilityLevel(this, ASSASSIN_ABILITY_5) == 1
+        if quest1
+            quest1 = false
+            startExclusiveKillingAnyQuest(200, this.getOwner(), "Assassin Initiate Training") (player questOwner) ->
+                let lowDmg = this.getBaseDamage(0)
+                this.setName("Assassin Initiate")
+                this.setBaseDamage(lowDmg+500, 0)
+                printTimedToPlayer("First quest complete! You gain 500 base damage", 10, this.getOwner())
+            
+    
+    if GetUnitAbilityLevel(this, ASSASSIN_ABILITY_5) == 2
+        if quest2
+            quest2 = false
+            startExclusiveKillingLowestLevelQuest(100, this.getOwner(), 21, "Assassin Test") (player questOwner) ->
+                this.setName("Assassin")
+                unitStatMap.get(this.getTypeId()).addBasePen(penetrationType.PHYSICAL, 0.05)
+                printTimedToPlayer("Second quest complete! You gain 5% armor penetration", 10, this.getOwner())
+
+    if GetUnitAbilityLevel(this, ASSASSIN_ABILITY_5) == 3
+        if quest3
+            quest3 = false
+            startExclusiveKillingLowestLevelQuest(20, this.getOwner(), 43, "Assassin Expert Test") (player questOwner) ->
+                this.setName("Assassin Expert")
+                printTimedToPlayer("Third quest complete! Your enchantments grow stronger.\nYour R or E will be invisible, they're still active.", 10, this.getOwner())
+                let abilityUpgrade = this.getAbility(ASSASSIN_ABILITY_3)
+                for int i = 1 to 9
+                    abilityUpgrade.setField(ABILITY_RLF_DAMAGE_BONUS_PERCENT, i, 1.2+0.2*i)
+                    abilityUpgrade.setField(ABILITY_SF_NAME, "Enchanted Weapons")
+                    abilityUpgrade.setField(ABILITY_SLF_TOOLTIP_LEARN, i, "Learn |cff8080ffEnchanted Weapon|r [ |c00FFFC01T|r ] - [|c00FFFC01Level " + i.toString() + "|r]")
+                    abilityUpgrade.setField(ABILITY_SLF_TOOLTIP_LEARN_EXTENDED, i, "The Assassin's mastery of the blade allows him to deal more damage.")
+                    abilityUpgrade.setField(ABILITY_SLF_TOOLTIP_NORMAL, i, "|cff8080ffEnchanted Weapon|r [ |c00FFFC01T|r ] -[|c00FFFC01Level " + i.toString() + "|r ]")
+                    abilityUpgrade.setField(ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED, i, "The Assassin's mastery of the blade allows him to deal " + (120 + 20 * i).toString() + "% more damage.")
+                
+    
+    if GetUnitAbilityLevel(this, ASSASSIN_ABILITY_5) == 4
+        if quest4
+            quest4 = false
+            startExclusiveKillingLowestLevelQuest(1, this.getOwner(), 90, "Master Assassin Qualification Test") (player questOwner) ->
+                this.setName("Master Assassin")
+                unitStatMap.get(this.getTypeId()).addBasePen(penetrationType.PHYSICAL, 0.1)
+                printTimedToPlayer("Fourth quest complete! You gain 10% armor penetration", 10, this.getOwner())
