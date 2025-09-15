@@ -25,7 +25,7 @@ public function onVictorySetup(unit u)
             onCodeAcceptance()
         else
             onCodeRejection()
-        doAfter(30) -> 
+        doAfter(30) ->
             for i = 0 to 9
                 let dia = createDialog()
                 dia..addQuitButton(true, "Victory")
@@ -61,8 +61,8 @@ function isInGame(bool ingame) returns string
 
 public function unit.onDefeat()
     EventListener.add(this,EVENT_PLAYER_UNIT_DEATH) -> 
-        printTimed("[DEFEAT]: GAME ENDING IN 15 SECONDS", 10)
-        doAfter(15) -> 
+        printTimed("[DEFEAT]: GAME ENDING IN 240 SECONDS", 10)
+        doAfter(240) -> 
             for i = 0 to 9
                 let dia = createDialog()
                 dia..addQuitButton(true, "Game Over")
