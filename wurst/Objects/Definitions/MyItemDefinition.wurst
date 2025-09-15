@@ -10,7 +10,6 @@ import ItemObjEditing
 import LinkedList
 import ObjectIds
 import ObjectIdGenerator
-import ItemsAndRecipesHashTable
 
 // ----------------------------------------------------------------------------
 
@@ -28,6 +27,7 @@ import public DamageAbilities
 import public DefenseAbilities
 import public MiscAbilities
 import public SummonAbilities
+import ItemLocationSearch
 
 // ----------------------------------------------------------------------------
 
@@ -236,9 +236,7 @@ public class MyItemWithCraftInfoDefinition extends MyItemDefinition
 
         string materials = wordMaterials
         for comp in components
-            string shopName = getShopNameForItem(comp)
-            if (shopName == "null")
-                shopName = getShopNameForItem(getItemRecipeId(comp))
+            let shopName = getItemLocation(comp)
 
             materials = materials + getItemName(comp) + " (" + shopName + ")\n"
         return materials
@@ -328,14 +326,10 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
         
         string materials = wordMaterials
         for comp in components
-
-            string shopName = getShopNameForItem(comp)
-            if (shopName == "null")
-                shopName = getShopNameForItem(getItemRecipeId(comp))
-
             // Exclude 'Recipe Item' from materials required, because materials required
             // list already shown in recipe item.
             if (comp != recipeItemId)
+                let shopName = getItemLocation(comp)
                 materials = materials + getItemName(comp) + " (" + shopName + ")\n"
         return materials
 

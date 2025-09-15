@@ -4,20 +4,35 @@ import ItemObjEditing
 // ----------------------------------------------------------------------------
 
 public let colRst             = "|r"
-public let colBasic           = "|c0000C800"
-public let colRecipe          = "|c002979fa"
-public let colLateGame1       = "|c00C80000"
-public let colLateGame2       = "|c004896E1"
-public let colHotKey          = "|c00FFFC01"
+public let colBasic           = "|cff00C800"
+public let colRecipe          = "|cff2979fa"
+public let colLateGame1       = "|cffC80000"
+public let colLateGame2       = "|cff4896E1"
+public let colHotKey          = "|cffFFFC01"
 
-public let colTinkerTomes     = "|c006BF1F6"
-public let colTinkerLumber    = "|c005FA412"
-public let colTinkerRecipes   = "|c00AF3BD9"
+public let colTinkerTomes     = "|cff6BF1F6"
+public let colTinkerLumber    = "|cff5FA412"
+public let colTinkerRecipes   = "|cffAF3BD9"
 
-public let colCreepsTp        = "|c00505050" 
+public let colCreepsTp1        = "|cff698563"
+public let colCreepsTp2        = "|cff364c5c"
+public let colCreepsTp3        = "|cff46324f"
+public let colCreepsTp4        = "|cff454545"
 
-public let colMinusArmor      = "|c00903cf6"
-public let colLifeSteal       = "|c00df5a5a"
+public let colThiefStolen1     = colCreepsTp1
+public let colThiefStolen2     = colCreepsTp2
+public let colThiefStolenElite = colCreepsTp3
+public let colThiefStolenBoss  = "|cff5c2b85"
+public let colThiefUpgraded    = "|cffd9a33e"
+
+public let colJacksmithUlt     = "|cff423a3a"
+public let colJacksmithCraft   = "|cffab2424"
+public let colTinkerRecipe     = "|cff868059"
+
+// ----------------------------------------------------------------------------
+
+public let colMinusArmor      = "|cff903cf6"
+public let colLifeSteal       = "|cffdf5a5a"
 
 public class Color
     int R

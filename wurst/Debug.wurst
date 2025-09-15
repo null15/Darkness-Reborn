@@ -5,6 +5,8 @@ import MyUpgradesIds
 import MyItemIds
 
 import public DebugVar
+import ClosureEvents
+import Global_Variables
 
 public function initDebug()
     if (not DEBUG)
@@ -72,3 +74,12 @@ public function initDebug()
     ..addItemToSlot(ITEM_LANCELOT_SET, 3)
     ..addItemToSlot(ITEM_PERFECT_EMERALD, 4)
     ..addItemToSlot(ITEM_VAMPIRELLA_L5, 5)
+
+    EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
+        let setLvlLength = "-setlvl".length()
+        if EventData.getChatMessage().substring(0, setLvlLength).toLowerCase() == "-setlvl"
+            let lvl = EventData.getChatMessage().substring(setLvlLength, EventData.getChatMessage().length()).toInt()
+
+            let selected = GetUnitsSelectedAll(GetTriggerPlayer())
+            for u in selected
+                u.setLevel(lvl, true)

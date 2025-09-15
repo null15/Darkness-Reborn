@@ -35,7 +35,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHoly Heavy Boots.blp")
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityBlink(32000, 4000, 10))
+    ..addStats(addAbilityBlink(32000, 400, 10))
     ..addStats(addMovementSpeed(250))
     ..addStats(addAllStats(100))
     ..addComponents(

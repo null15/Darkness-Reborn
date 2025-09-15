@@ -1,0 +1,106 @@
+package ItemLocation
+
+import CommonDescriptions
+import HashMap
+
+// ----------------------------------------------------------------------------
+
+public enum ItemLocation
+    Null
+
+    BasicShop1
+    BasicShop2
+    BasicShop3
+    BasicShop4
+    
+    RecipeShop1
+    RecipeShop2
+    RecipeShop3
+    RecipeShop4
+    
+    LateGameShop1
+    LateGameShop2
+    GemsShop
+    LateGameShop4
+    
+    Creeps1
+    Creeps2
+    Creeps3Elite
+    Creeps4Bosses
+
+    ThiefStolen1
+    ThiefStolen2
+    ThiefStolenElite
+    ThiefStolenBoss
+    ThiefUpgraded
+
+    JacksmithUlt
+    JacksmithCraft
+    TinkerRecipe
+
+// ----------------------------------------------------------------------------
+
+public let itemsLocations = compiletime(new HashMap<int, ItemLocation>)
+
+// ----------------------------------------------------------------------------
+
+public function ItemLocation.toString() returns string
+    switch this
+        case Null
+            return "null"
+
+        case BasicShop1
+            return shopNameBasicItems1
+        case BasicShop2
+            return shopNameBasicItems2
+        case BasicShop3
+            return shopNameBasicItems3
+        case BasicShop4
+            return shopNameBasicItems4
+        
+        case RecipeShop1
+            return shopNameRecipes1
+        case RecipeShop2
+            return shopNameRecipes2
+        case RecipeShop3
+            return shopNameRecipes3
+        case RecipeShop4
+            return shopNameRecipes4
+        
+        case LateGameShop1
+            return shopNameLateGameItems1
+        case LateGameShop2
+            return shopNameLateGameItems2
+        case GemsShop
+            return shopNameGems
+        case LateGameShop4
+            return shopNameLateGameItems4
+        
+        case Creeps1
+            return shopNameCreepsTp1
+        case Creeps2
+            return shopNameCreepsTp2
+        case Creeps3Elite
+            return shopNameCreepsTp3
+        case Creeps4Bosses
+            return shopNameCreepsTp4
+
+        case ThiefStolen1
+            return itemLocThiefStolen1
+        case ThiefStolen2
+            return itemLocThiefStolen2
+        case ThiefStolenElite
+            return itemLocThiefStolenElite
+        case ThiefStolenBoss
+            return itemLocThiefStolenBoss
+        case ThiefUpgraded
+            return itemLocThiefUpgraded
+
+        case JacksmithUlt
+            return itemLocJacksmithUlt
+        case JacksmithCraft
+            return itemLocJacksmithCraft
+        case TinkerRecipe
+            return itemLocTinkerRecipe
+        
+// ----------------------------------------------------------------------------

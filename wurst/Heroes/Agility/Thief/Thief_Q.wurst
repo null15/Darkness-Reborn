@@ -4,6 +4,10 @@ import ClosureEvents
 import HashMap
 import MyUnitIds
 import MyItemIds
+import Object_Shops
+import MyBuildingsIds
+import ItemLocation
+import HashList
 
 enum dropList
     LOWER
@@ -13,27 +17,66 @@ enum dropList
     CALL
 
 let dropListHash = new HashMap<integer, dropList>
+public let ITEMS_LOCATIONS_THIEF_STOLEN_INITED = false
 
-integer array lowerItems = [ITEM_BASIC_RING, ITEM_ARMOR_OF_SACRED, ITEM_BLOSSOM_RING, ITEM_LEATHER_BRACER, ITEM_LONELY_WOOL_BOOTS, ITEM_POISON_ORB, ITEM_ECHO_MACE, ITEM_SIMPLE_RING, ITEM_SOUL_SILK_CAPE, ITEM_STEEL_HAMMER, ITEM_SPIRIT_SWORD_L1, ITEM_KNIFE]
-integer array higherItems = [ITEM_BLIND_BUBBLE_NECKLACE, ITEM_RING_OF_MEDIVH, ITEM_THIEF_SILVER_ARMOR, ITEM_SPIRIT_DAGGER, ITEM_LEATHER_GIANT_BOOTS, ITEM_KNIFE_OF_BAHAMUT, ITEM_EARTH_ORB, ITEM_GIANT_HAMMER, ITEM_INVOCATION, ITEM_GOOD_BRACER, ITEM_SUNFLOWER_RING, ITEM_BINDING_SORROW_CLOAK, ITEM_SILVER_RING]
-integer array eliteItems = [ITEM_SWORD_FANG, ITEM_SWAN_SONG, ITEM_SPIRIT_MIDDLE_BLADE, ITEM_PLATE_HAMMER, ITEM_LIGHT_THUNDER_ORB, ITEM_TENDER_LEAF, ITEM_FAIR_DROP, ITEM_SWORD_ROAR, ITEM_SWORD_OF_HUNTER, ITEM_SILVER_GIANT_ARMOR,ITEM_DOOMS_GRAND_STAFF, ITEM_MENDED_DEMON_WARBOOTS, ITEM_FUSION_ORB, ITEM_DOMINION_RING, ITEM_FIREHELL_HAMMER, ITEM_HONED_WARPWOOD_GRAND_STAFF, ITEM_HAMANUS_BRACER, ITEM_ASHRUNE]
+let lowerItemsSize = 12
+integer array[lowerItemsSize] lowerItems = [ITEM_BASIC_RING, ITEM_ARMOR_OF_SACRED, ITEM_BLOSSOM_RING, ITEM_LEATHER_BRACER, ITEM_LONELY_WOOL_BOOTS, ITEM_POISON_ORB, ITEM_ECHO_MACE, ITEM_SIMPLE_RING, ITEM_SOUL_SILK_CAPE, ITEM_STEEL_HAMMER, ITEM_SPIRIT_SWORD_L1, ITEM_KNIFE]
+
+let higherItemsSize = 13
+integer array[higherItemsSize] higherItems = [ITEM_BLIND_BUBBLE_NECKLACE, ITEM_RING_OF_MEDIVH, ITEM_THIEF_SILVER_ARMOR, ITEM_SPIRIT_DAGGER, ITEM_LEATHER_GIANT_BOOTS, ITEM_KNIFE_OF_BAHAMUT, ITEM_EARTH_ORB, ITEM_GIANT_HAMMER, ITEM_INVOCATION, ITEM_GOOD_BRACER, ITEM_SUNFLOWER_RING, ITEM_BINDING_SORROW_CLOAK, ITEM_SILVER_RING]
+
+let eliteItemsSize = 18
+integer array[eliteItemsSize] eliteItems = [ITEM_SWORD_FANG, ITEM_SWAN_SONG, ITEM_SPIRIT_MIDDLE_BLADE, ITEM_PLATE_HAMMER, ITEM_LIGHT_THUNDER_ORB, ITEM_TENDER_LEAF, ITEM_FAIR_DROP, ITEM_SWORD_ROAR, ITEM_SWORD_OF_HUNTER, ITEM_SILVER_GIANT_ARMOR,ITEM_DOOMS_GRAND_STAFF, ITEM_MENDED_DEMON_WARBOOTS, ITEM_FUSION_ORB, ITEM_DOMINION_RING, ITEM_FIREHELL_HAMMER, ITEM_HONED_WARPWOOD_GRAND_STAFF, ITEM_HAMANUS_BRACER, ITEM_ASHRUNE]
+
+let bossesStealableArraySize = 9
+integer array[bossesStealableArraySize] bossesStealableArray = [WAVE_BOSS_26, WAVE_BOSS_27, WAVE_BOSS_28, WAVE_BOSS_29, WAVE_BOSS_55, WAVE_BOSS_56, WAVE_BOSS_57, WAVE_BOSS_83, WAVE_HERO_7]
+
+let simpleItemsHashTable = new HashList<int>
+
+@compiletime
+function initItemLocations()
+    for idx = 0 to lowerItemsSize - 1
+        itemsLocations.put(lowerItems[idx], ItemLocation.ThiefStolen1)
+        
+    for idx = 0 to higherItemsSize - 1
+        itemsLocations.put(higherItems[idx], ItemLocation.ThiefStolen2)
+        
+    for idx = 0 to higherItemsSize - 1
+        itemsLocations.put(eliteItems[idx], ItemLocation.ThiefStolenElite)
+
+    for idx = 0 to bossesStealableArraySize - 1
+        itemsLocations.put(bossesStealableArray[idx], ItemLocation.ThiefStolenBoss)
+
+init
+    for idx = 0 to lowerItemsSize - 1
+        simpleItemsHashTable.add(lowerItems[idx])
+        
+    for idx = 0 to higherItemsSize - 1
+        simpleItemsHashTable.add(higherItems[idx])
+        
+    for idx = 0 to higherItemsSize - 1
+        simpleItemsHashTable.add(eliteItems[idx])
+
+// Check if item is stolen from T1 or T2 creeps or from elite one.
+public function isItemSimpleAndThiefStolen(int itemId) returns bool
+    return simpleItemsHashTable.has(itemId)
 
 function genericLoot(unit caster)
-    let itemId = lowerItems[GetRandomInt(0, 11)]
+    let itemId = lowerItems[GetRandomInt(0, lowerItemsSize - 1)]
     if(caster.isAlive())
         caster.addItemById(itemId)
     else
         createItem(itemId, caster.getPos())
 
 function higherLoot(unit caster)
-    let itemId = higherItems[GetRandomInt(0, 12)]
+    let itemId = higherItems[GetRandomInt(0, higherItemsSize - 1)]
     if(caster.isAlive())
         caster.addItemById(itemId)
     else
         createItem(itemId, caster.getPos())
 
 function eliteLoot(unit caster)
-    let itemId = eliteItems[GetRandomInt(0, 17)]
+    let itemId = eliteItems[GetRandomInt(0, eliteItemsSize - 1)]
     if(caster.isAlive())
         caster.addItemById(itemId)
     else
@@ -90,32 +133,18 @@ function callLoot(int unitId, unit caster)
     else
         createItem(itemId, caster.getPos())
 
-public function steal()
-    dropListHash.put(CREEP_LEFT_SPIDER, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_MUD_GOLEM, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_MURLOC_TIDERUNNER, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_TIMBER_WOLF, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_CRAB_SHORECRAWLER, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_FACELESS_ONE_TRICKSTER, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_SPITTING_SPIDER, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_ROCK_GOLEM, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_MURGUL_SHADOWCASTER, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_POLAR_FURBOLG, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_GHOST, dropList.LOWER)
-    dropListHash.put(CREEP_LEFT_FACELESS_ONE_DEATHBRINGER, dropList.LOWER)
+function addItemsFromShop(ShopInfo shopInfo, dropList dropType)
+    for creepId in shopInfo.itemsSold
+        dropListHash.put(creepId, dropType)
+    for creepId in shopInfo.itemsMade
+        dropListHash.put(creepId, dropType)
 
-    dropListHash.put(CREEP_LEFT_BROOD_MOTHER, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_GRANITE_GOLEM, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_TURTLE, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_GIANT_POLAR_BEAR, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_STORM_WYRM, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_SKELETON_WARRIOR, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_FOREST_TROLL_WARLOCK, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_DIRE_MAMMOTH, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_FEL_RAVAGER, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_DALARAN_REJECT, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_VILE_TORMENTOR, dropList.HIGHER)
-    dropListHash.put(CREEP_LEFT_ELDER_VOIDWALKER, dropList.HIGHER)
+public function steal()
+    for shopInfo in shopsInfo
+        if (shopInfo.shopId == BUILDING_CREEPS_TP1)
+            addItemsFromShop(shopInfo, dropList.LOWER)
+        if (shopInfo.shopId == BUILDING_CREEPS_TP2)
+            addItemsFromShop(shopInfo, dropList.HIGHER)    
 
     dropListHash.put(CREEP_ELITE_NERUBIAN_QUEEN, dropList.ELITE)
     dropListHash.put(CREEP_ELITE_HYDRALISK, dropList.ELITE)
@@ -155,7 +184,7 @@ public function steal()
                         eliteLoot(caster)
 
                     default
-                        genericLoot(caster)
+                        skip
             else
                 CreateTextTag()..setText("Miss!", 5)
                 ..setColor(255, 128, 128, 255)

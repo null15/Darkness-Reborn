@@ -1,0 +1,32 @@
+package Thief_SendToBox
+
+import ClosureEvents
+import Global_Variables
+import MyUnitIds
+import Thief_Q
+import UpdateDropSite
+
+init
+    EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
+        if EventData.getChatMessage().substring(0, 3).toLowerCase() == "-sb"
+            let commandPlayer = GetTriggerPlayer()
+            let hero = playerHero.get(commandPlayer)
+            if (hero.getTypeId() == HERO_THIEF)
+                let ite = hero.itemInSlot(0)
+                if ite != null
+                    let itemId = ite.getTypeId()
+                    if (isItemSimpleAndThiefStolen(itemId))
+                        // Remove item from hero and destroy it
+                        hero.removeItem(ite)
+                        ite.remove()
+                        // Add item to the box
+                        itemDropsInTavern.put(itemId, itemDropsInTavern.get(itemId) + 1)
+                        itemDropsEnumerator.add(itemId)
+                        updateItemPool()
+                    else
+                        printTimedToPlayer("You can only send to box items stolen from T1 and T2 creeps, and also from Nerubian Queen and Hydralisk", 5, commandPlayer)
+                else
+                    printTimedToPlayer("You should place item in 1 slot (top left) to sell it", 5, commandPlayer)
+            else
+                printTimedToPlayer("Only thief can use this command!", 5, commandPlayer)
+

@@ -14,7 +14,7 @@ function cleanItems()
     EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
         if GetTriggerPlayer() == Player(0) and EventData.getChatMessage() == "-clean" and not clean
             clean = true
-            printTimed(COLOR_GOLD_STR+"Cleaning items in 10 seconds, use '|r"+COLOR_WHITE_STR+"-stopclean|r'"+COLOR_GOLD_STR+" to stop this action|r", 5)
+            printTimed(COLOR_GOLD_STR+"Cleaning items after 20 seconds, use '|r"+COLOR_WHITE_STR+"-stopclean|r'"+COLOR_GOLD_STR+" to stop this action|r", 5)
             doAfter(10) ->
                 if clean 
                     EnumItemsInRect(GetPlayableMapRect(), Filter(function cleanItemsFilter), function cleanItemsAct)

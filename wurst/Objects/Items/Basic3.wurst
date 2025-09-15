@@ -36,7 +36,7 @@ init
     ..setCanBeSoldToMerchants(true)
     ..setGoldCost(1250)
     ..addStats(addDamage(15))
-    ..addStats(addMpOnHit(0.05))
+    ..addStats(addMpOnHit(0.02))
     ..addHotKey()
     ..register()
 

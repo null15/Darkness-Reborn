@@ -69,3 +69,5 @@ function randomHero()
                 randomedHero..heroCheck().setPlayersResearch(false)
                 taverns.forEach() (unit t) ->
                     t.removeUnitFromStock(uid)
+            else
+                printTimedToPlayer("You can only use -random command when you have no hero. Type -repick first.", 5, trigP)

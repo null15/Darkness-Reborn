@@ -13,6 +13,8 @@ import Icons
 import LinkedList
 import HashMap
 import Debug
+import ItemLocation
+import ItemsAndRecipesHashTable
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -20,30 +22,35 @@ import Debug
 public class ShopInfo
     int shopId
     string shopName
+    ItemLocation loc
     LinkedList<int> itemsMade
     LinkedList<int> itemsSold
 
-    construct(int shopId, string shopName, LinkedList<int> itemsMade, LinkedList<int> itemsSold)
+    construct(int shopId, string shopName, ItemLocation loc, LinkedList<int> itemsMade, LinkedList<int> itemsSold)
         this.shopId    = shopId
         this.shopName  = shopName
+        this.loc       = loc
         this.itemsMade = itemsMade
         this.itemsSold = itemsSold
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 
-let shopsInfo = new LinkedList<ShopInfo>()
+public let shopsInfo = new LinkedList<ShopInfo>()
 // key = itemId, value = shopId
 let itemsShopsMap = new HashMap<int, int>()
 
+public var ITEMS_LOCATIONS_SHOPS_INITED = false
+
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
 
-function initCreepTpShop(int shopId, string shopName, LinkedList<int> creeps) returns ShopInfo
+function initCreepTpShop(int shopId, string shopName, ItemLocation loc, LinkedList<int> creeps) returns ShopInfo
     if (DEBUG)
         return new ShopInfo(
             shopId,
             shopName,
+            loc,
             creeps,
             new LinkedList<int>()
         )
@@ -51,6 +58,7 @@ function initCreepTpShop(int shopId, string shopName, LinkedList<int> creeps) re
         return new ShopInfo(
             shopId,
             shopName,
+            loc,
             new LinkedList<int>(),
             creeps
         )
@@ -61,6 +69,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_BASIC_ITEMS1,
             shopNameBasicItems1,
+            ItemLocation.BasicShop1,
             asList(
             ITEM_GLOVES_OF_HASTE, ITEM_GLOVES_OF_HADES, ITEM_GLOVES_OF_WIND, ITEM_LIFE_STEAL,
             ITEM_LEATHER_ARMOR, ITEM_IRON_ARMOR, ITEM_SILVER_ARMOR, ITEM_SIMPLE_SWORD,
@@ -71,6 +80,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_BASIC_ITEMS2,
             shopNameBasicItems2,
+            ItemLocation.BasicShop2,
             asList(
             ITEM_BOOTS_OF_SPEED, ITEM_JADE_RING, ITEM_SOUL_RING, ITEM_RING_OF_ARCHMAGI,
             ITEM_RING_OF_REGENERATION, ITEM_RING_OF_PROTECTION, ITEM_ROBE_OF_MAGI, ITEM_BOOTS_OF_QUELTHALAS,
@@ -81,6 +91,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_BASIC_ITEMS3,
             shopNameBasicItems3,
+            ItemLocation.BasicShop3,
             asList(
             ITEM_ORB_OF_CORRUPTION, ITEM_ORB_OF_DARKNESS, ITEM_ORB_OF_LIGHTNING, ITEM_AMULET_OF_SPELL_SHIELD,
             ITEM_ORB_OF_FROST, ITEM_ORB_OF_KILJAEDAN, ITEM_ORB_OF_FIRE, ITEM_TALISMAN_OF_EVASION,
@@ -91,6 +102,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_BASIC_ITEMS4,
             shopNameBasicItems4,
+            ItemLocation.BasicShop4,
             asList(
             ITEM_POTION_OF_GREATER_HEALING, ITEM_POTION_OF_GREATER_MANA, ITEM_PENDANT_OF_ENERGY, ITEM_PENDANT_OF_MANA, ITEM_PERIAPT_OF_VITALITY, ITEM_KHADGAR_PENDANT_OF_HEALTH, ITEM_CLOAK_OF_SHADOWS,
             ITEM_TOME_OF_RETRAINING
@@ -101,6 +113,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_RECIPES1,
             shopNameRecipes1,
+            ItemLocation.RecipeShop1,
             asList(
             ITEM_RECIPE_ICE_SWORD, ITEM_RECIPE_FIRE_SWORD, ITEM_RECIPE_BOOTS_OF_TELEPORTATION, ITEM_RECIPE_BOOTS_OF_INVISIBILITY,
             ITEM_RECIPE_WINGED_BOOTS, ITEM_RECIPE_STEEL_AXE, ITEM_RECIPE_SILVER_HAMMER, ITEM_RECIPE_GLOVES_OF_SPEED,
@@ -111,6 +124,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_RECIPES2,
             shopNameRecipes2,
+            ItemLocation.RecipeShop2,
             asList(
             ITEM_RECIPE_HELM_OF_VALOR, ITEM_RECIPE_MEDALLION_OF_COURAGE, ITEM_RECIPE_ALLERIA_FLUTE_OF_ACCURACY, ITEM_RECIPE_ANCIENT_JANGGO_OF_ENDURANCE,
             ITEM_RECIPE_THE_LION_HORN_OF_STORMWIND, ITEM_RECIPE_WARSONG_BATTLE_DRUMS, ITEM_RECIPE_DRUMS_OF_FUTURE, ITEM_RECIPE_THE_GOLDEN_HORN,
@@ -121,6 +135,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_RECIPES3,
             shopNameRecipes3,
+            ItemLocation.RecipeShop3,
             asList(
             ITEM_RECIPE_SEER_STAFF, ITEM_RECIPE_SCALE_AXE, ITEM_RECIPE_DALAN_AXE, ITEM_RECIPE_DURATION_AXE,
             ITEM_RECIPE_DWARVEN_AXE, ITEM_RECIPE_BLADE_OF_HELL, ITEM_RECIPE_KRAKEN_DAGGER, ITEM_RECIPE_MIDNIGHT_BLADE,
@@ -131,6 +146,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_RECIPES4,
             shopNameRecipes4,
+            ItemLocation.RecipeShop4,
             asList(
             ITEM_RECIPE_SPLIT_ARMOR, ITEM_RECIPE_AVATAR_ARMOR, ITEM_RECIPE_CHAOS_BLADE, ITEM_RECIPE_O_CLOCK,
             ITEM_RECIPE_THUNDER_BOW, ITEM_RECIPE_SOUL_OF_KILJEADEN, ITEM_RECIPE_LIZARD_PENDANT, ITEM_RECIPE_HELM_HERMES,
@@ -142,6 +158,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_LATE_GAME_ITEMS1,
             shopNameLateGameItems1,
+            ItemLocation.LateGameShop1,
             asList(
             ITEM_RECIPE_ICE_AND_FIRE_SWORD, ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD, ITEM_RECIPE_DESTROY_SWORD, ITEM_RECIPE_PLATINUM_HAMMER,
             ITEM_RECIPE_GLOVES_OF_FLASH, ITEM_RECIPE_DARK_STEEL_SWORD, ITEM_RECIPE_PERFECT_ARKENSTONE, ITEM_RECIPE_SHINY_ARMOR,
@@ -152,6 +169,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_LATE_GAME_ITEMS2,
             shopNameLateGameItems2,
+            ItemLocation.LateGameShop2,
             asList(
             ITEM_RECIPE_DARK_MATTER, ITEM_RECIPE_RAIN_SWORD, ITEM_RECIPE_CORROSIVE_HAMMER, ITEM_RECIPE_VAMPIRELLA,
             ITEM_RECIPE_LANCELOT_SHIELD, ITEM_RECIPE_LANCELOT_ARMOR, ITEM_RECIPE_LANCELOT_HELM, ITEM_RECIPE_MYSTERY_BLUE_STAFF,
@@ -162,6 +180,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_GEMS,
             shopNameGems,
+            ItemLocation.GemsShop,
             asList(
             ITEM_PERFECT_GARNET, ITEM_PERFECT_CARNELIAN, ITEM_PERFECT_CITRINE, ITEM_PERFECT_TOPAZ,
             ITEM_PERFECT_OBSIDIAN, ITEM_PERFECT_AQUAMARINE, ITEM_PERFECT_NEPHRITE, ITEM_PERFECT_EMERALD,
@@ -172,6 +191,7 @@ function initLists()
         new ShopInfo(
             BUILDING_SHOP_LATE_GAME_ITEMS4,
             shopNameLateGameItems4,
+            ItemLocation.LateGameShop4,
             asList(
             ITEM_BULION, ITEM_CRYSTAL_ARMOR, ITEM_CRYSTAL_DUAL_SWORD, ITEM_CRYSTAL_KNIFE,
             ITEM_CRYSTAL_SPEAR, ITEM_RECIPE_DRAGON_WINGS, ITEM_TOME_OF_FROSTY_INTELLIGENCE, ITEM_TOME_OF_FROSTY_STRENGTH,
@@ -183,6 +203,7 @@ function initLists()
         new ShopInfo(
             BUILDING_TINKER_SHOP_TOMES,
             shopNameTinkerTomes,
+            ItemLocation.Null,
             asList(
             ITEM_TOME_OF_FROSTY_ALL_STATS,
             ITEM_TOME_OF_AGILITY_L1, ITEM_TOME_OF_STRENGTH_L1, ITEM_TOME_OF_INTELLIGENCE_L1, ITEM_TOME_OF_HEALTH_L1, ITEM_TOME_OF_MANA_L1, ITEM_TOME_OF_DAMAGE, ITEM_TOME_OF_ARMOR
@@ -192,6 +213,7 @@ function initLists()
         new ShopInfo(
             BUILDING_TINKER_SHOP_LUMBER,
             shopNameTinkerLumber,
+            ItemLocation.Null,
             asList(
             ITEM_GOLD_TO_LUMBER_1, ITEM_GOLD_TO_LUMBER_9, ITEM_GOLD_TO_LUMBER_90, ITEM_GOLD_TO_LUMBER_900,
             ITEM_LUMBER_1_TO_GOLD, ITEM_LUMBER_10_TO_GOLD, ITEM_LUMBER_100_TO_GOLD, ITEM_LUMBER_1000_TO_GOLD
@@ -201,6 +223,7 @@ function initLists()
         new ShopInfo(
             BUILDING_TINKER_SHOP_RECIPES,
             shopNameTinkerRecipes,
+            ItemLocation.TinkerRecipe,
             asList(
             ITEM_RECIPE_ICE_AND_FIRE_SWORD_II, ITEM_RECIPE_DARK_STEEL_SWORD_II, ITEM_RECIPE_DESTROY_SWORD_II, ITEM_RECIPE_PLATINUM_HAMMER_II,
             ITEM_RECIPE_GOLD_AXE_II, ITEM_RECIPE_REACTIVE_ARMOR_II, ITEM_RECIPE_BOOTS_OF_CRYSTAL_GOLD_II, ITEM_RECIPE_O3_CLOCK, ITEM_RECIPE_O9_CLOCK
@@ -211,12 +234,14 @@ function initLists()
         new ShopInfo(
             ELEMENTAL_SOUL,
             wordElementalSoul,
+            ItemLocation.Null,
             asList(UPGRADE_BASE_HEALTH, UPGRADE_BASE_ARMOR),
             new LinkedList<int>()
         ),
         new ShopInfo(
             BUILDING_FOUNTAIN,
             wordFountain,
+            ItemLocation.Null,
             asList(ITEM_FOUNTAIN_LUMBER_100_TO_GOLD, ITEM_FOUNTAIN_GOLD_TO_LUMBER_100, ITEM_EMPTY_VIAL, ITEM_QUEST),
             new LinkedList<int>()
         ),
@@ -224,6 +249,7 @@ function initLists()
         initCreepTpShop(
             BUILDING_CREEPS_TP1,
             shopNameCreepsTp1,
+            ItemLocation.Creeps1,
             asList(
             CREEP_TP_SPIDER, CREEP_TP_MUD_GOLEM, CREEP_TP_MURLOC_TIDERUNNER, CREEP_TP_TIMBER_WOLF,
             CREEP_TP_CRAB_SHORECRAWLER, CREEP_TP_FACELESS_ONE_TRICKSTER, CREEP_TP_SPITTING_SPIDER, CREEP_TP_ROCK_GOLEM,
@@ -233,6 +259,7 @@ function initLists()
         initCreepTpShop(
             BUILDING_CREEPS_TP2,
             shopNameCreepsTp2,
+            ItemLocation.Creeps2,
             asList(
             CREEP_TP_BROOD_MOTHER, CREEP_TP_GRANITE_GOLEM, CREEP_TP_TURTLE, CREEP_TP_GIANT_POLAR_BEAR,
             CREEP_TP_STORM_WYRM, CREEP_TP_SKELETON_WARRIOR, CREEP_TP_FOREST_TROLL_WARLOCK, CREEP_TP_DIRE_MAMMOTH,
@@ -242,6 +269,7 @@ function initLists()
         initCreepTpShop(
             BUILDING_CREEPS_TP3,
             shopNameCreepsTp3,
+            ItemLocation.Creeps3Elite,
             asList(
             CREEP_TP_NERUBIAN_QUEEN, CREEP_TP_HYDRALISK, CREEP_TP_FLESH_GOLEM, CREEP_TP_FURBOLG_GIANT,
             CREEP_TP_DOOM_GUARD, CREEP_TP_SCARY_SCREAM, CREEP_TP_FROSTY_SNOWMAN, CREEP_TP_ICE_REVENANT,
@@ -251,23 +279,43 @@ function initLists()
         initCreepTpShop(
             BUILDING_CREEPS_TP4,
             shopNameCreepsTp4,
+            ItemLocation.Creeps4Bosses,
             asList(
             CREEP_TP_DRAGONS, CREEP_TP_TOWER, CREEP_TP_DREADLORD, CREEP_TP_WATER
             )
         )
     )
 
+@compiletime
+function initShopsInfo()
     for shopInfo in shopsInfo
-        //println("ShopInfo.\n\tshopId = {0}\n\tshopName = {1}".format(shopInfo.shopId.toString(), shopInfo.shopName))
+        let items = new LinkedList<int>()
+        items.addAll(shopInfo.itemsMade)
+        items.addAll(shopInfo.itemsSold)
 
-        //println("\n\titemsMade:")
-        for itemId in shopInfo.itemsMade
+        for itemId in items
             itemsShopsMap.put(itemId, shopInfo.shopId)
-            //println("\t\titemId = {0}".format(itemId.toString()))
 
-        //println("\n\titemsSold:")
-        for itemId in shopInfo.itemsSold
-            itemsShopsMap.put(itemId, shopInfo.shopId)
+        // Add items to itemLocationShops
+        for shopItemId in items
+            var itemId = getItemIdByRecipeId(shopItemId)
+            if (itemId == -1)
+                // It's an item without recipe
+                itemId = shopItemId
+                itemsLocations.put(itemId, shopInfo.loc)
+            else
+                // It's an item with recipe
+                let recipeId = shopItemId
+                itemsLocations.put(recipeId, shopInfo.loc)
+                itemsLocations.put(itemId, shopInfo.loc)
+
+        if (shopInfo.shopId == BUILDING_TINKER_SHOP_RECIPES)
+            for itemId in items
+                itemsLocations.put(itemId, ItemLocation.TinkerRecipe)
+        
+        destroy items
+    
+    ITEMS_LOCATIONS_SHOPS_INITED = true
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------

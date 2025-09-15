@@ -1,0 +1,23 @@
+package ItemLocationSearch
+
+import ItemLocation
+import Object_Shops
+import Thief_Q
+
+// ----------------------------------------------------------------------------
+
+// Used to correctly set up compilation order of files.
+// Variable `itemsLocations` is inited in different files.
+@compiletime function setupFileCompilationOrder()
+    assertTrue(ITEMS_LOCATIONS_SHOPS_INITED)
+    assertTrue(ITEMS_LOCATIONS_THIEF_STOLEN_INITED)
+
+// ----------------------------------------------------------------------------
+
+public function getItemLocation(int itemId) returns string
+    if (itemsLocations.has(itemId))
+        return itemsLocations.get(itemId).toString()
+    else
+        return "null"
+    
+// ----------------------------------------------------------------------------
