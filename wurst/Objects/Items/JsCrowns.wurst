@@ -4,13 +4,14 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import Jacksmith_Q
+import Jacksmith_E
 
 init
 
 @compiletime function createItems()
 
 //I043
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L0)
+    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHelmutPurple.blp")
     ..setClassification("Artifact")
     ..addStats(addArmor(120))
@@ -22,7 +23,7 @@ init
     ..register()
 
 //I0F3
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L1)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_ASSASSIN_L1, ITEM_CROWN_OF_ASSASSIN, jacksmithBulionChanceL1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHelmutPurple.blp")
     ..setClassification("Artifact")
     ..addStats(addArmor(200))
@@ -33,7 +34,7 @@ init
     ..register()
 
 //I0F4
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L2)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_ASSASSIN_L2, ITEM_CROWN_OF_ASSASSIN_L1, jacksmithBulionChanceL2)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHelmutPurple.blp")
     ..setClassification("Artifact")
     ..addStats(addArmor(280))
@@ -44,7 +45,7 @@ init
     ..register()
 
 //I0F5
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L3)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_ASSASSIN_L3, ITEM_CROWN_OF_ASSASSIN_L2, jacksmithBulionChanceL3)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHelmutPurple.blp")
     ..setClassification("Artifact")
     ..addStats(addArmor(360))
@@ -55,7 +56,7 @@ init
     ..register()
 
 //I0F6
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L4)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_ASSASSIN_L4, ITEM_CROWN_OF_ASSASSIN_L3, jacksmithBulionChanceL4)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHelmutPurple.blp")
     ..setClassification("Artifact")
     ..addStats(addArmor(420))
@@ -66,7 +67,7 @@ init
     ..register()
 
 //I0F7
-    new MyItemDefinition(ITEM_CROWN_OF_ASSASSIN_L5)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_ASSASSIN_L5, ITEM_CROWN_OF_ASSASSIN_L4, jacksmithBulionChanceL5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHelmutPurple.blp")
     ..setClassification("Artifact")
     ..addStats(addArmor(500))
@@ -77,7 +78,7 @@ init
     ..register()
     
 //I044
-    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L0)
+    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHeroHelmet.blp")
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
@@ -91,7 +92,7 @@ init
     ..register()
 
 //I0F8
-    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L1)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_SOLDIER_L1, ITEM_CROWN_OF_SOLDIER, jacksmithBulionChanceL1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHeroHelmet.blp")
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
@@ -104,7 +105,7 @@ init
     ..register()
 
 //I0F9
-    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L2)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_SOLDIER_L2, ITEM_CROWN_OF_SOLDIER_L1, jacksmithBulionChanceL2)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHeroHelmet.blp")
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
@@ -117,7 +118,7 @@ init
     ..register()
 
 //I0FA
-    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L3)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_SOLDIER_L3, ITEM_CROWN_OF_SOLDIER_L2, jacksmithBulionChanceL3)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHeroHelmet.blp")
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
@@ -130,7 +131,7 @@ init
     ..register()
 
 //I0FB
-    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L4)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_SOLDIER_L4, ITEM_CROWN_OF_SOLDIER_L3, jacksmithBulionChanceL4)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHeroHelmet.blp")
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
@@ -143,7 +144,7 @@ init
     ..register()
 
 //I0FC
-    new MyItemDefinition(ITEM_CROWN_OF_SOLDIER_L5)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_SOLDIER_L5, ITEM_CROWN_OF_SOLDIER_L4, jacksmithBulionChanceL5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNHeroHelmet.blp")
     ..setActivelyUsed(true)
     ..setClassification("Artifact")
@@ -156,7 +157,7 @@ init
     ..register()
 
 //I045
-    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L0)
+    new MyItemDefinition(ITEM_CROWN_OF_WIZARD)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpell_Magic_MageArmor.blp")
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
@@ -170,7 +171,7 @@ init
     ..register()
 
 //I0FE
-    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L1)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_WIZARD_L1, ITEM_CROWN_OF_WIZARD, jacksmithBulionChanceL1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpell_Magic_MageArmor.blp")
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
@@ -183,7 +184,7 @@ init
     ..register()
 
 //I0FD
-    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L2)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_WIZARD_L2, ITEM_CROWN_OF_WIZARD_L1, jacksmithBulionChanceL2)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpell_Magic_MageArmor.blp") 
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
@@ -196,7 +197,7 @@ init
     ..register()
 
 //I0FF
-    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L3)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_WIZARD_L3, ITEM_CROWN_OF_WIZARD_L2, jacksmithBulionChanceL3)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpell_Magic_MageArmor.blp")   
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
@@ -209,7 +210,7 @@ init
     ..register()
 
 //I0FG
-    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L4)    
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_WIZARD_L4, ITEM_CROWN_OF_WIZARD_L3, jacksmithBulionChanceL4)    
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpell_Magic_MageArmor.blp")
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
@@ -222,7 +223,7 @@ init
     ..register()
 
 //I0FH
-    new MyItemDefinition(ITEM_CROWN_OF_WIZARD_L5)
+    new MyItemBulionUpgradeDefinition(ITEM_CROWN_OF_WIZARD_L5, ITEM_CROWN_OF_WIZARD_L4, jacksmithBulionChanceL5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNSpell_Magic_MageArmor.blp")
     ..setClassification("Artifact")
     ..setActivelyUsed(true)
@@ -245,9 +246,9 @@ init
     ..addStats(addEvasion(0.3))
     ..setStockMaximum(99)
     ..addComponents(
-    ITEM_CROWN_OF_ASSASSIN_L0,
-    ITEM_CROWN_OF_SOLDIER_L0,
-    ITEM_CROWN_OF_WIZARD_L0)
+    ITEM_CROWN_OF_ASSASSIN,
+    ITEM_CROWN_OF_SOLDIER,
+    ITEM_CROWN_OF_WIZARD)
     ..register()
 
 //I0FI

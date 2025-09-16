@@ -53,6 +53,9 @@ public let wordExtraEffects       = "|c00FFFC01Extra Effects:|r\n"
 public let wordMaterials          = "|c00FEBA0EMaterials required to craft this item:|r\n"
 public let wordNote               = "|c00FEBA0ENote:|r\n"
 
+public let wordBulionUpgradable   = "|cffe2e451Jacksmith can fuze these items with E:|r\n"
+public let wordSuccessChance      = "|cffe4ac51{0}% chance of success|r\n"
+
 public let wordCd                 = " (cd {0} sec)"
 public let wordActive             = "|c00d7b632Active:|r "
 public let wordAura               = "|c0054d682{0}Aura:|r "

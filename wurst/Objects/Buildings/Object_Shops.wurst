@@ -12,7 +12,7 @@ import MyAbilityIds
 import Icons
 import LinkedList
 import HashMap
-import Debug
+import DebugVar
 import ItemLocation
 import ItemsAndRecipesHashTable
 

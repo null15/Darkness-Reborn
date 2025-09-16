@@ -72,7 +72,7 @@ init
     ..addComponents(
     ITEM_LIGHT_ARMOR,
     ITEM_SOUL_OF_KILJEADEN,
-    ITEM_CROWN_OF_SOLDIER_L0)
+    ITEM_CROWN_OF_SOLDIER)
     ..addHotKey()
     ..register()
 

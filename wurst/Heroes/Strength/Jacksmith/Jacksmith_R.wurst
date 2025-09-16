@@ -21,9 +21,9 @@ public function metalStrength()
             let itemInBs = new LinkedList<item>()
             for int i = 0  to 5
                 itemInBs.add(bs.itemInSlot(i))
-            let recipePos = blacksmithJackedList.checkRecipePosition(itemInBs)
+            let recipePos = blacksmithJackedList.getRecipePosition(itemInBs)
             if recipePos > -1
-                let foundRecipe = blacksmithJackedList.get(recipePos)
+                let foundRecipe = blacksmithJackedList.getRecipe(recipePos)
                 for int i = 0 to foundRecipe.items.size()
                     bs.removeItemById(foundRecipe.items.get(i))
                 let newite = bs.addItemById(foundRecipe.completedItem)

@@ -23,7 +23,7 @@ public function blacksmithDoAfter()
                 itemInBs.forEach() (item t) ->
                     if(t == null)
                         itemInBs.remove(t)
-                var atSpot = blacksmithThiefList.checkRecipePosition(itemInBs) // Check if at least 1 item is upgradeable
+                var atSpot = blacksmithThiefList.getRecipePosition(itemInBs) // Check if at least 1 item is upgradeable
                 if atSpot > -1
                     bs.setAnimation("Work")
                     let bsPos = bs.getPos()
@@ -42,8 +42,8 @@ public function blacksmithDoAfter()
                             for int i = 0 to itemInBs.size() - 1
                                 let perItem = new LinkedList<item>()
                                 perItem.add(itemInBs.get(i))
-                                atSpot = blacksmithThiefList.checkRecipePosition(perItem)
-                                let rightList = blacksmithThiefList.get(atSpot)
+                                atSpot = blacksmithThiefList.getRecipePosition(perItem)
+                                let rightList = blacksmithThiefList.getRecipe(atSpot)
                                 let newite = rightList.completedItem
                                 for int j = 0 to rightList.items.size() - 1
                                     bs.removeItemById(rightList.items.get(j))
@@ -51,7 +51,6 @@ public function blacksmithDoAfter()
                                 newitecur.setPos(bs.getPos())
                                 printTimed(COLOR_GOLD.toColorString()+"Blacksmith: Completed|r" + newitecur.getName(), 7)
                                 destroy perItem
-                                destroy rightList
                             destroy itemInBs
                             bs.setAnimation("Stand")
                             timerTextTag.destr()
@@ -67,7 +66,7 @@ public function blacksmithDoAfter()
             itemInBs.forEach() (item t) ->
                 if(t == null or t == EventData.getManipulatedItem())
                     itemInBs.remove(t)
-            let atSpot = blacksmithThiefList.checkRecipePosition(itemInBs)
+            let atSpot = blacksmithThiefList.getRecipePosition(itemInBs)
             if atSpot == -1
                 bs.setAnimation("Stand")
                 countedTime.stop()

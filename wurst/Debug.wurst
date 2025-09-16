@@ -1,12 +1,12 @@
 package Debug
+
 import MyUnitIds
 import AbilityIds
 import MyUpgradesIds
 import MyItemIds
-
-import public DebugVar
+import DebugVar
 import ClosureEvents
-import Global_Variables
+import heroLoader
 
 public function initDebug()
     if (not DEBUG)
@@ -48,6 +48,7 @@ public function initDebug()
     ..setMaxHP(1000000)
     ..setMaxMana(100000)
     ..addItemToSlot(ITEM_BLINK_MAP, 0)
+    ..heroCheck()
     
     // jacksmith
     CreateUnit(players[0], HERO_JACKSMITH, posX, posY - 400, 270.000)
@@ -56,6 +57,7 @@ public function initDebug()
     ..setMaxHP(1000000)
     ..setMaxMana(100000)
     ..addItemToSlot(ITEM_BLINK_MAP, 0)
+    ..heroCheck()
 
     // The mid point position
     posX = GetRectCenterX(gg_rct_AllSpawnMove1)

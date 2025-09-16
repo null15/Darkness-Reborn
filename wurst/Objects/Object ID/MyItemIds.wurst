@@ -357,9 +357,9 @@ public constant ITEM_ESSENCE_OF_ASZUNE = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_DREAM_SWORD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_CRYSTAL_SWORD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_BLOODY_DAGGER = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_WIZARD_L0 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_SOLDIER_L0 = compiletime(ITEM_ID_GEN.next())
-public constant ITEM_CROWN_OF_ASSASSIN_L0 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_WIZARD = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_SOLDIER = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_CROWN_OF_ASSASSIN = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_GLOVERSHIELD = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_BOOK_OF_WIND = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_BOOK_OF_RAIN = compiletime(ITEM_ID_GEN.next())
@@ -475,7 +475,15 @@ public constant ITEM_BATTLE_AXE_L5 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ATHENA = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_MYSTERY_BRACER = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_GOLDEN_RING = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_ATHENA_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_ATHENA_L2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_ATHENA_L3 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_ATHENA_L4 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_ATHENA_L5 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_VALKYRIE_L1 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_VALKYRIE_L2 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_VALKYRIE_L3 = compiletime(ITEM_ID_GEN.next())
+public constant ITEM_VALKYRIE_L4 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_VALKYRIE_L5 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_FORGE_BLADE_L1 = compiletime(ITEM_ID_GEN.next())
 public constant ITEM_FORGE_BLADE_L2 = compiletime(ITEM_ID_GEN.next())
@@ -741,95 +749,13 @@ public constant ITEM_BLINK_MAP = compiletime(ITEM_ID_GEN.next())
 // -------------------------
 public int array ITEM = []
 public int array ITEM_DROP = []
-public int array ITEM_UPGRADE = []
 
 init 
     compileItems()
 
 function compileItems()
     integer itemDropIndex = 1
-    ITEM_UPGRADE[1] = ITEM_BULION//builion
-    ITEM_UPGRADE[2] = ITEM_RAIN_SWORD//Rain Sword
-    ITEM_UPGRADE[3] = ITEM_RAIN_SWORD_L1//Rain Sword +1
-    ITEM_UPGRADE[4] = ITEM_RAIN_SWORD_L2//Rain Sword +2
-    ITEM_UPGRADE[5] = ITEM_RAIN_SWORD_L3//Rain Sword +3
-    ITEM_UPGRADE[6] = ITEM_RAIN_SWORD_L4//Rain Sword +4
-    ITEM_UPGRADE[7] = ITEM_RAIN_SWORD_L5//Rain Sword +5
-    ITEM_UPGRADE[8] = ITEM_CORROSIVE_HAMMER//Corrosive Hammer
-    ITEM_UPGRADE[9] = ITEM_CORROSIVE_HAMMER_L1//Corrosive Hammer +1
-    ITEM_UPGRADE[10] = ITEM_CORROSIVE_HAMMER_L2//Corrosive Hammer +2
-    ITEM_UPGRADE[11] = ITEM_CORROSIVE_HAMMER_L3//Corrosive Hammer +3
-    ITEM_UPGRADE[12] = ITEM_CORROSIVE_HAMMER_L4//Corrosive Hammer +4
-    ITEM_UPGRADE[13] = ITEM_CORROSIVE_HAMMER_L5//Corrosive Hammer +5
-    ITEM_UPGRADE[14] = ITEM_VAMPIRELLA//Vampirella
-    ITEM_UPGRADE[15] = ITEM_VAMPIRELLA_L1//Vampirella +1
-    ITEM_UPGRADE[16] = ITEM_VAMPIRELLA_L2//Vampirella +2
-    ITEM_UPGRADE[17] = ITEM_VAMPIRELLA_L3//Vampirella +3
-    ITEM_UPGRADE[18] = ITEM_VAMPIRELLA_L4//Vampirella +4
-    ITEM_UPGRADE[19] = ITEM_VAMPIRELLA_L5//Vampirella +5
-    ITEM_UPGRADE[20] = ITEM_CROWN_OF_ASSASSIN_L0//crown of assasin
-    ITEM_UPGRADE[21] = ITEM_CROWN_OF_ASSASSIN_L1//crown of assasin +1
-    ITEM_UPGRADE[22] = ITEM_CROWN_OF_ASSASSIN_L2//crown of assasin +2
-    ITEM_UPGRADE[23] = ITEM_CROWN_OF_ASSASSIN_L3//crown of assasin +3
-    ITEM_UPGRADE[24] = ITEM_CROWN_OF_ASSASSIN_L4//crown of assasin +4
-    ITEM_UPGRADE[25] = ITEM_CROWN_OF_ASSASSIN_L5//crown of assasin +5
-    ITEM_UPGRADE[26] = ITEM_CROWN_OF_SOLDIER_L0//Crown of Soldier
-    ITEM_UPGRADE[27] = ITEM_CROWN_OF_SOLDIER_L1//Crown of Soldier +1
-    ITEM_UPGRADE[28] = ITEM_CROWN_OF_SOLDIER_L2//Crown of Soldier +2
-    ITEM_UPGRADE[29] = ITEM_CROWN_OF_SOLDIER_L3//Crown of Soldier +3
-    ITEM_UPGRADE[30] = ITEM_CROWN_OF_SOLDIER_L4//Crown of Soldier +4
-    ITEM_UPGRADE[31] = ITEM_CROWN_OF_SOLDIER_L5//Crown of Soldier +5
-    ITEM_UPGRADE[32] = ITEM_CROWN_OF_WIZARD_L0//Crown of Wizard
-    ITEM_UPGRADE[33] = ITEM_CROWN_OF_WIZARD_L1//Crown of Wizard +1
-    ITEM_UPGRADE[34] = ITEM_CROWN_OF_WIZARD_L2//Crown of Wizard +2
-    ITEM_UPGRADE[35] = ITEM_CROWN_OF_WIZARD_L3//Crown of Wizard +3
-    ITEM_UPGRADE[36] = ITEM_CROWN_OF_WIZARD_L4//Crown of Wizard +4
-    ITEM_UPGRADE[37] = ITEM_CROWN_OF_WIZARD_L5//Crown of Wizard +5
-    ITEM_UPGRADE[38] = ITEM_CROWN_OF_EVIL_L5//Crown of Evil +5
-    ITEM_UPGRADE[39] = ITEM_BATTLE_AXE_L0//Battle Axe
-    ITEM_UPGRADE[40] = ITEM_BATTLE_AXE_L1//Battle Axe +1
-    ITEM_UPGRADE[41] = ITEM_BATTLE_AXE_L2//Battle Axe +2
-    ITEM_UPGRADE[42] = ITEM_BATTLE_AXE_L3//Battle Axe +3
-    ITEM_UPGRADE[43] = ITEM_BATTLE_AXE_L4//Battle Axe +4
-    ITEM_UPGRADE[44] = ITEM_BATTLE_AXE_L5//Battle Axe +5
-    ITEM_UPGRADE[45] = ITEM_ATHENA//Athena
-    ITEM_UPGRADE[46] = ITEM_MYSTERY_BRACER//Mystery Bracer
-    ITEM_UPGRADE[47] = ITEM_GOLDEN_RING//Golden Ring
-    ITEM_UPGRADE[48] = ITEM_AINZ_SWORD//Ainz' Sword
-    ITEM_UPGRADE[49] = ITEM_ATHENA_L5//Athena +5
-    ITEM_UPGRADE[50] = ITEM_VALKYRIE_L5//Valkyrie +5
-    ITEM_UPGRADE[51] = ITEM_FORGE_BLADE_L1//Forge Blade [Level 1]
-    ITEM_UPGRADE[52] = ITEM_FORGE_BLADE_L2//Forge Blade [Level 2]
-    ITEM_UPGRADE[53] = ITEM_FORGE_BLADE_L3//Forge Blade [Level 3]
-    ITEM_UPGRADE[54] = ITEM_FORGE_BLADE_L4//Forge Blade [Level 4]
-    ITEM_UPGRADE[55] = ITEM_FORGE_AXE_L1//Forge Axe [Level 1]
-    ITEM_UPGRADE[56] = ITEM_FORGE_AXE_L2//Forge Axe [Level 2]
-    ITEM_UPGRADE[57] = ITEM_FORGE_AXE_L3//Forge Axe [Level 3]
-    ITEM_UPGRADE[58] = ITEM_FORGE_AXE_L4//Forge Axe [Level 4]
-    ITEM_UPGRADE[59] = ITEM_FORGE_STAFF_L1//Forge Staff [Level 1]
-    ITEM_UPGRADE[60] = ITEM_FORGE_STAFF_L2//Forge Staff [Level 2]
-    ITEM_UPGRADE[61] = ITEM_FORGE_STAFF_L3//Forge Staff [Level 3]
-    ITEM_UPGRADE[62] = ITEM_FORGE_STAFF_L4//Forge Staff [Level 4]
-    ITEM_UPGRADE[63] = ITEM_FORGE_ARMOR_L1//Forge Armor [Level 1]
-    ITEM_UPGRADE[64] = ITEM_FORGE_ARMOR_L2//Forge Armor [Level 2]
-    ITEM_UPGRADE[65] = ITEM_FORGE_ARMOR_L3//Forge Armor [Level 3]
-    ITEM_UPGRADE[66] = ITEM_FORGE_ARMOR_L4//Forge Armor [Level 4]
-    ITEM_UPGRADE[67] = ITEM_FORGE_HELM_L1//Forge Helm [Level 1]
-    ITEM_UPGRADE[68] = ITEM_FORGE_HELM_L2//Forge Helm [Level 2]
-    ITEM_UPGRADE[69] = ITEM_FORGE_HELM_L3//Forge Helm [Level 3]
-    ITEM_UPGRADE[70] = ITEM_FORGE_HELM_L4//Forge Helm [Level 4]
-    ITEM_UPGRADE[71] = ITEM_FORGE_BOOTS_L1//Forge Boots [Level 1]
-    ITEM_UPGRADE[72] = ITEM_FORGE_BOOTS_L2//Forge Boots [Level 2]
-    ITEM_UPGRADE[73] = ITEM_FORGE_BOOTS_L3//Forge Boots [Level 3]
-    ITEM_UPGRADE[74] = ITEM_FORGE_BOOTS_L4//Forge Boots [Level 4]
-    ITEM_UPGRADE[75] = ITEM_FORGE_GLOVES_L1//Forge Gloves [Level 1]
-    ITEM_UPGRADE[76] = ITEM_FORGE_GLOVES_L2//Forge Gloves [Level 2]
-    ITEM_UPGRADE[77] = ITEM_FORGE_GLOVES_L3//Forge Gloves [Level 3]
-    ITEM_UPGRADE[78] = ITEM_FORGE_GLOVES_L4//Forge Gloves [Level 4]
-    ITEM_UPGRADE[79] = ITEM_FORGE_SHIELD_L1//Forge Shield [Level 1]
-    ITEM_UPGRADE[80] = ITEM_FORGE_SHIELD_L2//Forge Shield [Level 2]
-    ITEM_UPGRADE[81] = ITEM_FORGE_SHIELD_L3//Forge Shield [Level 3]
-    ITEM_UPGRADE[82] = ITEM_FORGE_SHIELD_L4//Forge Shield [Level 4]
+    
     let itemList = new LinkedList<int>
     itemList.add(
     ITEM_GAUNTLETS_OF_OGRE_STRENGTH,
@@ -895,11 +821,11 @@ function compileItems()
     ITEM_DREAM_SWORD,
     ITEM_CRYSTAL_SWORD,
     ITEM_BLOODY_DAGGER,
-    ITEM_CROWN_OF_WIZARD_L0
+    ITEM_CROWN_OF_WIZARD
     )
     itemList.add(
-    ITEM_CROWN_OF_SOLDIER_L0,
-    ITEM_CROWN_OF_ASSASSIN_L0,
+    ITEM_CROWN_OF_SOLDIER,
+    ITEM_CROWN_OF_ASSASSIN,
     ITEM_GLOVERSHIELD,
     ITEM_BOOK_OF_WIND,
     ITEM_BOOK_OF_RAIN,
@@ -937,9 +863,9 @@ function compileItems()
     ITEM_BLOODY_DAGGER
     )
     itemList.add(
-    ITEM_CROWN_OF_WIZARD_L0,
-    ITEM_CROWN_OF_SOLDIER_L0,
-    ITEM_CROWN_OF_ASSASSIN_L0,
+    ITEM_CROWN_OF_WIZARD,
+    ITEM_CROWN_OF_SOLDIER,
+    ITEM_CROWN_OF_ASSASSIN,
     ITEM_GLOVERSHIELD,
     ITEM_BOOK_OF_WIND,
     ITEM_BOOK_OF_RAIN,

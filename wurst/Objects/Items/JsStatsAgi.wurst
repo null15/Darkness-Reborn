@@ -4,6 +4,7 @@ import MyItemDefinition
 import ItemObjEditing
 import MyItemIds
 import Jacksmith_Q
+import Jacksmith_E
 
 init
 
@@ -46,6 +47,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (10).blp")    
     ..setClassification("Purchasable")
     ..addStats(addAgi(235))
+    ..addStats(addEvasion(0.05))
     ..addComponents(
     ITEM_RING_OF_WITCH,
     ITEM_AMULET_OF_THE_WILD)
@@ -56,6 +58,8 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (1).blp")    
     ..setClassification("Purchasable")
     ..addStats(addAgi(455))
+    ..addStats(addArmor(20))
+    ..addStats(addEvasion(0.10))
     ..addComponents(
     ITEM_EMERALD_RING,
     ITEM_AINZ_SWORD,
@@ -68,10 +72,10 @@ init
     ..setClassification("Purchasable")
     ..addStats(addAgi(555))
     ..addStats(addArmor(50))
-    ..addStats(addEvasion(0.3))
+    ..addStats(addEvasion(0.18))
     ..addComponents(
     ITEM_ICE_RING,
-    ITEM_CROWN_OF_ASSASSIN_L0)
+    ITEM_CROWN_OF_ASSASSIN)
     ..register()
 
 //I0BM
@@ -79,9 +83,9 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (7).blp")    
     ..setClassification("Purchasable")
     ..addStats(addAgi(1100))
-    ..addStats(addArmor(100))
+    ..addStats(addArmor(80))
     ..addStats(addDamage(500))
-    ..addStats(addEvasion(0.4))
+    ..addStats(addEvasion(0.26))
     ..addComponents(
     ITEM_ROLL_RING,
     ITEM_TITANIUM)
@@ -92,9 +96,9 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (8).blp")    
     ..setClassification("Campaign")
     ..addStats(addAgi(2200))
-    ..addStats(addArmor(200))
+    ..addStats(addArmor(120))
     ..addStats(addDamage(1000))
-    ..addStats(addEvasion(0.5))
+    ..addStats(addEvasion(0.35))
     ..addComponents(
     ITEM_BRYNHILDR,
     ITEM_BOOK_OF_WIND,
@@ -102,12 +106,53 @@ init
     ..register()
     
 //I0IN
-    new MyItemWithCraftInfoDefinition(ITEM_VALKYRIE_L5, jackSmithRecipe, -1)
+    new MyItemWithCraftInfoDefinition(ITEM_VALKYRIE_L1, jackSmithRecipe, -1)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (5).blp")    
+    ..setClassification("Campaign")
+    ..addStats(addAgi(2400))
+    ..addStats(addArmor(160))
+    ..addStats(addDamage(2500))
+    ..addStats(addEvasion(0.4))
+    ..addComponents(
+    ITEM_VALKYRIE,
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_GOLDEN_RING,
+    ITEM_CHAOS_BLADE,
+    ITEM_BULION)
+    ..register()
+
+    new MyItemBulionUpgradeDefinition(ITEM_VALKYRIE_L2, ITEM_VALKYRIE_L1, jacksmithBulionChanceL2)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (5).blp")    
+    ..setClassification("Campaign")
+    ..addStats(addAgi(2650))
+    ..addStats(addArmor(180))
+    ..addStats(addDamage(5600))
+    ..addStats(addEvasion(0.45))
+    ..register()
+    
+    new MyItemBulionUpgradeDefinition(ITEM_VALKYRIE_L3, ITEM_VALKYRIE_L2, jacksmithBulionChanceL3)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (5).blp")    
+    ..setClassification("Campaign")
+    ..addStats(addAgi(2900))
+    ..addStats(addArmor(200))
+    ..addStats(addDamage(9200))
+    ..addStats(addEvasion(0.50))
+    ..register()
+    
+    new MyItemBulionUpgradeDefinition(ITEM_VALKYRIE_L4, ITEM_VALKYRIE_L3, jacksmithBulionChanceL4)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (5).blp")    
+    ..setClassification("Campaign")
+    ..addStats(addAgi(3250))
+    ..addStats(addArmor(220))
+    ..addStats(addDamage(12600))
+    ..addStats(addEvasion(0.55))
+    ..register()
+
+    new MyItemBulionUpgradeDefinition(ITEM_VALKYRIE_L5, ITEM_VALKYRIE_L4, jacksmithBulionChanceL5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNRingA (8).blp")    
     ..setClassification("Campaign")
-    ..setGoldCost(666666)
-    ..addStats(addAgi(3500))
-    ..addStats(addArmor(600))
-    ..addStats(addDamage(15000))
-    ..addStats(addEvasion(0.6))
+    ..addStats(addAgi(3600))
+    ..addStats(addArmor(250))
+    ..addStats(addDamage(15400))
+    ..addStats(addEvasion(0.64))
     ..register()

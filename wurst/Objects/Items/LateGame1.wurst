@@ -178,6 +178,6 @@ init
     ..addComponents(
     ITEM_SHINY_ARMOR,
     ITEM_LIGHT_ARMOR,
-    ITEM_CROWN_OF_ASSASSIN_L0)
+    ITEM_CROWN_OF_ASSASSIN)
     ..addHotKey()
     ..register()

@@ -6,6 +6,7 @@ import ItemObjEditing
 import MyItemIds
 import Jacksmith_Q
 import RecipeItems
+import Jacksmith_E
 
 init
 
@@ -27,7 +28,7 @@ init
     ..register()
 
 //I0EM
-    new MyItemDefinition(ITEM_RAIN_SWORD_L1)
+    new MyItemBulionUpgradeDefinition(ITEM_RAIN_SWORD_L1, ITEM_RAIN_SWORD, jacksmithBulionChanceL1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(1000))
@@ -38,7 +39,7 @@ init
     ..register()
 
 //I0EN
-    new MyItemDefinition(ITEM_RAIN_SWORD_L2)
+    new MyItemBulionUpgradeDefinition(ITEM_RAIN_SWORD_L2, ITEM_RAIN_SWORD_L1, jacksmithBulionChanceL2)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(1000))
@@ -49,7 +50,7 @@ init
     ..register()
 
 //I0EO
-    new MyItemDefinition(ITEM_RAIN_SWORD_L3)
+    new MyItemBulionUpgradeDefinition(ITEM_RAIN_SWORD_L3, ITEM_RAIN_SWORD_L2, jacksmithBulionChanceL3)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(1500))
@@ -60,7 +61,7 @@ init
     ..register()
 
 //I0EP
-    new MyItemDefinition(ITEM_RAIN_SWORD_L4)
+    new MyItemBulionUpgradeDefinition(ITEM_RAIN_SWORD_L4, ITEM_RAIN_SWORD_L3, jacksmithBulionChanceL4)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(2000))
@@ -71,7 +72,7 @@ init
     ..register()
 
 //I0EQ
-    new MyItemDefinition(ITEM_RAIN_SWORD_L5)
+    new MyItemBulionUpgradeDefinition(ITEM_RAIN_SWORD_L5, ITEM_RAIN_SWORD_L4, jacksmithBulionChanceL5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNS 1.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(2400))
@@ -98,7 +99,7 @@ init
 
 
 //I0EW
-    new MyItemDefinition(ITEM_VAMPIRELLA_L1)
+    new MyItemBulionUpgradeDefinition(ITEM_VAMPIRELLA_L1, ITEM_VAMPIRELLA, jacksmithBulionChanceL1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(1500))
@@ -109,7 +110,7 @@ init
     ..register()
 
 //I0EX
-    new MyItemDefinition(ITEM_VAMPIRELLA_L2)
+    new MyItemBulionUpgradeDefinition(ITEM_VAMPIRELLA_L2, ITEM_VAMPIRELLA_L1, jacksmithBulionChanceL2)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(2000))
@@ -120,7 +121,7 @@ init
     ..register()
 
 //I0EY
-    new MyItemDefinition(ITEM_VAMPIRELLA_L3)
+    new MyItemBulionUpgradeDefinition(ITEM_VAMPIRELLA_L3, ITEM_VAMPIRELLA_L2, jacksmithBulionChanceL3)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(2500))
@@ -131,7 +132,7 @@ init
     ..register()
 
 //I0EZ
-    new MyItemDefinition(ITEM_VAMPIRELLA_L4)
+    new MyItemBulionUpgradeDefinition(ITEM_VAMPIRELLA_L4, ITEM_VAMPIRELLA_L3, jacksmithBulionChanceL4)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(3000))
@@ -142,7 +143,7 @@ init
     ..register()
 
 //I0F0
-    new MyItemDefinition(ITEM_VAMPIRELLA_L5)
+    new MyItemBulionUpgradeDefinition(ITEM_VAMPIRELLA_L5, ITEM_VAMPIRELLA_L4, jacksmithBulionChanceL5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNVampirellaBlade.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(4000))
@@ -168,7 +169,7 @@ init
     ..register()
 
 //I0ER
-    new MyItemDefinition(ITEM_CORROSIVE_HAMMER_L1)
+    new MyItemBulionUpgradeDefinition(ITEM_CORROSIVE_HAMMER_L1, ITEM_CORROSIVE_HAMMER, jacksmithBulionChanceL1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(1000))
@@ -179,7 +180,7 @@ init
     ..register()
 
 //I0ES
-    new MyItemDefinition(ITEM_CORROSIVE_HAMMER_L2)
+    new MyItemBulionUpgradeDefinition(ITEM_CORROSIVE_HAMMER_L2, ITEM_CORROSIVE_HAMMER_L1, jacksmithBulionChanceL2)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(1500))
@@ -190,7 +191,7 @@ init
     ..register()
 
 //I0ET
-    new MyItemDefinition(ITEM_CORROSIVE_HAMMER_L3)
+    new MyItemBulionUpgradeDefinition(ITEM_CORROSIVE_HAMMER_L3, ITEM_CORROSIVE_HAMMER_L2, jacksmithBulionChanceL3)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(2000))
@@ -201,7 +202,7 @@ init
     ..register()
 
 //I0EU
-    new MyItemDefinition(ITEM_CORROSIVE_HAMMER_L4)
+    new MyItemBulionUpgradeDefinition(ITEM_CORROSIVE_HAMMER_L4, ITEM_CORROSIVE_HAMMER_L3, jacksmithBulionChanceL4)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(2500))
@@ -212,7 +213,7 @@ init
     ..register()
     
 //I0EV
-    new MyItemDefinition(ITEM_CORROSIVE_HAMMER_L5)
+    new MyItemBulionUpgradeDefinition(ITEM_CORROSIVE_HAMMER_L5, ITEM_CORROSIVE_HAMMER_L4, jacksmithBulionChanceL5)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNCurrosiveHammerBTN.blp")
     ..setClassification("Artifact")
     ..addStats(addDamage(3000))
