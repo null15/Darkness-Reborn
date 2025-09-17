@@ -1,0 +1,24 @@
+package ShadowHunter_R
+
+import DummyCaster
+import MyAbilityIds
+import OrderIds
+import DamageEvent
+import codeDamageTypings
+
+public function craggyHex()
+    DamageEvent.addListener(2) ->
+        if (DamageEvent.getType() == ATTACK)
+            let damtyp = DamageEvent.getDamageType()
+            if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                let targ = DamageEvent.getTarget()
+                if targ.hasAbility('B00N')
+                    let lvl = targ.getAbilityLevel('A0M3')
+                    let dmg = targ.getMaxHP()*(lvl*0.03)
+                    if GetRandomInt(1, 100) < lvl*2
+                        let src = DamageEvent.getSource()
+                        new DummyCaster()
+                        ..owner(targ.getOwner())
+                        ..origin(targ.getPos())
+                        ..castTarget(ABILITY_DUMMY_12, lvl, OrderIds.hex, src)
+                        targ.damageTargetCode(dmg, src, null, -1, damageType.MAGICAL)

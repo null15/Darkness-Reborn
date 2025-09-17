@@ -1,0 +1,55 @@
+package Blademaster_R
+
+import ClosureTimers
+import Abilities
+import ClosureForGroups
+import codeDamageTypings
+import PauseAllocation
+import ClosureEvents
+
+function rampageCond() returns boolean
+    return GetSpellAbilityId() == 'A07Q'
+
+function rampage2(unit caster, unit target)
+    let lvl = GetUnitAbilityLevel(caster, 'A07Q')
+    let dmg = caster.getAgi(true)*lvl*0.5
+    doPeriodicallyCounted(0.3, 11) (CallbackCounted cb) ->
+        forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
+            if caster.isEnemyOf(u)
+                if not target.isAlive()
+                    caster.unPauseUnitIndef()
+                    caster.setInvulnerable(false)
+                    target.unPauseUnitIndef()
+                else
+                    caster.setAnimation("attack")
+                    flashEffect(Abilities.warStompCaster, target.getPos())
+                    caster.damageTargetCode(dmg, target, null, -1, damageType.PHYSICALMELEE)
+        if cb.isLast()
+            caster.unPauseUnitIndef()
+            caster.setInvulnerable(false)
+            target.unPauseUnitIndef()
+            caster.setPathing(true)
+
+public function rampage()
+    EventListener.onTargetCast('A07Q') (unit caster, unit target) ->
+        doAfter(0.5) -> 
+            caster.pauseIndef()
+            caster.setInvulnerable(true)
+            target.pauseIndef()
+            SetUnitPathing(caster, false)
+            doPeriodically(0.02) (CallbackPeriodic cb) ->
+                let pos1 = caster.getPos()
+                let pos2 = target.getPos()
+                let angle = pos1.angleTo(pos2)
+                let pos3 = pos1.polarOffset(angle, 7.)
+                let isAlive = target.isAlive()
+                caster..setPos(pos3).setFacing(angle)
+                let dist = pos1.distanceTo(pos2)
+                if(dist <= 7.)
+                    if(isAlive)
+                        rampage2(caster, target)
+                        destroy cb
+                    else
+                        caster.unPauseUnitIndef()
+                        caster.setInvulnerable(false)
+                        destroy cb

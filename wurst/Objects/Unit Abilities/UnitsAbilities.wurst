@@ -1,0 +1,18 @@
+package UnitsAbilities
+
+import MyAbilityIds
+import AbilityObjEditing
+
+@compiletime function horseAbils()
+
+    new AbilityDefinitionInventory(HORSE_INVENTORY_1)
+    ..setItemCapacity(1, 4)
+    ..setLevels(1)
+    ..setCheckDependencies(false)
+    ..setRequirements("")
+
+    new AbilityDefinitionInventory(HORSE_INVENTORY_2)
+    ..setItemCapacity(1, 6)
+    ..setLevels(1)
+    ..setCheckDependencies(false)
+    ..setRequirements("")

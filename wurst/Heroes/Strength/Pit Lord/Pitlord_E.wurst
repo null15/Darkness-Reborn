@@ -1,0 +1,7 @@
+package Pitlord_E
+
+import codeDamageTypings
+
+public function pitLordDemonSkin(unit holder, unit attacker, real amount)
+    let dam = amount * (0.3 + holder.getAbilityLevel('A0RL') * 0.1)
+    holder.damageTargetCode(dam, attacker, null, -1, damageType.PHYSICALRANGED)

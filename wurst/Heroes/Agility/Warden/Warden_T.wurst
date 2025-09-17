@@ -1,0 +1,10 @@
+package Warden_T
+
+import ClosureEvents
+import ClosureTimers
+
+public function deadlyStrike()
+    EventListener.onCast('A00T') (unit caster) ->
+        caster.addAbility('ACes')
+        doAfter(10) ->
+            caster.removeAbility('ACes')

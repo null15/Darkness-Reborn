@@ -1,0 +1,23 @@
+package Wolfman_Summons
+
+import UnitObjEditing
+import MyUnitIds
+import UnitIds
+import ObjectIds
+import MyAbilityIds
+
+@compiletime function defineSummons()
+    new UnitDefinition(MAN_WOLF_INITIAL, UnitIds.direwolf)
+    ..setNormalAbilities("")
+    ..setAttack1CooldownTime(1)
+    ..setName("\"Dog\"")
+
+    new UnitDefinition(MAN_WOLF_INITIATE, UnitIds.direwolf)
+    ..setNormalAbilities("")
+    ..setAttack1CooldownTime(1)
+    ..setName("Wolf")
+
+    new UnitDefinition(MAN_WOLF_FINAL, UnitIds.direwolf)
+    ..setNormalAbilities(commaList(MAN_WOLF_FINAL_ABIL))
+    ..setAttack1CooldownTime(1)
+    ..setName("Alpha Wolf")

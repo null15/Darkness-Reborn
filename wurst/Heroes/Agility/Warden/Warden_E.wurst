@@ -1,0 +1,33 @@
+package Warden_E
+
+import ClosureTimers
+import ClosureForGroups
+import ClosureEvents
+import codeDamageTypings
+import PauseAllocation
+
+function shadowRazeEnd(unit u)
+    u.unPauseUnitIndef()
+    u.setInvulnerable(false)
+    u.setVertexColor(color(255, 255, 255))
+
+public function shadowRaze()
+    EventListener.onPointCast('A0D8') (unit caster, vec2 target) ->
+        let angle = caster.getPos().angleTo(target)
+        let lvl = GetUnitAbilityLevel(caster, 'A0D8')
+        let dmg = caster.getAgi(true) * 2. * lvl
+        doAfter(0.3) -> 
+            caster.setAnimation('slam')
+            caster.pauseIndef()
+            caster.setInvulnerable(true)
+            doPeriodicallyTimed(0.3, 2) (CallbackCounted cb) ->
+                caster.setAnimation("slam")
+                caster.setAnimation("attack")
+                flashEffect("Abilities\\Spells\\NightElf\\Blink\\BlinkCaster.mdl", caster.getPos())
+                caster.setVertexColor(0, 0, 50, 255)
+                caster.setPos(caster.getPos().polarOffset(angle,100))
+                forUnitsInRange(caster.getPos(), 300, true) (unit u) ->
+                    if caster.isEnemyOf(u)
+                        caster.damageTargetCode(dmg, u, null, -1, damageType.PHYSICALMELEE)
+                if cb.isLast()
+                    shadowRazeEnd(caster)

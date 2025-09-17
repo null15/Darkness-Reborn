@@ -1,0 +1,31 @@
+package Pitlord_Q
+
+import ClosureTimers
+import ClosureForGroups
+import SoundUtils
+import Abilities
+import DummyCaster
+import OrderIds
+import ClosureEvents
+import MyAbilityIds
+import codeDamageTypings
+
+public function rainofFire()
+    let METEOR_SOUND = new SoundDefinition(Sounds.catapultMissile4, false, true)
+    EventListener.onPointCast(PITLORD_ABILITY_1) (unit caster, vec2 target) ->
+        doAfter(1) -> 
+            let lvl = caster.getAbilityLevel(PITLORD_ABILITY_1)
+            let dmg = lvl * 3 * caster.getStr(true).toReal()
+            METEOR_SOUND.playOnPoint(target.toVec3())
+            flashEffect(Abilities.fireLordDeathExplode, target, 2)
+            forUnitsInRange(target, 175. + 25 * lvl, true) (unit u) ->
+                if caster.isEnemyOf(u)
+                    new DummyCaster()
+                    ..owner(GetOwningPlayer(caster))
+                    ..origin(vec2(caster.getX(), caster.getY()))
+                    ..delay(1)
+                    ..castTarget(ABILITY_DUMMY_21, lvl, OrderIds.cripple, u)
+                    caster.damageTargetCode(dmg, u, null, -1, damageType.MAGICAL)
+                    doPeriodicallyCounted(1, lvl) (CallbackCounted cb) ->
+                        if u.isAlive()
+                            caster.damageTargetCode(caster.getStr(true).toReal(), u, null, -1, damageType.MAGICAL)

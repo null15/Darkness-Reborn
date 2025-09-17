@@ -1,0 +1,58 @@
+package Wolfman_Evolution
+
+import ClosureEvents
+import MyUnitIds
+import ClosureTimers
+import MoonUtils
+import Global_Variables
+import PauseAllocation
+import heroLoader
+// Ascends at level 12 and 28
+
+function newHero(unit replaced,int unitType)
+    let sfx = addEffect("Loas Assets\\effect60.mdx", replaced.getPos())
+    let sfx2 = addEffect("Loas Assets\\effect_az_qiliu4_red.mdx", replaced.getPos())..playAnimation(ANIM_TYPE_BIRTH)
+    replaced.pauseIndef()
+    replaced.setInvulnerable(true)
+    doAfter(4) ->
+        sfx2.playAnimation(ANIM_TYPE_DEATH)
+        doAfter(1) -> 
+            if(replaced.getOwner().isIngame())
+                sfx.destr()
+                sfx2..setZ(-9999)..destr()
+                replaced.unPauseUnitIndef()
+                replaced.setInvulnerable(false)
+                item array items = [] 
+                let rep_xp = replaced.getXp()
+                let rep_str = replaced.getStr(false)
+                let rep_agi = replaced.getAgi(false)
+                let rep_int = replaced.getInt(false)
+                let rep_hp = replaced.getHP()
+                let rep_mp = replaced.getMana()
+                for i = 0 to 5
+                    items[i] = replaced.itemInSlot(i)
+                let u1 = replaced.replace(createUnit(replaced.getOwner(), unitType, replaced.getPos()))
+                u1
+                ..setXp(rep_xp, true)
+                ..setStr(rep_str)
+                ..setAgi(rep_agi)
+                ..setInt(rep_int)
+                ..setHP(rep_hp)
+                ..setMana(rep_mp)
+                playerHero.put(replaced.getOwner(), u1)
+                u1.heroCheck()
+                for i = 0 to 5
+                    u1.addItemToSlot(GetItemTypeId(items[i]), i)
+
+function evolution()
+    EventListener.add(EVENT_PLAYER_HERO_LEVEL) -> 
+        let u = GetLevelingUnit()
+        if u.getTypeId() == HERO_WOLFMAN_INITIAL
+            if u.getLevel() == 12
+                newHero(u, HERO_WOLFMAN_INITIATE)
+        else if u.getTypeId() == HERO_WOLFMAN_INITIATE
+            if u.getLevel() == 28
+                newHero(u, HERO_WOLFMAN_FINAL)
+
+init 
+    evolution()

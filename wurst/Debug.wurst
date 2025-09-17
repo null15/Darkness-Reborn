@@ -1,10 +1,12 @@
 package Debug
+
 import MyUnitIds
 import AbilityIds
 import MyUpgradesIds
 import MyItemIds
-
-import public DebugVar
+import DebugVar
+import ClosureEvents
+import heroLoader
 
 public function initDebug()
     if (not DEBUG)
@@ -46,6 +48,7 @@ public function initDebug()
     ..setMaxHP(1000000)
     ..setMaxMana(100000)
     ..addItemToSlot(ITEM_BLINK_MAP, 0)
+    ..heroCheck()
     
     // jacksmith
     CreateUnit(players[0], HERO_JACKSMITH, posX, posY - 400, 270.000)
@@ -54,6 +57,7 @@ public function initDebug()
     ..setMaxHP(1000000)
     ..setMaxMana(100000)
     ..addItemToSlot(ITEM_BLINK_MAP, 0)
+    ..heroCheck()
 
     // The mid point position
     posX = GetRectCenterX(gg_rct_AllSpawnMove1)
@@ -72,3 +76,12 @@ public function initDebug()
     ..addItemToSlot(ITEM_LANCELOT_SET, 3)
     ..addItemToSlot(ITEM_PERFECT_EMERALD, 4)
     ..addItemToSlot(ITEM_VAMPIRELLA_L5, 5)
+
+    EventListener.add(EVENT_PLAYER_CHAT_FILTER) -> 
+        let setLvlLength = "-setlvl".length()
+        if EventData.getChatMessage().substring(0, setLvlLength).toLowerCase() == "-setlvl"
+            let lvl = EventData.getChatMessage().substring(setLvlLength, EventData.getChatMessage().length()).toInt()
+
+            let selected = GetUnitsSelectedAll(GetTriggerPlayer())
+            for u in selected
+                u.setLevel(lvl, true)

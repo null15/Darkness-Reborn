@@ -1,0 +1,788 @@
+package CreepsAbilities
+
+import MyAbilityIds
+import AbilityObjEditing
+import MyBuffIds
+import ObjectIds
+import Abilities
+import MyUnitIds
+
+@compiletime function creepAbils()
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_1) //A08H
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 10)
+    ..setDamageMultiplier(1, 5)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_2) //A0NE
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 100)
+    ..setDamageMultiplier(1, 222)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_3) //a07W
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 100)
+    ..setDamageMultiplier(1, 3)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_4) //A0S6
+    ..setLevels(1) 
+    ..setChancetoCriticalStrike(1, 15)
+    ..setDamageMultiplier(1, 40)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_5) //A0NP
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 3)
+    ..setDamageMultiplier(1, 200)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_6) //A0MO
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 4)
+    ..setDamageMultiplier(1, 100)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_7) //A0C4
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 4)
+    ..setDamageMultiplier(1, 60)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_8) //A07J
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 15)
+    ..setDamageMultiplier(1, 4)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_9) //A07S
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 10)
+    ..setDamageMultiplier(1, 6)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_10) //A08S
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 5)
+    ..setDamageMultiplier(1, 12)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionBladeMasterCriticalStrike(CREEP_ABILITY_11) //A084
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 15)
+    ..setDamageMultiplier(1, 4.5)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_12) //A0TB
+    ..setLevels(1)
+    ..setChancetoEvade(1, 8)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_13) //A0TC
+    ..setLevels(1)
+    ..setChancetoEvade(1, 12)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_15) //A0TD
+    ..setLevels(1)
+    ..setChancetoEvade(1, 18)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_16) //A0TF
+    ..setLevels(1)
+    ..setChancetoEvade(1, 24)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_17) //A07K
+    ..setLevels(1)
+    ..setChancetoEvade(1, 25)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_18) //A08J
+    ..setLevels(1)
+    ..setChancetoEvade(1, 30)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_19) //A0TG
+    ..setLevels(1)
+    ..setChancetoEvade(1, 32)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_20) //A0TW
+    ..setLevels(1)
+    ..setChancetoEvade(1, 46)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_21) //A0A6
+    ..setLevels(1)
+    ..setChancetoEvade(1, 99)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionEvasioncreep(CREEP_ABILITY_22) //ACes
+    ..setLevels(1)
+    ..setChancetoEvade(1, 100)
+    ..setHeroAbility(false)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionRainofChaos(CREEP_ABILITY_23) //Shadow Infernal
+    ..setLevels(1)
+    ..setHeroAbility(false)
+    ..setCheckDependencies(false)
+    ..setNumberofUnitsCreated(1, 9)
+    ..setAbilityforUnitCreation(1, CREEP_ABILITY_24.toRawCode())
+    ..setCooldown(1, 15)
+    
+    new AbilityDefinitionInferno(CREEP_ABILITY_24)
+    ..setLevels(1)
+    ..setDuration(1, 30)
+    ..setAreaofEffect(1, 400)
+    ..setCooldown(1, 15)
+    ..setDurationHero(1, 7)
+    ..setSummonedUnit(1, UNIT_INFERNAL.toRawCode())
+    ..setDurationNormal(1, 7)
+
+    new AbilityDefinitionBerserk(CREEP_ABILITY_25) //A0A5
+    ..setLevels(1)
+    ..setAttackSpeedIncrease(1, 2.0)
+    ..setMovementSpeedIncrease(1, 1.0)
+    ..setDamageTakenIncrease(1, 0.5)
+    ..setCooldown(1, 30)
+    ..setDurationHero(1, 12)
+    ..setDurationNormal(1, 12)
+
+    new AbilityDefinitionBashcreep(CREEP_ABILITY_26) //A0ZP
+    ..setLevels(1)
+    ..setChancetoBash(1, 15)
+    ..setDamageBonus(1, 15)
+    ..setDurationHero(1, 2)
+    ..setDurationNormal(1, 2)
+
+    new AbilityDefinitionVenomSpearsCreep(CREEP_ABILITY_27) //A00M
+    ..setLevels(1)
+    ..setDamageperSecond(1, 20)
+    ..setDurationHero(1, 5)
+    ..setDurationNormal(1, 5)
+    ..setAttackSpeedFactor(1, 0.25)
+    ..setMovementSpeedFactor(1, 0.5)
+
+    new AbilityDefinitionFaerieFirecreep(CREEP_ABILITY_28) //A04L
+    ..setLevels(1)
+    ..setDefenseReduction(1, 4)
+    ..setDurationHero(1, 60)
+    ..setDurationNormal(1, 60)
+    ..setCooldown(1, 5)
+    ..setAlwaysAutocast(1, true)
+
+    new AbilityDefinitionSearingArrowscreep(CREEP_ABILITY_29) //A04F
+    ..setLevels(1)
+    ..setDamageBonus(1, 20)
+    ..setManaCost(1, 0)
+    ..setCastRange(1, 700)
+
+    new AbilityDefinitionFaerieFirecreep(CREEP_ABILITY_30) //A0ZQ
+    ..setLevels(1)
+    ..setDefenseReduction(1, 25)
+    ..setDurationHero(1, 60)
+    ..setDurationNormal(1, 60)
+    ..setCooldown(1, 0.5)
+    ..setAlwaysAutocast(1, true)
+    ..setManaCost(1, 0)
+
+    new AbilityDefinitionCarrionSwarmcreep(CREEP_ABILITY_31) //A04U
+    ..setLevels(1)
+    ..setDamage(1, 600)
+    ..setMaxDamage(1, 99999)
+    ..setCastRange(1, 700)
+    ..setFinalArea(1, 200)
+    ..setCooldown(1, 7)
+
+    new AbilityDefinitionSeaWitchFrostArrows(CREEP_ABILITY_32) //A04S
+    ..setLevels(1)
+    ..setExtraDamage(1, 10)
+    ..setManaCost(1, 0)
+    ..setMovementSpeedFactor(1, 0.5)
+    ..setDurationHero(1, 5)
+    ..setHeroAbility(false)
+
+    new AbilityDefinitionVampiricAuracreep(CREEP_ABILITY_33) //A0ZR
+    ..setLevels(1)
+    ..setAttackDamageStolen(1, 2.0)
+    ..setAreaofEffect(1, 500)
+
+    new AbilityDefinitionAuraPlagueAbomination(CREEP_ABILITY_34) //A059
+    ..setLevels(1)
+    ..setDurationofPlagueWard(1, 10)
+    ..setDamageperSecond(1, 30)
+    ..setAuraDuration(1, 120)
+    ..setAreaofEffect(1, 250)
+    ..setCheckDependencies(false)
+
+    new AbilityDefinitionCripplecreep(CREEP_ABILITY_35) //A064
+    ..setLevels(1)
+    ..setCastRange(1, 700)
+    ..setMovementSpeedReduction(1, 0.75)
+    ..setAttackSpeedReduction(1, 0.5)
+    ..setDamageReduction(1, 0.5)
+    ..setCooldown(1, 10)
+    ..setDurationNormal(1, 10)
+
+    new AbilityDefinitionCursecreep(CREEP_ABILITY_36) //Acrs
+    ..setLevels(1)
+    ..setChancetoMiss(1, 0.88)
+    ..setDurationHero(1, 10)
+    ..setDurationNormal(1, 10)
+    ..setCooldown(1, 12)
+    ..setCastRange(1, 800)
+    ..setBuffs(1, commaList(BUFF_23))
+
+    new AbilityDefinitionBashcreep(CREEP_ABILITY_37) //A07U
+    ..setLevels(1)
+    ..setDurationHero(1, 0.55)
+    ..setDurationNormal(1, 1)
+    ..setDamageBonus(1, 100)
+    ..setChancetoBash(1, 0.2)
+    ..setArtCaster(Abilities.freezingBreathTargetArt)
+
+    new AbilityDefinitionWebcreep(CREEP_ABILITY_38) //A0ZS
+    ..setLevels(1)
+    ..setDurationHero(1, 3.5)
+    ..setDurationNormal(1, 3.5)
+    ..setCastRange(1, 500)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+    ..setCheckDependencies(false)
+
+    new AbilityDefinitionChainLightningcreep(CREEP_ABILITY_39) //A06H
+    ..setLevels(1)
+    ..setAreaofEffect(1, 800)
+    ..setDamageperTarget(1, 1800)
+
+    new AbilityDefinitionStasisTrap(CREEP_ABILITY_40) //A065
+    ..setLevels(1)
+    ..setCheckDependencies(false)
+    ..setDurationHero(1, 5)
+    ..setDurationNormal(1, 5)
+    ..setAreaofEffect(1, 250)
+    ..setActivationDelay(1, 3)
+    ..setCooldown(1, 10)
+    ..setStunDuration(1, 6)
+    ..setCastRange(1, 700)
+    ..setManaCost(1, 250)
+
+    new AbilityDefinitionCursecreep(CREEP_ABILITY_41) //A06B
+    ..setLevels(1)
+    ..setChancetoMiss(1, 0.44)
+    ..setDurationHero(1, 60)
+    ..setDurationNormal(1, 60)
+    ..setCastRange(1, 800)
+    ..setCooldown(1, 5)
+    ..setManaCost(1, 100)
+
+    new AbilityDefinitionAuraDevotionCreep(CREEP_ABILITY_42) //A0ZU
+    ..setLevels(1)
+    ..setArmorBonus(1, 75)
+
+    new AbilityDefinitionFeedback(CREEP_ABILITY_43) //A06K
+    ..setLevels(1)
+    ..setMaxManaDrainedHeros(1, 100)
+    ..setMaxManaDrainedUnits(1, 99999)
+    ..setSummonedDamage(1, 50)
+    ..setCheckDependencies(false)
+
+    new AbilityDefinitionRocketAttack(CREEP_ABILITY_44) //A08Y
+    ..setLevels(1)
+    ..setCheckDependencies(false)
+    ..setDamagePerTarget(1, 725)
+    ..setMaximumNumberofTargets(1, 4)
+    ..setMaximumTotalDamage(1, 99999)
+    ..setAreaofEffect(1, 800)
+
+    new AbilityDefinitionSpawnHydraHatchling(CREEP_ABILITY_45) //A0A1
+    ..setLevels(1)
+    ..setUnitType(1, commaList(SUMMONED_UNIT_1))
+
+    new AbilityDefinitionSpawnHydraHatchling(CREEP_ABILITY_46) //A09Y
+    ..setLevels(1)
+    ..setUnitType(1, commaList(SUMMONED_UNIT_2))
+
+    new AbilityDefinitionSpawnHydraHatchling(CREEP_ABILITY_47) //A09W
+    ..setLevels(1)
+    ..setUnitType(1, commaList(SUMMONED_UNIT_3))
+
+    new AbilityDefinitionSpawnHydraHatchling(CREEP_ABILITY_48) //A09X
+    ..setLevels(1)
+    ..setUnitType(1, commaList(SUMMONED_UNIT_4))
+
+    new AbilityDefinitionWebcreep(CREEP_ABILITY_49) //A08L
+    ..setLevels(1)
+    ..setCheckDependencies(false)
+    ..setCooldown(1, 15)
+    ..setDurationHero(1, 7)
+    ..setDurationNormal(1, 7)
+    ..setCastRange(1, 600)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionPhoenixFire(CREEP_ABILITY_50) //A092
+    ..setLevels(1)
+    ..setCooldown(1, 0.75)
+    ..setDamagePerSecond(1, 250)
+    ..setInitialDamage(1, 250)
+    ..setAreaofEffect(1, 500)
+    ..setDurationHero(1, 0.01)
+    ..setDurationNormal(1, 0.01)
+    ..setMissileSpeed(400)
+    ..setMissileArt("InkMissile.mdx")
+
+    new AbilityDefinitionThunderBoltCreep(CREEP_ABILITY_51) //A06Q
+    ..setLevels(1)
+    ..setCastRange(1, 800)
+    ..setManaCost(1, 100)
+    ..setDurationHero(1, 6)
+    ..setDurationNormal(1, 6)
+    ..setDamage(1, 1000)
+
+    new AbilityDefinitionSlowCreep(CREEP_ABILITY_52) //A06M
+    ..setLevels(1)
+    ..setAttackSpeedFactor(1, 0.5)
+    ..setMovementSpeedFactor(1, 0.6)
+    ..setDurationNormal(1, 10)
+    ..setManaCost(1, 100)
+    ..setCheckDependencies(false)
+
+    new AbilityDefinitionCrushingWave(CREEP_ABILITY_53) //A06O
+    ..setLevels(1)
+    ..setDamage(1, 2000)
+    ..setCooldown(1, 10)
+    ..setManaCost(1, 300)
+
+    new AbilityDefinitionPolymorphcreep(CREEP_ABILITY_54) //A06L
+    ..setLevels(1)
+    ..setCastRange(1, 700)
+    ..setDurationHero(1, 20)
+    ..setDurationNormal(1, 20)
+    ..setCheckDependencies(false)
+
+    new AbilityDefinitionArchMageSummonWaterElemental(CREEP_ABILITY_55) //A0ZV
+    ..setLevels(1)
+    ..setSummonedUnitCount(1, 3)
+    ..setSummonedUnitType(1, commaList(SUMMONED_UNIT_5))
+    ..setManaCost(1, 0)
+    ..setHeroAbility(false)
+
+    new AbilityDefinitionAuraEnduranceCreep(CREEP_ABILITY_56) //A0ZW
+    ..setLevels(1)
+    ..setMovementSpeedIncrease(1, 0.5)
+    ..setAttackSpeedIncrease(1, 0.2)
+
+    new AbilityDefinitionCloudofFog(CREEP_ABILITY_57) //A073
+    ..setLevels(1)
+    ..setAttacksPrevented(1, 3)
+    ..setCheckDependencies(false)
+    ..setAreaofEffect(1, 1000)
+    ..setCastRange(1, 200)
+    ..setCooldown(1, 30)
+    ..setDurationHero(1, 10)
+    ..setDurationNormal(1, 10)
+    ..setManaCost(1, 300)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.invulnerable, TargetsAllowed.vulnerable))
+
+    new AbilityDefinitionAerialShackles(CREEP_ABILITY_58) //A072
+    ..setCheckDependencies(false)
+    ..setDamagePerSecond(1, 500)
+    ..setLevels(1)
+    ..setCastRange(1, 700)
+    ..setDurationNormal(1, 10)
+    ..setCooldown(1, 45)
+    ..setManaCost(1, 300)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.enemies, TargetsAllowed.organic))
+
+    new AbilityDefinitionInnerFireCreep(CREEP_ABILITY_59) //A07E
+    ..setLevels(1)
+    ..setLifeRegenRate(1, 10)
+    ..setDamageIncrease(1, 1.0)
+    ..setDefenseIncrease(1, 20)
+    ..setManaCost(1, 100)
+    ..setCooldown(1, 5)
+
+    new AbilityDefinitionCriticalStrikecreep(CREEP_ABILITY_60) //A0ZX
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 35)
+    ..setDamageMultiplier(1, 3)
+
+    new AbilityDefinitionRocketAttack(CREEP_ABILITY_61) //A07F
+    ..setLevels(1)
+    ..setDamagePerTarget(1, 380)
+    ..setMaximumTotalDamage(1, 99999)
+    ..setAreaofEffect(1, 1200)
+    ..setCheckDependencies(false)
+
+    new AbilityDefinitionBloodlustCreep(CREEP_ABILITY_62) //A0ZY
+    ..setLevels(1)
+    ..setCooldown(1, 4)
+    ..setAttackSpeedIncrease(1, 1)
+    ..setMovementSpeedIncrease(1, 0.5)
+    ..setScalingFactor(1, 0.5)
+    ..setManaCost(1, 0)
+    ..setCheckDependencies(false)
+    ..setRequirements("")
+
+    new AbilityDefinitionCriticalStrikecreep(CREEP_ABILITY_63) //A0ZZ
+    ..setLevels(1)
+    ..setChancetoCriticalStrike(1, 50)
+    ..setDamageMultiplier(1, 2)
+
+    new AbilityDefinitionAnimateDeadcreep(CREEP_ABILITY_64) //A07G
+    ..setLevels(1)
+    ..setNumberofCorpsesRaised(1, 10)
+    ..setCooldown(1, 15)
+    ..setRaisedUnitsAreInvulnerable(1, false)
+
+    new AbilityDefinitionFireBoltcreep(CREEP_ABILITY_65) //A100
+    ..setLevels(1)
+    ..setCastRange(1, 1000)
+    ..setDamage(1, 2200)
+    ..setManaCost(1, 0)
+    ..setCooldown(1, 5)
+    ..setDurationHero(1, 3.5)
+    ..setDurationNormal(1, 3.5)
+
+    new AbilityDefinitionEnsnareCreep(CREEP_ABILITY_66) //A101
+    ..setLevels(1)
+    ..setCheckDependencies(false)
+    ..setCooldown(1, 7)
+    ..setDurationHero(1, 20)
+    ..setDurationNormal(1, 20)
+    ..setMeleeAttackRange(1, 55)
+    ..setRequirements("")
+
+    new AbilityDefinitionHealingWardcreep(CREEP_ABILITY_67) //A07H
+    ..setLevels(1)
+    ..setCooldown(1, 25)
+    ..setDurationHero(1, 7.5)
+    ..setDurationNormal(1, 7.5)
+    ..setManaCost(1, 500)
+    ..setWardUnitType(1, "ohwd")
+
+    new AbilityDefinitionStasisTrap(CREEP_ABILITY_68) //A07I
+    ..setLevels(1)
+    ..setCooldown(1, 25)
+    ..setManaCost(1, 250)
+    ..setActivationDelay(1, 1)
+    ..setDetectionRadius(1, 350)
+    ..setDetonationRadius(1, 350)
+    ..setStunDuration(1, 10)
+    ..setCastRange(1, 700)
+    ..setDurationHero(1, 10)
+    ..setDurationNormal(1, 10)
+
+    new AbilityDefinitionAuraWarDrumsKodobeast(CREEP_ABILITY_69) //Aakb
+    ..setLevels(1)
+    ..setCheckDependencies(false)
+    ..setRequirements("")
+    ..setAttackDamageIncrease(1, 1)
+
+    new AbilityDefinitionImmolationcreep(CREEP_ABILITY_70) //A081
+    ..setLevels(1)
+    ..setDamageperInterval(1, 999)
+    ..setManaDrainedperSecond(1, 222)
+
+    new AbilityDefinitionBreathofFireCreep(CREEP_ABILITY_71) //A080
+    ..setLevels(1)
+    ..setDamage(1, 12500)
+    ..setDamagePerSecond(1, 255)
+    ..setDistance(1, 500)
+    ..setMaxDamage(1, 99999)
+    ..setManaCost(1, 200)
+    ..setHeroAbility(false)
+
+    new AbilityDefinitionFrostNovacreep(CREEP_ABILITY_72) //A08G
+    ..setLevels(1)
+    ..setHeroAbility(false)
+    ..setAreaofEffect(1, 300)
+    ..setSpecificTargetDamage(1, 15000)
+    ..setAreaofEffectDamage(1, 7500)
+    ..setManaCost(1, 1000)
+
+    new AbilityDefinitionAuraCommandCreep(CREEP_ABILITY_73) //A102
+    ..setAttackDamageIncrease(1, 2)
+
+    new AbilityDefinitionLiquidFire(CREEP_ABILITY_74) //A07L
+    ..setExtraDamagePerSecond(1, 500)
+    ..setCheckDependencies(false)
+    ..setRequirements("")
+    ..setDurationHero(1, 60)
+    ..setDurationNormal(1, 60)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.ground, TargetsAllowed.enemies, TargetsAllowed.neutral, TargetsAllowed.structure))
+
+    new AbilityDefinitionBallsofFire(CREEP_ABILITY_75) //A07P
+    ..setCheckDependencies(false)
+    ..setRequirements("")
+    ..setFullDamageDealt(1, 500)
+    ..setAreaofEffect(1, 200)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.neutral))
+
+    new AbilityDefinitionVenomSpearsCreep(CREEP_ABILITY_76) //A103
+    ..setCheckDependencies(false)
+    ..setRequirements("")
+    ..setAttackSpeedFactor(1, 0.5)
+    ..setDamageperSecond(1, 650)
+    ..setMovementSpeedFactor(1, 0.5)
+    ..setDurationHero(1, 5)
+    ..setDurationNormal(1, 5)
+
+    new AbilityDefinitionChainLightningcreep(CREEP_ABILITY_77) //A07V
+    ..setHeroAbility(false)
+    ..setDamageperTarget(1, 5800)
+    ..setAreaofEffect(1, 800)
+
+    new AbilityDefinitionEnsnareCreep(CREEP_ABILITY_78) //A07T
+    ..setCooldown(1, 30)
+    ..setDurationHero(1, 10)
+    ..setDurationNormal(1, 10)
+    ..setTargetsAllowed(1, commaList(TargetsAllowed.air, TargetsAllowed.enemies, TargetsAllowed.ground, TargetsAllowed.hero, TargetsAllowed.neutral))
+
+    new AbilityDefinitionLightningShieldcreep(CREEP_ABILITY_79) //A104
+    ..setCooldown(1, 5)
+    ..setDamageperSecond(1, 1110)
+    ..setAreaofEffect(1, 220)
+    ..setRequirements("")
+
+    new AbilityDefinitionPurgeCreep(CREEP_ABILITY_80) //A105
+    ..setRequirements("")
+    ..setCooldown(1, 13)
+    ..setDurationHero(1, 10)
+    ..setDurationNormal(1, 10)
+    ..setAttackUpdateFrequency(1, 10)
+    ..setHeroPauseDuration(1, 10)
+    ..setManaLoss(1, 5500)
+    ..setMovementUpdateFrequency(1, 10)
+    ..setSummonedUnitDamage(1, 12000)
+    ..setUnitPauseDuration(1, 10)
+    ..setManaCost(1, 60)
+
+    new AbilityDefinitionRejuvinationcreep(CREEP_ABILITY_81) //A07Z
+    ..setCooldown(1, 1)
+    ..setManaCost(1, 500)
+    ..setTargetsAllowed(1, TargetsAllowed.self)
+    ..setDurationNormal(1, 10)
+    ..setDurationHero(1, 10)
+    ..setHitPointsGained(1, 40000)
+    ..setRequirements("")
+
+    new AbilityDefinitionSleepcreep(CREEP_ABILITY_82) //A07Y
+    ..setStunDuration(1, 10)
+    ..setCooldown(1, 10)
+    ..setDurationHero(1, 10)
+    ..setDurationNormal(1, 10)
+    ..setManaCost(1, 150)
+
+    new AbilityDefinitionImpaleCreep(CREEP_ABILITY_83) //A0AF
+    ..setDamageDealt(1, 18888)
+    ..setCastRange(1, 99999)
+    ..setWaveDistance(1, 900)
+    ..setWaveTimeseconds(1, 0.5)
+    ..setAreaofEffect(1, 200)
+    ..setCooldown(1, 15)
+    ..setDurationHero(1, 4)
+    ..setDurationNormal(1, 4)
+    ..setManaCost(1, 0)
+
+    new AbilityDefinitionCryptLordSpikedCarapace(CREEP_ABILITY_84) //A0CM
+    ..setHeroAbility(false)
+    ..setLevels(1)
+    ..setCheckDependencies(false)
+    ..setDefenseBonus(1, 0)
+    ..setReturnedDamageFactor(1, 0.2)
+
+    new AbilityDefinitionCryptLordLocustSwarm(CREEP_ABILITY_85) //A0MM
+    ..setHeroAbility(false)
+    ..setDamageReturnFactor(1, 3)
+    ..setDamageReturnThreshold(1, 3)
+    ..setMaxSwarmUnitsPerTarget(1, 15)
+    ..setNumberofSwarmUnits(1, 35)
+    ..setSwarmUnitType(1, commaList(SUMMONED_UNIT_6))
+
+    new AbilityDefinitionCryptLordLocustSwarm(CREEP_ABILITY_86) //A107
+    ..setHeroAbility(false)
+    ..setMaxSwarmUnitsPerTarget(1, 5)
+    ..setNumberofSwarmUnits(1, 9)
+    ..setCooldown(1, 30)
+    ..setManaCost(1, 0)
+    ..setSwarmUnitType(1, commaList(SUMMONED_UNIT_7))
+
+    new AbilityDefinitionFeedback(CREEP_ABILITY_87) //A08R
+    ..setCheckDependencies(false)
+    ..setMaxManaDrainedHeros(1, 3333)
+    ..setMaxManaDrainedUnits(1, 99999)
+    ..setSummonedDamage(1, 5000)
+
+    new AbilityDefinitionSlowPoison(CREEP_ABILITY_88) //A083
+    ..setCheckDependencies(false)
+    ..setAttackSpeedFactor(1, 0.7)
+    ..setDamagePerSecond(1, 855)
+    ..setMovementSpeedFactor(1, 0.8)
+
+    new AbilityDefinitionCrushingWave(CREEP_ABILITY_89) //A108
+    ..setDamage(1, 12555)
+    ..setMaxDamage(1, 99999)
+    ..setManaCost(1, 0)
+
+    new AbilityDefinitionFrostBolt(CREEP_ABILITY_90) //A109
+    ..setDamage(1, 5755)
+    ..setCooldown(1, 12)
+    ..setDurationHero(1, 10)
+    ..setDurationNormal(1, 10)
+    ..setManaCost(1, 0)
+
+    new AbilityDefinitionArchMageSummonWaterElemental(CREEP_ABILITY_91) //A10A
+    ..setManaCost(1, 0)
+    ..setSummonedUnitCount(1, 3)
+    ..setSummonedUnitType(1, commaList(SUMMONED_UNIT_8))
+
+    new AbilityDefinitionSeaWitchForkedLightning(CREEP_ABILITY_92) //A08F
+    ..setHeroAbility(false)
+    ..setLevels(1)
+    ..setDamageperTarget(1, 17555)
+    ..setFinalArea(1, 500)
+    ..setNumberofTargetsHit(1, 5)
+
+    new AbilityDefinitionAuraDevotionCreep(CREEP_ABILITY_93) //ACav
+    ..setArmorBonus(1, 15)
+
+    new AbilityDefinitionShockwaveCreep(CREEP_ABILITY_94) //A08D
+    ..setDamage(1, 17555)
+
+    new AbilityDefinitionAuraTrueshotCreep(CREEP_ABILITY_95) //A08E
+    ..setDamageBonus(1, 1)
+
+    new AbilityDefinitionCryptLordSpikedCarapace(CREEP_ABILITY_96) //A10B
+    ..setDefenseBonus(1, 45)
+    ..setReturnedDamageFactor(1, 0.5)
+    ..setHeroAbility(false)
+
+    new AbilityDefinitionSilenceCreep(CREEP_ABILITY_97) //A10C
+    ..setAreaofEffect(1, 800)
+    ..setCastRange(1, 800)
+    ..setManaCost(1, 0)
+    ..setCooldown(1, 30)
+    ..setDurationHero(1, 20)
+
+    new AbilityDefinitionFingerofDeath(CREEP_ABILITY_98) //A08K
+    ..setHeroAbility(false)
+    ..setLevels(1)
+    ..setDamage(1, 33333)
+    ..setCastingTime(1, 3)
+
+    new AbilityDefinitionRocketAttack(CREEP_ABILITY_99) //A10D
+    ..setMaximumNumberofTargets(1, 5)
+    ..setDamagePerTarget(1, 8000)
+    ..setAreaofEffect(1, 1200)
+    ..setMaximumTotalDamage(1, 99999)
+    ..setCooldown(1, 0.1)
+    ..setMissileArt(Abilities.gargoyleMissile)
+
+    new AbilityDefinitionCarrionSwarmcreep(CREEP_ABILITY_100) //A08N
+    ..setDamage(1, 27525)
+    ..setMaxDamage(1, 10000000)
+    ..setFinalArea(1, 200)
+    ..setCastRange(1, 1000)
+    ..setManaCost(1, 1000)
+
+    new AbilityDefinitionWarStompcreep(CREEP_ABILITY_101) //A0CP
+    ..setDamage(1, 17500)
+    ..setAreaofEffect(1, 700)
+    ..setCheckDependencies(false)
+    ..setCooldown(1, 8)
+    ..setManaCost(1, 1000)
+    ..setDurationHero(1, 4)
+    ..setDurationNormal(1, 4)
+
+    new AbilityDefinitionBashcreep(CREEP_ABILITY_102) //A0CU
+    ..setDurationHero(1, 1)
+    ..setDurationNormal(1, 1)
+    ..setChancetoBash(1, 10)
+    ..setDamageMultiplier(1, 2)
+    ..setBuffs(1, commaList(BUFF_26))
+
+    new AbilityDefinitionCarrionSwarmcreep(CREEP_ABILITY_103) //A0CT #DummyAbility
+    ..setDamage(1, 0)
+    ..setCastRange(1, 1300)
+    ..setCooldown(1, 25)
+    ..setManaCost(1, 2000)
+    ..setArtSpecial("")
+    ..setMissileArt("")
+
+    new AbilityDefinitionRoar(CREEP_ABILITY_104)
+    ..setDurationHero(1, 0.1)
+    ..setDurationNormal(1, 0.1)
+    ..setBuffs(1, "")
+    ..setCooldown(1, 25)
+    .setManaCost(1, 1000)
+
+@compiletime function armorReductionAbils()
+    new AbilityDefinitionOrbofCorruption(REDUCE_ARMOR_80_BOSS)
+    ..setLevels(1)
+    ..setArmorPenalty(1, 80)
+    ..setDamageBonusDice(1, 100)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionOrbofCorruption(REDUCE_ARMOR_80)
+    ..setLevels(1)
+    ..setArmorPenalty(1, 80)
+    ..setDamageBonusDice(1, 1)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionOrbofCorruption(REDUCE_ARMOR_5)
+    ..setLevels(1)
+    ..setArmorPenalty(1, 5)
+    ..setDamageBonusDice(1, 1)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionOrbofCorruption(REDUCE_ARMOR_15)
+    ..setLevels(1)
+    ..setArmorPenalty(1, 15)
+    ..setDamageBonusDice(1, 1)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionOrbofCorruption(REDUCE_ARMOR_45)
+    ..setLevels(1)
+    ..setArmorPenalty(1, 45)
+    ..setDamageBonusDice(1, 1)
+    ..setItemAbility(false)
+
+    new AbilityDefinitionOrbofCorruption(REDUCE_ARMOR_75)
+    ..setLevels(1)
+    ..setArmorPenalty(1, 75)
+    ..setDamageBonusDice(1, 1)
+    ..setItemAbility(false)

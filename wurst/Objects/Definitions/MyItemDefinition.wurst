@@ -10,7 +10,6 @@ import ItemObjEditing
 import LinkedList
 import ObjectIds
 import ObjectIdGenerator
-import ItemsAndRecipesHashTable
 
 // ----------------------------------------------------------------------------
 
@@ -28,6 +27,9 @@ import public DamageAbilities
 import public DefenseAbilities
 import public MiscAbilities
 import public SummonAbilities
+import ItemLocationSearch
+import Jacksmith_E
+import MyItemIds
 
 // ----------------------------------------------------------------------------
 
@@ -220,7 +222,7 @@ public class MyItemWithCraftInfoDefinition extends MyItemDefinition
     // ID of the recipe-item for this item.
     // -1 to not add.
     int recipeItemId
-    
+
     construct(int newId, RecipeList recipeList, int recipeItemId)
         super(newId)
 
@@ -236,9 +238,7 @@ public class MyItemWithCraftInfoDefinition extends MyItemDefinition
 
         string materials = wordMaterials
         for comp in components
-            string shopName = getShopNameForItem(comp)
-            if (shopName == "null")
-                shopName = getShopNameForItem(getItemRecipeId(comp))
+            let shopName = getItemLocation(comp)
 
             materials = materials + getItemName(comp) + " (" + shopName + ")\n"
         return materials
@@ -268,37 +268,63 @@ public class MyItemWithCraftInfoDefinition extends MyItemDefinition
         icon = data
 
     function addComponents(int item1)
-        this.recipeList.addRecipe(item1, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1)
 
     function addComponents(int item1, int item2)
-        this.recipeList.addRecipe(item1, item2, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, item2, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1, item2)
 
     function addComponents(int item1, int item2, int item3)
-        this.recipeList.addRecipe(item1, item2, item3, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, item2, item3, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1, item2, item3)
 
     function addComponents(int item1, int item2, int item3, int item4)
-        this.recipeList.addRecipe(item1, item2, item3, item4, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, item2, item3, item4, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1, item2, item3, item4)
 
     function addComponents(int item1, int item2, int item3, int item4, int item5)
-        this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, item2, item3, item4, item5, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1, item2, item3, item4, item5)
 
     function addComponents(int item1, int item2, int item3, int item4, int item5, int item6)
-        this.recipeList.addRecipe(item1, item2, item3, item4, item5, item6, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, item2, item3, item4, item5, item6, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1, item2, item3, item4, item5, item6)
         
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
+
+public class MyItemBulionUpgradeDefinition extends MyItemDefinition
+    int componentId
+    real chance
+    
+    construct(int newId, int componentId, real chance)
+        super(newId)
+
+        this.componentId = componentId
+        this.chance      = chance
+        
+        jacksmithBulionsList.addRecipe(new Recipe(ITEM_BULION, componentId, this.itemId), chance)
+
+    protected function getMaterialsDescription() returns string
+        return wordBulionUpgradable
+        + wordSuccessChance.format((100*chance).toString(0))
+        + getItemName(componentId) + " (" + getItemLocation(componentId) + ")\n"
+        + getItemName(ITEM_BULION) + " (" + getItemLocation(ITEM_BULION) + ")\n"
+
+    protected function getRecipeDescription() returns string
+        return getEffectsDescription() + getMaterialsDescription()
+
+    override function register()
+        applyStats()
+        basicEffectsDescr()
+        applyChestColors(this)
 
 // ----------------------------------------------------------------------------
 // ----------------------------------------------------------------------------
@@ -328,14 +354,10 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
         
         string materials = wordMaterials
         for comp in components
-
-            string shopName = getShopNameForItem(comp)
-            if (shopName == "null")
-                shopName = getShopNameForItem(getItemRecipeId(comp))
-
             // Exclude 'Recipe Item' from materials required, because materials required
             // list already shown in recipe item.
             if (comp != recipeItemId)
+                let shopName = getItemLocation(comp)
                 materials = materials + getItemName(comp) + " (" + shopName + ")\n"
         return materials
 
@@ -363,27 +385,27 @@ public class MyItemWithRecipeDefinition extends MyItemWithCraftInfoDefinition
         initRecipe.call(recipeItemDef)
 
     override function addComponents(int item1)
-        this.recipeList.addRecipe(item1, this.recipeItemId, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, this.recipeItemId, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1, this.recipeItemId)
 
     override function addComponents(int item1, int item2)
-        this.recipeList.addRecipe(item1, item2, this.recipeItemId, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, item2, this.recipeItemId, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1, item2, this.recipeItemId)
 
     override function addComponents(int item1, int item2, int item3)
-        this.recipeList.addRecipe(item1, item2, item3, this.recipeItemId, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, item2, item3, this.recipeItemId, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1, item2, item3, this.recipeItemId)
 
     override function addComponents(int item1, int item2, int item3, int item4)
-        this.recipeList.addRecipe(item1, item2, item3, item4, this.recipeItemId, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, item2, item3, item4, this.recipeItemId, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1, item2, item3, item4, this.recipeItemId)
 
     override function addComponents(int item1, int item2, int item3, int item4, int item5)
-        this.recipeList.addRecipe(item1, item2, item3, item4, item5, this.recipeItemId, this.itemId)
+        this.recipeList.addRecipe(new Recipe(item1, item2, item3, item4, item5, this.recipeItemId, this.itemId))
         this.components = new LinkedList<int>()
         this.components.add(item1, item2, item3, item4, item5, this.recipeItemId)
 

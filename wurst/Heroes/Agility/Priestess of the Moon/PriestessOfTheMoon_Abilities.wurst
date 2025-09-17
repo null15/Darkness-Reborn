@@ -1,0 +1,32 @@
+package PriestessOfTheMoon_Abilities
+
+import MyAbilityIds
+import AbilityObjEditing
+import ObjectIds
+import MyUnitIds
+import Icons
+
+@compiletime function priestessOfTheMoonAbils()
+    new AbilityDefinitionIllidanMetamorphosis(PRIESTESS_ABILITY_5)
+    ..setButtonPositionNormalX(2)
+    ..setButtonPositionNormalY(1)
+    ..setButtonPositionResearchX(3)
+    ..setButtonPositionResearchY(1)
+    ..setLevels(4)
+    ..setLevelSkipRequirement(8)
+    ..presetAlternateFormHitPointBonus(lvl -> 0)
+    ..presetAlternateFormUnit(lvl -> commaList(HERO_PRIESTESS_OF_THE_MOON_FORM))
+    ..presetDurationHero(lvl -> 10. + 5 * lvl)
+    ..presetCooldown(lvl -> 60.)
+    ..presetNormalFormUnit(lvl -> commaList(HERO_PRIESTESS_OF_THE_MOON))
+    ..setRequiredLevel(8)
+    ..presetIcon(Icons.bTNHeroMoonPriestess)
+    ..presetManaCost(lvl -> 150 * lvl)
+    ..presetTooltipNormal(lvl -> "Dark Mirana [ |c00FFFC01T|r ] - [|cffffcc00Level " + lvl.toString() + "|r]")
+    ..presetTooltipNormalExtended(lvl -> "Mirana taps into the powers of Darkness, severely increasing her Attackspeed for " + (10+5*lvl).toString() + " seconds.")
+    ..setTooltipLearn("Learn Dark Mirana [|cffffcc00T|r] - [|cffffcc00Level %d |r]")
+    ..setTooltipLearnExtended("Mirana taps into the powers of Darkness, severely increasing her Attackspeed for a short time.\n"
+    +"|c00FFFC01Level 1 :|r Increases Attackspeed dramatically for 15 seconds.\n"
+    +"|c00FFFC01Level 2 :|r Increases Attackspeed dramatically for 20 seconds.\n"
+    +"|c00FFFC01Level 3 :|r Increases Attackspeed dramatically for 25 seconds.\n"
+    +"|c00FFFC01Level 4 :|r Increases Attackspeed dramatically for 30 seconds.")

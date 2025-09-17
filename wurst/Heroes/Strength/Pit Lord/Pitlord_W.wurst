@@ -1,0 +1,22 @@
+package Pitlord_W
+
+import ClosureEvents
+import ClosureTimers
+import DummyCaster
+import Abilities
+import MyAbilityIds
+import OrderIds
+import codeDamageTypings
+
+public function strikeSlam()
+    EventListener.onTargetCast('A0RS') (unit caster, unit target) ->
+        let lvl = caster.getAbilityLevel('A0RS')
+        let dmg = caster.getStr(true)*lvl*3.
+        caster.setAnimation("slam")
+        doAfter(0.3) -> 
+            flashEffect(Abilities.warStompCaster, target.getPos(), 0.8)
+            caster.damageTargetCode(dmg, target, null, -1, damageType.PHYSICALMELEE)
+            new DummyCaster()
+            ..owner(GetOwningPlayer(caster))
+            ..origin(caster.getPos())
+            ..castTarget(ABILITY_DUMMY_4, 1, OrderIds.thunderbolt, target)

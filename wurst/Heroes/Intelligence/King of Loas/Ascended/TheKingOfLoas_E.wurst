@@ -1,0 +1,31 @@
+package TheKingOfLoas_E
+
+import DummyCaster
+import OrderIds
+import ClosureForGroups
+import ClosureTimers
+import MyAbilityIds
+import codeDamageTypings
+import DamageEvent
+// Storm of Akunda
+
+public function superKingOfloasE()
+    DamageEvent.addListener(2) ->
+        if DamageEvent.getType() == ATTACK
+            let src = DamageEvent.getSource()
+            if src.isIllusion()
+                skip
+            else
+                let lvl = src.getAbilityLevel(ABILITY_50)
+                if lvl > 0 and GetRandomInt(1, 100) <= 30
+                    let target = DamageEvent.getTarget()
+                    let dmg = src.getInt(true) * 27.
+                    forUnitsInRange(target.getPos(), 450) (unit u) ->
+                        if src.isEnemyOf(u)
+                            if u.isAlive()
+                                new DummyCaster()
+                                ..owner(GetOwningPlayer(src))
+                                ..origin(src.getPos())
+                                ..castTarget(ABILITY_49, 1, OrderIds.forkedlightning, u)
+                                doAfter(0.05) -> 
+                                    src.damageTargetCode(dmg, u, null, -1, damageType.MAGICAL)

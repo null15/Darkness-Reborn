@@ -751,11 +751,11 @@ public function getItemName(int id) returns string
             return "Crystal Sword"
         case ITEM_BLOODY_DAGGER
             return "Bloody Dagger"
-        case ITEM_CROWN_OF_WIZARD_L0
+        case ITEM_CROWN_OF_WIZARD
             return "Crown of Wizard"
-        case ITEM_CROWN_OF_SOLDIER_L0
+        case ITEM_CROWN_OF_SOLDIER
             return "Crown of Soldier"
-        case ITEM_CROWN_OF_ASSASSIN_L0
+        case ITEM_CROWN_OF_ASSASSIN
             return "Crown of Assassin"
         case ITEM_GLOVERSHIELD
             return "Clovershield"
@@ -987,8 +987,24 @@ public function getItemName(int id) returns string
             return "Mystery Bracer"
         case ITEM_GOLDEN_RING
             return "Golden Ring"
+        case ITEM_ATHENA_L1
+            return "Athena +1"
+        case ITEM_ATHENA_L2
+            return "Athena +2"
+        case ITEM_ATHENA_L3
+            return "Athena +3"
+        case ITEM_ATHENA_L4
+            return "Athena +4"
         case ITEM_ATHENA_L5
             return "Athena +5"
+        case ITEM_VALKYRIE_L1
+            return "Valkyrie +1"
+        case ITEM_VALKYRIE_L2
+            return "Valkyrie +2"
+        case ITEM_VALKYRIE_L3
+            return "Valkyrie +3"
+        case ITEM_VALKYRIE_L4
+            return "Valkyrie +4"
         case ITEM_VALKYRIE_L5
             return "Valkyrie +5"
         case ITEM_FORGE_BLADE_L1

@@ -1,0 +1,14 @@
+package Tinker_E
+
+import ClosureEvents
+import MyAbilityIds
+import MyUnitIds
+import ClosureTimers
+import ClosureForGroups
+
+public function factorySpawn()
+    EventListener.onPointCast(TINKER_ABILITY_3) (unit caster, vec2 target) ->
+        doAfter(1) -> 
+            forUnitsInRange(target, 500) (unit u) ->
+                if u.getTypeId() == FACTORYROBO
+                    u.setInvulnerable(true)

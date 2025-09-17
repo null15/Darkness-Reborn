@@ -8,11 +8,11 @@ import MyBuffIds
 import WaveHeroSetup
 import DragonTurtle
 import Turtle
-import A0RI_R
-import A0RL_E
 import ThornsAuraWave
 import Global_Variables
 import AbilitiesList
+import Pitlord_R
+import Pitlord_E
 
 @configurable constant DETECT_NATIVE_ABILITIES = true
 
@@ -89,14 +89,14 @@ init
                             abilityInfo.runHandler(src, targ)
 
 function magicDamageChecks(int damId, unit src, unit targ)
-    if(targ.getAbilityLevel(UTHER_ABIL_3) > 0)
-        DamageEvent.setAmount(DamageEvent.getAmount() * (1-0.02*targ.getAbilityLevel(UTHER_ABIL_3)))
+    if(targ.getAbilityLevel(UTHER_ABILITY_3) > 0)
+        DamageEvent.setAmount(DamageEvent.getAmount() * (1-0.02*targ.getAbilityLevel(UTHER_ABILITY_3)))
     DamageEvent.setAmount(DamageEvent.getAmount() * targ.calculateMagicRes())
 
 function physicalDamageChecks(int damId, unit src, unit targ, weapontype notRanged)
     // Uther Damage reduction
-    if(targ.getAbilityLevel(UTHER_ABIL_3) > 0)
-        DamageEvent.setAmount(DamageEvent.getAmount() * (1-0.02*targ.getAbilityLevel(UTHER_ABIL_3)))
+    if(targ.getAbilityLevel(UTHER_ABILITY_3) > 0)
+        DamageEvent.setAmount(DamageEvent.getAmount() * (1-0.02*targ.getAbilityLevel(UTHER_ABILITY_3)))
     // Wolfman attack
     if src.hasAbility(WOLF_BUFF_1)
         src.addHP(DamageEvent.getAmount() * 0.25)

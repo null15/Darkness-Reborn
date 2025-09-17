@@ -1,0 +1,22 @@
+package ShadowHunter_Ward
+
+import MyUnitIds
+import ClosureEvents
+import MyAbilityIds
+
+public function shWardSummon()
+    EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
+        let summoner = GetSummoningUnit()
+        if(summoner.getTypeId() == HERO_SHADOW_HUNTER)
+            let summon = GetSummonedUnit()
+            let ite = summoner.getInt(true)
+            let hp = summoner.getMaxHP()
+            let armor = summoner.getArmor()
+            if summon.getTypeId() == SERPENT_WARD_0
+                let lvl = summoner.getAbilityLevel(SHADOWHUNTER_ABILITY_1)
+                summon.setBaseDamage((((0.2 * ite)*lvl) + lvl * 40).toInt(), 0)
+                summon.setMaxHP((0.1*hp + lvl * 20).toInt(), true)
+                summon.setArmor(0.25*armor)
+                if summoner.getAbilityLevel(SHADOWHUNTER_ABILITY_1) == 9
+                    BlzSetUnitWeaponIntegerField(summon, UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE, 0, 5)
+                summon.setName("Serpent Ward Lvl" + lvl.toString())

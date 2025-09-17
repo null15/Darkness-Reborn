@@ -1,0 +1,23 @@
+package ShadowOfVengeance_T
+
+import codeDamageTypings
+import ClosureEvents
+import DamageEvent
+
+public function blackHole()
+    EventListener.onCast('A0CE') (unit caster) ->
+        if caster.hasAbility('B00L')
+            caster.removeAbility('B00L')
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            if (DamageEvent.getType() == ATTACK)
+                let damtyp = DamageEvent.getDamageType()
+                if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)            
+                    if src.hasAbility('B00J')
+                        let targ = DamageEvent.getTarget()
+                        let missingHp = targ.getMissingHP()
+                        src.removeAbility('B00J')
+                        src.damageTargetCode(missingHp, targ, null, -1, damageType.MAGICAL)

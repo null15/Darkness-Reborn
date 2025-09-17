@@ -93,7 +93,7 @@ init
     ..addStats(addAllStats(120))
     ..addStats(addDamage(300))
     ..addStats(addAttackSpeed(2))
-    ..addStats(addAbilityChainLighting(0.4, 6000, 0.1, 10, 1600, true))
+    ..addStats(addAbilityChainLighting(0.4, 6000, 0.1, 10, 900, true))
     ..addComponents(
     ITEM_MEDALLION_OF_COURAGE,
     ITEM_AMULET_OF_THE_WILD,
@@ -111,7 +111,7 @@ init
     ..addStats(addDamage(200))
     ..addStats(addMp(3000))
     ..addStats(addMpReg(1.5))
-    ..addStats(addMpOnHit(0.1))
+    ..addStats(addMpOnHit(0.06))
     ..addComponents(
     ITEM_MEDALLION_OF_COURAGE,
     ITEM_PENDANT_OF_MANA,
@@ -176,7 +176,7 @@ init
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNStaff1.blp")
     ..setCooldownGroup("A0XN")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityDealMagicDamage(8000, 2000, 20))
+    ..addStats(addAbilityDealMagicDamage(8000, 2300, 20))
     ..addStats(addInt(180))
     ..addStats(addAttackSpeed(1.8))
     ..addStats(addMpReg(1))
@@ -194,7 +194,7 @@ init
     )
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNIC1.blp")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityDealMagicDamageInt(10, 1500, 30))
+    ..addStats(addAbilityDealMagicDamageInt(10, 1600, 30))
     ..addStats(addInt(180))
     ..addStats(addHp(3200))
     ..addStats(addMp(3200))
@@ -217,7 +217,7 @@ init
     ..addStats(addMpReg(3))
     ..addStats(addMovementSpeed(522))
     ..addStats(addAttackSpeed(1.2))
-    ..addStats(addMpOnHit(0.15))
+    ..addStats(addMpOnHit(0.10))
     ..addComponents(
     ITEM_SOUL_OF_KILJEADEN,
     ITEM_ARKENSTONE_FRAGMENT)

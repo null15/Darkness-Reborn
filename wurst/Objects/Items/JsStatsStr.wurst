@@ -6,6 +6,7 @@ import MyItemIds
 import Jacksmith_Q
 import codeDamageTypings
 import StatsType
+import Jacksmith_E
 
 init
 
@@ -60,7 +61,7 @@ init
     ..addComponents(
     ITEM_ASTRAEUS_BELT,
     ITEM_VOID_AXE,
-    ITEM_CROWN_OF_SOLDIER_L0)
+    ITEM_CROWN_OF_SOLDIER)
     ..register()
 
 //I0BT
@@ -86,12 +87,51 @@ init
     ..register()
     
 //I0IO
-    new MyItemDefinition(ITEM_ATHENA_L5)
+    new MyItemWithCraftInfoDefinition(ITEM_ATHENA_L1, jackSmithRecipe, -1)
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (5).blp")    
     ..setClassification("Campaign")
-    ..setGoldCost(666666)
-    ..addStats(addStr(5500))
+    ..addStats(addStr(2600))
+    ..addStats(addHp(17500))
+    ..addStats(addHpReg(500))
+    ..addComponents(
+    ITEM_ATHENA,
+    ITEM_PERFECT_RUBYSTONE,
+    ITEM_MYSTERY_BRACER,
+    ITEM_IRON_SHIELD,
+    ITEM_BULION)
+    ..register()
+    
+    new MyItemBulionUpgradeDefinition(ITEM_ATHENA_L2, ITEM_ATHENA_L1, jacksmithBulionChanceL2)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (5).blp")    
+    ..setClassification("Campaign")
+    ..addStats(addStr(3100))
+    ..addStats(addHp(19500))
+    ..addStats(addHpReg(1000))
+    ..register()
+    
+    new MyItemBulionUpgradeDefinition(ITEM_ATHENA_L3, ITEM_ATHENA_L2, jacksmithBulionChanceL3)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (5).blp")    
+    ..setClassification("Campaign")
+    ..addStats(addStr(3800))
+    ..addStats(addHp(24000))
+    ..addStats(addHpReg(1600))
+    ..register()
+    
+    new MyItemBulionUpgradeDefinition(ITEM_ATHENA_L4, ITEM_ATHENA_L3, jacksmithBulionChanceL4)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (5).blp")    
+    ..setClassification("Campaign")
+    ..addStats(addStr(4500))
     ..addStats(addHp(30000))
+    ..addStats(addHpReg(2400))
+    ..register()
+
+    
+    new MyItemBulionUpgradeDefinition(ITEM_ATHENA_L5, ITEM_ATHENA_L4, jacksmithBulionChanceL5)
+    ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNBelt (5).blp")    
+    ..setClassification("Campaign")
+    ..addStats(addStr(5500))
+    ..addStats(addHp(38000))
+    ..addStats(addHpReg(3500))
     ..register()
 
 //I0BR

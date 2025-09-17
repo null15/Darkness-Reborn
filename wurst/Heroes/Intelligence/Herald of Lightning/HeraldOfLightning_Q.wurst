@@ -1,0 +1,49 @@
+package HeraldOfLightning_Q
+
+import LinkedList
+import ClosureEvents
+import ClosureTimers
+import ClosureForGroups
+import MyAbilityIds
+import codeDamageTypings
+import MyUnitIds
+import OrderIds
+
+public function orbofLightning()
+    EventListener.onCast(HERALD_ABILITY_Q) (unit caster) ->
+        let temp = new LinkedList<unit>
+        let sfxtemp = new LinkedList<unit>
+        for int i = 0 to 2
+            let posCaster = caster.getPos()
+            let angle = (60. + 120 * i).asAngleDegrees()
+            let pos = posCaster.polarOffset(angle, 75).withZ(150)
+            let sfx = createUnit(players[10], HERO_HERALD_OF_LIGHTNING_DUMMY_2)..setPosFly(pos)
+            sfxtemp.add(sfx)
+        doPeriodicallyTimed(0.03, 10) (CallbackCounted cb) ->
+            for int i = 0 to 2
+                let sfx = sfxtemp.get(i)
+                let pos = caster.getPos()
+                let angle = (60. + 120 * i).asAngleDegrees() + (2.2*cb.getCount()).asAngleDegrees()
+                let newpos = pos.polarOffset(angle, 75).withZ(150)
+                sfx..setPosFly(newpos)
+        doPeriodicallyTimed(0.5, 10) (CallbackCounted cb) ->
+            let lvl = caster.getAbilityLevel(HERALD_ABILITY_Q)
+            let dmg = 0.8 * caster.getInt(true) * lvl
+            forUnitsInRange(caster.getPos(), 500) (unit u) ->
+                if u.isEnemyOf(caster) and u.isAlive()
+                    temp.add(u)
+            let damagedunit = temp.getRandomElement()
+            let damageorb = sfxtemp.getRandomElement()
+            let tempu = createUnit(players[10], HERO_HERALD_OF_LIGHTNING_DUMMY, damageorb.getPos3Fly(), damageorb.getPos().angleTo(damagedunit.getPos()))
+            tempu.addAbility(HERALD_ABILITY_DUMMY)
+            tempu.issueTargetOrderById(Orders.chainlightning, damagedunit)
+            doAfter(0.1) ->
+                tempu.remove()
+            caster.damageTargetCode(dmg, damagedunit, null, 'HEAB', damageType.MAGICAL)
+            temp.clear()
+            if cb.isLast()
+                sfxtemp.forEach() (unit t) ->
+                    t.remove()
+                sfxtemp.clear()
+                destroy sfxtemp
+                destroy temp

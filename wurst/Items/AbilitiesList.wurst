@@ -15,6 +15,11 @@ public class ItemTargetEventAbility
     TargetAbilityFunc handler
     int abilityId
 
+    // Do not add ondestroy!
+    // You can destroy ItemTargetEventAbility, but `handler` should exist during runtime
+    //ondestroy
+    //    destroy handler
+
     construct(int abilityId, TargetAbilityFunc handler)
         this.handler = handler
         this.abilityId = abilityId
@@ -49,7 +54,7 @@ public interface CastAbilityFunc
 public class ItemCastEventAbility
     CastAbilityFunc handler
     int abilityId
-
+    
     construct(int abilityId, CastAbilityFunc handler)
         this.handler = handler
         this.abilityId = abilityId
@@ -68,7 +73,6 @@ public class ItemCustomEventAbility
     function addListener()
 
 public class ItemPlayerUnitDeathEventAbility extends ItemCustomEventAbility
-    
     construct(CustomEventFunc handler)
         super(handler)
 

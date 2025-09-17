@@ -34,7 +34,7 @@ init
     ..addStats(addHp(15000))
     ..addStats(addHpReg(150))
     ..addStats(addMp(15000))
-    ..addStats(addMpReg(5))
+    ..addStats(addMpReg(6.5))
     ..addComponents(
     ITEM_PERFECT_ARKENSTONE,
     ITEM_SPHERE_OF_FIRE,

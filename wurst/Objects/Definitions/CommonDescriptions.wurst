@@ -1,38 +1,47 @@
 package CommonDescriptions
 
 import public Colors
-import Format
 import MyColors
 
 // ----------------------------------------------------------------------------
 
-public let shopNameBasicItems1    = itemNameBasic("Basic Items (1)")
-public let shopNameBasicItems2    = itemNameBasic("Basic Items (2)")
-public let shopNameBasicItems3    = itemNameBasic("Basic Items (3)")
-public let shopNameBasicItems4    = itemNameBasic("Basic Items (4)")
+public let shopNameBasicItems1        = "Basic Items 1".setColor(colBasic)
+public let shopNameBasicItems2        = "Basic Items 2".setColor(colBasic)
+public let shopNameBasicItems3        = "Basic Items 3".setColor(colBasic)
+public let shopNameBasicItems4        = "Basic Items 4".setColor(colBasic)
 
-public let shopNameRecipes1       = itemNameRecipe("Recipes Shop (1)")
-public let shopNameRecipes2       = itemNameRecipe("Recipes Shop (2)")
-public let shopNameRecipes3       = itemNameRecipe("Recipes Shop (3)")
-public let shopNameRecipes4       = itemNameRecipe("Recipes Shop (4)")
+public let shopNameRecipes1           = "Recipes Shop 1".setColor(colRecipe)
+public let shopNameRecipes2           = "Recipes Shop 2".setColor(colRecipe)
+public let shopNameRecipes3           = "Recipes Shop 3".setColor(colRecipe)
+public let shopNameRecipes4           = "Recipes Shop 4".setColor(colRecipe)
 
-public let shopNameLateGameItems1 = itemNameLateGame1("Late Game Items (1)")
-public let shopNameLateGameItems2 = itemNameLateGame1("Late Game Items (2)")
-public let shopNameGems           = itemNameLateGame2("Gems Shop (3)"      )
-public let shopNameLateGameItems4 = itemNameLateGame2("Late Game Items (4)")
+public let shopNameLateGameItems1     = "Late Game Items 1".setColor(colLateGame1)
+public let shopNameLateGameItems2     = "Late Game Items 2".setColor(colLateGame1)
+public let shopNameGems               =       "Gems Shop 3".setColor(colLateGame2)
+public let shopNameLateGameItems4     = "Late Game Items 4".setColor(colLateGame2)
 
-public let shopNameTinkerTomes    = itemNameTinkerTome("Tomes Advanced Shop")
-public let shopNameTinkerLumber   = itemNameTinkerLumber("Advanced Lumber Shop")
-public let shopNameTinkerRecipes  = itemNameTinkerRecipe("Goblin Items Shop")
+public let shopNameTinkerTomes        = "Tomes Advanced Shop".setColor(colTinkerTomes)
+public let shopNameTinkerLumber       = "Advanced Lumber Shop".setColor(colTinkerLumber)
+public let shopShortNameTinkerRecipes = "Goblin Items Shop"
+public let shopNameTinkerRecipes      = shopShortNameTinkerRecipes.setColor(colTinkerRecipes)
 
-public let shopNameCreepsTp1      = itemNameCreepsTp("Easy hunting grounds")
-public let shopNameCreepsTp2      = itemNameCreepsTp("Intermediate hunting grounds")
-public let shopNameCreepsTp3      = itemNameCreepsTp("Elite hunting grounds")
-public let shopNameCreepsTp4      = itemNameCreepsTp("End-game bosses")
+public let shopNameCreepsTp1          = "T1 Easy Creeps".setColor(colCreepsTp1)
+public let shopNameCreepsTp2          = "T2 Intermediate Creeps".setColor(colCreepsTp2)
+public let shopNameCreepsTp3          = "T3 Elite Creeps".setColor(colCreepsTp3)
+public let shopNameCreepsTp4          = "T4 End-game bosses".setColor(colCreepsTp4)
 
-public let wordElementalSoul      = "Elemental Soul"
-public let wordDropSite           = "Drop Site"
-public let wordFountain           = "The Fountain"
+public let itemLocThiefStolen1        = "Thief Stolen from T1 Creeps".setColor(colThiefStolen1)
+public let itemLocThiefStolen2        = "Thief Stolen from T2 Creeps".setColor(colThiefStolen2)
+public let itemLocThiefStolenElite    = "Thief Stolen from T3 Creeps [Q]-[W]".setColor(colThiefStolenElite)
+public let itemLocThiefStolenBoss     = "Thief Stolen from Bosses".setColor(colThiefStolenBoss)
+public let itemLocThiefUpgraded       = "Upgraded in Tinker's Blacksmith".setColor(colThiefUpgraded)
+public let itemLocJacksmithUlt        = "Created by Jacksmith's Ultimate [T]".setColor(colJacksmithUlt)
+public let itemLocJacksmithCraft      = "Crafted by Jacksmith [Q]".setColor(colJacksmithCraft)
+public let itemLocTinkerRecipe        = "Tinker's '{0}'".format(colTinkerRecipe).setColor(colCreepsTp4)
+
+public let wordElementalSoul          = "Elemental Soul"
+public let wordDropSite               = "Drop Site"
+public let wordFountain               = "The Fountain"
 
 // ----------------------------------------------------------------------------
 
@@ -43,6 +52,9 @@ public let wordEffects            = "|c00FFFC01Effects:|r\n"
 public let wordExtraEffects       = "|c00FFFC01Extra Effects:|r\n"
 public let wordMaterials          = "|c00FEBA0EMaterials required to craft this item:|r\n"
 public let wordNote               = "|c00FEBA0ENote:|r\n"
+
+public let wordBulionUpgradable   = "|cffe2e451Jacksmith can fuze these items with E:|r\n"
+public let wordSuccessChance      = "|cffe4ac51{0}% chance of success|r\n"
 
 public let wordCd                 = " (cd {0} sec)"
 public let wordActive             = "|c00d7b632Active:|r "
@@ -147,4 +159,17 @@ public let wordAbilityRevive           = "Revives the wearer"
 
 public let wordTomeGive                = "Give yourself {0} on use"
 
+// ----------------------------------------------------------------------------
+
+public let defender  = "|c00081EE4Defender|r"
+public let farmer    = "|c00FFFF33Farmer|r"
+public let crafter   = "|c00239B0BCrafter|r"
+public let caster    = "|c0028DBE1Caster|r"
+public let summoner  = "|c00E1A328Summoner|r"
+public let stacker   = "|c008428E1Stacker|r"
+public let support   = "|c00E12891Support|r"
+public let ascendant = "|c00FC293EAscend|r"
+public let builder   = "|c00065cdeBuilder|r"
+public let gatherer  = "|c00a806deGatherer|r"
+    
 // ----------------------------------------------------------------------------

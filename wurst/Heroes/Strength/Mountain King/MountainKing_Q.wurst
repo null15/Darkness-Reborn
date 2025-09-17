@@ -1,0 +1,30 @@
+package MountainKing_Q
+
+import ClosureEvents
+import DummyCaster
+import ClosureForGroups
+import Abilities
+import OrderIds
+import MyAbilityIds
+import codeDamageTypings
+import Projectile
+
+public function stormbolt()
+    EventListener.onTargetCast(ABILITY_9) (unit caster, unit target) ->
+        let lvl = caster.getAbilityLevel(ABILITY_9)
+        let sfx = addEffect(Abilities.stormBoltMissile, caster.getPos())
+        let semi = ((caster.getStr(true)*(0.75*lvl))+(lvl*200))*0.5
+        let final = ((caster.getStr(true)*(0.75*lvl))+(lvl*200))
+        sfx.setScale(2)
+        let velocity = 1.4
+        let projectile = new Projectile(target, sfx, velocity)
+        projectile.moveForward(true) (effect detectionUnit, unit target) ->
+            new DummyCaster()
+            ..owner(caster.getOwner())
+            ..origin(target.getPos())
+            ..castImmediate(ABILITY_DUMMY_5, 1, OrderIds.stomp)
+            flashEffect(Abilities.fireLordDeathExplode, target.getPos())
+            forUnitsInRange(target.getPos(), 300) (unit u) ->
+                if u != target and u.isEnemyOf(caster) and u.isAlive()
+                    caster.damageTargetCode(semi, u, null, -1, damageType.PHYSICALRANGED)
+            caster.damageTargetCode(final, target, null, -1, damageType.PHYSICALMELEE)

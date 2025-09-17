@@ -1,0 +1,15 @@
+package Firemage_E
+
+import codeDamageTypings
+import DamageEvent
+
+public function fireShield()
+    DamageEvent.addListener(2) ->
+        if (DamageEvent.getType() == ATTACK)
+            let damtyp = DamageEvent.getDamageType()
+            if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                let targ = DamageEvent.getTarget()
+                if targ.getAbilityLevel('B900') > 0
+                    let dmg = targ.getInt(true)*0.25
+                    let src = DamageEvent.getSource()
+                    targ.damageTargetCode(dmg, src, null, 'phoe', damageType.MAGICAL)

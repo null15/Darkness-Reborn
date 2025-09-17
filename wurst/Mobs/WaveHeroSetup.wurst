@@ -232,8 +232,8 @@ function boostUnit()
         ..addItemToSlot(ITEM_BERSERKERS_GLOVES, 4)
         ..addItemToSlot(ITEM_BERSERKERS_BOOTS, 5)
         ..addAbility(CREEP_ABILITY_7, 1)
-        ..addAbility(DARKRANGER_ABIL_2, 9)
-        ..addAbility(DARKRANGER_ABIL_3, 9)
+        ..addAbility(DARKRANGER_ABILITY_2, 9)
+        ..addAbility(DARKRANGER_ABILITY_3, 9)
         ..issueImmediateOrder(OrderIds.flamingarrows.toString())
 
     boostMap.put(WAVE_HERO_17) (u) -> // Dreadlord

@@ -1,6 +1,9 @@
 package Recipes
 
 import LinkedList
+import MyItemIds
+
+// ----------------------------------------------------------------------------
 
 public class Recipe
     let items = new LinkedList<int>
@@ -50,63 +53,119 @@ public class Recipe
         items.add(item6)
         this.completedItem = completedItem
 
-public class RecipeList
-    let recipeList = new LinkedList<Recipe>()
+// ----------------------------------------------------------------------------
 
-    function addRecipe(int item1, int completedItem)
-        recipeList.add(new Recipe(item1, completedItem))
+public function getUnitInventory(unit u) returns LinkedList<item>
+    let unitInventory = new LinkedList<item>
+    for int i = 0 to 5
+        if(u.itemInSlot(i) != null)
+            unitInventory.add(u.itemInSlot(i))
+    return unitInventory
 
-    function addRecipe(int item1, int item2, int completedItem)
-        recipeList.add(new Recipe(item1, item2, completedItem))
+function removeRecipeComponents(LinkedList<item> unitInventory, Recipe recipe)
+    for int i = 0 to recipe.items.size() - 1 // All the items in the recipe loop through
+        let testItem = recipe.items.get(i) // Grab item to test
+        for int j = 0 to unitInventory.size() - 1 // Loop through the inventory
+            let unitItem = unitInventory.get(j)
+            if(testItem == unitItem.getTypeId()) // If found item to remove, remove item and go to next recipe item
+                unitItem.remove()
+                unitInventory.removeAt(j)
+                break
 
-    function addRecipe(int item1, int item2, int item3, int completedItem)
-        recipeList.add(new Recipe(item1, item2, item3, completedItem))
-
-    function addRecipe(int item1, int item2, int item3, int item4, int completedItem)
-        recipeList.add(new Recipe(item1, item2, item3, item4, completedItem))
-
-    function addRecipe(int item1, int item2, int item3, int item4, int item5, int completedItem)
-        recipeList.add(new Recipe(item1, item2, item3, item4, item5, completedItem))
-
-    function addRecipe(int item1, int item2, int item3, int item4, int item5, int item6, int completedItem)
-        recipeList.add(new Recipe(item1, item2, item3, item4, item5, item6, completedItem))
+abstract class RecipeListBase
+    abstract function getRecipe(int idx) returns Recipe
     
-    function size() returns int
-        return recipeList.size()
+    abstract function size() returns int
 
-    function get(int i) returns Recipe
-        return recipeList.get(i)
-
-    function checkRecipePosition(LinkedList<item> unitInventory) returns int
-        var itemFound = -1
-        for int i = 0 to recipeList.size() - 1 // March through all recipes to match
-            let recip = recipeList.get(i) // Get ith recipe
+    function getRecipePosition(LinkedList<item> unitInventory) returns int
+        for int i = 0 to size() - 1 // March through all recipes to match
+            let recipe = getRecipe(i) // Get ith recipe
             var testSucceed = 0
-            for int k = testSucceed to recip.items.size() - 1 //Loop through all item components
+            for int k = 0 to recipe.items.size() - 1 //Loop through all item components
                 for int j = 0 to unitInventory.size() // Loop through inventory
-                    let testItem = recip.items.get(k) // Grab item to test
+                    let testItem = recipe.items.get(k) // Grab item to test
                     if(testItem == unitInventory.get(j).getTypeId()) // If recipe item is the same as inventory, go to next recipe item
                         testSucceed++
                         break
-            if(testSucceed == recip.items.size()) // Test amount of success in finding item to item amount and then break
-                itemFound = i
-                break
-        return itemFound
+            if(testSucceed == recipe.items.size()) // Test amount of success in finding item to item amount and then break
+                return i
+        return -1
+
+// ----------------------------------------------------------------------------
+
+public class RecipeList extends RecipeListBase
+    protected let recipeList = new LinkedList<Recipe>()
+
+    function addRecipe(Recipe recipe)
+        recipeList.add(recipe)
+
+    override function size() returns int
+        return recipeList.size()
+
+    override function getRecipe(int i) returns Recipe
+        return recipeList.get(i)
+    
+    // Checks for all recipes in the list, do the first available recipe 
+    function checkAndDoRecipe(unit u)
+        let unitInventory = getUnitInventory(u)
+
+        let recipeIdx = getRecipePosition(unitInventory)
+        if (recipeIdx != -1)
+            let foundRecipe = getRecipe(recipeIdx) 
+            removeRecipeComponents(unitInventory, foundRecipe)
+            u.addItemById(foundRecipe.completedItem)
+        
+        destroy unitInventory
+
+// ----------------------------------------------------------------------------
+
+class ChanceRecipe
+    Recipe recipe
+    real chance
+    int consumable
+
+    ondestroy
+        destroy recipe
+
+    construct(Recipe recipe, real chance)
+        this.recipe = recipe
+        this.chance = chance
+        this.consumable = ITEM_BULION
+
+public class ChanceRecipeList extends RecipeListBase
+    protected let recipeList = new LinkedList<ChanceRecipe>()
+    
+    function addRecipe(Recipe recipe, real chance)
+        recipeList.add(new ChanceRecipe(recipe, chance))
+    
+    override function size() returns int
+        return recipeList.size()
+
+    override function getRecipe(int i) returns Recipe
+        return recipeList.get(i).recipe
+        
+    // Checks for all recipes in the list, do the first available recipe 
+    function checkAndDoRecipe(unit u) returns int
+        int resultItemId = -1
+        let unitInventory = getUnitInventory(u)
+
+        let recipeIdx = getRecipePosition(unitInventory)
+        if (recipeIdx != -1)
+            let foundRecipe = recipeList.get(recipeIdx)
+            if (GetRandomInt(1, 1000) <= (foundRecipe.chance * 1000).toInt())
+                removeRecipeComponents(unitInventory, foundRecipe.recipe)
+                u.addItemById(foundRecipe.recipe.completedItem)
+                resultItemId = foundRecipe.recipe.completedItem
+            else
+                u.getItemById(foundRecipe.consumable).remove()
+        
+        destroy unitInventory
+        
+        return resultItemId
+
+// ----------------------------------------------------------------------------
 
 public function unit.checkRecipe(RecipeList recipeList)
-    let origInventory = new LinkedList<item>
-    for int i = 0 to 5
-        if(this.itemInSlot(i) != null)
-            origInventory.add(this.itemInSlot(i))
-    let recipePos = recipeList.checkRecipePosition(origInventory)
-    if(recipePos > -1)
-        let foundRecipe = recipeList.get(recipePos)
-        for int i = 0 to foundRecipe.items.size() - 1 // All the items in the found recipe loop through
-            let testItem = foundRecipe.items.get(i) // Grab item to test
-            for int j = 0 to origInventory.size() - 1 // Loop through the inventory
-                if(testItem == origInventory.get(j).getTypeId()) // If found item to remove, remove item and go to next recipe item
-                    origInventory.get(j).remove()
-                    break
-
-        this.addItemById(foundRecipe.completedItem)
-        destroy origInventory
+    recipeList.checkAndDoRecipe(this)
+    
+// ----------------------------------------------------------------------------

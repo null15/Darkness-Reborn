@@ -214,7 +214,7 @@ public constant HERO_BLADEMASTER = compiletime(HERO_ID_GEN.next())
 public constant HERO_SATYR = compiletime(HERO_ID_GEN.next())
 public constant HERO_DARK_RANGER = compiletime(HERO_ID_GEN.next())
 public constant HERO_ILLUSIONIST = compiletime(HERO_ID_GEN.next())
-public constant HERO_RANGER = compiletime(HERO_ID_GEN.next())
+public constant HERO_SYLVANAS = compiletime(HERO_ID_GEN.next())
 public constant HERO_FIRELORD = compiletime(HERO_ID_GEN.next())
 public constant HERO_KEEPER_OF_THE_GROVE = compiletime(HERO_ID_GEN.next())
 public constant HERO_FIRE_MAGE = compiletime(HERO_ID_GEN.next())
@@ -490,7 +490,7 @@ init
     PLAY_HERO[16] = HERO_SATYR
     PLAY_HERO[17] = HERO_DARK_RANGER
     PLAY_HERO[18] = HERO_ILLUSIONIST
-    PLAY_HERO[19] = HERO_RANGER
+    PLAY_HERO[19] = HERO_SYLVANAS
     PLAY_HERO[20] = HERO_FIRELORD
     PLAY_HERO[21] = HERO_KEEPER_OF_THE_GROVE
     PLAY_HERO[22] = HERO_FIRE_MAGE

@@ -1,0 +1,25 @@
+package Archmage_Q
+
+import ClosureEvents
+import ClosureForGroups
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+import codeDamageTypings
+
+public function eclipse()
+    EventListener.onPointCast('A0CZ') (unit caster, vec2 target) ->
+        let lvl = caster.getAbilityLevel('A0CZ')
+        let dmg = (caster.getInt(true) * 1.25) * lvl
+        flashEffect("Effects\\Archmage\\ShadowSlam(Normal Size).mdl", target)
+        forUnitsInRange(target, 500) (unit u) ->
+            if caster.isEnemyOf(u)
+                let buffs = UnitCountBuffsEx(u, false, false, true, false, false, false, false) - 1.
+                if buffs > 0
+                    caster.damageTargetCode(dmg * Pow(2, buffs), u, null, -1, damageType.MAGICAL)
+                else
+                    caster.damageTargetCode(dmg, u, null, -1, damageType.MAGICAL)
+                new DummyCaster()
+                ..owner(GetOwningPlayer(caster))
+                ..origin(caster.getPos())
+                ..castTarget(ABILITY_DUMMY_9, 1, OrderIds.curse, u)

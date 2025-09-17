@@ -30,7 +30,7 @@ init
     HERO_DARK_RANGER,
     HERO_ILLUSIONIST)
     playableHeroes.add(
-    HERO_RANGER,
+    HERO_SYLVANAS,
     HERO_FIRELORD,
     HERO_KEEPER_OF_THE_GROVE,
     HERO_FIRE_MAGE,
@@ -69,3 +69,5 @@ function randomHero()
                 randomedHero..heroCheck().setPlayersResearch(false)
                 taverns.forEach() (unit t) ->
                     t.removeUnitFromStock(uid)
+            else
+                printTimedToPlayer("You can only use -random command when you have no hero. Type -repick first.", 5, trigP)

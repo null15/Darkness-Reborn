@@ -1,0 +1,45 @@
+package ShadowHunter_Abilities
+
+import MyAbilityIds
+import AbilityObjEditing
+import ObjectIds
+import MyUnitIds
+
+@compiletime function shadowHunter()
+    new AbilityDefinitionShadowHunterSerpentWard(SHADOWHUNTER_ABILITY_1)
+    ..setLevels(9)
+    ..setButtonPositionNormalX(1)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(1)
+    ..setButtonPositionResearchY(0)
+    ..setHotkeyNormal("W")
+    ..setHotkeyLearn("W")
+    ..setName("Serpent Ward")
+    ..setTooltipLearn("Learn Serpent Ward [ |c00FFFC01W|r ] - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Summon Serpent Ward at the specified place, Serpent Ward automatically attack enemies, for 30 seconds. Scales off Intelligence. Cooldown: 30 seconds decreases by 2 every level.")
+    ..presetSummonedUnitCount(lvl -> (2 + 0.3*lvl).toInt())
+    ..presetSummonedUnitType(lvl -> commaList(SERPENT_WARD_0))
+    ..presetCastRange(lvl -> 600)
+    ..presetCooldown(lvl -> 30. - lvl*2)
+    ..setDurationHero(9, 30)
+    ..setDurationNormal(9, 30)
+    ..presetManaCost(lvl -> 70+10*lvl)
+
+    new AbilityDefinitionCarrionSwarmcreep(SHADOWHUNTER_ABILITY_2)
+    ..setLevels(9)
+    ..setButtonPositionNormalX(0)
+    ..setButtonPositionNormalY(2)
+    ..setButtonPositionResearchX(0)
+    ..setButtonPositionResearchY(0)
+    ..setHotkeyNormal("Q")
+    ..setHotkeyLearn("Q")
+    ..setName("Spinning Blade")
+    ..setTooltipLearn("Learn Spinning Blade [ |c00FFFC01Q|r ] - [|cffffcc00Level %d|r]")
+    ..setTooltipLearnExtended("Throws a spinning blade dealing int * 3 * lvl damage to all enemies hit.")
+    ..presetCastRange(lvl -> 600)
+    ..presetCooldown(lvl -> 20. - lvl*1)
+    ..presetAreaofEffect(lvl -> 0)
+    ..presetDamage(lvl -> 0)
+    ..setArtEffect("")
+    ..setArtSpecial("")
+    ..presetManaCost(lvl -> 40+30*lvl)

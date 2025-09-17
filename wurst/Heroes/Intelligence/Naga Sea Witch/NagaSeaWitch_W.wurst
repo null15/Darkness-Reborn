@@ -1,0 +1,41 @@
+package NagaSeaWitch_W
+
+import ClosureEvents
+import MyUnitIds
+import OrderIds
+import MyAbilityIds
+import codeDamageTypings
+import LinkedList
+import DamageEvent
+let arrowToggle = new LinkedList<unit>
+
+init
+    frostArrowToggle()
+
+function unit.getFrostArrowToggled() returns bool
+    return arrowToggle.has(this)
+
+public function frostArrowToggle() //For some reason orderID is not getting updated to flamingarrows, putting it to coldarrows
+    EventListener.add(EVENT_PLAYER_UNIT_ISSUED_ORDER) -> 
+        let u = GetTriggerUnit()
+        if(u.getTypeId() == HERO_NAGA_SEA_WITCH)
+            if(GetIssuedOrderId() == OrderIds.coldarrows)
+                arrowToggle.add(u)
+            else if GetIssuedOrderId() == OrderIds.coldarrows + 1
+                arrowToggle.remove(u)
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            if (DamageEvent.getType() == ATTACK)
+                let damtyp = DamageEvent.getDamageType()
+                if (damtyp == DAMAGE_TYPE_NORMAL or damtyp == DAMAGE_TYPE_MAGIC)
+                    // Vashj (Frost Arrows ) X - Autocast
+                    if src.getFrostArrowToggled() 
+                        let targ = DamageEvent.getTarget()
+                        let lvl = GetUnitAbilityLevel(src, NAGAWITCH_ABILITY_2)
+                        let dmg = src.getMaxMana()*(0.04*lvl)
+                        if(src.getMana() < BlzGetAbilityIntegerLevelField(src.getAbility(NAGAWITCH_ABILITY_2), ABILITY_ILF_MANA_COST, lvl))
+                            src.issueImmediateOrderById(OrderIds.coldarrows + 1)
+                        src.damageTargetCode(dmg, targ, null, -1, damageType.MAGICAL)

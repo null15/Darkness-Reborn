@@ -19,6 +19,7 @@ import FountainQuest
 import codeDamageTypings
 import Debug
 import Quest
+import Icons
 
 real facing = 270
 real facingUp = 90
@@ -34,25 +35,41 @@ init
             CreateFogModifierRectBJ( true, players[i], FOG_OF_WAR_VISIBLE, GetPlayableMapRect() )
 
 public function questSetup()
-    let commands = CreateQuest()
-    let discord = CreateQuest()
-    let recipe = CreateQuest()
-    let credits = CreateQuest()
-    let repickRandom = CreateQuest()
+    // Tutorial
+    CreateQuest()..discovered(true)
+    ..setIcon(Icons.bTNSelectHeroOn)
+    ..setTitle("Tutorial")
+    ..setDescription(
+     "If you haven't played this map select farmer hero.\n\n"
+    +"You can use -repick command within 10 minutes to change your hero, but beware that your hero's level will be reset to 1.\n\n"
+    +"You shouldn't go mid and steal creeps from the player who defend mid waves. Instead you should farm gold for late-game items to kill final bosses. For that select top left shop at the right side of the fountain and click on creep icon to teleport to farm room.\n\n"
+    +"You can get maximum of 3 quests in the fountain (A) to earn additional gold and experience. Also you can buy courier (donkey and horse) there.\n\n"
+    +"Join discord to not miss next games, get an advice and find out late-game items recipes (check recipes-jacksmith, jacksmith-builds and recipe-thief channels).")
     
-    commands..discovered(true)
+    // Commands
+    CreateQuest()..discovered(true)
     ..setIcon("ReplaceableTextures\\CommandButtons\\BTNSpy.blp")
     ..setTitle("Commands")
-    ..setDescription("-cam 500-4000 : Adjusts the camera view \n-clean : Cleans items in 10 seconds\n-stopclean : Stops cleaning process\n-Quests : View your questlist"
-    +"\n-votekick : Kicks the player, you can use number, full name, and partial name")
+    ..setDescription(
+     "-cam 500-4000 : Adjusts the camera view\n"
+    +"-clean : Remove all items lying on the ground after 20 seconds\n"
+    +"-stopclean : Use to cancel -clean command\n"
+    +"-quests, -q : View your questlist\n"
+    +"-votekick <Player Name>: Kicks the player, you can use number, full name, and partial name\n"
+    +"-random, -repick : Select random hero or repick your hero. Only works within the first 10 minutes. Your hero's level will be reset to 1!\n\n"
+    +"Command specific for thief hero:\n"
+    +"-sb : Move an item stolen from creep from the 1 slot to the item box.")
 
-
-    discord..discovered(true)
+    // Discord
+    CreateQuest()..discovered(true)
     ..setIcon("ReplaceableTextures\\Icons\\discordIcon.blp")
     ..setTitle("Discord")
-    ..setDescription("Discord invite: https://discord.gg/pnrhrHS")
+    ..setDescription(
+     "Discord invite: https://discord.gg/pnrhrHS\n"
+    +"Join Discord to get new updates, to find out hidden jacksmith and thief late-game item recipes (In next versions UI frame with these recipes will be added).")
     
-    recipe..discovered(true)
+    // Recipe
+    CreateQuest()..discovered(true)
     ..setIcon("ReplaceableTextures\\CommandButtons\\BTNAdvStruct.blp")
     ..setTitle("Recipe for non-store items")
     ..setDescription("Khadgar's Pendant of Health + Periapt of Vitality = Jewelry of Life\n"
@@ -61,7 +78,9 @@ public function questSetup()
     +"Jewelry of Mana + Pendant of Mana = Lancelot's Ring\n"
     +"Lancelot's Ring + Guinevere's Ring + Pendant of Energy = Arkenstone Fragment")
 
-    credits..discovered(true)
+    // Credits
+    CreateQuest()..discovered(true)
+    ..setIcon(Icons.bTNFaerieFire)
     ..setDescription("Talavaj - Models\n If anyone is missing here, I just don't know who to credit")
     ..setTitle("Model Credits")
     ..setRequired(true)

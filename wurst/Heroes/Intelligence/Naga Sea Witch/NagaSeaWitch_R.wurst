@@ -1,0 +1,17 @@
+package NagaSeaWitch_R
+
+import ClosureEvents
+import MyAbilityIds
+
+public function blueSea()
+    EventListener.add(EVENT_PLAYER_UNIT_DEATH) ->
+        let u = GetKillingUnit()
+        let lvl = u.getAbilityLevel(NAGAWITCH_ABILITY_4)
+        if lvl > 0
+            if GetRandomInt(1, 100) < lvl*4
+                if lvl <= 3
+                    u.setMaxMana(u.getMaxMana().toInt() + 20)
+                else if lvl <=6
+                    u.setMaxMana(u.getMaxMana().toInt() + 40)
+                else if lvl <=9
+                    u.setMaxMana(u.getMaxMana().toInt() + 60)

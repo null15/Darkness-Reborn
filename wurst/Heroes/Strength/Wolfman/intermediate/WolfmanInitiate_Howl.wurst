@@ -1,0 +1,15 @@
+package WolfmanInitiate_Howl
+
+import ClosureEvents
+import MyAbilityIds
+import DummyCaster
+import OrderIds
+
+public function doghowl()
+    EventListener.onCast(WOLF_INITIATE_ABILITY_2) (unit caster) ->
+        new DummyCaster()
+        ..origin(caster.getPos())
+        ..owner(caster.getOwner())
+        ..castImmediate(WOLF_INITIATE_DUMMY_1, 
+        caster.getAbilityLevel(WOLF_INITIATE_ABILITY_2), 
+        OrderIds.stomp)

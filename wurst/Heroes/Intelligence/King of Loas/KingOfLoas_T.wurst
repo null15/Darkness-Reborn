@@ -1,0 +1,28 @@
+package KingOfLoas_T
+
+import ClosureForGroups
+import ClosureTimers
+import DummyCaster
+import OrderIds
+import ClosureEvents
+import MyAbilityIds
+import codeDamageTypings
+
+// Aura of Bwonsamdi
+public function kingOfloasTinit()
+    EventListener.add(EVENT_PLAYER_HERO_SKILL) ->
+        let caster = GetTriggerUnit()
+        if GetLearnedSkill() == ABILITY_42 and caster.getUserData() != 1
+            caster.setUserData(1)
+            doPeriodically(2) (CallbackPeriodic cb) ->
+                let lvl = caster.getAbilityLevel(ABILITY_42)
+                let dmg = caster.getInt(true) * (2 + lvl * 0.5)
+                forUnitsInRange(caster.getPos(), caster.getAbility(ABILITY_42).getField(ABILITY_RLF_AREA_OF_EFFECT, lvl-1), true) (unit u) ->
+                    if caster.isEnemyOf(u)
+                        new DummyCaster()
+                        ..owner(GetOwningPlayer(caster))
+                        ..origin(caster.getPos())
+                        ..castTarget(ABILITY_43, lvl, OrderIds.slow, u)
+                        ..delay(1)
+                        if u.isAlive()
+                            caster.damageTargetCode(dmg, u, null, -1, damageType.MAGICAL)

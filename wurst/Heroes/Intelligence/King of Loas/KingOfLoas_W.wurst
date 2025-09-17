@@ -1,0 +1,39 @@
+package KingOfLoas_W
+
+import ClosureTimers
+import DummyCaster
+import OrderIds
+import MyAbilityIds
+import DamageEvent
+import MyUnitIds
+import MyBuffIds
+import SoundUtils
+
+public constant gralBite = new SoundDefinition("Loas Assets\\Shark\\gralBite.mp3", false, true)
+
+public function finsofGral()
+    DamageEvent.addListener(2) ->
+        let src = DamageEvent.getSource()
+        if src.isIllusion()
+            skip
+        else
+            if DamageEvent.getType() == ATTACK
+                let lvl = src.getAbilityLevel(ABILITY_39)
+                if GetRandomInt(1, 100) <= 15 and not src.hasAbility(BUFF_15) and lvl > 0
+                    let attacked = DamageEvent.getTarget()
+                    let pos = src.getPos()
+                    let owner = GetOwningPlayer(src)
+                    let vec2_target = attacked.getPos()
+                    let shark = createUnit(owner, DUMMY_UNIT_5, pos, pos.angleTo(vec2_target))
+                    new DummyCaster()
+                    ..owner(owner)
+                    ..origin(pos)
+                    ..castTarget(ABILITY_38, lvl, OrderIds.bloodlust, src)
+                    ..delay(0.2)
+                    doAfter(0.01) -> 
+                        shark.setAnimation(0)
+                        gralBite.playOnPoint(attacked.getPos3Real())
+                        doAfter(0.5) -> 
+                            shark.setAnimation(1)
+                            doAfter(0.8) -> 
+                                shark.remove()

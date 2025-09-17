@@ -48,7 +48,7 @@ import RecipeItems
     ..setInterfaceIcon("ReplaceableTextures\\CommandButtons\\BTNFire Boot.blp")
     ..setClassification("Permanent")
     ..setActivelyUsed(true)
-    ..addStats(addAbilityBlink(32000, 2000, 20))
+    ..addStats(addAbilityBlink(32000, 1200, 20))
     ..addStats(addAllStats(24))
     ..addStats(addMovementSpeed(80))
     ..addComponents(

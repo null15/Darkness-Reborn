@@ -1,0 +1,26 @@
+package WolfmanFinal_Summon
+
+import MyUnitIds
+import ClosureEvents
+import MyAbilityIds
+import codeDamageTypings
+
+public function manwolfDog()
+
+    EventListener.add(EVENT_PLAYER_UNIT_SUMMON) ->
+        let summoner = GetSummoningUnit()
+        if(summoner.getTypeId() == HERO_WOLFMAN_FINAL)
+            let summon = GetSummonedUnit()
+            let str = summoner.getStr(true)
+            
+            if summon.getTypeId() == MAN_WOLF_FINAL
+                let lvl = summoner.getAbilityLevel(WOLF_FINAL_ABILITY_4)
+                summon.setMaxHP(((0.25*summoner.getMaxHP()) + 2500).toInt(), true)
+                summon.setArmor(0.5 * summoner.getArmor() + 40)
+                summon.setBaseDamage((0.4 * str + 400).toInt(), 0)
+                summon.enumeratePhysicalPenetration(summoner.getPen(penetrationType.PHYSICAL) * 10 * lvl)
+        else if(summoner.getTypeId() == MAN_WOLF_FINAL)
+            let summon = GetSummonedUnit()
+            summon.setMaxHP(((0.25*summoner.getMaxHP())).toInt(), true)
+            summon.setArmor(0.5 * summoner.getArmor())
+            summon.setBaseDamage((0.5 * summoner.getBaseDamage(0)).toInt(), 0)

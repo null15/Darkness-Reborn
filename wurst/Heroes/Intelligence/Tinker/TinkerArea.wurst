@@ -1,8 +1,11 @@
 package TinkerArea
+
 import MyUnitIds
 import ClosureTimers
 import Global_Variables
+
 unit array tidecaller = []
+
 init
     tinkerAreaEnterLeave() // From Base to Tinker's Area & Vice versa
     banTinkerArea() // Checks if entering unit is someone who should be allowed to visit Tinker's area or not
